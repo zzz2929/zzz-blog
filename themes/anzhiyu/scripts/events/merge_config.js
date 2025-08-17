@@ -16,7 +16,7 @@ hexo.extend.filter.register(
       social: null,
       favicon: "/favicon.ico",
       avatar: {
-        img: "https://npm.elemecdn.com/anzhiyu-blog-static@1.0.4/img/avatar.jpg",
+        img: "https://zzz2929.github.io/PicGo/%E5%A4%B4%E5%83%8F.jpg",
         effect: false,
       },
       disable_top_img: false,
@@ -210,10 +210,10 @@ hexo.extend.filter.register(
           enable: false,
           content: "欢迎来看我的博客鸭~",
         },
-        card_weixin: {
+        card_fnos: {
           enable: true,
-          face: "https://bu.dusays.com/2023/01/13/63c02edf44033.png",
-          backFace: "https://bu.dusays.com/2023/05/13/645fa415e8694.png",
+          face: "https://zzz2929.github.io/PicGo/fnos.svg",
+          backFace: "https://zzz2929.github.io/PicGo/fnos-ico.svg",
         },
         card_recent_post: {
           enable: true,

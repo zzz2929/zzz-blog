@@ -1,4 +1,4 @@
-#aside-content .card-widget#card-wechat {
+/* #aside-content .card-widget#card-wechat {
   background: #57bd6a;
   display: flex;
   justify-content: center;
@@ -11,7 +11,7 @@
 [data-theme="dark"] #aside-content .card-widget#card-wechat {
   background-color: #121121;
   border: var(--style-border);
-}
+} */
 
 #flip-wrapper {
   -webkit-perspective: 1000;
