@@ -213,7 +213,7 @@ hexo.extend.filter.register(
         card_fnos: {
           enable: true,
           face: "https://zzz2929.github.io/PicGo/fnos.svg",
-          backFace: "https://zzz2929.github.io/PicGo/fnos-ico.svg",
+          backFace: "https://zzz2929.github.io/PicGo/fnos1.svg",
         },
         card_recent_post: {
           enable: true,
