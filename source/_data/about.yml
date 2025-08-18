@@ -31,7 +31,7 @@
     list:
       - desc: EDU,数据科学与大数据技术
         color: "#357ef5"
-    img: https://bu.dusays.com/2023/04/21/644287166329b.png
+    img: https://zzz2929.github.io/PicGo/edu2022-2026.png
   statistic:
     link: /archives
     text: 文章隧道
@@ -43,7 +43,7 @@
     backgroundDark: https://bu.dusays.com/2023/07/05/64a4c63495ac5.jpg
   selfInfo:
     selfInfoTips1: 生于
-    selfInfoContentYear: 2002
+    selfInfoContentYear: 2004
     selfInfoTips2: 商丘师范学院
     selfInfoContent2: 数据科学与大数据技术
     selfInfoTips3: 现在职业
@@ -67,9 +67,11 @@
     game_title: 原神
     game_uid: "UID: 195433728"
     game_bg: https://bu.dusays.com/2023/04/22/64433bf26e25d.webp
-    game_title: 崩铁
-    game_uid: "UID: 195433728"
-    game_bg: https://bu.dusays.com/2023/04/22/64433bf26e25d.webp
+  # game2:
+  #   game_tips: 爱好游戏
+  #   game_title: 崩铁
+  #   game_uid: "UID: 195433728"
+  #   game_bg: https://bu.dusays.com/2023/04/22/64433bf26e25d.webp
   comic:
     comic_tips: 爱好番剧
     comic_title: 追番

@@ -22,7 +22,7 @@ if theme.aside.card_webinfo.enable
           .webinfo-item-title
             i.anzhiyufont.anzhiyu-icon-font
             .item-name=_p('aside.card_webinfo.site_wordcount') + " :"
-          .item-count=totalcount(site)
+          span#webinfo-wordcount= site.posts.length
       if theme.busuanzi.site_uv
         .webinfo-item
           .webinfo-item-title

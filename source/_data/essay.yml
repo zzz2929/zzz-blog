@@ -1,11 +1,11 @@
 - title: 即刻短文
-  subTitle: 咸鱼的日常生活。
+  subTitle: zzz的日常生活。
   tips: 随时随地，分享生活
   buttonText: 关于我
   buttonLink: /about/
   limit: 30
   home_essay: true
-  top_background: https://img02.anheyu.com/adminuploads/1/2022/08/21/630249e2df20f.jpg
+  top_background: https://zzz2929.github.io/PicGo/daily-life.jpg
   essay_list:
     - content: 安知鱼主题指南
       date: 2023/09/09
@@ -42,25 +42,11 @@
     - content: 搜索🔍支持缩略图显示啦（默认获取文章内容的第一张图片）
       date: 2022/10/23 08:00:00
       from: 安知鱼
-    - content: 遇见彩虹🌈吃定彩虹
-      date: 2022/10/23 10:00:00
-      image:
-        - https://bu.dusays.com/2023/04/09/64329399e285d.webp
-        - https://bu.dusays.com/2023/04/09/64329399aa3bc.webp
-        - https://bu.dusays.com/2023/04/09/6432939996dd7.webp
+
     - content: ThreeJs API真多丫
       date: 2022/10/19
-    - content: 妹妹强制要求我买走了她的两幅画 -¥30
-      date: 2022/10/02
-      image:
-        - https://bu.dusays.com/2023/04/09/643293997b92b.jpeg
     - content: 歌曲推荐
       date: 2022/09/25
       aplayer:
         server: tencent
         id: 001FGQba3i10mw
-    - content: 做了一个噩梦, 梦到从楼顶坠下去了。😷
-      date: 2022/09/24
-    - content: JOJO是真的好看！
-      date: 2022/09/21
-      link: https://www.bilibili.com/bangumi/play/ss39431?spm_id_from=333.337.0.0
