@@ -1,7 +1,7 @@
 - class_name: 世界各地夕阳与风景
   path_name: /wordScenery
   type: 2
-  description: 因为到不了世界各地，所以请友友们发来了各地的夕阳与风景🌇。
+  description: 因为到不了世界各地，所以借用了友友们的风景🌇
   cover: https://upload-bbs.miyoushe.com/upload/2025/06/13/125766904/2cf2b6aea07bba089d0d17c4fea72d1b_5366629137934368264.png
   top_background: https://bu.dusays.com/2023/06/30/649e546ada7dd.webp
   rowHeight: 220
@@ -28,9 +28,9 @@
 - class_name: 我的旅行
   path_name: /travelPhoto
   type: 2
-  description: 这里存放自己的一些旅行与游玩照片。
-  cover: https://upload-bbs.miyoushe.com/upload/2025/06/13/125766904/2cf2b6aea07bba089d0d17c4fea72d1b_5366629137934368264.png
-  top_background: https://bu.dusays.com/2023/06/30/649e546ada7dd.webp
+  description: 这里存放自己的一些旅行与游玩照片
+  cover: https://zzz2929.github.io/PicGo/blog_travel_%E6%B3%B0%E5%B1%B1%E6%97%A5%E5%87%BA.jpg
+  top_background: https://zzz2929.github.io/PicGo/blog_travel_%E6%B3%B0%E5%B1%B1%E6%97%A5%E5%87%BA.jpg
   rowHeight: 220
   limit: 10
   lazyload: true
@@ -38,43 +38,44 @@
   url: false
   top_link: /album
   top_btn_text: 返回
-  album:
+  album_list:
     - date: 2022-10-24
-      content: 西安古城墙
-      address: 西安
+      content: 19岁生日征服泰山😎🥳
+      address: 泰山
       from: zzz
       image:
-        - https://bu.dusays.com/2023/04/09/64329399d9f0e.webp
-        - https://bu.dusays.com/2023/04/09/64329399da0f4.webp
-        - https://bu.dusays.com/2023/04/09/64329399da1f8.webp
-        - https://bu.dusays.com/2023/04/09/64329399da2f9.webp
-        - https://bu.dusays.com/2023/04/09/64329399da3fa.webp
+        - https://zzz2929.github.io/PicGo/blog_travel_%E6%B3%B0%E5%B1%B1%E6%97%A5%E5%87%BA.jpg
 
 - class_name: 我的日常
   path_name: /dailyPhoto
   type: 1
-  description: 这里存放自己的一些生活与有趣的事。
+  description: 生活琐事
   top_link: /album
   top_btn_text: 返回
-  top_background: https://bu.dusays.com/2023/04/09/64329399cea5a.webp
-  cover: https://bu.dusays.com/2023/04/09/64329399cea5a.webp
+  top_background: https://zzz2929.github.io/PicGo/blog_life_%E4%B8%83%E5%BD%A9%E4%BA%91.jpg
+  cover: https://zzz2929.github.io/PicGo/blog_life_%E4%B8%83%E5%BD%A9%E4%BA%91.jpg
   album_list:
-    - date: 2022-10-24
-      content: 老妹的画
+    - date: 2023-09-01
+      content: 七彩祥云
       image:
-        - https://bu.dusays.com/2023/04/09/643293997b92b.jpeg
+        - https://zzz2929.github.io/PicGo/blog_life_%E4%B8%83%E5%BD%A9%E4%BA%91.jpg
 
 - class_name: 与朋友们的日常
   path_name: /friendDaily
   type: 1
-  description: 这里存放与‘狐朋狗友’们的一些生活与有趣的事。
+  description: 与‘狐朋狗友’们的一些生活日常与有趣沙雕事。
   top_link: /album
   top_btn_text: 返回
-  top_background: https://bu.dusays.com/2023/04/09/64329399cea5a.webp
-  cover: https://bu.dusays.com/2023/04/09/64329399cea5a.webp
+  top_background: https://zzz2929.github.io/PicGo/blog_friends_%E8%81%9A%E4%BC%9A.jpg
+  cover: https://zzz2929.github.io/PicGo/blog_friends_%E8%81%9A%E4%BC%9A.jpg
   album_list:
-    - date: 2022-10-24
-      content: 老妹的画
-      from: 妹妹
+    - date: 2025-06-16
+      content: 偷感
+      from: sqnu-516
       image:
-        - https://bu.dusays.com/2023/04/09/643293997b92b.jpeg
+        - https://zzz2929.github.io/PicGo/blog_friends_%E5%81%B7%E6%84%9F.jpg
+    - date: 2024-12-31
+      content: 聚会
+      from: sqnu-516
+      image:
+        - https://zzz2929.github.io/PicGo/blog_friends_%E8%81%9A%E4%BC%9A.jpg
