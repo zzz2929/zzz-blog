@@ -1,5 +1,13 @@
-- let home_top_config = theme.home_top
-- let { title, subTitle, siteText,default_descr } = home_top_config
+- let home_top_config = theme.home_top  
+- let hitokoto_data = site.data.hitokoto  
+- let random_hitokoto = hitokoto_data && hitokoto_data.hitokoto_list ? hitokoto_data.hitokoto_list[Math.floor(Math.random() * hitokoto_data.hitokoto_list.length)] : null  
+- let title = home_top_config.title  
+- let subTitle = home_top_config.subTitle  
+- let siteText = home_top_config.siteText  
+- let default_descr = home_top_config.default_descr  
+- if (random_hitokoto)  
+  - title = random_hitokoto.title  
+  - subTitle = random_hitokoto.subTitle
 if home_top_config.enable
   #home_top
     .swiper_container_card(style='height: auto;width: 100%')
