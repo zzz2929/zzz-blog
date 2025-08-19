@@ -1,6 +1,6 @@
 - class_name: 关于页
   subtitle: 生活明朗，万物可爱✨
-  avatarImg: https://zzz2929.github.io/PicGo/%E5%A4%B4%E5%83%8F.jpg
+  avatarImg: https://imgbed.904002.xyz/file/blog/avatar/1755591276109_头像.jpg
   avatarSkills:
     left:
       - 🤖️ 数码科技爱好者
@@ -31,16 +31,16 @@
     list:
       - desc: EDU，商丘师范学院，数据科学与大数据技术
         color: "#357ef5"
-    img: https://zzz2929.github.io/PicGo/edu2022-2026.png
+    img: 
   statistic:
     link: /archives
     text: 文章隧道
     cover: https://bu.dusays.com/2023/05/01/644f4b037b930.jpg
   map:
     title: 我现在住在
-    StrengthenTitle: 中国，商丘市
-    background: https://bu.dusays.com/2023/07/05/64a4c61cb20ef.jpg
-    backgroundDark: https://bu.dusays.com/2023/07/05/64a4c63495ac5.jpg
+    StrengthenTitle: 中国，商丘市，梁园区，商丘师范学院
+    background: https://zzz2929.github.io/PicGo/sqnu-%E8%89%BA%E6%9C%AF%E6%A5%BC-1.jpg
+    backgroundDark: https://zzz2929.github.io/PicGo/sqnu-%E8%89%BA%E6%9C%AF%E6%A5%BC-2.jpg
   selfInfo:
     selfInfoTips1: 生于
     selfInfoContentYear: 2004
@@ -51,8 +51,8 @@
   personalities:
     author_name: 提倡者
     personality_type: INFJ-A
-    photo_url: https://bu.dusays.com/2023/07/05/64a4c63495ac5.jpg
-    personality_img: https://zzz2929.github.io/PicGo/infj.svg
+    photo_url: https://t.alcy.cc/moez
+    personality_img: https://imgbed.904002.xyz/file/blog/1755591328556_infj.svg
     name_url: https://www.16personalities.com/ch/infj-%E4%BA%BA%E6%A0%BC
   maxim:
     maxim_tips: 座右铭
@@ -66,7 +66,7 @@
     game_tips: 爱好游戏
     game_title: 原神
     game_uid: "UID: 195433728"
-    game_bg: https://bu.dusays.com/2023/04/22/64433bf26e25d.webp
+    game_bg: https://imgbed.904002.xyz/file/blog/background/game/1755596473697_game-yuanshen.png
   # game2:
   #   game_tips: 爱好游戏
   #   game_title: 崩铁
@@ -76,21 +76,24 @@
     comic_tips: 爱好番剧
     comic_title: 追番
     comic_list:
-      - name: 约定的梦幻岛
-        href: https://www.bilibili.com/bangumi/media/md5267750/?spm_id_from=666.25.b_6d656469615f6d6f64756c65.1
-        cover: https://bu.dusays.com/2023/05/27/647166c44b414.webp
-      - name: 咒术回战
-        href: https://www.bilibili.com/bangumi/media/md28229899/?spm_id_from=666.25.b_6d656469615f6d6f64756c65.1
-        cover: https://bu.dusays.com/2023/05/24/646db4398832e.webp
-      - name: 紫罗兰永恒花园
-        href: https://www.bilibili.com/bangumi/media/md8892/?spm_id_from=666.25.b_6d656469615f6d6f64756c65.1
-        cover: https://bu.dusays.com/2023/05/24/646db43983d99.webp
-      - name: 鬼灭之刃
-        href: https://www.bilibili.com/bangumi/media/md22718131/?spm_id_from=666.25.b_6d656469615f6d6f64756c65.1
-        cover: https://bu.dusays.com/2023/05/24/646db439856a0.webp
-      - name: JOJO的奇妙冒险 黄金之风
-        href: https://www.bilibili.com/bangumi/media/md135652/?spm_id_from=666.25.b_6d656469615f6d6f64756c65.1
-        cover: https://bu.dusays.com/2023/05/30/64760e38d651a.webp
+      - name: 邪神与厨二病少女（系列）
+        href: https://www.bilibili.com/bangumi/play/ss24630
+        cover: https://imgbed.904002.xyz/file/blog/background/cartoon/1755599223732_邪神与厨二病少女.webp
+      - name: 青春猪头少年（系列）
+        href: https://www.bilibili.com/bangumi/play/ep251076?from_spmid=666.25.episode.0
+        cover: https://imgbed.904002.xyz/file/blog/background/cartoon/1755599222174_青春猪头少年（系列）.jpg
+      - name: 间谍过家家（系列）
+        href: https://www.bilibili.com/bangumi/play/ep508404?from_spmid=666.25.episode.0
+        cover: https://imgbed.904002.xyz/file/blog/background/cartoon/1755599219747_间谍过家家.jpg
+      - name: 中二病也要谈恋爱（系列）
+        href: https://www.bilibili.com/bangumi/play/ep329002?from_spmid=666.25.episode.0
+        cover: https://imgbed.904002.xyz/file/blog/background/cartoon/1755599217927_中二病也要谈恋爱.webp
+      - name: 因为太怕痛就全点防御力了
+        href: https://www.bilibili.com/bangumi/play/ss29358
+        cover: https://imgbed.904002.xyz/file/blog/background/cartoon/1755599224476_因为太怕痛就全点防御力了.webp
+      - name: 我独自升级
+        href: https://www.bilibili.com/bangumi/play/ep814613?from_spmid=666.25.episode.0
+        cover: https://imgbed.904002.xyz/file/blog/background/cartoon/1755599219216_我独自升级.webp
   like:
     like_tips: 关注偏好
     like_title: 数码科技

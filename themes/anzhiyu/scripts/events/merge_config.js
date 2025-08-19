@@ -16,7 +16,7 @@ hexo.extend.filter.register(
       social: null,
       favicon: "/favicon.ico",
       avatar: {
-        img: "https://zzz2929.github.io/PicGo/%E5%A4%B4%E5%83%8F.jpg",
+        img: "https://imgbed.904002.xyz/file/blog/avatar/1755591276109_头像.jpg",
         effect: false,
       },
       disable_top_img: false,
@@ -212,8 +212,8 @@ hexo.extend.filter.register(
         },
         card_fnos: {
           enable: true,
-          face: "https://zzz2929.github.io/PicGo/fnos.svg",
-          backFace: "https://zzz2929.github.io/PicGo/fnos1.svg",
+          face: "https://imgbed.904002.xyz/file/blog/icon/fnos/1755594373599_fnos.svg",
+          backFace: "https://imgbed.904002.xyz/file/blog/icon/fnos/1755591188591_fnos1.svg",
         },
         card_recent_post: {
           enable: true,

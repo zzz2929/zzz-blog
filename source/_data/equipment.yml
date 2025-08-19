@@ -1,7 +1,7 @@
 - class_name: 好物
   description: 实物装备推荐
   tip: 跟 zzz 一起享受科技带来的乐趣
-  top_background: https://zzz2929.github.io/PicGo/science%20and%20technology.jpg
+  top_background: https://imgbed.904002.xyz/file/blog/background/1755591215655_science_and_technology.jpg
   good_things:
     - title: 生产力
       description: 提升自己生产效率的硬件设备
@@ -9,17 +9,17 @@
         - name: Lenovo Legion R9000P2021H
           specification: AMD Ryzen 7 5800H 32G(原本16G，自己换了32G) / 500GB + 1TB
           description: 屏幕显示效果好、色彩准确、对比度强、性能强劲、续航优秀。可以用来开发和设计。
-          image: https://zzz2929.github.io/PicGo/Lenovo_Legion_R9000P2021H.png
+          image: https://imgbed.904002.xyz/file/blog/equipment/1755591233194_Lenovo_Legion_R9000P2021H.png
           link: https://item.lenovo.com.cn/product/1013150.html
         - name: Xiaomi Pad 6S Pro 12.4 云峰蓝
           specification: 第二代骁龙8 16G / 1Tb + 32GB
           description: 事事玩得转，买前生产力，买后爱奇艺。
-          image: https://zzz2929.github.io/PicGo/Xiaomi%20Pad%206S%20Pro%2012.4.png
+          image: https://imgbed.904002.xyz/file/blog/equipment/1755591230569_Xiaomi_Pad_6S_Pro_12.4.png
           link: https://www.mi.com/prod/xiaomi-pad-6s-pro
         - name: Xiaomi 15 Pro 白色
           specification: 骁龙8至尊版移动平台 16G / 512Gb + 16GB
           description: 手感对比上一代提升很大，屏幕显示效果好、性能强劲。(但是不知道因为电池还是后壳工艺的问题，导致很多人后壳变形)
-          image: https://zzz2929.github.io/PicGo/xiaomi%2015%20Pro.png
+          image: https://imgbed.904002.xyz/file/blog/equipment/1755591232454_xiaomi_15_Pro.png
           link: https://www.mi.com/prod/xiaomi-15-pro/specs
         
     - title: 出行
@@ -28,12 +28,12 @@
         - name: Xiaomi Smart Band 9Pro 银色
           specification: 超窄边框 AMOLED 屏幕 金属机身  
           description: 对比上代提升挺大，屏占比和金属机身都很棒，续航也不错。
-          image: https://zzz2929.github.io/PicGo/Xiaomi%20Smart%20Band%209Pro.png
+          image: https://imgbed.904002.xyz/file/blog/equipment/1755591238274_Xiaomi_Smart_Band_9Pro.png
           link: https://www.mi.com/prod/xiaomi-shouhuan-9-pro
         - name: Redmi Buds 5 Pro 冰瓷蓝
           specification: 52dB降噪
           description: 一般般的降噪效果，音质还行(不太听得出来)，觉得好看。
-          image: https://zzz2929.github.io/PicGo/Redmi%20Buds%205%20Pro.png
+          image: https://imgbed.904002.xyz/file/blog/equipment/1755591230812_Redmi_Buds_5_Pro.png
           link: https://www.mi.com/redmi-buds-5-pro
 
     - title: 智能家居
@@ -42,5 +42,5 @@
         - name: 小米小爱音箱 Pro
           specification: 黑色
           description: WiFi+蓝牙+红外，可当蓝牙Mesh网关用。
-          image: https://zzz2929.github.io/PicGo/%E5%B0%8F%E7%B1%B3%E5%B0%8F%E7%88%B1%E9%9F%B3%E7%AE%B1%20Pro.png
+          image: https://imgbed.904002.xyz/file/blog/equipment/1755591232494_小米小爱音箱_Pro.png
           link: https://www.mi.com/aispeaker-pro
