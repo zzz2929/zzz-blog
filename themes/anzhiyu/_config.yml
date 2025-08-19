@@ -10,7 +10,7 @@ menu:
     留言板: /comments/ || anzhiyu-icon-envelope
 
   我的:
-    音乐馆: /music/ || anzhiyu-icon-music
+    音乐馆: /music/?id=878407285&server=tencent || anzhiyu-icon-music
     追番页: /bangumis/ || anzhiyu-icon-bilibili
     相册集: /album/ || anzhiyu-icon-images
     # 小空调: /air-conditioner/ || anzhiyu-icon-fan
@@ -35,7 +35,11 @@ nav:
 
         - name: 图床
           link: https://imgbed.904002.xyz/
-          icon: https://imgbed.904002.xyz/file/blog/icon/1755600623573_图片.svg
+          icon: https://imgbed.904002.xyz/file/blog/icon/1755614375932_图片.svg
+
+        - name: 评论
+          link: https://waline.blog.904002.xyz/
+          icon: https://imgbed.904002.xyz/file/blog/icon/1755614054610_评论.svg
     - title: 项目
       item:
         - name: 飞牛NAS(默认账密blog123)

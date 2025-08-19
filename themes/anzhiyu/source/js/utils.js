@@ -925,7 +925,27 @@ const anzhiyu = {
     if (GLOBAL_CONFIG.music_page_default === "custom") {
       anzhiyu.changeMusicList();
     }
-
+    // 监听音量条区域的鼠标滚轮事件  
+    const volumeWrap = anMusicPage.querySelector('.aplayer-volume-wrap');  
+    if (volumeWrap) {  
+      volumeWrap.addEventListener('wheel', function(event) {  
+        event.preventDefault();  
+          
+        if (event.deltaY < 0) {  
+          // 向上滚动，增加音量  
+          if (musicVolume <= 1) {  
+            musicVolume += 0.1;  
+            metingAplayer.volume(musicVolume, true);  
+          }  
+        } else {  
+          // 向下滚动，减少音量  
+          if (musicVolume >= 0) {  
+            musicVolume -= 0.1;  
+            metingAplayer.volume(musicVolume, true);  
+          }  
+        }  
+      });  
+    }
     // 监听键盘事件
     //空格控制音乐
     document.addEventListener("keydown", function (event) {
