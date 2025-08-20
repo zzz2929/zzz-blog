@@ -1,6 +1,23 @@
 ---
-title: first blog
-tags: [闲言]
+title: First blog
+date: 2025-08-16 22:36:30
+updated:
+tags: [博客]
+categories: [闲聊]
+keywords: 
+description:
+# top_img: https://imgbed.904002.xyz/file/blog/background/post/top_img/1755703950223_烟花.jpg
+comments:
+cover:
+toc_style_simple:
+copyright:
+copyright_author:
+copyright_author_href:
+copyright_url:
+copyright_info:
+swiper_index: 1
+top_group_index: 1
+background: "#fff"
 ---
 # 我的博客终于初具雏形啦🎇🎇🎇
 

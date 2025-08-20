@@ -10,7 +10,7 @@ if !theme.disable_top_img && page.top_img !== false
     - var top_img = page.top_img || theme.default_top_img
 
   if top_img !== false
-    - var imgSource = top_img && top_img.indexOf('/') !== -1 ? url_for(top_img) : top_img
+    - var imgSource = top_img && top_img.toString().indexOf('/') !== -1 ? url_for(top_img) : top_img
     - var bg_img = top_img ? imgSource : ''
     - var home_index_img_bg = home_index_img ? home_index_img : ''
     - var site_title = page.title || page.tag || page.category || config.title
