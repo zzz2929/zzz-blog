@@ -1406,6 +1406,26 @@ const anzhiyu = {
     }
     authorInfoSayHiElement.textContent = randomGreeting;
   },
+  // 导航菜单悬停文字切换  
+  initNavMenuHover: function() {  
+    const menuItems = document.querySelectorAll('.back-menu-item[data-hover-text]');  
+      
+    menuItems.forEach(item => {  
+      const textSpan = item.querySelector('.back-menu-item-text');  
+      const originalText = item.getAttribute('data-original-text');  
+      const hoverText = item.getAttribute('data-hover-text');  
+        
+      if (hoverText && hoverText !== originalText) {  
+        anzhiyu.addEventListenerPjax(item, 'mouseenter', function() {  
+          textSpan.textContent = hoverText;  
+        });  
+          
+        anzhiyu.addEventListenerPjax(item, 'mouseleave', function() {  
+          textSpan.textContent = originalText;  
+        });  
+      }  
+    });  
+  },
 };
 
 const anzhiyuPopupManager = {
@@ -1503,3 +1523,7 @@ const anzhiyuPopupManager = {
     }, duration);
   },
 };
+// 页面首次加载时初始化  
+document.addEventListener('DOMContentLoaded', function() {  
+  anzhiyu.initNavMenuHover && anzhiyu.initNavMenuHover();  
+});

@@ -45,7 +45,7 @@ script.
 
   document.addEventListener('pjax:complete', function () {
     window.refreshFn()
-
+    anzhiyu.initNavMenuHover && anzhiyu.initNavMenuHover()
     document.querySelectorAll('script[data-pjax]').forEach(item => {
       const newScript = document.createElement('script')
       const content = item.text || item.textContent || item.innerHTML || ""
