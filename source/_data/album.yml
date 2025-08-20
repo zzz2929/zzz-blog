@@ -29,8 +29,8 @@
   path_name: /travelPhoto
   type: 2
   description: 这里存放自己的一些旅行与游玩照片
-  cover: https://imgbed.904002.xyz/file/blog/album/1755591282622_blog_travel_泰山日出.jpg
-  top_background: https://imgbed.904002.xyz/file/blog/album/1755591282622_blog_travel_泰山日出.jpg
+  cover: https://imgbed.904002.xyz/file/blog/album/风景/blog_travel_泰山日出.jpg
+  top_background: https://imgbed.904002.xyz/file/blog/album/风景/blog_travel_泰山日出.jpg
   rowHeight: 220
   limit: 10
   lazyload: true
@@ -44,7 +44,7 @@
       address: 泰山
       from: zzz
       image:
-        - https://imgbed.904002.xyz/file/blog/album/1755591282622_blog_travel_泰山日出.jpg
+        - https://imgbed.904002.xyz/file/blog/album/风景/blog_travel_泰山日出.jpg
 
 - class_name: 我的日常
   path_name: /dailyPhoto
@@ -52,13 +52,13 @@
   description: 生活琐事
   top_link: /album
   top_btn_text: 返回
-  top_background: https://imgbed.904002.xyz/file/blog/album/1755591264857_blog_life_七彩云.jpg
-  cover: https://imgbed.904002.xyz/file/blog/album/1755591264857_blog_life_七彩云.jpg
+  top_background: https://imgbed.904002.xyz/file/blog/album/风景/1755706162501_blog_life_七彩云.jpg
+  cover: https://imgbed.904002.xyz/file/blog/album/风景/1755706162501_blog_life_七彩云.jpg
   album_list:
     - date: 2023-09-01
       content: 七彩祥云
       image:
-        - https://imgbed.904002.xyz/file/blog/album/1755591264857_blog_life_七彩云.jpg
+        - https://imgbed.904002.xyz/file/blog/album/风景/1755706162501_blog_life_七彩云.jpg
 
 - class_name: 与朋友们的日常
   path_name: /friendDaily
@@ -66,16 +66,16 @@
   description: 与‘狐朋狗友’们的一些生活日常与有趣沙雕事。
   top_link: /album
   top_btn_text: 返回
-  top_background: https://imgbed.904002.xyz/file/blog/album/1755591274072_blog_friends_聚会.jpg
-  cover: https://imgbed.904002.xyz/file/blog/album/1755591274072_blog_friends_聚会.jpg
+  top_background: https://imgbed.904002.xyz/file/blog/album/生活/1755706180351_blog_friends_聚会.jpg
+  cover: https://imgbed.904002.xyz/file/blog/album/生活/1755706180351_blog_friends_聚会.jpg
   album_list:
     - date: 2025-06-16
       content: 偷感
       from: sqnu-516
       image:
-        - https://imgbed.904002.xyz/file/blog/album/1755591261899_blog_friends_偷感.jpg
+        - https://imgbed.904002.xyz/file/blog/album/生活/1755706180244_blog_friends_偷感.jpg
     - date: 2024-12-31
       content: 聚会
       from: sqnu-516
       image:
-        - https://imgbed.904002.xyz/file/blog/album/1755591274072_blog_friends_聚会.jpg
+        - https://imgbed.904002.xyz/file/blog/album/生活/1755706180351_blog_friends_聚会.jpg
