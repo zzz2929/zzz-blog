@@ -42,9 +42,10 @@ nav:
           icon: https://imgbed.904002.xyz/file/blog/icon/1755614054610_评论.svg
     - title: 项目
       item:
-        - name: 飞牛NAS(默认账密blog123)
+        - name: 飞牛NAS
           link: https://zxyzzz.fnos.net/
           icon: https://imgbed.904002.xyz/file/blog/icon/fnos/1755591188348_fnos2.svg
+          hover_text: "账密z-blog"
       
 
 # mourn （哀悼日，指定日期网站简单变灰，不包括滚动条）
@@ -824,8 +825,8 @@ aside:
     content: 欢迎来看我的博客鸭~
   card_fnos:
     enable: true
-    face: https://imgbed.904002.xyz/file/blog/icon/fnos/1755594373599_fnos.svg
-    backFace: https://imgbed.904002.xyz/file/blog/icon/fnos/1755591188591_fnos1.svg
+    face: https://imgapi.xl0408.top/index.php
+    backFace: https://imgapi.xl0408.top/index.php
   card_recent_post:
     enable: true
     limit: 5 # if set 0 will show all

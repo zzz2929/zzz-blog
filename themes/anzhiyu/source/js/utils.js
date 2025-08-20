@@ -1,3 +1,48 @@
+// 导航菜单悬停文字切换  
+const initNavMenuHover = () => {  
+  document.addEventListener('DOMContentLoaded', function() {  
+    const menuItems = document.querySelectorAll('.back-menu-item[data-hover-text]');  
+      
+    menuItems.forEach(item => {  
+      const textSpan = item.querySelector('.back-menu-item-text');  
+      const originalText = item.getAttribute('data-original-text');  
+      const hoverText = item.getAttribute('data-hover-text');  
+        
+      if (hoverText && hoverText !== originalText) {  
+        item.addEventListener('mouseenter', function() {  
+          textSpan.textContent = hoverText;  
+        });  
+          
+        item.addEventListener('mouseleave', function() {  
+          textSpan.textContent = originalText;  
+        });  
+      }  
+    });  
+  });  
+};  
+  
+// 初始化函数  
+initNavMenuHover();
+
+// 改善导航菜单悬停体验  
+const improveNavMenuHover = () => {  
+  const menuItems = document.querySelectorAll('.menus_item');  
+    
+  menuItems.forEach(item => {  
+    let hideTimeout;  
+      
+    item.addEventListener('mouseenter', function() {  
+      clearTimeout(hideTimeout);  
+    });  
+      
+    item.addEventListener('mouseleave', function() {  
+      hideTimeout = setTimeout(() => {  
+        // 菜单项失去焦点后的处理  
+      }, 200); // 200ms延迟  
+    });  
+  });  
+};
+
 const anzhiyu = {
   debounce: (func, wait = 0, immediate = false) => {
     let timeout;

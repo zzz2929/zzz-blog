@@ -207,13 +207,13 @@ hexo.extend.filter.register(
           name_link: "/",
         },
         card_announcement: {
-          enable: false,
+          enable: true,
           content: "欢迎来看我的博客鸭~",
         },
         card_fnos: {
           enable: true,
-          face: "https://imgbed.904002.xyz/file/blog/icon/fnos/1755594373599_fnos.svg",
-          backFace: "https://imgbed.904002.xyz/file/blog/icon/fnos/1755591188591_fnos1.svg",
+          face: "https://imgapi.xl0408.top/index.php",
+          backFace: "https://imgapi.xl0408.top/index.php",
         },
         card_recent_post: {
           enable: true,
