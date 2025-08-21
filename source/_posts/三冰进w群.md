@@ -6,9 +6,9 @@ tags: [三冰]
 categories: [游戏]
 keywords: 
 description:
-# top_img: https://imgbed.904002.xyz/file/blog/background/post/top_img/1755703552345_三冰进群.jpg
+top_img: https://imgbed.904002.xyz/file/blog/background/post/top_img/1755703552345_三冰进群.jpg
 comments:
-cover:
+cover: https://imgbed.904002.xyz/file/blog/background/post/top_img/1755703552345_三冰进群.jpg
 toc_style_simple:
 copyright:
 copyright_author:

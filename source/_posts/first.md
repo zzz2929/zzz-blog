@@ -6,9 +6,9 @@ tags: [博客]
 categories: [闲聊]
 keywords: 
 description:
-# top_img: https://imgbed.904002.xyz/file/blog/background/post/top_img/1755703950223_烟花.jpg
+top_img: https://imgbed.904002.xyz/file/blog/background/post/top_img/1755703950223_烟花.jpg
 comments:
-cover:
+cover: https://imgbed.904002.xyz/file/blog/background/post/top_img/1755703950223_烟花.jpg
 toc_style_simple:
 copyright:
 copyright_author:

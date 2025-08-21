@@ -22,10 +22,10 @@ if home_top_config.enable
               .banners-title-small=siteText
             include ../anzhiyu/tags-group-all.pug
 
-          a#random-hover(href='javascript:toRandomPost()')
-            i.anzhiyufont.anzhiyu-icon-paper-plane
-            .bannerText 随便逛逛
-              i.anzhiyufont.anzhiyu-icon-arrow-right
+          //- a#random-hover(href='javascript:toRandomPost()')
+          //-   i.anzhiyufont.anzhiyu-icon-paper-plane
+          //-   .bannerText 随便逛逛
+          //-     i.anzhiyufont.anzhiyu-icon-arrow-right
         .categoryGroup
           each item in home_top_config.category
             .categoryItem(style=`box-shadow:${item.shadow}`)
