@@ -131,7 +131,7 @@ bangumi: # 追番设置
   enable: true
   source: bili
   path:
-  vmid: 372204786
+  vmid: 1288479902 # B站用户ID
   title: "追番列表"
   quote: "生命不息，追番不止！"
   show: 1
