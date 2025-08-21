@@ -1111,7 +1111,7 @@ console:
 LA:
   enable: true
   ck: 3NC2szIj9BRz3hrm
-  LingQueMonitorID:
+  LingQueMonitorID: 3NC2szIj9BRz3hrm
 
 # 标签卖萌
 diytitle:
