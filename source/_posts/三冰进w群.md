@@ -17,6 +17,6 @@ copyright_url:
 copyright_info:
 swiper_index: 1
 top_group_index: 1
-background: "#fff"
+background: "#46a5f7ff"
 ---
 ![image-20250820225524935](https://imgbed.904002.xyz/file/sanbing/1755699963659_0eb49feaf6ef872a72d9de853e39d0ce.jpg)

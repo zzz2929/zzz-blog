@@ -17,7 +17,7 @@ copyright_url:
 copyright_info:
 swiper_index: 1
 top_group_index: 1
-background: "#fff"
+background: "#ff8181ff"
 ---
 # 我的博客终于初具雏形啦🎇🎇🎇
 
