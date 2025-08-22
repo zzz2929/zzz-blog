@@ -36,6 +36,9 @@ div
   
   //- 随机文章
   script(async src="/anzhiyu/random.js")
+  
+  //- 随机一言客户端逻辑  
+  script(src=url_for('/js/hitokoto-data.js'))
 
   //- 页脚计时器
   if theme.footer.runtime.enable

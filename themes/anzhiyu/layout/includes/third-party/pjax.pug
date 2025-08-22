@@ -46,6 +46,10 @@ script.
   document.addEventListener('pjax:complete', function () {
     window.refreshFn()
     anzhiyu.initNavMenuHover && anzhiyu.initNavMenuHover()
+    // 重新初始化一言功能  
+    if (typeof updateRandomHitokoto === 'function') {  
+      updateRandomHitokoto()  
+    }  
     document.querySelectorAll('script[data-pjax]').forEach(item => {
       const newScript = document.createElement('script')
       const content = item.text || item.textContent || item.innerHTML || ""

@@ -1,13 +1,8 @@
-- let home_top_config = theme.home_top  
-- let hitokoto_data = site.data.hitokoto  
-- let random_hitokoto = hitokoto_data && hitokoto_data.hitokoto_list ? hitokoto_data.hitokoto_list[Math.floor(Math.random() * hitokoto_data.hitokoto_list.length)] : null  
-- let title = home_top_config.title  
-- let subTitle = home_top_config.subTitle  
-- let siteText = home_top_config.siteText  
-- let default_descr = home_top_config.default_descr  
-- if (random_hitokoto)  
-  - title = random_hitokoto.title  
-  - subTitle = random_hitokoto.subTitle
+- let home_top_config = theme.home_top    
+- let title = home_top_config.title    
+- let subTitle = home_top_config.subTitle    
+- let siteText = home_top_config.siteText    
+- let default_descr = home_top_config.default_descr
 if home_top_config.enable
   #home_top
     .swiper_container_card(style='height: auto;width: 100%')
@@ -17,9 +12,12 @@ if home_top_config.enable
             canvas#peoplecanvas
           else 
             .banners-title
-              .banners-title-big=title
-              .banners-title-big=subTitle
-              .banners-title-small=siteText
+              .banners-title-big#banner-title=title
+              .banners-title-big#banner-subtitle=subTitle
+              .banners-title-small
+                a.hitokoto-refresh-btn#hitokoto-refresh-btn(href="javascript:refreshHitokoto();" title="换一句一言")
+                  i.anzhiyufont.anzhiyu-icon-arrow-rotate-right
+                  span 一些小收藏，避免文艺情话还没来得及说出口，就过了说这些话的年纪
             include ../anzhiyu/tags-group-all.pug
 
           //- a#random-hover(href='javascript:toRandomPost()')
