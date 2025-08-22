@@ -607,11 +607,11 @@ google_adsense:
 
 site_verification:
   - name: google-site-verification
-    content: xxx
+    content: QH6U3LlO6YHimC3R_51GpSn7xYhqK3f4wlvOEUoWNgU
   - name: baidu-site-verification
     content: codeva-dShkuoDmds
   - name: msvalidate.01
-    content: xxx
+    content: 389689589199A8F91F3CB2E3F0DFDDDF
 
 # Beautify/Effect (美化/效果)
 # --------------------------------------
