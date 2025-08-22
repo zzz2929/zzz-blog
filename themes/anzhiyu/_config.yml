@@ -567,7 +567,7 @@ footer:
 
 # Baidu Analytics
 # https://tongji.baidu.com/web/welcome/login
-baidu_analytics:
+baidu_analytics: 
 
 # Google Analytics
 # https://analytics.google.com/analytics/web/
@@ -609,7 +609,7 @@ site_verification:
   - name: google-site-verification
     content: xxx
   - name: baidu-site-verification
-    content: code-xxx
+    content: codeva-dShkuoDmds
   - name: msvalidate.01
     content: xxx
 
