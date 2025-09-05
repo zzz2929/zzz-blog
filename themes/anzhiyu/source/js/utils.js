@@ -789,16 +789,8 @@ const anzhiyu = {
   },
   // 将音乐缓存播放
   cacheAndPlayMusic() {
-    let data = localStorage.getItem("musicData");
-    if (data) {
-      data = JSON.parse(data);
-      const currentTime = new Date().getTime();
-      if (currentTime - data.timestamp < 24 * 60 * 60 * 1000) {
-        // 如果缓存的数据没有过期，直接使用
-        anzhiyu.playMusic(data.songs);
-        return;
-      }
-    }
+    const cacheKey = `musicData_${window.jsonPlaylistIndex}`;  
+    let data = localStorage.getItem(cacheKey);
 
     // 否则重新从服务器获取数据
     fetch("/json/music.json")
@@ -1025,38 +1017,87 @@ const anzhiyu = {
       }
     });
   },
-  // 切换歌单
-  changeMusicList: async function () {
-    const anMusicPage = document.getElementById("anMusic-page");
-    const metingAplayer = anMusicPage.querySelector("meting-js").aplayer;
-    const currentTime = new Date().getTime();
-    const cacheData = JSON.parse(localStorage.getItem("musicData")) || { timestamp: 0 };
-    let songs = [];
+  // // 切换歌单
+  // changeMusicList: async function () {
+  //   const anMusicPage = document.getElementById("anMusic-page");
+  //   const metingAplayer = anMusicPage.querySelector("meting-js").aplayer;
+  //   const currentTime = new Date().getTime();
+  //   const cacheData = JSON.parse(localStorage.getItem("musicData")) || { timestamp: 0 };
+  //   let songs = [];
 
-    if (changeMusicListFlag) {
-      songs = defaultPlayMusicList;
-    } else {
-      // 保存当前默认播放列表，以使下次可以切换回来
-      defaultPlayMusicList = metingAplayer.list.audios;
-      // 如果缓存的数据没有过期，直接使用
-      if (currentTime - cacheData.timestamp < 24 * 60 * 60 * 1000) {
-        songs = cacheData.songs;
-      } else {
-        // 否则重新从服务器获取数据
-        const response = await fetch("/json/music.json");
-        songs = await response.json();
-        cacheData.timestamp = currentTime;
-        cacheData.songs = songs;
-        localStorage.setItem("musicData", JSON.stringify(cacheData));
-      }
-    }
+  //   if (changeMusicListFlag) {
+  //     songs = defaultPlayMusicList;
+  //   } else {
+  //     // 保存当前默认播放列表，以使下次可以切换回来
+  //     defaultPlayMusicList = metingAplayer.list.audios;
+  //     // 如果缓存的数据没有过期，直接使用
+  //     if (currentTime - cacheData.timestamp < 24 * 60 * 60 * 1000) {
+  //       songs = cacheData.songs;
+  //     } else {
+  //       // 否则重新从服务器获取数据
+  //       const response = await fetch("/json/music.json");
+  //       songs = await response.json();
+  //       cacheData.timestamp = currentTime;
+  //       cacheData.songs = songs;
+  //       localStorage.setItem("musicData", JSON.stringify(cacheData));
+  //     }
+  //   }
 
-    // 清除当前播放列表并添加新的歌曲
-    metingAplayer.list.clear();
-    metingAplayer.list.add(songs);
+  //   // 清除当前播放列表并添加新的歌曲
+  //   metingAplayer.list.clear();
+  //   metingAplayer.list.add(songs);
 
-    // 切换标志位
-    changeMusicListFlag = !changeMusicListFlag;
+  //   // 切换标志位
+  //   changeMusicListFlag = !changeMusicListFlag;
+  // },
+  changeMusicList: async function () {  
+    // 只在音乐馆页面执行  
+    if (!window.location.pathname.startsWith("/music/")) {  
+      return;  
+    }  
+      
+    // 定义多个JSON歌单  
+    const jsonPlaylists = [  
+      { name: "周杰伦", file: "/json/music1.json" },  
+      { name: "林俊杰", file: "/json/music2.json" },  
+      { name: "陈奕迅", file: "/json/music3.json" },
+      { name: "薛之谦", file: "/json/music4.json" },
+      { name: "陶喆", file: "/json/music5.json" },
+      { name: "邓紫棋", file: "/json/music6.json" },
+      { name: "动漫", file: "/json/music7.json" },
+      // { name: "其他", file: "/json/music4.json" }, 
+      // { name: "外语", file: "/json/music5.json" } 
+    ];  
+      
+    // 初始化或递增索引  
+    if (typeof window.jsonPlaylistIndex === 'undefined') {  
+      window.jsonPlaylistIndex = 0;  
+    } else {  
+      window.jsonPlaylistIndex = (window.jsonPlaylistIndex + 1) % jsonPlaylists.length;  
+    }  
+      
+    const currentPlaylist = jsonPlaylists[window.jsonPlaylistIndex];  
+      
+    try {  
+      // 获取JSON数据  
+      const response = await fetch(currentPlaylist.file);  
+      const songs = await response.json();  
+        
+      // 更新播放器  
+      const anMusicPage = document.getElementById("anMusic-page");  
+      const metingAplayer = anMusicPage.querySelector("meting-js").aplayer;  
+        
+      if (metingAplayer) {  
+        metingAplayer.list.clear();  
+        metingAplayer.list.add(songs);  
+          
+        // 显示切换提示  
+        anzhiyu.snackbarShow(`已切换到: ${currentPlaylist.name} (${window.jsonPlaylistIndex + 1}/${jsonPlaylists.length})`);  
+      }  
+    } catch (error) {  
+      anzhiyu.snackbarShow("加载歌单失败");  
+      console.error("Failed to load playlist:", error);  
+    }  
   },
   // 控制台音乐列表监听
   addEventListenerConsoleMusicList: function () {
