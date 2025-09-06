@@ -1059,12 +1059,12 @@ const anzhiyu = {
     // 定义多个JSON歌单  
     const jsonPlaylists = [  
       { name: "周杰伦", file: "/json/music1.json" },  
-      { name: "林俊杰", file: "/json/music2.json" },  
+      // { name: "林俊杰", file: "/json/music2.json" },  
       { name: "陈奕迅", file: "/json/music3.json" },
       { name: "薛之谦", file: "/json/music4.json" },
-      { name: "陶喆", file: "/json/music5.json" },
-      { name: "邓紫棋", file: "/json/music6.json" },
-      { name: "动漫", file: "/json/music7.json" },
+      // { name: "陶喆", file: "/json/music5.json" },
+      // { name: "邓紫棋", file: "/json/music6.json" },
+      // { name: "动漫", file: "/json/music7.json" },
       // { name: "其他", file: "/json/music4.json" }, 
       // { name: "外语", file: "/json/music5.json" } 
     ];  
