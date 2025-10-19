@@ -47,15 +47,15 @@ background: "#33baefff"
 
 双击打开安装包后建议勾选下面两项
 
-![xw_20251014143234](C:\Users\admin\Desktop\xw_20251014143234.png)
+![勾选下面两项](https://imgbed.904002.xyz/file/blog/post/cuDF/Python安装/勾选下面两项.png)
 
 然后选择 Customize installation (自定义安装)
 
-![xw_20251014143253](C:\Users\admin\Desktop\xw_20251014143253.png)
+![选择自定义安装](https://imgbed.904002.xyz/file/blog/post/cuDF/Python安装/选择自定义安装.png)
 
 之后点击 Next
 
-![xw_20251014144045](C:\Users\admin\Desktop\xw_20251014144045.png)
+![点击Next](https://imgbed.904002.xyz/file/blog/post/cuDF/Python安装/点击Next.png)
 
 自定义安装路径
 
@@ -75,7 +75,7 @@ Download debugging symbols：给开发人员和调试人员用的调试符号
 
 Download debug binaries (requires VS 2017 or later)：给开发人员和调试人员用的调试版本的二进制文件
 
-![小爱鼠标截图_20251018024138](C:\Users\admin\Desktop\小爱鼠标截图_20251018024138.png)
+![解释其他选项](https://imgbed.904002.xyz/file/blog/post/cuDF/Python安装/解释其他选项.png)
 
 点击Install进行安装
 
@@ -83,7 +83,7 @@ Download debug binaries (requires VS 2017 or later)：给开发人员和调试�
 
 win+r 输入 cmd 打开黑窗口，之后输入 `python`，如果出现如图样式则安装成功
 
-![xw_20251014144533](C:\Users\admin\Desktop\xw_20251014144533.png)
+![验证是否安装成功](https://imgbed.904002.xyz/file/blog/post/cuDF/Python安装/验证是否安装成功.png)
 
 ------
 
@@ -93,23 +93,23 @@ win+r 输入 cmd 打开黑窗口，之后输入 `python`，如果出现如图样
 
 [官网下载]([Visual Studio Code - Code Editing. Redefined](https://code.visualstudio.com/))
 
-![xw_20251014145554](C:\Users\admin\Desktop\xw_20251014145554.png)
+![官网](https://imgbed.904002.xyz/file/blog/post/cuDF/VSCode安装/官网.png)
 
 ### 2.2 安装步骤
 
 同意协议，选择安装位置，之后勾选全部选项点击安装
 
-![xw_20251014144929](C:\Users\admin\Desktop\xw_20251014144929.png)
+![安装步骤](https://imgbed.904002.xyz/file/blog/post/cuDF/VSCode安装/安装步骤.png)
 
 ### 2.3汉化(可选)
 
 点击左边扩展，搜索 Chinese，找到汉化插件
 
-![找到汉化插件](C:\Users\admin\Desktop\找到汉化插件.png)
+![找到汉化插件](https://imgbed.904002.xyz/file/blog/post/cuDF/VSCode安装/找到汉化插件.png)
 
 点击安装，按要求重启 VS Code
 
-![点击安装汉化插件](C:\Users\admin\Desktop\点击安装汉化插件.png)
+![点击安装汉化插件](https://imgbed.904002.xyz/file/blog/post/cuDF/VSCode安装/点击安装汉化插件.png)
 
 ------
 
@@ -215,7 +215,7 @@ wsl --import Ubuntu D:\export\ D:\export.tar --version 2
 nvidia-smi
 ```
 
-![小爱鼠标截图_20251014065420](C:\Users\admin\Desktop\小爱鼠标截图_20251014065420.png)
+![查看_NVIDIA_GPU](https://imgbed.904002.xyz/file/blog/post/cuDF/cuDF安装/查看_NVIDIA_GPU.png)
 
 ##### 4.1.2 更新 WSL 系统包
 
@@ -229,11 +229,11 @@ sudo apt update
 
 选择要安装的版本
 
-![屏幕截图_14-10-2025_19016_developer.nvidia.com](C:\Users\admin\Desktop\屏幕截图_14-10-2025_19016_developer.nvidia.com.jpeg)
+![下载_CUDA_Toolkit](https://imgbed.904002.xyz/file/blog/post/cuDF/cuDF安装/下载_CUDA_Toolkit.jpeg)
 
-按照如图选择，复制代码
+按照如图选择，复制下方代码
 
-![屏幕截图_14-10-2025_1903_developer.nvidia.com](C:\Users\admin\Desktop\屏幕截图_14-10-2025_1903_developer.nvidia.com.jpeg)
+![复制代码](https://imgbed.904002.xyz/file/blog/post/cuDF/cuDF安装/复制代码.jpeg)
 
 ##### 4.1.4 将 4.1.3 中复制的代码粘贴并执行
 
@@ -306,7 +306,7 @@ source ~/myenv/bin/activate
 
 ```
 pip install --upgrade pip
-pip install cudf-cu12 --extra-index-url=https://pypi.nvidia.com(选择适合自己版本号)
+pip install cudf-cu12 --extra-index-url=https://pypi.nvidia.com (选择适合自己版本号)
 ```
 
 ##### 4.2.3 验证 cuDF 安装
@@ -345,13 +345,13 @@ WSL: Connect to WSL
 
 按照提示保存完成后，VS Code左下角会显示类似 **`WSL: Ubuntu`** 的标识，表示你已进入WSL环境。
 
-![WSL Ubuntu](C:\Users\admin\Desktop\WSL Ubuntu.png)
+![WSL Ubuntu](https://imgbed.904002.xyz/file/blog/post/cuDF/cuDF使用/WSL_Ubuntu.png)
 
 ### 5.2 为 WSL 安装 Python 扩展
 
 再次打开扩展面板，搜索 Python ，找到 Python 扩展，安装到 WSL 中。安装后可能需要重新加载VS Code。
 
-![Python扩展](C:\Users\admin\Desktop\Python扩展.png)
+![Python扩展](https://imgbed.904002.xyz/file/blog/post/cuDF/cuDF使用/Python扩展.png)
 
 ### 5.3 设置Python虚拟环境解释器
 
@@ -367,7 +367,7 @@ source myenv/bin/activate
 
 点击**输入解释器路径，找到路径包含 **，按照`your_project_path/myenv/bin/python`的路径选择(在4.2.1创建过的虚拟环境)
 
-![选择解释器](C:\Users\admin\Desktop\选择解释器.png)
+![选择解释器](https://imgbed.904002.xyz/file/blog/post/cuDF/cuDF使用/选择解释器.png)
 
 ##### 5.3.3 验证解释器
 
