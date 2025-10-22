@@ -7,10 +7,13 @@
   home_essay: true
   top_background: https://imgbed.904002.xyz/file/blog/background/1755591211493_daily-life.jpg
   essay_list:
+    - content: 工作也太难找了😇，前途一片黑暗啊😑
+      date: 2025/10/19
     - content: 安知鱼主题指南
       date: 2023/09/09
       video:
         - https://player.bilibili.com/player.html?aid=226886152&bvid=BV1Ch41137tR&cid=1081639816&p=1&autoplay=0
+      link: https://docs.anheyu.com/intro.html
     - content: 歌曲推荐
       date: 2022/09/25
       aplayer:

@@ -3,7 +3,7 @@ title: First blog
 date: 2025-08-16 22:36:30
 updated:
 tags: [博客]
-categories: [闲聊]
+categories: [日常]
 keywords: 
 description:
 top_img: https://imgbed.904002.xyz/file/blog/background/post/top_img/1755703950223_烟花.jpg

@@ -1,26 +1,24 @@
 - class_name: 关于页
-  subtitle: 生活明朗，万物可爱✨
+  subtitle: 👉人间值得，未来可期👈
   avatarImg: https://imgbed.904002.xyz/file/blog/avatar/1755591276109_头像.jpg
   avatarSkills:
     left:
       - 🤖️ 数码科技爱好者
-      - 🔍 分享与热心帮助
       - 🏠 智能家居小能手
     right:
-      - 专修交互与设计 🤝
+      - 分享与热心帮助 🔍
       - 脚踏实地行动派 🏃
-      - 团队小组发动机 🧱
   name: zzz
-  description: 是一名 学生、独立开发者、数码爱好者、智能家居爱好者
+  description: 是一名 学生、数码爱好者、智能家居爱好者
   aboutsiteTips:
-    tips: 追求
-    title1: 源于
-    title2: 热爱而去 感受
+    tips: 我向往美丽的世界
+    title1: 一幅美丽的画
+    title2: 一支美丽的曲子
     word:
-      - 学习
-      - 生活
-      - 程序
-      - 体验
+      - 一花一世界
+      - 一叶一追寻
+      - 一曲一场叹
+      - 一生为一人
   helloAbout: Hello there!
   skillsTips:
     tips: 技能
@@ -47,7 +45,7 @@
     selfInfoTips2: 商丘师范学院
     selfInfoContent2: 数据科学与大数据技术
     selfInfoTips3: 现在职业
-    selfInfoContent3: 大四学生👨‍🎓
+    selfInfoContent3: 大四学生👨‍🎓(求职中)
   personalities:
     author_name: 提倡者
     personality_type: INFJ-A
@@ -60,7 +58,7 @@
     maxim_bottom: 止于此则七情方休。
   buff:
     buff_tips: 特长
-    buff_top: 脑回路新奇的 酸菜鱼
+    buff_top: 动手能力 MAX
     buff_bottom: 二次元指数 MAX
   game:
     game_tips: 爱好游戏
@@ -88,10 +86,10 @@
       - name: 中二病也要谈恋爱（系列）
         href: https://www.bilibili.com/bangumi/play/ep329002?from_spmid=666.25.episode.0
         cover: https://imgbed.904002.xyz/file/blog/background/cartoon/1755599217927_中二病也要谈恋爱.webp
-      - name: 因为太怕痛就全点防御力了
+      - name: 因为太怕痛就全点防御力了（系列）
         href: https://www.bilibili.com/bangumi/play/ss29358
         cover: https://imgbed.904002.xyz/file/blog/background/cartoon/1755599224476_因为太怕痛就全点防御力了.webp
-      - name: 我独自升级
+      - name: 我独自升级（系列）
         href: https://www.bilibili.com/bangumi/play/ep814613?from_spmid=666.25.episode.0
         cover: https://imgbed.904002.xyz/file/blog/background/cartoon/1755599219216_我独自升级.webp
   like:
