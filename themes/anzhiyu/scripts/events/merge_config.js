@@ -14,7 +14,7 @@ hexo.extend.filter.register(
       highlight_height_limit: false,
       code_word_wrap: false,
       social: null,
-      favicon: "/favicon.ico",
+      favicon: "https://imgbed.904002.xyz/file/blog/icon/blog.svg",
       avatar: {
         img: "https://imgbed.904002.xyz/file/blog/avatar/1755591276109_头像.jpg",
         effect: false,

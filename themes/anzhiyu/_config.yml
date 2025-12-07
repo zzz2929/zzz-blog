@@ -31,20 +31,20 @@ nav:
       item:
         - name: 博客
           link: https://blog.904002.xyz/
-          icon: /img/favicon.ico
+          icon: https://imgbed.904002.xyz/file/blog/icon/blog.svg
 
         - name: 图床
           link: https://imgbed.904002.xyz/
-          icon: https://imgbed.904002.xyz/file/blog/icon/1755614375932_图片.svg
+          icon: https://imgbed.904002.xyz/file/blog/icon/图床.svg
 
         - name: 评论
           link: https://waline.blog.904002.xyz/
-          icon: https://imgbed.904002.xyz/file/blog/icon/1755614054610_评论.svg
+          icon: https://imgbed.904002.xyz/file/blog/icon/评论.svg
     - title: 项目
       item:
         - name: 飞牛NAS
           link: https://zxyzzz.fnos.net/
-          icon: https://imgbed.904002.xyz/file/blog/icon/fnos/1755591188348_fnos2.svg
+          icon: https://imgbed.904002.xyz/file/blog/icon/NAS.svg
           hover_text: "账密z-blog"
       
 
@@ -145,7 +145,7 @@ katex:
 # --------------------------------------
 
 # Favicon（网站图标）
-favicon: /favicon.ico
+favicon: https://imgbed.904002.xyz/file/blog/icon/blog.png
 
 # Avatar (头像)
 avatar:
