@@ -504,14 +504,14 @@ footer:
             link: https://v6.51.la/
           - title: 开往
             link: https://github.com/travellings-link/travellings
-      - title: 主题
-        links:
-          - title: 文档
-            link: /docs/
-          - title: 源码
-            link: https://github.com/anzhiyu-c/hexo-theme-anzhiyu
-          - title: 更新日志
-            link: /update/
+      # - title: 主题
+      #   links:
+      #     - title: 文档
+      #       link: /docs/
+      #     - title: 源码
+      #       link: https://github.com/anzhiyu-c/hexo-theme-anzhiyu
+      #     - title: 更新日志
+      #       link: /update/
       - title: 导航
         links:
           - title: 即刻短文
@@ -520,14 +520,14 @@ footer:
             link: /fcircle/
           - title: 留言板
             link: /comments/
-      - title: 协议
-        links:
-          - title: 隐私协议
-            link: /privacy/
-          - title: Cookies
-            link: /cookies/
-          - title: 版权协议
-            link: /copyright/
+      # - title: 协议
+      #   links:
+      #     - title: 隐私协议
+      #       link: /privacy/
+      #     - title: Cookies
+      #       link: /cookies/
+      #     - title: 版权协议
+      #       link: /copyright/
   footerBar:
     enable: true
     authorLink: /
@@ -1057,17 +1057,17 @@ css_prefix: true
 home_top:
   enable: true # 开关
   timemode: date #date/updated
-  title: 冠以名则六欲泛生
-  subTitle: 止于此则七情方休
+  # title: 冠以名则六欲泛生
+  # subTitle: 止于此则七情方休
   siteText: zzz'blog
   category:
-    - name: 社交
-      path: /categories/社交/
+    - name: 工具
+      path: /categories/工具/
       shadow: var(--anzhiyu-shadow-blue)
       class: blue
       icon: anzhiyu-icon-dove
-    - name: 大学
-      path: /categories/大学生涯/
+    - name: 技术
+      path: /categories/技术/
       shadow: var(--anzhiyu-shadow-red)
       class: red
       icon: anzhiyu-icon-fire
@@ -1222,7 +1222,7 @@ pageThumbnailSuffix: ""
 
 # 隐私协议弹窗
 agreementPopup:
-  enable: true
+  enable: false
   url: /privacy
 
 # 右键菜单

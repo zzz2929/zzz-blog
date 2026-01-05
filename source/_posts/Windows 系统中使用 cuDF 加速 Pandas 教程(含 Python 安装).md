@@ -3,7 +3,7 @@ title: Windows 系统中使用 cuDF 加速 Pandas 教程(含 Python 安装)
 date: 2025-10-18 15:01:30
 updated:
 tags: [Development]
-categories: [cuDF]
+categories: [技术]
 keywords: 
 description:
 top_img: https://imgbed.904002.xyz/file/blog/background/post/top_img/Development.jpg
