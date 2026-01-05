@@ -145,7 +145,7 @@ katex:
 # --------------------------------------
 
 # Favicon（网站图标）
-favicon: https://imgbed.904002.xyz/file/blog/icon/blog.png
+favicon: /blog.svg
 
 # Avatar (头像)
 avatar:
