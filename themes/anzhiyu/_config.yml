@@ -1057,8 +1057,8 @@ css_prefix: true
 home_top:
   enable: true # 开关
   timemode: date #date/updated
-  title: 人间值得
-  subTitle: 未来可期。
+  title: 冠以名则六欲泛生
+  subTitle: 止于此则七情方休
   siteText: zzz'blog
   category:
     - name: 社交
