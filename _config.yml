@@ -141,8 +141,9 @@ bangumi: # 追番设置
   pagination: false
   metaColor:
   color:
-  webp:
-  progress:
+  webp: 
+  progress: true
+  order: -score
   extraOrder:
   proxy:
     host: "代理host"
@@ -157,3 +158,25 @@ bangumi: # 追番设置
 aplayer:
   meting: true
   asset_inject: false
+
+# algolia搜索: https://github.com/LouisBarranqueiro/hexo-algoliasearch
+# algolia:
+#   appId: "xxxx"
+#   apiKey: "xxxx"
+#   adminApiKey: "xxxx"
+#   chunkSize: 5000
+#   indexName: "hexo"
+#   fields:
+#     - content:strip:truncate,0,200
+#     - excerpt:strip
+#     - gallery
+#     - permalink
+#     - photos
+#     - slug
+#     - tags
+#     - title
+# search:
+#   path: search.xml
+#   field: all
+#   content: true
+#   template: ./search.xml

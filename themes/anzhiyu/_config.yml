@@ -145,7 +145,7 @@ katex:
 # --------------------------------------
 
 # Favicon（网站图标）
-favicon: /blog.svg
+favicon: /blog.ico
 
 # Avatar (头像)
 avatar:
@@ -798,7 +798,7 @@ preloader:
   source: 3
   # pace theme (see https://codebyzach.github.io/pace/)
   pace_css_url:
-  avatar: https://imgbed.904002.xyz/file/blog/avatar/1755591276109_头像.jpg # 自定加载动画义头像
+  avatar: https://imgbed.904002.xyz/file/blog/avatar/1755591276109_头像.jpg # 自定义加载动画头像
 
 # aside (侧边栏)
 # --------------------------------------
