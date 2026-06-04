@@ -56,6 +56,40 @@ const siteTitle = title === 'zzz-blog' ? title : `${title} | zzz-blog`;
   </head>
   <body class="min-h-screen bg-background text-foreground font-sans antialiased">
     <slot />
+
+    <script is:inline>
+      // Image loading effect: spinner + fade for non-prose images
+      (function () {
+        function initImg(img) {
+          if (img.dataset.imgInit) return;
+          img.dataset.imgInit = '1';
+          const parent = img.parentElement;
+          if (parent && parent.tagName !== 'A' && parent.tagName !== 'BUTTON') {
+            parent.classList.add('img-spinner');
+            parent.style.position = parent.style.position || 'relative';
+          }
+          img.classList.add('img-ready');
+          if (img.complete) {
+            img.classList.add('img-loaded');
+            parent?.classList.add('img-loaded');
+            parent?.classList.remove('img-spinner');
+          }
+        }
+        // Init existing images
+        document.querySelectorAll('img[src]').forEach(initImg);
+        // Observe new images (e.g. from React hydration)
+        new MutationObserver((muts) => {
+          muts.forEach((m) => {
+            m.addedNodes.forEach((n) => {
+              if (n.nodeType !== 1) return;
+              const el = n;
+              if (el.tagName === 'IMG') initImg(el);
+              el.querySelectorAll?.('img[src]').forEach(initImg);
+            });
+          });
+        }).observe(document.body, { childList: true, subtree: true });
+      })();
+    </script>
   </body>
 </html>
 

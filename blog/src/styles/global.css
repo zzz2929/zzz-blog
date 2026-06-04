@@ -179,13 +179,13 @@ body {
 }
 
 /* JS-enabled progressive loading: start blurred and invisible */
-.prose.prose--js-ready img {
+.prose.prose--js-ready img:not(.img-loaded) {
   opacity: 0;
   filter: blur(20px);
 }
 
 /* Added by onload handler when image finishes loading */
-.prose img.loaded {
+.prose img.img-loaded {
   opacity: 1;
   filter: blur(0);
 }
@@ -370,6 +370,44 @@ pre:hover .code-copy-btn { opacity: 1; }
   background: var(--color-card-bg-dark);
 }
 .code-block .code-collapse-btn:hover { color: var(--color-foreground); }
+
+/* ====== Image Loading Effect ====== */
+img.img-ready { opacity: 0; transition: opacity 0.4s ease; }
+img.img-ready.img-loaded { opacity: 1; }
+
+.post-card img.img-ready,
+.bangumi-card img.img-ready {
+  opacity: 0;
+  filter: blur(8px);
+  transition: opacity 0.4s ease, filter 0.4s ease;
+}
+.post-card img.img-ready.img-loaded,
+.bangumi-card img.img-ready.img-loaded {
+  opacity: 1;
+  filter: blur(0);
+}
+
+.img-spinner::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 28px; height: 28px;
+  margin: -14px 0 0 -14px;
+  border: 3px solid rgba(0,0,0,0.08);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  z-index: 1;
+}
+.dark .img-spinner::before {
+  border-color: rgba(255,255,255,0.12);
+  border-top-color: var(--color-primary-dark);
+}
+.img-spinner.img-loaded::before { display: none; }
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
 
 /* ====== Scrollbar ====== */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
