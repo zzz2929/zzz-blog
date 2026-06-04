@@ -221,7 +221,7 @@ body {
 pre:hover .code-copy-btn { opacity: 1; }
 
 /* ====== Heading Scroll Offset ====== */
-.prose h2, .prose h3 {
+.prose h2, .prose h3, .prose h4 {
   scroll-margin-top: calc(var(--header-height) + 16px);
 }
 
@@ -290,6 +290,7 @@ pre:hover .code-copy-btn { opacity: 1; }
 /* Line numbers + code area */
 .code-block .code-lines {
   display: flex;
+  flex-wrap: wrap;
   overflow: auto;
   transition: max-height 0.3s ease;
   border-radius: 0 0 12px 12px;
@@ -297,7 +298,6 @@ pre:hover .code-copy-btn { opacity: 1; }
 .code-block .code-lines.code-collapsed {
   max-height: 300px;
   overflow-y: hidden;
-  border-radius: 0;
 }
 .code-block .line-nums {
   flex-shrink: 0;
@@ -345,32 +345,29 @@ pre:hover .code-copy-btn { opacity: 1; }
 
 /* Collapse/expand */
 .code-block .code-expand-btn {
-  display: none; position: absolute; left: 0; right: 0;
-  height: 48px; cursor: pointer; border: none; padding: 0;
-  color: var(--color-foreground-muted); font-size: 12px; font-weight: 500;
-  z-index: 2; transition: color 0.2s, background 0.3s, bottom 0.3s, border-radius 0.3s;
-}
-.code-block .code-expand-btn:hover { color: var(--color-foreground); }
-/* Collapsed: button at bottom with fade-out gradient + rounded bottom corners */
-.code-block .code-lines.code-collapsed ~ .code-expand-btn {
-  display: flex; align-items: flex-end; justify-content: center; padding-bottom: 8px;
-  bottom: 0;
+  display: flex; align-items: flex-end; justify-content: center;
+  width: 100%; padding: 8px 0;
+  height: 48px; cursor: pointer; border: none;
   background: linear-gradient(to top, var(--color-card-bg) 30%, transparent);
-  border-radius: 0 0 12px 12px;
+  color: var(--color-foreground-muted); font-size: 12px; font-weight: 500;
+  order: 3;
 }
-.dark .code-block .code-lines.code-collapsed ~ .code-expand-btn {
+.dark .code-block .code-expand-btn {
   background: linear-gradient(to top, var(--color-card-bg-dark) 30%, transparent);
 }
-/* Expanded: button at bottom with fade-in gradient, no extra rounding */
-.code-block .code-lines:not(.code-collapsed) ~ .code-expand-btn {
-  display: flex; align-items: flex-start; justify-content: center; padding-top: 12px;
-  bottom: 0;
-  background: linear-gradient(to bottom, var(--color-card-bg) 0%, transparent 100%);
-  border-radius: 0;
+.code-block .code-expand-btn:hover { color: var(--color-foreground); }
+.code-block .code-collapse-btn {
+  display: flex; align-items: flex-start; justify-content: center;
+  width: 100%; padding: 8px 0;
+  height: 40px; cursor: pointer; border: none;
+  background: var(--color-card-bg);
+  color: var(--color-foreground-muted); font-size: 12px; font-weight: 500;
+  order: 3;
 }
-.dark .code-block .code-lines:not(.code-collapsed) ~ .code-expand-btn {
-  background: linear-gradient(to bottom, var(--color-card-bg-dark) 0%, transparent 100%);
+.dark .code-block .code-collapse-btn {
+  background: var(--color-card-bg-dark);
 }
+.code-block .code-collapse-btn:hover { color: var(--color-foreground); }
 
 /* ====== Scrollbar ====== */
 ::-webkit-scrollbar { width: 6px; height: 6px; }

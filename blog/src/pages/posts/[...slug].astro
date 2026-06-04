@@ -216,28 +216,40 @@ function formatDate(d: Date): string {
         const expandBtn = document.createElement('button');
         expandBtn.className = 'code-expand-btn';
         expandBtn.innerHTML = '展开全部 ' + chevronDown;
-        block.appendChild(expandBtn);
+
+        const collapseBtn = document.createElement('button');
+        collapseBtn.className = 'code-collapse-btn';
+        collapseBtn.innerHTML = '收起 ' + chevronUp;
+        collapseBtn.style.display = 'none';
+
+        wrapper.appendChild(expandBtn);
+        wrapper.appendChild(collapseBtn);
 
         expandBtn.addEventListener('click', () => {
-          if (wrapper.classList.contains('code-collapsed')) {
-            // Expand: animate from 300px to full height
+          // Expand: animate from 300px to full height
+          wrapper.style.maxHeight = wrapper.scrollHeight + 'px';
+          wrapper.classList.remove('code-collapsed');
+          expandBtn.style.display = 'none';
+          collapseBtn.style.display = '';
+          // Measure again after buttons change visibility
+          requestAnimationFrame(() => {
             wrapper.style.maxHeight = wrapper.scrollHeight + 'px';
-            wrapper.classList.remove('code-collapsed');
-            expandBtn.innerHTML = '收起 ' + chevronUp;
-            // After transition, remove max-height for natural resizing
-            wrapper.addEventListener('transitionend', function onEnd() {
-              wrapper.style.maxHeight = '';
-              wrapper.removeEventListener('transitionend', onEnd);
-            });
-          } else {
-            // Collapse: animate from current height to 300px
-            wrapper.style.maxHeight = wrapper.scrollHeight + 'px';
-            wrapper.offsetHeight; // force reflow
+          });
+          wrapper.addEventListener('transitionend', function onEnd() {
             wrapper.style.maxHeight = '';
-            wrapper.classList.add('code-collapsed');
-            expandBtn.innerHTML = '展开全部 ' + chevronDown;
-            block.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-          }
+            wrapper.removeEventListener('transitionend', onEnd);
+          });
+        });
+
+        collapseBtn.addEventListener('click', () => {
+          // Collapse: animate from current height to 300px
+          wrapper.style.maxHeight = wrapper.scrollHeight + 'px';
+          wrapper.offsetHeight; // force reflow
+          wrapper.style.maxHeight = '';
+          wrapper.classList.add('code-collapsed');
+          expandBtn.style.display = '';
+          collapseBtn.style.display = 'none';
+          block.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         });
       }
     });
