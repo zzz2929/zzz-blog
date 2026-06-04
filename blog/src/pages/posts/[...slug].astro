@@ -60,19 +60,24 @@ function formatDate(d: Date): string {
       )}
     </div>
 
-    <!-- Content card — full width, no flex constraint -->
-    <div class="card p-6 sm:p-8 lg:p-10" style="border-radius: 16px;">
-      <div class="prose">
-        <Content />
+    <!-- Content + TOC side by side -->
+    <div class="flex gap-6">
+      <!-- Content card — left column -->
+      <div class="card p-6 sm:p-8 lg:p-10 min-w-0 flex-1" style="border-radius: 16px;">
+        <div class="prose">
+          <Content />
+        </div>
       </div>
-    </div>
 
-    <!-- TOC: fixed right sidebar (desktop only) -->
-    {headings.length > 0 && (
-      <aside class="hidden xl:block" style="position: fixed; right: max(calc((100vw - var(--content-max-width)) / 2), 16px); top: 100px; width: 220px;">
-        <TOC headings={headings} />
-      </aside>
-    )}
+      <!-- TOC: sticky right sidebar (desktop only) -->
+      {headings.length > 0 && (
+        <aside class="hidden xl:block shrink-0" style="width: 224px;">
+          <div style="position: sticky; top: 80px;">
+            <TOC headings={headings} />
+          </div>
+        </aside>
+      )}
+    </div>
 
     <!-- Comments -->
     <div class="card p-6 sm:p-8 lg:p-10 mt-6" style="border-radius: 16px;">
@@ -120,6 +125,30 @@ function formatDate(d: Date): string {
       background: 'rgba(0, 0, 0, 0.85)',
       margin: 24,
       scrollOffset: 40,
+    });
+
+    // Inject copy buttons into code blocks
+    const clipboardSvg = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>';
+    const checkSvg = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#28c840" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+    document.querySelectorAll('.code-block').forEach((block) => {
+      const btn = document.createElement('button');
+      btn.className = 'code-copy-btn';
+      btn.setAttribute('aria-label', '复制代码');
+      btn.title = '复制代码';
+      btn.innerHTML = clipboardSvg;
+      block.appendChild(btn);
+    });
+
+    // Code block copy handler
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('.code-copy-btn');
+      if (!btn) return;
+      const code = btn.closest('.code-block')?.querySelector('code');
+      if (!code) return;
+      navigator.clipboard.writeText(code.textContent || '').then(() => {
+        btn.innerHTML = checkSvg;
+        setTimeout(() => { btn.innerHTML = clipboardSvg; }, 2000);
+      });
     });
   </script>
 </BaseLayout>
