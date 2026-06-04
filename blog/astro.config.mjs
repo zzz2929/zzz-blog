@@ -13,6 +13,7 @@ function rehypeImgLazyLoad() {
       if (!node.properties) node.properties = {};
       node.properties.loading = 'lazy';
       node.properties.onload = "this.classList.add('loaded')";
+      node.properties.onerror = "this.classList.add('loaded')";
     });
   };
 }

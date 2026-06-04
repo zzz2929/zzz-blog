@@ -105,6 +105,9 @@ function formatDate(d: Date): string {
   <script>
     import mediumZoom from 'medium-zoom';
 
+    // Enable progressive loading effect (JS is confirmed working)
+    document.querySelector('.prose')?.classList.add('prose--js-ready');
+
     // Edge case: images already cached may have fired onload before DOMContentLoaded.
     // Ensure they get the .loaded class so they aren't stuck at opacity: 0.
     document.querySelectorAll('.prose img').forEach((img) => {
