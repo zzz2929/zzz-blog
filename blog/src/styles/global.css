@@ -290,7 +290,6 @@ pre:hover .code-copy-btn { opacity: 1; }
 /* Line numbers + code area */
 .code-block .code-lines {
   display: flex;
-  flex-wrap: wrap;
   overflow: auto;
   transition: max-height 0.3s ease;
   border-radius: 0 0 12px 12px;
@@ -298,6 +297,7 @@ pre:hover .code-copy-btn { opacity: 1; }
 .code-block .code-lines.code-collapsed {
   max-height: 300px;
   overflow-y: hidden;
+  border-radius: 0;
 }
 .code-block .line-nums {
   flex-shrink: 0;
@@ -345,24 +345,26 @@ pre:hover .code-copy-btn { opacity: 1; }
 
 /* Collapse/expand */
 .code-block .code-expand-btn {
-  display: flex; align-items: flex-end; justify-content: center;
-  width: 100%; padding: 8px 0;
-  height: 48px; cursor: pointer; border: none;
+  display: none; position: absolute; left: 0; right: 0; bottom: 0;
+  height: 48px; cursor: pointer; border: none; padding: 0;
   background: linear-gradient(to top, var(--color-card-bg) 30%, transparent);
   color: var(--color-foreground-muted); font-size: 12px; font-weight: 500;
-  order: 3;
+  z-index: 2; align-items: flex-end; justify-content: center; padding-bottom: 8px;
 }
 .dark .code-block .code-expand-btn {
   background: linear-gradient(to top, var(--color-card-bg-dark) 30%, transparent);
 }
 .code-block .code-expand-btn:hover { color: var(--color-foreground); }
+.code-block .code-lines.code-collapsed ~ .code-expand-btn {
+  display: flex;
+  border-radius: 0 0 12px 12px;
+}
 .code-block .code-collapse-btn {
   display: flex; align-items: flex-start; justify-content: center;
-  width: 100%; padding: 8px 0;
+  width: 100%; padding: 8px 0; flex: 0 0 auto;
   height: 40px; cursor: pointer; border: none;
   background: var(--color-card-bg);
   color: var(--color-foreground-muted); font-size: 12px; font-weight: 500;
-  order: 3;
 }
 .dark .code-block .code-collapse-btn {
   background: var(--color-card-bg-dark);

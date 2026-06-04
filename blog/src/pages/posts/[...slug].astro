@@ -213,25 +213,25 @@ function formatDate(d: Date): string {
       if (lines.length > COLLAPSE_LINES) {
         wrapper.classList.add('code-collapsed');
 
+        // Expand button: outside wrapper (absolute overlay, visible when collapsed)
         const expandBtn = document.createElement('button');
         expandBtn.className = 'code-expand-btn';
         expandBtn.innerHTML = '展开全部 ' + chevronDown;
+        block.appendChild(expandBtn);
 
+        // Collapse button: inside wrapper (static, after last code line)
         const collapseBtn = document.createElement('button');
         collapseBtn.className = 'code-collapse-btn';
         collapseBtn.innerHTML = '收起 ' + chevronUp;
         collapseBtn.style.display = 'none';
-
-        wrapper.appendChild(expandBtn);
         wrapper.appendChild(collapseBtn);
 
         expandBtn.addEventListener('click', () => {
-          // Expand: animate from 300px to full height
+          // Expand
           wrapper.style.maxHeight = wrapper.scrollHeight + 'px';
           wrapper.classList.remove('code-collapsed');
-          expandBtn.style.display = 'none';
           collapseBtn.style.display = '';
-          // Measure again after buttons change visibility
+          // Re-measure after collapse button becomes visible
           requestAnimationFrame(() => {
             wrapper.style.maxHeight = wrapper.scrollHeight + 'px';
           });
@@ -242,12 +242,11 @@ function formatDate(d: Date): string {
         });
 
         collapseBtn.addEventListener('click', () => {
-          // Collapse: animate from current height to 300px
+          // Collapse
           wrapper.style.maxHeight = wrapper.scrollHeight + 'px';
           wrapper.offsetHeight; // force reflow
           wrapper.style.maxHeight = '';
           wrapper.classList.add('code-collapsed');
-          expandBtn.style.display = '';
           collapseBtn.style.display = 'none';
           block.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         });
