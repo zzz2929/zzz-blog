@@ -1,0 +1,56 @@
+<h2>选一下最终摆法</h2>
+<p class="subtitle">你刚才描述的是“放到左边卡片外部下方”。下面是 2 个最合理的落点，我推荐 A。</p>
+
+<div class="cards">
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="mockup">
+        <div class="mockup-header">A. 只放在左列下方（推荐）</div>
+        <div class="mockup-body" style="padding:16px;">
+          <div style="display:grid;grid-template-columns:1.15fr 0.85fr;gap:16px;align-items:start;">
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <div style="background:linear-gradient(135deg,#f8f8f8,#ececec);border-radius:18px;padding:18px;min-height:150px;">
+                <div style="font-size:24px;font-weight:800;line-height:1.2;color:#333;">左侧文案卡片</div>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
+                <div style="background:#4b8df8;color:#fff;border-radius:12px;padding:14px 12px;font-weight:700;">工具</div>
+                <div style="background:#ff7f50;color:#fff;border-radius:12px;padding:14px 12px;font-weight:700;">技术</div>
+                <div style="background:#23d7b8;color:#fff;border-radius:12px;padding:14px 12px;font-weight:700;">日常</div>
+              </div>
+            </div>
+            <div style="background:linear-gradient(180deg,#89d8ef,#203040);border-radius:18px;min-height:230px;position:relative;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A 方案</h3>
+      <p>分类卡只属于左侧区域，宽度跟左卡片一致，语义最清晰，也最符合“左边卡片外部下方”。</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div class="mockup">
+        <div class="mockup-header">B. 仍在 Hero 下方，但视觉贴左</div>
+        <div class="mockup-body" style="padding:16px;">
+          <div style="display:grid;grid-template-columns:1.15fr 0.85fr;gap:16px;align-items:start;">
+            <div style="background:linear-gradient(135deg,#f8f8f8,#ececec);border-radius:18px;padding:18px;min-height:150px;">
+              <div style="font-size:24px;font-weight:800;line-height:1.2;color:#333;">左侧文案卡片</div>
+            </div>
+            <div style="background:linear-gradient(180deg,#89d8ef,#203040);border-radius:18px;min-height:150px;position:relative;"></div>
+          </div>
+          <div style="margin-top:10px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;max-width:62%;">
+            <div style="background:#4b8df8;color:#fff;border-radius:12px;padding:14px 12px;font-weight:700;">工具</div>
+            <div style="background:#ff7f50;color:#fff;border-radius:12px;padding:14px 12px;font-weight:700;">技术</div>
+            <div style="background:#23d7b8;color:#fff;border-radius:12px;padding:14px 12px;font-weight:700;">日常</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B 方案</h3>
+      <p>分类卡仍是独立模块，只是位置更靠左；改动更小，但“属于左卡片下方”的感觉会弱一些。</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,135 @@
+{
+  "class_name": "关于页",
+  "subtitle": "👉人生本就是无法回头的旅程，所以放心大胆地向前走就好👈",
+  "avatarImg": "https://imgbed.904002.xyz/file/blog/avatar/1755591276109_头像.jpg",
+  "avatarSkills": {
+    "left": [
+      "🤖️ 数码科技爱好者",
+      "🏠 智能家居小能手"
+    ],
+    "right": [
+      "分享与热心帮助 🔍",
+      "脚踏实地行动派 🏃"
+    ]
+  },
+  "name": "zzz",
+  "description": "是一名 学生、数码爱好者、智能家居爱好者",
+  "aboutsiteTips": {
+    "tips": "我向往美丽的世界",
+    "title1": "一幅美丽的画",
+    "title2": "一支美丽的曲子",
+    "word": [
+      "一花一世界",
+      "一叶一追寻",
+      "一曲一场叹",
+      "一生为一人"
+    ]
+  },
+  "helloAbout": "Hello there!",
+  "skillsTips": {
+    "tips": "技能",
+    "title": "开启创造力"
+  },
+  "careers": {
+    "tips": "生涯",
+    "title": "无限进步",
+    "list": [
+      {
+        "desc": "EDU，商丘师范学院，数据科学与大数据技术",
+        "color": "#357ef5"
+      }
+    ],
+    "img": null
+  },
+  "statistic": {
+    "link": "/archives",
+    "text": "文章隧道",
+    "cover": "https://bu.dusays.com/2023/05/01/644f4b037b930.jpg"
+  },
+  "map": {
+    "title": "我现在住在",
+    "StrengthenTitle": "中国，商丘市，梁园区，商丘师范学院",
+    "background": "https://imgbed.904002.xyz/file/blog/background/sqnu/1755615252570_sqnu-艺术楼-1.webp",
+    "backgroundDark": "https://imgbed.904002.xyz/file/blog/background/sqnu/1755615258163_sqnu-艺术楼-2.jpg"
+  },
+  "selfInfo": {
+    "selfInfoTips1": "生于",
+    "selfInfoContentYear": 2004,
+    "selfInfoTips2": "商丘师范学院",
+    "selfInfoContent2": "数据科学与大数据技术",
+    "selfInfoTips3": "现在职业",
+    "selfInfoContent3": "大四学生👨‍🎓(求职中)"
+  },
+  "personalities": {
+    "author_name": "提倡者",
+    "personality_type": "INFJ-A",
+    "photo_url": "https://api.elaina.cat/random/",
+    "personality_img": "https://imgbed.904002.xyz/file/blog/icon/infj.svg",
+    "name_url": "https://www.16personalities.com/ch/infj-%E4%BA%BA%E6%A0%BC"
+  },
+  "maxim": {
+    "maxim_tips": "座右铭",
+    "maxim_top": "冠以名则六欲泛生，",
+    "maxim_bottom": "止于此则七情方休。"
+  },
+  "buff": {
+    "buff_tips": "特长",
+    "buff_top": "动手能力 MAX",
+    "buff_bottom": "二次元指数 MAX"
+  },
+  "game": {
+    "game_tips": "爱好游戏",
+    "game_title": "原神",
+    "game_uid": "UID: 195433728",
+    "game_bg": "https://imgbed.904002.xyz/file/blog/background/game/1755596473697_game-yuanshen.png"
+  },
+  "comic": {
+    "comic_tips": "爱好番剧",
+    "comic_title": "追番",
+    "comic_list": [
+      {
+        "name": "邪神与厨二病少女（系列）",
+        "href": "https://www.bilibili.com/bangumi/play/ss24630",
+        "cover": "https://imgbed.904002.xyz/file/blog/background/cartoon/1755599223732_邪神与厨二病少女.webp"
+      },
+      {
+        "name": "青春猪头少年（系列）",
+        "href": "https://www.bilibili.com/bangumi/play/ep251076?from_spmid=666.25.episode.0",
+        "cover": "https://imgbed.904002.xyz/file/blog/background/cartoon/1755599222174_青春猪头少年（系列）.jpg"
+      },
+      {
+        "name": "间谍过家家（系列）",
+        "href": "https://www.bilibili.com/bangumi/play/ep508404?from_spmid=666.25.episode.0",
+        "cover": "https://imgbed.904002.xyz/file/blog/background/cartoon/1755599219747_间谍过家家.jpg"
+      },
+      {
+        "name": "中二病也要谈恋爱（系列）",
+        "href": "https://www.bilibili.com/bangumi/play/ep329002?from_spmid=666.25.episode.0",
+        "cover": "https://imgbed.904002.xyz/file/blog/background/cartoon/1755599217927_中二病也要谈恋爱.webp"
+      },
+      {
+        "name": "因为太怕痛就全点防御力了（系列）",
+        "href": "https://www.bilibili.com/bangumi/play/ss29358",
+        "cover": "https://imgbed.904002.xyz/file/blog/background/cartoon/1755599224476_因为太怕痛就全点防御力了.webp"
+      },
+      {
+        "name": "我独自升级（系列）",
+        "href": "https://www.bilibili.com/bangumi/play/ep814613?from_spmid=666.25.episode.0",
+        "cover": "https://imgbed.904002.xyz/file/blog/background/cartoon/1755599219216_我独自升级.webp"
+      }
+    ]
+  },
+  "like": {
+    "like_tips": "关注偏好",
+    "like_title": "数码科技",
+    "like_bg": "https://imgbed.904002.xyz/file/blog/background/1755702832452_科技.jpg",
+    "like_bottom": "手机、电脑软硬件"
+  },
+  "music": {
+    "music_tips": "音乐偏好",
+    "music_title": "民谣、华语流行",
+    "music_bg": "https://p2.music.126.net/Mrg1i7DwcwjWBvQPIMt_Mg==/79164837213438.jpg",
+    "music_link": "/music"
+  },
+  "reward_list": null
+}

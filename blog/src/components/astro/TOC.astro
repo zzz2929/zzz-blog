@@ -1,0 +1,65 @@
+---
+interface Props {
+  headings: Array<{ depth: number; slug: string; text: string }>;
+}
+
+const { headings } = Astro.props;
+
+const filteredHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
+---
+
+{filteredHeadings.length > 0 && (
+  <nav class="toc card p-5">
+    <h4 class="mb-3 text-sm font-semibold text-foreground flex items-center gap-2">
+      <span class="inline-block w-1 h-5 rounded-full" style="background: linear-gradient(180deg, var(--color-primary), var(--color-accent));"></span>
+      目录
+    </h4>
+    <ul class="space-y-0.5 text-sm">
+      {filteredHeadings.map((heading, i) => (
+        <li class={heading.depth === 3 ? 'ml-4' : ''} style={`animation: slide-in-right 0.3s ease ${i * 0.05}s backwards;`}>
+          <a
+            href={`#${heading.slug}`}
+            class="toc-link block py-1 transition-all duration-300"
+            style="color: var(--color-foreground-muted); padding-left: 16px;"
+          >
+            {heading.text}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+)}
+
+<script is:inline>
+  (function () {
+    const links = document.querySelectorAll('.toc-link');
+    const headingEls = Array.from(links).map((link) => {
+      const id = link.getAttribute('href')?.slice(1);
+      return document.getElementById(id || '');
+    });
+
+    function updateActive() {
+      let activeIndex = 0;
+      const offset = 120;
+      for (let i = 0; i < headingEls.length; i++) {
+        if (headingEls[i] && headingEls[i].getBoundingClientRect().top <= offset) {
+          activeIndex = i;
+        }
+      }
+      links.forEach((link, i) => {
+        if (i === activeIndex) {
+          link.classList.add('toc-active');
+          link.style.color = 'var(--color-primary)';
+          link.style.fontWeight = '600';
+        } else {
+          link.classList.remove('toc-active');
+          link.style.color = 'var(--color-foreground-muted)';
+          link.style.fontWeight = '400';
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateActive, { passive: true });
+    updateActive();
+  })();
+</script>

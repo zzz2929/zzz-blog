@@ -1,23 +1,9 @@
 ---
 title: Windows工具-文件类
 date: 2025-08-21 23:07:02
-updated:
 tags: [Windows]
 categories: [Tools]
-keywords: 
-description:
-top_img: https://imgbed.904002.xyz/file/blog/background/post/top_img/Windows工具-文件类.jpg
-comments:
 cover: https://imgbed.904002.xyz/file/blog/background/post/top_img/Windows工具-文件类.jpg
-toc_style_simple:
-copyright:
-copyright_author:
-copyright_author_href:
-copyright_url:
-copyright_info:
-swiper_index: 1
-top_group_index: 1
-background: "#41e3f5ff"
 ---
 # Geek
 

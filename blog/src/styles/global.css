@@ -1,0 +1,222 @@
+@import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
+
+/* ====== Design System (No Glass) ====== */
+@theme {
+  --color-primary: #425AEF;
+  --color-primary-dark: #f2b94b;
+  --color-accent: #00c4b6;
+  --color-accent-orange: #FF7242;
+  --color-accent-red: #F47466;
+  --color-accent-yellow: #f2b94b;
+
+  --color-background: #f7f9fe;
+  --color-background-dark: #18171d;
+  --color-foreground: #1F2D3D;
+  --color-foreground-muted: #858585;
+  --color-card-bg: #ffffff;
+  --color-card-bg-dark: #1e1e28;
+  --color-border: #e8ecf1;
+  --color-border-dark: rgba(255, 255, 255, 0.08);
+
+  --content-max-width: 1400px;
+  --header-height: 60px;
+  --card-radius: 16px;
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', consolas, Menlo,
+    'PingFang SC', 'Microsoft YaHei', sans-serif;
+}
+
+/* ====== Base ====== */
+:root { color-scheme: light; }
+.dark { color-scheme: dark; }
+
+html {
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+  font-size: 14px;
+  line-height: 2;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-foreground);
+  background: var(--color-background);
+}
+
+.dark body {
+  background: var(--color-background-dark);
+}
+
+/* ====== Card Utility (solid, no glass) ====== */
+@utility card {
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--card-radius);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+}
+
+@utility card-hover {
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+  .dark & {
+    background: var(--color-card-bg-dark);
+    border-color: var(--color-border-dark);
+  }
+}
+
+/* ====== Animations ====== */
+@keyframes slide-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes floating {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(66, 90, 239, 0.2); }
+  50% { box-shadow: 0 0 20px rgba(66, 90, 239, 0.4); }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-out {
+  to { opacity: 0; transform: scale(0.98); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: scale(1.02); }
+}
+
+/* ====== Article Prose ====== */
+.prose {
+  --tw-prose-body: var(--color-foreground);
+  --tw-prose-headings: var(--color-foreground);
+  --tw-prose-links: var(--color-primary);
+  --tw-prose-bold: var(--color-foreground);
+  --tw-prose-code: var(--color-primary);
+  --tw-prose-quotes: var(--color-foreground-muted);
+  --tw-prose-quote-borders: rgba(66, 90, 239, 0.3);
+  width: 100%;
+}
+
+.prose blockquote {
+  border-left: 4px solid rgba(66, 90, 239, 0.3);
+  border-top: none; border-right: none; border-bottom: none;
+  background: rgba(66, 90, 239, 0.05);
+  border-radius: 0 16px 16px 0;
+  margin: 1.5em 0; padding: 1em 1.5em;
+  color: var(--color-foreground-muted);
+  font-style: normal;
+}
+.dark .prose blockquote {
+  background: rgba(242, 185, 75, 0.05);
+  border-left-color: rgba(242, 185, 75, 0.3);
+}
+
+.prose pre { border-radius: 12px; padding: 1em 1.5em; background: #1e1e2e; }
+
+.prose :not(pre) > code {
+  background: rgba(66, 90, 239, 0.08);
+  color: var(--color-accent-red);
+  padding: 2px 6px; border-radius: 4px; font-size: 0.875em;
+}
+.dark .prose :not(pre) > code {
+  background: rgba(242, 185, 75, 0.12);
+  color: var(--color-accent-yellow);
+}
+
+.prose li::marker { color: var(--color-primary); font-weight: 600; }
+.dark .prose li::marker { color: var(--color-primary-dark); }
+
+.prose img {
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.prose img:hover {
+  transform: scale(1.01);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.prose a {
+  text-decoration: none;
+  background-image: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: 0% 2px;
+  transition: background-size 0.3s ease;
+  padding-bottom: 1px;
+}
+.prose a:hover { background-size: 100% 2px; }
+
+.code-copy-btn {
+  position: absolute; top: 0.5rem; right: 0.5rem;
+  padding: 0.25rem 0.5rem; border-radius: 0.25rem;
+  font-size: 0.75rem; opacity: 0; transition: opacity 0.2s;
+}
+pre:hover .code-copy-btn { opacity: 1; }
+
+/* ====== Scrollbar ====== */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-primary), var(--color-accent));
+  border-radius: 3px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-primary-dark), var(--color-accent-orange));
+}
+
+/* ====== TOC ====== */
+.toc-link {
+  position: relative; padding-left: 16px;
+  transition: all 0.3s ease;
+}
+.toc-link::before {
+  content: ''; position: absolute; left: 0; top: 50%;
+  transform: translateY(-50%);
+  width: 3px; height: 0;
+  background: linear-gradient(180deg, var(--color-primary), var(--color-accent));
+  border-radius: 2px; transition: height 0.3s ease;
+}
+.toc-link.toc-active::before { height: 100%; }
+.toc-link.toc-active { color: var(--color-primary); font-weight: 600; }
+
+/* ====== Selection ====== */
+::selection { background: #2128bd; color: #fff; }
+.dark ::selection { background: var(--color-primary-dark); color: #000; }
+
+/* ====== Focus ====== */
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px; border-radius: 4px;
+}
+.dark *:focus-visible { outline-color: var(--color-primary-dark); }

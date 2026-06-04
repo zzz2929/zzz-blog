@@ -1,0 +1,147 @@
+---
+interface Props {
+  title: string;
+  date: Date | string;
+  excerpt?: string;
+  cover?: string;
+  tags?: string[];
+  categories?: string[];
+  slug: string;
+  index?: number;
+}
+
+const { title, date, excerpt, cover, tags = [], categories = [], slug, index = 0 } = Astro.props;
+
+function formatDate(d: Date | string): string {
+  return new Date(d).toLocaleDateString('zh-CN', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  });
+}
+
+const delay = index * 0.06;
+---
+
+<a
+  href={`/posts/${slug}`}
+  class="post-card group block relative overflow-hidden"
+  style={`
+    animation: fade-in-up 0.4s ${delay}s backwards;
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    transition: all 0.3s ease;
+  `}
+  onmouseenter="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 25px rgba(0,0,0,0.08)';"
+  onmouseleave="this.style.transform='translateY(0)'; this.style.boxShadow='0 1px 3px rgba(0,0,0,0.04)';"
+>
+  <!-- Cover Image on top -->
+  {cover && (
+    <div class="relative overflow-hidden" style="height: 200px; border-radius: 16px 16px 0 0;">
+      <img
+        src={cover}
+        alt={title}
+        class="h-full w-full object-cover transition-all duration-500 group-hover:scale-[1.05] group-hover:brightness-[0.85]"
+        loading="lazy"
+      />
+      <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(0,0,0,0.15) 0%, transparent 40%);"></div>
+    </div>
+  )}
+
+  <!-- Content below image -->
+  <div class="p-4">
+    <!-- Category + Date + Views -->
+    <div class="flex items-center gap-2 text-xs mb-2" style="color: var(--color-foreground-muted);">
+      {categories.length > 0 && (
+        <span
+          class="font-semibold px-2 py-0.5 rounded-md"
+          style="color: var(--color-primary); background: rgba(66,90,239,0.08);"
+        >
+          {categories[0]}
+        </span>
+      )}
+      <span class="opacity-30">·</span>
+      <time datetime={new Date(date).toISOString()}>{formatDate(date)}</time>
+      <span class="ml-auto flex items-center gap-1.5 opacity-60">
+        <span
+          class="unread-dot h-1.5 w-1.5 rounded-full"
+          style="background: var(--color-accent-red); box-shadow: 0 0 6px var(--color-accent-red);"
+          data-slug={slug}
+        />
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        <span class="view-count" data-slug={slug}>—</span>
+      </span>
+    </div>
+
+    <!-- Title -->
+    <h3 class="text-[17px] font-bold leading-snug text-foreground group-hover:text-primary transition-colors line-clamp-2">
+      {title}
+    </h3>
+
+    <!-- Excerpt -->
+    {excerpt && (
+      <p class="mt-1.5 text-xs leading-relaxed line-clamp-2" style="color: var(--color-foreground-muted);">
+        {excerpt}
+      </p>
+    )}
+
+    <!-- Tags -->
+    {tags.length > 0 && (
+      <div class="mt-3 flex flex-wrap gap-1.5">
+        {tags.slice(0, 3).map((tag) => (
+          <span
+            class="rounded-full px-2 py-0.5 text-[10px] font-medium"
+            style="border: 1px solid var(--color-border); color: var(--color-foreground-muted);"
+          >
+            #{tag}
+          </span>
+        ))}
+      </div>
+    )}
+  </div>
+</a>
+
+<script is:inline>
+  // Read/unread tracking + view count
+  (function () {
+    const readKey = 'zzz-blog-read-posts';
+    const readPosts = JSON.parse(localStorage.getItem(readKey) || '[]');
+
+    document.querySelectorAll('.unread-dot').forEach((dot) => {
+      const slug = dot.dataset.slug;
+      if (readPosts.includes(slug)) {
+        dot.style.display = 'none';
+      }
+    });
+
+    document.querySelectorAll('.post-card').forEach((card) => {
+      card.addEventListener('click', () => {
+        const slug = card.querySelector('.unread-dot')?.dataset.slug;
+        if (slug && !readPosts.includes(slug)) {
+          readPosts.push(slug);
+          localStorage.setItem(readKey, JSON.stringify(readPosts));
+        }
+      });
+    });
+
+    // Fake view counts (stable per slug via hash)
+    document.querySelectorAll('.view-count').forEach((el) => {
+      const slug = el.dataset.slug;
+      let hash = 0;
+      for (let i = 0; i < slug.length; i++) {
+        hash = ((hash << 5) - hash) + slug.charCodeAt(i);
+        hash |= 0;
+      }
+      el.textContent = String(Math.abs(hash % 500) + 10);
+    });
+  })();
+</script>
+
+<style>
+  .dark .post-card {
+    background: var(--color-card-bg-dark) !important;
+    border-color: var(--color-border-dark) !important;
+  }
+</style>

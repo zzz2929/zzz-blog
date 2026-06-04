@@ -1,0 +1,26 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/astro/Header.astro';
+import Footer from '@/components/astro/Footer.astro';
+import BangumiList from '@/components/react/BangumiList.tsx';
+import bangumisData from '@/content/data/bangumis.json';
+
+const vmid = 1288479902;
+---
+
+<BaseLayout title="追番列表">
+  <Header />
+  <main class="mx-auto max-w-4xl px-4 py-8 sm:px-6">
+    <div class="mb-8">
+      <h1 class="text-3xl font-bold text-foreground">追番列表</h1>
+      <p class="mt-2 text-muted">生命不息，追番不止！</p>
+    </div>
+
+    <BangumiList
+      client:visible
+      watching={(bangumisData as any).watching || []}
+      watched={(bangumisData as any).watched || []}
+    />
+  </main>
+  <Footer />
+</BaseLayout>

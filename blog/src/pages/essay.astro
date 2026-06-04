@@ -1,0 +1,51 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/astro/Header.astro';
+import Footer from '@/components/astro/Footer.astro';
+
+const essayData = await getCollection('essay');
+const essay = essayData[0]?.data;
+---
+
+<BaseLayout title="闲言碎语">
+  <Header />
+  <main class="mx-auto max-w-3xl px-4 py-8 sm:px-6">
+    <div class="mb-8">
+      <h1 class="text-3xl font-bold text-foreground">{essay?.title || '闲言碎语'}</h1>
+      {essay?.subTitle && <p class="mt-2 text-muted">{essay.subTitle}</p>}
+      {essay?.tips && <p class="mt-1 text-sm text-muted italic">{essay.tips}</p>}
+    </div>
+
+    <div class="relative border-l-2 border-border pl-6">
+      {essay?.essay_list.map((item) => (
+        <div class="mb-8 relative">
+          <span class="absolute -left-[33px] top-1.5 h-2.5 w-2.5 rounded-full border-2 border-primary bg-background"></span>
+          <time class="text-xs text-muted">{item.date}</time>
+          <div class="mt-2 rounded-xl border border-border bg-card p-4">
+            <p class="text-foreground whitespace-pre-line">{item.content}</p>
+            {item.video?.map((url) => (
+              <div class="mt-3 aspect-video overflow-hidden rounded-lg">
+                <iframe src={url} class="h-full w-full" allowfullscreen loading="lazy"></iframe>
+              </div>
+            ))}
+            {item.link && (
+              <a href={item.link} target="_blank" rel="noopener noreferrer" class="mt-2 inline-block text-sm text-primary hover:underline">
+                查看链接 →
+              </a>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    {essay?.buttonText && essay?.buttonLink && (
+      <div class="mt-8 text-center">
+        <a href={essay.buttonLink} class="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-white hover:bg-primary-light transition-colors">
+          {essay.buttonText}
+        </a>
+      </div>
+    )}
+  </main>
+  <Footer />
+</BaseLayout>

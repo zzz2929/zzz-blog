@@ -1,0 +1,135 @@
+---
+import fs from 'node:fs';
+import path from 'node:path';
+import yaml from 'js-yaml';
+
+const ymlPath = path.resolve('./src/content/data/essay.yml');
+let essayItems: Array<{ content: string; date: string }> = [];
+
+try {
+  const raw = fs.readFileSync(ymlPath, 'utf-8');
+  const data = yaml.load(raw) as any;
+  essayItems = (data?.essay_list || []).map((item: any) => ({
+    content: String(item.content || '').slice(0, 30),
+    date: String(item.date || ''),
+  }));
+} catch {
+  essayItems = [];
+}
+
+// Split into two columns
+const col1 = essayItems.filter((_, i) => i % 2 === 0);
+const col2 = essayItems.filter((_, i) => i % 2 === 1);
+---
+
+<div
+  class="essay-marquee overflow-hidden"
+  style="height: 48px; border-radius: 12px; background: var(--color-card-bg); border: 1px solid var(--color-border);"
+>
+  <div class="flex items-center h-full px-4 gap-4">
+    <!-- Label -->
+    <span class="shrink-0 text-sm font-bold px-2.5 py-1 rounded-md" style="background: linear-gradient(135deg, var(--color-primary), var(--color-accent)); color: white;">
+      即刻
+    </span>
+
+    <!-- Two-column vertical marquee -->
+    <div class="flex-1 flex gap-6 overflow-hidden" style="height: 32px;">
+      <!-- Column 1: scrolls up -->
+      <div class="flex-1 overflow-hidden relative">
+        <div class="marquee-col-up absolute inset-0 flex flex-col">
+          {[...col1, ...col1].map((item, i) => (
+            <a
+              href="/essay/"
+              class="essay-item shrink-0 flex items-center gap-2 px-2 text-sm h-8 transition-all duration-300"
+              style="color: var(--color-foreground-muted);"
+            >
+              <span class="opacity-30 shrink-0 text-xs">{item.date}</span>
+              <span class="truncate">{item.content}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Column 2: scrolls down -->
+      <div class="flex-1 overflow-hidden relative">
+        <div class="marquee-col-down absolute inset-0 flex flex-col">
+          {[...col2, ...col2].map((item, i) => (
+            <a
+              href="/essay/"
+              class="essay-item shrink-0 flex items-center gap-2 px-2 text-sm h-8 transition-all duration-300"
+              style="color: var(--color-foreground-muted);"
+            >
+              <span class="opacity-30 shrink-0 text-xs">{item.date}</span>
+              <span class="truncate">{item.content}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <a href="/essay/" class="more-btn shrink-0 flex items-center justify-center gap-1 text-xs font-medium" style="color: var(--color-foreground-muted); height: 28px; padding: 0 10px; border: 1px solid var(--color-border); border-radius: 8px; background: var(--color-card-bg); text-decoration: none; transition: all 0.3s cubic-bezier(0.23,1,0.32,1);">
+      更多
+      <svg class="more-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"/>
+      </svg>
+    </a>
+  </div>
+</div>
+
+<style>
+  .marquee-col-up {
+    animation: scroll-up 25s linear infinite;
+  }
+  .marquee-col-down {
+    animation: scroll-down 25s linear infinite;
+  }
+  .essay-marquee:hover .marquee-col-up,
+  .essay-marquee:hover .marquee-col-down {
+    animation-play-state: paused;
+  }
+
+  /* Hover feedback on individual items */
+  .essay-item:hover {
+    color: var(--color-primary) !important;
+    background: rgba(66, 90, 239, 0.04);
+    border-radius: 6px;
+    transform: translateX(4px);
+  }
+  .dark .essay-item:hover {
+    color: var(--color-primary-dark) !important;
+    background: rgba(242, 185, 75, 0.06);
+  }
+
+  /* More button */
+  .more-btn {
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .more-btn:hover {
+    color: var(--color-primary) !important;
+    border-color: var(--color-primary);
+    background: rgba(66, 90, 239, 0.06);
+    transform: translateX(2px);
+  }
+  .more-btn:hover .more-arrow {
+    transform: translateX(3px);
+  }
+  .more-arrow {
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .dark .more-btn:hover {
+    color: var(--color-primary-dark) !important;
+    border-color: var(--color-primary-dark);
+    background: rgba(242, 185, 75, 0.06);
+  }
+
+  @keyframes scroll-up {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+  }
+  @keyframes scroll-down {
+    0% { transform: translateY(-50%); }
+    100% { transform: translateY(0); }
+  }
+</style>

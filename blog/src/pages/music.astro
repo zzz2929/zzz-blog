@@ -1,0 +1,59 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/astro/Header.astro';
+import Footer from '@/components/astro/Footer.astro';
+---
+
+<BaseLayout title="音乐馆">
+  <Header />
+  <main class="mx-auto max-w-4xl px-4 py-8 sm:px-6">
+    <div class="mb-8">
+      <h1 class="text-3xl font-bold text-foreground">音乐馆</h1>
+      <p class="mt-2 text-muted">享受音乐的美好</p>
+    </div>
+
+    <!-- APlayer container -->
+    <div id="aplayer" class="rounded-xl border border-border overflow-hidden"></div>
+
+    <script is:inline>
+      (function () {
+        function loadScript(src) {
+          return new Promise(function (resolve, reject) {
+            var s = document.createElement('script');
+            s.src = src;
+            s.onload = resolve;
+            s.onerror = reject;
+            document.head.appendChild(s);
+          });
+        }
+
+        function loadCSS(href) {
+          var l = document.createElement('link');
+          l.rel = 'stylesheet';
+          l.href = href;
+          document.head.appendChild(l);
+        }
+
+        loadCSS('https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css');
+
+        loadScript('https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js')
+          .then(function () {
+            return loadScript('https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js');
+          })
+          .then(function () {
+            var el = document.getElementById('aplayer');
+            if (el) {
+              var meting = document.createElement('meting-js');
+              meting.setAttribute('server', 'tencent');
+              meting.setAttribute('id', '9564204705');
+              meting.setAttribute('type', 'playlist');
+              meting.setAttribute('autoplay', 'false');
+              meting.setAttribute('theme', 'var(--color-primary)');
+              el.appendChild(meting);
+            }
+          });
+      })();
+    </script>
+  </main>
+  <Footer />
+</BaseLayout>

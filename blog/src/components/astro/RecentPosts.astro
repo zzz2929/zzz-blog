@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog');
+const recentPosts = allPosts
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 5);
+---
+
+<div class="card p-5">
+  <h3 class="mb-4 text-lg font-semibold text-foreground flex items-center gap-2">
+    <span class="inline-block w-1 h-5 rounded-full" style="background: linear-gradient(180deg, var(--color-accent-orange), var(--color-accent-red));"></span>
+    近期文章
+  </h3>
+  <ul class="space-y-1">
+    {recentPosts.map((post, i) => (
+      <li style={`animation: fade-in-up 0.3s ease ${i * 0.06}s backwards;`}>
+        <a
+          href={`/posts/${post.id}`}
+          class="group flex items-start gap-3 rounded-lg px-2 py-2 transition-all duration-200 hover:bg-foreground/[0.03]"
+        >
+          <!-- Timeline dot -->
+          <div class="mt-2 shrink-0">
+            <div
+              class="h-2 w-2 rounded-full transition-all duration-300 group-hover:scale-150"
+              style="background: var(--color-border);"
+              onmouseenter="this.style.background='var(--color-primary)'; this.style.boxShadow='0 0 8px var(--color-primary)';"
+              onmouseleave="this.style.background='var(--color-border)'; this.style.boxShadow='none';"
+            />
+          </div>
+          <div class="min-w-0 flex-1">
+            <h4 class="text-sm font-medium text-foreground group-hover:text-primary transition-colors line-clamp-2 leading-relaxed">
+              {post.data.title}
+            </h4>
+            <time class="text-xs text-foreground-muted mt-0.5 block" datetime={post.data.date.toISOString()}>
+              {post.data.date.toLocaleDateString('zh-CN')}
+            </time>
+          </div>
+        </a>
+      </li>
+    ))}
+  </ul>
+</div>

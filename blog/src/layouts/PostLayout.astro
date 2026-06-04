@@ -1,0 +1,99 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  date: string | Date;
+  updated?: string | Date;
+  categories?: string[];
+  tags?: string[];
+  cover?: string;
+  description?: string;
+}
+
+const { title, date, updated, categories = [], tags = [], cover, description } = Astro.props;
+
+function formatDate(d: string | Date): string {
+  return new Date(d).toLocaleDateString('zh-CN', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  });
+}
+---
+
+<BaseLayout title={title} description={description} image={cover}>
+  <article class="mx-auto px-4 py-8 sm:px-6 lg:px-8" style="max-width: var(--content-max-width);">
+    <header class="mb-8">
+      {cover && (
+        <div class="mb-6 overflow-hidden" style="border-radius: 16px;">
+          <img
+            src={cover}
+            alt={title}
+            class="h-auto w-full object-cover"
+            loading="eager"
+          />
+        </div>
+      )}
+
+      <h1 class="mb-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+        {title}
+      </h1>
+
+      <div class="flex flex-wrap items-center gap-2 text-sm text-foreground-muted">
+        <time datetime={new Date(date).toISOString()}>
+          {formatDate(date)}
+        </time>
+        {updated && (
+          <>
+            <span class="opacity-30">·</span>
+            <span>
+              更新于 <time datetime={new Date(updated).toISOString()}>{formatDate(updated)}</time>
+            </span>
+          </>
+        )}
+      </div>
+
+      {categories.length > 0 && (
+        <div class="mt-3 flex flex-wrap items-center gap-2">
+          <span class="text-sm text-foreground-muted">分类:</span>
+          {categories.map((cat) => (
+            <a
+              href={`/categories/${cat}`}
+              class="inline-block rounded-full px-3 py-0.5 text-xs font-medium text-primary transition-colors hover:bg-primary/10"
+              style="background: rgba(66,90,239,0.08);"
+            >
+              {cat}
+            </a>
+          ))}
+        </div>
+      )}
+
+      {tags.length > 0 && (
+        <div class="mt-2 flex flex-wrap items-center gap-2">
+          <span class="text-sm text-foreground-muted">标签:</span>
+          {tags.map((tag) => (
+            <a
+              href={`/tags/${tag}`}
+              class="tag-pill"
+            >
+              #{tag}
+            </a>
+          ))}
+        </div>
+      )}
+    </header>
+
+    <div class="flex gap-8">
+      <div class="prose min-w-0 flex-1">
+        <slot />
+      </div>
+
+      <aside class="hidden w-64 shrink-0 lg:block">
+        <div class="sticky top-24">
+          <slot name="toc" />
+        </div>
+      </aside>
+    </div>
+  </article>
+</BaseLayout>

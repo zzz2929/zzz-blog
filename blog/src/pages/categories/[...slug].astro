@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/astro/Header.astro';
+import Footer from '@/components/astro/Footer.astro';
+import PostCard from '@/components/astro/PostCard.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  const categories = new Set<string>();
+  for (const post of posts) {
+    for (const cat of post.data.categories) categories.add(cat);
+  }
+  return Array.from(categories).map((cat) => ({ params: { slug: cat } }));
+}
+
+const { slug } = Astro.params;
+const posts = (await getCollection('blog'))
+  .filter((p) => p.data.categories.includes(slug!))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title={`分类: ${slug}`}>
+  <Header />
+  <main class="mx-auto max-w-4xl px-4 py-8 sm:px-6">
+    <div class="mb-8">
+      <a href="/categories/" class="text-sm text-primary hover:underline">← 返回分类</a>
+      <h1 class="mt-2 text-3xl font-bold text-foreground">📂 {slug}</h1>
+      <p class="mt-1 text-muted">共 {posts.length} 篇文章</p>
+    </div>
+    <div class="grid gap-6 sm:grid-cols-2">
+      {posts.map((post) => (
+        <PostCard title={post.data.title} date={post.data.date} excerpt={post.data.description} cover={post.data.cover} tags={post.data.tags} categories={post.data.categories} slug={post.id} />
+      ))}
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>

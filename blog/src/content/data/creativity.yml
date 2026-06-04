@@ -1,0 +1,57 @@
+- class_name: 开启创造力
+  creativity_list:
+    # - name: Java
+    #   color: "#fff"
+    #   icon: https://upload-bbs.miyoushe.com/upload/2025/07/29/125766904/26ba17ce013ecde9afc8b373e2fc0b9d_1804318147854602575.jpg
+    - name: Docker
+      color: "#57b6e6"
+      icon: https://imgbed.904002.xyz/file/blog/icon/skill/Docker.png
+    - name: Photoshop
+      color: "#4082c3"
+      icon: https://imgbed.904002.xyz/file/blog/icon/skill/PS.png
+    # - name: Node
+    #   color: "#333"
+    #   icon: https://npm.elemecdn.com/anzhiyu-blog@2.1.1/img/svg/node-logo.svg
+    # - name: Webpack
+    #   color: "#2e3a41"
+    #   icon: https://upload-bbs.miyoushe.com/upload/2025/07/29/125766904/32dc115fbfd1340f919f0234725c6fb4_4060605986539473613.png
+    # - name: Pinia
+    #   color: "#fff"
+    #   icon: https://npm.elemecdn.com/anzhiyu-blog@2.0.8/img/svg/pinia-logo.svg
+    - name: Python
+      color: "#fff"
+      icon: https://imgbed.904002.xyz/file/blog/icon/skill/Python.png
+    # - name: Vite
+    #   color: "#937df7"
+    #   icon: https://npm.elemecdn.com/anzhiyu-blog@2.0.8/img/svg/vite-logo.svg
+    # - name: Flutter
+    #   color: "#4499e4"
+    #   icon: https://upload-bbs.miyoushe.com/upload/2025/07/29/125766904/b5aa93e0b61d8c9784cf76d14886ea46_4590392178423108088.png
+    # - name: Vue
+    #   color: "#b8f0ae"
+    #   icon: https://upload-bbs.miyoushe.com/upload/2025/07/29/125766904/cf23526f451784ff137f161b8fe18d5a_692393069314581413.png
+    # - name: React
+    #   color: "#222"
+    #   icon: data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K
+    - name: CSS3
+      color: "#2c51db"
+      icon: https://imgbed.904002.xyz/file/blog/icon/skill/CSS3.png
+    - name: JS
+      color: "#f7cb4f"
+      icon: https://imgbed.904002.xyz/file/blog/icon/skill/JS.png
+    - name: HTML
+      color: "#e9572b"
+      icon: https://imgbed.904002.xyz/file/blog/icon/skill/HTML.png
+    - name: Git
+      color: "#df5b40"
+      icon: https://imgbed.904002.xyz/file/blog/icon/skill/Git.webp
+    # - name: Apifox
+    #   color: "#e65164"
+    #   icon: https://bu.dusays.com/2022/11/19/6378d6458c6b6.png
+    - name: SQL
+      color: "#fff"
+      icon: https://imgbed.904002.xyz/file/blog/icon/skill/MySQL.png
+    - name: 飞牛NAS
+      color: "#fff"
+      icon: https://imgbed.904002.xyz/file/blog/icon/fnos/1755594373599_fnos.svg
+    # - name: 

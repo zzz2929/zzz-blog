@@ -1,0 +1,55 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/astro/Header.astro';
+import Footer from '@/components/astro/Footer.astro';
+
+const equipmentData = await getCollection('equipment');
+const equip = equipmentData[0]?.data;
+---
+
+<BaseLayout title="我的装备">
+  <Header />
+  <main class="mx-auto max-w-4xl px-4 py-8 sm:px-6">
+    {equip && (
+      <>
+        <!-- Hero -->
+        <div class="mb-8 overflow-hidden rounded-xl">
+          <div class="relative h-48 bg-cover bg-center" style={`background-image: url(${equip.top_background})`}>
+            <div class="absolute inset-0 bg-black/40 flex items-end p-6">
+              <div>
+                <h1 class="text-3xl font-bold text-white">{equip.class_name}</h1>
+                {equip.tip && <p class="mt-1 text-sm text-white/80">{equip.tip}</p>}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {equip.good_things.map((section) => (
+          <section class="mb-10">
+            <h2 class="mb-2 text-xl font-bold text-foreground">{section.title}</h2>
+            <p class="mb-4 text-sm text-muted">{section.description}</p>
+            <div class="grid gap-4 sm:grid-cols-2">
+              {section.equipment_list.map((item) => (
+                <div class="group flex gap-4 rounded-xl border border-border bg-card p-4 transition-all hover:shadow-md hover:border-primary/30">
+                  <img src={item.image} alt={item.name} class="h-20 w-20 shrink-0 rounded-lg object-contain" loading="lazy" />
+                  <div class="min-w-0 flex-1">
+                    <h3 class="font-medium text-foreground">{item.name}</h3>
+                    <p class="text-xs text-muted">{item.specification}</p>
+                    <p class="mt-1 text-sm text-muted line-clamp-3">{item.description}</p>
+                    {item.link && (
+                      <a href={item.link} target="_blank" rel="noopener noreferrer" class="mt-2 inline-block text-xs text-primary hover:underline">
+                        查看详情 →
+                      </a>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        ))}
+      </>
+    )}
+  </main>
+  <Footer />
+</BaseLayout>

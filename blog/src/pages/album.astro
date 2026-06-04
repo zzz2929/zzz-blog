@@ -1,0 +1,23 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/astro/Header.astro';
+import Footer from '@/components/astro/Footer.astro';
+import PhotoAlbum from '@/components/react/PhotoAlbum.tsx';
+
+const albumData = await getCollection('album');
+const albums = albumData.map((a) => a.data);
+---
+
+<BaseLayout title="相册集">
+  <Header />
+  <main class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
+    <div class="mb-8">
+      <h1 class="text-3xl font-bold text-foreground">相册集</h1>
+      <p class="mt-2 text-muted">记录生活中的美好瞬间</p>
+    </div>
+
+    <PhotoAlbum client:visible albums={albums} />
+  </main>
+  <Footer />
+</BaseLayout>

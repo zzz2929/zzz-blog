@@ -1,0 +1,41 @@
+---
+const skills = [
+  { name: 'Docker', color: '#57b6e6', icon: 'https://imgbed.904002.xyz/file/blog/icon/skill/Docker.png' },
+  { name: 'Photoshop', color: '#4082c3', icon: 'https://imgbed.904002.xyz/file/blog/icon/skill/PS.png' },
+  { name: 'Python', color: '#3776AB', icon: 'https://imgbed.904002.xyz/file/blog/icon/skill/Python.png' },
+  { name: 'CSS3', color: '#2c51db', icon: 'https://imgbed.904002.xyz/file/blog/icon/skill/CSS3.png' },
+  { name: 'JavaScript', color: '#f7cb4f', icon: 'https://imgbed.904002.xyz/file/blog/icon/skill/JS.png' },
+  { name: 'HTML', color: '#e9572b', icon: 'https://imgbed.904002.xyz/file/blog/icon/skill/HTML.png' },
+  { name: 'Git', color: '#df5b40', icon: 'https://imgbed.904002.xyz/file/blog/icon/skill/Git.webp' },
+  { name: 'SQL', color: '#4479A1', icon: 'https://imgbed.904002.xyz/file/blog/icon/skill/MySQL.png' },
+  { name: '飞牛NAS', color: '#333', icon: 'https://imgbed.904002.xyz/file/blog/icon/fnos/1755594373599_fnos.svg' },
+];
+---
+
+<div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
+  {skills.map((skill, i) => (
+    <div
+      class="group card flex flex-col items-center gap-2 p-4 cursor-default"
+      style={`
+        animation: fade-in-up 0.4s ease ${i * 0.06}s backwards;
+        transition: all 0.3s ease;
+      `}
+    >
+      <div
+        class="relative flex h-12 w-12 items-center justify-center rounded-xl transition-all duration-300 group-hover:scale-110 group-hover:rotate-3"
+        style={`
+          background: ${skill.color}12;
+          box-shadow: 0 0 0 0 ${skill.color}00;
+          transition: all 0.3s ease;
+        `}
+        onmouseenter={`this.style.boxShadow='0 0 20px ${skill.color}40'; this.style.background='${skill.color}20';`}
+        onmouseleave={`this.style.boxShadow='0 0 0 0 ${skill.color}00'; this.style.background='${skill.color}12';`}
+      >
+        <img src={skill.icon} alt={skill.name} class="h-8 w-8 object-contain" loading="lazy" />
+      </div>
+      <span class="text-xs font-medium text-foreground transition-colors group-hover:text-primary">
+        {skill.name}
+      </span>
+    </div>
+  ))}
+</div>
