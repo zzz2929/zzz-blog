@@ -29,8 +29,8 @@ function formatDate(d: Date): string {
     <!-- Header card -->
     <div class="card p-6 sm:p-8 lg:p-10 mb-6" style="border-radius: 16px;">
       {post.data.cover && (
-        <div class="mb-6 overflow-hidden" style="border-radius: 12px;">
-          <img src={post.data.cover} alt={post.data.title} class="h-auto w-full object-cover" loading="eager" />
+        <div class="mb-6 overflow-hidden" style="border-radius: 12px; max-height: 400px;">
+          <img src={post.data.cover} alt={post.data.title} class="h-auto w-full object-cover" style="max-height: 400px;" loading="eager" />
         </div>
       )}
       <h1 class="mb-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">{post.data.title}</h1>

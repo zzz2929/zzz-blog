@@ -3,7 +3,6 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/astro/Header.astro';
 import Footer from '@/components/astro/Footer.astro';
-import PostCard from '@/components/astro/PostCard.astro';
 import TagCloud from '@/components/astro/TagCloud.astro';
 import RecentPosts from '@/components/astro/RecentPosts.astro';
 import EssayMarquee from '@/components/astro/EssayMarquee.astro';
@@ -49,26 +48,6 @@ const postsData = posts.map((p) => ({
     <div class="flex flex-col gap-8 lg:flex-row">
       <div class="flex-1 min-w-0" style="display: flex; flex-direction: column; gap: 20px;">
         <SortFilterPosts client:load posts={postsData} />
-
-        <div class="grid gap-5 sm:grid-cols-2">
-          {posts.map((post, index) => (
-            <PostCard
-              title={post.data.title}
-              date={post.data.date}
-              excerpt={post.data.description || post.data.excerpt}
-              cover={post.data.cover}
-              tags={post.data.tags}
-              categories={post.data.categories}
-              slug={post.id}
-              index={index}
-            />
-          ))}
-        </div>
-        {posts.length === 0 && (
-          <div class="card py-16 text-center">
-            <p class="text-lg text-foreground-muted">暂无文章</p>
-          </div>
-        )}
       </div>
 
       <aside class="hidden w-72 shrink-0 space-y-5 lg:block">
