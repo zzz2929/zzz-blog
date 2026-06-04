@@ -246,6 +246,7 @@ pre:hover .code-copy-btn { opacity: 1; }
   padding: 10px 16px;
   background: rgba(0, 0, 0, 0.03);
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 12px 12px 0 0;
 }
 .dark .code-block-toolbar {
   background: rgba(255, 255, 255, 0.03);
@@ -291,10 +292,12 @@ pre:hover .code-copy-btn { opacity: 1; }
   display: flex;
   overflow: auto;
   transition: max-height 0.3s ease;
+  border-radius: 0 0 12px 12px;
 }
 .code-block .code-lines.code-collapsed {
   max-height: 300px;
   overflow-y: hidden;
+  border-radius: 0;
 }
 .code-block .line-nums {
   flex-shrink: 0;
@@ -342,17 +345,32 @@ pre:hover .code-copy-btn { opacity: 1; }
 
 /* Collapse/expand */
 .code-block .code-expand-btn {
-  display: none; position: absolute; bottom: 0; left: 0; right: 0;
+  display: none; position: absolute; left: 0; right: 0;
   height: 48px; cursor: pointer; border: none; padding: 0;
-  background: linear-gradient(to top, var(--color-card-bg) 30%, transparent);
   color: var(--color-foreground-muted); font-size: 12px; font-weight: 500;
-  z-index: 2; transition: color 0.2s;
-}
-.dark .code-block .code-expand-btn {
-  background: linear-gradient(to top, var(--color-card-bg-dark) 30%, transparent);
+  z-index: 2; transition: color 0.2s, background 0.3s, bottom 0.3s, border-radius 0.3s;
 }
 .code-block .code-expand-btn:hover { color: var(--color-foreground); }
-.code-block .code-lines.code-collapsed ~ .code-expand-btn { display: flex; align-items: flex-end; justify-content: center; padding-bottom: 8px; }
+/* Collapsed: button at bottom with fade-out gradient + rounded bottom corners */
+.code-block .code-lines.code-collapsed ~ .code-expand-btn {
+  display: flex; align-items: flex-end; justify-content: center; padding-bottom: 8px;
+  bottom: 0;
+  background: linear-gradient(to top, var(--color-card-bg) 30%, transparent);
+  border-radius: 0 0 12px 12px;
+}
+.dark .code-block .code-lines.code-collapsed ~ .code-expand-btn {
+  background: linear-gradient(to top, var(--color-card-bg-dark) 30%, transparent);
+}
+/* Expanded: button at bottom with fade-in gradient, no extra rounding */
+.code-block .code-lines:not(.code-collapsed) ~ .code-expand-btn {
+  display: flex; align-items: flex-start; justify-content: center; padding-top: 12px;
+  bottom: 0;
+  background: linear-gradient(to bottom, var(--color-card-bg) 0%, transparent 100%);
+  border-radius: 0;
+}
+.dark .code-block .code-lines:not(.code-collapsed) ~ .code-expand-btn {
+  background: linear-gradient(to bottom, var(--color-card-bg-dark) 0%, transparent 100%);
+}
 
 /* ====== Scrollbar ====== */
 ::-webkit-scrollbar { width: 6px; height: 6px; }

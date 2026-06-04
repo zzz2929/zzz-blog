@@ -220,12 +220,21 @@ function formatDate(d: Date): string {
 
         expandBtn.addEventListener('click', () => {
           if (wrapper.classList.contains('code-collapsed')) {
+            // Expand: animate from 300px to full height
+            wrapper.style.maxHeight = wrapper.scrollHeight + 'px';
             wrapper.classList.remove('code-collapsed');
-            wrapper.style.maxHeight = '';
             expandBtn.innerHTML = '收起 ' + chevronUp;
+            // After transition, remove max-height for natural resizing
+            wrapper.addEventListener('transitionend', function onEnd() {
+              wrapper.style.maxHeight = '';
+              wrapper.removeEventListener('transitionend', onEnd);
+            });
           } else {
-            wrapper.classList.add('code-collapsed');
+            // Collapse: animate from current height to 300px
+            wrapper.style.maxHeight = wrapper.scrollHeight + 'px';
+            wrapper.offsetHeight; // force reflow
             wrapper.style.maxHeight = '';
+            wrapper.classList.add('code-collapsed');
             expandBtn.innerHTML = '展开全部 ' + chevronDown;
             block.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
           }
