@@ -27,9 +27,11 @@ function rehypeCodeBlock() {
       if (!codeEl) return;
 
       const lang = node.properties?.['data-language']
+        || node.properties?.['dataLanguage']
         || codeEl.properties?.['data-language']
-        || (codeEl.properties?.className || []).find((c) => c.startsWith('language-'))?.slice(9)
-        || (node.properties?.className || []).find((c) => c.startsWith('language-'))?.slice(9)
+        || codeEl.properties?.['dataLanguage']
+        || (node.properties?.className || node.properties?.class || []).find?.((c) => c.startsWith('language-'))?.slice(9)
+        || (codeEl.properties?.className || codeEl.properties?.class || []).find?.((c) => c.startsWith('language-'))?.slice(9)
         || '';
 
       const el = (tag, attrs, children) => ({

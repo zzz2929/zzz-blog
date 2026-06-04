@@ -185,10 +185,13 @@ function formatDate(d: Date): string {
       });
 
       // Hover highlight sync
+      const clearActive = () => {
+        numDiv.querySelector('.line-num-active')?.classList.remove('line-num-active');
+        codeDiv.querySelector('.line-active')?.classList.remove('line-active');
+      };
       for (let i = 0; i < numDiv.children.length; i++) {
         const handler = () => {
-          numDiv.querySelector('.line-num-active')?.classList.remove('line-num-active');
-          codeDiv.querySelector('.line-active')?.classList.remove('line-active');
+          clearActive();
           numDiv.children[i].classList.add('line-num-active');
           codeDiv.children[i]?.classList.add('line-active');
         };
@@ -200,6 +203,7 @@ function formatDate(d: Date): string {
       wrapper.className = 'code-lines';
       wrapper.appendChild(numDiv);
       wrapper.appendChild(codeDiv);
+      wrapper.addEventListener('mouseleave', clearActive);
       pre.replaceWith(wrapper);
 
       // Store plain text for copy
