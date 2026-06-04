@@ -101,4 +101,22 @@ function formatDate(d: Date): string {
       }
     })();
   </script>
+
+  <script>
+    import mediumZoom from 'medium-zoom';
+
+    // Edge case: images already cached may have fired onload before DOMContentLoaded.
+    // Ensure they get the .loaded class so they aren't stuck at opacity: 0.
+    document.querySelectorAll('.prose img').forEach((img) => {
+      if (img.complete && !img.classList.contains('loaded')) {
+        img.classList.add('loaded');
+      }
+    });
+
+    mediumZoom('.prose img', {
+      background: 'rgba(0, 0, 0, 0.85)',
+      margin: 24,
+      scrollOffset: 40,
+    });
+  </script>
 </BaseLayout>
