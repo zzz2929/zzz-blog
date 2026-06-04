@@ -127,25 +127,105 @@ function formatDate(d: Date): string {
       scrollOffset: 40,
     });
 
-    // Inject copy buttons into code blocks
+    // Code block enhancements: line numbers, copy button, collapse/expand
+    const COLLAPSE_HEIGHT = 300;
     const clipboardSvg = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>';
     const checkSvg = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#28c840" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+    const chevronDown = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
+    const chevronUp = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>';
+
     document.querySelectorAll('.code-block').forEach((block) => {
-      const btn = document.createElement('button');
-      btn.className = 'code-copy-btn';
-      btn.setAttribute('aria-label', '复制代码');
-      btn.title = '复制代码';
-      btn.innerHTML = clipboardSvg;
-      block.appendChild(btn);
+      const pre = block.querySelector('pre');
+      const code = pre?.querySelector('code');
+      if (!pre || !code) return;
+
+      // 1. Copy button → toolbar
+      const toolbar = block.querySelector('.code-block-toolbar');
+      if (toolbar) {
+        const btn = document.createElement('button');
+        btn.className = 'code-copy-btn';
+        btn.setAttribute('aria-label', '复制代码');
+        btn.title = '复制代码';
+        btn.innerHTML = clipboardSvg;
+        toolbar.appendChild(btn);
+      }
+
+      // 2. Line numbers — replace pre with line-nums + code-lines
+      const rawHtml = code.innerHTML;
+      const textContent = code.textContent || '';
+      const lines = rawHtml.split('\n');
+      if (lines.length > 0 && lines[lines.length - 1].trim() === '') lines.pop();
+
+      const numDiv = document.createElement('div');
+      numDiv.className = 'line-nums';
+      const codeDiv = document.createElement('div');
+      codeDiv.className = 'code-content';
+
+      lines.forEach((lineHtml, i) => {
+        const numSpan = document.createElement('span');
+        numSpan.textContent = String(i + 1);
+        numDiv.appendChild(numSpan);
+
+        const lineSpan = document.createElement('span');
+        lineSpan.className = 'code-line';
+        lineSpan.innerHTML = lineHtml || ' ';
+        codeDiv.appendChild(lineSpan);
+      });
+
+      // Hover highlight sync
+      for (let i = 0; i < numDiv.children.length; i++) {
+        const handler = () => {
+          numDiv.querySelector('.line-num-active')?.classList.remove('line-num-active');
+          codeDiv.querySelector('.line-active')?.classList.remove('line-active');
+          numDiv.children[i].classList.add('line-num-active');
+          codeDiv.children[i]?.classList.add('line-active');
+        };
+        numDiv.children[i].addEventListener('mouseenter', handler);
+        codeDiv.children[i]?.addEventListener('mouseenter', handler);
+      }
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'code-lines';
+      wrapper.appendChild(numDiv);
+      wrapper.appendChild(codeDiv);
+      pre.replaceWith(wrapper);
+
+      // Store plain text for copy
+      block.dataset.codeText = textContent;
+
+      // 3. Collapse/expand for tall code blocks
+      const needsCollapse = wrapper.scrollHeight > COLLAPSE_HEIGHT || lines.length > 15;
+      if (needsCollapse) {
+        wrapper.style.maxHeight = COLLAPSE_HEIGHT + 'px';
+        wrapper.style.overflow = 'hidden';
+
+        const expandBtn = document.createElement('button');
+        expandBtn.className = 'code-expand-btn';
+        expandBtn.innerHTML = '展开全部 ' + chevronDown;
+        block.appendChild(expandBtn);
+
+        expandBtn.addEventListener('click', () => {
+          const collapsed = !!wrapper.style.maxHeight;
+          if (collapsed) {
+            wrapper.style.maxHeight = '';
+            expandBtn.innerHTML = '收起 ' + chevronUp;
+          } else {
+            wrapper.style.maxHeight = COLLAPSE_HEIGHT + 'px';
+            expandBtn.innerHTML = '展开全部 ' + chevronDown;
+            block.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        });
+      }
     });
 
-    // Code block copy handler
+    // Copy handler
     document.addEventListener('click', (e) => {
       const btn = e.target.closest('.code-copy-btn');
       if (!btn) return;
-      const code = btn.closest('.code-block')?.querySelector('code');
-      if (!code) return;
-      navigator.clipboard.writeText(code.textContent || '').then(() => {
+      const block = btn.closest('.code-block');
+      if (!block) return;
+      const text = block.dataset.codeText || block.querySelector('code')?.textContent || '';
+      navigator.clipboard.writeText(text).then(() => {
         btn.innerHTML = checkSvg;
         setTimeout(() => { btn.innerHTML = clipboardSvg; }, 2000);
       });
