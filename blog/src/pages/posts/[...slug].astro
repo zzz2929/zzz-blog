@@ -227,14 +227,11 @@ function formatDate(d: Date): string {
         wrapper.appendChild(collapseBtn);
 
         expandBtn.addEventListener('click', () => {
-          // Expand
-          wrapper.style.maxHeight = wrapper.scrollHeight + 'px';
+          // Expand: set to actual content height, then remove limit
+          const fullHeight = wrapper.scrollHeight + 40; // +40 for collapse button
+          wrapper.style.maxHeight = fullHeight + 'px';
           wrapper.classList.remove('code-collapsed');
           collapseBtn.style.display = '';
-          // Re-measure after collapse button becomes visible
-          requestAnimationFrame(() => {
-            wrapper.style.maxHeight = wrapper.scrollHeight + 'px';
-          });
           wrapper.addEventListener('transitionend', function onEnd() {
             wrapper.style.maxHeight = '';
             wrapper.removeEventListener('transitionend', onEnd);
@@ -242,11 +239,12 @@ function formatDate(d: Date): string {
         });
 
         collapseBtn.addEventListener('click', () => {
-          // Collapse
-          wrapper.style.maxHeight = wrapper.scrollHeight + 'px';
-          wrapper.offsetHeight; // force reflow
-          wrapper.style.maxHeight = '';
+          // Collapse: lock current height, then shrink to 300px
+          const curHeight = wrapper.scrollHeight;
+          wrapper.style.maxHeight = curHeight + 'px';
+          void wrapper.offsetHeight; // force reflow
           wrapper.classList.add('code-collapsed');
+          wrapper.style.maxHeight = '';
           collapseBtn.style.display = 'none';
           block.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         });
