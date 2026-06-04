@@ -165,13 +165,38 @@ body {
 .prose li::marker { color: var(--color-primary); font-weight: 600; }
 .dark .prose li::marker { color: var(--color-primary-dark); }
 
+/* ====== Article Images: sizing, progressive loading, hover, lightbox hint ====== */
 .prose img {
+  max-width: 80%;
+  display: block;
+  margin-inline: auto;
+  height: auto;
   border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: zoom-in;
+
+  /* Progressive loading: start blurred and invisible */
+  opacity: 0;
+  filter: blur(20px);
+  transition: opacity 0.4s ease, filter 0.4s ease,
+              transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+/* Added by onload handler when image finishes loading */
+.prose img.loaded {
+  opacity: 1;
+  filter: blur(0);
+}
+
 .prose img:hover {
-  transform: scale(1.01);
+  transform: scale(1.02);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Mobile: 95% width — nearly full, just a touch of breathing room */
+@media (max-width: 640px) {
+  .prose img {
+    max-width: 95%;
+  }
 }
 
 .prose a {
