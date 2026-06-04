@@ -125,8 +125,6 @@ cover: https://imgbed.904002.xyz/file/blog/background/post/top_img/Windows工具
 
 [官网](https://format-factory.en.softmany.com/)
 
-视频、音频、图片、文档格式转换
-
 ![](https://imgbed.904002.xyz/file/blog/post/Windows工具/文件类/FormatFactory.png)
 
 ------

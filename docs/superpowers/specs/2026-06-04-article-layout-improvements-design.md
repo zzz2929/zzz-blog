@@ -61,7 +61,7 @@ Three sub-changes:
 **New file**: `blog/src/lib/rehypeCodeBlock.ts`
 
 Wraps every `<pre>` in a `.code-block` container with:
-- `.code-block-toolbar` — contains red/yellow/green dots + language label
+- `.code-block-toolbar` — contains red/yellow/green dots + language label (shown when available)
 - `.code-copy-btn` — clipboard button positioned at top-right
 
 Language extracted from Shiki's `data-language` attribute or class (`language-xxx`) on `<code>`.

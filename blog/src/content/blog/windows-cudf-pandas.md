@@ -1,7 +1,7 @@
 ---
 title: Windows 系统中使用 cuDF 加速 Pandas 教程(含 Python 安装)
 date: 2025-10-18 15:01:30
-tags: [Development]
+tags: [Python]
 categories: [技术]
 cover: https://imgbed.904002.xyz/file/blog/background/post/top_img/Development.jpg
 ---
@@ -77,7 +77,7 @@ win+r 输入 cmd 打开黑窗口，之后输入 `python`，如果出现如图样
 
 ### 2.1 下载 VS Code
 
-[官网下载]([Visual Studio Code - Code Editing. Redefined](https://code.visualstudio.com/))
+[官网下载](https://code.visualstudio.com/)
 
 ![官网](https://imgbed.904002.xyz/file/blog/post/cuDF/VSCode安装/官网.png)
 
@@ -111,7 +111,7 @@ win+r 输入 cmd 打开黑窗口，之后输入 `python`，如果出现如图样
 >
 > 或者桌面上新建一个文本文档，复制以下命令粘贴进去。左上角点击文件—另存为，保存类型选择所有文件，文件名为Hyper-V.cmd，点击保存。
 >
-> ```
+> ```bash
 > 　　pushd “%~dp0”
 > 　　dir /b %SystemRoot%\servicing\Packages\*Hyper-V*.mum 》hyper-v.txt
 > 　　for /f %%i in （‘findstr /i 。 hyper-v.txt 2^》nul’） do dism /online /norestart /add-package：“%SystemRoot%\servicing\Packages\%%i”
@@ -141,19 +141,19 @@ win+r 输入 cmd 打开黑窗口，之后输入 `python`，如果出现如图样
 
 打开 PowerShell 输入如下命令，默认安装最新的 Ubuntu 发行版。
 
-```
+```bash
 wsl --install
 ```
 
 如果希望选择其他类型的发行版，可以通过如下命令查看。
 
-```
+```bash
 wsl --list --online
 ```
 
 然后选择需要的其他类型版本通过如下命令进行安装。
 
-```
+```bash
 wsl --install -d <发行版名称>
 ```
 
@@ -167,25 +167,25 @@ wsl --install -d <发行版名称>
 
 1） 停止正在运行的 WSL
 
-```
+```bash
 wsl --shutdown
 ```
 
 2）将需要迁移的 Linux，进行导出
 
-```
+```bash
 wsl --export Ubuntu D:/export.tar
 ```
 
 3）导出完成之后，将原有的 Linux 卸载
 
-```
+```bash
 wsl --unregister Ubuntu
 ```
 
 4） 然后将导出的文件放到需要保存的地方，进行导入即可
 
-```
+```bash
 wsl --import Ubuntu D:\export\ D:\export.tar --version 2
 ```
 
@@ -197,7 +197,7 @@ wsl --import Ubuntu D:\export\ D:\export.tar --version 2
 
 ##### 4.1.1 输入以下代码查看 NVIDIA GPU
 
-```
+```bash
 nvidia-smi
 ```
 
@@ -205,7 +205,7 @@ nvidia-smi
 
 ##### 4.1.2 更新 WSL 系统包
 
-```
+```bash
 sudo apt update
 ```
 
@@ -225,7 +225,7 @@ sudo apt update
 
 启动 WSL
 
-```
+```bash
 wsl
 ```
 
@@ -239,20 +239,20 @@ wsl
 
 打开 WSL 中的 `~/.bashrc` 文件
 
-```
+```bash
 nano ~/.bashrc
 ```
 
 在文件末尾添加以下内容(如果安装的是其他版本，请调整路径中的版本号)
 
-```
+```bash
 export PATH=/usr/local/cuda-12.4/bin${PATH:+:${PATH}}
 export LD_LIBRARY_PATH=/usr/local/cuda-12.4/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 ```
 
 保存文件后，执行以下命令使配置立即生效
 
-```
+```bash
 source ~/.bashrc
 ```
 
@@ -272,25 +272,25 @@ source ~/.bashrc
 
 安装软件包
 
-```
+```bash
 sudo apt install python3.12-venv
 ```
 
 创建虚拟环境
 
-```
+```bash
 python3 -m venv ~/myenv
 ```
 
 进入虚拟环境
 
-```
+```bash
 source ~/myenv/bin/activate
 ```
 
 ##### 4.2.2 安装 cuDF
 
-```
+```bash
 pip install --upgrade pip
 pip install cudf-cu12 --extra-index-url=https://pypi.nvidia.com (选择适合自己版本号)
 ```
@@ -301,7 +301,7 @@ pip install cudf-cu12 --extra-index-url=https://pypi.nvidia.com (选择适合自
 
 输入以下代码并回车，若没有报错则安装成功
 
-```
+```bash
 import cudf
 ```
 
@@ -321,7 +321,7 @@ import cudf
 
 输入以下代码并执行
 
-```
+```bash
 WSL: Connect to WSL
 ```
 
@@ -343,7 +343,7 @@ WSL: Connect to WSL
 
 ##### 5.3.1 激活虚拟环境
 
-```
+```bash
 source myenv/bin/activate
 ```
 
@@ -359,7 +359,7 @@ source myenv/bin/activate
 
 创建一个测试文件，例如 `test_environment.py`，输入以下代码并运行
 
-```
+```python
 import sys
 print(sys.executable)
 import pandas as pd
@@ -378,7 +378,7 @@ cuDF imported successfully!
 
 创建test.py文件，输入以下代码并运行
 
-```
+```python
 # simple_diagnose.py
 import sys
 
@@ -444,7 +444,7 @@ cuDF版本: 25.10.00
 >
 > 此测试代码由AI生成，没有进行验证
 
-```
+```python
 # cudf_performance_demo.py
 import time
 import numpy as np
