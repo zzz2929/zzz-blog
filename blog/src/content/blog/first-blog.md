@@ -6,7 +6,6 @@ categories: [日常]
 cover: https://imgbed.904002.xyz/file/blog/background/post/top_img/1755703950223_烟花.jpg
 top: true
 ---
-
 # 我的博客终于初具雏形啦🎇🎇🎇
 
 ------

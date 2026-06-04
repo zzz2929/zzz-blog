@@ -125,7 +125,15 @@ body {
   --tw-prose-code: var(--color-primary);
   --tw-prose-quotes: var(--color-foreground-muted);
   --tw-prose-quote-borders: rgba(66, 90, 239, 0.3);
-  width: 100%;
+}
+
+.prose {
+  max-width: unset !important;
+  width: 100% !important;
+}
+
+.prose :where(p, li, blockquote, pre, table, img, figure, details) {
+  max-width: none;
 }
 
 .prose blockquote {

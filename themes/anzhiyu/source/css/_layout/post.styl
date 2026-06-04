@@ -74,9 +74,19 @@ blockquote {
   img
     display: block
     margin: 0 auto 20px
-    max-width: 100%
+    max-width: 80%
     transition: .3s
     border-radius: 8px
+    cursor: pointer
+
+    &:hover
+      transform: scale(1.02)
+
+    +maxWidth768()
+      max-width: 100%
+      &:hover
+        transform: none
+        cursor: default
 
   p
     margin: 0 0 16px

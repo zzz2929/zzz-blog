@@ -26,86 +26,56 @@ function formatDate(d: Date): string {
   <Header />
 
   <main class="mx-auto px-4 py-8 sm:px-6 lg:px-8" style="max-width: var(--content-max-width);">
-    <article class="card p-6 sm:p-8 lg:p-10" style="border-radius: 16px;">
-      <!-- Header -->
-      <header class="mb-8">
-        {post.data.cover && (
-          <div class="mb-6 overflow-hidden" style="border-radius: 12px;">
-            <img
-              src={post.data.cover}
-              alt={post.data.title}
-              class="h-auto w-full object-cover"
-              loading="eager"
-            />
-          </div>
-        )}
-
-        <h1 class="mb-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-          {post.data.title}
-        </h1>
-
-        <div class="flex flex-wrap items-center gap-3 text-sm text-foreground-muted">
-          <time datetime={post.data.date.toISOString()}>
-            {formatDate(post.data.date)}
-          </time>
-          {post.data.updated && (
-            <>
-              <span class="opacity-30">·</span>
-              <span>
-                更新于 <time datetime={post.data.updated.toISOString()}>{formatDate(post.data.updated)}</time>
-              </span>
-            </>
-          )}
-          <!-- View count -->
-          <span class="ml-auto flex items-center gap-1 opacity-60">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-            <span id="post-view-count">—</span>
-          </span>
+    <!-- Header card -->
+    <div class="card p-6 sm:p-8 lg:p-10 mb-6" style="border-radius: 16px;">
+      {post.data.cover && (
+        <div class="mb-6 overflow-hidden" style="border-radius: 12px;">
+          <img src={post.data.cover} alt={post.data.title} class="h-auto w-full object-cover" loading="eager" />
         </div>
-
-        {post.data.categories.length > 0 && (
-          <div class="mt-3 flex flex-wrap items-center gap-2">
-            {post.data.categories.map((cat) => (
-              <a
-                href={`/categories/${cat}`}
-                class="inline-block rounded-full px-3 py-0.5 text-xs font-medium text-primary transition-colors hover:bg-primary/15"
-                style="background: rgba(66,90,239,0.08);"
-              >
-                {cat}
-              </a>
-            ))}
-          </div>
+      )}
+      <h1 class="mb-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">{post.data.title}</h1>
+      <div class="flex flex-wrap items-center gap-3 text-sm text-foreground-muted">
+        <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
+        {post.data.updated && (
+          <><span class="opacity-30">·</span><span>更新于 <time datetime={post.data.updated.toISOString()}>{formatDate(post.data.updated)}</time></span></>
         )}
-
-        {post.data.tags.length > 0 && (
-          <div class="mt-2 flex flex-wrap items-center gap-2">
-            {post.data.tags.map((tag) => (
-              <a href={`/tags/${tag}`} class="tag-pill">
-                #{tag}
-              </a>
-            ))}
-          </div>
-        )}
-
-        <!-- Divider -->
-        <div class="mt-6 h-px" style="background: linear-gradient(90deg, transparent, var(--color-border), transparent);"></div>
-      </header>
-
-      <!-- Content + TOC -->
-      <div class="flex gap-8">
-        <div class="prose min-w-0 flex-1">
-          <Content />
-        </div>
-        <aside class="hidden w-64 shrink-0 lg:block">
-          <div class="sticky top-24">
-            <TOC headings={headings} />
-          </div>
-        </aside>
+        <span class="ml-auto flex items-center gap-1 opacity-60">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          <span id="post-view-count">—</span>
+        </span>
       </div>
-    </article>
+      {post.data.categories.length > 0 && (
+        <div class="mt-3 flex flex-wrap items-center gap-2">
+          {post.data.categories.map((cat) => (
+            <a href={`/categories/${cat}`} class="inline-block rounded-full px-3 py-0.5 text-xs font-medium text-primary transition-colors hover:bg-primary/15" style="background: rgba(66,90,239,0.08);">{cat}</a>
+          ))}
+        </div>
+      )}
+      {post.data.tags.length > 0 && (
+        <div class="mt-2 flex flex-wrap items-center gap-2">
+          {post.data.tags.map((tag) => (
+            <a href={`/tags/${tag}`} class="tag-pill">#{tag}</a>
+          ))}
+        </div>
+      )}
+    </div>
+
+    <!-- Content card — full width, no flex constraint -->
+    <div class="card p-6 sm:p-8 lg:p-10" style="border-radius: 16px;">
+      <div class="prose">
+        <Content />
+      </div>
+    </div>
+
+    <!-- TOC: fixed right sidebar (desktop only) -->
+    {headings.length > 0 && (
+      <aside class="hidden xl:block" style="position: fixed; right: max(calc((100vw - var(--content-max-width)) / 2), 16px); top: 100px; width: 220px;">
+        <TOC headings={headings} />
+      </aside>
+    )}
 
     <!-- Comments -->
-    <div class="mx-auto mt-8" style="max-width: 800px;">
+    <div class="card p-6 sm:p-8 lg:p-10 mt-6" style="border-radius: 16px;">
       <Comments client:load path={`/posts/${post.id}`} />
     </div>
   </main>
@@ -113,7 +83,6 @@ function formatDate(d: Date): string {
   <Footer />
 
   <script is:inline>
-    // View count (hash-based stable number)
     (function () {
       const slug = window.location.pathname;
       let hash = 0;
@@ -123,8 +92,6 @@ function formatDate(d: Date): string {
       }
       const el = document.getElementById('post-view-count');
       if (el) el.textContent = String(Math.abs(hash % 500) + 10);
-
-      // Mark as read
       const readKey = 'zzz-blog-read-posts';
       const readPosts = JSON.parse(localStorage.getItem(readKey) || '[]');
       const postSlug = slug.replace(/^\/posts\//, '').replace(/\/$/, '');
