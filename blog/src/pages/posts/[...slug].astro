@@ -128,7 +128,8 @@ function formatDate(d: Date): string {
     });
 
     // Code block enhancements: line numbers, copy button, collapse/expand
-    const COLLAPSE_HEIGHT = 300;
+    const COLLAPSE_LINES = 15;
+    const SHIKI_VARS = ['--shiki-light', '--shiki-dark', '--shiki-light-bg', '--shiki-dark-bg', 'color-scheme'];
     const clipboardSvg = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>';
     const checkSvg = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#28c840" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
     const chevronDown = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
@@ -150,16 +151,27 @@ function formatDate(d: Date): string {
         toolbar.appendChild(btn);
       }
 
-      // 2. Line numbers — replace pre with line-nums + code-lines
+      // 2. Line numbers — replace pre with line-nums + code-content
       const rawHtml = code.innerHTML;
       const textContent = code.textContent || '';
       const lines = rawHtml.split('\n');
       if (lines.length > 0 && lines[lines.length - 1].trim() === '') lines.pop();
 
+      // Copy theme styles from <pre> before replacing
+      const preStyle = getComputedStyle(pre);
+
       const numDiv = document.createElement('div');
       numDiv.className = 'line-nums';
       const codeDiv = document.createElement('div');
       codeDiv.className = 'code-content';
+
+      // Transfer theme: CSS variables, color-scheme, background, font
+      ['--shiki-light', '--shiki-dark', '--shiki-light-bg', '--shiki-dark-bg'].forEach((v) => {
+        const val = preStyle.getPropertyValue(v);
+        if (val) codeDiv.style.setProperty(v, val);
+      });
+      codeDiv.style.colorScheme = preStyle.colorScheme;
+      codeDiv.style.fontFamily = preStyle.fontFamily;
 
       lines.forEach((lineHtml, i) => {
         const numSpan = document.createElement('span');
@@ -193,11 +205,9 @@ function formatDate(d: Date): string {
       // Store plain text for copy
       block.dataset.codeText = textContent;
 
-      // 3. Collapse/expand for tall code blocks
-      const needsCollapse = wrapper.scrollHeight > COLLAPSE_HEIGHT || lines.length > 15;
-      if (needsCollapse) {
-        wrapper.style.maxHeight = COLLAPSE_HEIGHT + 'px';
-        wrapper.style.overflow = 'hidden';
+      // 3. Collapse/expand for long code blocks
+      if (lines.length > COLLAPSE_LINES) {
+        wrapper.classList.add('code-collapsed');
 
         const expandBtn = document.createElement('button');
         expandBtn.className = 'code-expand-btn';
@@ -205,12 +215,13 @@ function formatDate(d: Date): string {
         block.appendChild(expandBtn);
 
         expandBtn.addEventListener('click', () => {
-          const collapsed = !!wrapper.style.maxHeight;
-          if (collapsed) {
+          if (wrapper.classList.contains('code-collapsed')) {
+            wrapper.classList.remove('code-collapsed');
             wrapper.style.maxHeight = '';
             expandBtn.innerHTML = '收起 ' + chevronUp;
           } else {
-            wrapper.style.maxHeight = COLLAPSE_HEIGHT + 'px';
+            wrapper.classList.add('code-collapsed');
+            wrapper.style.maxHeight = '';
             expandBtn.innerHTML = '展开全部 ' + chevronDown;
             block.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
           }

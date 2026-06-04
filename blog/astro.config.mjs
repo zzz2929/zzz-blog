@@ -37,14 +37,14 @@ function rehypeCodeBlock() {
       });
       const text = (value) => ({ type: 'text', value });
 
-      const langChildren = (lang && lang !== 'plaintext') ? [el('span', { class: 'code-block-lang' }, [text(lang)])] : [];
+      const langLabel = (lang && lang !== 'plaintext') ? lang : 'txt';
 
       parent.children[index] = el('div', { class: 'code-block' }, [
         el('div', { class: 'code-block-toolbar' }, [
           el('span', { class: 'code-block-dots' }, [
             el('span', {}), el('span', {}), el('span', {}),
           ]),
-          ...langChildren,
+          el('span', { class: 'code-block-lang' }, [text(langLabel)]),
         ]),
         node,
       ]);
@@ -71,8 +71,8 @@ export default defineConfig({
     rehypePlugins: [rehypeImgLazyLoad, rehypeCodeBlock],
     shikiConfig: {
       themes: {
-        light: 'github-light',
-        dark: 'github-dark',
+        light: 'ayu-light',
+        dark: 'ayu-dark',
       },
     },
   },
