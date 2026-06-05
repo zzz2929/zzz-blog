@@ -98,8 +98,10 @@ export default function BangumiList({ watching, watched }: BangumiListProps) {
           onChange={e => setSearch(e.target.value)}
           className="flex-1 min-w-[200px] px-3 py-2 rounded-lg text-sm outline-none transition-colors"
           style={{
-            background: 'var(--color-card-bg)',
-            border: '1px solid var(--color-border)',
+            background: 'linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1))',
+            backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
+            border: '1px solid rgba(255,255,255,0.3)',
             color: 'var(--color-foreground)',
           }}
         />

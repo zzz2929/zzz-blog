@@ -3,7 +3,6 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/astro/Header.astro';
 import Footer from '@/components/astro/Footer.astro';
-import TagCloud from '@/components/astro/TagCloud.astro';
 import RecentPosts from '@/components/astro/RecentPosts.astro';
 import EssayMarquee from '@/components/astro/EssayMarquee.astro';
 import HitokotoModule from '@/components/astro/HitokotoModule.astro';
@@ -47,11 +46,11 @@ const postsData = posts.map((p) => ({
     <!-- 3. Sort/Filter + Posts + Sidebar -->
     <div class="flex flex-col gap-8 lg:flex-row">
       <div class="flex-1 min-w-0" style="display: flex; flex-direction: column; gap: 20px;">
-        <SortFilterPosts client:load posts={postsData} />
+        <SortFilterPosts client:only="react" posts={postsData} />
       </div>
 
       <aside class="hidden w-72 shrink-0 space-y-5 lg:block">
-        <div class="card p-5 text-center">
+        <div style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 16px; box-shadow: 0 1px 24px rgba(0,0,0,0.1); padding: 20px;" class="text-center">
           <img src="https://imgbed.904002.xyz/file/blog/avatar/1755591276109_头像.jpg" alt="zzz" class="mx-auto mb-3 h-24 w-24 rounded-full object-cover ring-2 ring-primary/20 transition-transform duration-300 hover:scale-105" />
           <h3 class="text-lg font-bold text-foreground">zzz</h3>
           <p class="mt-1 text-sm text-foreground-muted">学生、数码爱好者、智能家居爱好者</p>
@@ -68,7 +67,11 @@ const postsData = posts.map((p) => ({
             </a>
           </div>
         </div>
-        <TagCloud />
+        <!-- Hello animated image -->
+        <div style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 16px; box-shadow: 0 1px 24px rgba(0,0,0,0.1); overflow: hidden;">
+          <img src="https://imgbed.904002.xyz/file/blog/others/hello_白_.png" alt="hello" class="hello-img hello-light w-full" loading="lazy" />
+          <img src="https://imgbed.904002.xyz/file/blog/others/hello_黑_.png" alt="hello" class="hello-img hello-dark w-full" loading="lazy" style="display: none;" />
+        </div>
         <RecentPosts />
       </aside>
     </div>

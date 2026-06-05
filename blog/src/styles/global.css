@@ -11,14 +11,24 @@
   --color-accent-red: #F47466;
   --color-accent-yellow: #f2b94b;
 
-  --color-background: #f7f9fe;
+  --color-background: #EDE8DE;
   --color-background-dark: #18171d;
   --color-foreground: #1F2D3D;
   --color-foreground-muted: #858585;
   --color-card-bg: #ffffff;
   --color-card-bg-dark: #1e1e28;
-  --color-border: #e8ecf1;
+  --color-border: #ddd8ce;
   --color-border-dark: rgba(255, 255, 255, 0.08);
+
+  /* Monet palette backgrounds */
+  --monet-1: #EDE8DE;   /* PANTONE 11-0601 Pristine */
+  --monet-2: #E8E0F0;   /* 睡莲 Water Lilies */
+  --monet-3: #F5E6D8;   /* 日出印象 Impression Sunrise */
+  --monet-4: #F0E4C8;   /* 干草堆 Haystacks */
+  --monet-5: #E5DAE8;   /* 紫藤 Wisteria */
+  --monet-6: #DDE4EA;   /* 鲁昂大教堂 Rouen Cathedral */
+  --monet-7: #D8E8E0;   /* 塞纳河 Seine */
+  --monet-8: #F7F9FE;   /* 纯白 Pure White */
 
   --content-max-width: 1400px;
   --header-height: 60px;
@@ -33,6 +43,10 @@
 /* ====== Base ====== */
 :root { color-scheme: light; }
 .dark { color-scheme: dark; }
+.dark {
+  --color-foreground: #f0f0f0;
+  --color-foreground-muted: #b0b0b0;
+}
 
 html {
   font-family: var(--font-sans);
@@ -313,31 +327,50 @@ body {
 }
 
 /* Ensure content stays above starfield */
-.dark header,
 .dark main,
 .dark footer {
   position: relative;
   z-index: 1;
 }
 
-/* ====== Card Utility (solid, no glass) ====== */
+/* Header always on top of starfield */
+.dark .site-header {
+  z-index: 50 !important;
+}
+
+/* ====== Card Utility — Glassmorphism with Gradient Border ====== */
 @utility card {
-  background: var(--color-card-bg);
-  border: 1px solid var(--color-border);
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.1)
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: var(--card-radius);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 1px 24px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
+  z-index: 0;
+}
+
+.dark .card {
+  background: linear-gradient(135deg, rgba(30,30,40,0.6), rgba(30,30,40,0.3)) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 1px 24px rgba(0, 0, 0, 0.2) !important;
 }
 
 @utility card-hover {
   &:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.14);
     transform: translateY(-2px);
   }
-  .dark & {
-    background: var(--color-card-bg-dark);
-    border-color: var(--color-border-dark);
-  }
+}
+
+.dark .card-hover {
+  background: rgba(30, 30, 40, 0.6);
+  border-color: rgba(255, 255, 255, 0.08);
 }
 
 /* ====== Animations ====== */
@@ -911,6 +944,12 @@ pre:hover .code-copy-btn { opacity: 1; }
 /* ====== Selection ====== */
 ::selection { background: #2128bd; color: #fff; }
 .dark ::selection { background: var(--color-primary-dark); color: #000; }
+
+/* Hello image dark/light switch */
+.hello-light { display: block; }
+.hello-dark { display: none !important; }
+.dark .hello-light { display: none !important; }
+.dark .hello-dark { display: block !important; }
 
 /* ====== Focus ====== */
 *:focus-visible {

@@ -81,8 +81,10 @@ export default function Search() {
         className="group flex items-center gap-2 px-3 py-1.5 text-sm transition-all duration-300"
         style={{
           borderRadius: 12,
-          border: '1px solid var(--color-border)',
-          background: 'var(--color-card-bg)',
+          border: '1px solid rgba(255,255,255,0.3)',
+          background: 'linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1))',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
           color: 'var(--color-foreground-muted)',
         }}
       >
@@ -116,9 +118,11 @@ export default function Search() {
       <div
         className="relative w-full max-w-lg mx-4 animate-[fade-in-up_0.3s_ease]"
         style={{
-          background: 'var(--color-card-bg)',
+          background: 'linear-gradient(135deg, rgba(255,255,255,0.5), rgba(255,255,255,0.15))',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
           borderRadius: 20,
-          border: '1px solid var(--color-border)',
+          border: '1px solid rgba(255,255,255,0.3)',
           boxShadow: '0 25px 60px rgba(0,0,0,0.15)',
           overflow: 'hidden',
         }}

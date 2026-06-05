@@ -9,7 +9,7 @@ const filteredHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 4);
 ---
 
 {filteredHeadings.length > 0 && (
-  <nav class="toc card p-5">
+  <nav class="toc" style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 16px; box-shadow: 0 1px 24px rgba(0,0,0,0.1); padding: 20px;">
     <h4 class="mb-3 text-sm font-semibold text-foreground flex items-center gap-2">
       <span class="inline-block w-1 h-5 rounded-full" style="background: linear-gradient(180deg, var(--color-primary), var(--color-accent));"></span>
       目录

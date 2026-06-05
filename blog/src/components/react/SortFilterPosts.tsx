@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 
 interface Post {
   title: string;
@@ -26,14 +26,101 @@ function getViewCount(slug: string): number {
   return Math.abs(hash % 500) + 10;
 }
 
-function formatDate(d: string): string {
-  return new Date(d).toLocaleDateString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' });
+function formatDate(iso: string): string {
+  const d = new Date(iso);
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${y}/${m}/${day}`;
+}
+
+function PostCard({ post, index }: { post: Post; index: number }) {
+  const delay = index * 0.06;
+  return (
+    <a
+      href={`/posts/${post.slug}`}
+      style={{
+        display: 'block',
+        position: 'relative',
+        overflow: 'hidden',
+        textDecoration: 'none',
+        animation: `fade-in-up 0.4s ${delay}s backwards`,
+        background: 'linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1))',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
+        border: '1px solid rgba(255,255,255,0.3)',
+        borderRadius: 16,
+        boxShadow: '0 1px 3px rgba(0,0,0,0.04)',
+        transition: 'all 0.3s ease',
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.transform = 'translateY(-4px)';
+        e.currentTarget.style.boxShadow = '0 8px 25px rgba(0,0,0,0.08)';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.transform = 'translateY(0)';
+        e.currentTarget.style.boxShadow = '0 1px 3px rgba(0,0,0,0.04)';
+      }}
+    >
+      {post.cover && (
+        <div style={{ height: 200, borderRadius: '16px 16px 0 0', overflow: 'hidden', position: 'relative' }}>
+          <img
+            src={post.cover}
+            alt={post.title}
+            loading="lazy"
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              transition: 'all 0.5s ease',
+            }}
+            onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.05)'; e.currentTarget.style.filter = 'brightness(0.85)'; }}
+            onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.filter = 'none'; }}
+          />
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.15) 0%, transparent 40%)' }} />
+        </div>
+      )}
+      <div style={{ padding: 16 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 12, marginBottom: 8, color: 'var(--color-foreground-muted)' }}>
+          {post.categories.length > 0 && (
+            <span style={{ fontWeight: 600, padding: '2px 8px', borderRadius: 6, color: 'var(--color-primary)', background: 'rgba(66,90,239,0.08)' }}>
+              {post.categories[0]}
+            </span>
+          )}
+          <span style={{ opacity: 0.3 }}>·</span>
+          <time>{formatDate(post.date)}</time>
+          <span style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 4, opacity: 0.6 }}>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            {getViewCount(post.slug)}
+          </span>
+        </div>
+        <h3 style={{ fontSize: 17, fontWeight: 700, lineHeight: 1.4, color: 'var(--color-foreground)', transition: 'color 0.3s', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+          {post.title}
+        </h3>
+        {post.excerpt && (
+          <p style={{ marginTop: 6, fontSize: 12, lineHeight: 1.6, color: 'var(--color-foreground-muted)', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+            {post.excerpt}
+          </p>
+        )}
+        {post.tags.length > 0 && (
+          <div style={{ marginTop: 12, display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+            {post.tags.slice(0, 3).map((tag) => (
+              <span key={tag} style={{ borderRadius: 9999, padding: '2px 8px', fontSize: 10, fontWeight: 500, border: '1px solid var(--color-border)', color: 'var(--color-foreground-muted)' }}>
+                #{tag}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+    </a>
+  );
 }
 
 export default function SortFilterPosts({ posts }: Props) {
   const [sortKey, setSortKey] = useState<SortKey>('date');
   const [sortDir, setSortDir] = useState<SortDir>('desc');
   const [category, setCategory] = useState<string>('all');
+  const [query, setQuery] = useState('');
 
   const categories = useMemo(() => {
     const cats = new Set<string>();
@@ -42,42 +129,31 @@ export default function SortFilterPosts({ posts }: Props) {
   }, [posts]);
 
   const filtered = useMemo(() => {
-    let list = category === 'all' ? posts : posts.filter((p) => p.categories.includes(category));
-    return [...list].sort((a, b) => {
-      if (sortKey === 'date') {
-        const da = new Date(a.date).getTime();
-        const db = new Date(b.date).getTime();
-        return sortDir === 'desc' ? db - da : da - db;
-      } else {
-        const va = getViewCount(a.slug);
-        const vb = getViewCount(b.slug);
-        return sortDir === 'desc' ? vb - va : va - vb;
-      }
-    });
-  }, [posts, sortKey, sortDir, category]);
+    let list = category === 'all' ? [...posts] : posts.filter((p) => p.categories.includes(category));
 
-  // Read/unread tracking
-  useEffect(() => {
-    const readKey = 'zzz-blog-read-posts';
-    const readPosts: string[] = JSON.parse(localStorage.getItem(readKey) || '[]');
-    document.querySelectorAll('.unread-dot').forEach((dot) => {
-      const slug = (dot as HTMLElement).dataset.slug;
-      if (slug && readPosts.includes(slug)) (dot as HTMLElement).style.display = 'none';
-    });
-    document.querySelectorAll('.post-card').forEach((card) => {
-      card.addEventListener('click', () => {
-        const slug = (card.querySelector('.unread-dot') as HTMLElement)?.dataset.slug;
-        if (slug && !readPosts.includes(slug)) {
-          readPosts.push(slug);
-          localStorage.setItem(readKey, JSON.stringify(readPosts));
-        }
+    if (query.trim()) {
+      const q = query.trim().toLowerCase();
+      list = list.filter((p) => {
+        const inTitle = p.title.toLowerCase().includes(q);
+        const inExcerpt = (p.excerpt || '').toLowerCase().includes(q);
+        const inTags = p.tags.some((t) => t.toLowerCase().includes(q));
+        return inTitle || inExcerpt || inTags;
       });
+    }
+
+    list.sort((a, b) => {
+      if (sortKey === 'date') {
+        return sortDir === 'desc'
+          ? new Date(b.date).getTime() - new Date(a.date).getTime()
+          : new Date(a.date).getTime() - new Date(b.date).getTime();
+      }
+      const va = getViewCount(a.slug);
+      const vb = getViewCount(b.slug);
+      return sortDir === 'desc' ? vb - va : va - vb;
     });
-    document.querySelectorAll('.view-count').forEach((el) => {
-      const slug = (el as HTMLElement).dataset.slug;
-      if (slug) (el as HTMLElement).textContent = String(getViewCount(slug));
-    });
-  }, [filtered]);
+
+    return list;
+  }, [posts, sortKey, sortDir, category, query]);
 
   const btn = (active: boolean): React.CSSProperties => ({
     padding: '3px 10px',
@@ -89,15 +165,17 @@ export default function SortFilterPosts({ posts }: Props) {
     color: active ? 'var(--color-primary)' : 'var(--color-foreground-muted)',
     cursor: 'pointer',
     transition: 'all 0.2s ease',
-    whiteSpace: 'nowrap',
+    whiteSpace: 'nowrap' as const,
   });
 
   return (
     <>
-      {/* Toolbar */}
+      {/* Controls bar */}
       <div style={{
-        background: 'var(--color-card-bg)',
-        border: '1px solid var(--color-border)',
+        background: 'linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1))',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
+        border: '1px solid rgba(255,255,255,0.3)',
         borderRadius: 12,
         padding: '10px 14px',
         display: 'flex',
@@ -105,95 +183,61 @@ export default function SortFilterPosts({ posts }: Props) {
         gap: 8,
         flexWrap: 'wrap',
       }}>
-        <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap', flex: '1 1 auto', minWidth: 0 }}>
+        {/* Category filters */}
+        <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>
           {categories.map((cat) => (
             <button key={cat} style={btn(category === cat)} onClick={() => setCategory(cat)}>
               {cat === 'all' ? '全部' : cat}
             </button>
           ))}
         </div>
+
         <span style={{ width: 1, height: 18, background: 'var(--color-border)', flexShrink: 0 }} />
+
+        {/* Search */}
+        <div style={{
+          display: 'flex', alignItems: 'center', gap: 6,
+          border: '1px solid var(--color-border)', borderRadius: 8,
+          padding: '0 10px', height: 30, flex: '1 1 120px', minWidth: 120,
+        }}>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-foreground-muted)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+          <input
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="搜索文章标题、内容..."
+            style={{ border: 'none', outline: 'none', background: 'transparent', fontSize: 12, color: 'var(--color-foreground)', width: '100%', minWidth: 0 }}
+          />
+        </div>
+
+        <span style={{ width: 1, height: 18, background: 'var(--color-border)', flexShrink: 0 }} />
+
+        {/* Sort */}
         <div style={{ display: 'flex', gap: 4, flexShrink: 0 }}>
           <button style={btn(sortKey === 'date')} onClick={() => setSortKey('date')}>时间</button>
           <button style={btn(sortKey === 'views')} onClick={() => setSortKey('views')}>浏览量</button>
           <button style={btn(sortDir === 'desc')} onClick={() => setSortDir('desc')}>↓</button>
           <button style={btn(sortDir === 'asc')} onClick={() => setSortDir('asc')}>↑</button>
         </div>
+
         <span style={{ fontSize: 11, color: 'var(--color-foreground-muted)', flexShrink: 0, opacity: 0.6 }}>
           {filtered.length}篇
         </span>
       </div>
 
-      {/* Post grid */}
+      {/* Article grid */}
       {filtered.length > 0 ? (
-        <div className="grid gap-5 sm:grid-cols-2">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 20 }}>
           {filtered.map((post, i) => (
-            <a
-              key={post.slug}
-              href={`/posts/${post.slug}`}
-              className="post-card group block relative overflow-hidden"
-              style={{
-                animation: `fade-in-up 0.4s ${i * 0.06}s backwards`,
-                background: 'var(--color-card-bg)',
-                border: '1px solid var(--color-border)',
-                borderRadius: 16,
-                boxShadow: '0 1px 3px rgba(0,0,0,0.04)',
-                transition: 'all 0.3s ease',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-4px)';
-                e.currentTarget.style.boxShadow = '0 8px 25px rgba(0,0,0,0.08)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 1px 3px rgba(0,0,0,0.04)';
-              }}
-            >
-              {post.cover && (
-                <div className="relative overflow-hidden" style={{ height: 200, borderRadius: '16px 16px 0 0' }}>
-                  <img src={post.cover} alt={post.title} className="h-full w-full object-cover transition-all duration-500 group-hover:scale-[1.05] group-hover:brightness-[0.85]" loading="lazy" />
-                  <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.15) 0%, transparent 40%)' }} />
-                </div>
-              )}
-              <div className="p-4">
-                <div className="flex items-center gap-2 text-xs mb-2" style={{ color: 'var(--color-foreground-muted)' }}>
-                  {post.categories.length > 0 && (
-                    <span className="font-semibold px-2 py-0.5 rounded-md" style={{ color: 'var(--color-primary)', background: 'rgba(66,90,239,0.08)' }}>
-                      {post.categories[0]}
-                    </span>
-                  )}
-                  <span className="opacity-30">·</span>
-                  <time>{formatDate(post.date)}</time>
-                  <span className="ml-auto flex items-center gap-1.5 opacity-60">
-                    <span className="unread-dot h-1.5 w-1.5 rounded-full" style={{ background: 'var(--color-accent-red)', boxShadow: '0 0 6px var(--color-accent-red)' }} data-slug={post.slug} />
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                    <span className="view-count" data-slug={post.slug}>—</span>
-                  </span>
-                </div>
-                <h3 className="text-[17px] font-bold leading-snug group-hover:text-primary transition-colors line-clamp-2" style={{ color: 'var(--color-foreground)' }}>
-                  {post.title}
-                </h3>
-                {post.excerpt && (
-                  <p className="mt-1.5 text-xs leading-relaxed line-clamp-2" style={{ color: 'var(--color-foreground-muted)' }}>
-                    {post.excerpt}
-                  </p>
-                )}
-                {post.tags.length > 0 && (
-                  <div className="mt-3 flex flex-wrap gap-1.5">
-                    {post.tags.slice(0, 3).map((tag) => (
-                      <span key={tag} className="rounded-full px-2 py-0.5 text-[10px] font-medium" style={{ border: '1px solid var(--color-border)', color: 'var(--color-foreground-muted)' }}>
-                        #{tag}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </a>
+            <PostCard key={post.slug} post={post} index={i} />
           ))}
         </div>
       ) : (
-        <div className="card py-16 text-center" style={{ borderRadius: 16 }}>
-          <p className="text-lg" style={{ color: 'var(--color-foreground-muted)' }}>暂无文章</p>
+        <div style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1))', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.3)', borderRadius: 16, padding: '48px 16px', textAlign: 'center', color: 'var(--color-foreground-muted)' }}>
+          <p style={{ fontSize: 16, marginBottom: 4 }}>没有找到匹配的文章</p>
+          <p style={{ fontSize: 12, opacity: 0.6 }}>试试其他关键词或分类</p>
         </div>
       )}
     </>

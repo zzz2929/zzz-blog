@@ -7,7 +7,7 @@ const postsData = allPosts.map((p) => ({
 }));
 ---
 
-<div class="random-image-module relative overflow-hidden group w-full lg:h-full" style="border-radius: 16px; min-height: 250px; background: var(--color-card-bg); border: 1px solid var(--color-border);" data-posts={JSON.stringify(postsData)}>
+<div class="random-image-module relative overflow-hidden group w-full lg:h-full" style="border-radius: 16px; min-height: 250px; background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3);" data-posts={JSON.stringify(postsData)}>
   <!-- Image mode -->
   <div id="rim-image-mode" class="absolute inset-0 transition-opacity duration-500">
     <img id="rim-random-img" src="https://api.elaina.cat/random/" alt="随机图片" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
@@ -15,7 +15,7 @@ const postsData = allPosts.map((p) => ({
   </div>
 
   <!-- Article mode -->
-  <div id="rim-article-mode" class="absolute inset-0 opacity-0 pointer-events-none transition-opacity duration-500" style="background: var(--color-card-bg);">
+  <div id="rim-article-mode" class="absolute inset-0 opacity-0 pointer-events-none transition-opacity duration-500" style="background: linear-gradient(135deg, rgba(255,255,255,0.5), rgba(255,255,255,0.2)); backdrop-filter: blur(20px);">
     <div class="h-full flex flex-col p-4">
       <div class="flex items-center justify-between mb-3">
         <span class="text-sm font-bold text-foreground">文章推荐</span>
