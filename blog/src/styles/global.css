@@ -421,11 +421,20 @@ pre:hover .code-copy-btn { opacity: 1; }
   --waline-text-color: var(--color-foreground);
 }
 
+/* Layout: force full width */
+.wl-panel, .wl-card, .wl-comment, .wl-editor-wrap, .wl-action,
+.wl-login-info, .wl-meta, .wl-sort, .wl-tabs {
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
 /* Hide the default header (logo + title) */
 .wl-header { display: none !important; }
 
 /* Comment card style */
 .wl-card-item {
+  width: 100% !important;
+  box-sizing: border-box !important;
   border: 1px solid var(--color-border) !important;
   border-radius: 12px !important;
   padding: 16px !important;
@@ -460,6 +469,8 @@ pre:hover .code-copy-btn { opacity: 1; }
   line-height: 1.7 !important;
   color: var(--color-foreground) !important;
   margin-top: 8px !important;
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
 }
 
 /* Reply / like buttons */
@@ -474,12 +485,14 @@ pre:hover .code-copy-btn { opacity: 1; }
 /* Input area */
 .wl-editor,
 .wl-input {
+  width: 100% !important;
   background: var(--color-card-bg) !important;
   border: 1px solid var(--color-border) !important;
   border-radius: 8px !important;
   color: var(--color-foreground) !important;
   font-size: 13px !important;
   transition: border-color 0.2s !important;
+  box-sizing: border-box !important;
 }
 .dark .wl-editor,
 .dark .wl-input {
