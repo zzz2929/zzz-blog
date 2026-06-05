@@ -94,23 +94,38 @@ const siteLinks = [
     <div class="flex items-center gap-1.5 shrink-0">
       <Search client:load />
 
-      <button id="random-article-btn" class="flex items-center justify-center h-8 rounded-lg overflow-hidden transition-all duration-300 hover:brightness-110 hover:-translate-y-0.5" style="padding: 0 10px; gap: 6px; background: linear-gradient(135deg, var(--color-primary), var(--color-accent)); color: white; border: none; cursor: pointer;" aria-label="随机文章" title="随机文章">
+      <!-- 开往 (Travellings) -->
+      <a href="https://www.travellings.cn/go.html" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center h-8 rounded-lg overflow-hidden transition-all duration-300 hover:brightness-110 hover:-translate-y-0.5" style="padding: 0 10px; gap: 6px; background: linear-gradient(135deg, var(--color-primary), var(--color-accent)); color: white; text-decoration: none;" aria-label="开往" title="开往 - 随机访问开往成员博客">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/>
-          <polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/>
-          <line x1="4" y1="4" x2="9" y2="9"/>
+          <circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
         </svg>
-        <span class="text-xs font-medium hidden sm:inline">随机</span>
-      </button>
+        <span class="text-xs font-medium hidden sm:inline">开往</span>
+      </a>
 
-      <button class="flex items-center justify-center h-8 w-8 rounded-lg transition-all duration-300 hover:bg-foreground/5" style="color: var(--color-foreground-muted);" aria-label="设置" title="设置">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="3"/>
-          <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06A1.65 1.65 0 0019.32 9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/>
-        </svg>
-      </button>
-
-      <ThemeToggle client:load />
+      <!-- Settings dropdown -->
+      <div class="settings-menu relative group">
+        <button class="settings-btn flex items-center justify-center h-8 w-8 rounded-lg transition-all duration-300 hover:bg-foreground/5" style="color: var(--color-foreground-muted);" aria-label="设置" title="设置">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06A1.65 1.65 0 0019.32 9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/>
+          </svg>
+        </button>
+        <div class="settings-dropdown absolute right-0 top-full mt-2 p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200" style="width: 200px; background: var(--color-card-bg); border: 1px solid var(--color-border); border-radius: 14px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); z-index: 50;">
+          <!-- Dark mode toggle -->
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs" style="color: var(--color-foreground-muted);">深色模式</span>
+            <ThemeToggle client:load />
+          </div>
+          <div style="height: 1px; background: var(--color-border); margin-bottom: 12px;"></div>
+          <!-- 简繁体切换 -->
+          <div class="flex items-center justify-between">
+            <span class="text-xs" style="color: var(--color-foreground-muted);">简繁体</span>
+            <button id="lang-toggle-btn" class="px-2 py-1 rounded text-xs font-medium transition-colors" style="border: 1px solid var(--color-border); color: var(--color-foreground-muted);" title="切换简繁体">
+              简体
+            </button>
+          </div>
+        </div>
+      </div>
 
       <button id="mobile-menu-btn" class="p-2 rounded-lg transition-colors md:hidden" style="color: var(--color-foreground-muted);" aria-label="菜单">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
@@ -158,24 +173,28 @@ const siteLinks = [
     }, { passive: true });
   })();
 
-  // Random article
-  document.getElementById('random-article-btn')?.addEventListener('click', async () => {
-    try {
-      const s = document.createElement('script');
-      s.src = '/pagefind/pagefind.js';
-      s.onload = async () => {
-        const pf = (window).pagefind;
-        if (pf) {
-          const all = await pf.search('');
-          if (all.results.length > 0) {
-            const d = await all.results[Math.floor(Math.random() * all.results.length)].data();
-            window.location.href = d.url;
-          }
-        }
-      };
-      document.head.appendChild(s);
-    } catch (e) {}
-  });
+  // Random article (removed - replaced by 开往)
+
+  // 简繁体切换
+  (function () {
+    const btn = document.getElementById('lang-toggle-btn');
+    if (!btn) return;
+    const stored = localStorage.getItem('lang') || 'simple';
+    btn.textContent = stored === 'traditional' ? '繁體' : '简体';
+
+    // Simple → Traditional character mapping (common chars)
+    const s2t = {};
+    const t2s = {};
+
+    btn.addEventListener('click', () => {
+      const current = localStorage.getItem('lang') || 'simple';
+      const next = current === 'traditional' ? 'simple' : 'traditional';
+      localStorage.setItem('lang', next);
+      btn.textContent = next === 'traditional' ? '繁體' : '简体';
+      // Reload to apply
+      location.reload();
+    });
+  })();
 </script>
 
 <style>
@@ -184,7 +203,8 @@ const siteLinks = [
     border-bottom-color: var(--color-border-dark) !important;
   }
   .dark .site-switcher-dropdown,
-  .dark .nav-dropdown {
+  .dark .nav-dropdown,
+  .dark .settings-dropdown {
     background: var(--color-card-bg-dark) !important;
     border-color: var(--color-border-dark) !important;
   }

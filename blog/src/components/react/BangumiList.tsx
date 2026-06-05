@@ -37,7 +37,6 @@ export default function BangumiList({ watching, watched }: BangumiListProps) {
   const [genre, setGenre] = useState<string>('all');
   const items = tab === 'watching' ? watching : watched;
 
-  // Extract all genres from TMDB data
   const allGenres = useMemo(() => {
     const g = new Set<string>();
     [...watching, ...watched].forEach(item => {
@@ -46,7 +45,6 @@ export default function BangumiList({ watching, watched }: BangumiListProps) {
     return ['all', ...Array.from(g).sort()];
   }, [watching, watched]);
 
-  // Filter by search + genre
   const filtered = useMemo(() => {
     let list = items;
     if (search.trim()) {
@@ -70,11 +68,6 @@ export default function BangumiList({ watching, watched }: BangumiListProps) {
   const getEpInfo = (item: BangumiItem) => {
     if (item.tmdb?.numberOfEpisodes) return `全${item.tmdb.numberOfEpisodes}话`;
     return item.totalCount || '';
-  };
-  const getLink = (item: BangumiItem) => {
-    if (item.tmdb?.tmdbId) return `https://www.themoviedb.org/tv/${item.tmdb.tmdbId}`;
-    if (item.id) return `https://www.bilibili.com/bangumi/play/ss${item.id}`;
-    return '#';
   };
 
   return (
@@ -130,7 +123,6 @@ export default function BangumiList({ watching, watched }: BangumiListProps) {
         )}
       </div>
 
-      {/* Count */}
       <p className="text-xs mb-3" style={{ color: 'var(--color-foreground-muted)', opacity: 0.6 }}>
         {filtered.length} 部
       </p>
@@ -139,14 +131,12 @@ export default function BangumiList({ watching, watched }: BangumiListProps) {
       {filtered.length > 0 ? (
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
           {filtered.map((item, i) => (
-            <a
+            <div
               key={item.title + i}
-              href={getLink(item)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bangumi-card group block"
+              className="bangumi-card group"
               style={{ animation: `fade-in-up 0.4s ${i * 0.04}s backwards` }}
             >
+              {/* Poster */}
               <div className="relative aspect-[2/3] rounded-lg overflow-hidden" style={{ background: 'var(--color-border)' }}>
                 <img
                   src={getCover(item)}
@@ -154,26 +144,87 @@ export default function BangumiList({ watching, watched }: BangumiListProps) {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
+                {/* Rating badge */}
                 {getRating(item) && getRating(item) !== '-' && (
                   <div className="absolute top-1 right-1 flex items-center gap-0.5 px-1.5 py-0.5 rounded text-xs" style={{ background: 'rgba(0,0,0,0.7)', color: '#fbbf24' }}>
                     ★ {getRating(item)}
                   </div>
                 )}
+                {/* Episode badge */}
                 {getEpInfo(item) && (
                   <div className="absolute bottom-1 left-1 px-1.5 py-0.5 rounded text-[10px]" style={{ background: 'rgba(0,0,0,0.6)', color: 'white' }}>
                     {getEpInfo(item)}
                   </div>
                 )}
+                {/* B站 + TMDB link buttons */}
+                <div className="absolute bottom-1 right-1 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                  {item.id && (
+                    <a
+                      href={`https://www.bilibili.com/bangumi/play/ss${item.id}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center w-7 h-7 rounded-full text-[10px] font-bold transition-transform hover:scale-110"
+                      style={{ background: 'rgba(0,174,236,0.9)', color: 'white' }}
+                      title="B站"
+                      onClick={e => e.stopPropagation()}
+                    >
+                      B
+                    </a>
+                  )}
+                  {item.tmdb?.tmdbId && (
+                    <a
+                      href={`https://www.themoviedb.org/tv/${item.tmdb.tmdbId}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center w-7 h-7 rounded-full text-[10px] font-bold transition-transform hover:scale-110"
+                      style={{ background: 'rgba(1,210,117,0.9)', color: 'white' }}
+                      title="TMDB"
+                      onClick={e => e.stopPropagation()}
+                    >
+                      T
+                    </a>
+                  )}
+                </div>
               </div>
+
+              {/* Title */}
               <h3 className="mt-2 text-sm font-medium line-clamp-2 group-hover:text-primary transition-colors" style={{ color: 'var(--color-foreground)' }}>
                 {item.title}
               </h3>
+
+              {/* Details with tooltip */}
               {getDesc(item) && (
-                <p className="text-[11px] mt-1 line-clamp-2" style={{ color: 'var(--color-foreground-muted)', opacity: 0.7 }}>
-                  {getDesc(item)}
-                </p>
+                <div className="relative">
+                  <p className="text-[11px] mt-1 line-clamp-2 cursor-help" style={{ color: 'var(--color-foreground-muted)', opacity: 0.7 }}>
+                    {getDesc(item)}
+                  </p>
+                  {/* Tooltip */}
+                  <div className="bangumi-tooltip absolute left-0 bottom-full mb-2 w-64 p-3 rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pointer-events-none" style={{
+                    background: 'var(--color-card-bg)',
+                    border: '1px solid var(--color-border)',
+                    boxShadow: '0 4px 20px rgba(0,0,0,0.12)',
+                    zIndex: 50,
+                  }}>
+                    <p className="text-xs font-semibold mb-1" style={{ color: 'var(--color-foreground)' }}>{item.title}</p>
+                    {item.tmdb?.genres?.length ? (
+                      <p className="text-[10px] mb-1" style={{ color: 'var(--color-primary)' }}>
+                        {item.tmdb.genres.join(' / ')}
+                      </p>
+                    ) : null}
+                    <p className="text-[11px] leading-relaxed" style={{ color: 'var(--color-foreground-muted)' }}>
+                      {getDesc(item)}
+                    </p>
+                    {item.tmdb && (
+                      <div className="flex gap-3 mt-2 text-[10px]" style={{ color: 'var(--color-foreground-muted)', opacity: 0.7 }}>
+                        {item.tmdb.firstAirDate && <span>首播: {item.tmdb.firstAirDate}</span>}
+                        {item.tmdb.numberOfSeasons > 0 && <span>季: {item.tmdb.numberOfSeasons}</span>}
+                        {item.tmdb.status && <span>{item.tmdb.status}</span>}
+                      </div>
+                    )}
+                  </div>
+                </div>
               )}
-            </a>
+            </div>
           ))}
         </div>
       ) : (
