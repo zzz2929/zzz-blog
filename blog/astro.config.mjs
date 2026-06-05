@@ -5,15 +5,13 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import { visit } from 'unist-util-visit';
 
-/** Rehype plugin: add loading="lazy" and image loading effect to all <img> tags */
+/** Rehype plugin: add loading="lazy" to all <img> tags */
 function rehypeImgLazyLoad() {
   return (tree) => {
     visit(tree, 'element', (node) => {
       if (node.tagName !== 'img') return;
       if (!node.properties) node.properties = {};
       node.properties.loading = 'lazy';
-      node.properties.onload = "this.classList.add('img-loaded'); this.parentElement?.classList.add('img-loaded'); this.parentElement?.classList.remove('img-spinner');";
-      node.properties.onerror = "this.classList.add('img-loaded'); this.parentElement?.classList.add('img-loaded'); this.parentElement?.classList.remove('img-spinner');";
     });
   };
 }

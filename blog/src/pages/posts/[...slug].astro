@@ -116,8 +116,8 @@ function formatDate(d: Date): string {
     // Edge case: images already cached may have fired onload before DOMContentLoaded.
     // Ensure they get the .loaded class so they aren't stuck at opacity: 0.
     document.querySelectorAll('.prose img').forEach((img) => {
-      if (img.complete && !img.classList.contains('img-loaded')) {
-        img.classList.add('img-loaded');
+      if (img.complete && !img.classList.contains('loaded')) {
+        img.classList.add('loaded');
       }
     });
 
