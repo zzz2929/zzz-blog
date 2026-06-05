@@ -421,15 +421,122 @@ pre:hover .code-copy-btn { opacity: 1; }
   --waline-text-color: var(--color-foreground);
 }
 
-/* Layout: force full width */
-.wl-panel, .wl-card, .wl-comment, .wl-editor-wrap, .wl-action,
-.wl-login-info, .wl-meta, .wl-sort, .wl-tabs {
-  width: 100% !important;
-  box-sizing: border-box !important;
-}
-
 /* Hide the default header (logo + title) */
 .wl-header { display: none !important; }
+
+/* Layout: login info (nickname/email/url) in a row */
+.wl-login-info {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  margin-bottom: 12px !important;
+  width: 100% !important;
+}
+.wl-login-info .wl-input {
+  flex: 1 1 0 !important;
+  min-width: 120px !important;
+  height: 36px !important;
+}
+
+/* Editor container: avatar + textarea side by side */
+.wl-editor-container {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 12px !important;
+  width: 100% !important;
+  align-items: flex-start !important;
+}
+
+/* Avatar */
+.wl-avatar {
+  border-radius: 50% !important;
+  overflow: hidden !important;
+  flex-shrink: 0 !important;
+  width: 40px !important;
+  height: 40px !important;
+}
+
+/* Textarea wrapper: grows to fill remaining space */
+.wl-textarea-wrap {
+  flex: 1 !important;
+  min-width: 0 !important;
+}
+
+/* Textarea */
+.wl-editor {
+  width: 100% !important;
+  min-height: 100px !important;
+  background: var(--color-card-bg) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: 10px !important;
+  padding: 12px !important;
+  color: var(--color-foreground) !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  resize: vertical !important;
+  box-sizing: border-box !important;
+  transition: border-color 0.2s !important;
+}
+.dark .wl-editor {
+  background: var(--color-card-bg-dark) !important;
+  border-color: var(--color-border-dark) !important;
+}
+.wl-editor:focus {
+  border-color: var(--color-primary) !important;
+  outline: none !important;
+}
+
+/* Action bar: icon row at bottom of editor, horizontal */
+.wl-editor-footer {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  margin-top: 10px !important;
+}
+
+.wl-action-icon {
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+
+/* Input fields (hidden when logged in, shown as fallback) */
+.wl-input {
+  background: var(--color-card-bg) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: 8px !important;
+  color: var(--color-foreground) !important;
+  font-size: 13px !important;
+  transition: border-color 0.2s !important;
+  box-sizing: border-box !important;
+}
+.dark .wl-input {
+  background: var(--color-card-bg-dark) !important;
+  border-color: var(--color-border-dark) !important;
+}
+.wl-input:focus {
+  border-color: var(--color-primary) !important;
+  outline: none !important;
+}
+
+/* Submit button */
+.wl-btn {
+  background: var(--color-primary) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  padding: 8px 20px !important;
+  transition: opacity 0.2s, transform 0.2s !important;
+}
+.wl-btn:hover {
+  opacity: 0.85 !important;
+  transform: translateY(-1px) !important;
+}
 
 /* Comment card style */
 .wl-card-item {
@@ -448,12 +555,6 @@ pre:hover .code-copy-btn { opacity: 1; }
 }
 .wl-card-item:hover {
   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-}
-
-/* Avatar */
-.wl-avatar {
-  border-radius: 50% !important;
-  overflow: hidden !important;
 }
 
 /* User name */
@@ -477,50 +578,25 @@ pre:hover .code-copy-btn { opacity: 1; }
 .wl-action button {
   color: var(--color-foreground-muted) !important;
   transition: color 0.2s !important;
+  font-size: 12px !important;
 }
 .wl-action button:hover {
   color: var(--color-primary) !important;
 }
 
-/* Input area */
-.wl-editor,
-.wl-input {
-  width: 100% !important;
-  background: var(--color-card-bg) !important;
-  border: 1px solid var(--color-border) !important;
-  border-radius: 8px !important;
-  color: var(--color-foreground) !important;
-  font-size: 13px !important;
-  transition: border-color 0.2s !important;
-  box-sizing: border-box !important;
+/* Sort tabs */
+.wl-sort {
+  display: flex !important;
+  gap: 16px !important;
+  margin: 16px 0 !important;
 }
-.dark .wl-editor,
-.dark .wl-input {
-  background: var(--color-card-bg-dark) !important;
-  border-color: var(--color-border-dark) !important;
+.wl-sort span {
+  cursor: pointer !important;
+  transition: color 0.2s !important;
 }
-.wl-editor:focus,
-.wl-input:focus {
-  border-color: var(--color-primary) !important;
-  outline: none !important;
-}
-
-/* Submit button */
-.wl-btn {
-  background: var(--color-primary) !important;
-  color: white !important;
-  border: none !important;
-  border-radius: 8px !important;
-  font-weight: 500 !important;
-  padding: 6px 16px !important;
-  transition: opacity 0.2s !important;
-}
-.wl-btn:hover { opacity: 0.85 !important; }
-
-/* Tab bar (preview / emoji) */
-.wl-tab-active {
+.wl-sort .wl-active {
   color: var(--color-primary) !important;
-  border-bottom-color: var(--color-primary) !important;
+  font-weight: 600 !important;
 }
 
 /* Time */
@@ -529,13 +605,20 @@ pre:hover .code-copy-btn { opacity: 1; }
   color: var(--color-foreground-muted) !important;
 }
 
-/* Scrollbar inside waline */
-.wl-panel { scrollbar-width: thin; }
-
 /* Empty state */
 .wl-empty {
   color: var(--color-foreground-muted) !important;
   font-size: 13px !important;
+  text-align: center !important;
+  padding: 40px 0 !important;
+}
+
+/* Scrollbar inside waline */
+.wl-panel { scrollbar-width: thin; }
+
+/* Reply box */
+.wl-reply {
+  margin-top: 12px !important;
 }
 
 /* ====== Selection ====== */
