@@ -487,42 +487,34 @@ pre:hover .code-copy-btn { opacity: 1; }
   outline: none !important;
 }
 
-/* Action bar: icon row at bottom of editor, horizontal */
-.wl-editor-footer {
+/* Action bar: all toolbar items in one horizontal row */
+.wl-action {
   display: flex !important;
   flex-direction: row !important;
+  flex-wrap: wrap !important;
   align-items: center !important;
-  justify-content: space-between !important;
+  gap: 8px !important;
   width: 100% !important;
   margin-top: 10px !important;
 }
 
+/* Icons + file input in a row */
 .wl-action-icon {
   display: flex !important;
+  flex-direction: row !important;
   align-items: center !important;
-  gap: 4px !important;
+  gap: 6px !important;
 }
 
-/* Input fields (hidden when logged in, shown as fallback) */
-.wl-input {
-  background: var(--color-card-bg) !important;
-  border: 1px solid var(--color-border) !important;
-  border-radius: 8px !important;
-  color: var(--color-foreground) !important;
-  font-size: 13px !important;
-  transition: border-color 0.2s !important;
-  box-sizing: border-box !important;
-}
-.dark .wl-input {
-  background: var(--color-card-bg-dark) !important;
-  border-color: var(--color-border-dark) !important;
-}
-.wl-input:focus {
-  border-color: var(--color-primary) !important;
-  outline: none !important;
+/* File input */
+.wl-action input[type="file"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  font-size: 12px !important;
+  margin: 0 !important;
 }
 
-/* Submit button */
+/* Buttons row: character count + login + submit */
 .wl-btn {
   background: var(--color-primary) !important;
   color: white !important;
@@ -536,6 +528,13 @@ pre:hover .code-copy-btn { opacity: 1; }
 .wl-btn:hover {
   opacity: 0.85 !important;
   transform: translateY(-1px) !important;
+}
+
+/* Character count */
+.wl-text {
+  font-size: 12px !important;
+  color: var(--color-foreground-muted) !important;
+  white-space: nowrap !important;
 }
 
 /* Comment card style */
@@ -555,6 +554,25 @@ pre:hover .code-copy-btn { opacity: 1; }
 }
 .wl-card-item:hover {
   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* Input fields */
+.wl-input {
+  background: var(--color-card-bg) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: 8px !important;
+  color: var(--color-foreground) !important;
+  font-size: 13px !important;
+  transition: border-color 0.2s !important;
+  box-sizing: border-box !important;
+}
+.dark .wl-input {
+  background: var(--color-card-bg-dark) !important;
+  border-color: var(--color-border-dark) !important;
+}
+.wl-input:focus {
+  border-color: var(--color-primary) !important;
+  outline: none !important;
 }
 
 /* User name */
