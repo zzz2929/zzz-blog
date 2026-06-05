@@ -12,12 +12,12 @@ good_things:
     image: https://imgbed.904002.xyz/file/blog/equipment/1755591233194_Lenovo_Legion_R9000P2021H.png
     link: https://item.lenovo.com.cn/product/1013150.html
   - name: Xiaomi Pad 6S Pro 12.4 云峰蓝
-    specification: 第二代骁龙8 16G / 1Tb + 32GB
+    specification: 第二代骁龙8 16G / 1TB + 32GB
     description: 事事玩得转，买前生产力，买后爱奇艺。
     image: https://imgbed.904002.xyz/file/blog/equipment/1755591230569_Xiaomi_Pad_6S_Pro_12.4.png
     link: https://www.mi.com/prod/xiaomi-pad-6s-pro
   - name: Xiaomi 15 Pro 白色
-    specification: 骁龙8至尊版移动平台 16G / 512Gb + 16GB
+    specification: 骁龙8至尊版移动平台 16G / 512GB + 16GB
     description: 手感对比上一代提升很大，屏幕显示效果好、性能强劲。(但是不知道因为电池还是后壳工艺的问题，导致很多人后壳变形)
     image: https://imgbed.904002.xyz/file/blog/equipment/1755591232454_xiaomi_15_Pro.png
     link: https://www.mi.com/prod/xiaomi-15-pro/specs
@@ -39,6 +39,6 @@ good_things:
   equipment_list:
   - name: 小米小爱音箱 Pro
     specification: 黑色
-    description: WiFi+蓝牙+红外，可当蓝牙Mesh网关用。
+    description: WiFi+蓝牙+红外，可当蓝牙Mesh网关用，组建米家智能家居必备设备。
     image: https://imgbed.904002.xyz/file/blog/equipment/1755591232494_小米小爱音箱_Pro.png
     link: https://www.mi.com/aispeaker-pro
