@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "class_name": {
+      "type": "string"
+    },
+    "path_name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "number"
+    },
+    "description": {
+      "type": "string"
+    },
+    "cover": {
+      "type": "string"
+    },
+    "top_background": {
+      "type": "string"
+    },
+    "rowHeight": {
+      "type": "number"
+    },
+    "limit": {
+      "type": "number"
+    },
+    "lazyload": {
+      "type": "boolean"
+    },
+    "top_link": {
+      "type": "string"
+    },
+    "top_btn_text": {
+      "type": "string"
+    },
+    "album_list": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "from": {
+            "type": "string"
+          },
+          "image": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "date",
+          "content",
+          "image"
+        ]
+      }
+    },
+    "$schema": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "class_name",
+    "path_name",
+    "type",
+    "album_list"
+  ]
+}

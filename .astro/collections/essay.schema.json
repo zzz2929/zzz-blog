@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "subTitle": {
+      "type": "string"
+    },
+    "tips": {
+      "type": "string"
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "buttonLink": {
+      "type": "string"
+    },
+    "limit": {
+      "type": "number"
+    },
+    "home_essay": {
+      "type": "boolean"
+    },
+    "top_background": {
+      "type": "string"
+    },
+    "essay_list": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "video": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "link": {
+            "type": "string"
+          },
+          "aplayer": {
+            "type": "object",
+            "properties": {
+              "server": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "server",
+              "id"
+            ]
+          }
+        },
+        "required": [
+          "content",
+          "date"
+        ]
+      }
+    },
+    "$schema": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "title",
+    "essay_list"
+  ]
+}
