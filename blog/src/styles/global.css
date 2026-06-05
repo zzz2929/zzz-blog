@@ -403,6 +403,128 @@ pre:hover .code-copy-btn { opacity: 1; }
 .toc-link.toc-active::before { height: 100%; }
 .toc-link.toc-active { color: var(--color-primary); font-weight: 600; }
 
+/* ====== Waline Comments ====== */
+:root {
+  --waline-theme-color: var(--color-primary);
+  --waline-active-color: var(--color-primary);
+  --waline-bg-color: transparent;
+  --waline-border-color: var(--color-border);
+  --waline-text-color: var(--color-foreground);
+  --waline-info-color: var(--color-foreground-muted);
+  --waline-border: none;
+  --waline-border-radius: 12px;
+  --waline-font-size: 14px;
+}
+.dark {
+  --waline-bg-color: transparent;
+  --waline-border-color: var(--color-border-dark);
+  --waline-text-color: var(--color-foreground);
+}
+
+/* Hide the default header (logo + title) */
+.wl-header { display: none !important; }
+
+/* Comment card style */
+.wl-card-item {
+  border: 1px solid var(--color-border) !important;
+  border-radius: 12px !important;
+  padding: 16px !important;
+  margin-bottom: 12px !important;
+  background: var(--color-card-bg) !important;
+  transition: box-shadow 0.2s ease;
+}
+.dark .wl-card-item {
+  border-color: var(--color-border-dark) !important;
+  background: var(--color-card-bg-dark) !important;
+}
+.wl-card-item:hover {
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* Avatar */
+.wl-avatar {
+  border-radius: 50% !important;
+  overflow: hidden !important;
+}
+
+/* User name */
+.wl-nick {
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  color: var(--color-foreground) !important;
+}
+
+/* Comment content */
+.wl-content {
+  font-size: 14px !important;
+  line-height: 1.7 !important;
+  color: var(--color-foreground) !important;
+  margin-top: 8px !important;
+}
+
+/* Reply / like buttons */
+.wl-action button {
+  color: var(--color-foreground-muted) !important;
+  transition: color 0.2s !important;
+}
+.wl-action button:hover {
+  color: var(--color-primary) !important;
+}
+
+/* Input area */
+.wl-editor,
+.wl-input {
+  background: var(--color-card-bg) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: 8px !important;
+  color: var(--color-foreground) !important;
+  font-size: 13px !important;
+  transition: border-color 0.2s !important;
+}
+.dark .wl-editor,
+.dark .wl-input {
+  background: var(--color-card-bg-dark) !important;
+  border-color: var(--color-border-dark) !important;
+}
+.wl-editor:focus,
+.wl-input:focus {
+  border-color: var(--color-primary) !important;
+  outline: none !important;
+}
+
+/* Submit button */
+.wl-btn {
+  background: var(--color-primary) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 8px !important;
+  font-weight: 500 !important;
+  padding: 6px 16px !important;
+  transition: opacity 0.2s !important;
+}
+.wl-btn:hover { opacity: 0.85 !important; }
+
+/* Tab bar (preview / emoji) */
+.wl-tab-active {
+  color: var(--color-primary) !important;
+  border-bottom-color: var(--color-primary) !important;
+}
+
+/* Time */
+.wl-time {
+  font-size: 11px !important;
+  color: var(--color-foreground-muted) !important;
+}
+
+/* Scrollbar inside waline */
+.wl-panel { scrollbar-width: thin; }
+
+/* Empty state */
+.wl-empty {
+  color: var(--color-foreground-muted) !important;
+  font-size: 13px !important;
+}
+
 /* ====== Selection ====== */
 ::selection { background: #2128bd; color: #fff; }
 .dark ::selection { background: var(--color-primary-dark); color: #000; }
