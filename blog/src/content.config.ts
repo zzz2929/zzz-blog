@@ -105,5 +105,3 @@ const album = defineCollection({
 });
 
 export const collections = { blog, friends, equipment, essay, album };
-
-// about.yml and skills.yml are imported directly as modules, not collections
