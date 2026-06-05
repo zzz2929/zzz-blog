@@ -409,6 +409,12 @@ img.img-ready.img-loaded { opacity: 1; }
   to { transform: rotate(360deg); }
 }
 
+/* Bangumi detail tooltip - only show on detail hover */
+.bangumi-detail-wrap:hover .bangumi-tooltip {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
 /* ====== Scrollbar ====== */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }

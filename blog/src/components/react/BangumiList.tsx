@@ -32,10 +32,10 @@ interface BangumiListProps {
 }
 
 export default function BangumiList({ watching, watched }: BangumiListProps) {
-  const [tab, setTab] = useState<'watching' | 'watched'>('watching');
+  const [tab, setTab] = useState<'all' | 'watching' | 'watched'>('all');
   const [search, setSearch] = useState('');
   const [genre, setGenre] = useState<string>('all');
-  const items = tab === 'watching' ? watching : watched;
+  const items = tab === 'all' ? [...watching, ...watched] : tab === 'watching' ? watching : watched;
 
   const allGenres = useMemo(() => {
     const g = new Set<string>();
@@ -74,17 +74,17 @@ export default function BangumiList({ watching, watched }: BangumiListProps) {
     <div>
       {/* Tabs */}
       <div className="flex gap-2 mb-4">
-        {(['watching', 'watched'] as const).map(t => (
+        {([['all', '全部', watching.length + watched.length], ['watching', '🎬 在看', watching.length], ['watched', '✅ 看过', watched.length]] as const).map(([t, label, count]) => (
           <button
             key={t}
-            onClick={() => setTab(t)}
+            onClick={() => setTab(t as any)}
             className="px-4 py-2 rounded-lg text-sm font-medium transition-colors"
             style={{
               background: tab === t ? 'var(--color-primary)' : 'var(--color-border)',
               color: tab === t ? 'white' : 'var(--color-foreground-muted)',
             }}
           >
-            {t === 'watching' ? '🎬 在看' : '✅ 看过'} ({t === 'watching' ? watching.length : watched.length})
+            {label} ({count})
           </button>
         ))}
       </div>
@@ -194,12 +194,12 @@ export default function BangumiList({ watching, watched }: BangumiListProps) {
 
               {/* Details with tooltip */}
               {getDesc(item) && (
-                <div className="relative">
+                <div className="relative bangumi-detail-wrap">
                   <p className="text-[11px] mt-1 line-clamp-2 cursor-help" style={{ color: 'var(--color-foreground-muted)', opacity: 0.7 }}>
                     {getDesc(item)}
                   </p>
                   {/* Tooltip */}
-                  <div className="bangumi-tooltip absolute left-0 bottom-full mb-2 w-64 p-3 rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pointer-events-none" style={{
+                  <div className="bangumi-tooltip absolute left-0 bottom-full mb-2 w-64 p-3 rounded-lg opacity-0 invisible transition-all duration-200 pointer-events-none" style={{
                     background: 'var(--color-card-bg)',
                     border: '1px solid var(--color-border)',
                     boxShadow: '0 4px 20px rgba(0,0,0,0.12)',
