@@ -63,6 +63,12 @@ export default defineConfig({
         '@': '/src',
       },
     },
+    server: {
+      watch: {
+        usePolling: true,
+        interval: 1000,
+      },
+    },
   },
   image: {
     service: { entrypoint: 'astro/assets/services/sharp' },

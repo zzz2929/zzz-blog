@@ -5,10 +5,6 @@ tags: [Python]
 categories: [技术]
 cover: https://imgbed.904002.xyz/file/blog/background/post/top_img/Development.jpg
 ---
-# Windows 系统中使用 cuDF 加速 Pandas 教程(含 Python 安装)
-
-------
-
 在数据分析领域，Pandas 是一个功能强大的 Python 库，它使得数据处理和分析变得简单而高效。然而，当处理大规模数据集时，Pandas 的性能可能会成为瓶颈。在这种情况下，我们可以使用GPU的并行运算来加速处理，cuDF 就是这样的一个工具。
 
 然而，cuDF 目前只支持 Linux 环境，我们可以通过 WSL 来在 Windows 系统中使用 cuDF。
@@ -17,7 +13,7 @@ cover: https://imgbed.904002.xyz/file/blog/background/post/top_img/Development.j
 >
 > 本教程在 Win11 专业版环境下实现
 
-------
+---
 
 ## 1. 安装 Python
 
@@ -71,7 +67,7 @@ win+r 输入 cmd 打开黑窗口，之后输入 `python`，如果出现如图样
 
 ![验证是否安装成功](https://imgbed.904002.xyz/file/blog/post/cuDF/Python安装/验证是否安装成功.png)
 
-------
+---
 
 ## 2. 安装代码编辑器(这里推荐 VS Code)
 
@@ -97,7 +93,7 @@ win+r 输入 cmd 打开黑窗口，之后输入 `python`，如果出现如图样
 
 ![点击安装汉化插件](https://imgbed.904002.xyz/file/blog/post/cuDF/VSCode安装/点击安装汉化插件.png)
 
-------
+---
 
 ## 3. 安装 WSL
 
@@ -189,7 +185,7 @@ wsl --unregister Ubuntu
 wsl --import Ubuntu D:\export\ D:\export.tar --version 2
 ```
 
-------
+---
 
 ## 4. 安装cuDF
 
@@ -305,7 +301,7 @@ pip install cudf-cu12 --extra-index-url=https://pypi.nvidia.com (选择适合自
 import cudf
 ```
 
-------
+---
 
 ## 5. 在 VS Code 中使用 cuDF 加速代码
 
@@ -351,7 +347,7 @@ source myenv/bin/activate
 
  `Ctrl+Shift+P` 打开命令面板，输入 **`Python: Select Interpreter`** 选择解释器
 
-点击**输入解释器路径，找到路径包含 **，按照`your_project_path/myenv/bin/python`的路径选择(在4.2.1创建过的虚拟环境)
+点击**输入解释器路径，找到路径包含 **，按照 `your_project_path/myenv/bin/python`的路径选择(在4.2.1创建过的虚拟环境)
 
 ![选择解释器](https://imgbed.904002.xyz/file/blog/post/cuDF/cuDF使用/选择解释器.png)
 
@@ -395,12 +391,12 @@ try:
         print(f"cuDF版本: {cudf.__version__}")
     else:
         print("cuDF版本: 未知")
-        
+    
     # 测试基本功能
     df = cudf.DataFrame({'a': [1, 2, 3]})
     print("✅ cuDF基本功能正常")
     print(f"测试DataFrame: {df}")
-    
+  
 except ImportError as e:
     print(f"❌ cuDF导入失败: {e}")
     print("建议: 重新安装cuDF")
@@ -434,7 +430,7 @@ cuDF版本: 25.10.00
 ✅ pandas 已安装
 ```
 
-------
+---
 
 ## 6.测试 cuDF 加持下的运行速度
 
@@ -455,9 +451,9 @@ import os
 def create_test_data(num_rows=5_000_000):
     """创建测试数据集"""
     print(f"生成 {num_rows:,} 行测试数据...")
-    
+  
     np.random.seed(42)  # 确保可重复性
-    
+  
     data = {
         'customer_id': np.random.randint(1, 10000, num_rows),
         'product_id': np.random.randint(1, 500, num_rows),
@@ -469,18 +465,18 @@ def create_test_data(num_rows=5_000_000):
         'rating': np.random.randint(1, 6, num_rows),
         'date': pd.date_range('2023-01-01', periods=num_rows, freq='T')
     }
-    
+  
     return data
 
 def pandas_operations(data):
     """执行pandas操作"""
     print("\n🏁 开始Pandas测试...")
-    
+  
     # 创建DataFrame
     start_time = time.time()
     pdf = pd.DataFrame(data)
     creation_time = time.time() - start_time
-    
+  
     # 操作1: 基本统计
     start_time = time.time()
     basic_stats = pdf.groupby('region').agg({
@@ -489,7 +485,7 @@ def pandas_operations(data):
         'rating': 'mean'
     })
     op1_time = time.time() - start_time
-    
+  
     # 操作2: 复杂过滤和计算
     start_time = time.time()
     filtered_data = pdf[
@@ -502,13 +498,13 @@ def pandas_operations(data):
                                            bins=[0, 50, 100, 200, float('inf')],
                                            labels=['Low', 'Medium', 'High', 'Very High'])
     op2_time = time.time() - start_time
-    
+  
     # 操作3: 时间序列分析
     start_time = time.time()
     pdf['month'] = pdf['date'].dt.month
     monthly_sales = pdf.groupby(['month', 'category'])['sales_amount'].sum().unstack()
     op3_time = time.time() - start_time
-    
+  
     # 操作4: 多级分组和复杂聚合
     start_time = time.time()
     customer_analysis = pdf.groupby(['customer_id', 'region']).agg({
@@ -518,9 +514,9 @@ def pandas_operations(data):
     }).round(2)
     customer_analysis.columns = ['_'.join(col).strip() for col in customer_analysis.columns.values]
     op4_time = time.time() - start_time
-    
+  
     total_time = creation_time + op1_time + op2_time + op3_time + op4_time
-    
+  
     return {
         'creation': creation_time,
         'basic_stats': op1_time,
@@ -533,15 +529,15 @@ def pandas_operations(data):
 def cudf_operations(data):
     """执行cuDF操作"""
     print("\n⚡ 开始cuDF测试...")
-    
+  
     try:
         import cudf
-        
+    
         # 创建DataFrame
         start_time = time.time()
         gdf = cudf.DataFrame(data)
         creation_time = time.time() - start_time
-        
+    
         # 操作1: 基本统计
         start_time = time.time()
         basic_stats = gdf.groupby('region').agg({
@@ -550,7 +546,7 @@ def cudf_operations(data):
             'rating': 'mean'
         })
         op1_time = time.time() - start_time
-        
+    
         # 操作2: 复杂过滤和计算
         start_time = time.time()
         filtered_data = gdf[
@@ -563,13 +559,13 @@ def cudf_operations(data):
                                                  bins=[0, 50, 100, 200, float('inf')],
                                                  labels=['Low', 'Medium', 'High', 'Very High'])
         op2_time = time.time() - start_time
-        
+    
         # 操作3: 时间序列分析
         start_time = time.time()
         gdf['month'] = gdf['date'].dt.month
         monthly_sales = gdf.groupby(['month', 'category'])['sales_amount'].sum().unstack()
         op3_time = time.time() - start_time
-        
+    
         # 操作4: 多级分组和复杂聚合
         start_time = time.time()
         customer_analysis = gdf.groupby(['customer_id', 'region']).agg({
@@ -579,9 +575,9 @@ def cudf_operations(data):
         }).round(2)
         customer_analysis.columns = ['_'.join(col).strip() for col in customer_analysis.columns.values]
         op4_time = time.time() - start_time
-        
+    
         total_time = creation_time + op1_time + op2_time + op3_time + op4_time
-        
+    
         return {
             'creation': creation_time,
             'basic_stats': op1_time,
@@ -590,7 +586,7 @@ def cudf_operations(data):
             'multi_group': op4_time,
             'total': total_time
         }, basic_stats, filtered_data, monthly_sales, customer_analysis
-        
+    
     except ImportError:
         print("❌ cuDF未安装，跳过GPU测试")
         return None, None, None, None, None
@@ -602,27 +598,27 @@ def verify_results(pandas_results, cudf_results):
     """验证pandas和cuDF结果的一致性"""
     if cudf_results is None:
         return
-    
+  
     print("\n🔍 验证结果一致性...")
-    
+  
     # 转换cuDF结果为pandas格式进行比较
     cudf_basic_stats = cudf_results[1].to_pandas() if cudf_results[1] is not None else None
     cudf_filtered = cudf_results[2].to_pandas() if cudf_results[2] is not None else None
     cudf_monthly = cudf_results[3].to_pandas() if cudf_results[3] is not None else None
     cudf_customer = cudf_results[4].to_pandas() if cudf_results[4] is not None else None
-    
+  
     checks = []
-    
+  
     # 检查基本统计
     if cudf_basic_stats is not None and pandas_results[1] is not None:
         diff = np.abs(pandas_results[1] - cudf_basic_stats).max().max()
         checks.append(('基本统计', diff < 0.01))
-    
+  
     # 检查过滤数据行数
     if cudf_filtered is not None and pandas_results[2] is not None:
         row_diff = abs(len(pandas_results[2]) - len(cudf_filtered))
         checks.append(('数据行数', row_diff == 0))
-    
+  
     print("一致性检查结果:")
     for check_name, passed in checks:
         status = "✅ 通过" if passed else "❌ 失败"
@@ -633,7 +629,7 @@ def visualize_comparison(pandas_times, cudf_times):
     if cudf_times is None:
         print("无法生成图表：cuDF测试数据缺失")
         return
-    
+  
     operations = ['数据创建', '基本统计', '复杂过滤', '时间序列', '多级分组', '总计']
     pandas_values = [
         pandas_times['creation'],
@@ -651,20 +647,20 @@ def visualize_comparison(pandas_times, cudf_times):
         cudf_times['multi_group'],
         cudf_times['total']
     ]
-    
+  
     # 计算加速比
     speedups = [pandas_values[i] / cudf_values[i] for i in range(len(operations))]
-    
+  
     # 创建图表
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 6))
-    
+  
     # 图表1: 执行时间对比
     x = np.arange(len(operations))
     width = 0.35
-    
+  
     bars1 = ax1.bar(x - width/2, pandas_values, width, label='Pandas (CPU)', color='#1f77b4', alpha=0.8)
     bars2 = ax1.bar(x + width/2, cudf_values, width, label='cuDF (GPU)', color='#ff7f0e', alpha=0.8)
-    
+  
     ax1.set_xlabel('操作类型', fontsize=12)
     ax1.set_ylabel('执行时间 (秒)', fontsize=12)
     ax1.set_title('Pandas vs cuDF 执行时间对比', fontsize=14, fontweight='bold')
@@ -672,22 +668,22 @@ def visualize_comparison(pandas_times, cudf_times):
     ax1.set_xticklabels(operations, rotation=45, ha='right')
     ax1.legend(fontsize=10)
     ax1.grid(axis='y', alpha=0.3)
-    
+  
     # 添加数值标签
     for bar in bars1:
         height = bar.get_height()
         ax1.text(bar.get_x() + bar.get_width()/2., height + max(pandas_values + cudf_values)*0.01,
                 f'{height:.3f}s', ha='center', va='bottom', fontsize=8)
-    
+  
     for bar in bars2:
         height = bar.get_height()
         ax1.text(bar.get_x() + bar.get_width()/2., height + max(pandas_values + cudf_values)*0.01,
                 f'{height:.3f}s', ha='center', va='bottom', fontsize=8)
-    
+  
     # 图表2: 加速比
     colors = ['green' if x >= 1 else 'red' for x in speedups]
     bars3 = ax2.bar(operations, speedups, color=colors, alpha=0.7)
-    
+  
     ax2.set_xlabel('操作类型', fontsize=12)
     ax2.set_ylabel('加速比 (Pandas/cuDF)', fontsize=12)
     ax2.set_title('cuDF GPU加速效果', fontsize=14, fontweight='bold')
@@ -695,21 +691,21 @@ def visualize_comparison(pandas_times, cudf_times):
     ax2.grid(axis='y', alpha=0.3)
     ax2.axhline(y=1, color='red', linestyle='--', alpha=0.5, label='基准线')
     ax2.legend()
-    
+  
     # 添加加速比数值
     for i, (bar, speedup) in enumerate(zip(bars3, speedups)):
         height = bar.get_height()
         ax2.text(bar.get_x() + bar.get_width()/2., height + 0.1,
                 f'{speedup:.1f}x', ha='center', va='bottom', fontsize=10, fontweight='bold')
-    
+  
     plt.tight_layout()
-    
+  
     # 保存图表
     timestamp = int(time.time())
     filename = f'cudf_performance_{timestamp}.png'
     plt.savefig(filename, dpi=300, bbox_inches='tight')
     print(f"\n📊 性能图表已保存: {filename}")
-    
+  
     plt.show()
 
 def print_detailed_report(pandas_times, cudf_times):
@@ -717,16 +713,16 @@ def print_detailed_report(pandas_times, cudf_times):
     print("\n" + "="*60)
     print("📈 详细性能报告")
     print("="*60)
-    
+  
     if cudf_times is None:
         print("只有Pandas测试结果:")
         for op, time_val in pandas_times.items():
             print(f"  {op:15}: {time_val:.4f}秒")
         return
-    
+  
     print(f"{'操作':15} | {'Pandas (秒)':>12} | {'cuDF (秒)':>10} | {'加速比':>8}")
     print("-" * 60)
-    
+  
     operations = [
         ('creation', '数据创建'),
         ('basic_stats', '基本统计'),
@@ -735,19 +731,19 @@ def print_detailed_report(pandas_times, cudf_times):
         ('multi_group', '多级分组'),
         ('total', '总计')
     ]
-    
+  
     for op_key, op_name in operations:
         pandas_time = pandas_times[op_key]
         cudf_time = cudf_times[op_key]
         speedup = pandas_time / cudf_time
-        
+    
         print(f"{op_name:15} | {pandas_time:12.4f} | {cudf_time:10.4f} | {speedup:8.2f}x")
 
 def main():
     """主函数"""
     print("🚀 Pandas vs cuDF 性能对比演示")
     print("=" * 50)
-    
+  
     # 根据可用内存调整数据大小
     try:
         import psutil
@@ -761,31 +757,31 @@ def main():
     except:
         num_rows = 3_000_000  # 默认300万行
         print(f"使用默认 {num_rows:,} 行数据")
-    
+  
     # 生成测试数据
     data = create_test_data(num_rows)
-    
+  
     # 执行测试
     pandas_times, p_stats, p_filtered, p_monthly, p_customer = pandas_operations(data)
     cudf_times, c_stats, c_filtered, c_monthly, c_customer = cudf_operations(data)
-    
+  
     # 验证结果
     verify_results((p_stats, p_filtered, p_monthly, p_customer), 
                   (c_stats, c_filtered, c_monthly, c_customer))
-    
+  
     # 生成报告和图表
     print_detailed_report(pandas_times, cudf_times)
     visualize_comparison(pandas_times, cudf_times)
-    
+  
     # 总结
     print("\n" + "="*60)
     print("🎯 性能测试总结")
     print("="*60)
-    
+  
     if cudf_times is not None:
         total_speedup = pandas_times['total'] / cudf_times['total']
         print(f"总体加速比: {total_speedup:.2f}x")
-        
+    
         if total_speedup > 1:
             print("✅ cuDF GPU加速效果显著！")
         else:
@@ -799,4 +795,3 @@ def main():
 if __name__ == "__main__":
     main()
 ```
-
