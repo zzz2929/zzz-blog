@@ -9,9 +9,11 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "generate-types": "wrangler types"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^13.6.1",
     "@astrojs/mdx": "^6.0.1",
     "@astrojs/react": "^5.0.7",
     "@astrojs/rss": "^4.0.18",
@@ -30,9 +32,16 @@
     "react-dom": "^19.2.7",
     "shiki": "^4.2.0",
     "tailwindcss": "^4.3.0",
-    "unist-util-visit": "^5.1.0"
+    "unist-util-visit": "^5.1.0",
+    "wrangler": "^4.98.0"
   },
   "pnpm": {
-    "onlyBuiltDependencies": ["esbuild", "sharp"]
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp"
+    ]
+  },
+  "overrides": {
+    "vite": "^7"
   }
 }

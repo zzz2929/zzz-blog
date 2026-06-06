@@ -1,12 +1,9 @@
 ---
-import fs from 'node:fs';
-import path from 'node:path';
 import yaml from 'js-yaml';
+import raw from '../../content/data/hitokoto.yml?raw';
 
-const ymlPath = path.resolve('./src/content/data/hitokoto.yml');
 let hitokotoList: string[] = [];
 try {
-  const raw = fs.readFileSync(ymlPath, 'utf-8');
   const data = yaml.load(raw) as any;
   hitokotoList = (data?.hitokoto_list || []).map((item: any) => String(item.title || '').trim()).filter(Boolean);
 } catch { hitokotoList = ['一花一世界，一叶一追寻']; }

@@ -5,6 +5,8 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import { visit } from 'unist-util-visit';
 
+import cloudflare from '@astrojs/cloudflare';
+
 /** Rehype plugin: add loading="lazy" to all <img> tags */
 function rehypeImgLazyLoad() {
   return (tree) => {
@@ -56,6 +58,7 @@ export default defineConfig({
   site: 'https://blog.904002.xyz',
   output: 'static',
   integrations: [react(), mdx(), sitemap()],
+
   vite: {
     plugins: [tailwindcss()],
     resolve: {
@@ -70,9 +73,11 @@ export default defineConfig({
       },
     },
   },
+
   image: {
     service: { entrypoint: 'astro/assets/services/sharp' },
   },
+
   markdown: {
     rehypePlugins: [rehypeImgLazyLoad, rehypeCodeBlock],
     shikiConfig: {
@@ -82,4 +87,6 @@ export default defineConfig({
       },
     },
   },
+
+  adapter: cloudflare()
 });
