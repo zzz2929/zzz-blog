@@ -1,7 +1,7 @@
 ---
 title: Windows 系统中使用 cuDF 加速 Pandas 教程(含 Python 安装)
 date: 2025-10-18 15:01:30
-tags: [Python]
+tags: [Python, Windows]
 categories: [技术]
 cover: https://imgbed.904002.xyz/file/blog/background/post/top_img/Development.jpg
 ---
@@ -129,7 +129,7 @@ win+r 输入 cmd 打开黑窗口，之后输入 `python`，如果出现如图样
 
 ### 3.2 安装 WSL
 
-##### 3.2.1 安装 WSL
+#### 3.2.1 安装 WSL
 
 > [!NOTE]
 >
@@ -155,7 +155,7 @@ wsl --install -d <发行版名称>
 
 安装成功后重启电脑。启动 Ubuntu 按照提示，创建账户与密码。
 
-##### 3.2.2 迁移 WSL 到其他盘(可选)
+#### 3.2.2 迁移 WSL 到其他盘(可选)
 
 按照上述步骤安装后，WSL 将会安装在 C 盘，并占据大量空间。
 
@@ -191,7 +191,7 @@ wsl --import Ubuntu D:\export\ D:\export.tar --version 2
 
 ### 4.1安装 CUDA Toolkit
 
-##### 4.1.1 输入以下代码查看 NVIDIA GPU
+#### 4.1.1 输入以下代码查看 NVIDIA GPU
 
 ```bash
 nvidia-smi
@@ -199,13 +199,13 @@ nvidia-smi
 
 ![查看_NVIDIA_GPU](https://imgbed.904002.xyz/file/blog/post/cuDF/cuDF安装/查看_NVIDIA_GPU.png)
 
-##### 4.1.2 更新 WSL 系统包
+#### 4.1.2 更新 WSL 系统包
 
 ```bash
 sudo apt update
 ```
 
-##### 4.1.3 下载 CUDA Toolkit
+#### 4.1.3 下载 CUDA Toolkit
 
 [官网](https://link.zhihu.com/?target=https%3A//developer.nvidia.com/cuda-toolkit-archive)
 
@@ -217,7 +217,7 @@ sudo apt update
 
 ![复制代码](https://imgbed.904002.xyz/file/blog/post/cuDF/cuDF安装/复制代码.jpeg)
 
-##### 4.1.4 将 4.1.3 中复制的代码粘贴并执行
+#### 4.1.4 将 4.1.3 中复制的代码粘贴并执行
 
 启动 WSL
 
@@ -229,7 +229,7 @@ wsl
 
 执行过程中会让输入密码，输入3.2.1中创建的密码
 
-##### 4.1.5 配置环境变量
+#### 4.1.5 配置环境变量
 
 安装完成后，需要将 CUDA 的路径添加到环境变量中
 
@@ -252,7 +252,7 @@ export LD_LIBRARY_PATH=/usr/local/cuda-12.4/lib64${LD_LIBRARY_PATH:+:${LD_LIBRAR
 source ~/.bashrc
 ```
 
-##### 4.1.6 验证安装
+#### 4.1.6 验证安装
 
 **检查 CUDA 编译器**
 
@@ -264,7 +264,7 @@ source ~/.bashrc
 
 ### 4.2 安装 cuDF
 
-##### 4.2.1 创建虚拟环境
+#### 4.2.1 创建虚拟环境
 
 安装软件包
 
@@ -284,14 +284,14 @@ python3 -m venv ~/myenv
 source ~/myenv/bin/activate
 ```
 
-##### 4.2.2 安装 cuDF
+#### 4.2.2 安装 cuDF
 
 ```bash
 pip install --upgrade pip
 pip install cudf-cu12 --extra-index-url=https://pypi.nvidia.com (选择适合自己版本号)
 ```
 
-##### 4.2.3 验证 cuDF 安装
+#### 4.2.3 验证 cuDF 安装
 
 在WSL中输入 python 启动 python
 
@@ -307,11 +307,11 @@ import cudf
 
 ### 5.1 确保 VS Code 能识别 WSL 环境。
 
-##### 5.1.1 安装扩展
+#### 5.1.1 安装扩展
 
 在 VS Code 的扩展商店中，搜索并安装 **`WSL`** 扩展。
 
-##### 5.1.2 连接至 WSL
+#### 5.1.2 连接至 WSL
 
 在VS Code中，按下 `Ctrl+Shift+P` (Windows/Linux) 或 `Cmd+Shift+P` (macOS) 打开命令面板
 
@@ -337,13 +337,13 @@ WSL: Connect to WSL
 
 ### 5.3 设置Python虚拟环境解释器
 
-##### 5.3.1 激活虚拟环境
+#### 5.3.1 激活虚拟环境
 
 ```bash
 source myenv/bin/activate
 ```
 
-##### 5.3.2 在 VS Code 中选择解释器
+#### 5.3.2 在 VS Code 中选择解释器
 
  `Ctrl+Shift+P` 打开命令面板，输入 **`Python: Select Interpreter`** 选择解释器
 
@@ -351,7 +351,7 @@ source myenv/bin/activate
 
 ![选择解释器](https://imgbed.904002.xyz/file/blog/post/cuDF/cuDF使用/选择解释器.png)
 
-##### 5.3.3 验证解释器
+#### 5.3.3 验证解释器
 
 创建一个测试文件，例如 `test_environment.py`，输入以下代码并运行
 
@@ -391,7 +391,7 @@ try:
         print(f"cuDF版本: {cudf.__version__}")
     else:
         print("cuDF版本: 未知")
-    
+  
     # 测试基本功能
     df = cudf.DataFrame({'a': [1, 2, 3]})
     print("✅ cuDF基本功能正常")
@@ -532,12 +532,12 @@ def cudf_operations(data):
   
     try:
         import cudf
-    
+  
         # 创建DataFrame
         start_time = time.time()
         gdf = cudf.DataFrame(data)
         creation_time = time.time() - start_time
-    
+  
         # 操作1: 基本统计
         start_time = time.time()
         basic_stats = gdf.groupby('region').agg({
@@ -546,7 +546,7 @@ def cudf_operations(data):
             'rating': 'mean'
         })
         op1_time = time.time() - start_time
-    
+  
         # 操作2: 复杂过滤和计算
         start_time = time.time()
         filtered_data = gdf[
@@ -559,13 +559,13 @@ def cudf_operations(data):
                                                  bins=[0, 50, 100, 200, float('inf')],
                                                  labels=['Low', 'Medium', 'High', 'Very High'])
         op2_time = time.time() - start_time
-    
+  
         # 操作3: 时间序列分析
         start_time = time.time()
         gdf['month'] = gdf['date'].dt.month
         monthly_sales = gdf.groupby(['month', 'category'])['sales_amount'].sum().unstack()
         op3_time = time.time() - start_time
-    
+  
         # 操作4: 多级分组和复杂聚合
         start_time = time.time()
         customer_analysis = gdf.groupby(['customer_id', 'region']).agg({
@@ -575,9 +575,9 @@ def cudf_operations(data):
         }).round(2)
         customer_analysis.columns = ['_'.join(col).strip() for col in customer_analysis.columns.values]
         op4_time = time.time() - start_time
-    
+  
         total_time = creation_time + op1_time + op2_time + op3_time + op4_time
-    
+  
         return {
             'creation': creation_time,
             'basic_stats': op1_time,
@@ -586,7 +586,7 @@ def cudf_operations(data):
             'multi_group': op4_time,
             'total': total_time
         }, basic_stats, filtered_data, monthly_sales, customer_analysis
-    
+  
     except ImportError:
         print("❌ cuDF未安装，跳过GPU测试")
         return None, None, None, None, None
@@ -736,7 +736,7 @@ def print_detailed_report(pandas_times, cudf_times):
         pandas_time = pandas_times[op_key]
         cudf_time = cudf_times[op_key]
         speedup = pandas_time / cudf_time
-    
+  
         print(f"{op_name:15} | {pandas_time:12.4f} | {cudf_time:10.4f} | {speedup:8.2f}x")
 
 def main():
@@ -781,7 +781,7 @@ def main():
     if cudf_times is not None:
         total_speedup = pandas_times['total'] / cudf_times['total']
         print(f"总体加速比: {total_speedup:.2f}x")
-    
+  
         if total_speedup > 1:
             print("✅ cuDF GPU加速效果显著！")
         else:

@@ -5,9 +5,9 @@ tags: [Windows]
 categories: [Tools]
 cover: https://imgbed.904002.xyz/file/blog/background/post/top_img/Windows工具-文件类.jpg
 ---
-# Geek
+## 1.Geek
 
-### 彻底卸载电脑上不需要的软件
+彻底卸载电脑上不需要的软件
 
 使用我的链接下载：
 
@@ -25,9 +25,7 @@ cover: https://imgbed.904002.xyz/file/blog/background/post/top_img/Windows工具
 
 ![](https://imgbed.904002.xyz/file/blog/post/Windows工具/文件类/geek.png)
 
-### 进阶版
-
-#### HiBit Uninstaller
+### 进阶版：HiBit Uninstaller
 
 除了卸载无残留外，还提供了一些其他的电脑清理功能
 
@@ -56,9 +54,9 @@ cover: https://imgbed.904002.xyz/file/blog/background/post/top_img/Windows工具
 ![](https://imgbed.904002.xyz/file/blog/post/Windows工具/文件类/HiBit_Uninstaller.png)
 
 ------
-# Everything
+## 2.Everything
 
-### 快速查找电脑文件
+快速查找电脑文件
 
 使用我的链接下载：
 
@@ -77,9 +75,9 @@ cover: https://imgbed.904002.xyz/file/blog/background/post/top_img/Windows工具
 ![](https://imgbed.904002.xyz/file/blog/post/Windows工具/文件类/everything-Better_file_sizes_in_Explorer_details.png)
 
 ------
-# Anytxt
+## 3.Anytxt
 
-### 查找文件内容
+查找文件内容
 
 使用我的链接下载：
 
@@ -94,9 +92,9 @@ cover: https://imgbed.904002.xyz/file/blog/background/post/top_img/Windows工具
 ![](https://imgbed.904002.xyz/file/blog/post/Windows工具/文件类/Antxt.png)
 
 ------
-# Beyond Compare
+## 4.Beyond Compare
 
-### 对比两个文件之间的不同
+对比两个文件之间的不同
 
 使用我的链接下载：
 
@@ -111,9 +109,9 @@ cover: https://imgbed.904002.xyz/file/blog/background/post/top_img/Windows工具
 ![](https://imgbed.904002.xyz/file/blog/post/Windows工具/文件类/Beyond_Compare.png)
 
 ------
-# FormatFactory(格式工厂)
+## 5.FormatFactory(格式工厂)
 
-### 文件格式转换
+文件格式转换
 
 使用我的链接下载：
 
@@ -128,9 +126,9 @@ cover: https://imgbed.904002.xyz/file/blog/background/post/top_img/Windows工具
 ![](https://imgbed.904002.xyz/file/blog/post/Windows工具/文件类/FormatFactory.png)
 
 ------
-# ReNamerPro
+## 6.ReNamerPro
 
-### 文件批量重命名
+文件批量重命名
 
 使用我的链接下载：
 

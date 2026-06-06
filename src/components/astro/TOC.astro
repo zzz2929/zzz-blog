@@ -5,7 +5,35 @@ interface Props {
 
 const { headings } = Astro.props;
 
-const filteredHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 4);
+// H1 is the page title (rendered separately), start from H2
+const filteredHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 6);
+const collapsedHeight = 280; // px, collapsed state max height
+
+const indentMap: Record<number, string> = {
+  2: '0px',
+  3: '14px',
+  4: '28px',
+  5: '42px',
+  6: '56px',
+};
+
+const sizeMap: Record<number, string> = {
+  2: '14px',
+  3: '13px',
+  4: '12px',
+  5: '11px',
+  6: '11px',
+};
+
+const weightMap: Record<number, number> = {
+  2: 700,
+  3: 600,
+  4: 500,
+  5: 400,
+  6: 400,
+};
+
+const needsCollapse = filteredHeadings.length > 8;
 ---
 
 {filteredHeadings.length > 0 && (
@@ -14,19 +42,43 @@ const filteredHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 4);
       <span class="inline-block w-1 h-5 rounded-full" style="background: linear-gradient(180deg, var(--color-primary), var(--color-accent));"></span>
       目录
     </h4>
-    <ul class="space-y-0.5 text-sm">
-      {filteredHeadings.map((heading, i) => (
-        <li class={heading.depth === 3 ? 'ml-4' : heading.depth === 4 ? 'ml-8' : ''} style={`animation: slide-in-right 0.3s ease ${i * 0.05}s backwards;`}>
-          <a
-            href={`#${heading.slug}`}
-            class="toc-link block py-1 transition-all duration-300"
-            style="color: var(--color-foreground-muted); padding-left: 16px;"
-          >
-            {heading.text}
-          </a>
-        </li>
-      ))}
-    </ul>
+
+    <div
+      class="toc-list-wrap"
+      style={needsCollapse ? `max-height: ${collapsedHeight}px; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.23, 1, 0.32, 1);` : ''}
+    >
+      <ul class="space-y-0.5">
+        {filteredHeadings.map((heading, i) => (
+          <li style={`animation: slide-in-right 0.3s ease ${i * 0.05}s backwards;`}>
+            <a
+              href={`#${heading.slug}`}
+              class="toc-link block py-0.5 transition-all duration-300"
+              data-weight={weightMap[heading.depth]}
+              style={`
+                color: var(--color-foreground-muted);
+                padding-left: calc(16px + ${indentMap[heading.depth]});
+                font-size: ${sizeMap[heading.depth]};
+                font-weight: ${weightMap[heading.depth]};
+              `}
+            >
+              {heading.text}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    {needsCollapse && (
+      <button
+        class="toc-toggle mt-2 flex items-center justify-center gap-1 w-full py-1.5 rounded-lg text-xs font-medium transition-all duration-300"
+        style="color: var(--color-foreground-muted); cursor: pointer; border: none; background: transparent;"
+      >
+        <span class="toc-toggle-text">展开全部</span>
+        <svg class="toc-toggle-arrow transition-transform duration-300" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+    )}
   </nav>
 )}
 
@@ -38,23 +90,64 @@ const filteredHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 4);
       return document.getElementById(id || '');
     });
 
+    // Expand/collapse toggle
+    const toggle = document.querySelector('.toc-toggle');
+    const wrap = document.querySelector('.toc-list-wrap');
+    let expanded = false;
+
+    if (toggle && wrap) {
+      toggle.addEventListener('click', () => {
+        expanded = !expanded;
+        const textEl = toggle.querySelector('.toc-toggle-text');
+        const arrowEl = toggle.querySelector('.toc-toggle-arrow');
+        if (expanded) {
+          wrap.style.maxHeight = wrap.scrollHeight + 'px';
+          if (textEl) textEl.textContent = '收起';
+          if (arrowEl) arrowEl.style.transform = 'rotate(180deg)';
+        } else {
+          wrap.style.maxHeight = '{collapsedHeight}px';
+          if (textEl) textEl.textContent = '展开全部';
+          if (arrowEl) arrowEl.style.transform = 'rotate(0deg)';
+          // Scroll wrap to show active heading
+          const activeLink = document.querySelector('.toc-active');
+          if (activeLink && wrap.contains(activeLink)) {
+            activeLink.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+          }
+        }
+      });
+    }
+
+    // Smooth scroll with header offset on TOC link click
+    links.forEach((link, i) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = headingEls[i];
+        if (!target) return;
+        const headerHeight = 80;
+        const top = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+        window.scrollTo({ top, behavior: 'smooth' });
+        history.pushState(null, '', link.getAttribute('href'));
+      });
+    });
+
     function updateActive() {
       let activeIndex = 0;
-      const offset = 120;
+      const offset = 100;
       for (let i = 0; i < headingEls.length; i++) {
         if (headingEls[i] && headingEls[i].getBoundingClientRect().top <= offset) {
           activeIndex = i;
         }
       }
       links.forEach((link, i) => {
+        const origWeight = link.getAttribute('data-weight') || '400';
         if (i === activeIndex) {
           link.classList.add('toc-active');
           link.style.color = 'var(--color-primary)';
-          link.style.fontWeight = '600';
+          link.style.fontWeight = '700';
         } else {
           link.classList.remove('toc-active');
           link.style.color = 'var(--color-foreground-muted)';
-          link.style.fontWeight = '400';
+          link.style.fontWeight = origWeight;
         }
       });
     }
