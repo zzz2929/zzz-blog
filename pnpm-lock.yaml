@@ -35,6 +35,12 @@ importers:
       '@tailwindcss/vite':
         specifier: ^4.3.0
         version: 4.3.0(vite@7.3.5(@types/node@24.12.4)(jiti@2.7.0)(lightningcss@1.32.0)(yaml@2.9.0))
+      '@vercount/core':
+        specifier: ^0.1.0
+        version: 0.1.0
+      '@vercount/react':
+        specifier: ^0.1.4
+        version: 0.1.4(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       '@waline/client':
         specifier: ^3.15.0
         version: 3.15.0
@@ -1144,6 +1150,15 @@ packages:
 
   '@ungap/structured-clone@1.3.1':
     resolution: {integrity: sha512-mUFwbeTqrVgDQxFveS+df2yfap6iuP20NAKAsBt5jDEoOTDew+zwLAOilHCeQJOVSvmgCX4ogqIrA0mnyr08yQ==}
+
+  '@vercount/core@0.1.0':
+    resolution: {integrity: sha512-dQv5McZQoWbQm+a7in6BueOqENYKbW4qkiyprQcsCoS0Sa89Mmm64Hr6NziecgtIkZKYc3PmP4Lxb7bkqsBAZA==}
+
+  '@vercount/react@0.1.4':
+    resolution: {integrity: sha512-vO/07Ge+UP/WWb8Ar52pd0QhHBDIpe6x2ZSkUbavG2LBIqhNKx8uT24SfEWcMkARNogWcsoZMtTPDNhF8VrseA==}
+    peerDependencies:
+      react: '>=18.0.0'
+      react-dom: '>=18.0.0'
 
   '@vitejs/plugin-react@5.2.0':
     resolution: {integrity: sha512-YmKkfhOAi3wsB1PhJq5Scj3GXMn3WvtQ/JC0xoopuHoXSdmtdStOpFrYaT1kie2YgFBcIe64ROzMYRjCrYOdYw==}
@@ -3482,6 +3497,14 @@ snapshots:
   '@types/web-bluetooth@0.0.21': {}
 
   '@ungap/structured-clone@1.3.1': {}
+
+  '@vercount/core@0.1.0': {}
+
+  '@vercount/react@0.1.4(react-dom@19.2.7(react@19.2.7))(react@19.2.7)':
+    dependencies:
+      '@vercount/core': 0.1.0
+      react: 19.2.7
+      react-dom: 19.2.7(react@19.2.7)
 
   '@vitejs/plugin-react@5.2.0(vite@7.3.5(@types/node@24.12.4)(jiti@2.7.0)(lightningcss@1.32.0)(yaml@2.9.0))':
     dependencies:

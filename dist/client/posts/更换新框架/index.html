@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" href="/favicon.ico"><meta name="generator" content="Astro v6.4.3"><!-- SEO --><title>First blog | zzz-blog</title><meta name="description" content="zzz 的个人博客"><link rel="canonical" href="https://blog.904002.xyz/posts/first-blog/"><!-- Open Graph --><meta property="og:type" content="website"><meta property="og:url" content="https://blog.904002.xyz/posts/first-blog/"><meta property="og:title" content="First blog | zzz-blog"><meta property="og:description" content="zzz 的个人博客"><meta property="og:site_name" content="zzz-blog"><meta property="og:image" content="https://imgbed.904002.xyz/file/blog/background/post/top_img/1755703950223_%E7%83%9F%E8%8A%B1.jpg"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="First blog | zzz-blog"><meta name="twitter:description" content="zzz 的个人博客"><meta name="twitter:image" content="https://imgbed.904002.xyz/file/blog/background/post/top_img/1755703950223_%E7%83%9F%E8%8A%B1.jpg"><!-- Dark mode inline script (must run before body to avoid FOUC) --><script>
+<!DOCTYPE html><html lang="zh-CN"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" href="/favicon.ico"><meta name="generator" content="Astro v6.4.3"><!-- SEO --><title>重构！从Hexo框架替换为Astro框架 | zzz-blog</title><meta name="description" content="从 Hexo + anzhiyu 主题迁移至 Astro 6 + React 19 + Tailwind CSS 4 的完整重构记录，包含设计系统、美观设计等全部技术细节。"><link rel="canonical" href="https://blog.904002.xyz/posts/%E6%9B%B4%E6%8D%A2%E6%96%B0%E6%A1%86%E6%9E%B6/"><!-- Open Graph --><meta property="og:type" content="website"><meta property="og:url" content="https://blog.904002.xyz/posts/%E6%9B%B4%E6%8D%A2%E6%96%B0%E6%A1%86%E6%9E%B6/"><meta property="og:title" content="重构！从Hexo框架替换为Astro框架 | zzz-blog"><meta property="og:description" content="从 Hexo + anzhiyu 主题迁移至 Astro 6 + React 19 + Tailwind CSS 4 的完整重构记录，包含设计系统、美观设计等全部技术细节。"><meta property="og:site_name" content="zzz-blog"><meta property="og:image" content="https://imgbed.904002.xyz/file/blog/background/post/top_img/Hexo-Astro.svg"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="重构！从Hexo框架替换为Astro框架 | zzz-blog"><meta name="twitter:description" content="从 Hexo + anzhiyu 主题迁移至 Astro 6 + React 19 + Tailwind CSS 4 的完整重构记录，包含设计系统、美观设计等全部技术细节。"><meta name="twitter:image" content="https://imgbed.904002.xyz/file/blog/background/post/top_img/Hexo-Astro.svg"><!-- Dark mode inline script (must run before body to avoid FOUC) --><script>
       (function () {
         const stored = localStorage.getItem('theme');
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -109,17 +109,284 @@ zzz-blog
       }
     }
   })();
-</script> <main class="mx-auto px-4 py-5 sm:px-6 lg:px-8" style="max-width: 1360px;"> <!-- Header card --> <div class="mb-5" style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 16px; box-shadow: 0 1px 24px rgba(0,0,0,0.1); padding: 16px 20px;"> <div class="mb-4 overflow-hidden" style="border-radius: 12px; max-height: 240px;"> <img src="https://imgbed.904002.xyz/file/blog/background/post/top_img/1755703950223_烟花.jpg" alt="First blog" class="h-auto w-full object-cover" style="max-height: 240px;" loading="eager"> </div> <h1 class="mb-2 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">First blog</h1> <div class="flex flex-wrap items-center gap-2 text-sm text-foreground-muted"> <time datetime="2025-08-16T22:36:30.000Z">2025/08/17</time>  <span class="ml-auto flex items-center gap-1 opacity-60"> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg> <span id="post-view-count">—</span> </span> </div> <div class="mt-2 flex flex-wrap items-center gap-2"> <a href="/categories/日常" class="inline-block rounded-full px-3 py-0.5 text-xs font-medium text-primary transition-colors hover:bg-primary/15" style="background: rgba(66,90,239,0.08);">日常</a> </div> <div class="mt-1.5 flex flex-wrap items-center gap-2"> <a href="/tags/博客" class="tag-pill">#博客</a> </div> </div> <!-- Content + TOC side by side --> <div class="flex gap-5"> <!-- Content card --> <div class="min-w-0 flex-1" style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 16px; box-shadow: 0 1px 24px rgba(0,0,0,0.1); padding: 16px 20px;"> <div class="prose"> <h2 id="我的博客终于初具雏形啦">我的博客终于初具雏形啦🎇🎇🎇</h2>
-<hr>
-<p>迫于室友<a href="https://blog.131714.xyz/">小张</a>的淫威😨😨、<del>色诱</del>、以及威逼下，于2025/08/17开始正式搭建这个博客。</p>
-<p>此博客使用了<a href="https://docs.anheyu.com/">anzhiyu主题</a>，在<a href="https://www.spaceship.com/zh/domains/">spaceship</a>购买域名(便宜)，于<a href="https://dash.cloudflare.com/">cloudflare</a>托管域名，<a href="https://vercel.com/">vercel</a>进行部署，由你进行浏览😘</p> </div> </div> <!-- TOC sidebar --> <aside class="hidden xl:block shrink-0" style="width: 250px;"> <div style="position: sticky; top: 80px;"> <nav class="toc" style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 16px; box-shadow: 0 1px 24px rgba(0,0,0,0.1); padding: 20px;"><h4 class="mb-3 text-sm font-semibold text-foreground flex items-center gap-2"><span class="inline-block w-1 h-5 rounded-full" style="background: linear-gradient(180deg, var(--color-primary), var(--color-accent));"></span>
+</script> <main class="mx-auto px-4 py-5 sm:px-6 lg:px-8" style="max-width: 1360px;"> <!-- Header card --> <div class="mb-5" style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 16px; box-shadow: 0 1px 24px rgba(0,0,0,0.1); padding: 16px 20px;"> <div class="mb-4 overflow-hidden" style="border-radius: 12px; max-height: 240px;"> <img src="https://imgbed.904002.xyz/file/blog/background/post/top_img/Hexo-Astro.svg" alt="重构！从Hexo框架替换为Astro框架" class="h-auto w-full object-cover" style="max-height: 240px;" loading="eager"> </div> <h1 class="mb-2 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">重构！从Hexo框架替换为Astro框架</h1> <div class="flex flex-wrap items-center gap-2 text-sm text-foreground-muted"> <time datetime="2026-06-03T13:23:25.000Z">2026/06/03</time>  <span class="ml-auto flex items-center gap-1 opacity-60"> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg> <span id="post-view-count">—</span> </span> </div> <div class="mt-2 flex flex-wrap items-center gap-2"> <a href="/categories/技术" class="inline-block rounded-full px-3 py-0.5 text-xs font-medium text-primary transition-colors hover:bg-primary/15" style="background: rgba(66,90,239,0.08);">技术</a> </div> <div class="mt-1.5 flex flex-wrap items-center gap-2"> <a href="/tags/博客" class="tag-pill">#博客</a><a href="/tags/Astro" class="tag-pill">#Astro</a><a href="/tags/Tailwind" class="tag-pill">#Tailwind</a> </div> </div> <!-- Content + TOC side by side --> <div class="flex gap-5"> <!-- Content card --> <div class="min-w-0 flex-1" style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 16px; box-shadow: 0 1px 24px rgba(0,0,0,0.1); padding: 16px 20px;"> <div class="prose"> <h2 id="为什么要重构">为什么要重构？</h2>
+<p>在2025年08月16日，我写下了我的第一篇博客，之后陆续更新了两篇内容，但随着使用，遇到了不少问题：</p>
+<ul>
+<li><strong>Hexo 架构老旧</strong></li>
+<li><strong>主题模板复杂</strong></li>
+<li><strong>没有现代前端能力</strong></li>
+<li><strong>加载速度慢</strong></li>
+<li><strong>…</strong></li>
+</ul>
+<p>在此期间，朋友也给我推荐过其他主题，但我还是喜欢<a href="https://docs.anheyu.com/">anzhiyu主题</a>这种的布局，也就没有更换。再加上事情比较多，所以很久都没有更新。几天前毕业论文完美收官，也有了几天空闲时间，最终决定用新框架重写整个博客。</p>
+<blockquote>
+<p>[!TIP]</p>
+<p>在此感谢<a href="https://platform.xiaomimimo.com/docs/zh-CN/welcome">小米mimo模型</a>送的200块钱Token😋，不然我也没这个动力与精力来重构</p>
+</blockquote>
+<h2 id="技术选型">技术选型</h2>
+<p>经过对比，选择了以下方案：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>层级</th><th>旧方案</th><th>新方案</th><th>理由</th></tr></thead><tbody><tr><td>框架</td><td>Hexo 7.3</td><td><strong>Astro 6</strong></td><td>内容优先的 SSG，零 JS 默认，构建极快</td></tr><tr><td>交互</td><td>jQuery + 原生 JS</td><td><strong>React 19</strong></td><td>只在需要交互的组件使用（岛屿架构）</td></tr><tr><td>样式</td><td>Stylus</td><td><strong>Tailwind CSS 4</strong></td><td>实用优先，CSS-first 配置，开发效率高</td></tr><tr><td>模板</td><td>Pug + EJS</td><td><strong>Astro 组件</strong></td><td>更直观的组件化开发</td></tr><tr><td>搜索</td><td>Algolia</td><td><strong>Pagefind</strong></td><td>零配置，构建时自动索引，无外部依赖</td></tr><tr><td>评论</td><td>Waline</td><td><strong>Waline（保留）</strong></td><td>已是独立服务，直接集成</td></tr><tr><td>代码高亮</td><td>highlight.js</td><td><strong>Shiki</strong></td><td>Astro 内置，支持双主题，更准确</td></tr><tr><td>部署</td><td>Vercel</td><td><strong>Cloudflare Pages</strong></td><td>全球 CDN</td></tr></tbody></table>
+<h2 id="设计系统">设计系统</h2>
+<h3 id="美化">美化</h3>
+<h4 id="毛玻璃效果">毛玻璃效果</h4>
+<p>以玻璃态设计语言：</p>
+<div class="code-block"><div class="code-block-toolbar"><span class="code-block-dots"><span></span><span></span><span></span></span><span class="code-block-lang">css</span></div><pre class="astro-code astro-code-themes ayu-light ayu-dark" style="background-color:#f8f9fa;--shiki-dark-bg:#0d1017;color:#5c6166;--shiki-dark:#bfbdb6; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#ADAEB1;--shiki-light-font-style:italic;--shiki-dark:#5A6673;--shiki-dark-font-style:italic">/* 所有卡片、菜单栏、下拉菜单统一使用 */</span></span>
+<span class="line"><span style="color:#5C6166;--shiki-dark:#BFBDB6">background: linear-gradient(135deg</span><span style="color:#5C6166B3;--shiki-dark:#BFBDB6B3">,</span><span style="color:#5C6166;--shiki-dark:#BFBDB6"> rgba(255</span><span style="color:#5C6166B3;--shiki-dark:#BFBDB6B3">,</span><span style="color:#5C6166;--shiki-dark:#BFBDB6">255</span><span style="color:#5C6166B3;--shiki-dark:#BFBDB6B3">,</span><span style="color:#5C6166;--shiki-dark:#BFBDB6">255</span><span style="color:#5C6166B3;--shiki-dark:#BFBDB6B3">,</span><span style="color:#5C6166;--shiki-dark:#BFBDB6">0</span><span style="color:#EBA400;--shiki-dark:#FFB454">.4</span><span style="color:#5C6166;--shiki-dark:#BFBDB6">), rgba(255</span><span style="color:#5C6166B3;--shiki-dark:#BFBDB6B3">,</span><span style="color:#5C6166;--shiki-dark:#BFBDB6">255</span><span style="color:#5C6166B3;--shiki-dark:#BFBDB6B3">,</span><span style="color:#5C6166;--shiki-dark:#BFBDB6">255</span><span style="color:#5C6166B3;--shiki-dark:#BFBDB6B3">,</span><span style="color:#5C6166;--shiki-dark:#BFBDB6">0</span><span style="color:#EBA400;--shiki-dark:#FFB454">.1</span><span style="color:#5C6166;--shiki-dark:#BFBDB6">));</span></span>
+<span class="line"><span style="color:#22A4E6;--shiki-dark:#59C2FF">backdrop-filter</span><span style="color:#5C6166;--shiki-dark:#BFBDB6">: blur(20px);</span></span>
+<span class="line"><span style="color:#5C6166;--shiki-dark:#BFBDB6">border: 1px solid rgba(255</span><span style="color:#5C6166B3;--shiki-dark:#BFBDB6B3">,</span><span style="color:#5C6166;--shiki-dark:#BFBDB6">255</span><span style="color:#5C6166B3;--shiki-dark:#BFBDB6B3">,</span><span style="color:#5C6166;--shiki-dark:#BFBDB6">255</span><span style="color:#5C6166B3;--shiki-dark:#BFBDB6B3">,</span><span style="color:#5C6166;--shiki-dark:#BFBDB6">0</span><span style="color:#EBA400;--shiki-dark:#FFB454">.3</span><span style="color:#5C6166;--shiki-dark:#BFBDB6">);</span></span>
+<span class="line"><span style="color:#22A4E6;--shiki-dark:#59C2FF">border-radius</span><span style="color:#5C6166;--shiki-dark:#BFBDB6">: 16px;</span></span>
+<span class="line"><span style="color:#22A4E6;--shiki-dark:#59C2FF">box-shadow</span><span style="color:#5C6166;--shiki-dark:#BFBDB6">: 0 1px 24px rgba(0</span><span style="color:#5C6166B3;--shiki-dark:#BFBDB6B3">,</span><span style="color:#5C6166;--shiki-dark:#BFBDB6">0</span><span style="color:#5C6166B3;--shiki-dark:#BFBDB6B3">,</span><span style="color:#5C6166;--shiki-dark:#BFBDB6">0</span><span style="color:#5C6166B3;--shiki-dark:#BFBDB6B3">,</span><span style="color:#5C6166;--shiki-dark:#BFBDB6">0</span><span style="color:#EBA400;--shiki-dark:#FFB454">.1</span><span style="color:#5C6166;--shiki-dark:#BFBDB6">);</span></span></code></pre></div>
+<p>悬浮元素（下拉菜单）使用更高透明度补偿模糊导致的视觉透明：</p>
+<div class="code-block"><div class="code-block-toolbar"><span class="code-block-dots"><span></span><span></span><span></span></span><span class="code-block-lang">css</span></div><pre class="astro-code astro-code-themes ayu-light ayu-dark" style="background-color:#f8f9fa;--shiki-dark-bg:#0d1017;color:#5c6166;--shiki-dark:#bfbdb6; overflow-x: auto;" tabindex="0" data-language="css"><code><span class="line"><span style="color:#ADAEB1;--shiki-light-font-style:italic;--shiki-dark:#5A6673;--shiki-dark-font-style:italic">/* 二级菜单 */</span></span>
+<span class="line"><span style="color:#5C6166;--shiki-dark:#BFBDB6">background: linear-gradient(135deg</span><span style="color:#5C6166B3;--shiki-dark:#BFBDB6B3">,</span><span style="color:#5C6166;--shiki-dark:#BFBDB6"> rgba(255</span><span style="color:#5C6166B3;--shiki-dark:#BFBDB6B3">,</span><span style="color:#5C6166;--shiki-dark:#BFBDB6">255</span><span style="color:#5C6166B3;--shiki-dark:#BFBDB6B3">,</span><span style="color:#5C6166;--shiki-dark:#BFBDB6">255</span><span style="color:#5C6166B3;--shiki-dark:#BFBDB6B3">,</span><span style="color:#5C6166;--shiki-dark:#BFBDB6">0</span><span style="color:#EBA400;--shiki-dark:#FFB454">.7</span><span style="color:#5C6166;--shiki-dark:#BFBDB6">), rgba(255</span><span style="color:#5C6166B3;--shiki-dark:#BFBDB6B3">,</span><span style="color:#5C6166;--shiki-dark:#BFBDB6">255</span><span style="color:#5C6166B3;--shiki-dark:#BFBDB6B3">,</span><span style="color:#5C6166;--shiki-dark:#BFBDB6">255</span><span style="color:#5C6166B3;--shiki-dark:#BFBDB6B3">,</span><span style="color:#5C6166;--shiki-dark:#BFBDB6">0</span><span style="color:#EBA400;--shiki-dark:#FFB454">.4</span><span style="color:#5C6166;--shiki-dark:#BFBDB6">));</span></span></code></pre></div>
+<h4 id="莫奈色系背景">莫奈色系背景</h4>
+<p>亮色模式支持 8 种莫奈画作色系背景，在设置菜单中一键切换：</p>
+<ul>
+<li>云端漫步（默认）、睡莲、日出印象、干草堆、紫藤、鲁昂大教堂、塞纳河、纯白</li>
+</ul>
+<p>选择通过 <code>localStorage</code> 持久化，切换时背景色和边框色同步变化。</p>
+<h4 id="深色模式星空">深色模式星空</h4>
+<p>深色模式使用星空背景，通过 <code>body::before</code> 和 <code>body::after</code> 两层伪元素，用 <code>box-shadow</code> 绘制数百个 1px/2px 白色星点，配合 <code>animStar</code> 动画无限滚动。背景为深空渐变 <code>radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%)</code>。</p>
+<h3 id="动画系统">动画系统</h3>
+<ul>
+<li><code>slide-in</code>：文章卡片入场（0.6s，交错延迟）</li>
+<li><code>fade-in-up</code>：通用淡入上移</li>
+<li><code>floating</code>：标签悬浮动画（6s 循环）</li>
+<li><code>gradient-shift</code>：一言模块渐变背景（15s 循环）</li>
+<li><code>settings-spin</code>：设置按钮图标旋转（2s 循环）</li>
+<li><code>animStar</code>：星空滚动（50s/100s 双层）</li>
+</ul>
+<h2 id="首页设计">首页设计</h2>
+<p>首页采用模块化布局，大部分布局还是保留<a href="https://docs.anheyu.com/">anzhiyu主题</a>的样式，从上到下依次为：</p>
+<h3 id="1-浮动胶囊导航栏">1. 浮动胶囊导航栏</h3>
+<p>固定顶部的圆角胶囊形菜单栏，毛玻璃效果。左侧站点切换按钮 + Logo（hover 时图标滑入中心覆盖文字的动画），中间四个一级菜单（文章、友链、我的、关于）悬浮展开横向二级菜单，右侧设置按钮（uiverse.io 风格：白色胶囊，hover 变蓝 + 图标旋转）。</p>
+<h3 id="2-即刻模块">2. 即刻模块</h3>
+<p>双栏上下反向滚动的随笔轮播，数据来自 <code>essay.yml</code>。hover 时暂停滚动，单项 hover 变色 + 右移反馈。</p>
+<h3 id="3-一言模块--分类卡片--随机图">3. 一言模块 + 分类卡片 + 随机图</h3>
+<p>一言模块显示 <code>hitokoto.yml</code> 中的随机语录，渐变动画背景，刷新按钮切换。下方三个分类卡片（日常、技术、工具）hover 发光。右侧随机图模块可切换为文章推荐列表。</p>
+<h3 id="4-排序筛选--文章网格">4. 排序筛选 + 文章网格</h3>
+<p>React 组件实现的排序筛选栏：搜索框（模糊匹配标题/摘要/标签）+ 分类筛选 + 时间/浏览量升降序。下方双栏文章网格，每张卡片毛玻璃效果，封面图上方，标签/标题/时间/浏览数/未读标记在下方。</p>
+<h3 id="5-侧边栏">5. 侧边栏</h3>
+<p>个人简介卡片 + hello 动图（亮色/暗色自动切换） + 近期文章时间线。</p>
+<h2 id="文章详情页">文章详情页</h2>
+<p>文章详情页使用独立的毛玻璃卡片容器，分为标题卡片（封面图 + 标题 + 元信息 + 分类标签）和内容卡片（prose 排版 + TOC 目录侧边栏）。</p>
+<p>目录支持 H2-H6 多级缩进显示，超过 8 个标题时自动折叠。点击目录链接会计算菜单栏高度偏移后平滑滚动。所有标题添加 <code>scroll-margin-top: 80px</code> 防止被固定菜单栏遮挡。</p>
+<p>代码块采用 macOS 风格工具栏（红黄绿圆点 + 语言标签），支持行号、复制按钮、长代码折叠展开。使用 Shiki 双主题（ayu-light / ayu-dark）。</p>
+<h2 id="组件架构">组件架构</h2>
+<p>采用 Astro 岛屿架构，按需加载 React 组件：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>加载策略</th><th>组件</th><th>说明</th></tr></thead><tbody><tr><td>静态（零 JS）</td><td>Header, Footer, PostCard, TOC, EssayMarquee, HitokotoModule, CategoryCards, RandomImageModule, RecentPosts</td><td>服务端渲染，无客户端 JS</td></tr><tr><td><code>client:only="react"</code></td><td>SortFilterPosts</td><td>纯客户端渲染，含状态管理</td></tr><tr><td><code>client:load</code></td><td>ThemeToggle, Comments, Search</td><td>立即加载的关键交互</td></tr><tr><td><code>client:visible</code></td><td>BangumiList, Gallery, PhotoAlbum, MusicPlayer</td><td>滚动到可见区域才加载</td></tr></tbody></table>
+<h2 id="数据管理">数据管理</h2>
+<p>所有内容通过 Astro Content Collections 管理：</p>
+<ul>
+<li>博客文章：<code>src/content/blog/*.md</code>（Markdown，Zod schema 校验）</li>
+<li>结构化数据：<code>src/content/data/*.yml</code>（友链、装备、随笔、相册、一言等）</li>
+<li>JSON 数据：追番列表、TMDB 元数据、个人信息</li>
+</ul>
+<p>YAML 数据通过 <code>js-yaml</code> 在构建时读取（<code>fs.readFileSync</code> + <code>yaml.load</code>），避免了 <code>@rollup/plugin-yaml</code> 的解析兼容问题。</p>
+<h2 id="部署">部署</h2>
+<p>部署到 Cloudflare Pages，构建命令 <code>pnpm build</code>，输出 <code>dist/</code> 静态文件，全球 CDN 分发。</p>
+<h2 id="迁移过程">迁移过程</h2>
+<p>迁移分三个阶段：</p>
+<ol>
+<li><strong>基础搭建</strong>：Astro 项目初始化、Tailwind + shadcn/ui 配置、Content Collections、核心布局和页面</li>
+<li><strong>功能完善</strong>：自定义页面、搜索（Pagefind）、评论（Waline）、暗色模式、代码高亮等</li>
+<li><strong>交互组件</strong>：追番页、音乐播放器、相册、友链、留言板、每日一图等</li>
+</ol>
+<p>Markdown 文章基本兼容，主要调整是 frontmatter 格式和 Hexo 特有标签（<code>{% post_link %}</code>、<code>{% asset_img %}</code>）的替换。</p>
+<h2 id="总结">总结</h2>
+<p>这次重构把博客升级到了”现代、可维护、高性能”的状态。Astro 的岛屿架构让我可以在需要的地方用 React，而大部分页面保持零 JS。Tailwind CSS 4 让样式开发效率大幅提升，毛玻璃 + 莫奈色系 + 星空暗色模式的设计系统也比原主题更加统一和精致。</p>
+<p>如果你也想搭建类似的博客，可以参考本项目的 <a href="https://github.com/zzz2929/zzz-blog">README.md</a> 获取完整的自定义指南。</p> </div> </div> <!-- TOC sidebar --> <aside class="hidden xl:block shrink-0" style="width: 250px;"> <div style="position: sticky; top: 80px;"> <nav class="toc" style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 16px; box-shadow: 0 1px 24px rgba(0,0,0,0.1); padding: 20px;"><h4 class="mb-3 text-sm font-semibold text-foreground flex items-center gap-2"><span class="inline-block w-1 h-5 rounded-full" style="background: linear-gradient(180deg, var(--color-primary), var(--color-accent));"></span>
 目录
-</h4><div class="toc-list-wrap" style><ul class="space-y-0.5"><li style="animation: slide-in-right 0.3s ease 0s backwards;"><a href="#我的博客终于初具雏形啦" class="toc-link block py-0.5 transition-all duration-300" data-weight="700" style="
+</h4><div class="toc-list-wrap" style="max-height: 280px; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.23, 1, 0.32, 1);"><ul class="space-y-0.5"><li style="animation: slide-in-right 0.3s ease 0s backwards;"><a href="#为什么要重构" class="toc-link block py-0.5 transition-all duration-300" data-weight="700" style="
                 color: var(--color-foreground-muted);
                 padding-left: calc(16px + 0px);
                 font-size: 14px;
                 font-weight: 700;
-              ">我的博客终于初具雏形啦🎇🎇🎇</a></li></ul></div></nav><script>
+              ">为什么要重构？</a></li><li style="animation: slide-in-right 0.3s ease 0.05s backwards;"><a href="#技术选型" class="toc-link block py-0.5 transition-all duration-300" data-weight="700" style="
+                color: var(--color-foreground-muted);
+                padding-left: calc(16px + 0px);
+                font-size: 14px;
+                font-weight: 700;
+              ">技术选型</a></li><li style="animation: slide-in-right 0.3s ease 0.1s backwards;"><a href="#设计系统" class="toc-link block py-0.5 transition-all duration-300" data-weight="700" style="
+                color: var(--color-foreground-muted);
+                padding-left: calc(16px + 0px);
+                font-size: 14px;
+                font-weight: 700;
+              ">设计系统</a></li><li style="animation: slide-in-right 0.3s ease 0.15000000000000002s backwards;"><a href="#美化" class="toc-link block py-0.5 transition-all duration-300" data-weight="600" style="
+                color: var(--color-foreground-muted);
+                padding-left: calc(16px + 14px);
+                font-size: 13px;
+                font-weight: 600;
+              ">美化</a></li><li style="animation: slide-in-right 0.3s ease 0.2s backwards;"><a href="#毛玻璃效果" class="toc-link block py-0.5 transition-all duration-300" data-weight="500" style="
+                color: var(--color-foreground-muted);
+                padding-left: calc(16px + 28px);
+                font-size: 12px;
+                font-weight: 500;
+              ">毛玻璃效果</a></li><li style="animation: slide-in-right 0.3s ease 0.25s backwards;"><a href="#莫奈色系背景" class="toc-link block py-0.5 transition-all duration-300" data-weight="500" style="
+                color: var(--color-foreground-muted);
+                padding-left: calc(16px + 28px);
+                font-size: 12px;
+                font-weight: 500;
+              ">莫奈色系背景</a></li><li style="animation: slide-in-right 0.3s ease 0.30000000000000004s backwards;"><a href="#深色模式星空" class="toc-link block py-0.5 transition-all duration-300" data-weight="500" style="
+                color: var(--color-foreground-muted);
+                padding-left: calc(16px + 28px);
+                font-size: 12px;
+                font-weight: 500;
+              ">深色模式星空</a></li><li style="animation: slide-in-right 0.3s ease 0.35000000000000003s backwards;"><a href="#动画系统" class="toc-link block py-0.5 transition-all duration-300" data-weight="600" style="
+                color: var(--color-foreground-muted);
+                padding-left: calc(16px + 14px);
+                font-size: 13px;
+                font-weight: 600;
+              ">动画系统</a></li><li style="animation: slide-in-right 0.3s ease 0.4s backwards;"><a href="#首页设计" class="toc-link block py-0.5 transition-all duration-300" data-weight="700" style="
+                color: var(--color-foreground-muted);
+                padding-left: calc(16px + 0px);
+                font-size: 14px;
+                font-weight: 700;
+              ">首页设计</a></li><li style="animation: slide-in-right 0.3s ease 0.45s backwards;"><a href="#1-浮动胶囊导航栏" class="toc-link block py-0.5 transition-all duration-300" data-weight="600" style="
+                color: var(--color-foreground-muted);
+                padding-left: calc(16px + 14px);
+                font-size: 13px;
+                font-weight: 600;
+              ">1. 浮动胶囊导航栏</a></li><li style="animation: slide-in-right 0.3s ease 0.5s backwards;"><a href="#2-即刻模块" class="toc-link block py-0.5 transition-all duration-300" data-weight="600" style="
+                color: var(--color-foreground-muted);
+                padding-left: calc(16px + 14px);
+                font-size: 13px;
+                font-weight: 600;
+              ">2. 即刻模块</a></li><li style="animation: slide-in-right 0.3s ease 0.55s backwards;"><a href="#3-一言模块--分类卡片--随机图" class="toc-link block py-0.5 transition-all duration-300" data-weight="600" style="
+                color: var(--color-foreground-muted);
+                padding-left: calc(16px + 14px);
+                font-size: 13px;
+                font-weight: 600;
+              ">3. 一言模块 + 分类卡片 + 随机图</a></li><li style="animation: slide-in-right 0.3s ease 0.6000000000000001s backwards;"><a href="#4-排序筛选--文章网格" class="toc-link block py-0.5 transition-all duration-300" data-weight="600" style="
+                color: var(--color-foreground-muted);
+                padding-left: calc(16px + 14px);
+                font-size: 13px;
+                font-weight: 600;
+              ">4. 排序筛选 + 文章网格</a></li><li style="animation: slide-in-right 0.3s ease 0.65s backwards;"><a href="#5-侧边栏" class="toc-link block py-0.5 transition-all duration-300" data-weight="600" style="
+                color: var(--color-foreground-muted);
+                padding-left: calc(16px + 14px);
+                font-size: 13px;
+                font-weight: 600;
+              ">5. 侧边栏</a></li><li style="animation: slide-in-right 0.3s ease 0.7000000000000001s backwards;"><a href="#文章详情页" class="toc-link block py-0.5 transition-all duration-300" data-weight="700" style="
+                color: var(--color-foreground-muted);
+                padding-left: calc(16px + 0px);
+                font-size: 14px;
+                font-weight: 700;
+              ">文章详情页</a></li><li style="animation: slide-in-right 0.3s ease 0.75s backwards;"><a href="#组件架构" class="toc-link block py-0.5 transition-all duration-300" data-weight="700" style="
+                color: var(--color-foreground-muted);
+                padding-left: calc(16px + 0px);
+                font-size: 14px;
+                font-weight: 700;
+              ">组件架构</a></li><li style="animation: slide-in-right 0.3s ease 0.8s backwards;"><a href="#数据管理" class="toc-link block py-0.5 transition-all duration-300" data-weight="700" style="
+                color: var(--color-foreground-muted);
+                padding-left: calc(16px + 0px);
+                font-size: 14px;
+                font-weight: 700;
+              ">数据管理</a></li><li style="animation: slide-in-right 0.3s ease 0.8500000000000001s backwards;"><a href="#部署" class="toc-link block py-0.5 transition-all duration-300" data-weight="700" style="
+                color: var(--color-foreground-muted);
+                padding-left: calc(16px + 0px);
+                font-size: 14px;
+                font-weight: 700;
+              ">部署</a></li><li style="animation: slide-in-right 0.3s ease 0.9s backwards;"><a href="#迁移过程" class="toc-link block py-0.5 transition-all duration-300" data-weight="700" style="
+                color: var(--color-foreground-muted);
+                padding-left: calc(16px + 0px);
+                font-size: 14px;
+                font-weight: 700;
+              ">迁移过程</a></li><li style="animation: slide-in-right 0.3s ease 0.9500000000000001s backwards;"><a href="#总结" class="toc-link block py-0.5 transition-all duration-300" data-weight="700" style="
+                color: var(--color-foreground-muted);
+                padding-left: calc(16px + 0px);
+                font-size: 14px;
+                font-weight: 700;
+              ">总结</a></li></ul></div><button class="toc-toggle mt-2 flex items-center justify-center gap-1 w-full py-1.5 rounded-lg text-xs font-medium transition-all duration-300" style="color: var(--color-foreground-muted); cursor: pointer; border: none; background: transparent;"><span class="toc-toggle-text">展开全部</span><svg class="toc-toggle-arrow transition-transform duration-300" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></button></nav><script>
   (function () {
     const links = document.querySelectorAll('.toc-link');
     const headingEls = Array.from(links).map((link) => {
@@ -192,7 +459,7 @@ zzz-blog
     window.addEventListener('scroll', updateActive, { passive: true });
     updateActive();
   })();
-</script> </div> </aside> </div> <!-- Comments --> <div class="mt-5" style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 16px; box-shadow: 0 1px 24px rgba(0,0,0,0.1); padding: 16px 20px;"> <astro-island uid="Z2p7zn6" prefix="r2" component-url="/_astro/Comments.mmkSfhsD.js" component-export="default" renderer-url="/_astro/client.JUmeKr2y.js" props="{&quot;path&quot;:[0,&quot;/posts/first-blog&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;Comments&quot;,&quot;value&quot;:true}" await-children><div><div class="flex items-center gap-2 mb-4"><span class="inline-block w-1 h-5 rounded-full" style="background:linear-gradient(180deg, var(--color-primary), var(--color-accent))"></span><h3 class="text-sm font-semibold" style="color:var(--color-foreground)">评论</h3></div><div></div></div><!--astro:end--></astro-island> </div> </main> <footer class="mt-16 mb-3 mx-auto px-4" style="max-width: 1350px;" data-astro-cid-lejjx2fa> <div class="footer-bar flex items-center justify-between px-4 sm:px-6 rounded-full" style="height: var(--header-height); background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 1px 24px rgba(0,0,0,0.1);" data-astro-cid-lejjx2fa> <p class="text-sm" style="color: var(--color-foreground-muted);" data-astro-cid-lejjx2fa>
+</script> </div> </aside> </div> <!-- Comments --> <div class="mt-5" style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 16px; box-shadow: 0 1px 24px rgba(0,0,0,0.1); padding: 16px 20px;"> <astro-island uid="18UJjI" prefix="r2" component-url="/_astro/Comments.mmkSfhsD.js" component-export="default" renderer-url="/_astro/client.JUmeKr2y.js" props="{&quot;path&quot;:[0,&quot;/posts/更换新框架&quot;]}" ssr client="load" opts="{&quot;name&quot;:&quot;Comments&quot;,&quot;value&quot;:true}" await-children><div><div class="flex items-center gap-2 mb-4"><span class="inline-block w-1 h-5 rounded-full" style="background:linear-gradient(180deg, var(--color-primary), var(--color-accent))"></span><h3 class="text-sm font-semibold" style="color:var(--color-foreground)">评论</h3></div><div></div></div><!--astro:end--></astro-island> </div> </main> <footer class="mt-16 mb-3 mx-auto px-4" style="max-width: 1350px;" data-astro-cid-lejjx2fa> <div class="footer-bar flex items-center justify-between px-4 sm:px-6 rounded-full" style="height: var(--header-height); background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 1px 24px rgba(0,0,0,0.1);" data-astro-cid-lejjx2fa> <p class="text-sm" style="color: var(--color-foreground-muted);" data-astro-cid-lejjx2fa>
 &copy; 2026 zzz. All rights reserved.
 </p> <div class="flex items-center gap-4 text-sm" style="color: var(--color-foreground-muted);" data-astro-cid-lejjx2fa> <a href="/rss.xml" class="hover:text-primary transition-colors" data-astro-cid-lejjx2fa>RSS</a> <span data-astro-cid-lejjx2fa>·</span> <span data-astro-cid-lejjx2fa>
 Powered by <a href="https://astro.build" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline" data-astro-cid-lejjx2fa>Astro</a> </span> </div> </div> </footer> <script>

@@ -5,6 +5,7 @@ import Header from '@/components/astro/Header.astro';
 import Footer from '@/components/astro/Footer.astro';
 import TOC from '@/components/astro/TOC.astro';
 import Comments from '@/components/react/Comments.tsx';
+import VercountDisplay from '@/components/react/VercountDisplay.tsx';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -39,9 +40,8 @@ function formatDate(d: Date): string {
         {post.data.updated && (
           <><span class="opacity-30">·</span><span>更新于 <time datetime={post.data.updated.toISOString()}>{formatDate(post.data.updated)}</time></span></>
         )}
-        <span class="ml-auto flex items-center gap-1 opacity-60">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-          <span id="post-view-count">—</span>
+        <span class="ml-auto">
+          <VercountDisplay client:load pagePv />
         </span>
       </div>
       {post.data.categories.length > 0 && (
@@ -90,13 +90,6 @@ function formatDate(d: Date): string {
   <script is:inline>
     (function () {
       const slug = window.location.pathname;
-      let hash = 0;
-      for (let i = 0; i < slug.length; i++) {
-        hash = ((hash << 5) - hash) + slug.charCodeAt(i);
-        hash |= 0;
-      }
-      const el = document.getElementById('post-view-count');
-      if (el) el.textContent = String(Math.abs(hash % 500) + 10);
       const readKey = 'zzz-blog-read-posts';
       const readPosts = JSON.parse(localStorage.getItem(readKey) || '[]');
       const postSlug = slug.replace(/^\/posts\//, '').replace(/\/$/, '');

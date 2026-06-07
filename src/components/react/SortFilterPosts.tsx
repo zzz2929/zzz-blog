@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 
 interface Post {
   title: string;
@@ -17,13 +17,20 @@ interface Props {
 type SortKey = 'date' | 'views';
 type SortDir = 'asc' | 'desc';
 
-function getViewCount(slug: string): number {
-  let hash = 0;
-  for (let i = 0; i < slug.length; i++) {
-    hash = ((hash << 5) - hash) + slug.charCodeAt(i);
-    hash |= 0;
+const API_URL = 'https://events.vercount.one/api/v2/log';
+
+async function fetchViewCount(url: string): Promise<number> {
+  try {
+    const res = await fetch(API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ url, isNewUv: false }),
+    });
+    const data = await res.json();
+    return Number(data?.data?.page_pv ?? 0);
+  } catch {
+    return 0;
   }
-  return Math.abs(hash % 500) + 10;
 }
 
 function formatDate(iso: string): string {
@@ -34,8 +41,7 @@ function formatDate(iso: string): string {
   return `${y}/${m}/${day}`;
 }
 
-function PostCard({ post, index }: { post: Post; index: number }) {
-  const delay = index * 0.06;
+function PostCard({ post, viewCount }: { post: Post; viewCount: number }) {
   return (
     <a
       href={`/posts/${post.slug}`}
@@ -44,13 +50,12 @@ function PostCard({ post, index }: { post: Post; index: number }) {
         position: 'relative',
         overflow: 'hidden',
         textDecoration: 'none',
-        animation: `fade-in-up 0.4s ${delay}s backwards`,
         background: 'linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1))',
         backdropFilter: 'blur(20px)',
         WebkitBackdropFilter: 'blur(20px)',
         border: '1px solid rgba(255,255,255,0.3)',
         borderRadius: 16,
-        boxShadow: '0 1px 3px rgba(0,0,0,0.04)',
+        boxShadow: '0 1px 24px rgba(0,0,0,0.1)',
         transition: 'all 0.3s ease',
       }}
       onMouseEnter={(e) => {
@@ -59,7 +64,7 @@ function PostCard({ post, index }: { post: Post; index: number }) {
       }}
       onMouseLeave={(e) => {
         e.currentTarget.style.transform = 'translateY(0)';
-        e.currentTarget.style.boxShadow = '0 1px 3px rgba(0,0,0,0.04)';
+        e.currentTarget.style.boxShadow = '0 1px 24px rgba(0,0,0,0.1)';
       }}
     >
       {post.cover && (
@@ -68,12 +73,7 @@ function PostCard({ post, index }: { post: Post; index: number }) {
             src={post.cover}
             alt={post.title}
             loading="lazy"
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              transition: 'all 0.5s ease',
-            }}
+            style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'all 0.5s ease' }}
             onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.05)'; e.currentTarget.style.filter = 'brightness(0.85)'; }}
             onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.filter = 'none'; }}
           />
@@ -91,7 +91,7 @@ function PostCard({ post, index }: { post: Post; index: number }) {
           <time>{formatDate(post.date)}</time>
           <span style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 4, opacity: 0.6 }}>
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-            {getViewCount(post.slug)}
+            {viewCount > 0 ? viewCount : '—'}
           </span>
         </div>
         <h3 style={{ fontSize: 17, fontWeight: 700, lineHeight: 1.4, color: 'var(--color-foreground)', transition: 'color 0.3s', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
@@ -121,6 +121,26 @@ export default function SortFilterPosts({ posts }: Props) {
   const [sortDir, setSortDir] = useState<SortDir>('desc');
   const [category, setCategory] = useState<string>('all');
   const [query, setQuery] = useState('');
+  const [viewCounts, setViewCounts] = useState<Record<string, number>>({});
+
+  // Fetch real view counts from vercount API
+  useEffect(() => {
+    const site = window.location.origin;
+    const counts: Record<string, number> = {};
+    let cancelled = false;
+
+    Promise.all(
+      posts.map(async (post) => {
+        const url = `${site}/posts/${post.slug}`;
+        const count = await fetchViewCount(url);
+        counts[post.slug] = count;
+      })
+    ).then(() => {
+      if (!cancelled) setViewCounts({ ...counts });
+    });
+
+    return () => { cancelled = true; };
+  }, [posts]);
 
   const categories = useMemo(() => {
     const cats = new Set<string>();
@@ -147,13 +167,13 @@ export default function SortFilterPosts({ posts }: Props) {
           ? new Date(b.date).getTime() - new Date(a.date).getTime()
           : new Date(a.date).getTime() - new Date(b.date).getTime();
       }
-      const va = getViewCount(a.slug);
-      const vb = getViewCount(b.slug);
+      const va = viewCounts[a.slug] ?? 0;
+      const vb = viewCounts[b.slug] ?? 0;
       return sortDir === 'desc' ? vb - va : va - vb;
     });
 
     return list;
-  }, [posts, sortKey, sortDir, category, query]);
+  }, [posts, sortKey, sortDir, category, query, viewCounts]);
 
   const btn = (active: boolean): React.CSSProperties => ({
     padding: '3px 10px',
@@ -230,8 +250,8 @@ export default function SortFilterPosts({ posts }: Props) {
       {/* Article grid */}
       {filtered.length > 0 ? (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 20 }}>
-          {filtered.map((post, i) => (
-            <PostCard key={post.slug} post={post} index={i} />
+          {filtered.map((post) => (
+            <PostCard key={post.slug} post={post} viewCount={viewCounts[post.slug] ?? 0} />
           ))}
         </div>
       ) : (

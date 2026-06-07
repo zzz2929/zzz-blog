@@ -1,4 +1,6 @@
 ---
+import VercountDisplay from '@/components/react/VercountDisplay.tsx';
+
 interface Props {
   title: string;
   date: Date | string;
@@ -66,14 +68,13 @@ const delay = index * 0.06;
       )}
       <span class="opacity-30">·</span>
       <time datetime={new Date(date).toISOString()}>{formatDate(date)}</time>
-      <span class="ml-auto flex items-center gap-1.5 opacity-60">
+      <span class="ml-auto flex items-center gap-1.5">
         <span
           class="unread-dot h-1.5 w-1.5 rounded-full"
           style="background: var(--color-accent-red); box-shadow: 0 0 6px var(--color-accent-red);"
           data-slug={slug}
         />
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-        <span class="view-count" data-slug={slug}>—</span>
+        <VercountDisplay client:visible pagePv />
       </span>
     </div>
 
@@ -106,7 +107,7 @@ const delay = index * 0.06;
 </a>
 
 <script is:inline>
-  // Read/unread tracking + view count
+  // Read/unread tracking
   (function () {
     const readKey = 'zzz-blog-read-posts';
     const readPosts = JSON.parse(localStorage.getItem(readKey) || '[]');
@@ -128,18 +129,7 @@ const delay = index * 0.06;
       });
     });
 
-    // Fake view counts (stable per slug via hash)
-    document.querySelectorAll('.view-count').forEach((el) => {
-      const slug = el.dataset.slug;
-      let hash = 0;
-      for (let i = 0; i < slug.length; i++) {
-        hash = ((hash << 5) - hash) + slug.charCodeAt(i);
-        hash |= 0;
-      }
-      el.textContent = String(Math.abs(hash % 500) + 10);
-    });
-  })();
-</script>
+  </script>
 
 <style>
   .dark .post-card {
