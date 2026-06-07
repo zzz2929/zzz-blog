@@ -23,11 +23,11 @@
 # 安装依赖
 pnpm install
 
-# 开发服务器（localhost:4321）
-pnpm dev
-
 # 构建生产版本
 pnpm build
+
+# 开发服务器（localhost:4321）
+pnpm dev
 
 # 预览构建结果
 pnpm preview
@@ -41,19 +41,19 @@ src/
 │   ├── blog/                  # 博客文章（Markdown）
 │   └── data/                  # 结构化数据（YAML/JSON）
 │       ├── about.json         # 个人信息
-│       ├── album-*.yml        # 相册数据（4 个分组）
+│       ├── album-*.yml        # 相册数据
 │       ├── bangumis.json      # 追番数据
 │       ├── bangumi-tmdb.json  # TMDB 元数据
 │       ├── equipment.yml      # 装备展示
 │       ├── essay.yml          # 随笔/闲言碎语
-│       ├── friends-*.yml      # 友链（3 个分组）
-│       └── hitokoto.yml       # 一言语录（100+ 条）
+│       ├── friends-*.yml      # 友链
+│       └── hitokoto.yml       # 一言语录
 ├── components/
-│   ├── astro/                 # 静态组件（零 JS，11 个）
-│   │   ├── Header.astro       # 浮动胶囊导航栏（342 行）
+│   ├── astro/                 # 静态组件
+│   │   ├── Header.astro       # 浮动胶囊导航栏
 │   │   ├── Footer.astro       # 胶囊底栏
-│   │   ├── PostCard.astro     # 文章卡片（双栏布局）
-│   │   ├── TOC.astro          # 目录（H2-H6，可折叠）
+│   │   ├── PostCard.astro     # 文章卡片
+│   │   ├── TOC.astro          # 目录
 │   │   ├── EssayMarquee.astro # 即刻双栏轮播
 │   │   ├── HitokotoModule.astro # 一言模块
 │   │   ├── CategoryCards.astro  # 分类卡片
@@ -61,8 +61,8 @@ src/
 │   │   ├── RecentPosts.astro   # 近期文章时间线
 │   │   ├── TagCloud.astro      # 标签云
 │   │   └── SkillsGrid.astro    # 技能网格
-│   └── react/                 # React 岛屿组件（7 个）
-│       ├── Search.tsx          # Pagefind 搜索（Cmd+K）
+│   └── react/                 # React 岛屿组件
+│       ├── Search.tsx          # Pagefind 搜索
 │       ├── SortFilterPosts.tsx # 排序筛选 + 文章网格
 │       ├── ThemeToggle.tsx     # 暗色模式切换开关
 │       ├── BangumiList.tsx     # 追番列表
@@ -70,7 +70,7 @@ src/
 │       ├── Gallery.tsx         # 图片灯箱
 │       └── PhotoAlbum.tsx      # 相册浏览器
 ├── layouts/
-│   ├── BaseLayout.astro       # HTML 壳（SEO + 暗色模式防闪烁）
+│   ├── BaseLayout.astro       # HTML 壳
 │   ├── PostLayout.astro       # 文章页布局
 │   └── PageLayout.astro       # 通用页面布局
 ├── pages/                     # 14 个路由页面
@@ -87,7 +87,7 @@ src/
 │   ├── categories/            # 分类
 │   └── tags/                  # 标签
 ├── styles/
-│   └── global.css             # 全局样式系统（966 行）
+│   └── global.css             # 全局样式系统
 └── content.config.ts          # Content Collections schema
 ```
 
@@ -104,30 +104,30 @@ src/
 --color-accent: #00c4b6;          /* 青色强调 */
 
 /* 表面色 */
---color-background: #EDE8DE;      /* 亮色背景（PANTONE 11-0601） */
+--color-background: #EDE8DE;      /* 亮色背景 */
 --color-background-dark: #18171d; /* 暗色背景 */
 --color-foreground: #1F2D3D;      /* 亮色文字 */
-/* 暗色模式文字自动变为 #f0f0f0（白色） */
+/* 暗色模式文字自动变为白色 */
 ```
 
 ### 莫奈色系背景（8 种）
 
 亮色模式支持在设置菜单中切换背景色，通过 `localStorage('monet-bg')` 持久化：
 
-| 名称 | 色值 | 灵感 |
-|------|------|------|
-| PANTONE 11-0601 | `#EDE8DE` | 默认暖白 |
-| 睡莲 | `#E8E0F0` | Water Lilies |
-| 日出印象 | `#F5E6D8` | Impression Sunrise |
-| 干草堆 | `#F0E4C8` | Haystacks |
-| 紫藤 | `#E5DAE8` | Wisteria |
-| 鲁昂大教堂 | `#DDE4EA` | Rouen Cathedral |
-| 塞纳河 | `#D8E8E0` | Seine |
-| 纯白 | `#F7F9FE` | Pure White |
+| 名称 | 色值 |
+|------|------|
+| 云端漫步 | `#EDE8DE` |
+| 睡莲 | `#E8E0F0` |
+| 日出印象 | `#F5E6D8` |
+| 干草堆 | `#F0E4C8` |
+| 紫藤 | `#E5DAE8` |
+| 鲁昂大教堂 | `#DDE4EA` |
+| 塞纳河 | `#D8E8E0` |
+| 纯白 | `#F7F9FE` |
 
 深色模式不支持切换，固定使用星空背景。
 
-### 毛玻璃卡片（统一公式）
+### 毛玻璃卡片
 
 所有白色模块（卡片、菜单栏、下拉菜单、底栏）使用：
 
@@ -154,7 +154,7 @@ background: linear-gradient(135deg, rgba(30,30,40,0.85), rgba(30,30,40,0.6));
 
 ### 暗色模式星空背景
 
-纯 CSS 实现，两层星星（1px + 2px），`box-shadow` 绘制数百个星点，`animStar` 动画无限滚动：
+两层星星（1px + 2px），`box-shadow` 绘制数百个星点，`animStar` 动画无限滚动：
 
 ```css
 .dark body {
@@ -168,7 +168,7 @@ background: linear-gradient(135deg, rgba(30,30,40,0.85), rgba(30,30,40,0.6));
 
 ## 组件详解
 
-### Header（导航栏，342 行）
+### Header（导航栏）
 
 浮动胶囊形固定导航，`z-index: 9999`，宽度 `1350px`。
 
@@ -191,7 +191,7 @@ background: linear-gradient(135deg, rgba(30,30,40,0.85), rgba(30,30,40,0.6));
 
 **滚动效果**：滚动超过 20px 时增强阴影
 
-### TOC（目录，158 行）
+### TOC（目录）
 
 - 支持 H2-H6 多级缩进，字号/字重随层级递减
 - 超过 8 个标题时自动显示展开/收起按钮
@@ -200,7 +200,7 @@ background: linear-gradient(135deg, rgba(30,30,40,0.85), rgba(30,30,40,0.6));
 - 点击 TOC 链接：JavaScript 拦截，计算 80px 头部偏移后 `scrollTo` 平滑滚动
 - 所有标题 CSS：`scroll-margin-top: 80px`（防止固定菜单栏遮挡）
 
-### PostCard（文章卡片，149 行）
+### PostCard（文章卡片）
 
 - 双栏网格：`grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))`
 - 封面图上方 200px，下方内容区（分类 + 日期 + 浏览数 + 标题 2 行 + 摘要 2 行 + 标签 3 个）
@@ -208,7 +208,7 @@ background: linear-gradient(135deg, rgba(30,30,40,0.85), rgba(30,30,40,0.6));
 - 未读标记：浏览数左侧红点，`localStorage` 记录已读
 - 浏览数：基于 slug 哈希的伪随机稳定数字
 
-### SortFilterPosts（排序筛选，245 行）
+### SortFilterPosts（排序筛选）
 
 React 组件（`client:only="react"`），单组件包含控制栏 + 文章网格：
 
@@ -244,9 +244,6 @@ hitokoto_list:
   - title: |
       冠以名则六欲泛生
       止于此则七情方休
-  - title: |
-      人间值得
-      未来可期
 ```
 
 支持多行文本，每条独立显示。刷新按钮随机切换。
@@ -263,7 +260,7 @@ essay_list:
     link: https://example.com
   - content: 带视频的随笔
     date: 2022/09/25
-    video: [https://player.bilibili.com/...]
+    video: https://example.com
 ```
 
 ### 友链 `src/content/data/friends-{group}.yml`
@@ -374,7 +371,7 @@ const menuItems = [
 
 ## 部署
 
-当前部署到 Cloudflare Pages。构建命令 `pnpm build`，输出 `dist/`。
+当前部署到 Cloudflare。构建命令 `pnpm build`，输出 `dist/`。
 
 如需切换部署平台，修改 `astro.config.mjs` 的 adapter：
 - Cloudflare：`@astrojs/cloudflare`（当前）
