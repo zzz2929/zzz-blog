@@ -6,7 +6,6 @@ node_modules/
 .deploy*/
 _multiconfig.yml
 docs/
-dist/
 .astro/
 .claude/
 .wrangler/
