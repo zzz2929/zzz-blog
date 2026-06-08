@@ -367,6 +367,36 @@ const menuItems = [
 1. `src/pages/new-page.astro`，使用 `BaseLayout` 包裹
 2. 在 `Header.astro` 的 `menuItems` 中添加导航入口
 
+### 更换网站图标
+
+#### 图标文件
+
+将你的图标文件放入 `public/` 目录：
+
+```
+public/
+├── favicon.svg      # SVG 图标（推荐，支持矢量缩放）
+└── favicon.ico      # ICO 图标（兼容旧浏览器）
+```
+
+#### 推荐规格
+
+| 文件 | 尺寸 | 格式 | 说明 |
+|------|------|------|------|
+| `blog.svg` | 任意（矢量） | SVG | 现代浏览器首选 |
+| `blog.ico` | 32×32 或 16×16 | ICO | 兼容旧浏览器 |
+| `blog.png` | 180×180 | PNG | iOS Safari 书签图标 |
+
+#### 修改引用
+
+`BaseLayout.astro` 中的 `<head>` 部分：
+
+```html
+<link rel="icon" type="image/svg+xml" href="/blog.svg" />
+<link rel="icon" href="/blog.ico" />
+<link rel="apple-touch-icon" href="/blog.png" />
+```
+
 ---
 
 ## 浏览量统计
@@ -420,38 +450,6 @@ pnpm build
 | `src/components/react/SortFilterPosts.tsx` | 首页文章列表（接收 viewCounts prop） |
 | `src/pages/index.astro` | 首页（导入 viewCounts 传给组件） |
 | `src/pages/posts/[...slug].astro` | 文章详情页（使用 VercountDisplay） |
-
----
-
-## 更换网站图标
-
-### 图标文件
-
-将你的图标文件放入 `public/` 目录：
-
-```
-public/
-├── favicon.svg      # SVG 图标（推荐，支持矢量缩放）
-└── favicon.ico      # ICO 图标（兼容旧浏览器）
-```
-
-### 推荐规格
-
-| 文件 | 尺寸 | 格式 | 说明 |
-|------|------|------|------|
-| `blog.svg` | 任意（矢量） | SVG | 现代浏览器首选 |
-| `blog.ico` | 32×32 或 16×16 | ICO | 兼容旧浏览器 |
-| `blog.png` | 180×180 | PNG | iOS Safari 书签图标 |
-
-### 修改引用
-
-`BaseLayout.astro` 中的 `<head>` 部分：
-
-```html
-<link rel="icon" type="image/svg+xml" href="/blog.svg" />
-<link rel="icon" href="/blog.ico" />
-<link rel="apple-touch-icon" href="/blog.png" />
-```
 
 ---
 
