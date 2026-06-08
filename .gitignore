@@ -5,3 +5,11 @@ db.json
 node_modules/
 .deploy*/
 _multiconfig.yml
+docs/
+dist/
+.astro/
+.cclaude/
+.wrangler/
+CLAUDE.md
+worker-configuration.d.ts
+package-lock.json

@@ -200,34 +200,19 @@
   word-break: break-word !important;
 }
 
-/* Comment action buttons — override Waline defaults */
-.wl-card .wl-comment-actions {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-  justify-content: flex-start !important;
-  gap: 8px !important;
-  float: none !important;
-  width: 100% !important;
-  line-height: 1.5 !important;
-}
-
 /* Reply / like buttons */
 .wl-card .wl-comment-actions .wl-delete,
 .wl-card .wl-comment-actions .wl-like,
 .wl-card .wl-comment-actions .wl-reply,
-.wl-card .wl-comment-actions .wl-edit {
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 4px !important;
+.wl-card .wl-comment-actions .wl-edit,
+.wl-card .wl-comment-actions .wl-rss {
   color: var(--color-foreground-muted) !important;
-  transition: color 0.2s !important;
-  font-size: 12px !important;
 }
 .wl-card .wl-comment-actions .wl-delete:hover,
 .wl-card .wl-comment-actions .wl-like:hover,
 .wl-card .wl-comment-actions .wl-reply:hover,
-.wl-card .wl-comment-actions .wl-edit:hover {
+.wl-card .wl-comment-actions .wl-edit:hover,
+.wl-card .wl-comment-actions .wl-rss:hover {
   color: var(--color-primary) !important;
 }
 
