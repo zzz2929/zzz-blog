@@ -5,7 +5,7 @@ interface CommentsProps {
   path: string;
 }
 
-export default function Comments({ serverURL = 'https://waline.blog.904002.xyz/', path }: CommentsProps) {
+export default function Comments({ serverURL = 'https://waline.904002.xyz/', path }: CommentsProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const initRef = useRef(false);
 

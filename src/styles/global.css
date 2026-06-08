@@ -482,6 +482,8 @@ h1[id], h2[id], h3[id], h4[id], h5[id], h6[id] {
   height: auto;
   border-radius: 12px;
   cursor: zoom-in;
+  position: relative;
+  z-index: 1;
   transition: opacity 0.4s ease, filter 0.4s ease,
               transform 0.3s ease, box-shadow 0.3s ease;
 }
