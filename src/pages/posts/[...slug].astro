@@ -4,7 +4,6 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/astro/Header.astro';
 import Footer from '@/components/astro/Footer.astro';
 import TOC from '@/components/astro/TOC.astro';
-import Comments from '@/components/react/Comments.tsx';
 import VercountDisplay from '@/components/react/VercountDisplay.tsx';
 
 export async function getStaticPaths() {
@@ -78,17 +77,11 @@ function formatDate(d: Date): string {
         </aside>
       )}
     </div>
-
-    <!-- Comments -->
-    <div class="mt-5" style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 16px; box-shadow: 0 1px 24px rgba(0,0,0,0.1); padding: 16px 20px;">
-      <Comments client:load path={`/posts/${post.id}`} />
-    </div>
   </main>
 
   <Footer />
 
   <style is:global>
-    @import '../../styles/waline-overrides.css';
     .dark .prose-card {
       background: linear-gradient(135deg, rgba(30,30,40,0.6), rgba(30,30,40,0.3)) !important;
       border-color: rgba(255,255,255,0.08) !important;
