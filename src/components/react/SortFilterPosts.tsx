@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 
 interface Post {
   title: string;
@@ -12,26 +12,10 @@ interface Post {
 
 interface Props {
   posts: Post[];
+  viewCounts?: Record<string, number>;
 }
 
-type SortKey = 'date' | 'views';
 type SortDir = 'asc' | 'desc';
-
-const API_URL = 'https://events.vercount.one/api/v2/log';
-
-async function fetchViewCount(url: string): Promise<number> {
-  try {
-    const res = await fetch(API_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ url, isNewUv: false }),
-    });
-    const data = await res.json();
-    return Number(data?.data?.page_pv ?? 0);
-  } catch {
-    return 0;
-  }
-}
 
 function formatDate(iso: string): string {
   const d = new Date(iso);
@@ -89,10 +73,12 @@ function PostCard({ post, viewCount }: { post: Post; viewCount: number }) {
           )}
           <span style={{ opacity: 0.3 }}>·</span>
           <time>{formatDate(post.date)}</time>
-          <span style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 4, opacity: 0.6 }}>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-            {viewCount > 0 ? viewCount : '—'}
-          </span>
+          {viewCount > 0 && (
+            <span style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 4, opacity: 0.6 }}>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              {viewCount}
+            </span>
+          )}
         </div>
         <h3 style={{ fontSize: 17, fontWeight: 700, lineHeight: 1.4, color: 'var(--color-foreground)', transition: 'color 0.3s', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
           {post.title}
@@ -116,31 +102,10 @@ function PostCard({ post, viewCount }: { post: Post; viewCount: number }) {
   );
 }
 
-export default function SortFilterPosts({ posts }: Props) {
-  const [sortKey, setSortKey] = useState<SortKey>('date');
+export default function SortFilterPosts({ posts, viewCounts = {} }: Props) {
   const [sortDir, setSortDir] = useState<SortDir>('desc');
   const [category, setCategory] = useState<string>('all');
   const [query, setQuery] = useState('');
-  const [viewCounts, setViewCounts] = useState<Record<string, number>>({});
-
-  // Fetch real view counts from vercount API
-  useEffect(() => {
-    const site = window.location.origin;
-    const counts: Record<string, number> = {};
-    let cancelled = false;
-
-    Promise.all(
-      posts.map(async (post) => {
-        const url = `${site}/posts/${post.slug}`;
-        const count = await fetchViewCount(url);
-        counts[post.slug] = count;
-      })
-    ).then(() => {
-      if (!cancelled) setViewCounts({ ...counts });
-    });
-
-    return () => { cancelled = true; };
-  }, [posts]);
 
   const categories = useMemo(() => {
     const cats = new Set<string>();
@@ -162,18 +127,13 @@ export default function SortFilterPosts({ posts }: Props) {
     }
 
     list.sort((a, b) => {
-      if (sortKey === 'date') {
-        return sortDir === 'desc'
-          ? new Date(b.date).getTime() - new Date(a.date).getTime()
-          : new Date(a.date).getTime() - new Date(b.date).getTime();
-      }
-      const va = viewCounts[a.slug] ?? 0;
-      const vb = viewCounts[b.slug] ?? 0;
-      return sortDir === 'desc' ? vb - va : va - vb;
+      const da = new Date(a.date).getTime();
+      const db = new Date(b.date).getTime();
+      return sortDir === 'desc' ? db - da : da - db;
     });
 
     return list;
-  }, [posts, sortKey, sortDir, category, query, viewCounts]);
+  }, [posts, sortDir, category, query]);
 
   const btn = (active: boolean): React.CSSProperties => ({
     padding: '3px 10px',
@@ -236,10 +196,8 @@ export default function SortFilterPosts({ posts }: Props) {
 
         {/* Sort */}
         <div style={{ display: 'flex', gap: 4, flexShrink: 0 }}>
-          <button style={btn(sortKey === 'date')} onClick={() => setSortKey('date')}>时间</button>
-          <button style={btn(sortKey === 'views')} onClick={() => setSortKey('views')}>浏览量</button>
-          <button style={btn(sortDir === 'desc')} onClick={() => setSortDir('desc')}>↓</button>
-          <button style={btn(sortDir === 'asc')} onClick={() => setSortDir('asc')}>↑</button>
+          <button style={btn(sortDir === 'desc')} onClick={() => setSortDir('desc')}>↓ 最新</button>
+          <button style={btn(sortDir === 'asc')} onClick={() => setSortDir('asc')}>↑ 最早</button>
         </div>
 
         <span style={{ fontSize: 11, color: 'var(--color-foreground-muted)', flexShrink: 0, opacity: 0.6 }}>

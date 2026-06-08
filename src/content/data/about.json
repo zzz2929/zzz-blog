@@ -1,7 +1,7 @@
 {
   "class_name": "关于页",
   "subtitle": "👉人生本就是无法回头的旅程，所以放心大胆地向前走就好👈",
-  "avatarImg": "https://imgbed.904002.xyz/file/blog/avatar/1755591276109_头像.jpg",
+  "avatarImg": "https://imgbed.904002.xyz/file/img/blog/avatar/头像.jpg",
   "avatarSkills": {
     "left": [
       "🤖️ 数码科技爱好者",
@@ -49,8 +49,8 @@
   "map": {
     "title": "我现在住在",
     "StrengthenTitle": "中国，商丘市，梁园区，商丘师范学院",
-    "background": "https://imgbed.904002.xyz/file/blog/background/sqnu/1755615252570_sqnu-艺术楼-1.webp",
-    "backgroundDark": "https://imgbed.904002.xyz/file/blog/background/sqnu/1755615258163_sqnu-艺术楼-2.jpg"
+    "background": "https://imgbed.904002.xyz/file/img/blog/background/sqnu/sqnu-艺术楼-1.webp",
+    "backgroundDark": "https://imgbed.904002.xyz/file/img/blog/background/sqnu/sqnu-艺术楼-2.jpg"
   },
   "selfInfo": {
     "selfInfoTips1": "生于",
@@ -64,7 +64,7 @@
     "author_name": "提倡者",
     "personality_type": "INFJ-A",
     "photo_url": "https://api.elaina.cat/random/",
-    "personality_img": "https://imgbed.904002.xyz/file/blog/icon/infj.svg",
+    "personality_img": "https://imgbed.904002.xyz/file/img/blog/icon/infj.svg",
     "name_url": "https://www.16personalities.com/ch/infj-%E4%BA%BA%E6%A0%BC"
   },
   "maxim": {
@@ -81,7 +81,7 @@
     "game_tips": "爱好游戏",
     "game_title": "原神",
     "game_uid": "UID: 195433728",
-    "game_bg": "https://imgbed.904002.xyz/file/blog/background/game/1755596473697_game-yuanshen.png"
+    "game_bg": "https://imgbed.904002.xyz/file/img/blog/background/game/yuanshen.png"
   },
   "comic": {
     "comic_tips": "爱好番剧",
@@ -90,39 +90,39 @@
       {
         "name": "邪神与厨二病少女（系列）",
         "href": "https://www.bilibili.com/bangumi/play/ss24630",
-        "cover": "https://imgbed.904002.xyz/file/blog/background/cartoon/1755599223732_邪神与厨二病少女.webp"
+        "cover": "https://imgbed.904002.xyz/file/img/blog/background/cartoon/邪神与厨二病少女.webp"
       },
       {
         "name": "青春猪头少年（系列）",
         "href": "https://www.bilibili.com/bangumi/play/ep251076?from_spmid=666.25.episode.0",
-        "cover": "https://imgbed.904002.xyz/file/blog/background/cartoon/1755599222174_青春猪头少年（系列）.jpg"
+        "cover": "https://imgbed.904002.xyz/file/img/blog/background/cartoon/青春猪头少年.jpg"
       },
       {
         "name": "间谍过家家（系列）",
         "href": "https://www.bilibili.com/bangumi/play/ep508404?from_spmid=666.25.episode.0",
-        "cover": "https://imgbed.904002.xyz/file/blog/background/cartoon/1755599219747_间谍过家家.jpg"
+        "cover": "https://imgbed.904002.xyz/file/img/blog/background/cartoon/间谍过家家.jpg"
       },
       {
         "name": "中二病也要谈恋爱（系列）",
         "href": "https://www.bilibili.com/bangumi/play/ep329002?from_spmid=666.25.episode.0",
-        "cover": "https://imgbed.904002.xyz/file/blog/background/cartoon/1755599217927_中二病也要谈恋爱.webp"
+        "cover": "https://imgbed.904002.xyz/file/img/blog/background/cartoon/中二病也要谈恋爱.webp"
       },
       {
         "name": "因为太怕痛就全点防御力了（系列）",
         "href": "https://www.bilibili.com/bangumi/play/ss29358",
-        "cover": "https://imgbed.904002.xyz/file/blog/background/cartoon/1755599224476_因为太怕痛就全点防御力了.webp"
+        "cover": "https://imgbed.904002.xyz/file/img/blog/background/cartoon/因为太怕痛就全点防御力了.webp"
       },
       {
         "name": "我独自升级（系列）",
         "href": "https://www.bilibili.com/bangumi/play/ep814613?from_spmid=666.25.episode.0",
-        "cover": "https://imgbed.904002.xyz/file/blog/background/cartoon/1755599219216_我独自升级.webp"
+        "cover": "https://imgbed.904002.xyz/file/img/blog/background/cartoon/我独自升级.webp"
       }
     ]
   },
   "like": {
     "like_tips": "关注偏好",
     "like_title": "数码科技",
-    "like_bg": "https://imgbed.904002.xyz/file/blog/background/1755702832452_科技.jpg",
+    "like_bg": "https://imgbed.904002.xyz/file/img/blog/background/科技.jpg",
     "like_bottom": "手机、电脑软硬件"
   },
   "music": {

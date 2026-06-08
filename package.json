@@ -7,7 +7,8 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "fetch-counts": "node scripts/fetch-view-counts.mjs",
+    "build": "node scripts/fetch-view-counts.mjs && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "generate-types": "wrangler types"

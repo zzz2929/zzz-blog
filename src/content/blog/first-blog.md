@@ -4,7 +4,7 @@ date: 2025-08-16 22:36:30
 updated: 2026-06-07 09:56:30
 tags: [博客, Hexo]
 categories: [日常]
-cover: https://imgbed.904002.xyz/file/blog/background/post/top_img/1755703950223_烟花.jpg
+cover: https://imgbed.904002.xyz/file/img/blog/background/post/烟花.webp
 top: false
 description: 博客搭建的第一篇记录，从零开始用 Hexo + anzhiyu 主题搭建个人博客的全过程。
 ---

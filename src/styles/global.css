@@ -729,10 +729,10 @@ pre:hover .code-copy-btn { opacity: 1; }
   --waline-text-color: var(--color-foreground);
 }
 
-/* Hide the default header (logo + title) */
+/* Hide the default header */
 .wl-header { display: none !important; }
 
-/* Layout: login info (nickname/email/url) in a row */
+/* Login info row */
 .wl-login-info {
   display: flex !important;
   flex-direction: row !important;
@@ -747,7 +747,7 @@ pre:hover .code-copy-btn { opacity: 1; }
   height: 36px !important;
 }
 
-/* Editor container: avatar + textarea side by side */
+/* Editor: avatar + textarea side by side */
 .wl-editor-container {
   display: flex !important;
   flex-direction: row !important;
@@ -756,7 +756,6 @@ pre:hover .code-copy-btn { opacity: 1; }
   align-items: flex-start !important;
 }
 
-/* Avatar */
 .wl-avatar {
   border-radius: 50% !important;
   overflow: hidden !important;
@@ -765,7 +764,6 @@ pre:hover .code-copy-btn { opacity: 1; }
   height: 40px !important;
 }
 
-/* Textarea wrapper: grows to fill remaining space */
 .wl-textarea-wrap {
   flex: 1 !important;
   min-width: 0 !important;
@@ -784,7 +782,7 @@ pre:hover .code-copy-btn { opacity: 1; }
   line-height: 1.6 !important;
   resize: vertical !important;
   box-sizing: border-box !important;
-  transition: border-color 0.2s !important;
+  transition: border-color 0.2s, box-shadow 0.2s !important;
 }
 .dark .wl-editor {
   background: var(--color-card-bg-dark) !important;
@@ -792,10 +790,11 @@ pre:hover .code-copy-btn { opacity: 1; }
 }
 .wl-editor:focus {
   border-color: var(--color-primary) !important;
+  box-shadow: 0 0 0 3px rgba(66, 90, 239, 0.1) !important;
   outline: none !important;
 }
 
-/* Action bar: all toolbar items in one horizontal row */
+/* Action bar */
 .wl-action {
   display: flex !important;
   flex-direction: row !important;
@@ -805,16 +804,12 @@ pre:hover .code-copy-btn { opacity: 1; }
   width: 100% !important;
   margin-top: 10px !important;
 }
-
-/* Icons + file input in a row */
 .wl-action-icon {
   display: flex !important;
   flex-direction: row !important;
   align-items: center !important;
   gap: 6px !important;
 }
-
-/* File input */
 .wl-action input[type="file"] {
   display: inline-flex !important;
   align-items: center !important;
@@ -822,7 +817,7 @@ pre:hover .code-copy-btn { opacity: 1; }
   margin: 0 !important;
 }
 
-/* Buttons row: character count + login + submit */
+/* Submit button */
 .wl-btn {
   background: var(--color-primary) !important;
   color: white !important;
@@ -831,11 +826,17 @@ pre:hover .code-copy-btn { opacity: 1; }
   font-weight: 600 !important;
   font-size: 13px !important;
   padding: 8px 20px !important;
-  transition: opacity 0.2s, transform 0.2s !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 2px 8px rgba(66, 90, 239, 0.2) !important;
 }
 .wl-btn:hover {
-  opacity: 0.85 !important;
+  opacity: 0.9 !important;
   transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(66, 90, 239, 0.3) !important;
+}
+.wl-btn:active {
+  transform: scale(0.97) !important;
 }
 
 /* Character count */
@@ -845,23 +846,32 @@ pre:hover .code-copy-btn { opacity: 1; }
   white-space: nowrap !important;
 }
 
-/* Comment card style */
+/* Comment card — glassmorphism */
 .wl-card-item {
   width: 100% !important;
   box-sizing: border-box !important;
-  border: 1px solid var(--color-border) !important;
-  border-radius: 12px !important;
+  background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255,255,255,0.3) !important;
+  border-radius: 14px !important;
   padding: 16px !important;
   margin-bottom: 12px !important;
-  background: var(--color-card-bg) !important;
-  transition: box-shadow 0.2s ease;
+  transition: all 0.3s ease !important;
 }
 .dark .wl-card-item {
-  border-color: var(--color-border-dark) !important;
-  background: var(--color-card-bg-dark) !important;
+  background: linear-gradient(135deg, rgba(30,30,40,0.6), rgba(30,30,40,0.3)) !important;
+  border-color: rgba(255,255,255,0.08) !important;
+}
+.no-glass .wl-card-item {
+  background: var(--color-card-bg) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 1px solid var(--color-border) !important;
 }
 .wl-card-item:hover {
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transform: translateY(-1px);
 }
 
 /* Input fields */
@@ -871,7 +881,7 @@ pre:hover .code-copy-btn { opacity: 1; }
   border-radius: 8px !important;
   color: var(--color-foreground) !important;
   font-size: 13px !important;
-  transition: border-color 0.2s !important;
+  transition: border-color 0.2s, box-shadow 0.2s !important;
   box-sizing: border-box !important;
 }
 .dark .wl-input {
@@ -880,6 +890,7 @@ pre:hover .code-copy-btn { opacity: 1; }
 }
 .wl-input:focus {
   border-color: var(--color-primary) !important;
+  box-shadow: 0 0 0 3px rgba(66, 90, 239, 0.1) !important;
   outline: none !important;
 }
 
@@ -939,13 +950,13 @@ pre:hover .code-copy-btn { opacity: 1; }
   padding: 40px 0 !important;
 }
 
-/* Scrollbar inside waline */
-.wl-panel { scrollbar-width: thin; }
-
 /* Reply box */
 .wl-reply {
   margin-top: 12px !important;
 }
+
+/* Scrollbar */
+.wl-panel { scrollbar-width: thin; }
 
 /* ====== Selection ====== */
 ::selection { background: #2128bd; color: #fff; }

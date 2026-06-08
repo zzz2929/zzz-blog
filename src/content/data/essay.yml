@@ -1,11 +1,11 @@
-title: 即刻短文
+title: 随笔
 subTitle: zzz的日常生活
 tips: 随时随地,分享生活
 buttonText: 关于我
 buttonLink: /about/
 limit: 30
 home_essay: true
-top_background: https://imgbed.904002.xyz/file/blog/background/1755591211493_daily-life.jpg
+top_background: https://imgbed.904002.xyz/file/img/blog/background/daily-life.webp
 essay_list:
 - content: 重构博客
   date: 2026/06/03  

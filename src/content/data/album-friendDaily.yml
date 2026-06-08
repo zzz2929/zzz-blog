@@ -4,16 +4,16 @@ type: 1
 description: 与‘狐朋狗友’们的一些生活日常与有趣沙雕事。
 top_link: /album
 top_btn_text: 返回
-top_background: https://imgbed.904002.xyz/file/blog/album/生活/1755706180351_blog_friends_聚会.jpg
-cover: https://imgbed.904002.xyz/file/blog/album/生活/1755706180351_blog_friends_聚会.jpg
+top_background: https://imgbed.904002.xyz/file/img/blog/album/生活/跨年聚会.jpg
+cover: https://imgbed.904002.xyz/file/img/blog/album/生活/跨年聚会.jpg
 album_list:
 - date: 2025-06-16
   content: 偷感
   from: sqnu-516
   image:
-  - https://imgbed.904002.xyz/file/blog/album/生活/blog_friends_偷感.png
+  - https://imgbed.904002.xyz/file/img/blog/album/生活/偷感.png
 - date: 2024-12-31
   content: 聚会
   from: sqnu-516
   image:
-  - https://imgbed.904002.xyz/file/blog/album/生活/1755706180351_blog_friends_聚会.jpg
+  - https://imgbed.904002.xyz/file/img/blog/album/生活/跨年聚会.jpg

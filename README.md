@@ -251,7 +251,7 @@ hitokoto_list:
 ### 随笔 `src/content/data/essay.yml`
 
 ```yaml
-title: 即刻短文
+title: 随笔
 essay_list:
   - content: 随笔内容
     date: 2025/10/19
@@ -366,6 +366,92 @@ const menuItems = [
 
 1. `src/pages/new-page.astro`，使用 `BaseLayout` 包裹
 2. 在 `Header.astro` 的 `menuItems` 中添加导航入口
+
+---
+
+## 浏览量统计
+
+使用 [vercount](https://github.com/EvanNotFound/vercount) 进行文章浏览量统计。
+
+### 首次设置
+
+1. 安装依赖（已包含在 `package.json`）：
+
+```bash
+pnpm add @vercount/react @vercount/core
+```
+
+2. 验证域名所有权。
+
+打开[仪表盘](https://www.vercount.one/dashboard)，按照页面提示进行DNS验证或文件验证。
+若选择文件验证，文件放在以下路径：
+
+```
+public/.well-known/vercount-verify-{your-token}.txt
+```
+
+3. 构建并部署后，在 vercount 后台完成域名验证。
+
+### 构建时获取浏览量
+
+```bash
+# 构建时自动获取（pnpm build 已包含此步骤）
+pnpm build
+```
+
+### 数据流
+
+```
+pnpm build
+  → fetch-view-counts.mjs 调用 vercount API
+  → 写入 view-counts.json
+  → astro build 读取 JSON 嵌入首页
+  → 用户访问首页：显示构建时的浏览量（零 API 请求）
+  → 用户访问文章页：vercount 实时追踪（真实数据）
+```
+
+### 相关文件
+
+| 文件 | 作用 |
+|------|------|
+| `scripts/fetch-view-counts.mjs` | 构建时获取浏览量脚本 |
+| `src/content/data/view-counts.json` | 构建时生成的浏览量数据 |
+| `src/components/react/VercountDisplay.tsx` | 文章详情页浏览量组件 |
+| `src/components/react/SortFilterPosts.tsx` | 首页文章列表（接收 viewCounts prop） |
+| `src/pages/index.astro` | 首页（导入 viewCounts 传给组件） |
+| `src/pages/posts/[...slug].astro` | 文章详情页（使用 VercountDisplay） |
+
+---
+
+## 更换网站图标
+
+### 图标文件
+
+将你的图标文件放入 `public/` 目录：
+
+```
+public/
+├── favicon.svg      # SVG 图标（推荐，支持矢量缩放）
+└── favicon.ico      # ICO 图标（兼容旧浏览器）
+```
+
+### 推荐规格
+
+| 文件 | 尺寸 | 格式 | 说明 |
+|------|------|------|------|
+| `blog.svg` | 任意（矢量） | SVG | 现代浏览器首选 |
+| `blog.ico` | 32×32 或 16×16 | ICO | 兼容旧浏览器 |
+| `blog.png` | 180×180 | PNG | iOS Safari 书签图标 |
+
+### 修改引用
+
+`BaseLayout.astro` 中的 `<head>` 部分：
+
+```html
+<link rel="icon" type="image/svg+xml" href="/blog.svg" />
+<link rel="icon" href="/blog.ico" />
+<link rel="apple-touch-icon" href="/blog.png" />
+```
 
 ---
 
