@@ -87,7 +87,8 @@ function formatDate(d: Date): string {
 
   <Footer />
 
-  <style>
+  <style is:global>
+    @import '../../styles/waline-overrides.css';
     .dark .prose-card {
       background: linear-gradient(135deg, rgba(30,30,40,0.6), rgba(30,30,40,0.3)) !important;
       border-color: rgba(255,255,255,0.08) !important;
