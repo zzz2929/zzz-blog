@@ -8,7 +8,7 @@ _multiconfig.yml
 docs/
 dist/
 .astro/
-.cclaude/
+.claude/
 .wrangler/
 CLAUDE.md
 worker-configuration.d.ts
