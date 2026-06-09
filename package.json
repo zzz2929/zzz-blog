@@ -14,7 +14,7 @@
     "generate-types": "wrangler types"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^13.6.1",
+    "@astrojs/cloudflare": "^13.7.0",
     "@astrojs/mdx": "^6.0.1",
     "@astrojs/react": "^5.0.7",
     "@astrojs/rss": "^4.0.18",
