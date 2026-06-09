@@ -601,13 +601,8 @@ pre:hover .code-copy-btn { opacity: 1; }
 .code-block .code-lines {
   display: flex;
   overflow: auto;
-  transition: max-height 0.3s ease;
   border-radius: 0 0 12px 12px;
-}
-.code-block .code-lines.code-collapsed {
-  max-height: 300px;
-  overflow-y: hidden;
-  border-radius: 0;
+  max-height: calc(15 * 1.7em + 2.4em); /* 15 lines * line-height + padding */
 }
 .code-block .line-nums {
   flex-shrink: 0;
@@ -615,7 +610,9 @@ pre:hover .code-copy-btn { opacity: 1; }
   text-align: right;
   user-select: none;
   border-right: 1px solid rgba(0, 0, 0, 0.06);
-  position: sticky; left: 0; z-index: 1;
+  position: sticky;
+  left: 0;
+  z-index: 1;
   background: inherit;
 }
 .dark .code-block .line-nums {
@@ -636,7 +633,8 @@ pre:hover .code-copy-btn { opacity: 1; }
 .dark .code-block .line-nums span.line-num-active { color: rgba(255, 255, 255, 0.8); }
 
 .code-block .code-content {
-  flex: 1; min-width: 0;
+  flex: 1;
+  min-width: 0;
   padding: 1.2rem 1.5rem;
   font-size: 12px;
 }
@@ -645,6 +643,7 @@ pre:hover .code-copy-btn { opacity: 1; }
   line-height: 1.7;
   min-height: 1.7em;
   transition: background 0.15s;
+  white-space: pre;
 }
 .code-block .code-line.line-active {
   background: rgba(0, 0, 0, 0.04);
@@ -652,34 +651,6 @@ pre:hover .code-copy-btn { opacity: 1; }
 .dark .code-block .code-line.line-active {
   background: rgba(255, 255, 255, 0.04);
 }
-
-/* Collapse/expand */
-.code-block .code-expand-btn {
-  display: none; position: absolute; left: 0; right: 0; bottom: 0;
-  height: 48px; cursor: pointer; border: none; padding: 0;
-  background: linear-gradient(to top, var(--color-card-bg) 30%, transparent);
-  color: var(--color-foreground-muted); font-size: 12px; font-weight: 500;
-  z-index: 2; align-items: flex-end; justify-content: center; padding-bottom: 8px;
-}
-.dark .code-block .code-expand-btn {
-  background: linear-gradient(to top, var(--color-card-bg-dark) 30%, transparent);
-}
-.code-block .code-expand-btn:hover { color: var(--color-foreground); }
-.code-block .code-lines.code-collapsed ~ .code-expand-btn {
-  display: flex;
-  border-radius: 0 0 12px 12px;
-}
-.code-block .code-collapse-btn {
-  display: flex; align-items: flex-start; justify-content: center;
-  width: 100%; padding: 8px 0; flex: 0 0 auto;
-  height: 40px; cursor: pointer; border: none;
-  background: var(--color-card-bg);
-  color: var(--color-foreground-muted); font-size: 12px; font-weight: 500;
-}
-.dark .code-block .code-collapse-btn {
-  background: var(--color-card-bg-dark);
-}
-.code-block .code-collapse-btn:hover { color: var(--color-foreground); }
 
 /* Bangumi detail tooltip - only show on detail hover */
 .bangumi-detail-wrap:hover .bangumi-tooltip {
@@ -696,6 +667,24 @@ pre:hover .code-copy-btn { opacity: 1; }
 }
 .dark ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, var(--color-primary-dark), var(--color-accent-orange));
+}
+
+/* TOC scrollbar */
+.toc-container {
+  overflow-y: auto;
+  max-height: calc(100vh - 200px);
+}
+
+/* Prose code block scrollbar */
+.prose pre {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.prose pre code {
+  white-space: pre;
+  word-break: normal;
+  overflow-wrap: normal;
 }
 
 /* ====== TOC ====== */

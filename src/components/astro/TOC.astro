@@ -7,7 +7,6 @@ const { headings } = Astro.props;
 
 // H1 is the page title (rendered separately), start from H2
 const filteredHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 6);
-const collapsedHeight = 280; // px, collapsed state max height
 
 const indentMap: Record<number, string> = {
   2: '0px',
@@ -32,8 +31,6 @@ const weightMap: Record<number, number> = {
   5: 400,
   6: 400,
 };
-
-const needsCollapse = filteredHeadings.length > 8;
 ---
 
 {filteredHeadings.length > 0 && (
@@ -44,8 +41,8 @@ const needsCollapse = filteredHeadings.length > 8;
     </h4>
 
     <div
-      class="toc-list-wrap"
-      style={needsCollapse ? `max-height: ${collapsedHeight}px; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.23, 1, 0.32, 1);` : ''}
+      class="toc-list-wrap toc-container"
+      style="overflow-y: auto; max-height: calc(100vh - 200px);"
     >
       <ul class="space-y-0.5">
         {filteredHeadings.map((heading, i) => (
@@ -67,18 +64,6 @@ const needsCollapse = filteredHeadings.length > 8;
         ))}
       </ul>
     </div>
-
-    {needsCollapse && (
-      <button
-        class="toc-toggle mt-2 flex items-center justify-center gap-1 w-full py-1.5 rounded-lg text-xs font-medium transition-all duration-300"
-        style="color: var(--color-foreground-muted); cursor: pointer; border: none; background: transparent;"
-      >
-        <span class="toc-toggle-text">展开全部</span>
-        <svg class="toc-toggle-arrow transition-transform duration-300" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="6 9 12 15 18 9"/>
-        </svg>
-      </button>
-    )}
   </nav>
 )}
 
@@ -89,33 +74,6 @@ const needsCollapse = filteredHeadings.length > 8;
       const id = link.getAttribute('href')?.slice(1);
       return document.getElementById(id || '');
     });
-
-    // Expand/collapse toggle
-    const toggle = document.querySelector('.toc-toggle');
-    const wrap = document.querySelector('.toc-list-wrap');
-    let expanded = false;
-
-    if (toggle && wrap) {
-      toggle.addEventListener('click', () => {
-        expanded = !expanded;
-        const textEl = toggle.querySelector('.toc-toggle-text');
-        const arrowEl = toggle.querySelector('.toc-toggle-arrow');
-        if (expanded) {
-          wrap.style.maxHeight = wrap.scrollHeight + 'px';
-          if (textEl) textEl.textContent = '收起';
-          if (arrowEl) arrowEl.style.transform = 'rotate(180deg)';
-        } else {
-          wrap.style.maxHeight = '{collapsedHeight}px';
-          if (textEl) textEl.textContent = '展开全部';
-          if (arrowEl) arrowEl.style.transform = 'rotate(0deg)';
-          // Scroll wrap to show active heading
-          const activeLink = document.querySelector('.toc-active');
-          if (activeLink && wrap.contains(activeLink)) {
-            activeLink.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-          }
-        }
-      });
-    }
 
     // Smooth scroll with header offset on TOC link click
     links.forEach((link, i) => {
@@ -129,6 +87,8 @@ const needsCollapse = filteredHeadings.length > 8;
         history.pushState(null, '', link.getAttribute('href'));
       });
     });
+
+    let lastActiveIndex = -1;
 
     function updateActive() {
       let activeIndex = 0;
@@ -150,6 +110,29 @@ const needsCollapse = filteredHeadings.length > 8;
           link.style.fontWeight = origWeight;
         }
       });
+
+      // Auto-scroll TOC to active item
+      if (activeIndex !== lastActiveIndex) {
+        lastActiveIndex = activeIndex;
+        const activeLink = links[activeIndex];
+        if (activeLink) {
+          const tocWrap = document.querySelector('.toc-list-wrap');
+          if (tocWrap) {
+            const linkTop = activeLink.offsetTop;
+            const linkHeight = activeLink.offsetHeight;
+            const wrapHeight = tocWrap.clientHeight;
+            const scrollTop = tocWrap.scrollTop;
+
+            // Scroll if active item is out of view
+            if (linkTop < scrollTop || linkTop + linkHeight > scrollTop + wrapHeight) {
+              tocWrap.scrollTo({
+                top: linkTop - wrapHeight / 2 + linkHeight / 2,
+                behavior: 'smooth'
+              });
+            }
+          }
+        }
+      }
     }
 
     window.addEventListener('scroll', updateActive, { passive: true });

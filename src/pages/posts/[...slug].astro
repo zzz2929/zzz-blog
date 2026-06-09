@@ -133,13 +133,10 @@ function formatDate(d: Date): string {
       scrollOffset: 40,
     });
 
-    // Code block enhancements: line numbers, copy button, collapse/expand
-    const COLLAPSE_LINES = 15;
+    // Code block enhancements: line numbers, copy button
     const SHIKI_VARS = ['--shiki-light', '--shiki-dark', '--shiki-light-bg', '--shiki-dark-bg', 'color-scheme'];
     const clipboardSvg = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>';
     const checkSvg = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#28c840" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
-    const chevronDown = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
-    const chevronUp = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>';
 
     document.querySelectorAll('.code-block').forEach((block) => {
       const pre = block.querySelector('pre');
@@ -214,47 +211,6 @@ function formatDate(d: Date): string {
 
       // Store plain text for copy
       block.dataset.codeText = textContent;
-
-      // 3. Collapse/expand for long code blocks
-      if (lines.length > COLLAPSE_LINES) {
-        wrapper.classList.add('code-collapsed');
-
-        // Expand button: outside wrapper (absolute overlay, visible when collapsed)
-        const expandBtn = document.createElement('button');
-        expandBtn.className = 'code-expand-btn';
-        expandBtn.innerHTML = '展开全部 ' + chevronDown;
-        block.appendChild(expandBtn);
-
-        // Collapse button: inside wrapper (static, after last code line)
-        const collapseBtn = document.createElement('button');
-        collapseBtn.className = 'code-collapse-btn';
-        collapseBtn.innerHTML = '收起 ' + chevronUp;
-        collapseBtn.style.display = 'none';
-        wrapper.appendChild(collapseBtn);
-
-        expandBtn.addEventListener('click', () => {
-          // Expand: set to actual content height, then remove limit
-          const fullHeight = wrapper.scrollHeight + 40; // +40 for collapse button
-          wrapper.style.maxHeight = fullHeight + 'px';
-          wrapper.classList.remove('code-collapsed');
-          collapseBtn.style.display = '';
-          wrapper.addEventListener('transitionend', function onEnd() {
-            wrapper.style.maxHeight = '';
-            wrapper.removeEventListener('transitionend', onEnd);
-          });
-        });
-
-        collapseBtn.addEventListener('click', () => {
-          // Collapse: lock current height, then shrink to 300px
-          const curHeight = wrapper.scrollHeight;
-          wrapper.style.maxHeight = curHeight + 'px';
-          void wrapper.offsetHeight; // force reflow
-          wrapper.classList.add('code-collapsed');
-          wrapper.style.maxHeight = '';
-          collapseBtn.style.display = 'none';
-          block.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        });
-      }
     });
 
     // Copy handler
