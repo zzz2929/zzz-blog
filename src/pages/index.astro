@@ -1,14 +1,14 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import Header from '@/components/layout/Header.astro';
-import Footer from '@/components/layout/Footer.astro';
-import RecentPosts from '@/components/blog/RecentPosts.astro';
-import EssayMarquee from '@/components/modules/EssayMarquee.astro';
-import HitokotoModule from '@/components/modules/HitokotoModule.astro';
-import CategoryCards from '@/components/blog/CategoryCards.astro';
-import RandomImageModule from '@/components/modules/RandomImageModule.astro';
-import SortFilterPosts from '@/components/modules/SortFilterPosts.tsx';
+import Header from '@/components/astro/Header.astro';
+import Footer from '@/components/astro/Footer.astro';
+import RecentPosts from '@/components/astro/RecentPosts.astro';
+import EssayMarquee from '@/components/astro/EssayMarquee.astro';
+import HitokotoModule from '@/components/astro/HitokotoModule.astro';
+import CategoryCards from '@/components/astro/CategoryCards.astro';
+import RandomImageModule from '@/components/astro/RandomImageModule.astro';
+import SortFilterPosts from '@/components/react/SortFilterPosts.tsx';
 import viewCounts from '@/content/data/view-counts.json';
 
 const posts = (await getCollection('blog'))
