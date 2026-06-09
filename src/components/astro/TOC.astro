@@ -89,18 +89,13 @@ const weightMap: Record<number, number> = {
     });
 
     let lastActiveIndex = -1;
+    let hoverIndex = -1;
+    let isHovering = false;
 
-    function updateActive() {
-      let activeIndex = 0;
-      const offset = 100;
-      for (let i = 0; i < headingEls.length; i++) {
-        if (headingEls[i] && headingEls[i].getBoundingClientRect().top <= offset) {
-          activeIndex = i;
-        }
-      }
+    function setActiveLink(index) {
       links.forEach((link, i) => {
         const origWeight = link.getAttribute('data-weight') || '400';
-        if (i === activeIndex) {
+        if (i === index) {
           link.classList.add('toc-active');
           link.style.color = 'var(--color-primary)';
           link.style.fontWeight = '700';
@@ -110,6 +105,19 @@ const weightMap: Record<number, number> = {
           link.style.fontWeight = origWeight;
         }
       });
+    }
+
+    function updateActive() {
+      if (isHovering) return; // Don't update while hovering
+
+      let activeIndex = 0;
+      const offset = 100;
+      for (let i = 0; i < headingEls.length; i++) {
+        if (headingEls[i] && headingEls[i].getBoundingClientRect().top <= offset) {
+          activeIndex = i;
+        }
+      }
+      setActiveLink(activeIndex);
 
       // Auto-scroll TOC to active item
       if (activeIndex !== lastActiveIndex) {
@@ -134,6 +142,21 @@ const weightMap: Record<number, number> = {
         }
       }
     }
+
+    // Add hover events to TOC links
+    links.forEach((link, i) => {
+      link.addEventListener('mouseenter', () => {
+        isHovering = true;
+        hoverIndex = i;
+        setActiveLink(i);
+      });
+
+      link.addEventListener('mouseleave', () => {
+        isHovering = false;
+        hoverIndex = -1;
+        updateActive(); // Restore scroll-based active state
+      });
+    });
 
     window.addEventListener('scroll', updateActive, { passive: true });
     updateActive();
