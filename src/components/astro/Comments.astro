@@ -2,22 +2,82 @@
   <head>
     <!-- ... -->
     <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css" />
-    <!-- ... -->
+      <!-- ... -->
   </head>
   <body>
     <!-- ... -->
     <div id="waline"></div>
     <script type="module">
       import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+
       init({
+        // 基础配置
         el: '#waline',
         serverURL: 'https://waline.904002.xyz/',
-        path: window.location.pathname.replace(/\/$/,''),
-        dark: 'html.dark',
+        path: window.location.pathname.replace(/\/$/, ''),
+
+        // 多语言
         lang: 'zh-CN',
+        
+        // 表情包
+        emoji: [
+          'https://unpkg.com/@waline/emojis@1.2.0/bilibili',
+          'https://unpkg.com/@waline/emojis@1.4.0/bmoji',
+          'https://unpkg.com/@waline/emojis@1.4.0/qq',
+          'https://unpkg.com/@waline/emojis@1.2.0/weibo',
+        ],
+
+        // 暗黑模式
+        dark: 'html.dark',
+
+        // 评论数显示
+        commentSorting: 'latest',
+
+        // 评论者相关属性
+        meta: ['nick', 'mail', 'link'],
+
+        // 必填项
+        requiredMeta: ['nick', 'mail'],
+
+        // 登录模式
+        login: 'enable',
+
+        // 评论字数限制
+        wordLimit: 0,
+        
+        // 评论列表分页
+        pageSize: 10,
+
+        // 图片上传
+        imageUploader: true,
+
+        // 代码高亮
+        highlighter: true,
+
+        // 搜索功能
+        search: true,
+
+        // 是否隐藏 RSS 订阅链接
+        noRss: false,
+
+        // 表情互动功能
+        reaction: false,
+
+        // 评论和访问量
         comment: true,
         pageview: false,
-        emoji: true,
+
+        // 数学公式
+        math: true,
+
+        // 评论排序
+        sortBy: 'insertTimeDesc',
+
+        // 是否记录访客
+        visitor: true,
+
+        // 评论框占位符
+        placeholder: '欢迎留言评论...',
       });
     </script>
   </body>
