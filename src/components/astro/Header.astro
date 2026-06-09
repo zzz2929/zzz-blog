@@ -5,28 +5,33 @@ const menuItems = [
   { label: '文章', children: [
     { name: '全部', href: '/archives/', icon: '📦' },
     { name: '分类', href: '/categories/', icon: '📂' },
-    { name: '标签', href: '/tags/', icon: '🏷️' },
+    { name: '标签', href: '/tags/', icon: 'https://imgbed.904002.xyz/file/img/blog/icon/navigation/标签.svg' },
   ]},
   { label: '友链', children: [
-    { name: '友人帐', href: '/friends/', icon: '🔗' },
+    { name: '友人帐', href: '/friends/', icon: 'https://imgbed.904002.xyz/file/img/blog/icon/navigation/友人帐.svg' },
   ]},
   { label: '我的', children: [
-    { name: '音乐馆', href: '/music/', icon: '🎵' },
-    { name: '追番页', href: '/bangumis/', icon: '📺' },
-    { name: '相册集', href: '/album/', icon: '🖼️' },
+    { name: '音乐馆', href: '/music/', icon: 'https://imgbed.904002.xyz/file/img/blog/icon/navigation/音乐馆.svg' },
+    { name: '追番页', href: '/bangumis/', icon: 'https://imgbed.904002.xyz/file/img/blog/icon/navigation/追番页.svg' },
+    { name: '相册集', href: '/album/', icon: 'https://imgbed.904002.xyz/file/img/blog/icon/navigation/相册集.svg' },
   ]},
   { label: '关于', children: [
-    { name: '关于本人', href: '/about/', icon: '🙋' },
-    { name: '闲言碎语', href: '/essay/', icon: '💡' },
-    { name: '我的装备', href: '/equipment/', icon: '🎯' },
+    { name: '关于本人', href: '/about/', icon: 'https://imgbed.904002.xyz/file/img/blog/icon/navigation/关于本人.svg' },
+    { name: '闲言碎语', href: '/essay/', icon: 'https://imgbed.904002.xyz/file/img/blog/icon/navigation/闲言碎语.svg' },
+    { name: '我的装备', href: '/equipment/', icon: 'https://imgbed.904002.xyz/file/img/blog/icon/navigation/我的装备.svg' },
   ]},
 ];
 
 const siteLinks = [
-  { name: '博客', href: 'https://blog.904002.xyz/', icon: '📝' },
-  { name: '图床', href: 'https://imgbed.904002.xyz/', icon: '🖼️' },
-  { name: '评论', href: 'https://waline.904002.xyz/', icon: '💬' },
+  { name: '博客', href: 'https://blog.904002.xyz/', icon: 'https://imgbed.904002.xyz/file/img/blog/icon/blog.svg' },
+  { name: '图床', href: 'https://imgbed.904002.xyz/', icon: 'https://imgbed.904002.xyz/file/img/blog/icon/图床.svg' },
+  { name: '评论', href: 'https://waline.904002.xyz/', icon: 'https://imgbed.904002.xyz/file/img/blog/icon/评论.svg' },
+  { name: 'FnOS', href: 'https://zxyzzz.fnos.net/', icon: 'https://imgbed.904002.xyz/file/img/blog/icon/NAS.svg' },
 ];
+
+function isImageIcon(icon) {
+  return icon.startsWith('http') || icon.startsWith('/') || icon.endsWith('.svg') || icon.endsWith('.png') || icon.endsWith('.jpg') || icon.endsWith('.jpeg') || icon.endsWith('.gif') || icon.endsWith('.webp');
+}
 ---
 
 <header class="site-header fixed left-0 right-0 transition-all duration-300" id="site-header" style="top: 10px; padding: 0 16px; z-index: 9999;">
@@ -45,7 +50,12 @@ const siteLinks = [
             <div class="grid grid-cols-2 gap-1">
               {siteLinks.map((link) => (
                 <a href={link.href} target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-3 py-2.5 rounded-lg transition-all duration-200 hover:bg-foreground/5" style="font-size: 16px; font-weight: 700; color: var(--color-foreground);">
-                  <span class="text-base">{link.icon}</span><span>{link.name}</span>
+                  {isImageIcon(link.icon) ? (
+                    <img src={link.icon} alt={link.name} style="width: 20px; height: 20px; object-fit: contain;" />
+                  ) : (
+                    <span class="text-base">{link.icon}</span>
+                  )}
+                  <span>{link.name}</span>
                 </a>
               ))}
             </div>
@@ -78,7 +88,12 @@ const siteLinks = [
               <div class="flex items-center gap-1">
                 {item.children.map((child) => (
                   <a href={child.href} class="flex items-center gap-2 rounded-lg px-3 py-2 whitespace-nowrap transition-all duration-200 hover:bg-foreground/5" style="font-size: 15px; font-weight: 600; color: var(--color-foreground);">
-                    <span class="text-base">{child.icon}</span><span>{child.name}</span>
+                    {isImageIcon(child.icon) ? (
+                      <img src={child.icon} alt={child.name} style="width: 18px; height: 18px; object-fit: contain;" />
+                    ) : (
+                      <span class="text-base">{child.icon}</span>
+                    )}
+                    <span>{child.name}</span>
                   </a>
                 ))}
               </div>
@@ -150,7 +165,12 @@ const siteLinks = [
           <div class="flex flex-wrap gap-2 px-2">
             {item.children.map((child) => (
               <a href={child.href} class="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm transition-all duration-200 hover:bg-foreground/5" style="color: var(--color-foreground); border: 1px solid var(--color-border);">
-                <span>{child.icon}</span>{child.name}
+                {isImageIcon(child.icon) ? (
+                  <img src={child.icon} alt={child.name} style="width: 16px; height: 16px; object-fit: contain;" />
+                ) : (
+                  <span>{child.icon}</span>
+                )}
+                {child.name}
               </a>
             ))}
           </div>

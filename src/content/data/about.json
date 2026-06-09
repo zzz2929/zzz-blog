@@ -1,7 +1,7 @@
 {
   "class_name": "关于页",
   "subtitle": "👉人生本就是无法回头的旅程，所以放心大胆地向前走就好👈",
-  "avatarImg": "https://imgbed.904002.xyz/file/img/blog/avatar/头像.jpg",
+  "avatarImg": "https://imgbed.904002.xyz/file/img/blog/avatar/zzz.webp",
   "avatarSkills": {
     "left": [
       "🤖️ 数码科技爱好者",
@@ -49,8 +49,8 @@
   "map": {
     "title": "我现在住在",
     "StrengthenTitle": "中国，商丘市，梁园区，商丘师范学院",
-    "background": "https://imgbed.904002.xyz/file/img/blog/background/sqnu/sqnu-艺术楼-1.webp",
-    "backgroundDark": "https://imgbed.904002.xyz/file/img/blog/background/sqnu/sqnu-艺术楼-2.jpg"
+    "background": "https://imgbed.904002.xyz/file/img/blog/background/sqnu/艺术楼-1.webp",
+    "backgroundDark": "https://imgbed.904002.xyz/file/img/blog/background/sqnu/艺术楼-2.webp"
   },
   "selfInfo": {
     "selfInfoTips1": "生于",
@@ -81,39 +81,39 @@
     "game_tips": "爱好游戏",
     "game_title": "原神",
     "game_uid": "UID: 195433728",
-    "game_bg": "https://imgbed.904002.xyz/file/img/blog/background/game/yuanshen.png"
+    "game_bg": "https://imgbed.904002.xyz/file/img/blog/background/game/yuanshen.webp"
   },
   "comic": {
     "comic_tips": "爱好番剧",
     "comic_title": "追番",
     "comic_list": [
       {
-        "name": "邪神与厨二病少女（系列）",
+        "name": "邪神与厨二病少女",
         "href": "https://www.bilibili.com/bangumi/play/ss24630",
         "cover": "https://imgbed.904002.xyz/file/img/blog/background/cartoon/邪神与厨二病少女.webp"
       },
       {
-        "name": "青春猪头少年（系列）",
+        "name": "青春猪头少年",
         "href": "https://www.bilibili.com/bangumi/play/ep251076?from_spmid=666.25.episode.0",
-        "cover": "https://imgbed.904002.xyz/file/img/blog/background/cartoon/青春猪头少年.jpg"
+        "cover": "https://imgbed.904002.xyz/file/img/blog/background/cartoon/青春猪头少年.webp"
       },
       {
-        "name": "间谍过家家（系列）",
+        "name": "间谍过家家",
         "href": "https://www.bilibili.com/bangumi/play/ep508404?from_spmid=666.25.episode.0",
-        "cover": "https://imgbed.904002.xyz/file/img/blog/background/cartoon/间谍过家家.jpg"
+        "cover": "https://imgbed.904002.xyz/file/img/blog/background/cartoon/间谍过家家.webp"
       },
       {
-        "name": "中二病也要谈恋爱（系列）",
+        "name": "中二病也要谈恋爱",
         "href": "https://www.bilibili.com/bangumi/play/ep329002?from_spmid=666.25.episode.0",
         "cover": "https://imgbed.904002.xyz/file/img/blog/background/cartoon/中二病也要谈恋爱.webp"
       },
       {
-        "name": "因为太怕痛就全点防御力了（系列）",
+        "name": "因为太怕痛就全点防御力了",
         "href": "https://www.bilibili.com/bangumi/play/ss29358",
         "cover": "https://imgbed.904002.xyz/file/img/blog/background/cartoon/因为太怕痛就全点防御力了.webp"
       },
       {
-        "name": "我独自升级（系列）",
+        "name": "我独自升级",
         "href": "https://www.bilibili.com/bangumi/play/ep814613?from_spmid=666.25.episode.0",
         "cover": "https://imgbed.904002.xyz/file/img/blog/background/cartoon/我独自升级.webp"
       }
@@ -122,7 +122,7 @@
   "like": {
     "like_tips": "关注偏好",
     "like_title": "数码科技",
-    "like_bg": "https://imgbed.904002.xyz/file/img/blog/background/科技.jpg",
+    "like_bg": "https://imgbed.904002.xyz/file/img/blog/background/科技.webp",
     "like_bottom": "手机、电脑软硬件"
   },
   "music": {
