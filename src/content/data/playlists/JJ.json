@@ -1,0 +1,1398 @@
+{
+  "name": "林俊杰",
+  "cover": "http://p2.music.126.net/r6W-zCnV-aduVn_PLZYuYg==/109951168529049969.jpg?param=200y200",
+  "songs": [
+    {
+      "name": "Always Online",
+      "album": "JJ陆",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108485",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108485&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172814148796"
+    },
+    {
+      "name": "浪漫血液",
+      "album": "新地球 - 人 (Special Edition)",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=29850683",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=29850683&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170313536564"
+    },
+    {
+      "name": "黑夜问白天 (Live)",
+      "album": "",
+      "artist": "林俊杰/胡彦斌",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=2751381348",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2751381348&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172085778809"
+    },
+    {
+      "name": "最初的记忆(Live)",
+      "album": "音你而来第三季 第6期",
+      "artist": "刘雨昕XIN LIU",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=3381861766",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3381861766&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951173218240423"
+    },
+    {
+      "name": "修炼爱情",
+      "album": "白羽毛之恋",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=37460590",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=37460590&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=18362943695794434"
+    },
+    {
+      "name": "愿与愁",
+      "album": "愿与愁",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=2041026502",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2041026502&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168558210782"
+    },
+    {
+      "name": "雪落下的声音 (Live)",
+      "album": "梦想的声音第三季 第2期",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1322228793",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1322228793&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163647561820"
+    },
+    {
+      "name": "사랑해요只对你说",
+      "album": "曹操",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108792",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108792&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171415593434"
+    },
+    {
+      "name": "一千年以后",
+      "album": "他是…JJ林俊杰",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=26305531",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=26305531&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167894836691"
+    },
+    {
+      "name": "将故事写成我们",
+      "album": "将故事写成我们",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1391477429",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1391477429&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168195232181"
+    },
+    {
+      "name": "光阴副本",
+      "album": "光阴副本 / Turn Of A Page",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=2659883777",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2659883777&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170309394092"
+    },
+    {
+      "name": "我还想她",
+      "album": "JJ陆",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108493",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108493&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172814148796"
+    },
+    {
+      "name": "达尔文",
+      "album": "JJ的咖啡调调, Vol. 2",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=2019573476",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2019573476&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169493493172"
+    },
+    {
+      "name": "过",
+      "album": "过",
+      "artist": "王嘉尔/林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1804879213",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1804879213&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165545588869"
+    },
+    {
+      "name": "可惜没如果",
+      "album": "新地球 - 人 (Special Edition)",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=29814898",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=29814898&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170313536564"
+    },
+    {
+      "name": "修炼爱情",
+      "album": "因你而在",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=25727803",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=25727803&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163187408030"
+    },
+    {
+      "name": "江南",
+      "album": "第二天堂",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108914",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108914&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171891430447"
+    },
+    {
+      "name": "背对背拥抱",
+      "album": "100天",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108418",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108418&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171415599135"
+    },
+    {
+      "name": "不为谁而作的歌",
+      "album": "上一首情歌 (国语精选)",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1468115100",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1468115100&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172341406695"
+    },
+    {
+      "name": "美人鱼",
+      "album": "第二天堂",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108931",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108931&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171891430447"
+    },
+    {
+      "name": "不潮不用花钱",
+      "album": "JJ陆",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108463",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108463&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172814148796"
+    },
+    {
+      "name": "新地球",
+      "album": "新地球 - 人 (Special Edition)",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=29774171",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=29774171&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170313536564"
+    },
+    {
+      "name": "那些你很冒险的梦",
+      "album": "学不会",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108138",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108138&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168271379420"
+    },
+    {
+      "name": "茉莉雨",
+      "album": "新地球",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1366053680",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1366053680&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164081863001"
+    },
+    {
+      "name": "心墙",
+      "album": "她说 概念自选辑",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108263",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108263&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172024569374"
+    },
+    {
+      "name": "曹操",
+      "album": "曹操",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108795",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108795&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171415593434"
+    },
+    {
+      "name": "她说",
+      "album": "她说 概念自选辑",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108242",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108242&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172024569374"
+    },
+    {
+      "name": "爱笑的眼睛",
+      "album": "她说 概念自选辑",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108245",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108245&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172024569374"
+    },
+    {
+      "name": "裂缝中的阳光",
+      "album": "因你而在",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=25794009",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=25794009&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163187408030"
+    },
+    {
+      "name": "学不会",
+      "album": "学不会",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108134",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108134&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168271379420"
+    },
+    {
+      "name": "爱要怎么说出口 (Live)",
+      "album": "梦想的声音 第10期",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=450222687",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=450222687&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167671156136"
+    },
+    {
+      "name": "手心的蔷薇",
+      "album": "新地球 - 人 (Special Edition)",
+      "artist": "林俊杰/G.E.M.邓紫棋",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=29848657",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=29848657&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170313536564"
+    },
+    {
+      "name": "不死之身",
+      "album": "曹操",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108810",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108810&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171415593434"
+    },
+    {
+      "name": "醉赤壁",
+      "album": "JJ陆",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108478",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108478&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172814148796"
+    },
+    {
+      "name": "当你",
+      "album": "她说 概念自选辑",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108251",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108251&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172024569374"
+    },
+    {
+      "name": "一千年以后",
+      "album": "编号89757",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108886",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108886&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171891432947"
+    },
+    {
+      "name": "小酒窝",
+      "album": "他是…JJ林俊杰",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=26305541",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=26305541&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167894836691"
+    },
+    {
+      "name": "生生",
+      "album": "新地球 - 人 (Special Edition)",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=29850685",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=29850685&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170313536564"
+    },
+    {
+      "name": "可惜没如果(Live)",
+      "album": "江苏卫视 2016 跨年演唱会",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=399354373",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=399354373&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=3298534890576644"
+    },
+    {
+      "name": "爱不会绝迹",
+      "album": "100天",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108428",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108428&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171415599135"
+    },
+    {
+      "name": "加油！",
+      "album": "100天",
+      "artist": "林俊杰/MC HotDog 热狗",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108406",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108406&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171415599135"
+    },
+    {
+      "name": "我怀念的 (Live)",
+      "album": "梦想的声音 第2期",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=440207933",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=440207933&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=3416182645968894"
+    },
+    {
+      "name": "飞云之下",
+      "album": "飞云之下",
+      "artist": "韩红/林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=554242032",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=554242032&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163311406661"
+    },
+    {
+      "name": "那女孩对我说",
+      "album": "JJ的咖啡调调, Vol. 2",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=2019574451",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2019574451&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169493493172"
+    },
+    {
+      "name": "记得",
+      "album": "她说 概念自选辑",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108269",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108269&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172024569374"
+    },
+    {
+      "name": "咖啡+交换余生",
+      "album": "JJ的咖啡调调, Vol. 1",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=2019562366",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2019562366&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169493486594"
+    },
+    {
+      "name": "冻结",
+      "album": "乐行者",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108965",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108965&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172002804127"
+    },
+    {
+      "name": "不潮不用花钱",
+      "album": "他是…JJ林俊杰",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=26305540",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=26305540&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167894836691"
+    },
+    {
+      "name": "美人鱼 (Live)",
+      "album": "音乐进化全过程",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108673",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108673&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951166835172694"
+    },
+    {
+      "name": "输了你赢了世界又如何 (Live)",
+      "album": "梦想的声音第二季 第4期",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=520464260",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=520464260&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163070135838"
+    },
+    {
+      "name": "江南",
+      "album": "他是…JJ林俊杰",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=26305527",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=26305527&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167894836691"
+    },
+    {
+      "name": "我们的爱 (Live)",
+      "album": "梦想的声音第二季 第11期",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=530057158",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=530057158&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163106717654"
+    },
+    {
+      "name": "杀手",
+      "album": "西界",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108543",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108543&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171415595412"
+    },
+    {
+      "name": "豆浆油条",
+      "album": "第二天堂",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108910",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108910&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171891430447"
+    },
+    {
+      "name": "逆光白",
+      "album": "重拾_快乐",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=2039156216",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2039156216&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168573329172"
+    },
+    {
+      "name": "一时的选择",
+      "album": "重拾_快乐",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=2039156375",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2039156375&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168573329172"
+    },
+    {
+      "name": "爱笑的眼睛",
+      "album": "他是…JJ林俊杰",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=26305550",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=26305550&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167894836691"
+    },
+    {
+      "name": "编号89757",
+      "album": "编号89757",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108858",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108858&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171891432947"
+    },
+    {
+      "name": "落在生命里的光",
+      "album": "JJ的咖啡调调, Vol. 2",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=2019573477",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2019573477&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169493493172"
+    },
+    {
+      "name": "西界",
+      "album": "西界",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108550",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108550&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171415595412"
+    },
+    {
+      "name": "孤独娱乐",
+      "album": "重拾_快乐",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=2039156235",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2039156235&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168573329172"
+    },
+    {
+      "name": "背对背拥抱 (Live)",
+      "album": "100天Love音乐实录",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108298",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108298&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171387078747"
+    },
+    {
+      "name": "被风吹过的夏天",
+      "album": "空气",
+      "artist": "林俊杰/金莎",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=247644",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=247644&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165589162138"
+    },
+    {
+      "name": "一眼万年",
+      "album": "她说 概念自选辑",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108254",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108254&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172024569374"
+    },
+    {
+      "name": "不流泪的机场",
+      "album": "西界",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108578",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108578&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171415595412"
+    },
+    {
+      "name": "是你",
+      "album": "JJ的咖啡调调, Vol. 2",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=2019573475",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2019573475&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169493493172"
+    },
+    {
+      "name": "恨幸福来过",
+      "album": "JJ的咖啡调调, Vol. 1",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=2019562367",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2019562367&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169493486594"
+    },
+    {
+      "name": "只对你有感觉",
+      "album": "她说 概念自选辑",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108248",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108248&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172024569374"
+    },
+    {
+      "name": "茉莉雨",
+      "album": "新地球 - 人 (Special Edition)",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=29850681",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=29850681&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170313536564"
+    },
+    {
+      "name": "想见你想见你想见你",
+      "album": "JJ的咖啡调调, Vol. 1",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=2019562365",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2019562365&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169493486594"
+    },
+    {
+      "name": "原来",
+      "album": "他是…JJ林俊杰",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=26305535",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=26305535&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167894836691"
+    },
+    {
+      "name": "不为谁而作的歌 (Live)",
+      "album": "我是歌手第四季 歌王之战",
+      "artist": "徐佳莹/林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=409060875",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=409060875&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=1387583679453717"
+    },
+    {
+      "name": "愿与愁",
+      "album": "重拾_快乐",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=2039156731",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2039156731&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168573329172"
+    },
+    {
+      "name": "7千3百多天",
+      "album": "7千3百多天",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1993354583",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1993354583&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168008322172"
+    },
+    {
+      "name": "浪漫血液",
+      "album": "新地球",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1366052802",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1366052802&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164081863001"
+    },
+    {
+      "name": "黑武士",
+      "album": "JJ陆",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108473",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108473&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172814148796"
+    },
+    {
+      "name": "小酒窝",
+      "album": "JJ陆",
+      "artist": "林俊杰/蔡卓妍",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108468",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108468&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172814148796"
+    },
+    {
+      "name": "不为谁而作的歌(Live)",
+      "album": "江苏卫视 2016 跨年演唱会",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=399353368",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=399353368&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=3298534890576644"
+    },
+    {
+      "name": "故事细腻",
+      "album": "学不会",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108136",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108136&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168271379420"
+    },
+    {
+      "name": "新地球",
+      "album": "新地球",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1366052801",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1366052801&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164081863001"
+    },
+    {
+      "name": "加油！",
+      "album": "他是…JJ林俊杰",
+      "artist": "林俊杰/MC HotDog 热狗",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=26305549",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=26305549&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167894836691"
+    },
+    {
+      "name": "握不住的他",
+      "album": "她说 概念自选辑",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108260",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108260&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172024569374"
+    },
+    {
+      "name": "黑暗骑士",
+      "album": "因你而在",
+      "artist": "林俊杰/五月天",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=25794008",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=25794008&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163187408030"
+    },
+    {
+      "name": "转动",
+      "album": "100天",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108432",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108432&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171415599135"
+    },
+    {
+      "name": "背对背拥抱",
+      "album": "他是…JJ林俊杰",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=26305547",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=26305547&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167894836691"
+    },
+    {
+      "name": "至少还有你 (Live)",
+      "album": "梦想的声音第二季 第1期",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=515453836",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=515453836&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163051372701"
+    },
+    {
+      "name": "可惜没如果",
+      "album": "新地球",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1366052804",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1366052804&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164081863001"
+    },
+    {
+      "name": "Love U U",
+      "album": "白羽毛之恋 华语典藏情歌 Vol.2",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=454828886",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=454828886&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=17687843556430013"
+    },
+    {
+      "name": "期待爱",
+      "album": "他是…JJ林俊杰",
+      "artist": "林俊杰/金莎",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=26305545",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=26305545&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167894836691"
+    },
+    {
+      "name": "期待爱",
+      "album": "JJ陆",
+      "artist": "林俊杰/金莎",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108503",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108503&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172814148796"
+    },
+    {
+      "name": "Cries in a Distance",
+      "album": "Happy Weekly TUESDAY 2(星期二)",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=5232648",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=5232648&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=61572651168864"
+    },
+    {
+      "name": "会有那么一天",
+      "album": "乐行者",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108983",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108983&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172002804127"
+    },
+    {
+      "name": "因你而在",
+      "album": "因你而在",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=25729074",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=25729074&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163187408030"
+    },
+    {
+      "name": "崇拜 (Live)",
+      "album": "梦想的声音 第12期",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=453491018",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=453491018&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167671163797"
+    },
+    {
+      "name": "你啊你啊",
+      "album": "JJ的咖啡调调, Vol. 2",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=2019574453",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2019574453&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169493493172"
+    },
+    {
+      "name": "一生的爱",
+      "album": "她说 概念自选辑",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108267",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108267&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172024569374"
+    },
+    {
+      "name": "达尔文 (Live)",
+      "album": "达尔文",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=2012128277",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2012128277&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168211231580"
+    },
+    {
+      "name": "精灵",
+      "album": "第二天堂",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108925",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108925&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171891430447"
+    },
+    {
+      "name": "第几个100天",
+      "album": "他是…JJ林俊杰",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=26305544",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=26305544&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167894836691"
+    },
+    {
+      "name": "就是我",
+      "album": "乐行者",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108950",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108950&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172002804127"
+    },
+    {
+      "name": "小情歌 (Live)",
+      "album": "梦想的声音第三季 第10期",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1335841973",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1335841973&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163764440169"
+    },
+    {
+      "name": "手心的蔷薇",
+      "album": "新地球",
+      "artist": "林俊杰/G.E.M.邓紫棋",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1366053678",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1366053678&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164081863001"
+    },
+    {
+      "name": "熟能生巧",
+      "album": "曹操",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108798",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108798&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171415593434"
+    },
+    {
+      "name": "无拘",
+      "album": "无拘",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1973296374",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1973296374&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167793172824"
+    },
+    {
+      "name": "Too Bad",
+      "album": "JJ的咖啡调调, Vol. 1",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=2019561429",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2019561429&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169493486594"
+    },
+    {
+      "name": "妈妈的娜鲁娃",
+      "album": "100天",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108436",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108436&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171415599135"
+    },
+    {
+      "name": "Castle in the air",
+      "album": "重拾_快乐",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=2039156393",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2039156393&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168573329172"
+    },
+    {
+      "name": "我很想爱他",
+      "album": "她说 概念自选辑",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108265",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108265&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172024569374"
+    },
+    {
+      "name": "不流泪的机场",
+      "album": "他是…JJ林俊杰",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=26305539",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=26305539&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167894836691"
+    },
+    {
+      "name": "进阶",
+      "album": "进阶",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1334849028",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1334849028&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163739212997"
+    },
+    {
+      "name": "简简单单",
+      "album": "他是…JJ林俊杰",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=26305533",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=26305533&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167894836691"
+    },
+    {
+      "name": "曹操",
+      "album": "他是…JJ林俊杰",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=26305534",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=26305534&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167894836691"
+    },
+    {
+      "name": "突然累了",
+      "album": "编号89757",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108864",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108864&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171891432947"
+    },
+    {
+      "name": "不懂",
+      "album": "乐行者",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108986",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108986&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172002804127"
+    },
+    {
+      "name": "以后要做的事",
+      "album": "因你而在",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=25794013",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=25794013&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163187408030"
+    },
+    {
+      "name": "身后",
+      "album": "JJ的咖啡调调, Vol. 1",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=2019562369",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2019562369&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169493486594"
+    },
+    {
+      "name": "街道",
+      "album": "JJ陆",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108487",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108487&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172814148796"
+    },
+    {
+      "name": "对的时间点",
+      "album": "对的时间点/As I Believe",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1386175484",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1386175484&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164317261314"
+    },
+    {
+      "name": "谢幕",
+      "album": "谢幕",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=2034554163",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2034554163&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168505296524"
+    },
+    {
+      "name": "不懂",
+      "album": "他是…JJ林俊杰",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=26305524",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=26305524&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167894836691"
+    },
+    {
+      "name": "黑键",
+      "album": "新地球 - 人 (Special Edition)",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=29850682",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=29850682&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170313536564"
+    },
+    {
+      "name": "无聊",
+      "album": "西界",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108554",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108554&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171415595412"
+    },
+    {
+      "name": "距离",
+      "album": "第二天堂",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108935",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108935&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171891430447"
+    },
+    {
+      "name": "你是我的唯一 (Live)",
+      "album": "梦想的声音 第3期",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=441491580",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=441491580&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167671012356"
+    },
+    {
+      "name": "谢幕",
+      "album": "重拾_快乐",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=2039156855",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2039156855&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168573329172"
+    },
+    {
+      "name": "她说",
+      "album": "2011 Hit Fm 年度百首单曲",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=25638767",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=25638767&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=1406275388402888"
+    },
+    {
+      "name": "知足 (Live)",
+      "album": "梦想的声音第二季 第12期",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=531786037",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=531786037&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163113245606"
+    },
+    {
+      "name": "黑色泡沫",
+      "album": "重拾_快乐",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=2039156341",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2039156341&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168573329172"
+    },
+    {
+      "name": "Lemon Tree (Live)",
+      "album": "梦想的声音第三季 第5期",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1328545116",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1328545116&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163689263210"
+    },
+    {
+      "name": "不死之身",
+      "album": "极道学园 电视原声带",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=4874469",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=4874469&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168289794468"
+    },
+    {
+      "name": "2infinity And Beyond",
+      "album": "2infinity And Beyond",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=430315597",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=430315597&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168195226811"
+    },
+    {
+      "name": "7千3百多天",
+      "album": "重拾_快乐",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=2039156947",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2039156947&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168573329172"
+    },
+    {
+      "name": "只要有你的地方 (电影\"消失的爱人\"主题曲)",
+      "album": "只要有你的地方 (电影\"消失的爱人\"主题曲)",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=35448149",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=35448149&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172341406242"
+    },
+    {
+      "name": "X",
+      "album": "100天",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108397",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108397&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171415599135"
+    },
+    {
+      "name": "他... 是JJ林俊杰... Love~(江南、害怕、小酒窝(solo)、背对背拥抱、她说)",
+      "album": "他是…JJ林俊杰",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=26305521",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=26305521&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167894836691"
+    },
+    {
+      "name": "第几个100天",
+      "album": "100天",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108401",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108401&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171415599135"
+    },
+    {
+      "name": "사랑해요只对你说",
+      "album": "男友123",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=5252767",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=5252767&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=106652627911493"
+    },
+    {
+      "name": "第几个100天 (Live)",
+      "album": "100天Love音乐实录",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108292",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108292&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171387078747"
+    },
+    {
+      "name": "被风吹过的夏天",
+      "album": "最佳前男友 电视原声带",
+      "artist": "林俊杰/金莎",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=34040698",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=34040698&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951166119166585"
+    },
+    {
+      "name": "背对背拥抱",
+      "album": "我们的爱我不放手",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=27731362",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=27731362&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163076917340"
+    },
+    {
+      "name": "期待爱",
+      "album": "原来我不帅 电视原声大碟",
+      "artist": "林俊杰/金莎",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=4873450",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=4873450&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951166118823331"
+    },
+    {
+      "name": "爱你 (Live)",
+      "album": "梦想的声音第二季 第2期",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=516358304",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=516358304&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163055576900"
+    },
+    {
+      "name": "被风吹过的夏天",
+      "album": "不可思议金选",
+      "artist": "林俊杰/金莎",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=247579",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=247579&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165422704899"
+    },
+    {
+      "name": "At Least I Had You",
+      "album": "At Least I Had You",
+      "artist": "Gentle Bones/林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1895249270",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1895249270&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168801096871"
+    },
+    {
+      "name": "The Show (Steve Aoki & Lucas & Steve Remix)",
+      "album": "The Show (Steve Aoki & Lucas & Steve Remix)",
+      "artist": "Steve Aoki/林俊杰/Lucas & Steve",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=2112776910",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2112776910&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172377503116"
+    },
+    {
+      "name": "可惜沒如果",
+      "album": "上一首情歌 (国语精选)",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1468114203",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1468114203&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172341406695"
+    },
+    {
+      "name": "记得",
+      "album": "2011 Hit Fm 年度百首单曲",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=25638971",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=25638971&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=1406275388402888"
+    },
+    {
+      "name": "原来",
+      "album": "曹操",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108806",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108806&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171415593434"
+    },
+    {
+      "name": "不为谁而作的歌",
+      "album": "天生是优我 第十二期",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=486194136",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=486194136&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=18832435162500729"
+    },
+    {
+      "name": "江南",
+      "album": "海蝶夯之唱响世界",
+      "artist": "林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=5252737",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=5252737&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168111265931"
+    },
+    {
+      "name": "友人说",
+      "album": "因你而在",
+      "artist": "林俊杰/张怀秋",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=25794014",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=25794014&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163187408030"
+    },
+    {
+      "name": "无滤镜 (feat. 藤原浩)",
+      "album": "无滤镜 (feat. 藤原浩)",
+      "artist": "林俊杰/藤原ヒロシ",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1466053895",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1466053895&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165175304725"
+    },
+    {
+      "name": "爱与希望",
+      "album": "他是…JJ林俊杰",
+      "artist": "林俊杰/重庆市青少年宫银杏童声合唱团",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=26305543",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=26305543&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167894836691"
+    },
+    {
+      "name": "Stay With You (英文版)",
+      "album": "Stay With You (英文版)",
+      "artist": "林俊杰/孙燕姿",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1468738841",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1468738841&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165207921892"
+    },
+    {
+      "name": "Despacito 缓缓",
+      "album": "Despacito 缓缓",
+      "artist": "Luis Fonsi/林俊杰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=532777048",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=532777048&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163118071937"
+    },
+    {
+      "name": "表达爱",
+      "album": "100天",
+      "artist": "林俊杰/廖君",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108445",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108445&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171415599135"
+    },
+    {
+      "name": "发现爱",
+      "album": "西界",
+      "artist": "林俊杰/金莎",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108576",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108576&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171415595412"
+    },
+    {
+      "name": "爱与希望",
+      "album": "JJ陆",
+      "artist": "林俊杰/重庆市青少年宫银杏童声合唱团",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108511",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108511&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172814148796"
+    },
+    {
+      "name": "由你选择",
+      "album": "JJ陆",
+      "artist": "林俊杰/农夫",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108482",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108482&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172814148796"
+    },
+    {
+      "name": "听见幸福",
+      "album": "听见幸福",
+      "artist": "林俊杰/林宇中",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=33223250",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=33223250&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168113916765"
+    },
+    {
+      "name": "One Shot",
+      "album": "因你而在",
+      "artist": "林俊杰/王力宏",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=25794006",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=25794006&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163187408030"
+    },
+    {
+      "name": "有梦不难",
+      "album": "和自己对话-感动双推荐",
+      "artist": "林俊杰/Mike张怀颢/周信廷",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=407679567",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=407679567&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169697332350"
+    },
+    {
+      "name": "飞机",
+      "album": "因你而在",
+      "artist": "林俊杰/林俊峰",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=25794007",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=25794007&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163187408030"
+    },
+    {
+      "name": "L-O-V-E",
+      "album": "西界",
+      "artist": "林俊杰/洪俊扬",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108573",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108573&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171415595412"
+    },
+    {
+      "name": "感动每一刻",
+      "album": "感动每一刻",
+      "artist": "林俊杰/孙燕姿/蔡健雅/阿杜",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108362",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108362&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171387080733"
+    },
+    {
+      "name": "In The Joy",
+      "album": "In The Joy",
+      "artist": "林俊杰/Anderson .Paak",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=2036173541",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2036173541&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168520909910"
+    },
+    {
+      "name": "保护色",
+      "album": "她说 概念自选辑",
+      "artist": "林俊杰/张韶涵",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108257",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108257&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172024569374"
+    },
+    {
+      "name": "I Am Alive",
+      "album": "新地球 - 人 (Special Edition)",
+      "artist": "林俊杰/Jason Mraz",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=29850686",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=29850686&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170313536564"
+    },
+    {
+      "name": "主角",
+      "album": "JJ陆",
+      "artist": "林俊杰/MACHI",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=108490",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108490&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172814148796"
+    },
+    {
+      "name": "巴洛克先生",
+      "album": "因你而在",
+      "artist": "林俊杰/王力宏",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=25794005",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=25794005&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163187408030"
+    },
+    {
+      "name": "全面开战 (\"部落冲突Clash of Clans\"主题曲)",
+      "album": "全面开战 (\"部落冲突Clash of Clans\"主题曲)",
+      "artist": "林俊杰/林志颖",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=34916628",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=34916628&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172341406212"
+    },
+    {
+      "name": "I Am Alive",
+      "album": "新地球",
+      "artist": "林俊杰/Jason Mraz",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1366052805",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1366052805&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164081863001"
+    },
+    {
+      "name": "梦想的翅膀",
+      "album": "梦想的翅膀",
+      "artist": "林俊杰/阿杜/金莎/By2",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1857509117",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1857509117&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168111253444"
+    },
+    {
+      "name": "新年到",
+      "album": "新年到",
+      "artist": "林俊杰/林宇中/李志清/By2/黄威尔/Phoebe菲比/黄启铭/汤小康/曾若冰/Chin/满江浤/陈泽耀",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=2122878939",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2122878939&format=lrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169302577084"
+    }
+  ]
+}

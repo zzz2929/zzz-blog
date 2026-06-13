@@ -1,4 +1,6 @@
 ---
+import GlowOrbs from '@/components/astro/GlowOrbs.astro';
+
 interface Props {
   title?: string;
   description?: string;
@@ -56,6 +58,7 @@ const siteTitle = title === 'zzz-blog' ? title : `${title} | zzz-blog`;
     </script>
   </head>
   <body class="min-h-screen bg-background text-foreground font-sans antialiased">
+    <GlowOrbs />
     <slot />
   </body>
 </html>
