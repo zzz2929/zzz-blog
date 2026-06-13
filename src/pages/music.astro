@@ -592,6 +592,7 @@ const playlists = playlistFiles.map((p) => ({
         this.loadDefaultPlaylist();
         this.loadPlaylists();
         this.switchTab('playlist');
+        this.initFooterObserver();
       }
 
       initElements() {
@@ -1016,6 +1017,22 @@ const playlists = playlistFiles.map((p) => ({
       onSongEnd() {
         if (this.repeatMode === 2) { this.audio.currentTime = 0; this.audio.play(); }
         else { this.next(); }
+      }
+
+      initFooterObserver() {
+        const footer = document.querySelector('footer');
+        const controls = document.getElementById('fixed-controls');
+        if (!footer || !controls) return;
+
+        const update = () => {
+          const footerRect = footer.getBoundingClientRect();
+          const overlap = window.innerHeight - footerRect.top;
+          controls.style.bottom = overlap > 0 ? overlap + 'px' : '0px';
+        };
+
+        window.addEventListener('scroll', update, { passive: true });
+        window.addEventListener('resize', update, { passive: true });
+        update();
       }
 
       formatTime(s) {
