@@ -1,0 +1,326 @@
+{
+  "name": "陈奕迅",
+  "cover": "http://p1.music.126.net/jj0EasWfUZpf1LW2SFeN-A==/109951173289562420.jpg?param=200y200",
+  "songs": [
+    {
+      "name": "夕阳无限好",
+      "album": "U87",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=66272&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=66272&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171529987110"
+    },
+    {
+      "name": "任我行",
+      "album": "The Key",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=27483202&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=27483202&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=19057835044482433"
+    },
+    {
+      "name": "Shall We Talk (Tre Lune MMXIX)",
+      "album": "Shall We Talk (Tre Lune MMXIX)",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1462659723&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1462659723&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165137112608"
+    },
+    {
+      "name": "岁月如歌",
+      "album": "Live For Today",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=66823&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=66823&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=18956679974612526"
+    },
+    {
+      "name": "陪你度过漫长岁月",
+      "album": "陪你度过漫长岁月",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=35403523&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=35403523&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951166600775221"
+    },
+    {
+      "name": "完",
+      "album": "...3mm",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=64048&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=64048&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=18913799021152505"
+    },
+    {
+      "name": "让我留在你身边",
+      "album": "让我留在你身边",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=438801672&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=438801672&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=18610333812708195"
+    },
+    {
+      "name": "爱是一本书",
+      "album": "认了吧",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=65540&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=65540&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=18782957139233959"
+    },
+    {
+      "name": "斯德哥尔摩情人",
+      "album": "The Key",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=27483204&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=27483204&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=19057835044482433"
+    },
+    {
+      "name": "于心有愧",
+      "album": "H³M",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=64797&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=64797&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=18958878997954526"
+    },
+    {
+      "name": "富士山下",
+      "album": "What's Going On…?",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=65766&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=65766&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171844247587"
+    },
+    {
+      "name": "葡萄成熟时",
+      "album": "U87",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=66285&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=66285&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171529987110"
+    },
+    {
+      "name": "失忆蝴蝶",
+      "album": "The Key",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=27483203&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=27483203&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=19057835044482433"
+    },
+    {
+      "name": "苦瓜",
+      "album": "Stranger Under My Skin",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=64293&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=64293&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171301957274"
+    },
+    {
+      "name": "四季",
+      "album": "四季",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=437802725&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=437802725&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951166578471297"
+    },
+    {
+      "name": "倾城 (Live)",
+      "album": "Concert YY 黄伟文作品展 演唱会",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=27867449&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=27867449&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163639097093"
+    },
+    {
+      "name": "沙龙",
+      "album": "H³M",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=64833&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=64833&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=18958878997954526"
+    },
+    {
+      "name": "不如不见",
+      "album": "What's Going On…?",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=65769&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=65769&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171844247587"
+    },
+    {
+      "name": "约定(Live)",
+      "album": "DUO 陈奕迅2010演唱会",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=64443&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=64443&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=6636652185368776"
+    },
+    {
+      "name": "梦想天空分外蓝",
+      "album": "梦想天空分外蓝",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=25638273&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=25638273&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=831230790638810"
+    },
+    {
+      "name": "无人之境",
+      "album": "Time Flies",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=64625&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=64625&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170448806800"
+    },
+    {
+      "name": "阿牛",
+      "album": "U87",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=66265&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=66265&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171529987110"
+    },
+    {
+      "name": "明年今日 (2007 Live)",
+      "album": "Eason Moving On Stage 1 (Live)",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=65312&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=65312&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168369175665"
+    },
+    {
+      "name": "无条件",
+      "album": "准备中",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=31426608&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=31426608&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=7938473953631427"
+    },
+    {
+      "name": "一丝不挂",
+      "album": "Time Flies",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=64634&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=64634&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170448806800"
+    },
+    {
+      "name": "单车 (Live)",
+      "album": "Get A Life (Live)",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=65847&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=65847&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170541171178"
+    },
+    {
+      "name": "人来人往 (Live)",
+      "album": "Get A Life (Live)",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=65923&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=65923&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170541171178"
+    },
+    {
+      "name": "因为爱情",
+      "album": "Stranger Under My Skin",
+      "artist": "陈奕迅/王菲",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=64317&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=64317&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171301957274"
+    },
+    {
+      "name": "好久不见",
+      "album": "认了吧",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=65538&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=65538&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=18782957139233959"
+    },
+    {
+      "name": "K歌之王",
+      "album": "打得火热",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=67467&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=67467&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=18632324046199371"
+    },
+    {
+      "name": "爱情转移(国)",
+      "album": "The 1st Eleven Years 然后呢？",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=65099&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=65099&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167471314777"
+    },
+    {
+      "name": "兄妹",
+      "album": "黑白灰",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=66841&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=66841&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171836564936"
+    },
+    {
+      "name": "是但求其爱",
+      "album": "是但求其爱",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1496602290&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1496602290&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165480807278"
+    },
+    {
+      "name": "十年 (OT: 明年今日)",
+      "album": "陈奕迅 国语精选",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1897927515&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1897927515&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951166656400274"
+    },
+    {
+      "name": "白玫瑰",
+      "album": "What's Going On…?",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=65761&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=65761&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171844247587"
+    },
+    {
+      "name": "阴天快乐",
+      "album": "Rice & Shine",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=28563317&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=28563317&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165995320408"
+    },
+    {
+      "name": "红玫瑰(国)",
+      "album": "The 1st Eleven Years 然后呢？",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=65126&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=65126&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167471314777"
+    },
+    {
+      "name": "圣诞结",
+      "album": "你的陈奕迅 国语精选",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=65355&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=65355&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=82463372088816"
+    },
+    {
+      "name": "你给我听好",
+      "album": "Rice & Shine",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=28481103&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=28481103&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165995320408"
+    },
+    {
+      "name": "淘汰",
+      "album": "认了吧",
+      "artist": "陈奕迅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=65528&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=65528&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=18782957139233959"
+    }
+  ]
+}

@@ -1,0 +1,326 @@
+{
+  "name": "方大同",
+  "cover": "http://p1.music.126.net/GH7Vj5kiwCOzJvPxFoIsnw==/109951169896933411.jpg?param=200y200",
+  "songs": [
+    {
+      "name": "听",
+      "album": "JTW西游记",
+      "artist": "方大同",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=431855964&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=431855964&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172683065558"
+    },
+    {
+      "name": "Singalongsong",
+      "album": "橙月",
+      "artist": "方大同",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=82169&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=82169&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168870419734"
+    },
+    {
+      "name": "关于爱的定义",
+      "album": "The Soulboy Collection",
+      "artist": "方大同",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=28029101&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=28029101&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167164989067"
+    },
+    {
+      "name": "苏丽珍",
+      "album": "爱爱爱",
+      "artist": "方大同",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=82455&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=82455&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168870794250"
+    },
+    {
+      "name": "复刻回忆",
+      "album": "It's My Day",
+      "artist": "薛凯琪/方大同",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=306930&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=306930&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163061823860"
+    },
+    {
+      "name": "枫叶做的风铃",
+      "album": "危险世界",
+      "artist": "方大同",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=28406199&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=28406199&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172683046522"
+    },
+    {
+      "name": "诗人的情人",
+      "album": "爱爱爱",
+      "artist": "方大同",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=82469&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=82469&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168870794250"
+    },
+    {
+      "name": "爱立刻",
+      "album": "回到未来",
+      "artist": "方大同",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=25648011&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=25648011&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168870428045"
+    },
+    {
+      "name": "每天每天",
+      "album": "Soulboy",
+      "artist": "方大同",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=82488&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=82488&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170565878273"
+    },
+    {
+      "name": "春风吹",
+      "album": "The Soulboy Collection",
+      "artist": "方大同",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=28029097&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=28029097&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167164989067"
+    },
+    {
+      "name": "如果爱",
+      "album": "橙月",
+      "artist": "方大同",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=82184&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=82184&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168870419734"
+    },
+    {
+      "name": "爱在",
+      "album": "未来",
+      "artist": "方大同",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=82366&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=82366&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168870789373"
+    },
+    {
+      "name": "梦蝴蝶",
+      "album": "JTW西游记",
+      "artist": "方大同",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=431853944&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=431853944&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172683065558"
+    },
+    {
+      "name": "总结",
+      "album": "Soulboy",
+      "artist": "方大同",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=82499&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=82499&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170565878273"
+    },
+    {
+      "name": "Catch A Dream (The Theme Song from \"Emi The Dream Catcher\")",
+      "album": "Catch A Dream (The Theme Song from \"Emi The Dream Catcher\")",
+      "artist": "方大同",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=524148328&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=524148328&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172683027910"
+    },
+    {
+      "name": "黑白",
+      "album": "橙月",
+      "artist": "方大同",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=82181&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=82181&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168870419734"
+    },
+    {
+      "name": "爱爱爱",
+      "album": "The Soulboy Collection",
+      "artist": "方大同",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=28029095&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=28029095&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167164989067"
+    },
+    {
+      "name": "为你写的歌",
+      "album": "橙月",
+      "artist": "方大同",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=82203&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=82203&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168870419734"
+    },
+    {
+      "name": "特别的人",
+      "album": "危险世界",
+      "artist": "方大同",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=28403111&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=28403111&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172683046522"
+    },
+    {
+      "name": "因为你",
+      "album": "The Soulboy Collection",
+      "artist": "方大同",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=28029117&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=28029117&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167164989067"
+    },
+    {
+      "name": "小小虫",
+      "album": "The Soulboy Collection",
+      "artist": "方大同",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=28029120&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=28029120&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167164989067"
+    },
+    {
+      "name": "BB88",
+      "album": "BB88",
+      "artist": "方大同",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=81890&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=81890&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164081861490"
+    },
+    {
+      "name": "麦恩莉",
+      "album": "回到未来",
+      "artist": "方大同",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=25648006&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=25648006&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168870428045"
+    },
+    {
+      "name": "每个人都会 [Timeless Live 2009]",
+      "album": "Khalil Timeless Concert Live 2009",
+      "artist": "方大同",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1451860389&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1451860389&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165025378485"
+    },
+    {
+      "name": "The Secret of The Golden Bricks",
+      "album": "Emi The Dream Catcher",
+      "artist": "方大同",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=865021484&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=865021484&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171388648339"
+    },
+    {
+      "name": "四人游",
+      "album": "爱爱爱",
+      "artist": "方大同/薛凯琪",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=82461&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=82461&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168870794250"
+    },
+    {
+      "name": "十九八七…",
+      "album": "未来",
+      "artist": "方大同",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=82375&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=82375&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168870789373"
+    },
+    {
+      "name": "情胜策略",
+      "album": "15",
+      "artist": "方大同",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=81981&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=81981&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168870800536"
+    },
+    {
+      "name": "自以为 (feat. 徐佳莹)",
+      "album": "15",
+      "artist": "方大同/徐佳莹",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=81987&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=81987&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168870800536"
+    },
+    {
+      "name": "巴黎",
+      "album": "危险世界",
+      "artist": "方大同",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=28406198&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=28406198&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172683046522"
+    },
+    {
+      "name": "1234567",
+      "album": "橙月",
+      "artist": "方大同",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=82177&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=82177&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168870419734"
+    },
+    {
+      "name": "白发",
+      "album": "白发",
+      "artist": "方大同",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1355916145&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1355916145&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163969418054"
+    },
+    {
+      "name": "春天里 (Live)",
+      "album": "我是歌手第二季 总决赛",
+      "artist": "G.E.M.邓紫棋/方大同",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=28391021&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=28391021&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=5909874999521957"
+    },
+    {
+      "name": "爱不来 (feat. Miss Ko葛仲珊)",
+      "album": "危险世界",
+      "artist": "方大同/葛仲珊",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=28406197&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=28406197&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172683046522"
+    },
+    {
+      "name": "好不容易",
+      "album": "15",
+      "artist": "方大同",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=81997&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=81997&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168870800536"
+    },
+    {
+      "name": "三人游",
+      "album": "The Soulboy Collection",
+      "artist": "方大同",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=28029112&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=28029112&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167164989067"
+    },
+    {
+      "name": "黑洞里",
+      "album": "橙月",
+      "artist": "方大同",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=82187&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=82187&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168870419734"
+    },
+    {
+      "name": "千纸鹤",
+      "album": "回到未来",
+      "artist": "方大同",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=25648004&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=25648004&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168870428045"
+    },
+    {
+      "name": "够不够",
+      "album": "未来",
+      "artist": "方大同",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=82362&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=82362&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168870789373"
+    },
+    {
+      "name": "歌手与模特儿",
+      "album": "爱爱爱",
+      "artist": "方大同",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=82457&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=82457&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168870794250"
+    }
+  ]
+}

@@ -1,0 +1,326 @@
+{
+  "name": "陶喆",
+  "cover": "http://p1.music.126.net/ZxYbcFQcEElDjER_5Pq6Tg==/109951170606719006.jpg?param=200y200",
+  "songs": [
+    {
+      "name": "二十二",
+      "album": "黑色柳丁",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=150565&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=150565&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169237251638"
+    },
+    {
+      "name": "Dear God",
+      "album": "黑色柳丁",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=150556&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=150556&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169237251638"
+    },
+    {
+      "name": "王八蛋",
+      "album": "David Tao",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1859065057&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1859065057&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169507121139"
+    },
+    {
+      "name": "每一面都美",
+      "album": "太美丽",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=150423&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=150423&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951166916020363"
+    },
+    {
+      "name": "Susan 说",
+      "album": "太平盛世",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=150433&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=150433&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163803188844"
+    },
+    {
+      "name": "爱是个什么东西",
+      "album": "太平盛世",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=150438&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=150438&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163803188844"
+    },
+    {
+      "name": "全世界会唱的歌",
+      "album": "STUPID POP SONGS",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=2061994177&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2061994177&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170722562446"
+    },
+    {
+      "name": "Runaway",
+      "album": "Ultrasound 乐之路 1997-2003",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=150530&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=150530&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164124485287"
+    },
+    {
+      "name": "再见以前先说再见",
+      "album": "David Tao",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=150674&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=150674&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169507121139"
+    },
+    {
+      "name": "心乱飞",
+      "album": "David Tao",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=150671&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=150671&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169507121139"
+    },
+    {
+      "name": "说走就走",
+      "album": "I'm OK",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=150627&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=150627&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169389595068"
+    },
+    {
+      "name": "Katrina",
+      "album": "黑色柳丁",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=150570&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=150570&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169237251638"
+    },
+    {
+      "name": "Catherine",
+      "album": "太平盛世",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=150429&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=150429&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163803188844"
+    },
+    {
+      "name": "今天没回家",
+      "album": "Ultrasound 乐之路 1997-2003",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=150502&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=150502&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164124485287"
+    },
+    {
+      "name": "十七岁",
+      "album": "David Tao",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=150658&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=150658&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169507121139"
+    },
+    {
+      "name": "无缘",
+      "album": "太平盛世",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=150434&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=150434&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163803188844"
+    },
+    {
+      "name": "宫保鸡丁",
+      "album": "黑色柳丁",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=150562&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=150562&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169237251638"
+    },
+    {
+      "name": "普通朋友 (Live)",
+      "album": "Soul Power Live 陶喆现场原音专辑",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=150474&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=150474&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170974572101"
+    },
+    {
+      "name": "月亮代表谁的心",
+      "album": "黑色柳丁",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=150564&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=150564&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169237251638"
+    },
+    {
+      "name": "黑色柳丁",
+      "album": "黑色柳丁",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=150552&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=150552&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169237251638"
+    },
+    {
+      "name": "Angel",
+      "album": "黑色柳丁",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=150558&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=150558&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169237251638"
+    },
+    {
+      "name": "是是非非",
+      "album": "David Tao",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=150665&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=150665&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169507121139"
+    },
+    {
+      "name": "自导自演的悲剧",
+      "album": "太美丽",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=150419&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=150419&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951166916020363"
+    },
+    {
+      "name": "小镇姑娘",
+      "album": "I'm OK",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=150619&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=150619&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169389595068"
+    },
+    {
+      "name": "蝴蝶",
+      "album": "黑色柳丁",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=150561&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=150561&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169237251638"
+    },
+    {
+      "name": "飞机场的10:30",
+      "album": "Ultrasound 乐之路 1997-2003",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=150512&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=150512&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164124485287"
+    },
+    {
+      "name": "流沙 (Reimagined)",
+      "album": "流沙 (Reimagined)",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=2059532170&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2059532170&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168704179066"
+    },
+    {
+      "name": "寂寞的季节",
+      "album": "Ultrasound 乐之路 1997-2003",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=150524&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=150524&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164124485287"
+    },
+    {
+      "name": "就是爱你",
+      "album": "太平盛世",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=150430&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=150430&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163803188844"
+    },
+    {
+      "name": "一念之间",
+      "album": "再见你好吗",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=26145664&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=26145664&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168271401133"
+    },
+    {
+      "name": "爱，很简单",
+      "album": "Ultrasound 乐之路 1997-2003",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=150528&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=150528&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164124485287"
+    },
+    {
+      "name": "星心",
+      "album": "STUPID POP SONGS",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=2118469756&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2118469756&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170722562446"
+    },
+    {
+      "name": "太美丽",
+      "album": "太美丽",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=150415&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=150415&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951166916020363"
+    },
+    {
+      "name": "暗恋",
+      "album": "六九乐章",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=150389&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=150389&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951166916017949"
+    },
+    {
+      "name": "讨厌红楼梦",
+      "album": "黑色柳丁",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=150560&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=150560&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169237251638"
+    },
+    {
+      "name": "找自己",
+      "album": "Ultrasound 乐之路 1997-2003",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=150522&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=150522&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164124485287"
+    },
+    {
+      "name": "真爱等一下",
+      "album": "再见你好吗",
+      "artist": "陶喆/蔡健雅",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=26425123&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=26425123&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168271401133"
+    },
+    {
+      "name": "天天",
+      "album": "Ultrasound 乐之路 1997-2003",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=150518&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=150518&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164124485287"
+    },
+    {
+      "name": "那个女孩",
+      "album": "再见你好吗",
+      "artist": "陶喆/卢广仲",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=26425119&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=26425119&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168271401133"
+    },
+    {
+      "name": "似曾相识",
+      "album": "太美丽",
+      "artist": "陶喆",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=150421&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=150421&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951166916020363"
+    }
+  ]
+}

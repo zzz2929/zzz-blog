@@ -1,0 +1,246 @@
+{
+  "name": "蔡依林",
+  "cover": "http://p2.music.126.net/09GUy0j4V7EwyhXVIdqhDg==/109951171072766317.jpg?param=200y200",
+  "songs": [
+    {
+      "name": "说爱你",
+      "album": "K情歌2",
+      "artist": "蔡依林",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=5255441&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=5255441&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165641566083"
+    },
+    {
+      "name": "就是爱",
+      "album": "城堡",
+      "artist": "蔡依林",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=209911&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=209911&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170708258712"
+    },
+    {
+      "name": "独占神话",
+      "album": "J-Game",
+      "artist": "蔡依林",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=209812&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=209812&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165970188334"
+    },
+    {
+      "name": "桃花源",
+      "album": "特务J",
+      "artist": "蔡依林",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=209637&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=209637&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163200168756"
+    },
+    {
+      "name": "Fight as ONE",
+      "album": "Fight as ONE",
+      "artist": "陈奕迅/蔡依林",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1437165631&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1437165631&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164866101330"
+    },
+    {
+      "name": "日不落",
+      "album": "特务J",
+      "artist": "蔡依林",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=209643&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=209643&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163200168756"
+    },
+    {
+      "name": "心型圈",
+      "album": "舞娘",
+      "artist": "蔡依林",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=209722&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=209722&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163251449978"
+    },
+    {
+      "name": "Stars Align",
+      "album": "Stars Align",
+      "artist": "R3HAB/蔡依林",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1833653230&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1833653230&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165847620943"
+    },
+    {
+      "name": "倒带",
+      "album": "求婚事务所 电视原声带",
+      "artist": "蔡依林",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=4876202&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=4876202&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171315893199"
+    },
+    {
+      "name": "舞娘",
+      "album": "舞娘",
+      "artist": "蔡依林",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=209718&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=209718&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163251449978"
+    },
+    {
+      "name": "你怎么连话都说不清楚",
+      "album": "Born to Be a Star 超级珍藏世纪精选",
+      "artist": "蔡依林",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=209867&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=209867&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165705502725"
+    },
+    {
+      "name": "天空",
+      "album": "J-Game",
+      "artist": "蔡依林",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=209804&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=209804&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165970188334"
+    },
+    {
+      "name": "Love Love Love",
+      "album": "城堡",
+      "artist": "蔡依林",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=209923&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=209923&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170708258712"
+    },
+    {
+      "name": "特务J",
+      "album": "特务J",
+      "artist": "蔡依林",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=209633&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=209633&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163200168756"
+    },
+    {
+      "name": "柠檬草的味道",
+      "album": "城堡",
+      "artist": "蔡依林",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=209914&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=209914&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170708258712"
+    },
+    {
+      "name": "大艺术家",
+      "album": "大艺术家",
+      "artist": "蔡依林",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=209539&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=209539&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168195203598"
+    },
+    {
+      "name": "第三人称",
+      "album": "第三人称",
+      "artist": "蔡依林",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=29722126&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=29722126&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=6657542907310638"
+    },
+    {
+      "name": "Mr.Q",
+      "album": "舞娘",
+      "artist": "蔡依林",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=209724&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=209724&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163251449978"
+    },
+    {
+      "name": "假装",
+      "album": "舞娘",
+      "artist": "蔡依林",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=209720&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=209720&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163251449978"
+    },
+    {
+      "name": "心引力",
+      "album": "心引力",
+      "artist": "王俊凯/蔡依林",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1400596300&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1400596300&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167561264557"
+    },
+    {
+      "name": "爱情36计",
+      "album": "J-Top冠军精选",
+      "artist": "蔡依林",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=209732&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=209732&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165705498890"
+    },
+    {
+      "name": "睁一只眼 闭一只眼",
+      "album": "J-Game",
+      "artist": "蔡依林",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=209805&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=209805&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165970188334"
+    },
+    {
+      "name": "看我72变",
+      "album": "J-Top冠军精选",
+      "artist": "蔡依林",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=209729&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=209729&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165705498890"
+    },
+    {
+      "name": "野蛮游戏",
+      "album": "J-Game",
+      "artist": "蔡依林",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=209801&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=209801&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165970188334"
+    },
+    {
+      "name": "今天你要嫁给我",
+      "album": "你是我一生最爱的人",
+      "artist": "陶喆/蔡依林",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=5254811&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=5254811&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163449486613"
+    },
+    {
+      "name": "招牌动作",
+      "album": "绝版公主 梦绮地精选",
+      "artist": "蔡依林",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=209648&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=209648&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165958730017"
+    },
+    {
+      "name": "非卖品",
+      "album": "特务J",
+      "artist": "蔡依林",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=209640&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=209640&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163200168756"
+    },
+    {
+      "name": "离人节",
+      "album": "舞娘",
+      "artist": "蔡依林",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=209723&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=209723&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163251449978"
+    },
+    {
+      "name": "我知道你很难过",
+      "album": "Together",
+      "artist": "蔡依林",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=210106&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=210106&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165744900608"
+    },
+    {
+      "name": "我是谁",
+      "album": "狼殿下 影视原声碟PART.1",
+      "artist": "蔡依林/Jony J",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1496855338&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1496855338&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165483194861"
+    }
+  ]
+}

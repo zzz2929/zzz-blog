@@ -1,0 +1,326 @@
+{
+  "name": "周深",
+  "cover": "http://p1.music.126.net/O7iklZenQK0SdemoEeyovQ==/109951168649034709.jpg?param=200y200",
+  "songs": [
+    {
+      "name": "Rubia",
+      "album": "Rubia",
+      "artist": "周深",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1815684465&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1815684465&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165671947083"
+    },
+    {
+      "name": "今天的我们",
+      "album": "今天的我们",
+      "artist": "周深",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=3376153909&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3376153909&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951173141693269"
+    },
+    {
+      "name": "Monsters (Live)",
+      "album": "歌手·当打之年 第5期",
+      "artist": "周深",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1428598981&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1428598981&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164773621591"
+    },
+    {
+      "name": "有我",
+      "album": "有我",
+      "artist": "周深",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1941629582&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1941629582&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167434346846"
+    },
+    {
+      "name": "光亮",
+      "album": "大型纪录片《紫禁城》主题歌音乐专辑",
+      "artist": "周深",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1899994040&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1899994040&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951166681216835"
+    },
+    {
+      "name": "有一件美好的事情将要发生",
+      "album": "有一件美好的事情将要发生",
+      "artist": "周深",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1433984099&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1433984099&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164839904183"
+    },
+    {
+      "name": "可它爱着这个世界",
+      "album": "可它爱着这个世界",
+      "artist": "周深",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1416181167&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1416181167&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164620816092"
+    },
+    {
+      "name": "望",
+      "album": "望",
+      "artist": "周深",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1814080666&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1814080666&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165649207576"
+    },
+    {
+      "name": "好好生活就是美好生活",
+      "album": "好好生活就是美好生活",
+      "artist": "周深",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1906097379&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1906097379&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951166789161726"
+    },
+    {
+      "name": "记·念 (Live)",
+      "album": "为歌而赞第二季 第12期",
+      "artist": "周深",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1960650720&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1960650720&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167612169848"
+    },
+    {
+      "name": "蜃楼",
+      "album": "反深代词",
+      "artist": "周深",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=2140776001&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2140776001&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170008506786"
+    },
+    {
+      "name": "我以渺小爱你",
+      "album": "我以渺小爱你",
+      "artist": "周深",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=2098693162&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2098693162&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169113908928"
+    },
+    {
+      "name": "小美满",
+      "album": "小美满",
+      "artist": "周深",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=2124381474&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2124381474&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169318479430"
+    },
+    {
+      "name": "暗示",
+      "album": "暗示",
+      "artist": "周深",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1443928242&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1443928242&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164943562862"
+    },
+    {
+      "name": "过尽千帆",
+      "album": "过尽千帆",
+      "artist": "周深",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1401095609&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1401095609&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164468929141"
+    },
+    {
+      "name": "能解答一切的答案",
+      "album": "妙先生 电影原声大碟",
+      "artist": "周深",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1411991905&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1411991905&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165200638846"
+    },
+    {
+      "name": "不想睡",
+      "album": "不想睡",
+      "artist": "周深",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1453342107&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1453342107&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165040573781"
+    },
+    {
+      "name": "不群",
+      "album": "不群",
+      "artist": "恋恋故人难/周深",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1410824365&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1410824365&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164569062875"
+    },
+    {
+      "name": "我的答案",
+      "album": "以法之名",
+      "artist": "周深",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1924224595&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1924224595&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167342014147"
+    },
+    {
+      "name": "雪花落下",
+      "album": "雪花落下",
+      "artist": "周深",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1429392929&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1429392929&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164784793909"
+    },
+    {
+      "name": "请笃信一个梦",
+      "album": "请笃信一个梦",
+      "artist": "周深",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1416619074&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1416619074&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165347995948"
+    },
+    {
+      "name": "浮光",
+      "album": "浮光",
+      "artist": "周深",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=2112196350&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2112196350&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169222823883"
+    },
+    {
+      "name": "话语",
+      "album": "话语",
+      "artist": "Panta.Q 郭曲/周深",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1450956881&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1450956881&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165017599371"
+    },
+    {
+      "name": "来不及勇敢",
+      "album": "来不及勇敢",
+      "artist": "周深",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=864107063&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=864107063&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163393139107"
+    },
+    {
+      "name": "避难所/Sanctuary",
+      "album": "我在未来等你 电视剧原声专辑",
+      "artist": "周深",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1387564796&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1387564796&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164333515125"
+    },
+    {
+      "name": "泪桥 (live)",
+      "album": "声生不息·家年华 第12期",
+      "artist": "古巨基/周深",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=2124385834&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2124385834&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169721390560"
+    },
+    {
+      "name": "千千阙歌 (Live)",
+      "album": "聚划算55青春选择之夜晚会Live",
+      "artist": "周深",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1446233390&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1446233390&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164970741627"
+    },
+    {
+      "name": "春雪",
+      "album": "春雪",
+      "artist": "周深/TerryZhong钟天利",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=2137074704&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2137074704&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169424163724"
+    },
+    {
+      "name": "雪落下的声音 (Live)",
+      "album": "蒙面唱将猜猜猜第三季 第7期",
+      "artist": "周深",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1406472218&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1406472218&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164515478462"
+    },
+    {
+      "name": "有可能的夜晚 (Live)",
+      "album": "歌手·当打之年 第7期",
+      "artist": "周深",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1432427879&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1432427879&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164820593469"
+    },
+    {
+      "name": "归处",
+      "album": "归处",
+      "artist": "周深",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1813888105&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1813888105&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165647436292"
+    },
+    {
+      "name": "听我说",
+      "album": "听我说",
+      "artist": "周深",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1415078941&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1415078941&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164612139849"
+    },
+    {
+      "name": "身骑白马 (Live)",
+      "album": "蒙面唱将猜猜猜 第六期",
+      "artist": "周深",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=436699548&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=436699548&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=1383185644445715"
+    },
+    {
+      "name": "达拉崩吧 (Live)",
+      "album": "歌手·当打之年 第8期",
+      "artist": "周深",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1434062381&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1434062381&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164840856331"
+    },
+    {
+      "name": "拂衣归",
+      "album": "拂衣归",
+      "artist": "周深",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1448533371&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1448533371&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164991132250"
+    },
+    {
+      "name": "玫瑰少年 (Live)",
+      "album": "天赐的声音第三季 第3期",
+      "artist": "周深/GAI周延",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1945878289&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1945878289&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168567708846"
+    },
+    {
+      "name": "资深庸才",
+      "album": "不完美人生指南",
+      "artist": "周深/王子zione",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1492318633&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1492318633&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165434590354"
+    },
+    {
+      "name": "无问 (Live)",
+      "album": "歌手·当打之年 第4期",
+      "artist": "周深",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1425818683&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1425818683&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164738867906"
+    },
+    {
+      "name": "蓝色降落伞",
+      "album": "深的深",
+      "artist": "周深",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=514765774&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=514765774&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171292487969"
+    },
+    {
+      "name": "我，江湖！",
+      "album": "我，江湖！",
+      "artist": "周深",
+      "url": "http://163.hyc.moe?server=netease&type=url&id=1813568808&br=400",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1813568808&format=yrc",
+      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165674188085"
+    }
+  ]
+}
