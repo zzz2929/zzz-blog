@@ -1,6 +1,6 @@
 import json
 
-def convert_music_file(input_file='./src/content/data/playlists/wuyuetian.json', output_file='./src/content/data/playlists/wuyuetian_converted.json'):
+def convert_music_file(input_file='./src/content/data/playlists/wanglihong.json', output_file='./src/content/data/playlists/wanglihong_converted.json'):
     try:
         with open(input_file, 'r', encoding='utf-8') as f:
             original_data = json.load(f)
