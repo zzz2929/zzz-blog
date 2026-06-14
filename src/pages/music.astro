@@ -487,7 +487,8 @@ const playlists = playlistFiles.map((p) => ({
     .lyrics-content .lyric-line {
       display: flex;
       align-items: baseline;
-      gap: 12px;
+      justify-content: center;
+      gap: 0;
       padding: 8px 12px;
       border-radius: 8px;
       transition: color 0.15s ease;
@@ -503,6 +504,23 @@ const playlists = playlistFiles.map((p) => ({
                    0 0 20px var(--glow-color, rgba(58,101,232,0.4)),
                    0 0 40px var(--glow-color, rgba(58,101,232,0.2));
     }
+    .lyrics-content .lyric-word {
+      display: inline-block;
+      transition: transform 0.08s ease, color 0.08s ease;
+      color: inherit;
+      transform-origin: center bottom;
+    }
+    .lyrics-content .lyric-line.active .lyric-word {
+      color: rgba(128, 128, 128, 0.5);
+    }
+    .lyrics-content .lyric-line.active .lyric-word.sung {
+      color: var(--lyric-active-color, var(--color-foreground));
+      transform: scale(1.3);
+    }
+    .lyrics-content .lyric-line.active .lyric-word.past {
+      color: var(--lyric-active-color, var(--color-foreground));
+    }
+
     .lyrics-content .lyric-line.past { color: rgba(128, 128, 128, 0.5); }
     .lyrics-content .lyric-line.past:hover { color: var(--color-foreground); }
 
@@ -1041,27 +1059,17 @@ const playlists = playlistFiles.map((p) => ({
 
       // ====== Background & Colors ======
       updateBackground() {
-        const [bgColor, lyricColor] = this.generateGradientColors();
+        const hue = Math.random() * 360;
         if (this.lyricsBackground) {
-          const hue = Math.random() * 360;
           this.lyricsBackground.style.background = `linear-gradient(135deg, hsl(${hue}, 70%, 20%) 0%, hsl(${hue + 30}, 60%, 15%) 50%, hsl(${hue + 60}, 50%, 10%) 100%)`;
         }
+        const lyricColor = `hsl(${hue}, 65%, 55%)`;
         if (this.lyricsEl) {
           this.lyricsEl.style.setProperty('--lyric-active-color', lyricColor);
           this.lyricsEl.style.setProperty('--glow-color', lyricColor);
         }
       }
 
-      generateGradientColors() {
-        const pairs = [
-          ['#ede8de', '#3a65e8'],
-          ['#e8e0f0', '#7c3aed'],
-          ['#f5e6d8', '#c2410c'],
-          ['#f0e4c8', '#0d9488'],
-          ['#e5dae8', '#be185d'],
-        ];
-        return pairs[Math.floor(Math.random() * pairs.length)];
-      }
 
       // ====== Lyrics ======
       async loadLyricsFromUrl(lrcUrl) {
@@ -1081,22 +1089,42 @@ const playlists = playlistFiles.map((p) => ({
       parseLyrics(text) {
         this.lyrics = [];
         this.translations = [];
+        const lineRe = /^\[(\d+),(\d+)\]/;
+        const wordRe = /\((\d+),(\d+),\d+\)([^(]*)/g;
         const timeRe = /\[(\d{2}):(\d{2})(?:\.(\d{2,3}))?\]/g;
         const transRe = /(?:翻译|trans|translation)[:\s]*(.*)/i;
 
-        text.split('\n').forEach(line => {
-          const matches = [...line.matchAll(timeRe)];
-          if (!matches.length) return;
-          const clean = line.replace(timeRe, '').trim();
-          if (!clean) return;
-          const isTrans = transRe.test(clean);
+        const lines = text.split('\n');
+        const isWordByWord = lineRe.test(lines[0] || '');
 
-          matches.forEach(m => {
-            const time = parseInt(m[1]) * 60 + parseInt(m[2]) + (m[3] ? parseInt(m[3].padEnd(3, '0').slice(0, 3)) : 0) / 1000;
-            if (isTrans) this.translations.push({ time, text: clean.replace(transRe, '$1').trim() });
-            else this.lyrics.push({ time, text: clean });
+        if (isWordByWord) {
+          lines.forEach(line => {
+            const m = line.match(lineRe);
+            if (!m) return;
+            const lineStart = parseInt(m[1]) / 1000;
+            const words = [];
+            let wm;
+            while ((wm = wordRe.exec(line)) !== null) {
+              words.push({ start: parseInt(wm[1]) / 1000, end: (parseInt(wm[1]) + parseInt(wm[2])) / 1000, text: wm[3] });
+            }
+            if (!words.length) return;
+            const text = words.map(w => w.text).join('');
+            this.lyrics.push({ time: lineStart, text, words });
           });
-        });
+        } else {
+          lines.forEach(line => {
+            const matches = [...line.matchAll(timeRe)];
+            if (!matches.length) return;
+            const clean = line.replace(timeRe, '').trim();
+            if (!clean) return;
+            const isTrans = transRe.test(clean);
+            matches.forEach(m => {
+              const time = parseInt(m[1]) * 60 + parseInt(m[2]) + (m[3] ? parseInt(m[3].padEnd(3, '0').slice(0, 3)) : 0) / 1000;
+              if (isTrans) this.translations.push({ time, text: clean.replace(transRe, '$1').trim() });
+              else this.lyrics.push({ time, text: clean });
+            });
+          });
+        }
 
         this.lyrics.sort((a, b) => a.time - b.time);
         this.translations.sort((a, b) => a.time - b.time);
@@ -1120,7 +1148,15 @@ const playlists = playlistFiles.map((p) => ({
           const div = document.createElement('div');
           div.className = 'lyric-line';
           div.dataset.time = lyric.time;
-          div.innerHTML = `<span class="lyric-text">${lyric.text}</span>`;
+
+          if (lyric.words) {
+            div.innerHTML = lyric.words.map(w =>
+              `<span class="lyric-word" data-start="${w.start}" data-end="${w.end}">${w.text}</span>`
+            ).join('');
+          } else {
+            div.innerHTML = `<span class="lyric-text">${lyric.text}</span>`;
+          }
+
           div.addEventListener('click', () => {
             this.audio.currentTime = lyric.time;
             if (!this.isPlaying) { this.audio.play(); this.isPlaying = true; this.updatePlayButton(); }
@@ -1161,6 +1197,17 @@ const playlists = playlistFiles.map((p) => ({
           l.classList.remove('active', 'past');
           if (i === active) l.classList.add('active');
           else if (i < active) l.classList.add('past');
+
+          // Word-by-word highlight
+          const words = l.querySelectorAll('.lyric-word');
+          if (words.length) {
+            words.forEach(w => {
+              const start = parseFloat(w.dataset.start);
+              const end = parseFloat(w.dataset.end);
+              w.classList.toggle('sung', currentTime >= start && currentTime < end);
+              w.classList.toggle('past', currentTime >= end);
+            });
+          }
         });
 
         const el = this.lyricsEl.querySelector('.lyric-line.active');
