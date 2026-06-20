@@ -1177,11 +1177,38 @@ const playlists = playlistFiles.map((p) => ({
         if (this.lyricsBackground) {
           this.lyricsBackground.style.background = `linear-gradient(135deg, hsl(${hue}, 70%, 20%) 0%, hsl(${hue + 30}, 60%, 15%) 50%, hsl(${hue + 60}, 50%, 10%) 100%)`;
         }
-        const lyricColor = `hsl(${hue}, 65%, 55%)`;
+        this.syncLyricColor();
+        this.initThemeObserver();
+      }
+
+      syncLyricColor() {
+        const bg = getComputedStyle(document.body).backgroundColor;
+        const m = bg.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+        if (!m) return;
+        const r = +m[1], g = +m[2], b = +m[3];
+        const max = Math.max(r, g, b), min = Math.min(r, g, b);
+        const l = (max + min) / 510;
+        let h = 0;
+        if (max !== min) {
+          const d = max - min;
+          if (max === r) h = ((g - b) / d + (g < b ? 6 : 0)) * 60;
+          else if (max === g) h = ((b - r) / d + 2) * 60;
+          else h = ((r - g) / d + 4) * 60;
+        }
+        const lyricColor = `hsl(${(h + 180) % 360}, ${Math.min(70, 40 + l * 30)}%, ${45 + l * 15}%)`;
         if (this.lyricsEl) {
           this.lyricsEl.style.setProperty('--lyric-active-color', lyricColor);
           this.lyricsEl.style.setProperty('--glow-color', lyricColor);
         }
+      }
+
+      initThemeObserver() {
+        if (this._themeObserved) return;
+        this._themeObserved = true;
+        new MutationObserver(() => this.syncLyricColor())
+          .observe(document.body, { attributes: true, attributeFilter: ['style', 'class'] });
+        new MutationObserver(() => this.syncLyricColor())
+          .observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
       }
 
 
