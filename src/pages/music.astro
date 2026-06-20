@@ -141,69 +141,88 @@ const playlists = playlistFiles.map((p) => ({
   <!-- Fixed Control Bar -->
   <div id="fixed-controls" class="fixed bottom-0 left-0 right-0 z-50 px-4 pb-3">
     <div class="mx-auto max-w-7xl">
-      <div class="flex items-center justify-between px-4 sm:px-6 rounded-full" style="height: 70px; background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 1px 24px rgba(0,0,0,0.1);">
-        <!-- Left: Song Info -->
-        <div class="flex items-center gap-3 min-w-0">
-          <img id="fixed-album-cover" src="/音乐.svg" alt="" class="w-10 h-10 rounded-lg object-cover" />
-          <div class="min-w-0">
-            <div id="fixed-song-title" class="text-sm font-semibold text-foreground truncate">未播放</div>
-            <div id="fixed-song-artist" class="text-xs text-muted truncate">选择歌曲开始播放</div>
+      <div class="rounded-full" style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 1px 24px rgba(0,0,0,0.1);">
+        <!-- Controls -->
+        <div class="relative flex items-center justify-between px-4 sm:px-6" style="height: 60px;">
+          <!-- Left: Song Info -->
+          <div class="flex items-center gap-3 min-w-0 z-10">
+            <img id="fixed-album-cover" src="/音乐.svg" alt="" class="w-10 h-10 rounded-lg object-cover" />
+            <div class="min-w-0">
+              <div id="fixed-song-title" class="text-sm font-semibold text-foreground truncate">未播放</div>
+              <div id="fixed-song-artist" class="text-xs text-muted truncate">选择歌曲开始播放</div>
+            </div>
+          </div>
+
+          <!-- Center: Play Controls (absolute centered) -->
+          <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-3 z-10">
+            <button id="fixed-prev-btn" class="control-btn p-2 rounded-full" title="上一首">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/>
+              </svg>
+            </button>
+            <button id="fixed-play-btn" class="play-btn w-10 h-10 rounded-full bg-foreground text-background flex items-center justify-center" title="播放">
+              <svg id="fixed-play-icon" class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+              <svg id="fixed-pause-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+              </svg>
+            </button>
+            <button id="fixed-next-btn" class="control-btn p-2 rounded-full" title="下一首">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Right: Mode + Volume -->
+          <div class="flex items-center gap-2 z-10">
+            <button id="fixed-mode-btn" class="control-btn p-2 rounded-full" title="顺序播放">
+              <svg class="mode-icon" data-mode="0" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor">
+                <path d="M694.4 854.4H195.2l48 44.8c9.6 6.4 16 16 16 28.8-3.2 19.2-19.2 32-38.4 32-9.6 0-22.4-6.4-28.8-12.8l-108.8-96c-12.8-12.8-16-35.2 0-48L192 704c6.4-6.4 19.2-9.6 28.8-9.6 19.2 0 35.2 16 35.2 35.2 0 9.6-6.4 19.2-12.8 25.6l-41.6 38.4h496c112 0 198.4-89.6 198.4-198.4v-86.4c0-19.2 12.8-32 32-32s32 12.8 32 32v86.4c0 140.8-118.4 259.2-265.6 259.2zM329.6 169.6h496l-48-44.8c-9.6-6.4-16-16-16-28.8 3.2-19.2 19.2-32 38.4-32 9.6 0 22.4 6.4 28.8 12.8l108.8 96c12.8 12.8 16 35.2 0 48L832 320c-6.4 6.4-19.2 9.6-28.8 9.6-19.2 0-35.2-16-35.2-35.2 0-9.6 6.4-19.2 12.8-25.6l41.6-38.4H326.4C217.6 233.6 128 323.2 128 435.2v89.6c0 19.2-12.8 32-32 32s-32-12.8-32-32v-86.4C64 288 182.4 169.6 329.6 169.6z"/>
+              </svg>
+              <svg class="mode-icon hidden" data-mode="1" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor">
+                <path d="M928 476.8c-19.2 0-32 12.8-32 32v86.4c0 108.8-86.4 198.4-198.4 198.4H201.6l41.6-38.4c6.4-6.4 12.8-16 12.8-25.6 0-19.2-16-35.2-35.2-35.2-9.6 0-22.4 3.2-28.8 9.6l-108.8 99.2c-16 12.8-12.8 35.2 0 48l108.8 96c6.4 6.4 19.2 12.8 28.8 12.8 19.2 0 35.2-12.8 38.4-32 0-12.8-6.4-22.4-16-28.8l-48-44.8h499.2c147.2 0 265.6-118.4 265.6-259.2v-86.4c0-19.2-12.8-32-32-32zM96 556.8c19.2 0 32-12.8 32-32v-89.6c0-112 89.6-201.6 198.4-204.8h496l-41.6 38.4c-6.4 6.4-12.8 16-12.8 25.6 0 19.2 16 35.2 35.2 35.2 9.6 0 22.4-3.2 28.8-9.6l105.6-99.2c16-12.8 12.8-35.2 0-48l-108.8-96c-6.4-6.4-19.2-12.8-28.8-12.8-19.2 0-35.2 12.8-38.4 32 0 12.8 6.4 22.4 16 28.8l48 44.8H329.6C182.4 169.6 64 288 64 438.4v86.4c0 19.2 12.8 32 32 32z"/>
+                <path d="M544 672V352h-48L416 409.6l16 41.6 60.8-41.6V672z"/>
+              </svg>
+              <svg class="mode-icon hidden" data-mode="2" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor">
+                <path d="M844.8 665.6c-6.4-6.4-16-12.8-25.6-9.6-19.2 0-35.2 16-35.2 35.2 0 9.6 6.4 19.2 12.8 25.6l41.6 41.6c-44.8-6.4-86.4-22.4-121.6-51.2-3.2 0-3.2-3.2-6.4-6.4L332.8 304C268.8 233.6 192 195.2 99.2 195.2c-19.2 0-35.2 16-35.2 35.2s16 32 35.2 32c73.6 0 134.4 32 182.4 86.4l384 400 6.4 6.4c48 38.4 108.8 64 172.8 70.4l-48 44.8c-9.6 6.4-16 19.2-16 28.8 0 19.2 19.2 35.2 38.4 32 9.6 0 19.2-6.4 25.6-12.8l99.2-92.8c16-16 16-41.6 0-57.6l-99.2-102.4z m-3.2-556.8c-12.8-16-32-19.2-48-6.4-9.6 6.4-12.8 16-12.8 25.6 0 12.8 3.2 22.4 16 28.8l41.6 41.6c-73.6 9.6-140.8 38.4-192 89.6l-115.2 118.4c-12.8 12.8-12.8 32 0 44.8 6.4 6.4 16 9.6 25.6 9.6s19.2-3.2 25.6-9.6l112-118.4c41.6-38.4 92.8-64 147.2-70.4l-44.8 44.8c-6.4 6.4-12.8 16-12.8 25.6 0 19.2 16 35.2 32 35.2 9.6 0 19.2-3.2 28.8-9.6L950.4 256c12.8-12.8 12.8-35.2 0-48l-108.8-99.2m-438.4 448c-9.6 0-19.2 3.2-25.6 9.6l-118.4 121.6c-48 44.8-96 67.2-160 67.2H96c-19.2 0-35.2 16-35.2 35.2s16 32 35.2 32h3.2c83.2 0 147.2-32 211.2-86.4l121.6-124.8c6.4-6.4 9.6-12.8 9.6-22.4 0-9.6-3.2-16-9.6-22.4-9.6-6.4-19.2-9.6-28.8-9.6z"/>
+              </svg>
+            </button>
+
+            <div id="volume-wrapper" class="relative flex items-center">
+              <!-- Horizontal slider above button -->
+              <div id="volume-popup" class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden">
+                <input id="fixed-volume-slider" type="range" min="0" max="100" value="80" class="volume-slider-v" />
+              </div>
+              <button id="fixed-mute-btn" class="control-btn p-2 rounded-full" title="音量">
+                <svg class="w-5 h-5 vol-icon" data-vol="high" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/>
+                </svg>
+                <svg class="w-5 h-5 vol-icon hidden" data-vol="medium" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.536 8.464a5 5 0 010 7.072M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/>
+                </svg>
+                <svg class="w-5 h-5 vol-icon hidden" data-vol="muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/>
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
 
-        <!-- Center: Controls -->
-        <div class="flex items-center gap-3">
-          <button id="fixed-prev-btn" class="control-btn p-2 rounded-full" title="上一首">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/>
-            </svg>
-          </button>
-          <button id="fixed-play-btn" class="play-btn w-10 h-10 rounded-full bg-foreground text-background flex items-center justify-center" title="播放">
-            <svg id="fixed-play-icon" class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M8 5v14l11-7z"/>
-            </svg>
-            <svg id="fixed-pause-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
-            </svg>
-          </button>
-          <button id="fixed-next-btn" class="control-btn p-2 rounded-full" title="下一首">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/>
-            </svg>
-          </button>
-          <button id="fixed-mode-btn" class="control-btn p-2 rounded-full" title="顺序播放">
-            <!-- mode 0: sequential -->
-            <svg class="mode-icon" data-mode="0" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor">
-              <path d="M694.4 854.4H195.2l48 44.8c9.6 6.4 16 16 16 28.8-3.2 19.2-19.2 32-38.4 32-9.6 0-22.4-6.4-28.8-12.8l-108.8-96c-12.8-12.8-16-35.2 0-48L192 704c6.4-6.4 19.2-9.6 28.8-9.6 19.2 0 35.2 16 35.2 35.2 0 9.6-6.4 19.2-12.8 25.6l-41.6 38.4h496c112 0 198.4-89.6 198.4-198.4v-86.4c0-19.2 12.8-32 32-32s32 12.8 32 32v86.4c0 140.8-118.4 259.2-265.6 259.2zM329.6 169.6h496l-48-44.8c-9.6-6.4-16-16-16-28.8 3.2-19.2 19.2-32 38.4-32 9.6 0 22.4 6.4 28.8 12.8l108.8 96c12.8 12.8 16 35.2 0 48L832 320c-6.4 6.4-19.2 9.6-28.8 9.6-19.2 0-35.2-16-35.2-35.2 0-9.6 6.4-19.2 12.8-25.6l41.6-38.4H326.4C217.6 233.6 128 323.2 128 435.2v89.6c0 19.2-12.8 32-32 32s-32-12.8-32-32v-86.4C64 288 182.4 169.6 329.6 169.6z"/>
-            </svg>
-            <!-- mode 1: single loop -->
-            <svg class="mode-icon hidden" data-mode="1" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor">
-              <path d="M928 476.8c-19.2 0-32 12.8-32 32v86.4c0 108.8-86.4 198.4-198.4 198.4H201.6l41.6-38.4c6.4-6.4 12.8-16 12.8-25.6 0-19.2-16-35.2-35.2-35.2-9.6 0-22.4 3.2-28.8 9.6l-108.8 99.2c-16 12.8-12.8 35.2 0 48l108.8 96c6.4 6.4 19.2 12.8 28.8 12.8 19.2 0 35.2-12.8 38.4-32 0-12.8-6.4-22.4-16-28.8l-48-44.8h499.2c147.2 0 265.6-118.4 265.6-259.2v-86.4c0-19.2-12.8-32-32-32zM96 556.8c19.2 0 32-12.8 32-32v-89.6c0-112 89.6-201.6 198.4-204.8h496l-41.6 38.4c-6.4 6.4-12.8 16-12.8 25.6 0 19.2 16 35.2 35.2 35.2 9.6 0 22.4-3.2 28.8-9.6l105.6-99.2c16-12.8 12.8-35.2 0-48l-108.8-96c-6.4-6.4-19.2-12.8-28.8-12.8-19.2 0-35.2 12.8-38.4 32 0 12.8 6.4 22.4 16 28.8l48 44.8H329.6C182.4 169.6 64 288 64 438.4v86.4c0 19.2 12.8 32 32 32z"/>
-              <path d="M544 672V352h-48L416 409.6l16 41.6 60.8-41.6V672z"/>
-            </svg>
-            <!-- mode 2: shuffle -->
-            <svg class="mode-icon hidden" data-mode="2" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor">
-              <path d="M844.8 665.6c-6.4-6.4-16-12.8-25.6-9.6-19.2 0-35.2 16-35.2 35.2 0 9.6 6.4 19.2 12.8 25.6l41.6 41.6c-44.8-6.4-86.4-22.4-121.6-51.2-3.2 0-3.2-3.2-6.4-6.4L332.8 304C268.8 233.6 192 195.2 99.2 195.2c-19.2 0-35.2 16-35.2 35.2s16 32 35.2 32c73.6 0 134.4 32 182.4 86.4l384 400 6.4 6.4c48 38.4 108.8 64 172.8 70.4l-48 44.8c-9.6 6.4-16 19.2-16 28.8 0 19.2 19.2 35.2 38.4 32 9.6 0 19.2-6.4 25.6-12.8l99.2-92.8c16-16 16-41.6 0-57.6l-99.2-102.4z m-3.2-556.8c-12.8-16-32-19.2-48-6.4-9.6 6.4-12.8 16-12.8 25.6 0 12.8 3.2 22.4 16 28.8l41.6 41.6c-73.6 9.6-140.8 38.4-192 89.6l-115.2 118.4c-12.8 12.8-12.8 32 0 44.8 6.4 6.4 16 9.6 25.6 9.6s19.2-3.2 25.6-9.6l112-118.4c41.6-38.4 92.8-64 147.2-70.4l-44.8 44.8c-6.4 6.4-12.8 16-12.8 25.6 0 19.2 16 35.2 32 35.2 9.6 0 19.2-3.2 28.8-9.6L950.4 256c12.8-12.8 12.8-35.2 0-48l-108.8-99.2m-438.4 448c-9.6 0-19.2 3.2-25.6 9.6l-118.4 121.6c-48 44.8-96 67.2-160 67.2H96c-19.2 0-35.2 16-35.2 35.2s16 32 35.2 32h3.2c83.2 0 147.2-32 211.2-86.4l121.6-124.8c6.4-6.4 9.6-12.8 9.6-22.4 0-9.6-3.2-16-9.6-22.4-9.6-6.4-19.2-9.6-28.8-9.6z"/>
-            </svg>
-          </button>
-        </div>
-
-        <!-- Right: Progress & Volume -->
-        <div class="flex items-center gap-3">
-          <span id="fixed-current-time" class="text-xs text-muted">00:00</span>
-          <div class="progress-bar w-24 h-1 bg-gray-200 rounded-full overflow-hidden cursor-pointer">
-            <div id="fixed-progress" class="progress h-full bg-foreground rounded-full transition-all duration-100" style="width: 0%"></div>
+        <!-- Progress Bar (bottom) -->
+        <div class="flex items-center gap-2 px-4 sm:px-6 pb-2">
+          <div id="fixed-progress-bar" class="progress-bar-container flex-1 cursor-pointer group">
+            <div class="h-1 group-hover:h-1.5 bg-gray-200/30 rounded-full overflow-hidden transition-all duration-200">
+              <div id="fixed-progress" class="h-full bg-foreground rounded-full transition-[width] duration-100 ease-linear" style="width: 0%"></div>
+            </div>
           </div>
-          <span id="fixed-duration" class="text-xs text-muted">00:00</span>
-          <button id="fixed-mute-btn" class="control-btn p-1 rounded-full" title="静音">
-            <svg id="fixed-volume-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/>
-            </svg>
-            <svg id="fixed-mute-icon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/>
-            </svg>
-          </button>
+          <span class="text-xs text-muted tabular-nums flex-shrink-0 whitespace-nowrap">
+            <span id="fixed-current-time">00:00</span>
+            <span> / </span>
+            <span id="fixed-duration">00:00</span>
+          </span>
         </div>
       </div>
     </div>
@@ -450,6 +469,39 @@ const playlists = playlistFiles.map((p) => ({
     .play-btn:active { transform: scale(0.95); }
     .progress-bar { position: relative; }
 
+    .progress-bar-container {
+      padding: 4px 0;
+    }
+    .progress-bar-container:hover .progress-glow {
+      opacity: 1;
+    }
+
+    #fixed-progress {
+      background: linear-gradient(90deg, var(--color-foreground) 0%, var(--color-foreground) 100%);
+      position: relative;
+    }
+
+    /* Vertical volume slider */
+    .volume-slider-v {
+      writing-mode: vertical-lr;
+      direction: rtl;
+      -webkit-appearance: none;
+      appearance: none;
+      width: 4px;
+      height: 60px;
+      border-radius: 2px;
+      outline: none;
+      cursor: pointer;
+      background: linear-gradient(to top, var(--color-foreground) 0%, var(--color-foreground) 80%, #ddd 80%, #ddd 100%);
+    }
+    .volume-slider-v::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 0;
+      height: 0;
+    }
+    .dark .volume-slider-v {
+      background: linear-gradient(to top, white 0%, white 80%, #555 80%, #555 100%);
+    }
     /* ====== Playlist Items ====== */
     .playlist-item {
       display: flex;
@@ -657,9 +709,9 @@ const playlists = playlistFiles.map((p) => ({
         this.fixedPrevBtn = document.getElementById('fixed-prev-btn');
         this.fixedNextBtn = document.getElementById('fixed-next-btn');
         this.fixedMuteBtn = document.getElementById('fixed-mute-btn');
-        this.fixedVolumeIcon = document.getElementById('fixed-volume-icon');
-        this.fixedMuteIcon = document.getElementById('fixed-mute-icon');
+        this.fixedVolumeSlider = document.getElementById('fixed-volume-slider');
         this.fixedProgress = document.getElementById('fixed-progress');
+        this.fixedProgressBar = document.getElementById('fixed-progress-bar');
         this.fixedCurrentTime = document.getElementById('fixed-current-time');
         this.fixedDuration = document.getElementById('fixed-duration');
 
@@ -708,11 +760,43 @@ const playlists = playlistFiles.map((p) => ({
         this.modeBtn.addEventListener('click', () => this.togglePlayMode());
         this.fixedMuteBtn.addEventListener('click', () => this.toggleMute());
 
+        // Volume slider
+        if (this.fixedVolumeSlider) {
+          this.fixedVolumeSlider.addEventListener('input', (e) => {
+            this.setVolume(parseInt(e.target.value));
+            this.audio.muted = false;
+            this.updateVolumeIcon();
+          });
+        }
+
+        // Mouse wheel volume on mute button
+        const volumeWrapper = document.getElementById('volume-wrapper');
+        const volumePopup = document.getElementById('volume-popup');
+        if (volumeWrapper && volumePopup) {
+          let hideTimeout;
+          const show = () => { clearTimeout(hideTimeout); volumePopup.classList.remove('hidden'); };
+          const hide = () => { hideTimeout = setTimeout(() => volumePopup.classList.add('hidden'), 200); };
+          volumeWrapper.addEventListener('mouseenter', show);
+          volumeWrapper.addEventListener('mouseleave', hide);
+          volumePopup.addEventListener('mouseenter', show);
+          volumePopup.addEventListener('mouseleave', hide);
+
+          volumeWrapper.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            const delta = e.deltaY > 0 ? -5 : 5;
+            this.volume = Math.max(0, Math.min(100, this.volume + delta));
+            this.audio.volume = this.volume / 100;
+            this.audio.muted = false;
+            if (this.fixedVolumeSlider) this.fixedVolumeSlider.value = this.volume;
+            this.updateVolumeIcon();
+          }, { passive: false });
+        }
+
         // Fixed progress bar
-        const fixedProgressBar = this.fixedProgress.parentElement;
-        if (fixedProgressBar) {
-          fixedProgressBar.addEventListener('click', (e) => {
-            const rect = fixedProgressBar.getBoundingClientRect();
+        const progressBar = document.getElementById('fixed-progress-bar');
+        if (progressBar) {
+          progressBar.addEventListener('click', (e) => {
+            const rect = progressBar.getBoundingClientRect();
             this.audio.currentTime = ((e.clientX - rect.left) / rect.width) * this.audio.duration;
           });
         }
@@ -979,8 +1063,28 @@ const playlists = playlistFiles.map((p) => ({
 
       toggleMute() {
         this.audio.muted = !this.audio.muted;
-        if (this.fixedVolumeIcon) this.fixedVolumeIcon.classList.toggle('hidden', this.audio.muted);
-        if (this.fixedMuteIcon) this.fixedMuteIcon.classList.toggle('hidden', !this.audio.muted);
+        this.updateVolumeIcon();
+      }
+
+      updateVolumeIcon() {
+        const vol = this.audio.muted ? 0 : this.volume;
+        document.querySelectorAll('.vol-icon').forEach(icon => {
+          const type = icon.dataset.vol;
+          icon.classList.toggle('hidden',
+            (type === 'high' && vol <= 60) ||
+            (type === 'medium' && (vol === 0 || vol > 60)) ||
+            (type === 'muted' && vol > 0)
+          );
+        });
+        this.updateVolumeSlider();
+      }
+
+      updateVolumeSlider() {
+        if (!this.fixedVolumeSlider) return;
+        const vol = this.audio.muted ? 0 : this.volume;
+        const fg = getComputedStyle(document.documentElement).getPropertyValue('--color-foreground').trim() || '#1F2D3D';
+        const bg = document.documentElement.classList.contains('dark') ? '#555' : '#ddd';
+        this.fixedVolumeSlider.style.background = `linear-gradient(to top, ${fg} 0%, ${fg} ${vol}%, ${bg} ${vol}%, ${bg} 100%)`;
       }
 
       switchTab(tab) {
@@ -992,8 +1096,10 @@ const playlists = playlistFiles.map((p) => ({
       }
 
       setVolume(value) {
-        this.volume = value;
-        this.audio.volume = value / 100;
+        this.volume = parseInt(value);
+        this.audio.volume = this.volume / 100;
+        if (this.fixedVolumeSlider) this.fixedVolumeSlider.value = this.volume;
+        this.updateVolumeIcon();
       }
 
       toggleFullscreen() {
