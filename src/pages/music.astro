@@ -887,6 +887,12 @@ const playlists = playlistFiles.map((p) => ({
         this.currentIndex = index;
         const song = this.playlist[index];
 
+        // Clear old lyrics immediately
+        this.lyrics = [];
+        this.translations = [];
+        if (this.lyricsEl) this.lyricsEl.innerHTML = '<p class="text-muted text-lg">暂无歌词</p>';
+        if (this.fullscreenLyricsContent) this.fullscreenLyricsContent.innerHTML = '<p class="text-2xl opacity-50">暂无歌词</p>';
+
         this.audio.src = song.url;
         if (this.songTitle) this.songTitle.textContent = song.title;
         if (this.songArtist) this.songArtist.textContent = song.artist;
@@ -955,9 +961,7 @@ const playlists = playlistFiles.map((p) => ({
 
       next() {
         let i = this.currentIndex + 1;
-        if (i >= this.playlist.length) {
-          if (this.repeatMode === 1) { i = 0; } else { this.isPlaying = false; this.updatePlayButton(); return; }
-        }
+        if (i >= this.playlist.length) i = 0;
         this.playSong(i);
       }
 
@@ -1095,7 +1099,7 @@ const playlists = playlistFiles.map((p) => ({
         const transRe = /(?:翻译|trans|translation)[:\s]*(.*)/i;
 
         const lines = text.split('\n');
-        const isWordByWord = lineRe.test(lines[0] || '');
+        const isWordByWord = lines.some(l => lineRe.test(l));
 
         if (isWordByWord) {
           lines.forEach(line => {
@@ -1105,7 +1109,7 @@ const playlists = playlistFiles.map((p) => ({
             const words = [];
             let wm;
             while ((wm = wordRe.exec(line)) !== null) {
-              words.push({ start: parseInt(wm[1]) / 1000, end: (parseInt(wm[1]) + parseInt(wm[2])) / 1000, text: wm[3] });
+              words.push({ start: parseInt(wm[1]) / 1000, end: (parseInt(wm[1]) + parseInt(wm[2])) / 1000, text: wm[3].trim() });
             }
             if (!words.length) return;
             const text = words.map(w => w.text).join('');
