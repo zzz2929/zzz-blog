@@ -905,6 +905,9 @@ const playlists = playlistFiles.map((p) => ({
         });
 
         this.audio.volume = this.volume / 100;
+
+        // Sync state before leaving the page
+        window.addEventListener('beforeunload', () => this.syncMiniPlayer());
       }
 
       // ====== Data Loading ======
@@ -1075,6 +1078,7 @@ const playlists = playlistFiles.map((p) => ({
         this.audio.play();
         this.isPlaying = true;
         this.updatePlayButton();
+        this.syncMiniPlayer();
       }
 
       removeFromPlaylist(index) {
@@ -1106,6 +1110,7 @@ const playlists = playlistFiles.map((p) => ({
         this.isPlaying ? this.audio.pause() : this.audio.play();
         this.isPlaying = !this.isPlaying;
         this.updatePlayButton();
+        this.syncMiniPlayer();
       }
 
       prev() { this.playSong(this.currentIndex <= 0 ? this.playlist.length - 1 : this.currentIndex - 1); }
@@ -1240,6 +1245,24 @@ const playlists = playlistFiles.map((p) => ({
 
       formatTime(s) {
         return `${Math.floor(s / 60).toString().padStart(2, '0')}:${Math.floor(s % 60).toString().padStart(2, '0')}`;
+      }
+
+      syncMiniPlayer() {
+        const song = this.playlist[this.currentIndex];
+        if (!song) return;
+        try {
+          sessionStorage.setItem('mini-player-state', JSON.stringify({
+            title: song.title,
+            artist: song.artist,
+            cover: song.cover,
+            url: song.url,
+            playlist: this.playlist.map(s => ({ title: s.title, artist: s.artist, cover: s.cover, url: s.url })),
+            index: this.currentIndex,
+            currentTime: this.audio.currentTime,
+            isPlaying: this.isPlaying,
+            volume: this.audio.volume,
+          }));
+        } catch {}
       }
 
       // ====== Background & Colors ======

@@ -1,0 +1,368 @@
+---
+// Mini music player - shows on all pages except the music page
+// Restores playback state from sessionStorage
+---
+
+<div id="mini-player" class="mini-player hidden">
+  <!-- Collapsed: spinning cover -->
+  <div class="mini-collapsed">
+    <img id="mini-cover" class="mini-cover" src="/音乐.svg" alt="" />
+  </div>
+
+  <!-- Expanded: full controls on hover -->
+  <div class="mini-expanded">
+    <div class="mini-player-info">
+      <img id="mini-cover-hover" class="mini-cover" src="/音乐.svg" alt="" />
+      <div class="mini-details">
+        <div id="mini-title" class="mini-title">未播放</div>
+        <div id="mini-artist" class="mini-artist">选择歌曲开始播放</div>
+      </div>
+      <div class="mini-volume-bars">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="mini-controls">
+      <button id="mini-prev" class="mini-btn" title="上一首">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+      </button>
+      <button id="mini-play" class="mini-btn mini-btn-play" title="播放/暂停">
+        <svg id="mini-play-icon" class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        <svg id="mini-pause-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+      </button>
+      <button id="mini-next" class="mini-btn" title="下一首">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+      </button>
+    </div>
+    <div class="flex items-center gap-2 mt-1 mb-1">
+      <div id="mini-progress" class="flex-1 cursor-pointer group">
+        <div class="h-1 group-hover:h-1.5 bg-gray-200/30 rounded-full overflow-hidden transition-all duration-200">
+          <div id="mini-progress-fill" class="h-full bg-foreground rounded-full transition-[width] duration-100 ease-linear" style="width: 0%"></div>
+        </div>
+      </div>
+      <span class="text-xs text-muted tabular-nums flex-shrink-0 whitespace-nowrap">
+        <span id="mini-current-time">00:00</span>
+        <span> / </span>
+        <span id="mini-duration">00:00</span>
+      </span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .mini-player {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    z-index: 9990;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.5), rgba(255,255,255,0.2));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    font-family: -apple-system, system-ui, sans-serif;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: pointer;
+    overflow: hidden;
+  }
+  .mini-player.hidden { display: none; }
+
+  .dark .mini-player {
+    background: linear-gradient(135deg, rgba(30,30,40,0.7), rgba(30,30,40,0.4));
+    border-color: rgba(255,255,255,0.1);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+
+  /* Expanded state on hover */
+  .mini-player:hover,
+  .mini-player.expanded {
+    width: 300px;
+    height: auto;
+    border-radius: 20px;
+    cursor: default;
+  }
+
+  /* Collapsed: spinning cover */
+  .mini-collapsed {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .mini-player:hover .mini-collapsed,
+  .mini-player.expanded .mini-collapsed {
+    display: none;
+  }
+
+  .mini-cover {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    animation: mini-spin 8s linear infinite;
+    animation-play-state: paused;
+  }
+  .mini-player.playing .mini-cover {
+    animation-play-state: running;
+  }
+
+  @keyframes mini-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* Expanded: full card */
+  .mini-expanded {
+    display: none;
+    padding: 12px 14px 10px;
+  }
+  .mini-player:hover .mini-expanded,
+  .mini-player.expanded .mini-expanded {
+    display: block;
+  }
+
+  .mini-player-info { display: flex; align-items: center; gap: 10px; }
+  .mini-expanded .mini-cover {
+    width: 40px; height: 40px; border-radius: 10px;
+    animation: none;
+  }
+  .mini-details { flex: 1; min-width: 0; }
+  .mini-title {
+    font-size: 0.85em; font-weight: 600; color: var(--color-foreground);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .mini-artist {
+    font-size: 0.7em; color: var(--color-muted);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+
+  .mini-volume-bars {
+    display: flex; align-items: flex-end; gap: 2px;
+    width: 38px; height: 20px; flex-shrink: 0;
+  }
+  .mini-volume-bars span {
+    display: block; width: 3px;
+    background: var(--color-primary, #425AEF);
+    border-radius: 2px;
+    animation: mini-bounce 0.5s ease-in-out infinite alternate;
+    animation-play-state: paused;
+  }
+  .mini-volume-bars span:nth-child(1) { height: 6px; animation-delay: 0s; }
+  .mini-volume-bars span:nth-child(2) { height: 12px; animation-delay: 0.1s; }
+  .mini-volume-bars span:nth-child(3) { height: 8px; animation-delay: 0.2s; }
+  .mini-volume-bars span:nth-child(4) { height: 16px; animation-delay: 0.15s; }
+  .mini-volume-bars span:nth-child(5) { height: 10px; animation-delay: 0.05s; }
+  .mini-volume-bars.playing span { animation-play-state: running; }
+
+  @keyframes mini-bounce {
+    0% { height: 4px; }
+    100% { height: 18px; }
+  }
+
+  .mini-controls {
+    display: flex; align-items: center; justify-content: center;
+    gap: 8px; margin-top: 8px;
+  }
+
+  .mini-btn {
+    width: 36px; height: 36px; border-radius: 50%;
+    border: none; background: none;
+    color: var(--color-foreground);
+    cursor: pointer; display: flex;
+    align-items: center; justify-content: center;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .mini-btn:hover { background: rgba(0,0,0,0.08); transform: scale(1.1); }
+  .dark .mini-btn:hover { background: rgba(255,255,255,0.08); }
+
+  .mini-btn-play {
+    width: 42px; height: 42px;
+    background: var(--color-foreground);
+    color: var(--color-background);
+  }
+  .mini-btn-play:hover { background: var(--color-foreground); opacity: 0.85; transform: scale(1.05); }
+
+  .hidden { display: none !important; }
+</style>
+
+<script is:inline>
+(function() {
+  const STORAGE_KEY = 'mini-player-state';
+  let audio, state, elements, isDragging = false;
+
+  function formatTime(s) {
+    if (!s || isNaN(s)) return '00:00';
+    return `${Math.floor(s / 60).toString().padStart(2, '0')}:${Math.floor(s % 60).toString().padStart(2, '0')}`;
+  }
+
+  function loadState() {
+    try { return JSON.parse(sessionStorage.getItem(STORAGE_KEY)) || null; }
+    catch { return null; }
+  }
+
+  function saveState() {
+    if (!audio || !state) return;
+    sessionStorage.setItem(STORAGE_KEY, JSON.stringify({
+      title: state.title, artist: state.artist, cover: state.cover,
+      url: state.url, playlist: state.playlist, index: state.index,
+      currentTime: audio.currentTime, isPlaying: !audio.paused, volume: audio.volume,
+    }));
+  }
+
+  function updateProgress() {
+    if (!audio.duration || isNaN(audio.duration)) return;
+    const pct = (audio.currentTime / audio.duration) * 100;
+    elements.progressFill.style.width = pct + '%';
+    elements.currentTimeEl.textContent = formatTime(audio.currentTime);
+    elements.durationEl.textContent = formatTime(audio.duration);
+  }
+
+  function seek(e) {
+    if (!audio.duration) return;
+    const rect = elements.progress.getBoundingClientRect();
+    const pct = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+    audio.currentTime = pct * audio.duration;
+    updateProgress();
+  }
+
+  function init() {
+    audio = new Audio();
+    state = { title: '', artist: '', cover: '/音乐.svg', url: '', playlist: [], index: 0 };
+
+    elements = {
+      player: document.getElementById('mini-player'),
+      coverCollapsed: document.querySelector('.mini-collapsed .mini-cover'),
+      coverHover: document.getElementById('mini-cover-hover'),
+      title: document.getElementById('mini-title'),
+      artist: document.getElementById('mini-artist'),
+      playIcon: document.getElementById('mini-play-icon'),
+      pauseIcon: document.getElementById('mini-pause-icon'),
+      playBtn: document.getElementById('mini-play'),
+      prevBtn: document.getElementById('mini-prev'),
+      nextBtn: document.getElementById('mini-next'),
+      progress: document.getElementById('mini-progress'),
+      progressFill: document.getElementById('mini-progress-fill'),
+      currentTimeEl: document.getElementById('mini-current-time'),
+      durationEl: document.getElementById('mini-duration'),
+      volumeBars: document.querySelector('.mini-volume-bars'),
+    };
+
+    // Restore state
+    const saved = loadState();
+    if (saved && saved.url) {
+      state.title = saved.title || '';
+      state.artist = saved.artist || '';
+      state.cover = saved.cover || '/音乐.svg';
+      state.url = saved.url;
+      state.playlist = saved.playlist || [];
+      state.index = saved.index || 0;
+      audio.src = saved.url;
+      audio.volume = saved.volume ?? 0.8;
+      updateDisplay();
+      elements.player.classList.remove('hidden');
+      audio.addEventListener('loadedmetadata', () => {
+        audio.currentTime = saved.currentTime || 0;
+        updateProgress();
+      }, { once: true });
+      if (saved.isPlaying) audio.play().catch(() => {});
+      updatePlayState();
+    }
+
+    // Play/Pause
+    elements.playBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (!state.url) return;
+      audio.paused ? audio.play() : audio.pause();
+    });
+
+    elements.prevBtn.addEventListener('click', (e) => { e.stopPropagation(); navigate(-1); });
+    elements.nextBtn.addEventListener('click', (e) => { e.stopPropagation(); navigate(1); });
+
+    // Progress bar drag
+    elements.progress.addEventListener('mousedown', (e) => {
+      e.stopPropagation();
+      isDragging = true;
+      seek(e);
+    });
+    document.addEventListener('mousemove', (e) => { if (isDragging) seek(e); });
+    document.addEventListener('mouseup', () => {
+      if (isDragging) { isDragging = false; saveState(); }
+    });
+
+    elements.progress.addEventListener('touchstart', (e) => {
+      isDragging = true;
+      seek(e.touches[0]);
+    }, { passive: true });
+    document.addEventListener('touchmove', (e) => { if (isDragging) seek(e.touches[0]); }, { passive: true });
+    document.addEventListener('touchend', () => {
+      if (isDragging) { isDragging = false; saveState(); }
+    });
+
+    // Audio events
+    audio.addEventListener('timeupdate', () => { if (!isDragging) updateProgress(); saveState(); });
+    audio.addEventListener('loadedmetadata', () => updateProgress());
+    audio.addEventListener('ended', () => navigate(1));
+    audio.addEventListener('play', () => { updatePlayState(); saveState(); });
+    audio.addEventListener('pause', () => { updatePlayState(); saveState(); });
+
+    // Listen for state updates from music page
+    window.addEventListener('storage', (e) => {
+      if (e.key !== STORAGE_KEY) return;
+      const s = loadState();
+      if (!s || !s.url || s.url === state.url) return;
+      state.title = s.title; state.artist = s.artist;
+      state.cover = s.cover; state.url = s.url;
+      state.playlist = s.playlist; state.index = s.index;
+      audio.src = s.url; audio.volume = s.volume ?? 0.8;
+      updateDisplay();
+      audio.addEventListener('loadedmetadata', () => {
+        audio.currentTime = s.currentTime || 0;
+        if (s.isPlaying) audio.play().catch(() => {});
+        updatePlayState(); updateProgress();
+      }, { once: true });
+      elements.player.classList.remove('hidden');
+    });
+  }
+
+  function navigate(dir) {
+    if (!state.playlist.length) return;
+    state.index = (state.index + dir + state.playlist.length) % state.playlist.length;
+    const song = state.playlist[state.index];
+    if (!song) return;
+    state.title = song.title || song.name;
+    state.artist = song.artist;
+    state.cover = song.cover || song.pic || '/音乐.svg';
+    state.url = song.url;
+    audio.src = song.url;
+    audio.currentTime = 0;
+    audio.play().catch(() => {});
+    updateDisplay();
+    saveState();
+  }
+
+  function updateDisplay() {
+    elements.coverCollapsed.src = state.cover;
+    elements.coverHover.src = state.cover;
+    elements.title.textContent = state.title || '未播放';
+    elements.artist.textContent = state.artist || '选择歌曲开始播放';
+  }
+
+  function updatePlayState() {
+    const playing = !audio.paused;
+    elements.playIcon.classList.toggle('hidden', playing);
+    elements.pauseIcon.classList.toggle('hidden', !playing);
+    elements.volumeBars.classList.toggle('playing', playing);
+    elements.player.classList.toggle('playing', playing);
+  }
+
+  document.addEventListener('DOMContentLoaded', init);
+})();
+</script>

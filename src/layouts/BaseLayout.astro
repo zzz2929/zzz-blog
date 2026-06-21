@@ -1,5 +1,6 @@
 ---
 import GlowOrbs from '@/components/astro/GlowOrbs.astro';
+import MiniPlayer from '@/components/astro/MiniPlayer.astro';
 
 interface Props {
   title?: string;
@@ -15,6 +16,7 @@ const {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const siteTitle = title === 'zzz-blog' ? title : `${title} | zzz-blog`;
+const isMusicPage = Astro.url.pathname === '/music/' || Astro.url.pathname === '/music';
 ---
 
 <!doctype html>
@@ -60,6 +62,7 @@ const siteTitle = title === 'zzz-blog' ? title : `${title} | zzz-blog`;
   <body class="min-h-screen bg-background text-foreground font-sans antialiased">
     <GlowOrbs />
     <slot />
+    {!isMusicPage && <MiniPlayer />}
   </body>
 </html>
 
