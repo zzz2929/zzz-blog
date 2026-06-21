@@ -37,7 +37,7 @@ pnpm preview
 
 ```
 src/
-├── content/                    # Astro Content Collections
+├── content/                   # Astro Content Collections
 │   ├── blog/                  # 博客文章（Markdown）
 │   └── data/                  # 结构化数据（YAML/JSON）
 │       ├── about.json         # 个人信息
@@ -47,7 +47,9 @@ src/
 │       ├── equipment.yml      # 装备展示
 │       ├── essay.yml          # 随笔/闲言碎语
 │       ├── friends-*.yml      # 友链
-│       └── hitokoto.yml       # 一言语录
+│       ├── hitokoto.yml       # 一言语录
+│       ├── music.json         # 歌曲队列
+│       └── playlists/*.json   # 歌单文件
 ├── components/
 │   ├── astro/                 # 静态组件
 │   │   ├── Header.astro       # 浮动胶囊导航栏
@@ -60,7 +62,8 @@ src/
 │   │   ├── RandomImageModule.astro # 随机图 + 文章推荐
 │   │   ├── RecentPosts.astro   # 近期文章时间线
 │   │   ├── TagCloud.astro      # 标签云
-│   │   └── SkillsGrid.astro    # 技能网格
+│   │   ├── SkillsGrid.astro    # 技能网格
+│   │   └── MiniPlayer.astro   # 跨页面迷你播放器
 │   └── react/                 # React 岛屿组件
 │       ├── Search.tsx          # Pagefind 搜索
 │       ├── SortFilterPosts.tsx # 排序筛选 + 文章网格
@@ -84,6 +87,7 @@ src/
 │   ├── friends.astro          # 友链
 │   ├── equipment.astro        # 装备
 │   ├── essay.astro            # 随笔
+│   ├── api/lrc.js             # 歌词代理
 │   ├── categories/            # 分类
 │   └── tags/                  # 标签
 ├── styles/
@@ -312,10 +316,10 @@ essay_list:
 
 ### 音乐馆
 
-#### 默认播放列表 `src/content/data/music.json`
+**播放列表**：`src/content/data/music.json`
 
 ```json
-{
+{	
     "name": "歌曲名",
     "album": "专辑",
     "artist": "歌手",
@@ -325,7 +329,7 @@ essay_list:
 }
 ```
 
-#### 歌单文件 `src/content/data/playlists/*.json`
+**歌单文件**：`src/content/data/playlists/*.json`
 
 ```json
 {
@@ -333,16 +337,39 @@ essay_list:
   "cover": "封面图URL",
   "songs": [
     {
-      "name": "歌曲名",
-      "album": "专辑",
-      "artist": "歌手",
-      "url": "音频URL",
-      "lrc": "歌词URL",
-      "pic": "封面URL"
+        "name": "歌曲名",
+        "album": "专辑",
+        "artist": "歌手",
+        "url": "音频URL",
+        "lrc": "歌词URL",
+        "pic": "封面URL"
     }
   ]
 }
 ```
+
+**添加新歌单**：在 `src/content/data/playlists/` 下放入新的 JSON 文件即可。
+
+**歌词**
+
+- 自动检测格式：支持传统LRC 和网易云逐字歌词
+- 已播放行保持高亮色，未播放行灰色
+- 当前播放行：高亮色 + 柔光效果
+- 歌词颜色随主题背景动态变化
+
+**歌单浏览器**
+
+- 卡片网格布局（1/2/3 列响应式），毛玻璃风格
+- 点击卡片手风琴展开（同时只展开一个）
+- 「全部播放」替换当前队列并立即播放
+- 单曲「+」按钮插入到当前播放歌曲之后
+
+**MiniPlayer（跨页面迷你播放器）**
+
+- 除音乐馆页面外的所有页面左下角显示
+- 默认圆形旋转封面
+- Hover 展开完整卡片
+- 包含：歌名、歌手、播放/暂停/上下首、进度条、时间显示
 
 ---
 
@@ -488,48 +515,6 @@ pnpm build
 | `src/components/react/SortFilterPosts.tsx` | 首页文章列表（接收 viewCounts prop） |
 | `src/pages/index.astro`                    | 首页（导入 viewCounts 传给组件）     |
 | `src/pages/posts/[...slug].astro`          | 文章详情页（使用 VercountDisplay）   |
-
----
-
-## 音乐馆
-
-### 功能特性
-
-#### 播放器
-
-- 黑胶唱片旋转动画，播放时唱针抬起
-- 底部固定控制栏：上一首/播放/下一首、随机播放、循环模式（顺序/列表循环/单曲循环）、进度条、音量控制
-- 键盘快捷键：空格键播放/暂停（全屏歌词模式下）、Esc 退出全屏
-
-#### 播放列表
-
-- 歌曲项显示：编号、封面、歌名、歌手、删除按钮
-- 点击歌曲播放，hover 时显示删除按钮
-- 删除当前播放歌曲时自动切到下一首，列表清空时显示空状态
-- 样式与歌单展开列表一致
-
-#### 歌词
-
-- 每行左侧显示时间戳（手动滑动歌词时才显示，停止滑动 2 秒后隐藏）
-- 点击任意歌词行跳转到对应播放时间
-- 当前播放行：加粗 + 动态柔光效果
-- 歌词颜色随背景动态切换
-- 手动滑动歌词时暂停自动滚动，停止 2 秒后恢复跟随
-
-#### 歌单浏览器
-
-- 卡片网格布局（1/2/3 列响应式），毛玻璃风格
-- 点击卡片手风琴展开（同时只展开一个）
-- 展开后显示「全部播放」按钮和歌曲列表
-- 「全部播放」替换当前队列并立即播放
-- 单曲「+」按钮追加到队列末尾
-
-#### 全屏歌词
-
-- 专辑封面模糊背景 + 动态渐变色
-- 大字体歌词滚动显示，支持翻译行
-- 底部进度条 + 播放控制
-- 空格键播放/暂停，Esc 退出
 
 ---
 
