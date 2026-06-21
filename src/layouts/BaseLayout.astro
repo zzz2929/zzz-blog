@@ -1,5 +1,5 @@
 ---
-import GlowOrbs from '@/components/astro/GlowOrbs.astro';
+import { AnimatedBackground } from '@/components/react/AnimatedBackground';
 import MiniPlayer from '@/components/astro/MiniPlayer.astro';
 
 interface Props {
@@ -60,7 +60,7 @@ const isMusicPage = Astro.url.pathname === '/music/' || Astro.url.pathname === '
     </script>
   </head>
   <body class="min-h-screen bg-background text-foreground font-sans antialiased">
-    <GlowOrbs />
+    <AnimatedBackground client:only="react" />
     <slot />
     {!isMusicPage && <MiniPlayer />}
   </body>

@@ -2,6 +2,54 @@
 
 @plugin "@tailwindcss/typography";
 
+/* ====== Animated Blur Blob Background ====== */
+:root {
+  --color-1: #fec1cc;
+  --color-2: #dcffe2;
+  --color-3: #cbe1f3;
+  --blur-1-size: clamp(200px, 25vw, 300px);
+  --blur-2-size: clamp(150px, 18vw, 220px);
+  --blur-3-size: clamp(60px, 8vw, 100px);
+  --blur-amount: clamp(30px, 4vw, 60px);
+}
+
+.wrapper {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark .wrapper {
+  display: none;
+}
+
+.blur {
+  position: absolute;
+  width: var(--blur-1-size);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: var(--color-1);
+  filter: blur(var(--blur-amount));
+}
+
+.blur:nth-child(2) {
+  width: var(--blur-2-size);
+  background-color: var(--color-2);
+}
+
+.blur:nth-child(3) {
+  width: var(--blur-3-size);
+  background-color: var(--color-3);
+}
+
 /* ====== Design System (No Glass) ====== */
 @theme {
   --color-primary: #425AEF;

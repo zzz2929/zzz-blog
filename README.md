@@ -65,6 +65,7 @@ src/
 │   │   ├── SkillsGrid.astro    # 技能网格
 │   │   └── MiniPlayer.astro   # 跨页面迷你播放器
 │   └── react/                 # React 岛屿组件
+│       ├── AnimatedBackground.tsx # 动态背景
 │       ├── Search.tsx          # Pagefind 搜索
 │       ├── SortFilterPosts.tsx # 排序筛选 + 文章网格
 │       ├── ThemeToggle.tsx     # 暗色模式切换开关
