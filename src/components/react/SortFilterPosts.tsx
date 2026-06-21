@@ -75,7 +75,7 @@ function PostCard({ post, viewCount }: { post: Post; viewCount: number }) {
           <time>{formatDate(post.date)}</time>
           {viewCount > 0 && (
             <span style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 4, opacity: 0.6 }}>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /></svg>
               {viewCount}
             </span>
           )}
@@ -181,7 +181,7 @@ export default function SortFilterPosts({ posts, viewCounts = {} }: Props) {
           padding: '0 10px', height: 30, flex: '1 1 120px', minWidth: 120,
         }}>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-foreground-muted)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
           </svg>
           <input
             type="text"

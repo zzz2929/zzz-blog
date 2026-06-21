@@ -1,14 +1,14 @@
 ---
-import yaml from 'js-yaml';
-import raw from '../../content/data/essay.yml?raw';
+import yaml from "js-yaml";
+import raw from "../../content/data/essay.yml?raw";
 
 let essayItems: Array<{ content: string; date: string }> = [];
 
 try {
   const data = yaml.load(raw) as any;
   essayItems = (data?.essay_list || []).map((item: any) => ({
-    content: String(item.content || '').slice(0, 30),
-    date: String(item.date || ''),
+    content: String(item.content || "").slice(0, 30),
+    date: String(item.date || ""),
   }));
 } catch {
   essayItems = [];
@@ -25,7 +25,10 @@ const col2 = essayItems.filter((_, i) => i % 2 === 1);
 >
   <div class="flex items-center h-full px-4 gap-4">
     <!-- Label -->
-    <span class="shrink-0 text-sm font-bold px-2.5 py-1 rounded-md" style="background: linear-gradient(135deg, var(--color-primary), var(--color-accent)); color: white;">
+    <span
+      class="shrink-0 text-sm font-bold px-2.5 py-1 rounded-md"
+      style="background: linear-gradient(135deg, var(--color-primary), var(--color-accent)); color: white;"
+    >
       随笔
     </span>
 
@@ -34,40 +37,58 @@ const col2 = essayItems.filter((_, i) => i % 2 === 1);
       <!-- Column 1: scrolls up -->
       <div class="flex-1 overflow-hidden relative">
         <div class="marquee-col-up absolute inset-0 flex flex-col">
-          {[...col1, ...col1].map((item, i) => (
-            <a
-              href="/essay/"
-              class="essay-item shrink-0 flex items-center gap-2 px-2 text-sm h-8 transition-all duration-300"
-              style="color: var(--color-foreground-muted);"
-            >
-              <span class="opacity-30 shrink-0 text-xs">{item.date}</span>
-              <span class="truncate">{item.content}</span>
-            </a>
-          ))}
+          {
+            [...col1, ...col1].map((item, i) => (
+              <a
+                href="/essay/"
+                class="essay-item shrink-0 flex items-center gap-2 px-2 text-sm h-8 transition-all duration-300"
+                style="color: var(--color-foreground-muted);"
+              >
+                <span class="opacity-30 shrink-0 text-xs">{item.date}</span>
+                <span class="truncate">{item.content}</span>
+              </a>
+            ))
+          }
         </div>
       </div>
 
       <!-- Column 2: scrolls down -->
       <div class="flex-1 overflow-hidden relative">
         <div class="marquee-col-down absolute inset-0 flex flex-col">
-          {[...col2, ...col2].map((item, i) => (
-            <a
-              href="/essay/"
-              class="essay-item shrink-0 flex items-center gap-2 px-2 text-sm h-8 transition-all duration-300"
-              style="color: var(--color-foreground-muted);"
-            >
-              <span class="opacity-30 shrink-0 text-xs">{item.date}</span>
-              <span class="truncate">{item.content}</span>
-            </a>
-          ))}
+          {
+            [...col2, ...col2].map((item, i) => (
+              <a
+                href="/essay/"
+                class="essay-item shrink-0 flex items-center gap-2 px-2 text-sm h-8 transition-all duration-300"
+                style="color: var(--color-foreground-muted);"
+              >
+                <span class="opacity-30 shrink-0 text-xs">{item.date}</span>
+                <span class="truncate">{item.content}</span>
+              </a>
+            ))
+          }
         </div>
       </div>
     </div>
 
-    <a href="/essay/" class="more-btn shrink-0 flex items-center justify-center gap-1 text-xs font-medium" style="color: var(--color-foreground-muted); height: 28px; padding: 0 10px; border: 1px solid rgba(255,255,255,0.3); border-radius: 8px; background: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(255,255,255,0.1)); backdrop-filter: blur(10px); text-decoration: none; transition: all 0.3s cubic-bezier(0.23,1,0.32,1);">
+    <a
+      href="/essay/"
+      class="more-btn shrink-0 flex items-center justify-center gap-1 text-xs font-medium"
+      style="color: var(--color-foreground-muted); height: 28px; padding: 0 10px; border: 1px solid rgba(255,255,255,0.3); border-radius: 8px; background: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(255,255,255,0.1)); backdrop-filter: blur(10px); text-decoration: none; transition: all 0.3s cubic-bezier(0.23,1,0.32,1);"
+    >
       更多
-      <svg class="more-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="9 18 15 12 9 6"/>
+      <svg
+        class="more-arrow"
+        width="12"
+        height="12"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="9 18 15 12 9 6"></polyline>
       </svg>
     </a>
   </div>
@@ -122,11 +143,19 @@ const col2 = essayItems.filter((_, i) => i % 2 === 1);
   }
 
   @keyframes scroll-up {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-50%); }
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-50%);
+    }
   }
   @keyframes scroll-down {
-    0% { transform: translateY(-50%); }
-    100% { transform: translateY(0); }
+    0% {
+      transform: translateY(-50%);
+    }
+    100% {
+      transform: translateY(0);
+    }
   }
 </style>

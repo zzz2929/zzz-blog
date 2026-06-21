@@ -3,15 +3,26 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="mt-16 mb-3 mx-auto px-4" style="max-width: 1350px;">
-  <div class="footer-bar flex items-center justify-between px-4 sm:px-6 rounded-full" style="height: var(--header-height); background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 1px 24px rgba(0,0,0,0.1);">
+  <div
+    class="footer-bar flex items-center justify-between px-4 sm:px-6 rounded-full"
+    style="height: var(--header-height); background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 1px 24px rgba(0,0,0,0.1);"
+  >
     <p class="text-sm" style="color: var(--color-foreground-muted);">
       &copy; {year} ZZZ. All rights reserved.
     </p>
-    <div class="flex items-center gap-4 text-sm" style="color: var(--color-foreground-muted);">
+    <div
+      class="flex items-center gap-4 text-sm"
+      style="color: var(--color-foreground-muted);"
+    >
       <a href="/rss.xml" class="hover:text-primary transition-colors">RSS</a>
       <span>·</span>
       <span>
-        Powered by <a href="https://astro.build" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Astro</a>
+        Powered by <a
+          href="https://astro.build"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-primary hover:underline">Astro</a
+        >
       </span>
     </div>
   </div>
@@ -19,7 +30,11 @@ const year = new Date().getFullYear();
 
 <style>
   .dark .footer-bar {
-    background: linear-gradient(135deg, rgba(30,30,40,0.6), rgba(30,30,40,0.3)) !important;
-    border-color: rgba(255,255,255,0.08) !important;
+    background: linear-gradient(
+      135deg,
+      rgba(30, 30, 40, 0.6),
+      rgba(30, 30, 40, 0.3)
+    ) !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
   }
 </style>

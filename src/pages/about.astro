@@ -1,13 +1,13 @@
 ---
-import { getCollection } from 'astro:content';
-import BaseLayout from '@/layouts/BaseLayout.astro';
-import Header from '@/components/astro/Header.astro';
-import Footer from '@/components/astro/Footer.astro';
-import SkillsGrid from '@/components/astro/SkillsGrid.astro';
-import aboutData from '@/content/data/about.json';
+import { getCollection } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Header from "@/components/astro/Header.astro";
+import Footer from "@/components/astro/Footer.astro";
+import SkillsGrid from "@/components/astro/SkillsGrid.astro";
+import aboutData from "@/content/data/about.json";
 
 const about = aboutData as any;
-const posts = await getCollection('blog');
+const posts = await getCollection("blog");
 ---
 
 <BaseLayout title="关于">
@@ -15,17 +15,29 @@ const posts = await getCollection('blog');
   <main class="mx-auto max-w-4xl px-4 py-8 sm:px-6">
     <!-- Hero -->
     <section class="mb-12 flex flex-col items-center text-center">
-      <img src={about.avatarImg} alt={about.name} class="mb-4 h-28 w-28 rounded-full object-cover shadow-lg" />
+      <img
+        src={about.avatarImg}
+        alt={about.name}
+        class="mb-4 h-28 w-28 rounded-full object-cover shadow-lg"
+      />
       <h1 class="text-3xl font-bold text-foreground">{about.name}</h1>
       <p class="mt-2 text-muted">{about.description}</p>
       <p class="mt-1 text-sm italic text-muted">"{about.subtitle}"</p>
       <div class="mt-4 flex flex-wrap justify-center gap-2">
-        {about.avatarSkills.left.map((s: string) => (
-          <span class="rounded-full bg-primary/10 px-3 py-1 text-xs text-primary">{s}</span>
-        ))}
-        {about.avatarSkills.right.map((s: string) => (
-          <span class="rounded-full bg-primary/10 px-3 py-1 text-xs text-primary">{s}</span>
-        ))}
+        {
+          about.avatarSkills.left.map((s: string) => (
+            <span class="rounded-full bg-primary/10 px-3 py-1 text-xs text-primary">
+              {s}
+            </span>
+          ))
+        }
+        {
+          about.avatarSkills.right.map((s: string) => (
+            <span class="rounded-full bg-primary/10 px-3 py-1 text-xs text-primary">
+              {s}
+            </span>
+          ))
+        }
       </div>
     </section>
 
@@ -37,28 +49,39 @@ const posts = await getCollection('blog');
           <span class="text-lg">🎂</span>
           <div>
             <p class="text-xs text-muted">{about.selfInfo.selfInfoTips1}</p>
-            <p class="font-medium text-foreground">{about.selfInfo.selfInfoContentYear}</p>
+            <p class="font-medium text-foreground">
+              {about.selfInfo.selfInfoContentYear}
+            </p>
           </div>
         </div>
         <div class="flex items-center gap-3">
           <span class="text-lg">🏫</span>
           <div>
             <p class="text-xs text-muted">{about.selfInfo.selfInfoTips2}</p>
-            <p class="font-medium text-foreground">{about.selfInfo.selfInfoContent2}</p>
+            <p class="font-medium text-foreground">
+              {about.selfInfo.selfInfoContent2}
+            </p>
           </div>
         </div>
         <div class="flex items-center gap-3">
           <span class="text-lg">💼</span>
           <div>
             <p class="text-xs text-muted">{about.selfInfo.selfInfoTips3}</p>
-            <p class="font-medium text-foreground">{about.selfInfo.selfInfoContent3}</p>
+            <p class="font-medium text-foreground">
+              {about.selfInfo.selfInfoContent3}
+            </p>
           </div>
         </div>
         <div class="flex items-center gap-3">
           <span class="text-lg">🧠</span>
           <div>
             <p class="text-xs text-muted">{about.personalities.author_name}</p>
-            <a href={about.personalities.name_url} target="_blank" class="font-medium text-primary hover:underline">{about.personalities.personality_type}</a>
+            <a
+              href={about.personalities.name_url}
+              target="_blank"
+              class="font-medium text-primary hover:underline"
+              >{about.personalities.personality_type}</a
+            >
           </div>
         </div>
       </div>
@@ -67,20 +90,29 @@ const posts = await getCollection('blog');
     <!-- Maxim & Buff -->
     <section class="mb-10 grid gap-4 sm:grid-cols-2">
       <div class="rounded-xl border border-border bg-card p-6">
-        <h3 class="mb-2 text-sm font-semibold text-muted">{about.maxim.maxim_tips}</h3>
+        <h3 class="mb-2 text-sm font-semibold text-muted">
+          {about.maxim.maxim_tips}
+        </h3>
         <p class="text-foreground">{about.maxim.maxim_top}</p>
         <p class="text-foreground">{about.maxim.maxim_bottom}</p>
       </div>
       <div class="rounded-xl border border-border bg-card p-6">
-        <h3 class="mb-2 text-sm font-semibold text-muted">{about.buff.buff_tips}</h3>
+        <h3 class="mb-2 text-sm font-semibold text-muted">
+          {about.buff.buff_tips}
+        </h3>
         <p class="text-foreground">{about.buff.buff_top}</p>
         <p class="text-foreground">{about.buff.buff_bottom}</p>
       </div>
     </section>
 
     <!-- Game -->
-    <section class="mb-10 rounded-xl border border-border bg-card overflow-hidden">
-      <div class="relative h-32 bg-cover bg-center" style={`background-image: url(${about.game.game_bg})`}>
+    <section
+      class="mb-10 rounded-xl border border-border bg-card overflow-hidden"
+    >
+      <div
+        class="relative h-32 bg-cover bg-center"
+        style={`background-image: url(${about.game.game_bg})`}
+      >
         <div class="absolute inset-0 bg-black/40 flex items-end p-4">
           <div>
             <p class="text-xs text-white/80">{about.game.game_tips}</p>
@@ -93,16 +125,32 @@ const posts = await getCollection('blog');
 
     <!-- Comics -->
     <section class="mb-10">
-      <h2 class="mb-4 text-xl font-bold text-foreground">{about.comic.comic_tips} · {about.comic.comic_title}</h2>
+      <h2 class="mb-4 text-xl font-bold text-foreground">
+        {about.comic.comic_tips} · {about.comic.comic_title}
+      </h2>
       <div class="grid grid-cols-2 gap-4 sm:grid-cols-3">
-        {about.comic.comic_list.map((item: any) => (
-          <a href={item.href} target="_blank" rel="noopener noreferrer" class="group">
-            <div class="aspect-[2/3] overflow-hidden rounded-lg bg-border">
-              <img src={item.cover} alt={item.name} class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
-            </div>
-            <p class="mt-2 text-sm font-medium text-foreground group-hover:text-primary transition-colors line-clamp-2">{item.name}</p>
-          </a>
-        ))}
+        {
+          about.comic.comic_list.map((item: any) => (
+            <a
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group"
+            >
+              <div class="aspect-[2/3] overflow-hidden rounded-lg bg-border">
+                <img
+                  src={item.cover}
+                  alt={item.name}
+                  class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+              </div>
+              <p class="mt-2 text-sm font-medium text-foreground group-hover:text-primary transition-colors line-clamp-2">
+                {item.name}
+              </p>
+            </a>
+          ))
+        }
       </div>
     </section>
 
@@ -113,12 +161,19 @@ const posts = await getCollection('blog');
     </section>
 
     <!-- Location -->
-    <section class="mb-10 rounded-xl border border-border bg-card overflow-hidden">
-      <div class="relative h-40 bg-cover bg-center" style={`background-image: url(${about.map.background})`}>
+    <section
+      class="mb-10 rounded-xl border border-border bg-card overflow-hidden"
+    >
+      <div
+        class="relative h-40 bg-cover bg-center"
+        style={`background-image: url(${about.map.background})`}
+      >
         <div class="absolute inset-0 bg-black/30 flex items-end p-4">
           <div>
             <p class="text-xs text-white/80">{about.map.title}</p>
-            <p class="text-lg font-bold text-white">{about.map.StrengthenTitle}</p>
+            <p class="text-lg font-bold text-white">
+              {about.map.StrengthenTitle}
+            </p>
           </div>
         </div>
       </div>
@@ -127,26 +182,49 @@ const posts = await getCollection('blog');
     <!-- Interests -->
     <section class="mb-10 grid gap-4 sm:grid-cols-2">
       <div class="rounded-xl border border-border bg-card overflow-hidden">
-        <div class="h-24 bg-cover bg-center" style={`background-image: url(${about.like.like_bg})`}></div>
+        <div
+          class="h-24 bg-cover bg-center"
+          style={`background-image: url(${about.like.like_bg})`}
+        >
+        </div>
         <div class="p-4">
           <p class="text-xs text-muted">{about.like.like_tips}</p>
           <p class="font-bold text-foreground">{about.like.like_title}</p>
           <p class="text-sm text-muted">{about.like.like_bottom}</p>
         </div>
       </div>
-      <a href={about.music.music_link} class="group rounded-xl border border-border bg-card overflow-hidden">
-        <div class="h-24 bg-cover bg-center" style={`background-image: url(${about.music.music_bg})`}></div>
+      <a
+        href={about.music.music_link}
+        class="group rounded-xl border border-border bg-card overflow-hidden"
+      >
+        <div
+          class="h-24 bg-cover bg-center"
+          style={`background-image: url(${about.music.music_bg})`}
+        >
+        </div>
         <div class="p-4">
           <p class="text-xs text-muted">{about.music.music_tips}</p>
-          <p class="font-bold text-foreground group-hover:text-primary transition-colors">{about.music.music_title}</p>
+          <p
+            class="font-bold text-foreground group-hover:text-primary transition-colors"
+          >
+            {about.music.music_title}
+          </p>
         </div>
       </a>
     </section>
 
     <!-- Statistics -->
-    <section class="mb-10 rounded-xl border border-border bg-card overflow-hidden">
-      <div class="relative h-32 bg-cover bg-center" style={`background-image: url(${about.statistic.cover})`}>
-        <a href={about.statistic.link} class="absolute inset-0 bg-black/40 flex items-center justify-center hover:bg-black/50 transition-colors">
+    <section
+      class="mb-10 rounded-xl border border-border bg-card overflow-hidden"
+    >
+      <div
+        class="relative h-32 bg-cover bg-center"
+        style={`background-image: url(${about.statistic.cover})`}
+      >
+        <a
+          href={about.statistic.link}
+          class="absolute inset-0 bg-black/40 flex items-center justify-center hover:bg-black/50 transition-colors"
+        >
           <div class="text-center">
             <p class="text-2xl font-bold text-white">{posts.length}</p>
             <p class="text-sm text-white/80">{about.statistic.text}</p>

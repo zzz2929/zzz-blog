@@ -1,26 +1,42 @@
 ---
-import yaml from 'js-yaml';
-import raw from '../../content/data/hitokoto.yml?raw';
+import yaml from "js-yaml";
+import raw from "../../content/data/hitokoto.yml?raw";
 
 let hitokotoList: string[] = [];
 try {
   const data = yaml.load(raw) as any;
-  hitokotoList = (data?.hitokoto_list || []).map((item: any) => String(item.title || '').trim()).filter(Boolean);
-} catch { hitokotoList = ['一花一世界，一叶一追寻']; }
+  hitokotoList = (data?.hitokoto_list || [])
+    .map((item: any) => String(item.title || "").trim())
+    .filter(Boolean);
+} catch {
+  hitokotoList = ["一花一世界，一叶一追寻"];
+}
 
-const initialText = hitokotoList[Math.floor(Math.random() * hitokotoList.length)];
+const initialText =
+  hitokotoList[Math.floor(Math.random() * hitokotoList.length)];
 ---
 
-<div class="hitokoto-module relative overflow-hidden" style="height: 250px; border-radius: 16px; background: linear-gradient(-45deg, var(--color-primary), #0f4667, #2a6973, var(--color-accent)); background-size: 400% 400%; animation: gradient-shift 15s ease infinite;" data-list={JSON.stringify(hitokotoList)}>
+<div
+  class="hitokoto-module relative overflow-hidden"
+  style="height: 250px; border-radius: 16px; background: linear-gradient(-45deg, var(--color-primary), #0f4667, #2a6973, var(--color-accent)); background-size: 400% 400%; animation: gradient-shift 15s ease infinite;"
+  data-list={JSON.stringify(hitokotoList)}
+>
   <div class="relative z-10 flex flex-col justify-between h-full p-5">
     <!-- Title -->
     <div class="flex items-center">
-      <span class="text-xs font-bold px-2.5 py-1 rounded-md" style="background: rgba(255,255,255,0.2); color: white;">一言</span>
+      <span
+        class="text-xs font-bold px-2.5 py-1 rounded-md"
+        style="background: rgba(255,255,255,0.2); color: white;">一言</span
+      >
     </div>
 
     <!-- Content -->
     <div class="flex-1 flex items-center px-2">
-      <p id="hitokoto-text" class="text-base leading-relaxed font-medium whitespace-pre-line" style="color: white; text-shadow: 0 1px 3px rgba(0,0,0,0.2); transition: opacity 0.3s ease, transform 0.3s ease;">
+      <p
+        id="hitokoto-text"
+        class="text-base leading-relaxed font-medium whitespace-pre-line"
+        style="color: white; text-shadow: 0 1px 3px rgba(0,0,0,0.2); transition: opacity 0.3s ease, transform 0.3s ease;"
+      >
         {initialText}
       </p>
     </div>
@@ -28,10 +44,24 @@ const initialText = hitokotoList[Math.floor(Math.random() * hitokotoList.length)
     <!-- Bottom: divider + refresh button -->
     <div class="flex items-center gap-3">
       <div class="h-px flex-1" style="background: rgba(255,255,255,0.2);"></div>
-      <button id="hitokoto-refresh" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300 hover:brightness-110" style="background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.15); cursor: pointer;" aria-label="刷新一言">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="23 4 23 10 17 10"/>
-          <path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/>
+      <button
+        id="hitokoto-refresh"
+        class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300 hover:brightness-110"
+        style="background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.15); cursor: pointer;"
+        aria-label="刷新一言"
+      >
+        <svg
+          width="12"
+          height="12"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="23 4 23 10 17 10"></polyline>
+          <path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"></path>
         </svg>
         换一条
       </button>
@@ -41,19 +71,19 @@ const initialText = hitokotoList[Math.floor(Math.random() * hitokotoList.length)
 
 <script is:inline>
   (function () {
-    const el = document.querySelector('.hitokoto-module');
+    const el = document.querySelector(".hitokoto-module");
     if (!el) return;
-    const list = JSON.parse(el.dataset.list || '[]');
-    const textEl = document.getElementById('hitokoto-text');
-    const btn = document.getElementById('hitokoto-refresh');
+    const list = JSON.parse(el.dataset.list || "[]");
+    const textEl = document.getElementById("hitokoto-text");
+    const btn = document.getElementById("hitokoto-refresh");
     if (!textEl || !list.length) return;
-    btn?.addEventListener('click', () => {
-      textEl.style.opacity = '0';
-      textEl.style.transform = 'translateY(8px)';
+    btn?.addEventListener("click", () => {
+      textEl.style.opacity = "0";
+      textEl.style.transform = "translateY(8px)";
       setTimeout(() => {
         textEl.textContent = list[Math.floor(Math.random() * list.length)];
-        textEl.style.opacity = '1';
-        textEl.style.transform = 'translateY(0)';
+        textEl.style.opacity = "1";
+        textEl.style.transform = "translateY(0)";
       }, 200);
     });
   })();

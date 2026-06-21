@@ -1,21 +1,47 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection } from "astro:content";
 
-const allPosts = (await getCollection('blog')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const allPosts = (await getCollection("blog")).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
 const postsData = allPosts.map((p) => ({
-  title: p.data.title, slug: p.id, cover: p.data.cover || '', date: p.data.date.toLocaleDateString('zh-CN'),
+  title: p.data.title,
+  slug: p.id,
+  cover: p.data.cover || "",
+  date: p.data.date.toLocaleDateString("zh-CN"),
 }));
 ---
 
-<div class="random-image-module relative overflow-hidden group w-full lg:h-full" style="border-radius: 16px; min-height: 250px; background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3);" data-posts={JSON.stringify(postsData)}>
+<div
+  class="random-image-module relative overflow-hidden group w-full lg:h-full"
+  style="border-radius: 16px; min-height: 250px; background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3);"
+  data-posts={JSON.stringify(postsData)}
+>
   <!-- Image mode -->
-  <div id="rim-image-mode" class="absolute inset-0 transition-opacity duration-500">
-    <img id="rim-random-img" src="https://api.elaina.cat/random/" alt="随机图片" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
-    <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 50%);"></div>
+  <div
+    id="rim-image-mode"
+    class="absolute inset-0 transition-opacity duration-500"
+  >
+    <img
+      id="rim-random-img"
+      src="https://api.elaina.cat/random/"
+      alt="随机图片"
+      class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+      loading="lazy"
+    />
+    <div
+      class="absolute inset-0"
+      style="background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 50%);"
+    >
+    </div>
   </div>
 
   <!-- Article mode -->
-  <div id="rim-article-mode" class="absolute inset-0 opacity-0 pointer-events-none transition-opacity duration-500" style="background: linear-gradient(135deg, rgba(255,255,255,0.5), rgba(255,255,255,0.2)); backdrop-filter: blur(20px);">
+  <div
+    id="rim-article-mode"
+    class="absolute inset-0 opacity-0 pointer-events-none transition-opacity duration-500"
+    style="background: linear-gradient(135deg, rgba(255,255,255,0.5), rgba(255,255,255,0.2)); backdrop-filter: blur(20px);"
+  >
     <div class="h-full flex flex-col p-4">
       <div class="flex items-center justify-between mb-3">
         <span class="text-sm font-bold text-foreground">文章推荐</span>
@@ -27,15 +53,34 @@ const postsData = allPosts.map((p) => ({
   <!-- Bottom buttons -->
   <div class="absolute bottom-3 right-3 z-10 flex gap-2">
     <button id="rim-back-btn" class="recommend-btn" style="display: none;">
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="15 18 9 12 15 6"/>
+      <svg
+        width="12"
+        height="12"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="15 18 9 12 15 6"></polyline>
       </svg>
       返回
     </button>
     <button id="rim-recommend-btn" class="recommend-btn">
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/>
-        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
+      <svg
+        width="12"
+        height="12"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M4 19.5A2.5 2.5 0 016.5 17H20"></path>
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"
+        ></path>
       </svg>
       文章推荐
     </button>
@@ -44,47 +89,67 @@ const postsData = allPosts.map((p) => ({
 
 <style>
   .recommend-btn {
-    display: flex; align-items: center; gap: 6px;
-    padding: 8px 16px; border-radius: 9999px;
-    color: white; font-size: 12px; font-weight: 500;
-    background: linear-gradient(135deg, rgba(66,90,239,0.7), rgba(0,196,182,0.7));
-    border: 1px solid rgba(255,255,255,0.2);
-    cursor: pointer; transition: all 0.3s cubic-bezier(0.23,1,0.32,1);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 9999px;
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    background: linear-gradient(
+      135deg,
+      rgba(66, 90, 239, 0.7),
+      rgba(0, 196, 182, 0.7)
+    );
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   }
   .recommend-btn:hover {
     transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(66,90,239,0.3);
-    background: linear-gradient(135deg, rgba(66,90,239,0.9), rgba(0,196,182,0.9));
+    box-shadow: 0 8px 25px rgba(66, 90, 239, 0.3);
+    background: linear-gradient(
+      135deg,
+      rgba(66, 90, 239, 0.9),
+      rgba(0, 196, 182, 0.9)
+    );
   }
-  .recommend-btn:active { transform: scale(0.95); }
+  .recommend-btn:active {
+    transform: scale(0.95);
+  }
 </style>
 
 <script is:inline>
   (function () {
-    const el = document.querySelector('.random-image-module');
+    const el = document.querySelector(".random-image-module");
     if (!el) return;
-    const posts = JSON.parse(el.dataset.posts || '[]');
-    const imgMode = document.getElementById('rim-image-mode');
-    const articleMode = document.getElementById('rim-article-mode');
-    const recommendBtn = document.getElementById('rim-recommend-btn');
-    const backBtn = document.getElementById('rim-back-btn');
-    const articleList = document.getElementById('rim-article-list');
-    const randomImg = document.getElementById('rim-random-img');
+    const posts = JSON.parse(el.dataset.posts || "[]");
+    const imgMode = document.getElementById("rim-image-mode");
+    const articleMode = document.getElementById("rim-article-mode");
+    const recommendBtn = document.getElementById("rim-recommend-btn");
+    const backBtn = document.getElementById("rim-back-btn");
+    const articleList = document.getElementById("rim-article-list");
+    const randomImg = document.getElementById("rim-random-img");
 
     function showArticles() {
-      imgMode.style.opacity = '0'; imgMode.style.pointerEvents = 'none';
-      articleMode.style.opacity = '1'; articleMode.style.pointerEvents = 'auto';
-      recommendBtn.style.display = 'none'; backBtn.style.display = 'flex';
+      imgMode.style.opacity = "0";
+      imgMode.style.pointerEvents = "none";
+      articleMode.style.opacity = "1";
+      articleMode.style.pointerEvents = "auto";
+      recommendBtn.style.display = "none";
+      backBtn.style.display = "flex";
       if (articleList.children.length === 0) {
         posts.slice(0, 6).forEach((post) => {
-          const a = document.createElement('a');
-          a.href = '/posts/' + post.slug;
-          a.style.cssText = 'display:flex;align-items:center;gap:12px;padding:8px;border-radius:10px;transition:all 0.2s;text-decoration:none;';
-          a.onmouseenter = () => a.style.background = 'rgba(66,90,239,0.04)';
-          a.onmouseleave = () => a.style.background = 'transparent';
+          const a = document.createElement("a");
+          a.href = "/posts/" + post.slug;
+          a.style.cssText =
+            "display:flex;align-items:center;gap:12px;padding:8px;border-radius:10px;transition:all 0.2s;text-decoration:none;";
+          a.onmouseenter = () => (a.style.background = "rgba(66,90,239,0.04)");
+          a.onmouseleave = () => (a.style.background = "transparent");
           a.innerHTML = `
-            ${post.cover ? `<img src="${post.cover}" alt="" style="height:48px;width:64px;border-radius:8px;object-fit:cover;flex-shrink:0;" loading="lazy"/>` : ''}
+            ${post.cover ? `<img src="${post.cover}" alt="" style="height:48px;width:64px;border-radius:8px;object-fit:cover;flex-shrink:0;" loading="lazy"/>` : ""}
             <div style="min-width:0;flex:1;">
               <div style="font-size:14px;font-weight:500;color:var(--color-foreground);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${post.title}</div>
               <div style="font-size:12px;color:var(--color-foreground-muted);margin-top:2px;">${post.date}</div>
@@ -95,13 +160,16 @@ const postsData = allPosts.map((p) => ({
     }
 
     function showImage() {
-      imgMode.style.opacity = '1'; imgMode.style.pointerEvents = 'auto';
-      articleMode.style.opacity = '0'; articleMode.style.pointerEvents = 'none';
-      recommendBtn.style.display = 'flex'; backBtn.style.display = 'none';
-      randomImg.src = 'https://api.elaina.cat/random/?t=' + Date.now();
+      imgMode.style.opacity = "1";
+      imgMode.style.pointerEvents = "auto";
+      articleMode.style.opacity = "0";
+      articleMode.style.pointerEvents = "none";
+      recommendBtn.style.display = "flex";
+      backBtn.style.display = "none";
+      randomImg.src = "https://api.elaina.cat/random/?t=" + Date.now();
     }
 
-    recommendBtn?.addEventListener('click', showArticles);
-    backBtn?.addEventListener('click', showImage);
+    recommendBtn?.addEventListener("click", showArticles);
+    backBtn?.addEventListener("click", showImage);
   })();
 </script>

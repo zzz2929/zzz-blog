@@ -1,14 +1,14 @@
 ---
-import { getCollection, render } from 'astro:content';
-import BaseLayout from '@/layouts/BaseLayout.astro';
-import Header from '@/components/astro/Header.astro';
-import Footer from '@/components/astro/Footer.astro';
-import TOC from '@/components/astro/TOC.astro';
-import Comments from '@/components/astro/Comments.astro';
-import VercountDisplay from '@/components/react/VercountDisplay.tsx';
+import { getCollection, render } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Header from "@/components/astro/Header.astro";
+import Footer from "@/components/astro/Footer.astro";
+import TOC from "@/components/astro/TOC.astro";
+import Comments from "@/components/astro/Comments.astro";
+import VercountDisplay from "@/components/react/VercountDisplay.tsx";
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
+  const posts = await getCollection("blog");
   return posts.map((post) => ({
     params: { slug: post.id },
     props: { post },
@@ -19,64 +19,123 @@ const { post } = Astro.props;
 const { Content, headings } = await render(post);
 
 function formatDate(d: Date): string {
-  return d.toLocaleDateString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' });
+  return d.toLocaleDateString("zh-CN", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  });
 }
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description} image={post.data.cover}>
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+  image={post.data.cover}
+>
   <Header />
 
   <main class="mx-auto px-4 py-5 sm:px-6 lg:px-8" style="max-width: 1360px;">
     <!-- Header card -->
-    <div class="mb-5" style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 16px; box-shadow: 0 1px 24px rgba(0,0,0,0.1); padding: 16px 20px;">
-      {post.data.cover && (
-        <div class="mb-4 overflow-hidden" style="border-radius: 12px; max-height: 240px;">
-          <img src={post.data.cover} alt={post.data.title} class="h-auto w-full object-cover" style="max-height: 240px;" loading="eager" />
-        </div>
-      )}
-      <h1 class="mb-2 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">{post.data.title}</h1>
-      <div class="flex flex-wrap items-center gap-2 text-sm text-foreground-muted">
-        <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
-        {post.data.updated && (
-          <><span class="opacity-30">·</span><span>更新于 <time datetime={post.data.updated.toISOString()}>{formatDate(post.data.updated)}</time></span></>
-        )}
+    <div
+      class="mb-5"
+      style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 16px; box-shadow: 0 1px 24px rgba(0,0,0,0.1); padding: 16px 20px;"
+    >
+      {
+        post.data.cover && (
+          <div
+            class="mb-4 overflow-hidden"
+            style="border-radius: 12px; max-height: 240px;"
+          >
+            <img
+              src={post.data.cover}
+              alt={post.data.title}
+              class="h-auto w-full object-cover"
+              style="max-height: 240px;"
+              loading="eager"
+            />
+          </div>
+        )
+      }
+      <h1
+        class="mb-2 text-2xl font-bold tracking-tight text-foreground sm:text-3xl"
+      >
+        {post.data.title}
+      </h1>
+      <div
+        class="flex flex-wrap items-center gap-2 text-sm text-foreground-muted"
+      >
+        <time datetime={post.data.date.toISOString()}
+          >{formatDate(post.data.date)}</time
+        >
+        {
+          post.data.updated && (
+            <>
+              <>
+                <span class="opacity-30">·</span>
+                <span>
+                  更新于{" "}
+                  <time datetime={post.data.updated.toISOString()}>
+                    {formatDate(post.data.updated)}
+                  </time>
+                </span>
+              </>
+            </>
+          )
+        }
         <span class="ml-auto">
           <VercountDisplay client:load pagePv />
         </span>
       </div>
-      {post.data.categories.length > 0 && (
-        <div class="mt-2 flex flex-wrap items-center gap-2">
-          {post.data.categories.map((cat) => (
-            <a href={`/categories/${cat}`} class="inline-block rounded-full px-3 py-0.5 text-xs font-medium text-primary transition-colors hover:bg-primary/15" style="background: rgba(66,90,239,0.08);">{cat}</a>
-          ))}
-        </div>
-      )}
-      {post.data.tags.length > 0 && (
-        <div class="mt-1.5 flex flex-wrap items-center gap-2">
-          {post.data.tags.map((tag) => (
-            <a href={`/tags/${tag}`} class="tag-pill">#{tag}</a>
-          ))}
-        </div>
-      )}
+      {
+        post.data.categories.length > 0 && (
+          <div class="mt-2 flex flex-wrap items-center gap-2">
+            {post.data.categories.map((cat) => (
+              <a
+                href={`/categories/${cat}`}
+                class="inline-block rounded-full px-3 py-0.5 text-xs font-medium text-primary transition-colors hover:bg-primary/15"
+                style="background: rgba(66,90,239,0.08);"
+              >
+                {cat}
+              </a>
+            ))}
+          </div>
+        )
+      }
+      {
+        post.data.tags.length > 0 && (
+          <div class="mt-1.5 flex flex-wrap items-center gap-2">
+            {post.data.tags.map((tag) => (
+              <a href={`/tags/${tag}`} class="tag-pill">
+                #{tag}
+              </a>
+            ))}
+          </div>
+        )
+      }
     </div>
 
     <!-- Content + TOC side by side -->
     <div class="flex gap-5">
       <!-- Content card -->
-      <div class="prose-card min-w-0 flex-1" style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 16px; box-shadow: 0 1px 24px rgba(0,0,0,0.1); padding: 16px 20px;">
+      <div
+        class="prose-card min-w-0 flex-1"
+        style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 16px; box-shadow: 0 1px 24px rgba(0,0,0,0.1); padding: 16px 20px;"
+      >
         <div class="prose">
           <Content />
         </div>
       </div>
 
       <!-- TOC sidebar -->
-      {headings.length > 0 && (
-        <aside class="hidden xl:block shrink-0" style="width: 250px;">
-          <div style="position: sticky; top: 80px;">
-            <TOC headings={headings} />
-          </div>
-        </aside>
-      )}
+      {
+        headings.length > 0 && (
+          <aside class="hidden xl:block shrink-0" style="width: 250px;">
+            <div style="position: sticky; top: 80px;">
+              <TOC headings={headings} />
+            </div>
+          </aside>
+        )
+      }
     </div>
 
     <!-- Comments -->
@@ -87,8 +146,12 @@ function formatDate(d: Date): string {
 
   <style is:global>
     .dark .prose-card {
-      background: linear-gradient(135deg, rgba(30,30,40,0.6), rgba(30,30,40,0.3)) !important;
-      border-color: rgba(255,255,255,0.08) !important;
+      background: linear-gradient(
+        135deg,
+        rgba(30, 30, 40, 0.6),
+        rgba(30, 30, 40, 0.3)
+      ) !important;
+      border-color: rgba(255, 255, 255, 0.08) !important;
     }
     .no-glass .prose-card {
       background: var(--color-card-bg) !important;
@@ -103,9 +166,9 @@ function formatDate(d: Date): string {
   <script is:inline>
     (function () {
       const slug = window.location.pathname;
-      const readKey = 'zzz-blog-read-posts';
-      const readPosts = JSON.parse(localStorage.getItem(readKey) || '[]');
-      const postSlug = slug.replace(/^\/posts\//, '').replace(/\/$/, '');
+      const readKey = "zzz-blog-read-posts";
+      const readPosts = JSON.parse(localStorage.getItem(readKey) || "[]");
+      const postSlug = slug.replace(/^\/posts\//, "").replace(/\/$/, "");
       if (postSlug && !readPosts.includes(postSlug)) {
         readPosts.push(postSlug);
         localStorage.setItem(readKey, JSON.stringify(readPosts));
@@ -114,62 +177,76 @@ function formatDate(d: Date): string {
   </script>
 
   <script>
-    import mediumZoom from 'medium-zoom';
+    import mediumZoom from "medium-zoom";
 
     // Enable progressive loading effect (JS is confirmed working)
-    document.querySelector('.prose')?.classList.add('prose--js-ready');
+    document.querySelector(".prose")?.classList.add("prose--js-ready");
 
     // Edge case: images already cached may have fired onload before DOMContentLoaded.
     // Ensure they get the .loaded class so they aren't stuck at opacity: 0.
-    document.querySelectorAll('.prose img').forEach((img) => {
-      if (img.complete && !img.classList.contains('loaded')) {
-        img.classList.add('loaded');
+    document.querySelectorAll(".prose img").forEach((img) => {
+      if (img.complete && !img.classList.contains("loaded")) {
+        img.classList.add("loaded");
       }
     });
 
-    mediumZoom('.prose img', {
-      background: 'rgba(0, 0, 0, 0.85)',
+    mediumZoom(".prose img", {
+      background: "rgba(0, 0, 0, 0.85)",
       margin: 24,
       scrollOffset: 40,
     });
 
     // Code block enhancements: line numbers, copy button
-    const SHIKI_VARS = ['--shiki-light', '--shiki-dark', '--shiki-light-bg', '--shiki-dark-bg', 'color-scheme'];
-    const clipboardSvg = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>';
-    const checkSvg = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#28c840" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+    const SHIKI_VARS = [
+      "--shiki-light",
+      "--shiki-dark",
+      "--shiki-light-bg",
+      "--shiki-dark-bg",
+      "color-scheme",
+    ];
+    const clipboardSvg =
+      '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>';
+    const checkSvg =
+      '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#28c840" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
 
-    document.querySelectorAll('.code-block').forEach((block) => {
-      const pre = block.querySelector('pre');
-      const code = pre?.querySelector('code');
+    document.querySelectorAll(".code-block").forEach((block) => {
+      const pre = block.querySelector("pre");
+      const code = pre?.querySelector("code");
       if (!pre || !code) return;
 
       // 1. Copy button → toolbar
-      const toolbar = block.querySelector('.code-block-toolbar');
+      const toolbar = block.querySelector(".code-block-toolbar");
       if (toolbar) {
-        const btn = document.createElement('button');
-        btn.className = 'code-copy-btn';
-        btn.setAttribute('aria-label', '复制代码');
-        btn.title = '复制代码';
+        const btn = document.createElement("button");
+        btn.className = "code-copy-btn";
+        btn.setAttribute("aria-label", "复制代码");
+        btn.title = "复制代码";
         btn.innerHTML = clipboardSvg;
         toolbar.appendChild(btn);
       }
 
       // 2. Line numbers — replace pre with line-nums + code-content
       const rawHtml = code.innerHTML;
-      const textContent = code.textContent || '';
-      const lines = rawHtml.split('\n');
-      if (lines.length > 0 && lines[lines.length - 1].trim() === '') lines.pop();
+      const textContent = code.textContent || "";
+      const lines = rawHtml.split("\n");
+      if (lines.length > 0 && lines[lines.length - 1].trim() === "")
+        lines.pop();
 
       // Copy theme styles from <pre> before replacing
       const preStyle = getComputedStyle(pre);
 
-      const numDiv = document.createElement('div');
-      numDiv.className = 'line-nums';
-      const codeDiv = document.createElement('div');
-      codeDiv.className = 'code-content';
+      const numDiv = document.createElement("div");
+      numDiv.className = "line-nums";
+      const codeDiv = document.createElement("div");
+      codeDiv.className = "code-content";
 
       // Transfer theme: CSS variables, color-scheme, background, font
-      ['--shiki-light', '--shiki-dark', '--shiki-light-bg', '--shiki-dark-bg'].forEach((v) => {
+      [
+        "--shiki-light",
+        "--shiki-dark",
+        "--shiki-light-bg",
+        "--shiki-dark-bg",
+      ].forEach((v) => {
         const val = preStyle.getPropertyValue(v);
         if (val) codeDiv.style.setProperty(v, val);
       });
@@ -177,36 +254,38 @@ function formatDate(d: Date): string {
       codeDiv.style.fontFamily = preStyle.fontFamily;
 
       lines.forEach((lineHtml, i) => {
-        const numSpan = document.createElement('span');
+        const numSpan = document.createElement("span");
         numSpan.textContent = String(i + 1);
         numDiv.appendChild(numSpan);
 
-        const lineSpan = document.createElement('span');
-        lineSpan.className = 'code-line';
-        lineSpan.innerHTML = lineHtml || ' ';
+        const lineSpan = document.createElement("span");
+        lineSpan.className = "code-line";
+        lineSpan.innerHTML = lineHtml || " ";
         codeDiv.appendChild(lineSpan);
       });
 
       // Hover highlight sync
       const clearActive = () => {
-        numDiv.querySelector('.line-num-active')?.classList.remove('line-num-active');
-        codeDiv.querySelector('.line-active')?.classList.remove('line-active');
+        numDiv
+          .querySelector(".line-num-active")
+          ?.classList.remove("line-num-active");
+        codeDiv.querySelector(".line-active")?.classList.remove("line-active");
       };
       for (let i = 0; i < numDiv.children.length; i++) {
         const handler = () => {
           clearActive();
-          numDiv.children[i].classList.add('line-num-active');
-          codeDiv.children[i]?.classList.add('line-active');
+          numDiv.children[i].classList.add("line-num-active");
+          codeDiv.children[i]?.classList.add("line-active");
         };
-        numDiv.children[i].addEventListener('mouseenter', handler);
-        codeDiv.children[i]?.addEventListener('mouseenter', handler);
+        numDiv.children[i].addEventListener("mouseenter", handler);
+        codeDiv.children[i]?.addEventListener("mouseenter", handler);
       }
 
-      const wrapper = document.createElement('div');
-      wrapper.className = 'code-lines';
+      const wrapper = document.createElement("div");
+      wrapper.className = "code-lines";
       wrapper.appendChild(numDiv);
       wrapper.appendChild(codeDiv);
-      wrapper.addEventListener('mouseleave', clearActive);
+      wrapper.addEventListener("mouseleave", clearActive);
       pre.replaceWith(wrapper);
 
       // Store plain text for copy
@@ -214,15 +293,20 @@ function formatDate(d: Date): string {
     });
 
     // Copy handler
-    document.addEventListener('click', (e) => {
-      const btn = e.target.closest('.code-copy-btn');
+    document.addEventListener("click", (e) => {
+      const btn = e.target.closest(".code-copy-btn");
       if (!btn) return;
-      const block = btn.closest('.code-block');
+      const block = btn.closest(".code-block");
       if (!block) return;
-      const text = block.dataset.codeText || block.querySelector('code')?.textContent || '';
+      const text =
+        block.dataset.codeText ||
+        block.querySelector("code")?.textContent ||
+        "";
       navigator.clipboard.writeText(text).then(() => {
         btn.innerHTML = checkSvg;
-        setTimeout(() => { btn.innerHTML = clipboardSvg; }, 2000);
+        setTimeout(() => {
+          btn.innerHTML = clipboardSvg;
+        }, 2000);
       });
     });
   </script>

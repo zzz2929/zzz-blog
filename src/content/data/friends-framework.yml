@@ -2,7 +2,7 @@ class_name: 框架
 flink_style: flexcard
 hundredSuffix: ""
 link_list:
-  - name: Hexo
+  - name: Astro
     link: https://astro.build/
     avatar: https://imgbed.904002.xyz/file/img/blog/icon/Astro.svg
     descr: Astro 是一个专为构建内容驱动型网站而设计的现代化 Web 框架，加载速度快，性能好，开发简单

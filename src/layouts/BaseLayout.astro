@@ -1,6 +1,6 @@
 ---
-import { AnimatedBackground } from '@/components/react/AnimatedBackground';
-import MiniPlayer from '@/components/astro/MiniPlayer.astro';
+import { AnimatedBackground } from "@/components/react/AnimatedBackground";
+import MiniPlayer from "@/components/astro/MiniPlayer.astro";
 
 interface Props {
   title?: string;
@@ -9,14 +9,15 @@ interface Props {
 }
 
 const {
-  title = 'zzz-blog',
-  description = 'zzz 的个人博客',
+  title = "zzz-blog",
+  description = "zzz 的个人博客",
   image,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const siteTitle = title === 'zzz-blog' ? title : `${title} | zzz-blog`;
-const isMusicPage = Astro.url.pathname === '/music/' || Astro.url.pathname === '/music';
+const siteTitle = title === "zzz-blog" ? title : `${title} | zzz-blog`;
+const isMusicPage =
+  Astro.url.pathname === "/music/" || Astro.url.pathname === "/music";
 ---
 
 <!doctype html>
@@ -43,23 +44,34 @@ const isMusicPage = Astro.url.pathname === '/music/' || Astro.url.pathname === '
     {image && <meta property="og:image" content={new URL(image, Astro.site)} />}
 
     <!-- Twitter Card -->
-    <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'} />
+    <meta
+      name="twitter:card"
+      content={image ? "summary_large_image" : "summary"}
+    />
     <meta name="twitter:title" content={siteTitle} />
     <meta name="twitter:description" content={description} />
-    {image && <meta name="twitter:image" content={new URL(image, Astro.site)} />}
+    {
+      image && (
+        <meta name="twitter:image" content={new URL(image, Astro.site)} />
+      )
+    }
 
     <!-- Dark mode inline script (must run before body to avoid FOUC) -->
     <script is:inline>
       (function () {
-        const stored = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        if (stored === 'dark' || (!stored && prefersDark)) {
-          document.documentElement.classList.add('dark');
+        const stored = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)",
+        ).matches;
+        if (stored === "dark" || (!stored && prefersDark)) {
+          document.documentElement.classList.add("dark");
         }
       })();
     </script>
   </head>
-  <body class="min-h-screen bg-background text-foreground font-sans antialiased">
+  <body
+    class="min-h-screen bg-background text-foreground font-sans antialiased"
+  >
     <AnimatedBackground client:only="react" />
     <slot />
     {!isMusicPage && <MiniPlayer />}
@@ -67,5 +79,5 @@ const isMusicPage = Astro.url.pathname === '/music/' || Astro.url.pathname === '
 </html>
 
 <style is:global>
-  @import '@/styles/global.css';
+  @import "@/styles/global.css";
 </style>

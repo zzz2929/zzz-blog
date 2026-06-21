@@ -1,10 +1,10 @@
 ---
-import { getCollection } from 'astro:content';
-import BaseLayout from '@/layouts/BaseLayout.astro';
-import Header from '@/components/astro/Header.astro';
-import Footer from '@/components/astro/Footer.astro';
+import { getCollection } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Header from "@/components/astro/Header.astro";
+import Footer from "@/components/astro/Footer.astro";
 
-const friendsData = await getCollection('friends');
+const friendsData = await getCollection("friends");
 ---
 
 <BaseLayout title="友链">
@@ -12,36 +12,46 @@ const friendsData = await getCollection('friends');
   <main class="mx-auto max-w-4xl px-4 py-8 sm:px-6">
     <h1 class="mb-8 text-3xl font-bold text-foreground">友人帐</h1>
 
-    {friendsData.map((group) => (
-      <section class="mb-10">
-        <h2 class="mb-2 text-xl font-bold text-foreground">{group.data.class_name}</h2>
-        {group.data.class_desc && <p class="mb-4 text-sm text-muted">{group.data.class_desc}</p>}
-        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {group.data.link_list.map((link) => (
-            <a
-              href={link.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="group flex items-center gap-3 rounded-xl border border-border bg-card p-4 transition-all hover:shadow-md hover:border-primary/30"
-            >
-              <img
-                src={link.avatar}
-                alt={link.name}
-                class="h-12 w-12 shrink-0 rounded-full object-cover"
-                loading="lazy"
-              />
-              <div class="min-w-0 flex-1">
-                <h3 class="font-medium text-foreground group-hover:text-primary transition-colors truncate">{link.name}</h3>
-                <p class="text-xs text-muted line-clamp-2">{link.descr}</p>
-              </div>
-              {link.recommend && (
-                <span class="shrink-0 rounded-full bg-primary/10 px-2 py-0.5 text-xs text-primary">推荐</span>
-              )}
-            </a>
-          ))}
-        </div>
-      </section>
-    ))}
+    {
+      friendsData.map((group) => (
+        <section class="mb-10">
+          <h2 class="mb-2 text-xl font-bold text-foreground">
+            {group.data.class_name}
+          </h2>
+          {group.data.class_desc && (
+            <p class="mb-4 text-sm text-muted">{group.data.class_desc}</p>
+          )}
+          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {group.data.link_list.map((link) => (
+              <a
+                href={link.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group flex items-center gap-3 rounded-xl border border-border bg-card p-4 transition-all hover:shadow-md hover:border-primary/30"
+              >
+                <img
+                  src={link.avatar}
+                  alt={link.name}
+                  class="h-12 w-12 shrink-0 rounded-full object-cover"
+                  loading="lazy"
+                />
+                <div class="min-w-0 flex-1">
+                  <h3 class="font-medium text-foreground group-hover:text-primary transition-colors truncate">
+                    {link.name}
+                  </h3>
+                  <p class="text-xs text-muted line-clamp-2">{link.descr}</p>
+                </div>
+                {link.recommend && (
+                  <span class="shrink-0 rounded-full bg-primary/10 px-2 py-0.5 text-xs text-primary">
+                    推荐
+                  </span>
+                )}
+              </a>
+            ))}
+          </div>
+        </section>
+      ))
+    }
   </main>
   <Footer />
 </BaseLayout>

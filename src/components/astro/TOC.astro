@@ -9,19 +9,19 @@ const { headings } = Astro.props;
 const filteredHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 6);
 
 const indentMap: Record<number, string> = {
-  2: '0px',
-  3: '14px',
-  4: '28px',
-  5: '42px',
-  6: '56px',
+  2: "0px",
+  3: "14px",
+  4: "28px",
+  5: "42px",
+  6: "56px",
 };
 
 const sizeMap: Record<number, string> = {
-  2: '14px',
-  3: '13px',
-  4: '12px',
-  5: '11px',
-  6: '11px',
+  2: "14px",
+  3: "13px",
+  4: "12px",
+  5: "11px",
+  6: "11px",
 };
 
 const weightMap: Record<number, number> = {
@@ -33,58 +33,69 @@ const weightMap: Record<number, number> = {
 };
 ---
 
-{filteredHeadings.length > 0 && (
-  <nav class="toc" style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 16px; box-shadow: 0 1px 24px rgba(0,0,0,0.1); padding: 20px;">
-    <h4 class="mb-3 text-sm font-semibold text-foreground flex items-center gap-2">
-      <span class="inline-block w-1 h-5 rounded-full" style="background: linear-gradient(180deg, var(--color-primary), var(--color-accent));"></span>
-      目录
-    </h4>
-
-    <div
-      class="toc-list-wrap toc-container"
-      style="overflow-y: auto; max-height: calc(100vh - 200px);"
+{
+  filteredHeadings.length > 0 && (
+    <nav
+      class="toc"
+      style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 16px; box-shadow: 0 1px 24px rgba(0,0,0,0.1); padding: 20px;"
     >
-      <ul class="space-y-0.5">
-        {filteredHeadings.map((heading, i) => (
-          <li style={`animation: slide-in-right 0.3s ease ${i * 0.05}s backwards;`}>
-            <a
-              href={`#${heading.slug}`}
-              class="toc-link block py-0.5 transition-all duration-300"
-              data-weight={weightMap[heading.depth]}
-              style={`
+      <h4 class="mb-3 text-sm font-semibold text-foreground flex items-center gap-2">
+        <span
+          class="inline-block w-1 h-5 rounded-full"
+          style="background: linear-gradient(180deg, var(--color-primary), var(--color-accent));"
+        />
+        目录
+      </h4>
+
+      <div
+        class="toc-list-wrap toc-container"
+        style="overflow-y: auto; max-height: calc(100vh - 200px);"
+      >
+        <ul class="space-y-0.5">
+          {filteredHeadings.map((heading, i) => (
+            <li
+              style={`animation: slide-in-right 0.3s ease ${i * 0.05}s backwards;`}
+            >
+              <a
+                href={`#${heading.slug}`}
+                class="toc-link block py-0.5 transition-all duration-300"
+                data-weight={weightMap[heading.depth]}
+                style={`
                 color: var(--color-foreground-muted);
                 padding-left: calc(16px + ${indentMap[heading.depth]});
                 font-size: ${sizeMap[heading.depth]};
                 font-weight: ${weightMap[heading.depth]};
               `}
-            >
-              {heading.text}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </nav>
-)}
+              >
+                {heading.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </nav>
+  )
+}
 
 <script is:inline>
   (function () {
-    const links = document.querySelectorAll('.toc-link');
+    const links = document.querySelectorAll(".toc-link");
     const headingEls = Array.from(links).map((link) => {
-      const id = link.getAttribute('href')?.slice(1);
-      return document.getElementById(id || '');
+      const id = link.getAttribute("href")?.slice(1);
+      return document.getElementById(id || "");
     });
 
     // Smooth scroll with header offset on TOC link click
     links.forEach((link, i) => {
-      link.addEventListener('click', (e) => {
+      link.addEventListener("click", (e) => {
         e.preventDefault();
         const target = headingEls[i];
         if (!target) return;
         const headerHeight = 80;
-        const top = target.getBoundingClientRect().top + window.scrollY - headerHeight;
-        window.scrollTo({ top, behavior: 'smooth' });
-        history.pushState(null, '', link.getAttribute('href'));
+        const top =
+          target.getBoundingClientRect().top + window.scrollY - headerHeight;
+        window.scrollTo({ top, behavior: "smooth" });
+        history.pushState(null, "", link.getAttribute("href"));
       });
     });
 
@@ -94,14 +105,14 @@ const weightMap: Record<number, number> = {
 
     function setActiveLink(index) {
       links.forEach((link, i) => {
-        const origWeight = link.getAttribute('data-weight') || '400';
+        const origWeight = link.getAttribute("data-weight") || "400";
         if (i === index) {
-          link.classList.add('toc-active');
-          link.style.color = 'var(--color-primary)';
-          link.style.fontWeight = '700';
+          link.classList.add("toc-active");
+          link.style.color = "var(--color-primary)";
+          link.style.fontWeight = "700";
         } else {
-          link.classList.remove('toc-active');
-          link.style.color = 'var(--color-foreground-muted)';
+          link.classList.remove("toc-active");
+          link.style.color = "var(--color-foreground-muted)";
           link.style.fontWeight = origWeight;
         }
       });
@@ -113,7 +124,10 @@ const weightMap: Record<number, number> = {
       let activeIndex = 0;
       const offset = 100;
       for (let i = 0; i < headingEls.length; i++) {
-        if (headingEls[i] && headingEls[i].getBoundingClientRect().top <= offset) {
+        if (
+          headingEls[i] &&
+          headingEls[i].getBoundingClientRect().top <= offset
+        ) {
           activeIndex = i;
         }
       }
@@ -124,7 +138,7 @@ const weightMap: Record<number, number> = {
         lastActiveIndex = activeIndex;
         const activeLink = links[activeIndex];
         if (activeLink) {
-          const tocWrap = document.querySelector('.toc-list-wrap');
+          const tocWrap = document.querySelector(".toc-list-wrap");
           if (tocWrap) {
             const linkTop = activeLink.offsetTop;
             const linkHeight = activeLink.offsetHeight;
@@ -132,10 +146,13 @@ const weightMap: Record<number, number> = {
             const scrollTop = tocWrap.scrollTop;
 
             // Scroll if active item is out of view
-            if (linkTop < scrollTop || linkTop + linkHeight > scrollTop + wrapHeight) {
+            if (
+              linkTop < scrollTop ||
+              linkTop + linkHeight > scrollTop + wrapHeight
+            ) {
               tocWrap.scrollTo({
                 top: linkTop - wrapHeight / 2 + linkHeight / 2,
-                behavior: 'smooth'
+                behavior: "smooth",
               });
             }
           }
@@ -145,20 +162,20 @@ const weightMap: Record<number, number> = {
 
     // Add hover events to TOC links
     links.forEach((link, i) => {
-      link.addEventListener('mouseenter', () => {
+      link.addEventListener("mouseenter", () => {
         isHovering = true;
         hoverIndex = i;
         setActiveLink(i);
       });
 
-      link.addEventListener('mouseleave', () => {
+      link.addEventListener("mouseleave", () => {
         isHovering = false;
         hoverIndex = -1;
         updateActive(); // Restore scroll-based active state
       });
     });
 
-    window.addEventListener('scroll', updateActive, { passive: true });
+    window.addEventListener("scroll", updateActive, { passive: true });
     updateActive();
   })();
 </script>
