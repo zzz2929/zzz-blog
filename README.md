@@ -4,18 +4,18 @@
 
 ## 技术栈
 
-| 层级 | 技术 | 版本 |
-|------|------|------|
-| 框架 | Astro | ^6.4.3 |
-| 交互 | React | ^19.2.7 |
-| 样式 | Tailwind CSS | ^4.3.0 |
-| 图标 | Lucide React | ^1.17.0 |
-| 评论 | Waline | ^3.15.0 |
-| 搜索 | Pagefind | ^1.5.2 |
-| 代码高亮 | Shiki（Astro 内置） | ^4.2.0 |
-| 图片灯箱 | medium-zoom | ^1.1.0 |
-| 部署 | Cloudflare Pages | — |
-| 包管理 | pnpm | — |
+| 层级     | 技术                | 版本    |
+| -------- | ------------------- | ------- |
+| 框架     | Astro               | ^6.4.3  |
+| 交互     | React               | ^19.2.7 |
+| 样式     | Tailwind CSS        | ^4.3.0  |
+| 图标     | Lucide React        | ^1.17.0 |
+| 评论     | Waline              | ^3.15.0 |
+| 搜索     | Pagefind            | ^1.5.2  |
+| 代码高亮 | Shiki（Astro 内置） | ^4.2.0  |
+| 图片灯箱 | medium-zoom         | ^1.1.0  |
+| 部署     | Cloudflare Pages    | —      |
+| 包管理   | pnpm                | —      |
 
 ## 快速开始
 
@@ -114,16 +114,16 @@ src/
 
 亮色模式支持在设置菜单中切换背景色，通过 `localStorage('monet-bg')` 持久化：
 
-| 名称 | 色值 |
-|------|------|
-| 云端漫步 | `#EDE8DE` |
-| 睡莲 | `#E8E0F0` |
-| 日出印象 | `#F5E6D8` |
-| 干草堆 | `#F0E4C8` |
-| 紫藤 | `#E5DAE8` |
+| 名称       | 色值        |
+| ---------- | ----------- |
+| 云端漫步   | `#EDE8DE` |
+| 睡莲       | `#E8E0F0` |
+| 日出印象   | `#F5E6D8` |
+| 干草堆     | `#F0E4C8` |
+| 紫藤       | `#E5DAE8` |
 | 鲁昂大教堂 | `#DDE4EA` |
-| 塞纳河 | `#D8E8E0` |
-| 纯白 | `#F7F9FE` |
+| 塞纳河     | `#D8E8E0` |
+| 纯白       | `#F7F9FE` |
 
 深色模式不支持切换，固定使用星空背景。
 
@@ -145,6 +145,7 @@ border-color: rgba(255,255,255,0.08);
 ```
 
 下拉菜单透明度更高（悬浮元素需补偿模糊导致的视觉透明）：
+
 ```css
 /* 亮色下拉 */
 background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255,0.4));
@@ -173,16 +174,19 @@ background: linear-gradient(135deg, rgba(30,30,40,0.85), rgba(30,30,40,0.6));
 浮动胶囊形固定导航，`z-index: 9999`，宽度 `1350px`。
 
 **左侧**：
+
 - 站点切换按钮（三点图标）→ hover 展开 2×N 网格站点链接
 - Logo "zzz-blog" → hover 时小房子图标滑入中心覆盖文字（massive-goat-19 动画风格），`cubic-bezier(0.23,1,0.32,1)` 弹性曲线
 
 **中间**（`position: absolute; left: 50%` 居中）：
+
 - 文章、友链、我的、关于 四个一级菜单
 - 字体：`16px`, `font-weight: 700`, `color: foreground`
 - CSS hover 展开横向二级菜单（非点击），`z-index: 99999`
 - hover 时一级菜单变主题色，箭头旋转 180°
 
 **右侧**：
+
 - "开往"渐变按钮（随机访问开往成员博客）
 - 设置按钮（uiverse.io 风格：白色胶囊，hover 变蓝 + 图标旋转 `2s linear infinite`）
   - 深色模式切换（ThemeToggle React 组件）
@@ -308,24 +312,20 @@ essay_list:
 
 ### 音乐馆
 
-#### 默认播放列表`src/content/data/music.json`
+#### 默认播放列表 `src/content/data/music.json`
 
 ```json
 {
     "name": "歌曲名",
     "album": "专辑",
-    "album_artist": "专辑艺术家",
-    "year": "",
-    "disc": "",
-    "track": "",
     "artist": "歌手",
-    "source": "netease",
     "url": "音频URL",
     "lrc": "歌词URL",
     "pic": "封面URL"
 }
 ```
-#### 歌单文件 `src/content/data/playlists/*.json` 
+
+#### 歌单文件 `src/content/data/playlists/*.json`
 
 ```json
 {
@@ -334,8 +334,8 @@ essay_list:
   "songs": [
     {
       "name": "歌曲名",
-      "artist": "歌手",
       "album": "专辑",
+      "artist": "歌手",
       "url": "音频URL",
       "lrc": "歌词URL",
       "pic": "封面URL"
@@ -343,6 +343,7 @@ essay_list:
   ]
 }
 ```
+
 ---
 
 ## 自定义指南
@@ -418,11 +419,11 @@ public/
 
 #### 推荐规格
 
-| 文件 | 尺寸 | 格式 | 说明 |
-|------|------|------|------|
-| `blog.svg` | 任意（矢量） | SVG | 现代浏览器首选 |
-| `blog.ico` | 32×32 或 16×16 | ICO | 兼容旧浏览器 |
-| `blog.png` | 180×180 | PNG | iOS Safari 书签图标 |
+| 文件         | 尺寸             | 格式 | 说明                |
+| ------------ | ---------------- | ---- | ------------------- |
+| `blog.svg` | 任意（矢量）     | SVG  | 现代浏览器首选      |
+| `blog.ico` | 32×32 或 16×16 | ICO  | 兼容旧浏览器        |
+| `blog.png` | 180×180         | PNG  | iOS Safari 书签图标 |
 
 #### 修改引用
 
@@ -479,14 +480,14 @@ pnpm build
 
 ### 相关文件
 
-| 文件 | 作用 |
-|------|------|
-| `scripts/fetch-view-counts.mjs` | 构建时获取浏览量脚本 |
-| `src/content/data/view-counts.json` | 构建时生成的浏览量数据 |
-| `src/components/react/VercountDisplay.tsx` | 文章详情页浏览量组件 |
+| 文件                                         | 作用                                 |
+| -------------------------------------------- | ------------------------------------ |
+| `scripts/fetch-view-counts.mjs`            | 构建时获取浏览量脚本                 |
+| `src/content/data/view-counts.json`        | 构建时生成的浏览量数据               |
+| `src/components/react/VercountDisplay.tsx` | 文章详情页浏览量组件                 |
 | `src/components/react/SortFilterPosts.tsx` | 首页文章列表（接收 viewCounts prop） |
-| `src/pages/index.astro` | 首页（导入 viewCounts 传给组件） |
-| `src/pages/posts/[...slug].astro` | 文章详情页（使用 VercountDisplay） |
+| `src/pages/index.astro`                    | 首页（导入 viewCounts 传给组件）     |
+| `src/pages/posts/[...slug].astro`          | 文章详情页（使用 VercountDisplay）   |
 
 ---
 
@@ -513,7 +514,6 @@ pnpm build
 - 点击任意歌词行跳转到对应播放时间
 - 当前播放行：加粗 + 动态柔光效果
 - 歌词颜色随背景动态切换
-
 - 手动滑动歌词时暂停自动滚动，停止 2 秒后恢复跟随
 
 #### 歌单浏览器
@@ -538,6 +538,7 @@ pnpm build
 当前部署到 Cloudflare。构建命令 `pnpm build`，输出 `dist/`。
 
 如需切换部署平台，修改 `astro.config.mjs` 的 adapter：
+
 - Cloudflare：`@astrojs/cloudflare`（当前）
 - Vercel：`@astrojs/vercel`
 - Netlify：`@astrojs/netlify`

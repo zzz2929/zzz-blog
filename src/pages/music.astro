@@ -33,8 +33,8 @@ const playlists = playlistFiles.map((p) => ({
     <div class="now-playing-section mb-8">
       <div class="flex flex-col lg:flex-row gap-8">
         <!-- Album Art -->
-        <div class="album-art-container flex-shrink-0">
-          <div class="record-player w-48 h-48 lg:w-60 lg:h-60 relative">
+        <div class="album-art-container flex-shrink-0 flex flex-col items-center">
+          <div class="record-player w-64 h-64 lg:w-80 lg:h-80 relative">
             <div class="record-container">
               <div class="plate">
                 <div class="black" id="vinyl-record">
@@ -53,11 +53,20 @@ const playlists = playlistFiles.map((p) => ({
               <div class="rect"></div>
             </div>
           </div>
+          <!-- Waveform -->
+          <div id="waveform" class="waveform mt-15">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
         </div>
 
         <!-- Right Column: Playlist / Lyrics Tabs -->
-        <div class="flex flex-col min-w-0 flex-1">
-          <div class="panel-content flex-1 flex flex-col rounded-2xl overflow-hidden" style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); min-height: 400px; max-height: 500px;">
+        <div class="flex flex-col min-w-0 lg:w-4/5">
+          <div class="panel-content flex-1 flex flex-col rounded-2xl overflow-hidden" style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); min-height: 350px; max-height: 450px;">
             <!-- Tab Buttons -->
             <div class="panel-header flex items-center gap-2 p-4 pb-4 flex-shrink-0">
               <button id="tab-playlist-btn" class="tab-btn px-4 py-2 rounded-full text-sm font-medium transition-all" style="background: transparent; color: var(--color-foreground);">
@@ -637,6 +646,64 @@ const playlists = playlistFiles.map((p) => ({
     .dark .playlist-card-body { background: linear-gradient(135deg, rgba(30,30,40,0.4), rgba(30,30,40,0.2)) !important; border-color: rgba(255,255,255,0.08) !important; }
     .dark .playlist-song-item:hover { background: rgba(255, 255, 255, 0.05); }
     .dark .add-song-btn:hover { background: rgba(255, 255, 255, 0.08); }
+
+    /* Waveform Animation */
+    .waveform {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      height: 60px;
+    }
+    .waveform span {
+      display: block;
+      width: 4px;
+      border-radius: 2px;
+      opacity: 0.7;
+      animation: wave var(--dur, 1s) ease-in-out var(--del, 0s) infinite alternate paused;
+    }
+    .waveform.playing span { animation-play-state: running; }
+
+    .waveform span:nth-child(1)  { background: #3a65e8; --dur: 0.8s;  --del: 0.00s; height: 30px; }
+    .waveform span:nth-child(2)  { background: #7c3aed; --dur: 1.1s;  --del: 0.05s; height: 22px; }
+    .waveform span:nth-child(3)  { background: #c2410c; --dur: 0.7s;  --del: 0.10s; height: 40px; }
+    .waveform span:nth-child(4)  { background: #3a65e8; --dur: 1.3s;  --del: 0.15s; height: 18px; }
+    .waveform span:nth-child(5)  { background: #0d9488; --dur: 0.9s;  --del: 0.20s; height: 35px; }
+    .waveform span:nth-child(6)  { background: #7c3aed; --dur: 1.0s;  --del: 0.08s; height: 28px; }
+    .waveform span:nth-child(7)  { background: #3a65e8; --dur: 0.6s;  --del: 0.25s; height: 45px; }
+    .waveform span:nth-child(8)  { background: #c2410c; --dur: 1.2s;  --del: 0.12s; height: 20px; }
+    .waveform span:nth-child(9)  { background: #0d9488; --dur: 0.85s; --del: 0.30s; height: 38px; }
+    .waveform span:nth-child(10) { background: #7c3aed; --dur: 1.4s;  --del: 0.03s; height: 15px; }
+    .waveform span:nth-child(11) { background: #3a65e8; --dur: 0.75s; --del: 0.18s; height: 32px; }
+    .waveform span:nth-child(12) { background: #c2410c; --dur: 1.05s; --del: 0.22s; height: 25px; }
+    .waveform span:nth-child(13) { background: #0d9488; --dur: 0.65s; --del: 0.07s; height: 42px; }
+    .waveform span:nth-child(14) { background: #7c3aed; --dur: 1.15s; --del: 0.28s; height: 17px; }
+    .waveform span:nth-child(15) { background: #3a65e8; --dur: 0.95s; --del: 0.13s; height: 36px; }
+    .waveform span:nth-child(16) { background: #c2410c; --dur: 0.7s;  --del: 0.06s; height: 27px; }
+    .waveform span:nth-child(17) { background: #0d9488; --dur: 1.25s; --del: 0.20s; height: 44px; }
+    .waveform span:nth-child(18) { background: #3a65e8; --dur: 0.8s;  --del: 0.33s; height: 19px; }
+    .waveform span:nth-child(19) { background: #7c3aed; --dur: 1.0s;  --del: 0.10s; height: 33px; }
+    .waveform span:nth-child(20) { background: #c2410c; --dur: 0.6s;  --del: 0.25s; height: 41px; }
+    .waveform span:nth-child(21) { background: #0d9488; --dur: 1.35s; --del: 0.02s; height: 16px; }
+    .waveform span:nth-child(22) { background: #3a65e8; --dur: 0.9s;  --del: 0.16s; height: 29px; }
+    .waveform span:nth-child(23) { background: #7c3aed; --dur: 0.7s;  --del: 0.30s; height: 37px; }
+    .waveform span:nth-child(24) { background: #c2410c; --dur: 1.1s;  --del: 0.09s; height: 21px; }
+    .waveform span:nth-child(25) { background: #0d9488; --dur: 0.85s; --del: 0.22s; height: 39px; }
+    .waveform span:nth-child(26) { background: #3a65e8; --dur: 1.2s;  --del: 0.04s; height: 14px; }
+    .waveform span:nth-child(27) { background: #7c3aed; --dur: 0.75s; --del: 0.27s; height: 34px; }
+    .waveform span:nth-child(28) { background: #c2410c; --dur: 1.0s;  --del: 0.14s; height: 26px; }
+    .waveform span:nth-child(29) { background: #0d9488; --dur: 0.65s; --del: 0.32s; height: 43px; }
+    .waveform span:nth-child(30) { background: #3a65e8; --dur: 1.15s; --del: 0.08s; height: 23px; }
+
+    @keyframes wave {
+      0%   { height: var(--h1, 6px); opacity: 0.25; }
+      50%  { height: var(--h2, 50px); opacity: 0.9; }
+      100% { height: var(--h3, 12px); opacity: 0.35; }
+    }
+
+    .waveform span:nth-child(odd)  { --h1: 5px; --h2: 48px; --h3: 10px; }
+    .waveform span:nth-child(even) { --h1: 8px; --h2: 42px; --h3: 6px; }
+    .waveform span:nth-child(3n)   { --h1: 4px; --h2: 55px; --h3: 14px; }
   </style>
 
   <!-- Music Data Container -->
@@ -907,6 +974,7 @@ const playlists = playlistFiles.map((p) => ({
         });
       }
 
+
       playAllFromPlaylist(i) {
         const pl = this.playlists[i];
         if (!pl?.songs?.length) return;
@@ -923,10 +991,11 @@ const playlists = playlistFiles.map((p) => ({
         const pl = this.playlists[pi];
         const song = pl?.songs?.[si];
         if (!song) return;
-        this.playlist.push({
+        const newSong = {
           title: song.name, artist: song.artist, album: song.album || '未知专辑',
           url: song.url, cover: song.pic || '/音乐.svg', lrc: song.lrc
-        });
+        };
+        this.playlist.splice(this.currentIndex + 1, 0, newSong);
         this.renderPlaylist();
         if (this.playlist.length === 1) this.playSong(0);
       }
@@ -1119,6 +1188,8 @@ const playlists = playlistFiles.map((p) => ({
         if (this.lyricsPauseIcon) this.lyricsPauseIcon.classList.toggle('hidden', !this.isPlaying);
         if (this.vinylRecord) this.vinylRecord.classList.toggle('playing', this.isPlaying);
         if (this.tonearm) this.tonearm.classList.toggle('playing', this.isPlaying);
+        const waveform = document.getElementById('waveform');
+        if (waveform) waveform.classList.toggle('playing', this.isPlaying);
       }
 
       updateProgress() {
