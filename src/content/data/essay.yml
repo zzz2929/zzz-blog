@@ -7,11 +7,16 @@ limit: 30
 home_essay: true
 top_background: https://imgbed.904002.xyz/file/img/blog/background/daily-life.webp
 essay_list:
-- content: 离别
+- content: 开始到结束
   date: 2026/06/15
+  img:
+    - https://imgbed.904002.xyz/file/img/blog/essay/开始到结束/开始.webp
+    - https://imgbed.904002.xyz/file/img/blog/essay/开始到结束/结束.webp
 - content: 我们毕业啦！
   date: 2026/06/11
+  img:
+    - https://imgbed.904002.xyz/file/img/blog/essay/我们毕业啦！/我们毕业啦！.webp
 - content: 重构博客
-  date: 2026/06/03  
+  date: 2026/06/03
 - content: 工作也太难找了😇，前途一片黑暗啊😑
   date: 2025/10/19

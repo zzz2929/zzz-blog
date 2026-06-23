@@ -2,8 +2,8 @@ class_name: 我的旅行
 path_name: /travelPhoto
 type: 2
 description: 这里存放自己的一些旅行与游玩照片
-cover: https://imgbed.904002.xyz/file/img/blog/album/travel/泰山日出.jpg
-top_background: https://imgbed.904002.xyz/file/img/blog/album/travel/泰山日出.jpg
+cover: https://imgbed.904002.xyz/file/img/blog/album/travel/泰山日出.webp
+top_background: https://imgbed.904002.xyz/file/img/blog/album/travel/泰山日出.webp
 rowHeight: 220
 limit: 10
 lazyload: true
@@ -17,4 +17,4 @@ album_list:
   address: 泰山
   from: zzz
   image:
-  - https://imgbed.904002.xyz/file/img/blog/album/travel/泰山日出.jpg
+  - https://imgbed.904002.xyz/file/img/blog/album/travel/泰山日出.webp

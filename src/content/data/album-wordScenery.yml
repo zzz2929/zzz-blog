@@ -12,15 +12,4 @@ url: false
 top_link: /album
 top_btn_text: 返回
 album_list:
-- date: 2022/10/26 01:00:00
-  content: 湘潭的一角。
-  address: 湖南湘潭
-  from: 再吃一口就减肥
-  image:
-  - https://bu.dusays.com/2023/04/09/64329399db122.webp
-- date: 2022-10-25
-  content: 洛阳暴雨后的天空。
-  address: 河南洛阳
-  from: 紫菜卷
-  image:
-  - https://bu.dusays.com/2023/04/09/64329399db2e1.webp
+

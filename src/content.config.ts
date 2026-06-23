@@ -70,6 +70,7 @@ const essay = defineCollection({
     essay_list: z.array(z.object({
       content: z.string(),
       date: z.string(),
+      img: z.array(z.string()).optional(),
       video: z.array(z.string()).optional(),
       link: z.string().optional(),
       aplayer: z.object({
