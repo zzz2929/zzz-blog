@@ -1,19 +1,10 @@
 ---
-import { getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Header from "@/components/astro/Header.astro";
 import Footer from "@/components/astro/Footer.astro";
+import { getAllCategories } from "@/lib/posts";
 
-const posts = await getCollection("blog");
-const categoryMap = new Map<string, number>();
-for (const post of posts) {
-  for (const cat of post.data.categories) {
-    categoryMap.set(cat, (categoryMap.get(cat) || 0) + 1);
-  }
-}
-const categories = Array.from(categoryMap.entries()).sort(
-  (a, b) => b[1] - a[1],
-);
+const categories = await getAllCategories();
 ---
 
 <BaseLayout title="分类">
@@ -22,19 +13,19 @@ const categories = Array.from(categoryMap.entries()).sort(
     <h1 class="mb-8 text-3xl font-bold text-foreground">分类</h1>
     <div class="grid gap-4 sm:grid-cols-2">
       {
-        categories.map(([name, count]) => (
+        categories.map((cat) => (
           <a
-            href={`/categories/${name}`}
+            href={`/categories/${cat.slug}`}
             class="group flex items-center justify-between rounded-xl border border-border bg-card p-5 transition-all hover:shadow-md hover:border-primary/30"
           >
             <div class="flex items-center gap-3">
               <span class="text-2xl">📂</span>
               <span class="font-medium text-foreground group-hover:text-primary transition-colors">
-                {name}
+                {cat.name}
               </span>
             </div>
             <span class="rounded-full bg-border px-3 py-1 text-xs font-medium text-muted">
-              {count} 篇
+              {cat.count} 篇
             </span>
           </a>
         ))

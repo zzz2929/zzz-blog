@@ -11,5 +11,5 @@ btnLazyload: false
 url: false
 top_link: /album
 top_btn_text: 返回
-album_list:
+album_list: []
 

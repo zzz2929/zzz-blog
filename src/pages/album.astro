@@ -17,7 +17,7 @@ const albums = albumData.map((a) => a.data);
       <p class="mt-2 text-muted">记录生活中的美好瞬间</p>
     </div>
 
-    <PhotoAlbum client:visible albums={albums} />
+    <PhotoAlbum client:only="react" albums={albums} />
   </main>
   <Footer />
 </BaseLayout>

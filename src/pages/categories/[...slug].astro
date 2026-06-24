@@ -1,23 +1,17 @@
 ---
-import { getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Header from "@/components/astro/Header.astro";
 import Footer from "@/components/astro/Footer.astro";
 import PostCard from "@/components/astro/PostCard.astro";
+import { getAllCategories, getPostsByCategory } from "@/lib/posts";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
-  const categories = new Set<string>();
-  for (const post of posts) {
-    for (const cat of post.data.categories) categories.add(cat);
-  }
-  return Array.from(categories).map((cat) => ({ params: { slug: cat } }));
+  const categories = await getAllCategories();
+  return categories.map((cat) => ({ params: { slug: cat.slug } }));
 }
 
 const { slug } = Astro.params;
-const posts = (await getCollection("blog"))
-  .filter((p) => p.data.categories.includes(slug!))
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const posts = await getPostsByCategory(slug!);
 ---
 
 <BaseLayout title={`分类: ${slug}`}>

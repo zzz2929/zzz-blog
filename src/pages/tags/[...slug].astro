@@ -1,23 +1,17 @@
 ---
-import { getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Header from "@/components/astro/Header.astro";
 import Footer from "@/components/astro/Footer.astro";
 import PostCard from "@/components/astro/PostCard.astro";
+import { getAllTags, getPostsByTag } from "@/lib/posts";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
-  const tags = new Set<string>();
-  for (const post of posts) {
-    for (const tag of post.data.tags) tags.add(tag);
-  }
-  return Array.from(tags).map((tag) => ({ params: { slug: tag } }));
+  const tags = await getAllTags();
+  return tags.map((tag) => ({ params: { slug: tag.slug } }));
 }
 
 const { slug } = Astro.params;
-const posts = (await getCollection("blog"))
-  .filter((p) => p.data.tags.includes(slug!))
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const posts = await getPostsByTag(slug!);
 ---
 
 <BaseLayout title={`标签: #${slug}`}>

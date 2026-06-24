@@ -6,6 +6,7 @@ import Footer from "@/components/astro/Footer.astro";
 import TOC from "@/components/astro/TOC.astro";
 import Comments from "@/components/astro/Comments.astro";
 import VercountDisplay from "@/components/react/VercountDisplay.tsx";
+import { formatDate } from "@/lib/posts";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -17,14 +18,6 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content, headings } = await render(post);
-
-function formatDate(d: Date): string {
-  return d.toLocaleDateString("zh-CN", {
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  });
-}
 ---
 
 <BaseLayout
@@ -83,7 +76,7 @@ function formatDate(d: Date): string {
           )
         }
         <span class="ml-auto">
-          <VercountDisplay client:load pagePv />
+          <VercountDisplay client:only="react" pagePv />
         </span>
       </div>
       {
@@ -152,14 +145,6 @@ function formatDate(d: Date): string {
         rgba(30, 30, 40, 0.3)
       ) !important;
       border-color: rgba(255, 255, 255, 0.08) !important;
-    }
-    .no-glass .prose-card {
-      background: var(--color-card-bg) !important;
-      backdrop-filter: none !important;
-      -webkit-backdrop-filter: none !important;
-    }
-    .no-glass .prose-card .prose img {
-      z-index: auto;
     }
   </style>
 

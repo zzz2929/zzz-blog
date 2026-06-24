@@ -439,18 +439,6 @@ body {
 }
 
 /* ====== Animations ====== */
-@keyframes slide-in {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 @keyframes slide-in-right {
   from {
     opacity: 0;
@@ -460,18 +448,6 @@ body {
   to {
     opacity: 1;
     transform: translateX(0);
-  }
-}
-
-@keyframes floating {
-
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-8px);
   }
 }
 
@@ -486,16 +462,6 @@ body {
 
   100% {
     background-position: 0% 50%;
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: 200% 0;
-  }
-
-  100% {
-    background-position: -200% 0;
   }
 }
 
@@ -523,37 +489,7 @@ body {
   }
 }
 
-@keyframes fade-out {
-  to {
-    opacity: 0;
-    transform: scale(0.98);
-  }
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: scale(1.02);
-  }
-}
-
-/* Heading scroll offset — prevent fixed header from covering targets */
-.prose h1,
-.prose h2,
-.prose h3,
-.prose h4,
-.prose h5,
-.prose h6,
-h1[id],
-h2[id],
-h3[id],
-h4[id],
-h5[id],
-h6[id] {
-  scroll-margin-top: 80px;
-}
-
-/* ====== Article Prose ====== */
+/* ====== Heading Scroll Offset ====== */
 .prose {
   --tw-prose-body: var(--color-foreground);
   --tw-prose-headings: var(--color-foreground);
@@ -678,21 +614,6 @@ h6[id] {
 
 .prose a:hover {
   background-size: 100% 2px;
-}
-
-.code-copy-btn {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.25rem;
-  font-size: 0.75rem;
-  opacity: 0;
-  transition: opacity 0.2s;
-}
-
-pre:hover .code-copy-btn {
-  opacity: 1;
 }
 
 /* ====== Heading Scroll Offset ====== */
