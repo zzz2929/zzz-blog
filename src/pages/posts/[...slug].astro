@@ -98,9 +98,9 @@ const { Content, headings } = await render(post);
         post.data.tags.length > 0 && (
           <div class="mt-1.5 flex flex-wrap items-center gap-2">
             {post.data.tags.map((tag) => (
-              <a href={`/tags/${tag}`} class="tag-pill">
+              <span class="tag-pill">
                 #{tag}
-              </a>
+              </span>
             ))}
           </div>
         )
