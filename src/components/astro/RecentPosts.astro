@@ -32,6 +32,13 @@ const recentPosts = allPosts
             <h4 class="text-sm font-medium text-foreground group-hover:text-primary transition-colors line-clamp-2 leading-relaxed">
               {post.data.title}
             </h4>
+            <div class="flex flex-wrap gap-1 mt-1">
+              {post.data.tags.map((tag) => (
+                <span class="text-xs px-1.5 py-0.5 rounded bg-foreground/5 text-foreground-muted">
+                  #{tag}
+                </span>
+              ))}
+            </div>
             <time class="text-xs text-foreground-muted mt-0.5 block" datetime={post.data.date.toISOString()}>
               {post.data.date.toLocaleDateString('zh-CN')}
             </time>
