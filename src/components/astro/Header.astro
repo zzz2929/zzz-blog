@@ -235,8 +235,8 @@ function isImageIcon(icon) {
                 </svg>
               </button>
               <div
-                class="nav-dropdown absolute top-full mt-2 opacity-0 invisible transition-opacity duration-300 transition-visibility duration-300"
-                style="z-index: 99999; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255,0.4)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 14px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); padding: 10px; white-space: nowrap;"
+                class="nav-dropdown absolute top-full mt-2 opacity-0 invisible transition-all duration-300"
+                style="z-index: 99999; left: 50%; transform: translateX(-50%) translateY(-4px); background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255,0.4)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 14px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); padding: 10px; white-space: nowrap;"
               >
                 <div class="flex items-center gap-1">
                   {item.children.map((child) => (
@@ -965,7 +965,7 @@ function isImageIcon(icon) {
   .nav-item:hover .nav-dropdown {
     opacity: 1 !important;
     visibility: visible !important;
-    transform: translateX(-50%) !important;
+    transform: translateX(-50%) translateY(0) !important;
     width: max-content;
     min-width: min-content;
   }
