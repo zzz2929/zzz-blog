@@ -1,6 +1,10 @@
 ---
 import yaml from "js-yaml";
 import raw from "../../content/data/essay.yml?raw";
+import { useTranslations, getLocaleFromURL } from '@/i18n';
+
+const locale = getLocaleFromURL(Astro.url.pathname);
+const t = useTranslations(locale);
 
 let essayItems: Array<{ content: string; date: string }> = [];
 
@@ -29,7 +33,7 @@ const col2 = essayItems.filter((_, i) => i % 2 === 1);
       class="shrink-0 text-sm font-bold px-2.5 py-1 rounded-md"
       style="background: linear-gradient(135deg, var(--color-primary), var(--color-accent)); color: white;"
     >
-      随笔
+      {t('home.essay.label')}
     </span>
 
     <!-- Two-column vertical marquee -->
@@ -76,7 +80,7 @@ const col2 = essayItems.filter((_, i) => i % 2 === 1);
       class="more-btn shrink-0 flex items-center justify-center gap-1 text-xs font-medium"
       style="color: var(--color-foreground-muted); height: 28px; padding: 0 10px; border: 1px solid rgba(255,255,255,0.3); border-radius: 8px; background: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(255,255,255,0.1)); backdrop-filter: blur(10px); text-decoration: none; transition: all 0.3s cubic-bezier(0.23,1,0.32,1);"
     >
-      更多
+      {t('home.essay.more')}
       <svg
         class="more-arrow"
         width="12"

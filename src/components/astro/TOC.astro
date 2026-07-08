@@ -1,9 +1,14 @@
 ---
+import { useTranslations, getLocaleFromURL } from '@/i18n';
+
 interface Props {
   headings: Array<{ depth: number; slug: string; text: string }>;
 }
 
 const { headings } = Astro.props;
+
+const locale = getLocaleFromURL(Astro.url.pathname);
+const t = useTranslations(locale);
 
 // H1 is the page title (rendered separately), start from H2
 const filteredHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 6);
@@ -44,7 +49,7 @@ const weightMap: Record<number, number> = {
           class="inline-block w-1 h-5 rounded-full"
           style="background: linear-gradient(180deg, var(--color-primary), var(--color-accent));"
         />
-        目录
+        {t('post.toc')}
       </h4>
 
       <div

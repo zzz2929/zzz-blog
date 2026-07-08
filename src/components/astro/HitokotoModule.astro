@@ -1,6 +1,10 @@
 ---
 import yaml from "js-yaml";
 import raw from "../../content/data/hitokoto.yml?raw";
+import { useTranslations, getLocaleFromURL } from '@/i18n';
+
+const locale = getLocaleFromURL(Astro.url.pathname);
+const t = useTranslations(locale);
 
 let hitokotoList: string[] = [];
 try {
@@ -26,7 +30,7 @@ const initialText =
     <div class="flex items-center">
       <span
         class="text-xs font-bold px-2.5 py-1 rounded-md"
-        style="background: rgba(255,255,255,0.2); color: white;">一言</span
+        style="background: rgba(255,255,255,0.2); color: white;">{t('home.hitokoto.label')}</span
       >
     </div>
 
@@ -63,7 +67,7 @@ const initialText =
           <polyline points="23 4 23 10 17 10"></polyline>
           <path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"></path>
         </svg>
-        换一条
+        {t('home.hitokoto.refresh')}
       </button>
     </div>
   </div>
