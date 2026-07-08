@@ -7,7 +7,7 @@ export type Locale = keyof typeof translations;
 
 export function useTranslations(locale: Locale) {
   const t = translations[locale] || translations['zh-CN'];
-  return (key: string) => key.split('.').reduce((obj, k) => obj?.[k], t) as string;
+  return (key: string): string => (t as Record<string, string>)[key] ?? key;
 }
 
 export function getLocaleFromURL(pathname: string): Locale {
