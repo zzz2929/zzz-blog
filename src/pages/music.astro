@@ -3,6 +3,10 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import Header from "@/components/astro/Header.astro";
 import Footer from "@/components/astro/Footer.astro";
 import musicData from "@/content/data/music.json";
+import { useTranslations, getLocaleFromURL } from "@/i18n";
+
+const locale = getLocaleFromURL(Astro.url.pathname);
+const t = useTranslations(locale);
 
 const lironghao = await import("@/content/data/playlists/lironghao.json");
 const xuezhiqian = await import("@/content/data/playlists/xuezhiqian.json");
@@ -46,7 +50,7 @@ const playlistModules = [
   zhoujielun,
 ].map((mod) => mod.default);
 const playlists = playlistModules.map((p) => ({
-  name: p.name || "未命名歌单",
+  name: p.name || t('music.unnamedPlaylist'),
   cover: p.cover || "/音乐.svg",
   songs: (p.songs || []).map((s) => ({
     name: s.name,
@@ -59,13 +63,13 @@ const playlists = playlistModules.map((p) => ({
 }));
 ---
 
-<BaseLayout title="音乐馆">
+<BaseLayout title={t('music.title')}>
   <Header />
   <main class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
     <!-- Hero Section -->
     <div class="mb-8">
-      <h1 class="text-4xl font-bold text-foreground tracking-tight">音乐馆</h1>
-      <p class="mt-2 text-lg text-muted">聆听音乐的美好</p>
+      <h1 class="text-4xl font-bold text-foreground tracking-tight">{t('music.title')}</h1>
+      <p class="mt-2 text-lg text-muted">{t('music.subtitle')}</p>
     </div>
 
     <!-- Now Playing Section -->
@@ -137,7 +141,7 @@ const playlists = playlistModules.map((p) => ({
                     stroke-width="2"
                     d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
                 </svg>
-                播放列表
+                {t('music.playlist')}
               </button>
               <button
                 id="tab-lyrics-btn"
@@ -157,7 +161,7 @@ const playlists = playlistModules.map((p) => ({
                     d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"
                   ></path>
                 </svg>
-                歌词
+                {t('music.lyrics')}
               </button>
             </div>
 
@@ -172,7 +176,7 @@ const playlists = playlistModules.map((p) => ({
               class="tab-content flex-1 overflow-y-auto hidden"
             >
               <div id="lyrics" class="lyrics-content p-6 text-center">
-                <p class="text-muted text-lg">暂无歌词</p>
+                <p class="text-muted text-lg">{t('music.noLyrics')}</p>
               </div>
             </div>
           </div>
@@ -182,8 +186,8 @@ const playlists = playlistModules.map((p) => ({
 
     <!-- Album Browser Section -->
     <div class="mb-8">
-      <h2 class="text-2xl font-bold text-foreground mb-2">歌单</h2>
-      <p class="text-sm text-muted mb-4">点击歌单浏览歌曲，添加到播放列表</p>
+      <h2 class="text-2xl font-bold text-foreground mb-2">{t('music.songList')}</h2>
+      <p class="text-sm text-muted mb-4">{t('music.addToPlaylist')}</p>
       <div
         id="album-grid"
         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
@@ -204,7 +208,7 @@ const playlists = playlistModules.map((p) => ({
                   <div class="font-semibold text-foreground truncate">
                     {pl.name}
                   </div>
-                  <div class="text-sm text-muted">{pl.songs.length} 首歌曲</div>
+                  <div class="text-sm text-muted">{t('music.songCount').replace('{count}', String(pl.songs.length))}</div>
                 </div>
                 <svg
                   class="playlist-chevron w-5 h-5 text-muted transition-transform flex-shrink-0"
@@ -226,7 +230,7 @@ const playlists = playlistModules.map((p) => ({
                     class="play-all-btn px-4 py-2 rounded-full text-sm font-medium bg-foreground text-background transition-all"
                     data-playlist-index={i}
                   >
-                    全部播放
+                    {t('music.playAll')}
                   </button>
                 </div>
                 <div class="playlist-card-songs max-h-[300px] overflow-y-auto">
@@ -248,7 +252,7 @@ const playlists = playlistModules.map((p) => ({
                         class="add-song-btn p-1 rounded-full transition-all flex-shrink-0"
                         data-playlist-index={i}
                         data-song-index={j}
-                        title="添加到播放列表"
+                        title={t('music.addToPlaylist')}
                       >
                         <svg
                           class="w-4 h-4"
@@ -303,10 +307,10 @@ const playlists = playlistModules.map((p) => ({
                 id="fixed-song-title"
                 class="text-sm font-semibold text-foreground truncate"
               >
-                未播放
+                {t('music.notPlaying')}
               </div>
               <div id="fixed-song-artist" class="text-xs text-muted truncate">
-                选择歌曲开始播放
+                {t('music.selectSong')}
               </div>
             </div>
           </div>
@@ -318,7 +322,7 @@ const playlists = playlistModules.map((p) => ({
             <button
               id="fixed-prev-btn"
               class="control-btn p-2 rounded-full"
-              title="上一首"
+              title={t('music.prev')}
             >
               <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"></path>
@@ -327,7 +331,7 @@ const playlists = playlistModules.map((p) => ({
             <button
               id="fixed-play-btn"
               class="play-btn w-10 h-10 rounded-full bg-foreground text-background flex items-center justify-center"
-              title="播放"
+              title={t('music.play')}
             >
               <svg
                 id="fixed-play-icon"
@@ -349,7 +353,7 @@ const playlists = playlistModules.map((p) => ({
             <button
               id="fixed-next-btn"
               class="control-btn p-2 rounded-full"
-              title="下一首"
+              title={t('music.next')}
             >
               <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"></path>
@@ -362,7 +366,7 @@ const playlists = playlistModules.map((p) => ({
             <button
               id="fixed-mode-btn"
               class="control-btn p-2 rounded-full"
-              title="顺序播放"
+              title={t('music.playMode')}
             >
               <svg
                 class="mode-icon"
@@ -425,7 +429,7 @@ const playlists = playlistModules.map((p) => ({
               <button
                 id="fixed-mute-btn"
                 class="control-btn p-2 rounded-full"
-                title="音量"
+                title={t('music.volume')}
               >
                 <svg
                   class="w-5 h-5 vol-icon"
@@ -541,13 +545,13 @@ const playlists = playlistModules.map((p) => ({
     </button>
 
     <div class="lyrics-song-info">
-      <h2 id="lyrics-song-title" class="text-2xl font-bold">未播放</h2>
+      <h2 id="lyrics-song-title" class="text-2xl font-bold">{t('music.notPlaying')}</h2>
       <p id="lyrics-song-artist" class="text-lg opacity-80"></p>
     </div>
 
     <div class="lyrics-scroll-container" id="lyrics-scroll-container">
       <div class="lyrics-lines" id="fullscreen-lyrics-content">
-        <p class="text-2xl opacity-50">暂无歌词</p>
+        <p class="text-2xl opacity-50">{t('music.noLyrics')}</p>
       </div>
     </div>
 
@@ -1552,11 +1556,33 @@ const playlists = playlistModules.map((p) => ({
     id="music-data"
     data-music={JSON.stringify(musicData)}
     data-playlists={JSON.stringify(playlists)}
+    data-t-not-playing={t('music.notPlaying')}
+    data-t-select-song={t('music.selectSong')}
+    data-t-no-lyrics={t('music.noLyrics')}
+    data-t-unknown-album={t('music.unknownAlbum')}
+    data-t-empty-playlist="播放列表为空"
+    data-t-remove-from-list="从列表移除"
+    data-t-single-loop="单曲循环"
+    data-t-shuffle-play="随机播放"
+    data-t-play-mode="顺序播放"
     style="display: none;"
   >
   </div>
 
   <script is:inline>
+    const dataEl = document.getElementById("music-data");
+    const T = {
+      notPlaying: dataEl?.dataset.tNotPlaying || '未播放',
+      selectSong: dataEl?.dataset.tSelectSong || '选择歌曲开始播放',
+      noLyrics: dataEl?.dataset.tNoLyrics || '暂无歌词',
+      unknownAlbum: dataEl?.dataset.tUnknownAlbum || '未知专辑',
+      emptyPlaylist: dataEl?.dataset.tEmptyPlaylist || '播放列表为空',
+      removeFromList: dataEl?.dataset.tRemoveFromList || '从列表移除',
+      singleLoop: dataEl?.dataset.tSingleLoop || '单曲循环',
+      shufflePlay: dataEl?.dataset.tShufflePlay || '随机播放',
+      playMode: dataEl?.dataset.tPlayMode || '顺序播放',
+    };
+
     const MUSIC_DATA = JSON.parse(
       document.getElementById("music-data").dataset.music,
     );
@@ -1823,7 +1849,7 @@ const playlists = playlistModules.map((p) => ({
             this.playlist = MUSIC_DATA.map((s) => ({
               title: s.name,
               artist: s.artist,
-              album: s.album || "未知专辑",
+              album: s.album || T.unknownAlbum,
               url: s.url,
               cover: s.pic || "/音乐.svg",
               lrc: s.lrc,
@@ -1900,7 +1926,7 @@ const playlists = playlistModules.map((p) => ({
         this.playlist = pl.songs.map((s) => ({
           title: s.name,
           artist: s.artist,
-          album: s.album || "未知专辑",
+          album: s.album || T.unknownAlbum,
           url: s.url,
           cover: s.pic || "/音乐.svg",
           lrc: s.lrc,
@@ -1917,7 +1943,7 @@ const playlists = playlistModules.map((p) => ({
         const newSong = {
           title: song.name,
           artist: song.artist,
-          album: song.album || "未知专辑",
+          album: song.album || T.unknownAlbum,
           url: song.url,
           cover: song.pic || "/音乐.svg",
           lrc: song.lrc,
@@ -1932,7 +1958,7 @@ const playlists = playlistModules.map((p) => ({
         this.playlistEl.innerHTML = "";
         if (!this.playlist.length) {
           this.playlistEl.innerHTML =
-            '<div class="p-8 text-center text-muted">播放列表为空</div>';
+            `<div class="p-8 text-center text-muted">${T.emptyPlaylist}</div>`;
           return;
         }
         this.playlist.forEach((song, index) => {
@@ -1945,7 +1971,7 @@ const playlists = playlistModules.map((p) => ({
               <div class="song-title">${song.title}</div>
               <div class="song-artist">${song.artist}</div>
             </div>
-            <button class="playlist-remove-btn" title="从列表移除">
+            <button class="playlist-remove-btn" title="${T.removeFromList}">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
               </svg>
@@ -1973,10 +1999,10 @@ const playlists = playlistModules.map((p) => ({
         this.translations = [];
         if (this.lyricsEl)
           this.lyricsEl.innerHTML =
-            '<p class="text-muted text-lg">暂无歌词</p>';
+            `<p class="text-muted text-lg">${T.noLyrics}</p>`;
         if (this.fullscreenLyricsContent)
           this.fullscreenLyricsContent.innerHTML =
-            '<p class="text-2xl opacity-50">暂无歌词</p>';
+            `<p class="text-2xl opacity-50">${T.noLyrics}</p>`;
 
         this.audio.src = song.url;
         if (this.songTitle) this.songTitle.textContent = song.title;
@@ -2004,10 +2030,10 @@ const playlists = playlistModules.map((p) => ({
           this.translations = [];
           if (this.lyricsEl)
             this.lyricsEl.innerHTML =
-              '<p class="text-muted text-lg">暂无歌词</p>';
+              `<p class="text-muted text-lg">${T.noLyrics}</p>`;
           if (this.fullscreenLyricsContent)
             this.fullscreenLyricsContent.innerHTML =
-              '<p class="text-2xl opacity-50">暂无歌词</p>';
+              `<p class="text-2xl opacity-50">${T.noLyrics}</p>`;
         }
       }
 
@@ -2071,7 +2097,7 @@ const playlists = playlistModules.map((p) => ({
 
       togglePlayMode() {
         this.playMode = (this.playMode + 1) % 3;
-        const titles = ["顺序播放", "单曲循环", "随机播放"];
+        const titles = [T.playMode, T.singleLoop, T.shufflePlay];
         this.modeBtn.title = titles[this.playMode];
         this.modeBtn.querySelectorAll(".mode-icon").forEach((icon) => {
           icon.classList.toggle(
@@ -2369,7 +2395,7 @@ const playlists = playlistModules.map((p) => ({
         this.lyricsEl.innerHTML = "";
         if (!this.lyrics.length) {
           this.lyricsEl.innerHTML =
-            '<p class="text-muted text-lg">暂无歌词</p>';
+            `<p class="text-muted text-lg">${T.noLyrics}</p>`;
           return;
         }
 
@@ -2414,7 +2440,7 @@ const playlists = playlistModules.map((p) => ({
         this.fullscreenLyricsContent.innerHTML = "";
         if (!this.lyrics.length) {
           this.fullscreenLyricsContent.innerHTML =
-            '<p class="text-2xl opacity-50">暂无歌词</p>';
+            `<p class="text-2xl opacity-50">${T.noLyrics}</p>`;
           return;
         }
         this.lyrics.forEach((lyric) => {
