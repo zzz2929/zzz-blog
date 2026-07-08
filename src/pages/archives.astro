@@ -4,7 +4,10 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import Header from "@/components/astro/Header.astro";
 import Footer from "@/components/astro/Footer.astro";
 import { groupPostsByDate } from "@/lib/posts";
+import { useTranslations, getLocaleFromURL } from "@/i18n";
 
+const locale = getLocaleFromURL(Astro.url.pathname);
+const t = useTranslations(locale);
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
@@ -12,11 +15,11 @@ const posts = (await getCollection("blog")).sort(
 const grouped = groupPostsByDate(posts);
 ---
 
-<BaseLayout title="归档">
+<BaseLayout title={t('archives.title')}>
   <Header />
   <main class="mx-auto max-w-3xl px-4 py-8 sm:px-6">
-    <h1 class="mb-2 text-3xl font-bold text-foreground">文章归档</h1>
-    <p class="mb-8 text-muted">共 {posts.length} 篇文章</p>
+    <h1 class="mb-2 text-3xl font-bold text-foreground">{t('archives.heading')}</h1>
+    <p class="mb-8 text-muted">{t('archives.count').replace('{count}', String(posts.length))}</p>
 
     <div class="relative border-l-2 border-border pl-6">
       {
@@ -33,7 +36,7 @@ const grouped = groupPostsByDate(posts);
             {Array.from(months.entries()).map(([month, monthPosts]) => (
               <div class="mb-6">
                 <h3 class="mb-3 text-lg font-semibold text-muted">
-                  {month} 月
+                  {month} {t('archives.month')}
                 </h3>
                 <ul class="space-y-3">
                   {monthPosts.map((post) => (

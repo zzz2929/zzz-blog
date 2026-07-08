@@ -4,16 +4,20 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import Header from "@/components/astro/Header.astro";
 import Footer from "@/components/astro/Footer.astro";
 
+import { useTranslations, getLocaleFromURL } from "@/i18n";
+
+const locale = getLocaleFromURL(Astro.url.pathname);
+const t = useTranslations(locale);
 const essayData = await getCollection("essay");
 const essay = essayData[0]?.data;
 ---
 
-<BaseLayout title="闲言碎语">
+<BaseLayout title={t('essay.title')}>
   <Header />
   <main class="mx-auto max-w-3xl px-4 py-8 sm:px-6">
     <div class="mb-8">
       <h1 class="text-3xl font-bold text-foreground">
-        {essay?.title || "闲言碎语"}
+        {essay?.title || t('essay.fallbackTitle')}
       </h1>
       {essay?.subTitle && <p class="mt-2 text-muted">{essay.subTitle}</p>}
       {
@@ -67,7 +71,7 @@ const essay = essayData[0]?.data;
                   rel="noopener noreferrer"
                   class="mt-2 inline-block text-sm text-primary hover:underline"
                 >
-                  查看链接 →
+                  {t('essay.viewLink')}
                 </a>
               )}
             </div>
