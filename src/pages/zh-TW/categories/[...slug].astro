@@ -1,0 +1,47 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Header from "@/components/astro/Header.astro";
+import Footer from "@/components/astro/Footer.astro";
+import PostCard from "@/components/astro/PostCard.astro";
+import { getAllCategories, getPostsByCategory } from "@/lib/posts";
+import { useTranslations, getLocaleFromURL } from "@/i18n";
+
+const t = useTranslations(getLocaleFromURL(Astro.url.pathname));
+
+export async function getStaticPaths() {
+  const categories = await getAllCategories();
+  return categories.map((cat) => ({ params: { slug: cat.slug } }));
+}
+
+const { slug } = Astro.params;
+const posts = await getPostsByCategory(slug!);
+---
+
+<BaseLayout title={`${t("categories.title")}: ${slug}`}>
+  <Header />
+  <main class="mx-auto max-w-4xl px-4 py-8 sm:px-6">
+    <div class="mb-8">
+      <a href="/zh-TW/categories/" class="text-sm text-primary hover:underline"
+        >{t("categories.back")}</a
+      >
+      <h1 class="mt-2 text-3xl font-bold text-foreground">📂 {slug}</h1>
+      <p class="mt-1 text-muted">{t("categories.count").replace("{count}", String(posts.length))}</p>
+    </div>
+    <div class="grid gap-6 sm:grid-cols-2">
+      {
+        posts.map((post) => (
+          <PostCard
+            title={post.data.title}
+            date={post.data.date}
+            excerpt={post.data.description}
+            cover={post.data.cover}
+            tags={post.data.tags}
+            categories={post.data.categories}
+            slug={post.id}
+          />
+        ))
+      }
+    </div>
+  </main>
+  <Footer />
+</BaseLayout>
