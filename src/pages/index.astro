@@ -10,6 +10,9 @@ import CategoryCards from "@/components/astro/CategoryCards.astro";
 import RandomImageModule from "@/components/astro/RandomImageModule.astro";
 import SortFilterPosts from "@/components/react/SortFilterPosts.tsx";
 import viewCounts from "@/content/data/view-counts.json";
+import { useTranslations, getLocaleFromURL } from "@/i18n";
+
+const t = useTranslations(getLocaleFromURL(Astro.url.pathname));
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
@@ -69,16 +72,16 @@ const postsData = posts.map((p) => ({
           />
           <h3 class="text-lg font-bold text-foreground">zzz</h3>
           <p class="mt-1 text-sm text-foreground-muted">
-            学生、数码爱好者、智能家居爱好者
+            {t("home.sidebar.bio")}
           </p>
           <div class="mt-3 flex flex-wrap justify-center gap-1.5">
             <span
               class="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary"
-              >🤖️ 数码科技爱好者</span
+              >{t("home.sidebar.tag1")}</span
             >
             <span
               class="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary"
-              >🏠 智能家居小能手</span
+              >{t("home.sidebar.tag2")}</span
             >
           </div>
           <div class="mt-4 flex justify-center gap-3">

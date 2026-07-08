@@ -4,6 +4,9 @@ import Header from "@/components/astro/Header.astro";
 import Footer from "@/components/astro/Footer.astro";
 import PostCard from "@/components/astro/PostCard.astro";
 import { getAllCategories, getPostsByCategory } from "@/lib/posts";
+import { useTranslations, getLocaleFromURL } from "@/i18n";
+
+const t = useTranslations(getLocaleFromURL(Astro.url.pathname));
 
 export async function getStaticPaths() {
   const categories = await getAllCategories();
@@ -14,15 +17,15 @@ const { slug } = Astro.params;
 const posts = await getPostsByCategory(slug!);
 ---
 
-<BaseLayout title={`分类: ${slug}`}>
+<BaseLayout title={`${t("categories.title")}: ${slug}`}>
   <Header />
   <main class="mx-auto max-w-4xl px-4 py-8 sm:px-6">
     <div class="mb-8">
       <a href="/categories/" class="text-sm text-primary hover:underline"
-        >← 返回分类</a
+        >{t("categories.back")}</a
       >
       <h1 class="mt-2 text-3xl font-bold text-foreground">📂 {slug}</h1>
-      <p class="mt-1 text-muted">共 {posts.length} 篇文章</p>
+      <p class="mt-1 text-muted">{t("categories.count").replace("{count}", String(posts.length))}</p>
     </div>
     <div class="grid gap-6 sm:grid-cols-2">
       {

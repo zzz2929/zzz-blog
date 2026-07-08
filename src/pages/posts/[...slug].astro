@@ -7,6 +7,9 @@ import TOC from "@/components/astro/TOC.astro";
 import Comments from "@/components/astro/Comments.astro";
 import VercountDisplay from "@/components/react/VercountDisplay.tsx";
 import { formatDate } from "@/lib/posts";
+import { useTranslations, getLocaleFromURL } from "@/i18n";
+
+const t = useTranslations(getLocaleFromURL(Astro.url.pathname));
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -66,7 +69,7 @@ const { Content, headings } = await render(post);
               <>
                 <span class="opacity-30">·</span>
                 <span>
-                  更新于{" "}
+                  {t("post.updated")}{" "}
                   <time datetime={post.data.updated.toISOString()}>
                     {formatDate(post.data.updated)}
                   </time>
@@ -161,6 +164,10 @@ const { Content, headings } = await render(post);
     })();
   </script>
 
+  <script is:inline define:vars={{ copyCodeLabel: t("post.copyCode") }}>
+    document.documentElement.dataset.copyCodeLabel = copyCodeLabel;
+  </script>
+
   <script>
     import mediumZoom from "medium-zoom";
 
@@ -204,8 +211,9 @@ const { Content, headings } = await render(post);
       if (toolbar) {
         const btn = document.createElement("button");
         btn.className = "code-copy-btn";
-        btn.setAttribute("aria-label", "复制代码");
-        btn.title = "复制代码";
+        const btnLabel = document.documentElement.dataset.copyCodeLabel || 'Copy Code';
+        btn.setAttribute("aria-label", btnLabel);
+        btn.title = btnLabel;
         btn.innerHTML = clipboardSvg;
         toolbar.appendChild(btn);
       }
