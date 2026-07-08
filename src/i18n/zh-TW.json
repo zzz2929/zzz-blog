@@ -1,6 +1,7 @@
 {
   "site.title": "zzz-blog",
   "site.description": "zzz 的個人部落格",
+  "nav.posts": "文章",
   "nav.archive": "歸檔",
   "nav.categories": "分類",
   "nav.friends": "友鏈",
@@ -20,6 +21,7 @@
   "nav.bgColor": "切換背景色",
   "nav.langSwitch": "簡繁切換",
   "nav.travelling": "開往",
+  "nav.travellingTitle": "開往 - 隨機訪問開往成員部落格",
   "nav.menu": "選單",
   "footer.rights": "All rights reserved.",
   "footer.poweredBy": "Powered by",

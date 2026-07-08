@@ -3,7 +3,7 @@ import en from './en.json';
 import zhTW from './zh-TW.json';
 
 const translations = { 'zh-CN': zhCN, en, 'zh-TW': zhTW };
-type Locale = keyof typeof translations;
+export type Locale = keyof typeof translations;
 
 export function useTranslations(locale: Locale) {
   const t = translations[locale] || translations['zh-CN'];

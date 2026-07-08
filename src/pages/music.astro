@@ -4,11 +4,48 @@ import Header from "@/components/astro/Header.astro";
 import Footer from "@/components/astro/Footer.astro";
 import musicData from "@/content/data/music.json";
 
-const playlistModules = import.meta.glob("@/content/data/playlists/*.json", {
-  eager: true,
-});
-const playlistFiles = Object.values(playlistModules).map((mod) => mod.default);
-const playlists = playlistFiles.map((p) => ({
+const lironghao = await import("@/content/data/playlists/lironghao.json");
+const xuezhiqian = await import("@/content/data/playlists/xuezhiqian.json");
+const taozhe = await import("@/content/data/playlists/taozhe.json");
+const dengziqi = await import("@/content/data/playlists/dengziqi.json");
+const fangdatong = await import("@/content/data/playlists/fangdatong.json");
+const gaowuren = await import("@/content/data/playlists/gaowuren.json");
+const chenyixun = await import("@/content/data/playlists/chenyixun.json");
+const sunyanzi = await import("@/content/data/playlists/sunyanzi.json");
+const mowenwei = await import("@/content/data/playlists/mowenwei.json");
+const caiyilin = await import("@/content/data/playlists/caiyilin.json");
+const caijianya = await import("@/content/data/playlists/caijianya.json");
+const liangjingru = await import("@/content/data/playlists/liangjingru.json");
+const zhoushen = await import("@/content/data/playlists/zhoushen.json");
+const wuyuetian = await import("@/content/data/playlists/wuyuetian.json");
+const wanglihong = await import("@/content/data/playlists/wanglihong.json");
+const HOYO_MIX = await import("@/content/data/playlists/HOYO-MIX.json");
+const linjunjie = await import("@/content/data/playlists/linjunjie.json");
+const xuliang = await import("@/content/data/playlists/xuliang.json");
+const zhoujielun = await import("@/content/data/playlists/zhoujielun.json");
+
+const playlistModules = [
+  lironghao,
+  xuezhiqian,
+  taozhe,
+  dengziqi,
+  fangdatong,
+  gaowuren,
+  chenyixun,
+  sunyanzi,
+  mowenwei,
+  caiyilin,
+  caijianya,
+  liangjingru,
+  zhoushen,
+  wuyuetian,
+  wanglihong,
+  HOYO_MIX,
+  linjunjie,
+  xuliang,
+  zhoujielun,
+].map((mod) => mod.default);
+const playlists = playlistModules.map((p) => ({
   name: p.name || "未命名歌单",
   cover: p.cover || "/音乐.svg",
   songs: (p.songs || []).map((s) => ({

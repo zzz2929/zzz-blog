@@ -1,6 +1,7 @@
 {
   "site.title": "zzz-blog",
   "site.description": "zzz's personal blog",
+  "nav.posts": "Posts",
   "nav.archive": "Archive",
   "nav.categories": "Categories",
   "nav.friends": "Friends",
@@ -20,6 +21,7 @@
   "nav.bgColor": "Switch Background Color",
   "nav.langSwitch": "Language Switch",
   "nav.travelling": "Travel",
+  "nav.travellingTitle": "Travel - Random visit to member blogs",
   "nav.menu": "Menu",
   "footer.rights": "All rights reserved.",
   "footer.poweredBy": "Powered by",
