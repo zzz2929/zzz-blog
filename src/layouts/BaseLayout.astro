@@ -1,6 +1,7 @@
 ---
 import { AnimatedBackground } from "@/components/react/AnimatedBackground";
 import MiniPlayer from "@/components/astro/MiniPlayer.astro";
+import { getLocaleFromURL } from "@/i18n";
 
 interface Props {
   title?: string;
@@ -8,9 +9,15 @@ interface Props {
   image?: string;
 }
 
+const locale = getLocaleFromURL(Astro.url.pathname);
+const descriptionMap: Record<string, string> = {
+  en: "zzz's personal blog",
+  "zh-TW": "zzz 的個人部落格",
+  "zh-CN": "zzz 的个人博客",
+};
 const {
   title = "zzz-blog",
-  description = "zzz 的个人博客",
+  description = descriptionMap[locale],
   image,
 } = Astro.props;
 
@@ -21,7 +28,7 @@ const isMusicPage =
 ---
 
 <!doctype html>
-<html lang="zh-CN">
+<html lang={locale}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
