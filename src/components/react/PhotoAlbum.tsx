@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Images } from 'lucide-react';
 import Gallery from './Gallery';
+import { useTranslations } from '@/i18n';
+import type { Locale } from '@/i18n';
 
 interface AlbumItem {
   date: string;
@@ -18,9 +20,11 @@ interface PhotoAlbumProps {
     description?: string;
     album_list: AlbumItem[];
   }>;
+  locale?: Locale;
 }
 
-export default function PhotoAlbum({ albums }: PhotoAlbumProps) {
+export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps) {
+  const t = useTranslations(locale);
   const [gallery, setGallery] = useState<{ images: string[]; index: number } | null>(null);
   const [activeAlbum, setActiveAlbum] = useState<string | null>(null);
 
@@ -35,7 +39,7 @@ export default function PhotoAlbum({ albums }: PhotoAlbumProps) {
           onClick={() => setActiveAlbum(null)}
           className="mb-4 text-sm text-primary hover:underline"
         >
-          ← 返回相册列表
+          {t('album.backToList')}
         </button>
         <h2 className="text-2xl font-bold mb-2">{currentAlbum.class_name}</h2>
         {currentAlbum.description && (
@@ -101,7 +105,7 @@ export default function PhotoAlbum({ albums }: PhotoAlbumProps) {
                 )}
                 <div className="flex items-center gap-1 text-white/60 text-xs mt-2">
                   <Images size={12} />
-                  {album.album_list.length} 张
+                  {t('album.photoCount').replace('{count}', String(album.album_list.length))}
                 </div>
               </div>
             </div>

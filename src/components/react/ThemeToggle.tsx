@@ -1,7 +1,14 @@
 import { useState, useEffect } from 'react';
 import { Sun, Moon } from 'lucide-react';
+import { useTranslations } from '@/i18n';
+import type { Locale } from '@/i18n';
 
-export default function ThemeToggle() {
+interface ThemeToggleProps {
+  locale?: Locale;
+}
+
+export default function ThemeToggle({ locale = 'zh-CN' }: ThemeToggleProps) {
+  const t = useTranslations(locale);
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
@@ -22,7 +29,7 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggle}
-      aria-label={isDark ? '切换到浅色模式' : '切换到深色模式'}
+      aria-label={isDark ? t('theme.toggleLight') : t('theme.toggleDark')}
       className="relative h-9 w-16 rounded-full p-0.5 transition-all duration-500 ease-[cubic-bezier(0.68,-0.15,0.32,1.15)]"
       style={{
         background: isDark

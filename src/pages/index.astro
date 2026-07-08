@@ -12,7 +12,8 @@ import SortFilterPosts from "@/components/react/SortFilterPosts.tsx";
 import viewCounts from "@/content/data/view-counts.json";
 import { useTranslations, getLocaleFromURL } from "@/i18n";
 
-const t = useTranslations(getLocaleFromURL(Astro.url.pathname));
+const locale = getLocaleFromURL(Astro.url.pathname);
+const t = useTranslations(locale);
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
@@ -57,6 +58,7 @@ const postsData = posts.map((p) => ({
           client:only="react"
           posts={postsData}
           viewCounts={viewCounts}
+          locale={locale}
         />
       </div>
 

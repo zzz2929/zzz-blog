@@ -40,7 +40,7 @@ const watched = mergeList(bangumisData.watched || [], tmdbData?.watched);
       </p>
     </div>
 
-    <BangumiList client:only="react" watching={watching} watched={watched} />
+    <BangumiList client:only="react" watching={watching} watched={watched} locale={locale} />
   </main>
   <Footer />
 </BaseLayout>

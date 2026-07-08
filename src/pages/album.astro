@@ -21,7 +21,7 @@ const albums = albumData.map((a) => a.data);
       <p class="mt-2 text-muted">{t('album.subtitle')}</p>
     </div>
 
-    <PhotoAlbum client:only="react" albums={albums} />
+    <PhotoAlbum client:only="react" albums={albums} locale={locale} />
   </main>
   <Footer />
 </BaseLayout>

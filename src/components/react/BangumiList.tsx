@@ -1,4 +1,6 @@
 import { useState, useMemo } from 'react';
+import { useTranslations } from '@/i18n';
+import type { Locale } from '@/i18n';
 
 interface TMDBData {
   tmdbId: number;
@@ -29,9 +31,11 @@ interface BangumiItem {
 interface BangumiListProps {
   watching: BangumiItem[];
   watched: BangumiItem[];
+  locale?: Locale;
 }
 
-export default function BangumiList({ watching, watched }: BangumiListProps) {
+export default function BangumiList({ watching, watched, locale = 'zh-CN' }: BangumiListProps) {
+  const t = useTranslations(locale);
   const [tab, setTab] = useState<'all' | 'watching' | 'watched'>('all');
   const [search, setSearch] = useState('');
   const [genre, setGenre] = useState<string>('all');
@@ -66,7 +70,7 @@ export default function BangumiList({ watching, watched }: BangumiListProps) {
   const getRating = (item: BangumiItem) => item.tmdb?.rating ? item.tmdb.rating.toFixed(1) : item.score;
   const getDesc = (item: BangumiItem) => item.tmdb?.overview || item.des || '';
   const getEpInfo = (item: BangumiItem) => {
-    if (item.tmdb?.numberOfEpisodes) return `全${item.tmdb.numberOfEpisodes}话`;
+    if (item.tmdb?.numberOfEpisodes) return t('bangumis.episodeCount').replace('{count}', String(item.tmdb.numberOfEpisodes));
     return item.totalCount || '';
   };
 
@@ -74,14 +78,14 @@ export default function BangumiList({ watching, watched }: BangumiListProps) {
     <div>
       {/* Tabs */}
       <div className="flex gap-2 mb-4">
-        {([['all', '全部', watching.length + watched.length], ['watching', '🎬 在看', watching.length], ['watched', '✅ 看过', watched.length]] as const).map(([t, label, count]) => (
+        {([['all', t('bangumis.all'), watching.length + watched.length], ['watching', t('bangumis.watching'), watching.length], ['watched', t('bangumis.watched'), watched.length]] as const).map(([tabKey, label, count]) => (
           <button
-            key={t}
-            onClick={() => setTab(t as any)}
+            key={tabKey}
+            onClick={() => setTab(tabKey as any)}
             className="px-4 py-2 rounded-lg text-sm font-medium transition-colors"
             style={{
-              background: tab === t ? 'var(--color-primary)' : 'var(--color-border)',
-              color: tab === t ? 'white' : 'var(--color-foreground-muted)',
+              background: tab === tabKey ? 'var(--color-primary)' : 'var(--color-border)',
+              color: tab === tabKey ? 'white' : 'var(--color-foreground-muted)',
             }}
           >
             {label} ({count})
@@ -93,7 +97,7 @@ export default function BangumiList({ watching, watched }: BangumiListProps) {
       <div className="flex gap-3 mb-5 flex-wrap">
         <input
           type="text"
-          placeholder="搜索番剧..."
+          placeholder={t('bangumis.search')}
           value={search}
           onChange={e => setSearch(e.target.value)}
           className="flex-1 min-w-[200px] px-3 py-2 rounded-lg text-sm outline-none transition-colors"
@@ -118,7 +122,7 @@ export default function BangumiList({ watching, watched }: BangumiListProps) {
                   color: genre === g ? 'var(--color-primary)' : 'var(--color-foreground-muted)',
                 }}
               >
-                {g === 'all' ? '全部' : g}
+                {g === 'all' ? t('bangumis.all') : g}
               </button>
             ))}
           </div>
@@ -126,7 +130,7 @@ export default function BangumiList({ watching, watched }: BangumiListProps) {
       </div>
 
       <p className="text-xs mb-3" style={{ color: 'var(--color-foreground-muted)', opacity: 0.6 }}>
-        {filtered.length} 部
+        {t('bangumis.count').replace('{count}', String(filtered.length))}
       </p>
 
       {/* Grid */}
@@ -218,8 +222,8 @@ export default function BangumiList({ watching, watched }: BangumiListProps) {
                     </p>
                     {item.tmdb && (
                       <div className="flex gap-3 mt-2 text-[10px]" style={{ color: 'var(--color-foreground-muted)', opacity: 0.7 }}>
-                        {item.tmdb.firstAirDate && <span>首播: {item.tmdb.firstAirDate}</span>}
-                        {item.tmdb.numberOfSeasons > 0 && <span>季: {item.tmdb.numberOfSeasons}</span>}
+                        {item.tmdb.firstAirDate && <span>{t('bangumis.premiere')} {item.tmdb.firstAirDate}</span>}
+                        {item.tmdb.numberOfSeasons > 0 && <span>{t('bangumis.season')} {item.tmdb.numberOfSeasons}</span>}
                         {item.tmdb.status && <span>{item.tmdb.status}</span>}
                       </div>
                     )}
@@ -231,7 +235,7 @@ export default function BangumiList({ watching, watched }: BangumiListProps) {
         </div>
       ) : (
         <div className="text-center py-12" style={{ color: 'var(--color-foreground-muted)' }}>
-          {search ? `没有找到 "${search}" 相关的番剧` : '暂无数据'}
+          {search ? t('bangumis.notFound').replace('{query}', search) : t('bangumis.noData')}
         </div>
       )}
     </div>

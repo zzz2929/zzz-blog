@@ -1,4 +1,6 @@
 import { useState, useMemo } from 'react';
+import { useTranslations } from '@/i18n';
+import type { Locale } from '@/i18n';
 
 interface Post {
   title: string;
@@ -13,6 +15,7 @@ interface Post {
 interface Props {
   posts: Post[];
   viewCounts?: Record<string, number>;
+  locale?: Locale;
 }
 
 type SortDir = 'asc' | 'desc';
@@ -102,7 +105,8 @@ function PostCard({ post, viewCount }: { post: Post; viewCount: number }) {
   );
 }
 
-export default function SortFilterPosts({ posts, viewCounts = {} }: Props) {
+export default function SortFilterPosts({ posts, viewCounts = {}, locale = 'zh-CN' }: Props) {
+  const t = useTranslations(locale);
   const [sortDir, setSortDir] = useState<SortDir>('desc');
   const [category, setCategory] = useState<string>('all');
   const [query, setQuery] = useState('');
@@ -167,7 +171,7 @@ export default function SortFilterPosts({ posts, viewCounts = {} }: Props) {
         <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>
           {categories.map((cat) => (
             <button key={cat} style={btn(category === cat)} onClick={() => setCategory(cat)}>
-              {cat === 'all' ? '全部' : cat}
+              {cat === 'all' ? t('home.filter.all') : cat}
             </button>
           ))}
         </div>
@@ -187,7 +191,7 @@ export default function SortFilterPosts({ posts, viewCounts = {} }: Props) {
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="搜索文章标题、内容..."
+            placeholder={t('home.search.placeholder')}
             style={{ border: 'none', outline: 'none', background: 'transparent', fontSize: 12, color: 'var(--color-foreground)', width: '100%', minWidth: 0 }}
           />
         </div>
@@ -196,12 +200,12 @@ export default function SortFilterPosts({ posts, viewCounts = {} }: Props) {
 
         {/* Sort */}
         <div style={{ display: 'flex', gap: 4, flexShrink: 0 }}>
-          <button style={btn(sortDir === 'desc')} onClick={() => setSortDir('desc')}>↓ 最新</button>
-          <button style={btn(sortDir === 'asc')} onClick={() => setSortDir('asc')}>↑ 最早</button>
+          <button style={btn(sortDir === 'desc')} onClick={() => setSortDir('desc')}>{t('home.sort.newest')}</button>
+          <button style={btn(sortDir === 'asc')} onClick={() => setSortDir('asc')}>{t('home.sort.oldest')}</button>
         </div>
 
         <span style={{ fontSize: 11, color: 'var(--color-foreground-muted)', flexShrink: 0, opacity: 0.6 }}>
-          {filtered.length}篇
+          {t('home.filter.count').replace('{count}', String(filtered.length))}
         </span>
       </div>
 
@@ -214,8 +218,8 @@ export default function SortFilterPosts({ posts, viewCounts = {} }: Props) {
         </div>
       ) : (
         <div style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1))', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.3)', borderRadius: 16, padding: '48px 16px', textAlign: 'center', color: 'var(--color-foreground-muted)' }}>
-          <p style={{ fontSize: 16, marginBottom: 4 }}>没有找到匹配的文章</p>
-          <p style={{ fontSize: 12, opacity: 0.6 }}>试试其他关键词或分类</p>
+          <p style={{ fontSize: 16, marginBottom: 4 }}>{t('home.empty.title')}</p>
+          <p style={{ fontSize: 12, opacity: 0.6 }}>{t('home.empty.hint')}</p>
         </div>
       )}
     </>
