@@ -1,3 +1,17 @@
+---
+import { useTranslations, getLocaleFromURL } from '@/i18n';
+
+const locale = getLocaleFromURL(Astro.url.pathname);
+const t = useTranslations(locale);
+
+const walineLangMap: Record<string, string> = {
+  'zh-CN': 'zh-CN',
+  'en': 'en',
+  'zh-TW': 'zh-TW',
+};
+const walineLang = walineLangMap[locale] || 'zh-CN';
+---
+
 <link
   rel="stylesheet"
   href="https://unpkg.com/@waline/client@v3/dist/waline.css"
@@ -5,17 +19,20 @@
 <div
   id="waline"
   class="mt-5"
+  data-waline-lang={walineLang}
+  data-waline-placeholder={t('comment.placeholder')}
   style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 16px; box-shadow: 0 1px 24px rgba(0,0,0,0.1); padding: 16px 20px;"
 >
 </div>
 <script type="module">
   import { init } from "https://unpkg.com/@waline/client@v3/dist/waline.js";
 
+  const el = document.getElementById("waline");
   init({
     el: "#waline",
     serverURL: "https://waline.904002.xyz/",
     path: window.location.pathname.replace(/\/$/, ""),
-    lang: "zh-CN",
+    lang: el?.dataset.walineLang ?? "zh-CN",
     emoji: [
       "https://unpkg.com/@waline/emojis@1.2.0/bilibili",
       "https://unpkg.com/@waline/emojis@1.4.0/bmoji",
@@ -39,6 +56,6 @@
     math: true,
     sortBy: "insertTimeDesc",
     visitor: true,
-    placeholder: "欢迎留言评论...",
+    placeholder: el?.dataset.walinePlaceholder ?? "欢迎留言评论...",
   });
 </script>

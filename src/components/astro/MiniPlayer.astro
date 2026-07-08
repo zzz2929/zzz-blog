@@ -1,9 +1,15 @@
 ---
+import { useTranslations, getLocaleFromURL } from '@/i18n';
+
+const locale = getLocaleFromURL(Astro.url.pathname);
+const t = useTranslations(locale);
 // Mini music player - shows on all pages except the music page
 // Restores playback state from sessionStorage
 ---
 
-<div id="mini-player" class="mini-player hidden">
+<div id="mini-player" class="mini-player hidden"
+  data-t-not-playing={t('music.notPlaying')}
+  data-t-select-song={t('music.selectSong')}>
   <!-- Collapsed: spinning cover -->
   <div class="mini-collapsed">
     <img id="mini-cover" class="mini-cover" src="/音乐.svg" alt="" />
@@ -22,12 +28,12 @@
       </div>
     </div>
     <div class="mini-controls">
-      <button id="mini-prev" class="mini-btn" title="上一首">
+      <button id="mini-prev" class="mini-btn" title={t('music.prev')}>
         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"
           ><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"></path></svg
         >
       </button>
-      <button id="mini-play" class="mini-btn mini-btn-play" title="播放/暂停">
+      <button id="mini-play" class="mini-btn mini-btn-play" title={t('music.play')}>
         <svg
           id="mini-play-icon"
           class="w-5 h-5 ml-0.5"
@@ -42,7 +48,7 @@
           ><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg
         >
       </button>
-      <button id="mini-next" class="mini-btn" title="下一首">
+      <button id="mini-next" class="mini-btn" title={t('music.next')}>
         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"
           ><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"></path></svg
         >
@@ -527,10 +533,11 @@
     }
 
     function updateDisplay() {
+      const el = document.getElementById("mini-player");
       elements.coverCollapsed.src = state.cover;
       elements.coverHover.src = state.cover;
-      elements.title.textContent = state.title || "未播放";
-      elements.artist.textContent = state.artist || "选择歌曲开始播放";
+      elements.title.textContent = state.title || (el?.dataset.tNotPlaying ?? "未播放");
+      elements.artist.textContent = state.artist || (el?.dataset.tSelectSong ?? "选择歌曲开始播放");
     }
 
     function updatePlayState() {

@@ -1,5 +1,9 @@
 ---
 import { getCollection } from "astro:content";
+import { useTranslations, getLocaleFromURL } from '@/i18n';
+
+const locale = getLocaleFromURL(Astro.url.pathname);
+const t = useTranslations(locale);
 
 const allPosts = (await getCollection("blog")).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
@@ -8,7 +12,7 @@ const postsData = allPosts.map((p) => ({
   title: p.data.title,
   slug: p.id,
   cover: p.data.cover || "",
-  date: p.data.date.toLocaleDateString("zh-CN"),
+  date: p.data.date.toLocaleDateString(locale),
 }));
 ---
 
@@ -25,7 +29,7 @@ const postsData = allPosts.map((p) => ({
     <img
       id="rim-random-img"
       src="https://api.elaina.cat/random/"
-      alt="随机图片"
+      alt={t('home.randomImage.alt')}
       class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
       loading="lazy"
     />
@@ -44,7 +48,7 @@ const postsData = allPosts.map((p) => ({
   >
     <div class="h-full flex flex-col p-4">
       <div class="flex items-center justify-between mb-3">
-        <span class="text-sm font-bold text-foreground">文章推荐</span>
+        <span class="text-sm font-bold text-foreground">{t('home.randomImage.recommend')}</span>
       </div>
       <div id="rim-article-list" class="flex-1 overflow-y-auto space-y-2"></div>
     </div>
@@ -65,7 +69,7 @@ const postsData = allPosts.map((p) => ({
       >
         <polyline points="15 18 9 12 15 6"></polyline>
       </svg>
-      返回
+      {t('home.randomImage.back')}
     </button>
     <button id="rim-recommend-btn" class="recommend-btn">
       <svg
@@ -82,7 +86,7 @@ const postsData = allPosts.map((p) => ({
         <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"
         ></path>
       </svg>
-      文章推荐
+      {t('home.randomImage.recommend')}
     </button>
   </div>
 </div>

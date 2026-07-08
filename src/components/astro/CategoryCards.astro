@@ -1,8 +1,13 @@
 ---
+import { useTranslations, getLocaleFromURL } from '@/i18n';
+
+const locale = getLocaleFromURL(Astro.url.pathname);
+const t = useTranslations(locale);
+
 const categories = [
-  { name: "日常", slug: "日常", icon: "🌅", color: "#FF7242" },
-  { name: "技术", slug: "技术", icon: "💻", color: "#425AEF" },
-  { name: "工具", slug: "工具", icon: "🔧", color: "#00c4b6" },
+  { name: t('home.categories.title'), slug: '日常', icon: '🌅', color: '#FF7242' },
+  { name: t('home.categories.tech'), slug: '技术', icon: '💻', color: '#425AEF' },
+  { name: t('home.categories.tools'), slug: '工具', icon: '🔧', color: '#00c4b6' },
 ];
 ---
 
