@@ -1,16 +1,7 @@
 class_name: 我的旅行
 path_name: /travelPhoto
-type: 2
 description: 这里存放自己的一些旅行与游玩照片
 cover: https://imgbed.904002.xyz/file/img/blog/album/travel/泰山日出.webp
-top_background: https://imgbed.904002.xyz/file/img/blog/album/travel/泰山日出.webp
-rowHeight: 220
-limit: 10
-lazyload: true
-btnLazyload: false
-url: false
-top_link: /album
-top_btn_text: 返回
 album_list:
 - date: 2022-10-24
   content: 19岁生日征服泰山😎🥳
