@@ -76,10 +76,69 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
   const t = useTranslations(locale);
   const [gallery, setGallery] = useState<{ images: string[]; index: number } | null>(null);
   const [activeAlbum, setActiveAlbum] = useState<string | null>(null);
+  const [activeGroup, setActiveGroup] = useState<{ name: string; items: AlbumItem[] } | null>(null);
 
   const currentAlbum = activeAlbum
     ? albums.find((a) => a.path_name === activeAlbum)
     : null;
+
+  if (activeGroup) {
+    const allImages = activeGroup.items.flatMap((item) =>
+      item.image.map((src, i) => ({ src, title: item.content, date: item.date, allImages: item.image, idx: i }))
+    );
+    const colCount = 3;
+    const cols: typeof allImages[] = Array.from({ length: colCount }, () => []);
+    allImages.forEach((photo, i) => { cols[i % colCount].push(photo); });
+
+    return (
+      <div>
+        <button
+          onClick={() => setActiveGroup(null)}
+          className="mb-4 text-sm text-primary hover:underline"
+        >
+          ← {currentAlbum?.class_name || t('album.backToList')}
+        </button>
+        <h2 className="text-2xl font-bold mb-6">{activeGroup.name}</h2>
+        <div className="flex gap-4 items-start">
+          {cols.map((colPhotos, colIdx) => (
+            <div key={colIdx} className="flex-1 min-w-0 flex flex-col gap-4">
+              {colPhotos.map((photo, row) => (
+                <div
+                  key={`${photo.src}-${row}`}
+                  className="w-full rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1))',
+                    backdropFilter: 'blur(20px)',
+                    WebkitBackdropFilter: 'blur(20px)',
+                    border: '1px solid rgba(255,255,255,0.3)',
+                  }}
+                >
+                  <button
+                    onClick={() => setGallery({ images: photo.allImages, index: photo.idx })}
+                    className="w-full relative overflow-hidden bg-border"
+                  >
+                    <img
+                      src={photo.src}
+                      alt={photo.title}
+                      className="w-full object-cover transform group-hover:scale-105 transition-all duration-500 ease-out"
+                      loading="lazy"
+                    />
+                  </button>
+                  <div className="p-5">
+                    <h3 className="text-lg font-bold text-foreground mb-1">{photo.title}</h3>
+                    <span className="text-xs text-foreground-muted">{photo.date}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+        {gallery && (
+          <Gallery images={gallery.images} initialIndex={gallery.index} onClose={() => setGallery(null)} />
+        )}
+      </div>
+    );
+  }
 
   if (currentAlbum) {
     const grouped = new Map<string, AlbumItem[]>();
@@ -108,9 +167,10 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
             const latestContent = items.reduce((a, b) => (a.date > b.date ? a : b)).content;
 
             return (
-              <div
+              <button
                 key={groupName}
-                className="rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+                onClick={() => setActiveGroup({ name: groupName, items })}
+                className="text-left rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer"
                 style={{
                   background: 'linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1))',
                   backdropFilter: 'blur(20px)',
@@ -134,28 +194,15 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
                 </div>
                 {allImages.length > 0 && (
                   <div className="px-5 pb-5 overflow-visible">
-                    <div
-                      className="relative w-full overflow-visible"
-                      style={{ minHeight: '200px' }}
-                    >
-                      <PolaroidStack
-                        images={allImages}
-                        onClick={(idx) => setGallery({ images: allImages, index: idx })}
-                      />
+                    <div className="relative w-full overflow-visible" style={{ minHeight: '200px' }}>
+                      <PolaroidStack images={allImages} onClick={() => {}} />
                     </div>
                   </div>
                 )}
-              </div>
+              </button>
             );
           })}
         </div>
-        {gallery && (
-          <Gallery
-            images={gallery.images}
-            initialIndex={gallery.index}
-            onClose={() => setGallery(null)}
-          />
-        )}
       </div>
     );
   }
