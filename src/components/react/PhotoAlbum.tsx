@@ -163,8 +163,7 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {Array.from(grouped.entries()).map(([groupName, items]) => {
             const allImages = items.flatMap((item) => item.image);
-            const latestDate = items.reduce((a, b) => (a.date > b.date ? a : b)).date;
-            const latestContent = items.reduce((a, b) => (a.date > b.date ? a : b)).content;
+            const firstItem = items[0];
 
             return (
               <button
@@ -182,10 +181,10 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
                   <div className="flex items-center justify-between mb-2">
                     <h3 className="text-lg font-bold text-foreground">{groupName}</h3>
                     <span className="text-xs text-foreground-muted whitespace-nowrap bg-foreground/5 px-3 py-1 rounded-full">
-                      {latestDate}
+                      {firstItem.date}
                     </span>
                   </div>
-                  <p className="text-sm text-foreground-muted mb-1">{latestContent}</p>
+                  <p className="text-sm text-foreground-muted mb-1">{firstItem.content}</p>
                   {allImages.length > 0 && (
                     <span className="text-xs text-foreground-muted inline-flex items-center gap-1">
                       📷 {t('album.photoCount').replace('{count}', String(allImages.length))}
