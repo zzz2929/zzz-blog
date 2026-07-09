@@ -28,7 +28,6 @@
     "astro": "^6.4.8",
     "js-yaml": "^4.1.0",
     "lucide-react": "^1.17.0",
-    "medium-zoom": "^1.1.0",
     "pagefind": "^1.5.2",
     "photoswipe": "^5.4.4",
     "react": "^19.2.7",

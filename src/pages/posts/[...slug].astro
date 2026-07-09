@@ -169,23 +169,46 @@ const { Content, headings } = await render(post);
   </script>
 
   <script>
-    import mediumZoom from "medium-zoom";
+    import PhotoSwipe from "photoswipe";
+    import "photoswipe/dist/photoswipe.css";
 
-    // Enable progressive loading effect (JS is confirmed working)
+    // Enable progressive loading effect
     document.querySelector(".prose")?.classList.add("prose--js-ready");
 
-    // Edge case: images already cached may have fired onload before DOMContentLoaded.
-    // Ensure they get the .loaded class so they aren't stuck at opacity: 0.
     document.querySelectorAll(".prose img").forEach((img) => {
       if (img.complete && !img.classList.contains("loaded")) {
         img.classList.add("loaded");
       }
     });
 
-    mediumZoom(".prose img", {
-      background: "rgba(0, 0, 0, 0.85)",
-      margin: 24,
-      scrollOffset: 40,
+    // PhotoSwipe for blog images
+    document.querySelectorAll(".prose img").forEach((img) => {
+      img.style.cursor = "zoom-in";
+      img.addEventListener("click", () => {
+        const allImgs = Array.from(document.querySelectorAll(".prose img"));
+        const items = allImgs.map((el) => ({
+          src: (el as HTMLImageElement).src,
+          width: (el as HTMLImageElement).naturalWidth || 1920,
+          height: (el as HTMLImageElement).naturalHeight || 1080,
+        }));
+        const index = allImgs.indexOf(img);
+
+        const pswp = new PhotoSwipe({
+          dataSource: items,
+          bgOpacity: 0.92,
+          showHideOpacity: true,
+          counterEl: true,
+          arrowKeys: true,
+          loop: true,
+          initialSlide: index,
+          appendToEl: document.body,
+          getThumbBoundsFn: () => {
+            const rect = img.getBoundingClientRect();
+            return { x: rect.left, y: rect.top + window.scrollY, w: rect.width, h: rect.height };
+          },
+        } as any);
+        pswp.init();
+      });
     });
 
     // Code block enhancements: line numbers, copy button
