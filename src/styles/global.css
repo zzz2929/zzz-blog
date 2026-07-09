@@ -99,10 +99,12 @@
 /* ====== Base ====== */
 :root {
   color-scheme: light;
+  --logo-bg: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255,0.4));
 }
 
 .dark {
   color-scheme: dark;
+  --logo-bg: linear-gradient(135deg, rgba(30, 30, 40, 0.7), rgba(30, 30, 40, 0.4));
 }
 
 .dark {
