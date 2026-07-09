@@ -14,7 +14,7 @@ export default function Gallery({ images, initialIndex = 0, onClose }: GalleryPr
   const next = () => setIndex((i) => (i < images.length - 1 ? i + 1 : 0));
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90" onClick={onClose}>
+    <div className="fixed inset-0 flex items-center justify-center bg-black/90" onClick={onClose} style={{ zIndex: 99999 }}>
       <button
         onClick={(e) => { e.stopPropagation(); onClose(); }}
         className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
