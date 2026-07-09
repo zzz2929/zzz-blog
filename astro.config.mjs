@@ -73,6 +73,9 @@ export default defineConfig({
         '@': '/src',
       },
     },
+    optimizeDeps: {
+      exclude: ['photoswipe'],
+    },
     server: {
       watch: {
         usePolling: true,
