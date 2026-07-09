@@ -57,6 +57,7 @@ import type { Locale } from '@/i18n';
 interface AlbumItem {
   date: string;
   content: string;
+  album_name?: string;
   address?: string;
   from?: string;
   image: string[];
@@ -83,6 +84,13 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
     : null;
 
   if (currentAlbum) {
+    const grouped = new Map<string, AlbumItem[]>();
+    currentAlbum.album_list.forEach((item) => {
+      const group = item.album_name || item.content;
+      if (!grouped.has(group)) grouped.set(group, []);
+      grouped.get(group)!.push(item);
+    });
+
     return (
       <div>
         <button
@@ -96,50 +104,58 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
           <p className="text-muted mb-6">{currentAlbum.description}</p>
         )}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {currentAlbum.album_list.map((item, i) => (
-            <div
-              key={i}
-              className="rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
-              style={{
-                background: 'linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1))',
-                backdropFilter: 'blur(20px)',
-                WebkitBackdropFilter: 'blur(20px)',
-                border: '1px solid rgba(255,255,255,0.3)',
-              }}
-            >
-              <div className="p-5">
-                <div className="flex items-center justify-between mb-2">
-                  <div>
-                    <h3 className="text-lg font-bold text-foreground">{item.content}</h3>
-                    {item.address && (
-                      <p className="text-sm text-foreground-muted">{item.address}</p>
-                    )}
+          {Array.from(grouped.entries()).map(([groupName, items]) => {
+            const allImages = items.flatMap((item) => item.image);
+            const latestDate = items.reduce((a, b) => (a.date > b.date ? a : b)).date;
+            const latestContent = items.reduce((a, b) => (a.date > b.date ? a : b)).content;
+            const latestAddress = items.find((i) => i.address)?.address;
+
+            return (
+              <div
+                key={groupName}
+                className="rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1))',
+                  backdropFilter: 'blur(20px)',
+                  WebkitBackdropFilter: 'blur(20px)',
+                  border: '1px solid rgba(255,255,255,0.3)',
+                }}
+              >
+                <div className="p-5">
+                  <div className="flex items-center justify-between mb-2">
+                    <div>
+                      <h3 className="text-lg font-bold text-foreground">{groupName}</h3>
+                      {latestAddress && (
+                        <p className="text-sm text-foreground-muted">{latestAddress}</p>
+                      )}
+                    </div>
+                    <span className="text-xs text-foreground-muted whitespace-nowrap bg-foreground/5 px-3 py-1 rounded-full">
+                      {latestDate}
+                    </span>
                   </div>
-                  <span className="text-xs text-foreground-muted whitespace-nowrap bg-foreground/5 px-3 py-1 rounded-full">
-                    {item.date}
-                  </span>
+                  <p className="text-sm text-foreground-muted mb-1">{latestContent}</p>
+                  {allImages.length > 0 && (
+                    <span className="text-xs text-foreground-muted inline-flex items-center gap-1">
+                      📷 {t('album.photoCount').replace('{count}', String(allImages.length))}
+                    </span>
+                  )}
                 </div>
-                {item.image.length > 0 && (
-                  <span className="text-xs text-foreground-muted inline-flex items-center gap-1 mb-3">
-                    📷 {t('album.photoCount').replace('{count}', String(item.image.length))}
-                  </span>
+                {allImages.length > 0 && (
+                  <div className="px-5 pb-5 overflow-visible">
+                    <div
+                      className="relative w-full overflow-visible"
+                      style={{ minHeight: '200px' }}
+                    >
+                      <PolaroidStack
+                        images={allImages}
+                        onClick={(idx) => setGallery({ images: allImages, index: idx })}
+                      />
+                    </div>
+                  </div>
                 )}
               </div>
-              {item.image.length > 0 && (
-                <div className="px-5 pb-5 overflow-visible">
-                  <div
-                    className="relative w-full overflow-visible"
-                    style={{ minHeight: '200px' }}
-                  >
-                    <PolaroidStack
-                      images={item.image}
-                      onClick={(idx) => setGallery({ images: item.image, index: idx })}
-                    />
-                  </div>
-                </div>
-              )}
-            </div>
-          ))}
+            );
+          })}
         </div>
         {gallery && (
           <Gallery
