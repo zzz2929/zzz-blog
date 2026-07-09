@@ -10,11 +10,10 @@ interface GalleryProps {
 }
 
 export default function Gallery({ images, initialIndex = 0, onClose }: GalleryProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
   const pswpRef = useRef<PhotoSwipe | null>(null);
 
   useEffect(() => {
-    if (!containerRef.current || images.length === 0) return;
+    if (images.length === 0) return;
 
     const items = images.map((src) => ({
       src,
@@ -26,9 +25,13 @@ export default function Gallery({ images, initialIndex = 0, onClose }: GalleryPr
       dataSource: items,
       ...photoswipeConfig,
       initialSlide: initialIndex,
-      appendToEl: containerRef.current,
-      showOpenFullsize: () => {},
-      getThumbBoundsFn: () => ({ x: 0, y: 0, w: window.innerWidth, h: window.innerHeight }),
+      appendToEl: document.body,
+      getThumbBoundsFn: () => ({
+        x: window.innerWidth / 2 - 100,
+        y: window.innerHeight / 2 - 100,
+        w: 200,
+        h: 200,
+      }),
     } as any);
 
     pswp.on('close', () => {
@@ -45,5 +48,5 @@ export default function Gallery({ images, initialIndex = 0, onClose }: GalleryPr
     };
   }, []);
 
-  return <div ref={containerRef} className="pswp-gallery" />;
+  return null;
 }

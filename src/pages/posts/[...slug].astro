@@ -182,34 +182,46 @@ const { Content, headings } = await render(post);
     });
 
     // PhotoSwipe for blog images
-    document.querySelectorAll(".prose img").forEach((img) => {
-      img.style.cursor = "zoom-in";
-      img.addEventListener("click", () => {
-        const allImgs = Array.from(document.querySelectorAll(".prose img"));
-        const items = allImgs.map((el) => ({
-          src: (el as HTMLImageElement).src,
-          width: (el as HTMLImageElement).naturalWidth || 1920,
-          height: (el as HTMLImageElement).naturalHeight || 1080,
-        }));
-        const index = allImgs.indexOf(img);
+    function initBlogPhotoswipe() {
+      const proseImgs = Array.from(document.querySelectorAll(".prose img")) as HTMLImageElement[];
+      if (proseImgs.length === 0) return;
 
-        const pswp = new PhotoSwipe({
-          dataSource: items,
-          bgOpacity: 0.92,
-          showHideOpacity: true,
-          counterEl: true,
-          arrowKeys: true,
-          loop: true,
-          initialSlide: index,
-          appendToEl: document.body,
-          getThumbBoundsFn: () => {
-            const rect = img.getBoundingClientRect();
-            return { x: rect.left, y: rect.top + window.scrollY, w: rect.width, h: rect.height };
-          },
-        } as any);
-        pswp.init();
+      proseImgs.forEach((img) => {
+        img.style.cursor = "zoom-in";
+        img.addEventListener("click", () => {
+          const clickedImg = img;
+          const rect = clickedImg.getBoundingClientRect();
+
+          const items = proseImgs.map((el) => ({
+            src: el.src,
+            width: el.naturalWidth || 1920,
+            height: el.naturalHeight || 1080,
+          }));
+          const index = proseImgs.indexOf(clickedImg);
+
+          const pswp = new PhotoSwipe({
+            dataSource: items,
+            bgOpacity: 0.92,
+            showHideOpacity: true,
+            counterEl: true,
+            arrowKeys: true,
+            loop: true,
+            initialSlide: index,
+            appendToEl: document.body,
+            getThumbBoundsFn: () => ({
+              x: rect.left,
+              y: rect.top,
+              w: rect.width,
+              h: rect.height,
+            }),
+          } as any);
+          pswp.init();
+        });
       });
-    });
+    }
+
+    initBlogPhotoswipe();
+    document.addEventListener("astro:page-load", initBlogPhotoswipe);
 
     // Code block enhancements: line numbers, copy button
     const SHIKI_VARS = [
