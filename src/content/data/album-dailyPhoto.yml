@@ -3,8 +3,9 @@ path_name: /dailyPhoto
 description: 生活琐事
 cover: https://imgbed.904002.xyz/file/img/blog/album/daily/七彩云.webp
 album_list:
-- date: 2023-09-01
-  content: 七彩祥云
-  album_name: 天空
-  image:
-  - https://imgbed.904002.xyz/file/img/blog/album/daily/七彩云.webp
+- album_name: 天空
+  items:
+  - date: 2023-09-01
+    content: 七彩祥云
+    image:
+    - https://imgbed.904002.xyz/file/img/blog/album/daily/七彩云.webp

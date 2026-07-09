@@ -54,11 +54,15 @@ function PolaroidStack({ images, onClick }: { images: string[]; onClick: (idx: n
 import { useTranslations } from '@/i18n';
 import type { Locale } from '@/i18n';
 
-interface AlbumItem {
+interface PhotoItem {
   date: string;
   content: string;
-  album_name?: string;
   image: string[];
+}
+
+interface AlbumGroup {
+  album_name: string;
+  items: PhotoItem[];
 }
 
 interface PhotoAlbumProps {
@@ -67,7 +71,7 @@ interface PhotoAlbumProps {
     path_name: string;
     cover?: string;
     description?: string;
-    album_list: AlbumItem[];
+    album_list: AlbumGroup[];
   }>;
   locale?: Locale;
 }
@@ -76,14 +80,15 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
   const t = useTranslations(locale);
   const [gallery, setGallery] = useState<{ images: string[]; index: number } | null>(null);
   const [activeAlbum, setActiveAlbum] = useState<string | null>(null);
-  const [activeGroup, setActiveGroup] = useState<{ name: string; items: AlbumItem[] } | null>(null);
+  const [activeGroup, setActiveGroup] = useState<{ name: string; group: AlbumGroup } | null>(null);
 
   const currentAlbum = activeAlbum
     ? albums.find((a) => a.path_name === activeAlbum)
     : null;
 
   if (activeGroup) {
-    const allImages = activeGroup.items.flatMap((item) =>
+    const items = activeGroup.group.items;
+    const allImages = items.flatMap((item) =>
       item.image.map((src, i) => ({ src, title: item.content, date: item.date, allImages: item.image, idx: i }))
     );
     const colCount = 3;
@@ -141,13 +146,6 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
   }
 
   if (currentAlbum) {
-    const grouped = new Map<string, AlbumItem[]>();
-    currentAlbum.album_list.forEach((item) => {
-      const group = item.album_name || item.content;
-      if (!grouped.has(group)) grouped.set(group, []);
-      grouped.get(group)!.push(item);
-    });
-
     return (
       <div>
         <button
@@ -161,14 +159,14 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
           <p className="text-muted mb-6">{currentAlbum.description}</p>
         )}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {Array.from(grouped.entries()).map(([groupName, items]) => {
-            const allImages = items.flatMap((item) => item.image);
-            const firstItem = items[0];
+          {currentAlbum.album_list.map((group) => {
+            const allImages = group.items.flatMap((item) => item.image);
+            const firstItem = group.items[0];
 
             return (
               <button
-                key={groupName}
-                onClick={() => setActiveGroup({ name: groupName, items })}
+                key={group.album_name}
+                onClick={() => setActiveGroup({ name: group.album_name, group })}
                 className="text-left rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer"
                 style={{
                   background: 'linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1))',
@@ -179,12 +177,16 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
               >
                 <div className="p-5">
                   <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-lg font-bold text-foreground">{groupName}</h3>
-                    <span className="text-xs text-foreground-muted whitespace-nowrap bg-foreground/5 px-3 py-1 rounded-full">
-                      {firstItem.date}
-                    </span>
+                    <h3 className="text-lg font-bold text-foreground">{group.album_name}</h3>
+                    {firstItem && (
+                      <span className="text-xs text-foreground-muted whitespace-nowrap bg-foreground/5 px-3 py-1 rounded-full">
+                        {firstItem.date}
+                      </span>
+                    )}
                   </div>
-                  <p className="text-sm text-foreground-muted mb-1">{firstItem.content}</p>
+                  {firstItem && (
+                    <p className="text-sm text-foreground-muted mb-1">{firstItem.content}</p>
+                  )}
                   {allImages.length > 0 && (
                     <span className="text-xs text-foreground-muted inline-flex items-center gap-1">
                       📷 {t('album.photoCount').replace('{count}', String(allImages.length))}

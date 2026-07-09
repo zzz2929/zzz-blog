@@ -89,10 +89,12 @@ const album = defineCollection({
     description: z.string().optional(),
     cover: z.string().optional(),
     album_list: z.array(z.object({
-      date: z.coerce.string().transform((v) => v.includes('T') ? v.split('T')[0] : v),
-      content: z.string(),
-      album_name: z.string().optional(),
-      image: z.array(z.string()),
+      album_name: z.string(),
+      items: z.array(z.object({
+        date: z.coerce.string().transform((v) => v.includes('T') ? v.split('T')[0] : v),
+        content: z.string(),
+        image: z.array(z.string()),
+      })),
     })),
   }),
 });
