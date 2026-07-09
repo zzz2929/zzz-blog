@@ -1,6 +1,56 @@
 import { useState } from 'react';
 import { Images } from 'lucide-react';
 import Gallery from './Gallery';
+
+function PolaroidStack({ images, onClick }: { images: string[]; onClick: (idx: number) => void }) {
+  const rotations = [-6, -2, 3, 7, -4, 5, -3, 2, -5, 4];
+  const offsets = [
+    { x: 0, y: 0 },
+    { x: 12, y: -8 },
+    { x: 24, y: -4 },
+    { x: 36, y: 4 },
+    { x: 48, y: -2 },
+  ];
+  const visibleCount = Math.min(images.length, 5);
+
+  return (
+    <div className="relative" style={{ height: '200px' }}>
+      {images.slice(0, visibleCount).map((src, i) => {
+        const rot = rotations[i % rotations.length];
+        const off = offsets[i] || offsets[offsets.length - 1];
+        const scale = 1 - i * 0.03;
+        const zIndex = visibleCount - i;
+
+        return (
+          <button
+            key={i}
+            onClick={() => onClick(i)}
+            className="absolute cursor-pointer transition-all duration-300 hover:!z-50 hover:scale-110"
+            style={{
+              left: `${off.x}px`,
+              top: `${off.y}px`,
+              transform: `rotate(${rot}deg) scale(${scale})`,
+              zIndex,
+              transformOrigin: 'center bottom',
+            }}
+          >
+            <div
+              className="bg-white rounded-sm shadow-lg overflow-hidden"
+              style={{ width: '160px', padding: '8px 8px 28px 8px' }}
+            >
+              <img
+                src={src}
+                alt=""
+                className="w-full h-28 object-cover rounded-sm"
+                loading="lazy"
+              />
+            </div>
+          </button>
+        );
+      })}
+    </div>
+  );
+}
 import { useTranslations } from '@/i18n';
 import type { Locale } from '@/i18n';
 
@@ -33,24 +83,6 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
     : null;
 
   if (currentAlbum) {
-    const allPhotos = currentAlbum.album_list.flatMap((item, i) =>
-      item.image.map((img, j) => ({
-        src: img,
-        title: item.content,
-        address: item.address,
-        date: item.date,
-        allImages: item.image,
-        index: j,
-        key: `${i}-${j}`,
-      }))
-    );
-
-    const colCount = 3;
-    const cols: typeof allPhotos[] = Array.from({ length: colCount }, () => []);
-    allPhotos.forEach((photo, i) => {
-      cols[i % colCount].push(photo);
-    });
-
     return (
       <div>
         <button
@@ -63,41 +95,49 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
         {currentAlbum.description && (
           <p className="text-muted mb-6">{currentAlbum.description}</p>
         )}
-        <div className="flex gap-4 items-start">
-          {cols.map((colPhotos, colIdx) => (
-            <div key={colIdx} className="flex-1 min-w-0 flex flex-col gap-4">
-              {colPhotos.map((photo) => (
-                <div
-                  key={photo.key}
-                  className="w-full rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group"
-                  style={{
-                    background: 'linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1))',
-                    backdropFilter: 'blur(20px)',
-                    WebkitBackdropFilter: 'blur(20px)',
-                    border: '1px solid rgba(255,255,255,0.3)',
-                  }}
-                >
-                  <button
-                    onClick={() => setGallery({ images: photo.allImages, index: photo.index })}
-                    className="w-full relative overflow-hidden bg-border"
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {currentAlbum.album_list.map((item, i) => (
+            <div
+              key={i}
+              className="rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+              style={{
+                background: 'linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1))',
+                backdropFilter: 'blur(20px)',
+                WebkitBackdropFilter: 'blur(20px)',
+                border: '1px solid rgba(255,255,255,0.3)',
+              }}
+            >
+              <div className="p-5">
+                <div className="flex items-center justify-between mb-2">
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground">{item.content}</h3>
+                    {item.address && (
+                      <p className="text-sm text-foreground-muted">{item.address}</p>
+                    )}
+                  </div>
+                  <span className="text-xs text-foreground-muted whitespace-nowrap bg-foreground/5 px-3 py-1 rounded-full">
+                    {item.date}
+                  </span>
+                </div>
+                {item.image.length > 0 && (
+                  <span className="text-xs text-foreground-muted inline-flex items-center gap-1 mb-3">
+                    📷 {t('album.photoCount').replace('{count}', String(item.image.length))}
+                  </span>
+                )}
+              </div>
+              {item.image.length > 0 && (
+                <div className="px-5 pb-5 overflow-visible">
+                  <div
+                    className="relative w-full overflow-visible"
+                    style={{ minHeight: '200px' }}
                   >
-                    <img
-                      src={photo.src}
-                      alt={photo.title}
-                      className="w-full object-cover transform group-hover:scale-105 transition-all duration-500 ease-out"
-                      loading="lazy"
+                    <PolaroidStack
+                      images={item.image}
+                      onClick={(idx) => setGallery({ images: item.image, index: idx })}
                     />
-                  </button>
-                  <div className="p-5">
-                    <div className="min-h-[48px]">
-                      <h3 className="text-xl font-bold mb-1 text-foreground">{photo.title}</h3>
-                      {photo.address && (
-                        <p className="text-sm text-foreground-muted">{photo.address}</p>
-                      )}
-                    </div>
                   </div>
                 </div>
-              ))}
+              )}
             </div>
           ))}
         </div>
