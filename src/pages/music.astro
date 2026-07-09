@@ -1609,6 +1609,9 @@ const playlists = playlistModules.map((p) => ({
         this.loadPlaylists();
         this.switchTab("playlist");
         this.initFooterObserver();
+
+        // Restore saved state after all data is loaded
+        setTimeout(() => this.restoreSavedState(), 100);
       }
 
       initElements() {
@@ -1679,6 +1682,9 @@ const playlists = playlistModules.map((p) => ({
         this.lyricsPauseIcon = document.getElementById("lyrics-pause-icon");
         this.lyricsPrevBtn = document.getElementById("lyrics-prev-btn");
         this.lyricsNextBtn = document.getElementById("lyrics-next-btn");
+
+        // Restore saved state if available
+        this.restoreSavedState();
       }
 
       initEventListeners() {
@@ -1849,18 +1855,73 @@ const playlists = playlistModules.map((p) => ({
             this.playlist = MUSIC_DATA.map((s) => ({
               title: s.name,
               artist: s.artist,
-              album: s.album || T.unknownAlbum,
+              album: s.album || "未知专辑",
               url: s.url,
               cover: s.pic || "/音乐.svg",
               lrc: s.lrc,
             }));
             this.renderPlaylist();
-            this.loadSong(0);
           }
         } catch (e) {
           console.error("Failed to load playlist:", e);
           this.playlist = [];
           this.renderPlaylist();
+        }
+      }
+
+      // ====== State Restoration ======
+      restoreSavedState() {
+        try {
+          const savedState = sessionStorage.getItem("mini-player-state");
+          if (!savedState) return;
+
+          const state = JSON.parse(savedState);
+
+          // Set playlist and current song
+          if (state.playlist && Array.isArray(state.playlist)) {
+            this.playlist = state.playlist;
+            this.currentIndex = state.index || 0;
+
+            // Load the saved song
+            if (this.currentIndex < this.playlist.length) {
+              this.loadSong(this.currentIndex);
+
+              // Set saved playback state
+              if (state.currentTime) {
+                this.audio.currentTime = state.currentTime;
+              }
+
+              if (state.volume !== undefined) {
+                this.volume = state.volume;
+                this.audio.volume = state.volume / 100;
+                this.updateVolumeIcon();
+                if (this.fixedVolumeSlider) {
+                  this.fixedVolumeSlider.value = state.volume;
+                }
+              }
+
+              // Restore play state
+              if (state.isPlaying) {
+                this.audio.play().then(() => {
+                  this.isPlaying = true;
+                  this.updatePlayButton();
+                }).catch((e) => {
+                  console.error("Failed to restore playback:", e);
+                });
+              }
+
+              // Update UI
+              this.renderPlaylist();
+              this.updatePlayButton();
+              this.updateDuration();
+              this.updateProgress();
+
+              // Sync with mini player
+              this.syncMiniPlayer();
+            }
+          }
+        } catch (e) {
+          console.error("Failed to restore state:", e);
         }
       }
 
