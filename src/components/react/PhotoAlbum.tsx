@@ -58,8 +58,6 @@ interface AlbumItem {
   date: string;
   content: string;
   album_name?: string;
-  address?: string;
-  from?: string;
   image: string[];
 }
 
@@ -108,7 +106,6 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
             const allImages = items.flatMap((item) => item.image);
             const latestDate = items.reduce((a, b) => (a.date > b.date ? a : b)).date;
             const latestContent = items.reduce((a, b) => (a.date > b.date ? a : b)).content;
-            const latestAddress = items.find((i) => i.address)?.address;
 
             return (
               <div
@@ -123,12 +120,7 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
               >
                 <div className="p-5">
                   <div className="flex items-center justify-between mb-2">
-                    <div>
-                      <h3 className="text-lg font-bold text-foreground">{groupName}</h3>
-                      {latestAddress && (
-                        <p className="text-sm text-foreground-muted">{latestAddress}</p>
-                      )}
-                    </div>
+                    <h3 className="text-lg font-bold text-foreground">{groupName}</h3>
                     <span className="text-xs text-foreground-muted whitespace-nowrap bg-foreground/5 px-3 py-1 rounded-full">
                       {latestDate}
                     </span>
