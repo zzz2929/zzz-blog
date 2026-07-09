@@ -33,6 +33,24 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
     : null;
 
   if (currentAlbum) {
+    const allPhotos = currentAlbum.album_list.flatMap((item, i) =>
+      item.image.map((img, j) => ({
+        src: img,
+        title: item.content,
+        address: item.address,
+        date: item.date,
+        allImages: item.image,
+        index: j,
+        key: `${i}-${j}`,
+      }))
+    );
+
+    const colCount = 3;
+    const cols: typeof allPhotos[] = Array.from({ length: colCount }, () => []);
+    allPhotos.forEach((photo, i) => {
+      cols[i % colCount].push(photo);
+    });
+
     return (
       <div>
         <button
@@ -45,29 +63,43 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
         {currentAlbum.description && (
           <p className="text-muted mb-6">{currentAlbum.description}</p>
         )}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-          {currentAlbum.album_list.map((item, i) =>
-            item.image.map((img, j) => (
-              <button
-                key={`${i}-${j}`}
-                onClick={() => setGallery({ images: item.image, index: j })}
-                className="group relative aspect-square rounded-lg overflow-hidden bg-border"
-              >
-                <img
-                  src={img}
-                  alt={item.content}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
-                  <div className="text-white text-sm">
-                    <p className="font-medium">{item.content}</p>
-                    {item.address && <p className="text-xs opacity-80">{item.address}</p>}
+        <div className="flex gap-4 items-start">
+          {cols.map((colPhotos, colIdx) => (
+            <div key={colIdx} className="flex-1 min-w-0 flex flex-col gap-4">
+              {colPhotos.map((photo) => (
+                <div
+                  key={photo.key}
+                  className="w-full rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1))',
+                    backdropFilter: 'blur(20px)',
+                    WebkitBackdropFilter: 'blur(20px)',
+                    border: '1px solid rgba(255,255,255,0.3)',
+                  }}
+                >
+                  <button
+                    onClick={() => setGallery({ images: photo.allImages, index: photo.index })}
+                    className="w-full relative overflow-hidden bg-border"
+                  >
+                    <img
+                      src={photo.src}
+                      alt={photo.title}
+                      className="w-full object-cover transform group-hover:scale-105 transition-all duration-500 ease-out"
+                      loading="lazy"
+                    />
+                  </button>
+                  <div className="p-5">
+                    <div className="min-h-[48px]">
+                      <h3 className="text-xl font-bold mb-1 text-foreground">{photo.title}</h3>
+                      {photo.address && (
+                        <p className="text-sm text-foreground-muted">{photo.address}</p>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </button>
-            ))
-          )}
+              ))}
+            </div>
+          ))}
         </div>
         {gallery && (
           <Gallery
