@@ -183,7 +183,7 @@ function isImageIcon(icon) {
           href="/"
           class="logo-box group relative ml-1 flex items-center overflow-hidden rounded-xl cursor-pointer"
           aria-label={t('nav.home')}
-          style="width: 112px; height: 38px; border: 1px solid rgba(255,255,255,0.3); background: var(--logo-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); transition: border-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out;"
+          style="width: 112px; height: 38px; border: 1px solid rgba(255,255,255,0.3); background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255,0.4)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); transition: border-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out;"
         >
           <span
             class="logo-icon absolute inset-y-0 left-0 z-10 flex items-center justify-center transition-all duration-500 ease-in-out"
@@ -627,6 +627,15 @@ function isImageIcon(icon) {
       rgba(30, 30, 40, 0.6)
     ) !important;
     border-color: rgba(255, 255, 255, 0.08) !important;
+  }
+
+  /* Dark mode: keep light background but make text dark */
+  .dark .logo-box .logo-text {
+    color: #1a1a2e !important;
+  }
+  .dark .logo-box .logo-icon svg {
+    stroke: #1a1a2e !important;
+    color: #1a1a2e !important;
   }
 
   /* Logo hover */
