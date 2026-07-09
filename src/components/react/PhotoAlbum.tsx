@@ -2,6 +2,16 @@ import { useState } from 'react';
 import { Images } from 'lucide-react';
 import Gallery from './Gallery';
 
+function formatDate(d: string): string {
+  if (/^\d{4}-\d{2}-\d{2}$/.test(d)) return d;
+  const date = new Date(d);
+  if (isNaN(date.getTime())) return d;
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
+}
+
 function PolaroidStack({ images, onClick }: { images: string[]; onClick: (idx: number) => void }) {
   const rotations = [-6, -2, 3, 7, -4, 5, -3, 2, -5, 4];
   const offsets = [
@@ -131,7 +141,7 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
                   </button>
                   <div className="p-5">
                     <h3 className="text-lg font-bold text-foreground mb-1">{photo.title}</h3>
-                    <span className="text-xs text-foreground-muted">{photo.date}</span>
+                    <span className="text-xs text-foreground-muted">{formatDate(photo.date)}</span>
                   </div>
                 </div>
               ))}
@@ -180,7 +190,7 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
                     <h3 className="text-lg font-bold text-foreground">{group.album_name}</h3>
                     {firstItem && (
                       <span className="text-xs text-foreground-muted whitespace-nowrap bg-foreground/5 px-3 py-1 rounded-full">
-                        {firstItem.date}
+                        {formatDate(firstItem.date)}
                       </span>
                     )}
                   </div>
