@@ -1,5 +1,7 @@
-import { useState } from 'react';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useEffect, useRef } from 'react';
+import PhotoSwipe from 'photoswipe';
+import 'photoswipe/dist/photoswipe.css';
+import photoswipeConfig from '@/config/photoswipe';
 
 interface GalleryProps {
   images: string[];
@@ -8,47 +10,40 @@ interface GalleryProps {
 }
 
 export default function Gallery({ images, initialIndex = 0, onClose }: GalleryProps) {
-  const [index, setIndex] = useState(initialIndex);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const pswpRef = useRef<PhotoSwipe | null>(null);
 
-  const prev = () => setIndex((i) => (i > 0 ? i - 1 : images.length - 1));
-  const next = () => setIndex((i) => (i < images.length - 1 ? i + 1 : 0));
+  useEffect(() => {
+    if (!containerRef.current || images.length === 0) return;
 
-  return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black/90" onClick={onClose} style={{ zIndex: 99999 }}>
-      <button
-        onClick={(e) => { e.stopPropagation(); onClose(); }}
-        className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
-      >
-        <X size={24} />
-      </button>
+    const items = images.map((src) => ({
+      src,
+      width: 1920,
+      height: 1080,
+    }));
 
-      {images.length > 1 && (
-        <>
-          <button
-            onClick={(e) => { e.stopPropagation(); prev(); }}
-            className="absolute left-4 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
-          >
-            <ChevronLeft size={24} />
-          </button>
-          <button
-            onClick={(e) => { e.stopPropagation(); next(); }}
-            className="absolute right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
-          >
-            <ChevronRight size={24} />
-          </button>
-        </>
-      )}
+    const pswp = new PhotoSwipe({
+      dataSource: items,
+      ...photoswipeConfig,
+      initialSlide: initialIndex,
+      appendToEl: containerRef.current,
+      showOpenFullsize: () => {},
+      getThumbBoundsFn: () => ({ x: 0, y: 0, w: window.innerWidth, h: window.innerHeight }),
+    } as any);
 
-      <img
-        src={images[index]}
-        alt=""
-        className="max-h-[90vh] max-w-[90vw] object-contain"
-        onClick={(e) => e.stopPropagation()}
-      />
+    pswp.on('close', () => {
+      onClose();
+    });
 
-      <div className="absolute bottom-4 text-white/70 text-sm">
-        {index + 1} / {images.length}
-      </div>
-    </div>
-  );
+    pswp.init();
+    pswpRef.current = pswp;
+
+    return () => {
+      if (pswpRef.current && !pswpRef.current.isDestroying) {
+        pswpRef.current.destroy();
+      }
+    };
+  }, []);
+
+  return <div ref={containerRef} className="pswp-gallery" />;
 }
