@@ -1612,6 +1612,76 @@ const playlists = playlistModules.map((p) => ({
         setTimeout(() => this.restoreSavedState(), 100);
       }
 
+      initElements() {
+        // Main player elements (may not exist)
+        this.playBtn = document.getElementById("play-btn");
+        this.playIcon = document.getElementById("play-icon");
+        this.pauseIcon = document.getElementById("pause-icon");
+        this.prevBtn = document.getElementById("prev-btn");
+        this.nextBtn = document.getElementById("next-btn");
+        this.muteBtn = document.getElementById("mute-btn");
+        this.modeBtn = document.getElementById("fixed-mode-btn");
+        this.volumeSlider = document.getElementById("volume-slider");
+        this.progressBar = document.querySelector(".progress-bar");
+        this.progress = document.getElementById("progress");
+        this.currentTimeEl = document.getElementById("current-time");
+        this.durationEl = document.getElementById("duration");
+        this.songTitle = document.getElementById("song-title");
+        this.songArtist = document.getElementById("song-artist");
+        this.songAlbum = document.getElementById("song-album");
+        this.albumCover = document.getElementById("album-cover");
+        this.playlistEl = document.getElementById("playlist");
+
+        this.lyricsEl = document.getElementById("lyrics");
+        this.vinylRecord = document.getElementById("vinyl-record");
+        this.tonearm = document.querySelector(".player");
+
+        // Tab panel elements
+        this.tabPlaylistBtn = document.getElementById("tab-playlist-btn");
+        this.tabLyricsBtn = document.getElementById("tab-lyrics-btn");
+        this.playlistTab = document.getElementById("playlist-tab");
+        this.lyricsTab = document.getElementById("lyrics-tab");
+
+        // Fixed controls
+        this.fixedAlbumCover = document.getElementById("fixed-album-cover");
+        this.fixedSongTitle = document.getElementById("fixed-song-title");
+        this.fixedSongArtist = document.getElementById("fixed-song-artist");
+        this.fixedPlayBtn = document.getElementById("fixed-play-btn");
+        this.fixedPlayIcon = document.getElementById("fixed-play-icon");
+        this.fixedPauseIcon = document.getElementById("fixed-pause-icon");
+        this.fixedPrevBtn = document.getElementById("fixed-prev-btn");
+        this.fixedNextBtn = document.getElementById("fixed-next-btn");
+        this.fixedMuteBtn = document.getElementById("fixed-mute-btn");
+        this.fixedVolumeSlider = document.getElementById("fixed-volume-slider");
+        this.fixedProgress = document.getElementById("fixed-progress");
+        this.fixedProgressBar = document.getElementById("fixed-progress-bar");
+        this.fixedCurrentTime = document.getElementById("fixed-current-time");
+        this.fixedDuration = document.getElementById("fixed-duration");
+
+        // Fullscreen lyrics
+        this.fullscreenLyrics = document.getElementById("fullscreen-lyrics");
+        this.fullscreenBtn = document.getElementById("fullscreen-lyrics-btn");
+        this.closeFullscreenBtn = document.getElementById("close-fullscreen");
+        this.lyricsBackground = document.getElementById("lyrics-background");
+        this.lyricsAlbumCover = document.getElementById("lyrics-album-cover");
+        this.lyricsSongTitle = document.getElementById("lyrics-song-title");
+        this.lyricsSongArtist = document.getElementById("lyrics-song-artist");
+        this.lyricsScrollContainer = document.getElementById(
+          "lyrics-scroll-container",
+        );
+        this.fullscreenLyricsContent = document.getElementById(
+          "fullscreen-lyrics-content",
+        );
+        this.lyricsProgress = document.getElementById("lyrics-progress");
+        this.lyricsCurrentTime = document.getElementById("lyrics-current-time");
+        this.lyricsDuration = document.getElementById("lyrics-duration");
+        this.lyricsPlayBtn = document.getElementById("lyrics-play-btn");
+        this.lyricsPlayIcon = document.getElementById("lyrics-play-icon");
+        this.lyricsPauseIcon = document.getElementById("lyrics-pause-icon");
+        this.lyricsPrevBtn = document.getElementById("lyrics-prev-btn");
+        this.lyricsNextBtn = document.getElementById("lyrics-next-btn");
+      }
+
       initEventListeners() {
         // Main controls
         if (this.playBtn)
