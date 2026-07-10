@@ -43,7 +43,7 @@ function PhotoImage({ src, alt }: { src: string; alt: string }) {
   );
 }
 
-function PolaroidStack({ images, onClick }: { images: string[]; onClick: (idx: number) => void }) {
+function PolaroidStack({ images, onClick }: { images: string[]; onClick?: (idx: number) => void }) {
   const rotations = [-6, -2, 3, 7, -4, 5, -3, 2, -5, 4];
   const offsets = [
     { x: 0, y: 0 },
@@ -62,10 +62,9 @@ function PolaroidStack({ images, onClick }: { images: string[]; onClick: (idx: n
         const scale = 1 - i * 0.03;
 
         return (
-          <button
+          <div
             key={i}
-            onClick={() => onClick(i)}
-            className="absolute cursor-pointer transition-all duration-300 hover:!z-50 hover:scale-110"
+            className="absolute pointer-events-none"
             style={{
               left: `${off.x}px`,
               top: `${off.y}px`,
@@ -77,7 +76,7 @@ function PolaroidStack({ images, onClick }: { images: string[]; onClick: (idx: n
             <div className="bg-white rounded-sm shadow-lg overflow-hidden" style={{ width: '160px', padding: '8px 8px 28px 8px' }}>
               <img src={src} alt="" className="w-full h-28 object-cover rounded-sm" loading="lazy" />
             </div>
-          </button>
+          </div>
         );
       })}
     </div>
@@ -236,7 +235,7 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
                 {allImages.length > 0 && (
                   <div className="px-5 pb-5 overflow-visible">
                     <div className="relative w-full overflow-visible" style={{ minHeight: '200px' }}>
-                      <PolaroidStack images={allImages} onClick={() => {}} />
+                      <PolaroidStack images={allImages} />
                     </div>
                   </div>
                 )}
