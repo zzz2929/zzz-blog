@@ -1552,40 +1552,38 @@ const playlists = playlistModules.map((p) => ({
   </style>
 
   <!-- Music Data Container -->
-  <div
-    id="music-data"
-    data-music={JSON.stringify(musicData)}
-    data-playlists={JSON.stringify(playlists)}
-    data-t-not-playing={t('music.notPlaying')}
-    data-t-select-song={t('music.selectSong')}
-    data-t-no-lyrics={t('music.noLyrics')}
-    data-t-unknown-album={t('music.unknownAlbum')}
-    data-t-empty-playlist="播放列表为空"
-    data-t-remove-from-list="从列表移除"
-    data-t-single-loop="单曲循环"
-    data-t-shuffle-play="随机播放"
-    data-t-play-mode="顺序播放"
-    style="display: none;"
-  >
-  </div>
+  <div id="music-data" style="display: none;"></div>
+
+  <script is:inline define:vars={{ musicDataJSON: JSON.stringify(musicData), playlistsJSON: JSON.stringify(playlists), notPlaying: t('music.notPlaying'), selectSong: t('music.selectSong'), noLyrics: t('music.noLyrics'), unknownAlbum: t('music.unknownAlbum') }}>
+    window.__MUSIC_DATA__ = JSON.parse(musicDataJSON);
+    window.__PLAYLISTS__ = JSON.parse(playlistsJSON);
+    window.__MUSIC_T__ = {
+      notPlaying: notPlaying,
+      selectSong: selectSong,
+      noLyrics: noLyrics,
+      unknownAlbum: unknownAlbum,
+      emptyPlaylist: '播放列表为空',
+      removeFromList: '从列表移除',
+      singleLoop: '单曲循环',
+      shufflePlay: '随机播放',
+      playMode: '顺序播放',
+    };
+  </script>
 
   <script is:inline>
-    const dataEl = document.getElementById("music-data");
-    const T = {
-      notPlaying: dataEl?.dataset.tNotPlaying || '未播放',
-      selectSong: dataEl?.dataset.tSelectSong || '选择歌曲开始播放',
-      noLyrics: dataEl?.dataset.tNoLyrics || '暂无歌词',
-      unknownAlbum: dataEl?.dataset.tUnknownAlbum || '未知专辑',
-      emptyPlaylist: dataEl?.dataset.tEmptyPlaylist || '播放列表为空',
-      removeFromList: dataEl?.dataset.tRemoveFromList || '从列表移除',
-      singleLoop: dataEl?.dataset.tSingleLoop || '单曲循环',
-      shufflePlay: dataEl?.dataset.tShufflePlay || '随机播放',
-      playMode: dataEl?.dataset.tPlayMode || '顺序播放',
+    const T = window.__MUSIC_T__ || {
+      notPlaying: '未播放',
+      selectSong: '选择歌曲开始播放',
+      noLyrics: '暂无歌词',
+      unknownAlbum: '未知专辑',
+      emptyPlaylist: '播放列表为空',
+      removeFromList: '从列表移除',
+      singleLoop: '单曲循环',
+      shufflePlay: '随机播放',
+      playMode: '顺序播放',
     };
 
-    const MUSIC_DATA = JSON.parse(
-      document.getElementById("music-data").dataset.music,
-    );
+    const MUSIC_DATA = window.__MUSIC_DATA__ || [];
 
     class MusicPlayer {
       constructor() {
@@ -1612,79 +1610,6 @@ const playlists = playlistModules.map((p) => ({
 
         // Restore saved state after all data is loaded
         setTimeout(() => this.restoreSavedState(), 100);
-      }
-
-      initElements() {
-        // Main player elements (may not exist)
-        this.playBtn = document.getElementById("play-btn");
-        this.playIcon = document.getElementById("play-icon");
-        this.pauseIcon = document.getElementById("pause-icon");
-        this.prevBtn = document.getElementById("prev-btn");
-        this.nextBtn = document.getElementById("next-btn");
-        this.muteBtn = document.getElementById("mute-btn");
-        this.modeBtn = document.getElementById("fixed-mode-btn");
-        this.volumeSlider = document.getElementById("volume-slider");
-        this.progressBar = document.querySelector(".progress-bar");
-        this.progress = document.getElementById("progress");
-        this.currentTimeEl = document.getElementById("current-time");
-        this.durationEl = document.getElementById("duration");
-        this.songTitle = document.getElementById("song-title");
-        this.songArtist = document.getElementById("song-artist");
-        this.songAlbum = document.getElementById("song-album");
-        this.albumCover = document.getElementById("album-cover");
-        this.playlistEl = document.getElementById("playlist");
-
-        this.lyricsEl = document.getElementById("lyrics");
-        this.vinylRecord = document.getElementById("vinyl-record");
-        this.tonearm = document.querySelector(".player");
-
-        // Tab panel elements
-        this.tabPlaylistBtn = document.getElementById("tab-playlist-btn");
-        this.tabLyricsBtn = document.getElementById("tab-lyrics-btn");
-        this.playlistTab = document.getElementById("playlist-tab");
-        this.lyricsTab = document.getElementById("lyrics-tab");
-
-        // Fixed controls
-        this.fixedAlbumCover = document.getElementById("fixed-album-cover");
-        this.fixedSongTitle = document.getElementById("fixed-song-title");
-        this.fixedSongArtist = document.getElementById("fixed-song-artist");
-        this.fixedPlayBtn = document.getElementById("fixed-play-btn");
-        this.fixedPlayIcon = document.getElementById("fixed-play-icon");
-        this.fixedPauseIcon = document.getElementById("fixed-pause-icon");
-        this.fixedPrevBtn = document.getElementById("fixed-prev-btn");
-        this.fixedNextBtn = document.getElementById("fixed-next-btn");
-        this.fixedMuteBtn = document.getElementById("fixed-mute-btn");
-        this.fixedVolumeSlider = document.getElementById("fixed-volume-slider");
-        this.fixedProgress = document.getElementById("fixed-progress");
-        this.fixedProgressBar = document.getElementById("fixed-progress-bar");
-        this.fixedCurrentTime = document.getElementById("fixed-current-time");
-        this.fixedDuration = document.getElementById("fixed-duration");
-
-        // Fullscreen lyrics
-        this.fullscreenLyrics = document.getElementById("fullscreen-lyrics");
-        this.fullscreenBtn = document.getElementById("fullscreen-lyrics-btn");
-        this.closeFullscreenBtn = document.getElementById("close-fullscreen");
-        this.lyricsBackground = document.getElementById("lyrics-background");
-        this.lyricsAlbumCover = document.getElementById("lyrics-album-cover");
-        this.lyricsSongTitle = document.getElementById("lyrics-song-title");
-        this.lyricsSongArtist = document.getElementById("lyrics-song-artist");
-        this.lyricsScrollContainer = document.getElementById(
-          "lyrics-scroll-container",
-        );
-        this.fullscreenLyricsContent = document.getElementById(
-          "fullscreen-lyrics-content",
-        );
-        this.lyricsProgress = document.getElementById("lyrics-progress");
-        this.lyricsCurrentTime = document.getElementById("lyrics-current-time");
-        this.lyricsDuration = document.getElementById("lyrics-duration");
-        this.lyricsPlayBtn = document.getElementById("lyrics-play-btn");
-        this.lyricsPlayIcon = document.getElementById("lyrics-play-icon");
-        this.lyricsPauseIcon = document.getElementById("lyrics-pause-icon");
-        this.lyricsPrevBtn = document.getElementById("lyrics-prev-btn");
-        this.lyricsNextBtn = document.getElementById("lyrics-next-btn");
-
-        // Restore saved state if available
-        this.restoreSavedState();
       }
 
       initEventListeners() {
@@ -1846,6 +1771,25 @@ const playlists = playlistModules.map((p) => ({
 
         // Sync state before leaving the page
         window.addEventListener("beforeunload", () => this.syncMiniPlayer());
+
+        // Handle page visibility changes - restore playback when page becomes visible again
+        document.addEventListener("visibilitychange", () => {
+          if (!document.hidden && this.isPlaying) {
+            // Page became visible while playing
+            const retryPlay = () => {
+              this.audio.play().then(() => {
+                this.isPlaying = true;
+                this.updatePlayButton();
+              }).catch((e) => {
+                console.log("Auto-play blocked, updating UI to reflect paused state");
+                this.isPlaying = false;
+                this.updatePlayButton();
+              });
+            };
+            // Small delay to ensure the page is fully ready
+            setTimeout(retryPlay, 300);
+          }
+        });
       }
 
       // ====== Data Loading ======
@@ -1877,60 +1821,91 @@ const playlists = playlistModules.map((p) => ({
 
           const state = JSON.parse(savedState);
 
-          // Set playlist and current song
-          if (state.playlist && Array.isArray(state.playlist)) {
-            this.playlist = state.playlist;
-            this.currentIndex = state.index || 0;
+          // Check if the saved state is recent (within last 30 seconds)
+          const now = Date.now();
+          if (state.timestamp && now - state.timestamp > 30000) {
+            console.log("Saved state is too old, skipping restoration");
+            return;
+          }
 
-            // Load the saved song
-            if (this.currentIndex < this.playlist.length) {
+          // Only restore if we have a valid playlist in saved state
+          if (state.playlist && Array.isArray(state.playlist) && state.playlist.length > 0) {
+            // Find the current song in the current playlist
+            if (state.index < this.playlist.length && this.playlist[state.index]?.url === state.playlist[state.index]?.url) {
+              // Song is still in the playlist, restore directly
+              this.currentIndex = state.index;
               this.loadSong(this.currentIndex);
-
-              // Set saved playback state
-              if (state.currentTime) {
-                this.audio.currentTime = state.currentTime;
-              }
-
-              if (state.volume !== undefined) {
-                this.volume = state.volume;
-                this.audio.volume = state.volume / 100;
-                this.updateVolumeIcon();
-                if (this.fixedVolumeSlider) {
-                  this.fixedVolumeSlider.value = state.volume;
+            } else {
+              // Try to find the song in the current playlist
+              let found = false;
+              for (let i = 0; i < this.playlist.length; i++) {
+                if (this.playlist[i].url === state.playlist[state.index]?.url) {
+                  this.currentIndex = i;
+                  this.loadSong(this.currentIndex);
+                  found = true;
+                  break;
                 }
               }
+              if (!found) {
+                // If song not found, restore playlist from saved state
+                this.playlist = state.playlist;
+                this.currentIndex = 0;
+                this.loadSong(0);
+              }
+            }
 
-              // Restore play state
-              if (state.isPlaying) {
+            // Set saved volume first to ensure correct audio level
+            if (state.volume !== undefined) {
+              this.volume = state.volume;
+              this.audio.volume = state.volume / 100;
+              this.updateVolumeIcon();
+              if (this.fixedVolumeSlider) {
+                this.fixedVolumeSlider.value = state.volume;
+              }
+            }
+
+            // Set saved playback state - use a more robust approach
+            if (state.isPlaying) {
+              const playWithRetry = () => {
                 this.audio.play().then(() => {
                   this.isPlaying = true;
                   this.updatePlayButton();
                 }).catch((e) => {
                   console.error("Failed to restore playback:", e);
+                  // If it fails, pause and update UI to reflect actual state
+                  this.isPlaying = false;
+                  this.updatePlayButton();
                 });
-              }
-
-              // Update UI
-              this.renderPlaylist();
-              this.updatePlayButton();
-              this.updateDuration();
-              this.updateProgress();
-
-              // Sync with mini player
-              this.syncMiniPlayer();
+              };
+              // Small delay to ensure audio is loaded
+              setTimeout(playWithRetry, 500);
             }
+
+            // Set current time after ensuring the song is loaded
+            if (state.currentTime) {
+              setTimeout(() => {
+                this.audio.currentTime = state.currentTime;
+              }, 100);
+            }
+
+            // Update UI
+            this.renderPlaylist();
+            this.updateDuration();
+            this.updateProgress();
+
+            // Sync with mini player
+            this.syncMiniPlayer();
           }
         } catch (e) {
           console.error("Failed to restore state:", e);
+          // Clear any invalid saved state
+          sessionStorage.removeItem("mini-player-state");
         }
       }
 
       loadPlaylists() {
         try {
-          const data = JSON.parse(
-            document.getElementById("music-data").dataset.playlists || "[]",
-          );
-          if (Array.isArray(data)) this.playlists = data;
+          this.playlists = window.__PLAYLISTS__ || [];
         } catch (e) {
           this.playlists = [];
         }
@@ -2308,26 +2283,28 @@ const playlists = playlistModules.map((p) => ({
         const song = this.playlist[this.currentIndex];
         if (!song) return;
         try {
-          sessionStorage.setItem(
-            "mini-player-state",
-            JSON.stringify({
-              title: song.title,
-              artist: song.artist,
-              cover: song.cover,
-              url: song.url,
-              playlist: this.playlist.map((s) => ({
-                title: s.title,
-                artist: s.artist,
-                cover: s.cover,
-                url: s.url,
-              })),
-              index: this.currentIndex,
-              currentTime: this.audio.currentTime,
-              isPlaying: this.isPlaying,
-              volume: this.audio.volume,
-            }),
-          );
-        } catch {}
+          const state = {
+            title: song.title,
+            artist: song.artist,
+            cover: song.cover,
+            url: song.url,
+            playlist: this.playlist.map((s) => ({
+              title: s.title,
+              artist: s.artist,
+              cover: s.cover,
+              url: s.url,
+            })),
+            index: this.currentIndex,
+            currentTime: this.audio.currentTime,
+            isPlaying: this.isPlaying,
+            volume: this.volume, // Use saved volume instead of audio.volume which might be affected by mute
+            playMode: this.playMode,
+            timestamp: Date.now(), // Add timestamp to help detect stale state
+          };
+          sessionStorage.setItem("mini-player-state", JSON.stringify(state));
+        } catch (e) {
+          console.error("Failed to sync mini player state:", e);
+        }
       }
 
       // ====== Background & Colors ======
