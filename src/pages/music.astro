@@ -1886,7 +1886,7 @@ const playlists = playlistModules.map((p) => ({
       // ====== State Restoration ======
       restoreSavedState() {
         try {
-          const savedState = sessionStorage.getItem("mini-player-state");
+          const savedState = localStorage.getItem("mini-player-state");
           if (!savedState) return;
 
           const state = JSON.parse(savedState);
@@ -1969,7 +1969,7 @@ const playlists = playlistModules.map((p) => ({
         } catch (e) {
           console.error("Failed to restore state:", e);
           // Clear any invalid saved state
-          sessionStorage.removeItem("mini-player-state");
+          localStorage.removeItem("mini-player-state");
         }
       }
 
@@ -2371,7 +2371,7 @@ const playlists = playlistModules.map((p) => ({
             playMode: this.playMode,
             timestamp: Date.now(), // Add timestamp to help detect stale state
           };
-          sessionStorage.setItem("mini-player-state", JSON.stringify(state));
+          localStorage.setItem("mini-player-state", JSON.stringify(state));
         } catch (e) {
           console.error("Failed to sync mini player state:", e);
         }
