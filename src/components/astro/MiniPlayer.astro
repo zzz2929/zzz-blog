@@ -339,7 +339,7 @@ const t = useTranslations(locale);
           index: state.index,
           currentTime: audio.currentTime,
           isPlaying: !audio.paused,
-          volume: audio.volume,
+          volume: audio.volume * 100,
         }),
       );
     }
