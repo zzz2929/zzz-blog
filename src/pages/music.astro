@@ -1592,7 +1592,7 @@ const playlists = playlistModules.map((p) => ({
         this.currentIndex = 0;
         this.isPlaying = false;
         this.playMode = 0; // 0=sequential, 1=single loop, 2=shuffle
-        this.volume = 50;
+        this.volume = 80;
         this.lyrics = [];
         this.translations = [];
         this.isFullscreen = false;
@@ -1891,22 +1891,18 @@ const playlists = playlistModules.map((p) => ({
 
           const state = JSON.parse(savedState);
 
-          // Check if the saved state is recent (within last 30 seconds)
-          const now = Date.now();
-          if (state.timestamp && now - state.timestamp > 30000) {
-            console.log("Saved state is too old, skipping restoration");
-            return;
-          }
-
           // Only restore if we have a valid playlist in saved state
           if (state.playlist && Array.isArray(state.playlist) && state.playlist.length > 0) {
+            // Restore volume first
+            if (state.volume !== undefined) {
+              this.volume = state.volume;
+            }
+
             // Find the current song in the current playlist
             if (state.index < this.playlist.length && this.playlist[state.index]?.url === state.playlist[state.index]?.url) {
-              // Song is still in the playlist, restore directly
               this.currentIndex = state.index;
               this.loadSong(this.currentIndex);
             } else {
-              // Try to find the song in the current playlist
               let found = false;
               for (let i = 0; i < this.playlist.length; i++) {
                 if (this.playlist[i].url === state.playlist[state.index]?.url) {
@@ -1917,21 +1913,17 @@ const playlists = playlistModules.map((p) => ({
                 }
               }
               if (!found) {
-                // If song not found, restore playlist from saved state
                 this.playlist = state.playlist;
                 this.currentIndex = 0;
                 this.loadSong(0);
               }
             }
 
-            // Set saved volume first to ensure correct audio level
-            if (state.volume !== undefined) {
-              this.volume = state.volume;
-              this.audio.volume = state.volume / 100;
-              this.updateVolumeIcon();
-              if (this.fixedVolumeSlider) {
-                this.fixedVolumeSlider.value = state.volume;
-              }
+            // Apply volume after loadSong (audio.src resets volume to 1.0)
+            this.audio.volume = this.volume / 100;
+            this.updateVolumeIcon();
+            if (this.fixedVolumeSlider) {
+              this.fixedVolumeSlider.value = this.volume;
             }
 
             // Set saved playback state - use a more robust approach
