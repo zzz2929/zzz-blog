@@ -364,6 +364,7 @@ const t = useTranslations(locale);
     }
 
     function init() {
+      console.log("[MiniPlayer] init called");
       audio = new Audio();
       state = {
         title: "",
@@ -394,7 +395,9 @@ const t = useTranslations(locale);
 
       // Restore state
       const saved = loadState();
+      console.log("[MiniPlayer] saved state:", saved);
       if (saved && saved.url) {
+        console.log("[MiniPlayer] restoring state, showing player");
         state.title = saved.title || "";
         state.artist = saved.artist || "";
         state.cover = saved.cover || "/音乐.svg";
@@ -402,9 +405,16 @@ const t = useTranslations(locale);
         state.playlist = saved.playlist || [];
         state.index = saved.index || 0;
         audio.src = saved.url;
-        audio.volume = saved.volume ?? 0.8;
+        audio.volume = (saved.volume ?? 80) / 100;
         updateDisplay();
-        elements.player.classList.remove("hidden");
+        console.log("[MiniPlayer] elements.player:", elements.player);
+        if (elements.player) {
+          elements.player.classList.remove("hidden");
+          elements.player.style.display = "";
+          console.log("[MiniPlayer] player shown, url:", state.url);
+        } else {
+          console.error("[MiniPlayer] player element not found!");
+        }
         audio.addEventListener(
           "loadedmetadata",
           () => {
@@ -499,7 +509,7 @@ const t = useTranslations(locale);
         state.playlist = s.playlist;
         state.index = s.index;
         audio.src = s.url;
-        audio.volume = s.volume ?? 0.8;
+        audio.volume = (s.volume ?? 80) / 100;
         updateDisplay();
         audio.addEventListener(
           "loadedmetadata",
