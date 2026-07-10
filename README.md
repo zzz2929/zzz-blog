@@ -9,6 +9,7 @@
 | 框架     | Astro               | ^6.4.8  |
 | 交互     | React               | ^19.2.7 |
 | 样式     | Tailwind CSS        | ^4.3.0  |
+| 动画     | Framer Motion       | ^12.42  |
 | 图标     | Lucide React        | ^1.17.0 |
 | 评论     | Waline              | ^3.15.0 |
 | 搜索     | Pagefind            | ^1.5.2  |
@@ -24,7 +25,7 @@
 # 安装依赖
 pnpm install
 
-# 构建生产版本
+# 构建生产版本（自动获取浏览量数据）
 pnpm build
 
 # 开发服务器（localhost:4321）
@@ -32,6 +33,9 @@ pnpm dev
 
 # 预览构建结果
 pnpm preview
+
+# 更新追番 TMDB 数据
+node scripts/fetch-tmdb.mjs
 ```
 
 ## 项目结构
@@ -44,9 +48,8 @@ src/
 │   ├── blog/                  # 博客文章（Markdown）
 │   └── data/                  # 结构化数据（YAML/JSON）
 │       ├── about.json         # 个人信息
-│       ├── album-*.yml        # 相册数据
-│       ├── bangumis.json      # 追番数据
-│       ├── bangumi-tmdb.json  # TMDB 元数据
+│       ├── album-*.yml        # 相册数据（嵌套分组结构）
+│       ├── bangumis.json      # 追番数据（含 TMDB 元数据）
 │       ├── equipment.yml      # 装备展示
 │       ├── essay.yml          # 随笔/闲言碎语
 │       ├── friends-*.yml      # 友链
@@ -72,7 +75,9 @@ src/
 │       ├── ThemeToggle.tsx     # 暗色模式切换开关
 │       ├── BangumiList.tsx     # 追番列表
 │       ├── Gallery.tsx         # PhotoSwipe 图片灯箱
-│       └── PhotoAlbum.tsx      # 相册浏览器（瀑布流）
+│       ├── PhotoAlbum.tsx      # 相册浏览器（瀑布流）
+│       ├── Polaroid.tsx        # 拍立得卡片（Framer Motion 动画）
+│       └── PolaroidGallery.tsx # 拍立得堆叠画廊
 ├── i18n/                      # 国际化翻译文件
 │   ├── index.ts               # useTranslations / getLocaleFromURL
 │   ├── zh-CN.json             # 简体中文
@@ -96,6 +101,9 @@ src/
 │   └── zh-TW/                 # 繁体中文路由
 ├── styles/
 │   └── global.css             # 全局样式系统
+├── scripts/
+│   ├── fetch-tmdb.mjs         # 追番 TMDB 数据抓取脚本
+│   └── fetch-view-counts.mjs  # 文章浏览量预获取脚本
 └── content.config.ts          # Content Collections schema
 ```
 
@@ -124,6 +132,8 @@ src/
 ```
 
 ### 在组件中使用
+
+Astro 组件：
 
 ```astro
 ---
@@ -168,6 +178,7 @@ description: 旅行与游玩照片   # 描述
 cover: https://...jpg         # 封面图
 album_list:
 - album_name: 泰山            # 分组名（父级字段）
+  description: 19岁征服泰山   # 分组介绍
   items:                      # 该分组下的照片列表
   - date: 2022-10-24
     content: 19岁生日征服泰山😎🥳
@@ -178,6 +189,7 @@ album_list:
     image:
     - https://...jpg
 - album_name: 聚会
+  description: 和朋友们的聚会时光
   items:
   - date: 2024-12-31
     content: 跨年聚会
@@ -187,19 +199,44 @@ album_list:
 
 ### 增删改查
 
-- **新增分组**：添加 `- album_name: xxx` + `items` 列表
+- **新增分组**：添加 `- album_name: xxx` + `description` + `items` 列表
 - **删除分组**：移除整个 `- album_name: xxx` 块
 - **新增照片**：在对应分组的 `items` 下追加
 - **删除照片**：从 `items` 中移除某条
 - **修改照片**：编辑 `date`、`content`、`image` 字段
+- **修改介绍**：编辑 `description` 字段
 
 ### 页面交互
 
 1. **相册列表** → 点击进入相册集
-2. **相册详情** → 按 `album_name` 分组显示，每组带拍立得堆叠预览
+2. **相册详情** → 按 `album_name` 分组显示，每组带拍立得堆叠预览（Framer Motion 动画）
 3. **点击分组** → 进入该分组的瀑布流布局（响应式 3/2/1 列）
 4. **点击照片** → PhotoSwipe 灯箱放大查看
 5. **返回按钮** → 回到上一层
+
+---
+
+## 追番系统
+
+### 数据结构
+
+追番数据位于 `src/content/data/bangumis.json`，已合并 TMDB 元数据：
+
+```json
+{
+  "wantWatch": [{ "title": "...", "cover": "...", "tmdb": { ... } }],
+  "watching":  [{ "title": "...", "cover": "...", "tmdb": { ... } }],
+  "watched":   [{ "title": "...", "cover": "...", "tmdb": { ... } }]
+}
+```
+
+### 更新 TMDB 数据
+
+```bash
+node scripts/fetch-tmdb.mjs
+```
+
+脚本会自动搜索 TMDB API，为每个番剧补充评分、简介、类型、季数等信息，直接写回 `bangumis.json`。需要 `TMDB_API_KEY` 环境变量（有内置 fallback）。
 
 ---
 
@@ -229,6 +266,36 @@ const photoswipeConfig: PhotoSwipeOptions = {
   },
 };
 ```
+
+---
+
+## 音乐馆
+
+### 歌单文件
+
+`src/content/data/playlists/*.json`，每个文件一个歌单：
+
+```json
+{
+  "name": "歌单名称",
+  "cover": "封面图URL",
+  "songs": [
+    {
+      "name": "歌曲名",
+      "artist": "歌手",
+      "url": "音频URL",
+      "lrc": "歌词URL",
+      "pic": "封面URL"
+    }
+  ]
+}
+```
+
+### 跨页面播放
+
+- 音乐页面播放状态通过 `localStorage` 同步到 MiniPlayer
+- MiniPlayer 在非音乐页面左下角显示，支持播放/暂停/上下首/进度条
+- 音量范围 0-100，默认 80%
 
 ---
 
@@ -316,6 +383,15 @@ border-color: rgba(255,255,255,0.08);
 - "开往"渐变按钮
 - 设置按钮：深色模式切换 + 莫奈色系选择器 + 语言切换（zh-CN / en / zh-TW）
 
+### PolaroidGallery（拍立得画廊）
+
+基于 [RyuChan](https://github.com/kobaridev/RyuChan) 的拍立得组件：
+
+- 每张拍立得有白色边框（底部加厚），模拟真实拍立得照片
+- 入场动画：Framer Motion spring 动画依次弹入
+- Hover 效果：卡片放大 1.2 倍、旋转归零、层级提到最上层
+- 支持 4 种比例变体（1x1、4x3、4x5、9x16）
+
 ### SortFilterPosts（排序筛选）
 
 React 组件（`client:only="react"`），支持 i18n：
@@ -328,56 +404,24 @@ React 组件（`client:only="react"`），支持 i18n：
 
 ---
 
-## 数据文件格式
+## 构建脚本
 
-### 博客文章 `src/content/blog/*.md`
+### `scripts/fetch-tmdb.mjs`
 
-```yaml
----
-title: 文章标题
-date: 2025-01-01
-categories: [技术]
-tags: [Astro, Tailwind]
-cover: https://...jpg      # 可选
-description: SEO 描述      # 可选
----
-```
+追番页 TMDB 数据抓取脚本：
 
-### 相册 `src/content/data/album-{name}.yml`
+- 读取 `bangumis.json` 中所有番剧
+- 通过 TMDB API 搜索并获取元数据（评分、简介、类型、季数等）
+- 就地合并到 `bangumis.json` 的 `tmdb` 字段
+- 带重试和速率限制（250ms 间隔）
 
-```yaml
-class_name: 相册名
-path_name: /albumPath
-cover: https://...jpg
-description: 描述
-album_list:
-- album_name: 分组名
-  items:
-  - date: 2025-01-01
-    content: 照片描述
-    image: [https://...jpg]
-```
+### `scripts/fetch-view-counts.mjs`
 
-### 音乐馆
+文章浏览量预获取脚本（`pnpm build` 自动执行）：
 
-**歌单文件**：`src/content/data/playlists/*.json`
-
-```json
-{
-  "name": "歌单名称",
-  "cover": "封面图URL",
-  "songs": [
-    {
-      "name": "歌曲名",
-      "album": "专辑",
-      "artist": "歌手",
-      "url": "音频URL",
-      "lrc": "歌词URL",
-      "pic": "封面URL"
-    }
-  ]
-}
-```
+- 扫描 `src/content/blog/` 下所有文章
+- 批量调用 vercount API 获取 PV 数据
+- 输出到 `src/content/data/view-counts.json`
 
 ---
 
