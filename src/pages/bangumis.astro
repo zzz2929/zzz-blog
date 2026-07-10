@@ -17,12 +17,11 @@ try {
     .catch(() => null);
 } catch {}
 
-// Merge: use TMDB data if available, otherwise use original data
 function mergeList(original: any[], tmdbList: any[] | undefined) {
-  if (!tmdbList?.length) return original.map((i) => ({ ...i, tmdb: null }));
+  if (!tmdbList?.length) return original;
   return original.map((item) => {
     const tmdbItem = tmdbList.find((t: any) => t.title === item.title);
-    return { ...item, tmdb: tmdbItem?.tmdb || null };
+    return tmdbItem ? { ...item, tmdb: tmdbItem.tmdb } : item;
   });
 }
 
