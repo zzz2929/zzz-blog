@@ -1,122 +1,87 @@
 /**
- * Fetch bangumi data from TMDB.
+ * Fetch TMDB data for bangumis and merge into bangumis.json in-place.
  * Run: node scripts/fetch-tmdb.mjs
- * Requires env: TMDB_API_KEY
+ * Requires env: TMDB_API_KEY (optional, has fallback)
  */
-import { readFileSync, writeFileSync, existsSync } from 'fs';
+import { readFileSync, writeFileSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const API_KEY = process.env.TMDB_API_KEY || '402c4ffcbe4d46066a9e8e2afe6d80f1';
 const BASE = 'https://api.themoviedb.org/3';
-const IMG_BASE = 'https://image.tmdb.org/t/p';
+const IMG = 'https://image.tmdb.org/t/p/w500';
+const SLEEP = 250;
 
 const bangumisPath = join(__dirname, '../src/content/data/bangumis.json');
-const mapPath = join(__dirname, '../src/content/data/bangumi-tmdb-map.json');
-const outputPath = join(__dirname, '../src/content/data/bangumi-tmdb.json');
-
 const bangumis = JSON.parse(readFileSync(bangumisPath, 'utf-8'));
-const existingMap = existsSync(mapPath) ? JSON.parse(readFileSync(mapPath, 'utf-8')) : {};
 
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
 
 async function searchTMDB(title) {
-  // Clean title: remove season/part info for better search
-  const cleanTitle = title
-    .replace(/\s*(第[一二三四五六七八九十\d]+季|Part\s*\d+|第\d+期|剧场版|OVA|OAD|特别篇|完结篇|始动篇).*$/i, '')
-    .trim();
-
-  const url = `${BASE}/search/tv?query=${encodeURIComponent(cleanTitle)}&api_key=${API_KEY}&language=zh-CN&include_adult=false`;
-  const res = await fetch(url);
+  const clean = title.replace(/\s*(第[一二三四五六七八九十\d]+季|Part\s*\d+|第\d+期|剧场版|OVA|OAD|特别篇|完结篇|始动篇).*$/i, '').trim();
+  const res = await fetch(`${BASE}/search/tv?query=${encodeURIComponent(clean)}&api_key=${API_KEY}&language=zh-CN&include_adult=false`);
   if (!res.ok) return null;
   const data = await res.json();
   if (!data.results?.length) return null;
-
-  // Find best match (prefer Japanese animation)
-  const best = data.results.find(r => r.origin_country?.includes('JP')) || data.results[0];
-  return best.id;
+  return (data.results.find(r => r.origin_country?.includes('JP')) || data.results[0]).id;
 }
 
 async function getDetails(tmdbId) {
-  const url = `${BASE}/tv/${tmdbId}?api_key=${API_KEY}&language=zh-CN`;
-  const res = await fetch(url);
+  const res = await fetch(`${BASE}/tv/${tmdbId}?api_key=${API_KEY}&language=zh-CN`);
   if (!res.ok) return null;
-  const data = await res.json();
+  const d = await res.json();
   return {
-    tmdbId: data.id,
-    name: data.name,
-    originalName: data.original_name,
-    overview: data.overview?.slice(0, 200) || '',
-    poster: data.poster_path ? `${IMG_BASE}/w500${data.poster_path}` : null,
-    backdrop: data.backdrop_path ? `${IMG_BASE}/w780${data.backdrop_path}` : null,
-    rating: data.vote_average || 0,
-    voteCount: data.vote_count || 0,
-    firstAirDate: data.first_air_date || '',
-    numberOfSeasons: data.number_of_seasons || 0,
-    numberOfEpisodes: data.number_of_episodes || 0,
-    genres: (data.genres || []).map(g => g.name),
-    status: data.status || '',
+    tmdbId: d.id,
+    name: d.name,
+    originalName: d.original_name,
+    overview: d.overview?.slice(0, 200) || '',
+    poster: d.poster_path ? `${IMG}${d.poster_path}` : null,
+    rating: d.vote_average || 0,
+    firstAirDate: d.first_air_date || '',
+    numberOfSeasons: d.number_of_seasons || 0,
+    numberOfEpisodes: d.number_of_episodes || 0,
+    genres: (d.genres || []).map(g => g.name),
+    status: d.status || '',
   };
 }
 
-async function main() {
-  console.log('Fetching TMDB data for bangumis...');
-
-  const allItems = [
-    ...bangumis.watching.map(i => ({ ...i, list: 'watching' })),
-    ...bangumis.watched.map(i => ({ ...i, list: 'watched' })),
-  ];
-
-  const map = { ...existingMap };
-  const results = [];
-  let fetched = 0;
-  let cached = 0;
-
-  for (const item of allItems) {
-    const title = item.title;
-
-    // Get or find TMDB ID
-    let tmdbId = map[title];
-    if (!tmdbId) {
-      console.log(`  Searching: ${title}`);
-      tmdbId = await searchTMDB(title);
-      if (tmdbId) {
-        map[title] = tmdbId;
-        console.log(`    Found: TMDB ID ${tmdbId}`);
-      } else {
-        console.log(`    Not found`);
-        results.push({ ...item, tmdb: null });
-        await sleep(250);
-        continue;
-      }
-      await sleep(250); // Rate limit
+async function processList(list) {
+  let fetched = 0, cached = 0;
+  for (const item of list) {
+    if (!item.tmdb?.tmdbId) {
+      console.log(`  Searching: ${item.title}`);
+      const id = await searchTMDB(item.title);
+      await sleep(SLEEP);
+      if (!id) { item.tmdb = null; continue; }
+      item.tmdb = { tmdbId: id };
+      console.log(`    Found: ${id}`);
     }
-
-    // Fetch details
-    console.log(`  Fetching details: ${title} (ID: ${tmdbId})`);
-    const details = await getDetails(tmdbId);
-    if (details) {
-      results.push({ ...item, tmdb: details });
+    if (item.tmdb?.tmdbId && !item.tmdb.name) {
+      console.log(`  Fetching: ${item.title} (${item.tmdb.tmdbId})`);
+      const details = await getDetails(item.tmdb.tmdbId);
+      item.tmdb = details || { tmdbId: item.tmdb.tmdbId };
       fetched++;
-    } else {
-      results.push({ ...item, tmdb: null });
+      await sleep(SLEEP);
     }
     cached++;
-    await sleep(250); // Rate limit
+  }
+  return { fetched, cached };
+}
+
+async function main() {
+  console.log('Fetching TMDB data...\n');
+
+  for (const key of ['wantWatch', 'watching', 'watched']) {
+    const list = bangumis[key] || [];
+    if (!list.length) continue;
+    console.log(`[${key}] (${list.length} items)`);
+    const { fetched, cached } = await processList(list);
+    console.log(`  Done: ${fetched} fetched, ${cached - fetched} skipped\n`);
   }
 
-  // Save mapping
-  writeFileSync(mapPath, JSON.stringify(map, null, 2), 'utf-8');
-  console.log(`\nSaved TMDB mapping: ${Object.keys(map).length} entries`);
-
-  // Save results
-  const output = {
-    watching: results.filter(r => r.list === 'watching'),
-    watched: results.filter(r => r.list === 'watched'),
-  };
-  writeFileSync(outputPath, JSON.stringify(output, null, 2), 'utf-8');
-  console.log(`Saved TMDB data: ${results.length} items (${fetched} fetched, ${cached - fetched} from cache)`);
+  writeFileSync(bangumisPath, JSON.stringify(bangumis, null, 2));
+  console.log('Saved bangumis.json');
 }
 
 main().catch(console.error);
