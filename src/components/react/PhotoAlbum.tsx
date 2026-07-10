@@ -43,38 +43,43 @@ function PhotoImage({ src, alt }: { src: string; alt: string }) {
   );
 }
 
-function PolaroidStack({ images, onClick }: { images: string[]; onClick?: (idx: number) => void }) {
-  const rotations = [-6, -2, 3, 7, -4, 5, -3, 2, -5, 4];
-  const offsets = [
-    { x: 0, y: 0 },
-    { x: 12, y: -8 },
-    { x: 24, y: -4 },
-    { x: 36, y: 4 },
-    { x: 48, y: -2 },
+function PolaroidStack({ images }: { images: string[] }) {
+  const configs = [
+    { rot: -8, x: 0, y: 10, scale: 1 },
+    { rot: 4, x: 90, y: 0, scale: 0.95 },
+    { rot: -3, x: 170, y: 20, scale: 0.9 },
+    { rot: 7, x: 240, y: -5, scale: 0.88 },
+    { rot: -5, x: 310, y: 15, scale: 0.85 },
   ];
-  const visibleCount = Math.min(images.length, 5);
+  const visible = Math.min(images.length, 5);
 
   return (
-    <div className="relative" style={{ height: '200px' }}>
-      {images.slice(0, visibleCount).map((src, i) => {
-        const rot = rotations[i % rotations.length];
-        const off = offsets[i] || offsets[offsets.length - 1];
-        const scale = 1 - i * 0.03;
-
+    <div className="relative" style={{ height: '260px', minWidth: '400px' }}>
+      {images.slice(0, visible).map((src, i) => {
+        const c = configs[i] || configs[configs.length - 1];
         return (
           <div
             key={i}
             className="absolute pointer-events-none"
             style={{
-              left: `${off.x}px`,
-              top: `${off.y}px`,
-              transform: `rotate(${rot}deg) scale(${scale})`,
-              zIndex: visibleCount - i,
-              transformOrigin: 'center bottom',
+              left: `${c.x}px`,
+              top: `${c.y}px`,
+              transform: `rotate(${c.rot}deg) scale(${c.scale})`,
+              zIndex: visible - i,
+              transformOrigin: 'center center',
             }}
           >
-            <div className="bg-white rounded-sm shadow-lg overflow-hidden" style={{ width: '160px', padding: '8px 8px 28px 8px' }}>
-              <img src={src} alt="" className="w-full h-28 object-cover rounded-sm" loading="lazy" />
+            <div
+              className="bg-white shadow-xl"
+              style={{ width: '180px', padding: '8px 8px 32px 8px', borderRadius: '2px' }}
+            >
+              <img
+                src={src}
+                alt=""
+                className="w-full object-cover"
+                style={{ height: '180px', borderRadius: '1px' }}
+                loading="lazy"
+              />
             </div>
           </div>
         );
