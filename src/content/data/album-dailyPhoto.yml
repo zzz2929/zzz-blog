@@ -4,6 +4,7 @@ description: 生活琐事
 cover: https://imgbed.904002.xyz/file/img/blog/album/daily/七彩云.webp
 album_list:
 - album_name: 天空
+  description: 记录天空的美好瞬间
   items:
   - date: 2023-09-01
     content: 七彩祥云

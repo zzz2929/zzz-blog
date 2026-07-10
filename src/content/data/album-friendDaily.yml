@@ -4,12 +4,14 @@ description: 与'狐朋狗友'们的一些生活日常与有趣沙雕事。
 cover: https://imgbed.904002.xyz/file/img/blog/album/friend/跨年聚会.webp
 album_list:
 - album_name: 日常
+  description: 和朋友们的日常
   items:
   - date: 2025-06-16
     content: 偷感
     image:
     - https://imgbed.904002.xyz/file/img/blog/album/friend/偷感.webp
 - album_name: 聚会
+  description: 聚会时刻
   items:
   - date: 2024-12-31
     content: 跨年聚会

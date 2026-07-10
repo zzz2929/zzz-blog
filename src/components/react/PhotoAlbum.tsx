@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Images, Camera, ImageOff } from 'lucide-react';
 import Gallery from './Gallery';
+import PolaroidGallery from './PolaroidGallery';
 import { useTranslations } from '@/i18n';
 import type { Locale } from '@/i18n';
 
@@ -43,51 +44,6 @@ function PhotoImage({ src, alt }: { src: string; alt: string }) {
   );
 }
 
-function PolaroidStack({ images }: { images: string[] }) {
-  const configs = [
-    { rot: -8, x: 0, y: 10, scale: 1 },
-    { rot: 4, x: 90, y: 0, scale: 0.95 },
-    { rot: -3, x: 170, y: 20, scale: 0.9 },
-    { rot: 7, x: 240, y: -5, scale: 0.88 },
-    { rot: -5, x: 310, y: 15, scale: 0.85 },
-  ];
-  const visible = Math.min(images.length, 5);
-
-  return (
-    <div className="relative" style={{ height: '260px', minWidth: '400px' }}>
-      {images.slice(0, visible).map((src, i) => {
-        const c = configs[i] || configs[configs.length - 1];
-        return (
-          <div
-            key={i}
-            className="absolute pointer-events-none"
-            style={{
-              left: `${c.x}px`,
-              top: `${c.y}px`,
-              transform: `rotate(${c.rot}deg) scale(${c.scale})`,
-              zIndex: visible - i,
-              transformOrigin: 'center center',
-            }}
-          >
-            <div
-              className="bg-white shadow-xl"
-              style={{ width: '180px', padding: '8px 8px 32px 8px', borderRadius: '2px' }}
-            >
-              <img
-                src={src}
-                alt=""
-                className="w-full object-cover"
-                style={{ height: '180px', borderRadius: '1px' }}
-                loading="lazy"
-              />
-            </div>
-          </div>
-        );
-      })}
-    </div>
-  );
-}
-
 function useResponsiveCols() {
   const [colCount, setColCount] = useState(3);
   useEffect(() => {
@@ -110,6 +66,7 @@ interface PhotoItem {
 
 interface AlbumGroup {
   album_name: string;
+  description?: string;
   items: PhotoItem[];
 }
 
@@ -133,7 +90,7 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
 
   const currentAlbum = activeAlbum ? albums.find((a) => a.path_name === activeAlbum) : null;
 
-  // Waterfall view for a group
+  // Waterfall view
   if (activeGroup) {
     const items = activeGroup.group.items;
     const allImages = items.flatMap((item) =>
@@ -194,7 +151,7 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
     );
   }
 
-  // Album detail - group cards with polaroid
+  // Album detail - group cards with PolaroidGallery
   if (currentAlbum) {
     return (
       <div>
@@ -208,6 +165,7 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
           {currentAlbum.album_list.map((group) => {
             const allImages = group.items.flatMap((item) => item.image);
             const firstItem = group.items[0];
+            const polaroidImages = allImages.slice(0, 6).map((src) => ({ src, variant: '1x1' as const }));
 
             return (
               <button
@@ -223,25 +181,27 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
               >
                 <div className="p-5">
                   <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-lg font-bold text-foreground">{group.album_name}</h3>
+                    <div>
+                      <h3 className="text-lg font-bold text-foreground">{group.album_name}</h3>
+                      {group.description && (
+                        <p className="text-sm text-foreground-muted">{group.description}</p>
+                      )}
+                    </div>
                     {firstItem && (
                       <span className="text-xs text-foreground-muted whitespace-nowrap bg-foreground/5 px-3 py-1 rounded-full">
                         {formatDate(firstItem.date)}
                       </span>
                     )}
                   </div>
-                  {firstItem && <p className="text-sm text-foreground-muted mb-1">{firstItem.content}</p>}
                   {allImages.length > 0 && (
                     <span className="text-xs text-foreground-muted inline-flex items-center gap-1">
                       📷 {t('album.photoCount').replace('{count}', String(allImages.length))}
                     </span>
                   )}
                 </div>
-                {allImages.length > 0 && (
-                  <div className="px-5 pb-5 overflow-visible">
-                    <div className="relative w-full overflow-visible" style={{ minHeight: '200px' }}>
-                      <PolaroidStack images={allImages} />
-                    </div>
+                {polaroidImages.length > 0 && (
+                  <div className="px-4 pb-4 overflow-visible">
+                    <PolaroidGallery images={polaroidImages} />
                   </div>
                 )}
               </button>

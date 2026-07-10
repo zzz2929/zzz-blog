@@ -4,6 +4,7 @@ description: 这里存放自己的一些旅行与游玩照片
 cover: https://imgbed.904002.xyz/file/img/blog/album/travel/泰山日出.webp
 album_list:
 - album_name: 泰山
+  description: 19岁生日征服泰山
   items:
   - date: 2022-10-24
     content: 19岁生日征服泰山😎🥳
@@ -14,6 +15,7 @@ album_list:
     image:
     - https://imgbed.904002.xyz/file/img/blog/album/friend/偷感.webp
 - album_name: 聚会
+  description: 和朋友们的聚会时光
   items:
   - date: 2024-12-31
     content: 跨年聚会

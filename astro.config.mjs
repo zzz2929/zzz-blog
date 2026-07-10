@@ -74,7 +74,7 @@ export default defineConfig({
       },
     },
     optimizeDeps: {
-      exclude: ['photoswipe'],
+      exclude: ['photoswipe', 'framer-motion'],
     },
     server: {
       watch: {
