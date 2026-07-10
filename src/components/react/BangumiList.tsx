@@ -8,9 +8,7 @@ interface TMDBData {
   originalName: string;
   overview: string;
   poster: string | null;
-  backdrop: string | null;
   rating: number;
-  voteCount: number;
   firstAirDate: string;
   numberOfSeasons: number;
   numberOfEpisodes: number;
@@ -29,25 +27,28 @@ interface BangumiItem {
 }
 
 interface BangumiListProps {
+  wantWatch: BangumiItem[];
   watching: BangumiItem[];
   watched: BangumiItem[];
   locale?: Locale;
 }
 
-export default function BangumiList({ watching, watched, locale = 'zh-CN' }: BangumiListProps) {
+export default function BangumiList({ wantWatch, watching, watched, locale = 'zh-CN' }: BangumiListProps) {
   const t = useTranslations(locale);
-  const [tab, setTab] = useState<'all' | 'watching' | 'watched'>('all');
+  const [tab, setTab] = useState<'all' | 'wantWatch' | 'watching' | 'watched'>('all');
   const [search, setSearch] = useState('');
   const [genre, setGenre] = useState<string>('all');
-  const items = tab === 'all' ? [...watching, ...watched] : tab === 'watching' ? watching : watched;
+  const items = tab === 'all' ? [...wantWatch, ...watching, ...watched] :
+                tab === 'wantWatch' ? wantWatch :
+                tab === 'watching' ? watching : watched;
 
   const allGenres = useMemo(() => {
     const g = new Set<string>();
-    [...watching, ...watched].forEach(item => {
+    [...wantWatch, ...watching, ...watched].forEach(item => {
       item.tmdb?.genres?.forEach(genre => g.add(genre));
     });
     return ['all', ...Array.from(g).sort()];
-  }, [watching, watched]);
+  }, [wantWatch, watching, watched]);
 
   const filtered = useMemo(() => {
     let list = items;
@@ -78,7 +79,10 @@ export default function BangumiList({ watching, watched, locale = 'zh-CN' }: Ban
     <div>
       {/* Tabs */}
       <div className="flex gap-2 mb-4">
-        {([['all', t('bangumis.all'), watching.length + watched.length], ['watching', t('bangumis.watching'), watching.length], ['watched', t('bangumis.watched'), watched.length]] as const).map(([tabKey, label, count]) => (
+        {([['all', t('bangumis.all'), wantWatch.length + watching.length + watched.length],
+           ['wantWatch', t('bangumis.wantWatch'), wantWatch.length],
+           ['watching', t('bangumis.watching'), watching.length],
+           ['watched', t('bangumis.watched'), watched.length]] as const).map(([tabKey, label, count]) => (
           <button
             key={tabKey}
             onClick={() => setTab(tabKey as any)}

@@ -26,6 +26,7 @@ function mergeList(original: any[], tmdbList: any[] | undefined) {
   });
 }
 
+const wantWatch = mergeList(bangumisData.wantWatch || [], tmdbData?.wantWatch);
 const watching = mergeList(bangumisData.watching || [], tmdbData?.watching);
 const watched = mergeList(bangumisData.watched || [], tmdbData?.watched);
 ---
@@ -40,7 +41,7 @@ const watched = mergeList(bangumisData.watched || [], tmdbData?.watched);
       </p>
     </div>
 
-    <BangumiList client:only="react" watching={watching} watched={watched} locale={locale} />
+    <BangumiList client:only="react" wantWatch={wantWatch} watching={watching} watched={watched} locale={locale} />
   </main>
   <Footer />
 </BaseLayout>
