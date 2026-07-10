@@ -548,6 +548,11 @@ const t = useTranslations(locale);
       elements.player.classList.toggle("playing", playing);
     }
 
-    document.addEventListener("DOMContentLoaded", init);
+    // Run init immediately if DOM is ready, otherwise wait
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", init);
+    } else {
+      init();
+    }
   })();
 </script>
