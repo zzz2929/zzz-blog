@@ -131,5 +131,17 @@
     "music_bg": "https://p2.music.126.net/Mrg1i7DwcwjWBvQPIMt_Mg==/79164837213438.jpg",
     "music_link": "/music"
   },
+  "skills": [
+    { "name": "Astro", "icon": "https://imgbed.904002.xyz/file/img/blog/icon/skill/Astro.svg" },
+    { "name": "CSS3", "icon": "https://imgbed.904002.xyz/file/img/blog/icon/skill/CSS3.svg" },
+    { "name": "HTML", "icon": "https://imgbed.904002.xyz/file/img/blog/icon/skill/HTML.svg" },
+    { "name": "JavaScript", "icon": "https://imgbed.904002.xyz/file/img/blog/icon/skill/JavaScript.svg" },
+    { "name": "TypeScript", "icon": "https://imgbed.904002.xyz/file/img/blog/icon/skill/TypeScript.svg" },
+    { "name": "Docker", "icon": "https://imgbed.904002.xyz/file/img/blog/icon/skill/Docker.svg" },
+    { "name": "Photoshop", "icon": "https://imgbed.904002.xyz/file/img/blog/icon/skill/Photoshop.svg" },
+    { "name": "Python", "icon": "https://imgbed.904002.xyz/file/img/blog/icon/skill/Python.svg" },
+    { "name": "Git", "icon": "https://imgbed.904002.xyz/file/img/blog/icon/skill/Git.svg" },
+    { "name": "MySQL", "icon": "https://imgbed.904002.xyz/file/img/blog/icon/skill/MySQL.svg" }
+  ],
   "reward_list": null
 }
