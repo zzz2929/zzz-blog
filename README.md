@@ -1,8 +1,6 @@
 # zzz-blog
 
-基于 **Astro + React + Tailwind CSS** 的个人博客。
-
-## 技术栈
+基于 **Astro + React + Tailwind CSS** 的[个人博客](https://blog.904002.xyz)。
 
 | 层级     | 技术                | 版本    |
 | -------- | ------------------- | ------- |
@@ -129,6 +127,21 @@ description: SEO 描述      # 可选
 - 超过 8 个标题时自动显示展开/收起按钮
 - 收起时自动滚动到当前活跃标题
 
+#### 代码高亮
+
+使用[Shiki](https://shiki.zhcndoc.com/)进行代码块语法高亮
+
+`astro.config.mjs` 的 `shikiConfig.themes`
+
+```
+shikiConfig: {
+	themes: {
+		light: 'ayu-light',
+        dark: 'ayu-dark',
+    },
+},
+```
+
 ### 一言
 
 `src/content/data/hitokoto.yml`
@@ -153,7 +166,7 @@ essay_list:
     date: 2025/10/19
   - content: 带链接的随笔
     date: 2023/09/09
-    link: https://example.com
+    link: https://...
   - content: 带视频的随笔
     date: 2022/09/25
     video: [https://player.bilibili.com/...]
@@ -167,7 +180,7 @@ essay_list:
 - class_name: 推荐博客
   link_list:
     - name: 博客名
-      link: https://example.com
+      link: https://...
       avatar: https://...jpg
       descr: 描述
       siteshot: https://...jpg   # 可选
@@ -196,10 +209,10 @@ essay_list:
 
 ### 国际化
 
-| 语言 | 代码 | URL 前缀 |
-|------|------|----------|
-| 简体中文 | zh-CN | 无（默认） |
-| English | en | `/en/` |
+| 语言     | 代码  | URL 前缀    |
+| -------- | ----- | ----------- |
+| 简体中文 | zh-CN | 无（默认）  |
+| English  | en    | `/en/`    |
 | 繁體中文 | zh-TW | `/zh-TW/` |
 
 翻译文件：`src/i18n/{locale}.json`，每个语言一个 JSON 文件。
@@ -262,6 +275,16 @@ album_list:
 
 `src/content/data/bangumis.json`
 
+只需要title字段
+
+```
+{
+  "title": "name"
+}
+```
+
+然后运行`node scripts/fetch-tmdb.mjs`（需要 `TMDB_API_KEY` 环境变量），自动更新 TMDB 数据为：
+
 ```json
 {
   "wantWatch": [{ "title": "...", "cover": "...", "tmdb": { ... } }],
@@ -269,8 +292,6 @@ album_list:
   "watched":   [{ "title": "...", "cover": "...", "tmdb": { ... } }]
 }
 ```
-
-更新 TMDB 数据：`node scripts/fetch-tmdb.mjs`（需要 `TMDB_API_KEY` 环境变量）
 
 ---
 
@@ -341,20 +362,24 @@ album_list:
 
 ### 评论
 
+使用[Waline](https://waline.js.org/)进行评论管理
+
+#### 配置文件
+
 `src/components/astro/Comments.astro`
 
-| 配置项 | 说明 | 当前值 |
-|--------|------|--------|
-| `serverURL` | Waline 服务器地址 | `https://waline.904002.xyz/` |
-| `emoji` | 表情包列表 | bilibili、bmoji、qq、weibo |
-| `meta` | 评论者信息字段 | nick、mail、link |
-| `requiredMeta` | 必填字段 | nick、mail |
-| `login` | 登录方式 | enable |
-| `pageSize` | 每页评论数 | 10 |
-| `imageUploader` | 图片上传 | true |
-| `commentSorting` | 排序方式 | latest |
-| `math` | 数学公式支持 | true |
-| `search` | 评论搜索 | true |
+| 配置项             | 说明              | 值                         |
+| ------------------ | ----------------- | ------------------------------ |
+| `serverURL`      | Waline 服务器地址 | `https://...` |
+| `emoji`          | 表情包列表        | bilibili、bmoji、qq、weibo     |
+| `meta`           | 评论者信息字段    | nick、mail、link               |
+| `requiredMeta`   | 必填字段          | nick、mail                     |
+| `login`          | 登录方式          | enable                         |
+| `pageSize`       | 每页评论数        | 10                             |
+| `imageUploader`  | 图片上传          | true                           |
+| `commentSorting` | 排序方式          | latest                         |
+| `math`           | 数学公式支持      | true                           |
+| `search`         | 评论搜索          | true                           |
 
 评论占位符文案在 `src/i18n/{locale}.json` 的 `comment.placeholder` 中配置。
 
@@ -362,30 +387,28 @@ album_list:
 
 `src/content/data/about.json`
 
-| 字段 | 说明 |
-|------|------|
-| `name` | 显示名称 |
-| `avatarImg` | 头像图片 URL |
-| `description` | 简介文字 |
-| `subtitle` | 个性签名 |
-| `avatarSkills.left` | 头像下方左侧标签 |
-| `avatarSkills.right` | 头像下方右侧标签 |
-| `selfInfo` | 个人信息（生日、学校、职业） |
-| `personalities` | MBTI 人格类型 |
-| `maxim` | 座右铭 |
-| `buff` | 特长 |
-| `game` | 游戏爱好 |
-| `comic` | 追番列表 |
-| `like` | 关注偏好 |
-| `music` | 音乐偏好 |
-| `map` | 所在位置 |
-| `statistic` | 文章统计链接 |
-| `skills` | 技能网格（name + icon） |
-| `reward_list` | 赞赏二维码（null 不显示） |
+| 字段                   | 说明                         |
+| ---------------------- | ---------------------------- |
+| `name`               | 显示名称                     |
+| `avatarImg`          | 头像图片 URL                 |
+| `description`        | 简介文字                     |
+| `subtitle`           | 个性签名                     |
+| `avatarSkills.left`  | 头像下方左侧标签             |
+| `avatarSkills.right` | 头像下方右侧标签             |
+| `selfInfo`           | 个人信息（生日、学校、职业） |
+| `personalities`      | MBTI 人格类型                |
+| `maxim`              | 座右铭                       |
+| `buff`               | 特长                         |
+| `game`               | 游戏爱好                     |
+| `comic`              | 追番列表                     |
+| `like`               | 关注偏好                     |
+| `music`              | 音乐偏好                     |
+| `map`                | 所在位置                     |
+| `statistic`          | 文章统计链接                 |
+| `skills`             | 技能网格（name + icon）      |
+| `reward_list`        | 赞赏二维码（null 不显示）    |
 
 技能网格修改：编辑 `skills` 数组，每项包含 `name`（技能名）和 `icon`（图标 URL）。
-
-
 
 ### 网站图标
 
@@ -402,11 +425,11 @@ public/
 
 #### 推荐规格
 
-| 文件       | 尺寸           | 格式 | 说明                |
-| ---------- | -------------- | ---- | ------------------- |
-| `blog.svg` | 任意（矢量）   | SVG  | 现代浏览器首选      |
+| 文件         | 尺寸             | 格式 | 说明                |
+| ------------ | ---------------- | ---- | ------------------- |
+| `blog.svg` | 任意（矢量）     | SVG  | 现代浏览器首选      |
 | `blog.ico` | 32×32 或 16×16 | ICO  | 兼容旧浏览器        |
-| `blog.png` | 180×180        | PNG  | iOS Safari 书签图标 |
+| `blog.png` | 180×180         | PNG  | iOS Safari 书签图标 |
 
 #### 修改引用
 
@@ -499,8 +522,8 @@ const photoswipeConfig: PhotoSwipeOptions = {
 
 亮色模式支持在设置菜单中切换背景色：
 
-| 名称       | 色值      |
-| ---------- | --------- |
+| 名称       | 色值        |
+| ---------- | ----------- |
 | 云端漫步   | `#EDE8DE` |
 | 睡莲       | `#E8E0F0` |
 | 日出印象   | `#F5E6D8` |
@@ -555,8 +578,8 @@ border-color: rgba(255,255,255,0.08);
 ```
 {
     name: "博客",
-    href: "https://blog.904002.xyz/",
-    icon:https://imgbed.904002.xyz/file/img/blog/icon/blog.svg",
+    href: "https://...",
+    icon:https://...",
 },
 ```
 
@@ -573,7 +596,7 @@ border-color: rgba(255,255,255,0.08);
       {
         name: t('nav.friendList'),
         href: `${prefix}/friends/`,
-        icon: "https://imgbed.904002.xyz/file/img/blog/icon/navigation/友链.svg",
+        icon: "https://...",
       },
     ],
 },
@@ -583,20 +606,12 @@ border-color: rgba(255,255,255,0.08);
 
 开往按钮 + 设置面板（深色模式 + 莫奈色系 + 语言切换）
 
-
-
 ---
 
 ### 构建脚本
 
 - `scripts/fetch-tmdb.mjs` — 追番 TMDB 数据抓取，直接写回 `bangumis.json`
 - `scripts/fetch-view-counts.mjs` — 文章浏览量预获取，`pnpm build` 自动执行
-
----
-
-### 其他
-
-- 网站图标：放入 `public/`，修改 `BaseLayout.astro` 的 `<link>` 标签
 
 ---
 
