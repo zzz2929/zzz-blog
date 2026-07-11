@@ -23,8 +23,8 @@
 
 ```bash
 pnpm install        # 安装依赖
-pnpm dev            # 开发服务器（localhost:4321）
 pnpm build          # 构建生产版本（自动获取浏览量数据）
+pnpm dev            # 开发服务器（localhost:4321）
 pnpm preview        # 预览构建结果
 node scripts/fetch-tmdb.mjs  # 更新追番 TMDB 数据
 ```
@@ -104,7 +104,9 @@ src/
 
 ## 指南
 
-### 文章格式
+### 文章
+
+#### 文章格式
 
 `src/content/blog/*.md`
 
@@ -121,6 +123,12 @@ description: SEO 描述      # 可选
 ---
 ```
 
+#### TOC目录
+
+- 支持 H2-H6 多级缩进，字号/字重随层级递减
+- 超过 8 个标题时自动显示展开/收起按钮
+- 收起时自动滚动到当前活跃标题
+
 ### 一言
 
 `src/content/data/hitokoto.yml`
@@ -131,6 +139,8 @@ hitokoto_list:
       冠以名则六欲泛生
       止于此则七情方休
 ```
+
+支持多行文本，每条独立显示。刷新按钮随机切换。
 
 ### 随笔
 
@@ -192,7 +202,15 @@ essay_list:
 | English | en | `/en/` |
 | 繁體中文 | zh-TW | `/zh-TW/` |
 
-翻译文件：`src/i18n/{locale}.json`，使用扁平 dot notation key。
+翻译文件：`src/i18n/{locale}.json`，每个语言一个 JSON 文件。
+
+```json
+{
+  "nav.archive": "归档",
+  "nav.categories": "分类",
+  "music.title": "音乐馆"
+}
+```
 
 Astro 组件中使用：
 
@@ -232,6 +250,12 @@ album_list:
 
 页面交互：相册列表 → 拍立得堆叠预览 → 瀑布流布局 → PhotoSwipe 灯箱。
 
+拍立得组件：
+
+- 白色边框（底部加厚），Framer Motion spring 入场动画
+- Hover 效果：放大 1.2 倍、旋转归零、层级提升
+- 4 种比例变体：1x1、4x3、4x5、9x16
+
 ---
 
 ### 追番
@@ -252,21 +276,147 @@ album_list:
 
 ### 音乐
 
-歌单文件：`src/content/data/playlists/*.json`
+#### 播放列表
+
+`src/content/data/music.json`
+
+```json
+{
+    "name": "歌曲名",
+    "album": "专辑",
+    "album_artist": "专辑艺术家",
+    "year": "",
+    "disc": "",
+    "track": "",
+    "artist": "歌手",
+    "source": "netease",
+    "url": "音频URL",
+    "lrc": "歌词URL",
+    "pic": "封面URL"
+}
+```
+
+#### 歌单
+
+`src/content/data/playlists/*.json`
 
 ```json
 {
   "name": "歌单名称",
-  "cover": "封面URL",
+  "cover": "封面图URL",
   "songs": [
-    { "name": "歌曲", "artist": "歌手", "url": "音频URL", "lrc": "歌词URL", "pic": "封面URL" }
+    {
+      "name": "歌曲名",
+      "artist": "歌手",
+      "url": "音频URL",
+      "lrc": "歌词URL",
+      "pic": "封面URL"
+    }
   ]
 }
 ```
 
+- 卡片网格布局
+- 点击卡片手风琴展开
+- 「全部播放」替换当前队列
+- 「+」按钮添加到播放列表
+
 在 `src/pages/music.astro` 中 import 新歌单并添加到 `playlistModules` 数组。
 
-播放状态通过 `localStorage` 同步到 MiniPlayer（非音乐页面左下角显示）。
+#### 歌词
+
+- 点击任意歌词行跳转到对应播放时间
+- 当前播放行：加粗 + 动态柔光效果
+- 歌词颜色随背景动态切换
+- 支持传统LRC 和网易云逐字歌词
+
+#### MiniPlayer
+
+播放状态通过 `localStorage` 同步到 MiniPlayer。
+
+- 除音乐馆页面外的所有页面左下角显示
+- 圆形旋转封面
+- Hover 展开完整卡片
+- 包含：歌名、歌手、播放/暂停/上下首、进度条、时间显示
+
+### 评论
+
+`Comments.astro` 中的 `serverURL` 改为你的 Waline 服务器地址
+
+
+
+#### 代码高亮
+
+`astro.config.mjs` 的 `shikiConfig.themes`
+
+### 关于
+
+`src/content/data/about.json`
+
+
+
+### 网站图标
+
+#### 图标文件
+
+将你的图标文件放入 `public/` 目录：
+
+```
+public/
+├── favicon.svg      # SVG 图标（推荐，支持矢量缩放）
+├── favicon.ico      # ICO 图标（兼容旧浏览器）
+└── favicon.png      # PNG iOS Safari 书签图标
+```
+
+#### 推荐规格
+
+| 文件       | 尺寸           | 格式 | 说明                |
+| ---------- | -------------- | ---- | ------------------- |
+| `blog.svg` | 任意（矢量）   | SVG  | 现代浏览器首选      |
+| `blog.ico` | 32×32 或 16×16 | ICO  | 兼容旧浏览器        |
+| `blog.png` | 180×180        | PNG  | iOS Safari 书签图标 |
+
+#### 修改引用
+
+`BaseLayout.astro` 中的 `<head>` 部分：
+
+```html
+<link rel="icon" type="image/svg+xml" href="/blog.svg" />
+<link rel="icon" href="/blog.ico" />
+<link rel="apple-touch-icon" href="/blog.png" />
+```
+
+---
+
+### 浏览量
+
+使用 [vercount](https://github.com/EvanNotFound/vercount) 进行文章浏览量统计。
+
+#### 首次设置
+
+1. 安装依赖（已包含在 `package.json`）：
+
+```bash
+pnpm add @vercount/react @vercount/core
+```
+
+2. 验证域名所有权。
+
+打开[仪表盘](https://www.vercount.one/dashboard)，按照页面提示进行DNS验证或文件验证。
+若选择文件验证，文件放在以下路径：
+
+```
+public/.well-known/vercount-verify-{your-token}.txt
+```
+
+3. 构建并部署后，在 vercount 后台完成域名验证。
+
+#### 构建时获取浏览量
+
+```bash
+# 构建时自动获取（pnpm build 已包含此步骤）
+pnpm build
+```
 
 ---
 
@@ -276,12 +426,24 @@ album_list:
 
 ```ts
 const photoswipeConfig: PhotoSwipeOptions = {
-  bgOpacity: 0.92,
-  maxSpreadZoom: 2,
-  counterEl: true,
-  arrowKeys: true,
-  loop: true,
+  bgOpacity: 0.92,              // 背景透明度
+  showHideOpacity: true,        // 显示/隐藏时渐变透明度
+  maxSpreadZoom: 2,             // 最大缩放倍数
+  fullscreenEl: true,           // 全屏按钮
+  zoomEl: true,                 // 缩放按钮
+  counterEl: true,              // 图片计数器
+  arrowKeys: true,              // 键盘方向键
+  loop: true,                   // 循环浏览
+  showAnimationDuration: 300,   // 打开动画（ms）
+  hideAnimationDuration: 300,   // 关闭动画（ms）
+  closeOnVerticalDrag: true,    // 垂直拖拽关闭
   padding: { top: 40, bottom: 40, left: 40, right: 40 },
+  wc: {                         // 按钮文案
+    close: '关闭',
+    prev: '上一张',
+    next: '下一张',
+    index: '%curr% / %total%',
+  },
 };
 ```
 
@@ -301,7 +463,22 @@ const photoswipeConfig: PhotoSwipeOptions = {
 }
 ```
 
-#### 莫奈色系（亮色模式 8 色背景）
+#### 莫奈色系
+
+亮色模式支持在设置菜单中切换背景色：
+
+| 名称       | 色值      |
+| ---------- | --------- |
+| 云端漫步   | `#EDE8DE` |
+| 睡莲       | `#E8E0F0` |
+| 日出印象   | `#F5E6D8` |
+| 干草堆     | `#F0E4C8` |
+| 紫藤       | `#E5DAE8` |
+| 鲁昂大教堂 | `#DDE4EA` |
+| 塞纳河     | `#D8E8E0` |
+| 纯白       | `#F7F9FE` |
+
+深色模式不支持切换，固定使用星空背景。
 
 在 Header 设置面板中切换，存储于 `localStorage('monet-bg')`。
 
@@ -321,31 +498,60 @@ background: linear-gradient(135deg, rgba(30,30,40,0.6), rgba(30,30,40,0.3));
 border-color: rgba(255,255,255,0.08);
 ```
 
+#### 暗色模式星空背景
+
+两层星星（1px + 2px），`box-shadow` 绘制数百个星点，`animStar` 动画无限滚动：
+
+```css
+.dark body {
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+}
+```
+
 ---
 
 ### Header
 
 浮动胶囊形固定导航。
 
-**左侧**：站点切换按钮 + Logo hover 动画
+#### 左侧
 
-**中间**：文章/友链/我的/关于 四个菜单（`menuItems` 数组），hover 展开二级菜单
-
-**右侧**：开往按钮 + 设置面板（深色模式 + 莫奈色系 + 语言切换）
-
-修改菜单：`Header.astro` 的 `menuItems` 数组。
+站点切换按钮 + Logo hover 动画
 
 修改站点链接：`Header.astro` 的 `siteLinks` 数组。
 
----
+```
+{
+    name: "博客",
+    href: "https://blog.904002.xyz/",
+    icon:https://imgbed.904002.xyz/file/img/blog/icon/blog.svg",
+},
+```
 
-### PolaroidGallery
+#### 中间
 
-基于 [RyuChan](https://github.com/kobaridev/RyuChan) 的拍立得组件：
+文章/友链/我的/关于 四个菜单（`menuItems` 数组），hover 展开二级菜单
 
-- 白色边框（底部加厚），Framer Motion spring 入场动画
-- Hover 效果：放大 1.2 倍、旋转归零、层级提升
-- 4 种比例变体：1x1、4x3、4x5、9x16
+修改菜单：`Header.astro` 的 `menuItems` 数组。
+
+```
+{
+    label: t('nav.friends'),
+    children: [
+      {
+        name: t('nav.friendList'),
+        href: `${prefix}/friends/`,
+        icon: "https://imgbed.904002.xyz/file/img/blog/icon/navigation/友链.svg",
+      },
+    ],
+},
+```
+
+#### 右侧
+
+开往按钮 + 设置面板（深色模式 + 莫奈色系 + 语言切换）
+
+
 
 ---
 
@@ -358,10 +564,7 @@ border-color: rgba(255,255,255,0.08);
 
 ### 其他
 
-- 评论：`Comments.astro` 中的 `serverURL` 改为你的 Waline 服务器地址
-- 代码高亮：`astro.config.mjs` 的 `shikiConfig.themes`
 - 网站图标：放入 `public/`，修改 `BaseLayout.astro` 的 `<link>` 标签
-- 关于页面：`src/content/data/about.json` + `SkillsGrid.astro` 的 `skills` 数组
 
 ---
 
@@ -371,6 +574,12 @@ border-color: rgba(255,255,255,0.08);
 
 切换平台：修改 `astro.config.mjs` 的 adapter。
 
+- Cloudflare：`@astrojs/cloudflare`（当前）
+- Vercel：`@astrojs/vercel`
+- Netlify：`@astrojs/netlify`
+
 ## 许可
 
 MIT
+
+---
