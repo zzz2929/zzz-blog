@@ -1914,8 +1914,8 @@ const playlists = playlistModules.map((p) => ({
               }
               if (!found) {
                 this.playlist = state.playlist;
-                this.currentIndex = 0;
-                this.loadSong(0);
+                this.currentIndex = state.index || 0;
+                this.loadSong(this.currentIndex);
               }
             }
 
