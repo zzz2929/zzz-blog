@@ -341,17 +341,49 @@ album_list:
 
 ### 评论
 
-`Comments.astro` 中的 `serverURL` 改为你的 Waline 服务器地址
+`src/components/astro/Comments.astro`
 
+| 配置项 | 说明 | 当前值 |
+|--------|------|--------|
+| `serverURL` | Waline 服务器地址 | `https://waline.904002.xyz/` |
+| `emoji` | 表情包列表 | bilibili、bmoji、qq、weibo |
+| `meta` | 评论者信息字段 | nick、mail、link |
+| `requiredMeta` | 必填字段 | nick、mail |
+| `login` | 登录方式 | enable |
+| `pageSize` | 每页评论数 | 10 |
+| `imageUploader` | 图片上传 | true |
+| `commentSorting` | 排序方式 | latest |
+| `math` | 数学公式支持 | true |
+| `search` | 评论搜索 | true |
 
-
-#### 代码高亮
-
-`astro.config.mjs` 的 `shikiConfig.themes`
+评论占位符文案在 `src/i18n/{locale}.json` 的 `comment.placeholder` 中配置。
 
 ### 关于
 
 `src/content/data/about.json`
+
+| 字段 | 说明 |
+|------|------|
+| `name` | 显示名称 |
+| `avatarImg` | 头像图片 URL |
+| `description` | 简介文字 |
+| `subtitle` | 个性签名 |
+| `avatarSkills.left` | 头像下方左侧标签 |
+| `avatarSkills.right` | 头像下方右侧标签 |
+| `selfInfo` | 个人信息（生日、学校、职业） |
+| `personalities` | MBTI 人格类型 |
+| `maxim` | 座右铭 |
+| `buff` | 特长 |
+| `game` | 游戏爱好 |
+| `comic` | 追番列表 |
+| `like` | 关注偏好 |
+| `music` | 音乐偏好 |
+| `map` | 所在位置 |
+| `statistic` | 文章统计链接 |
+| `skills` | 技能网格（name + icon） |
+| `reward_list` | 赞赏二维码（null 不显示） |
+
+技能网格修改：编辑 `skills` 数组，每项包含 `name`（技能名）和 `icon`（图标 URL）。
 
 
 
