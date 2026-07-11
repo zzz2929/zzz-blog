@@ -1943,11 +1943,20 @@ const playlists = playlistModules.map((p) => ({
               setTimeout(playWithRetry, 500);
             }
 
-            // Set current time after ensuring the song is loaded
+            // Set current time after audio metadata loads
             if (state.currentTime) {
-              setTimeout(() => {
-                this.audio.currentTime = state.currentTime;
-              }, 100);
+              const seekToSaved = () => {
+                if (this.audio.readyState >= 1) {
+                  this.audio.currentTime = state.currentTime;
+                  this.updateProgress();
+                } else {
+                  this.audio.addEventListener("loadedmetadata", () => {
+                    this.audio.currentTime = state.currentTime;
+                    this.updateProgress();
+                  }, { once: true });
+                }
+              };
+              seekToSaved();
             }
 
             // Update UI
