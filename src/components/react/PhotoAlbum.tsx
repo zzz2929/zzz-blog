@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Images, Camera, ImageOff } from 'lucide-react';
 import Gallery from './Gallery';
 import PolaroidGallery from './PolaroidGallery';
@@ -44,20 +44,6 @@ function PhotoImage({ src, alt }: { src: string; alt: string }) {
   );
 }
 
-function useResponsiveCols() {
-  const [colCount, setColCount] = useState(3);
-  useEffect(() => {
-    const update = () => {
-      const w = window.innerWidth;
-      setColCount(w >= 1024 ? 3 : w >= 640 ? 2 : 1);
-    };
-    update();
-    window.addEventListener('resize', update);
-    return () => window.removeEventListener('resize', update);
-  }, []);
-  return colCount;
-}
-
 interface PhotoItem {
   date: string;
   content: string;
@@ -86,7 +72,6 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
   const [gallery, setGallery] = useState<{ images: string[]; index: number } | null>(null);
   const [activeAlbum, setActiveAlbum] = useState<string | null>(null);
   const [activeGroup, setActiveGroup] = useState<{ name: string; group: AlbumGroup } | null>(null);
-  const colCount = useResponsiveCols();
 
   const currentAlbum = activeAlbum ? albums.find((a) => a.path_name === activeAlbum) : null;
 
@@ -96,9 +81,6 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
     const allImages = items.flatMap((item) =>
       item.image.map((src, i) => ({ src, title: item.content, date: item.date, allImages: item.image, idx: i }))
     );
-
-    const cols: typeof allImages[] = Array.from({ length: colCount }, () => []);
-    allImages.forEach((photo, i) => { cols[i % colCount].push(photo); });
 
     return (
       <div>
@@ -113,32 +95,28 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
             <p className="text-lg">暂无照片</p>
           </div>
         ) : (
-          <div className="flex gap-4 items-start">
-            {cols.map((colPhotos, colIdx) => (
-              <div key={colIdx} className="flex-1 min-w-0 flex flex-col gap-4">
-                {colPhotos.map((photo, row) => (
-                  <div
-                    key={`${photo.src}-${row}`}
-                    className="w-full rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group"
-                    style={{
-                      background: 'linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1))',
-                      backdropFilter: 'blur(20px)',
-                      WebkitBackdropFilter: 'blur(20px)',
-                      border: '1px solid rgba(255,255,255,0.3)',
-                    }}
-                  >
-                    <button
-                      onClick={() => setGallery({ images: photo.allImages, index: photo.idx })}
-                      className="w-full relative overflow-hidden bg-border aspect-[4/3]"
-                    >
-                      <PhotoImage src={photo.src} alt={photo.title} />
-                    </button>
-                    <div className="p-5 min-h-[88px]">
-                      <h3 className="text-lg font-bold text-foreground mb-1">{photo.title}</h3>
-                      <span className="text-xs text-foreground-muted">{formatDate(photo.date)}</span>
-                    </div>
-                  </div>
-                ))}
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
+            {allImages.map((photo, i) => (
+              <div
+                key={`${photo.src}-${i}`}
+                className="break-inside-avoid rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1))',
+                  backdropFilter: 'blur(20px)',
+                  WebkitBackdropFilter: 'blur(20px)',
+                  border: '1px solid rgba(255,255,255,0.3)',
+                }}
+              >
+                <button
+                  onClick={() => setGallery({ images: photo.allImages, index: photo.idx })}
+                  className="w-full relative overflow-hidden bg-border"
+                >
+                  <PhotoImage src={photo.src} alt={photo.title} />
+                </button>
+                <div className="p-5">
+                  <h3 className="text-lg font-bold text-foreground mb-1">{photo.title}</h3>
+                  <span className="text-xs text-foreground-muted">{formatDate(photo.date)}</span>
+                </div>
               </div>
             ))}
           </div>
