@@ -4,7 +4,6 @@ import Polaroid from './Polaroid';
 
 interface TImage {
   src: string;
-  variant?: string;
 }
 
 interface PolaroidGalleryProps {
@@ -45,7 +44,6 @@ export default function PolaroidGallery({ images, maxVisible = 6, onClick }: Pol
             src={image.src}
             index={index}
             total={displayImages.length}
-            variant={image.variant}
             isVisible={isVisible}
           />
         ))}

@@ -1,25 +1,42 @@
 import { motion } from 'framer-motion';
 import { useMemo, useState } from 'react';
 
-const VARIANT_STYLES: Record<string, { w: string; h: string; dw: number; dh: number }> = {
-  '1x1': { w: 'w-32', h: 'h-32', dw: 128, dh: 128 },
-  '4x3': { w: 'w-32', h: 'h-24', dw: 128, dh: 96 },
-  '4x5': { w: 'w-32', h: 'h-40', dw: 128, dh: 160 },
-  '9x16': { w: 'w-32', h: 'h-48', dw: 128, dh: 192 },
-};
-
 interface PolaroidProps {
   src: string;
   index: number;
   total: number;
-  variant?: string;
   isVisible: boolean;
 }
 
-export default function Polaroid({ src, index, total, variant = '1x1', isVisible }: PolaroidProps) {
-  const v = VARIANT_STYLES[variant] || VARIANT_STYLES['1x1'];
+export default function Polaroid({ src, index, total, isVisible }: PolaroidProps) {
   const rotation = useMemo(() => Math.random() * 30 - 15, []);
   const [loaded, setLoaded] = useState(false);
+  const [dimensions, setDimensions] = useState<{ width: number; height: number } | null>(null);
+
+  const baseWidth = 128;
+  const padding = 8;
+
+  const getDisplaySize = () => {
+    if (!dimensions) {
+      return { width: baseWidth, height: baseWidth, imgWidth: baseWidth - padding * 2, imgHeight: baseWidth - padding * 2 };
+    }
+    const { width, height } = dimensions;
+    const ratio = width / height;
+    let imgWidth = baseWidth - padding * 2;
+    let imgHeight = imgWidth / ratio;
+    if (imgHeight > 192) {
+      imgHeight = 192;
+      imgWidth = imgHeight * ratio;
+    }
+    return {
+      width: imgWidth + padding * 2,
+      height: imgHeight + padding * 2,
+      imgWidth,
+      imgHeight,
+    };
+  };
+
+  const size = getDisplaySize();
 
   return (
     <motion.div
@@ -34,7 +51,7 @@ export default function Polaroid({ src, index, total, variant = '1x1', isVisible
       className="absolute shadow-lg cursor-pointer group"
       style={{ left: `${index * 32}px`, top: `${index % 2 === 0 ? 12 : 32}px`, zIndex: total - index }}
     >
-      <div className={`relative overflow-hidden ${v.w} ${v.h}`}>
+      <div className="relative overflow-hidden" style={{ width: `${size.width}px`, height: `${size.height}px` }}>
         <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-gray-100 rounded-sm" />
         <div className="relative bg-white p-1 rounded-sm h-full flex items-center justify-center">
           {!loaded && (
@@ -45,11 +62,14 @@ export default function Polaroid({ src, index, total, variant = '1x1', isVisible
           <img
             src={src}
             alt=""
-            width={v.dw}
-            height={v.dh}
-            className={`object-cover rounded-sm w-full h-full transition-all duration-300 group-hover:scale-105 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+            className={`object-cover rounded-sm transition-all duration-300 group-hover:scale-105 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+            style={{ width: `${size.imgWidth}px`, height: `${size.imgHeight}px` }}
             loading="lazy"
-            onLoad={() => setLoaded(true)}
+            onLoad={(e) => {
+              const img = e.target as HTMLImageElement;
+              setDimensions({ width: img.naturalWidth, height: img.naturalHeight });
+              setLoaded(true);
+            }}
             onError={() => setLoaded(true)}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent rounded-sm pointer-events-none" />

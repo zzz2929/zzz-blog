@@ -143,7 +143,7 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
           {currentAlbum.album_list.map((group) => {
             const allImages = group.items.flatMap((item) => item.image);
             const firstItem = group.items[0];
-            const polaroidImages = allImages.slice(0, 6).map((src) => ({ src, variant: '1x1' as const }));
+            const polaroidImages = allImages.slice(0, 6).map((src) => ({ src }));
 
             return (
               <button
