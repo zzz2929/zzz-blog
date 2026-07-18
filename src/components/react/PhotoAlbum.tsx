@@ -149,7 +149,7 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
               <button
                 key={group.album_name}
                 onClick={() => setActiveGroup({ name: group.album_name, group })}
-                className="text-left rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer"
+                className="text-left rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer"
                 style={{
                   background: 'linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1))',
                   backdropFilter: 'blur(20px)',
@@ -178,7 +178,7 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
                   )}
                 </div>
                 {polaroidImages.length > 0 && (
-                  <div className="px-4 pb-4 overflow-visible">
+                  <div className="px-4 pb-8 -mt-2 overflow-visible">
                     <PolaroidGallery images={polaroidImages} />
                   </div>
                 )}

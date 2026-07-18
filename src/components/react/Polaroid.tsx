@@ -13,8 +13,8 @@ export default function Polaroid({ src, index, total, isVisible }: PolaroidProps
   const [loaded, setLoaded] = useState(false);
   const [dimensions, setDimensions] = useState<{ width: number; height: number } | null>(null);
 
-  const baseWidth = 128;
-  const padding = 8;
+  const baseWidth = 116;
+  const padding = 7;
 
   const getDisplaySize = () => {
     if (!dimensions) {
@@ -24,8 +24,8 @@ export default function Polaroid({ src, index, total, isVisible }: PolaroidProps
     const ratio = width / height;
     let imgWidth = baseWidth - padding * 2;
     let imgHeight = imgWidth / ratio;
-    if (imgHeight > 192) {
-      imgHeight = 192;
+    if (imgHeight > 170) {
+      imgHeight = 170;
       imgWidth = imgHeight * ratio;
     }
     return {
@@ -49,7 +49,7 @@ export default function Polaroid({ src, index, total, isVisible }: PolaroidProps
       transition={{ delay: index * 0.1, duration: 0.6, type: 'spring', stiffness: 260, damping: 20 }}
       whileHover={{ rotate: 0, scale: 1.2, y: -12, zIndex: total + 10, transition: { duration: 0.3, type: 'spring', stiffness: 300, damping: 20 } }}
       className="absolute shadow-lg cursor-pointer group"
-      style={{ left: `${index * 32}px`, top: `${index % 2 === 0 ? 12 : 32}px`, zIndex: total - index }}
+      style={{ left: `${index * 32}px`, top: `${index % 2 === 0 ? -8 : 12}px`, zIndex: total - index }}
     >
       <div className="relative overflow-hidden" style={{ width: `${size.width}px`, height: `${size.height}px` }}>
         <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-gray-100 rounded-sm" />
