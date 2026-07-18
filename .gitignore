@@ -15,3 +15,4 @@ worker-configuration.d.ts
 package-lock.json
 mimo.exe
 /src/content/playlists/Standardize musicjson.py
+.mimocode

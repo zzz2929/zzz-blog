@@ -7,6 +7,37 @@ limit: 30
 home_essay: true
 top_background: https://imgbed.904002.xyz/file/img/blog/background/daily-life.webp
 essay_list:
+- content: 毕业旅行第二站
+  date: 2026/07/01
+- content: 第一站，over
+  date: 2026/06/30
+  img:
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/武汉站.webp
+- content: 曾侯乙编钟
+  date: 2026/06/30
+  img:
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/湖北省博物馆-曾侯乙编钟.webp
+- content: 越王勾践剑🗡️🗡️🗡️🗡️🗡️
+  date: 2026/06/30
+  img:
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/湖北省博物馆-越王勾践剑.webp
+- content: 接受历史熏陶ing...
+  date: 2026/06/30
+  img:
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/湖北省博物馆-北门.webp
+- content: 湖北省博物馆-铜建鼓座
+  date: 2026/06/30
+  img:
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/湖北省博物馆-铜建鼓座.webp
+- content: 刚到武汉第一件事-品尝美食
+  date: 2026/06/29
+  img:
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/三鲜豆皮.webp
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/热干面.webp
+- content: 毕业旅行第一站-武汉
+  date: 2026/06/29
+  img:
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/昔人已乘黄鹤去，此地空余黄鹤楼.webp
 - content: 开始到结束
   date: 2026/06/15
   img:

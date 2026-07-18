@@ -21,6 +21,11 @@ good_things:
     description: 手感对比上一代提升很大，屏幕显示效果好、性能强劲。(但是不知道因为电池还是后壳工艺的问题，导致很多人后壳变形)
     image: https://imgbed.904002.xyz/file/img/blog/equipment/xiaomi_15_Pro.webp
     link: https://www.mi.com/prod/xiaomi-15-pro/specs
+  - name: Xiaomi 17 Pro Max 冷烟紫
+    specification: 第五代骁龙8至尊版移动平台 16G / 512GB
+    description: 独特背屏设计，大R角，性能强劲。
+    image: https://imgbed.904002.xyz/file/img/blog/equipment/Xiaomi_17_Pro_Max.webp
+    link: https://www.mi.com/prod/xiaomi-17-pro-max
 - title: 出行
   description: 用来出行的实物及设备
   equipment_list:
@@ -42,3 +47,38 @@ good_things:
     description: WiFi+蓝牙+红外，可当蓝牙Mesh网关用，组建米家智能家居必备设备。
     image: https://imgbed.904002.xyz/file/img/blog/equipment/小米小爱音箱_Pro.webp
     link: https://www.mi.com/aispeaker-pro
+  - name: 米家智能台灯Lite
+    specification: 白色
+    description: 入门级智能台灯，支持米家APP控制和小爱同学语音控制，亮度色温可调。
+    image: https://imgbed.904002.xyz/file/img/blog/equipment/米家智能台灯Lite.webp
+    link: https://www.mi.com/shop/buy/detail?product_id=14825&cfrom=search
+  # - name: 米家智能窗帘伸缩轨道版
+  #   specification: 伸缩设计 静音电机 支持定时开合
+  #   description: 智能窗帘电机，伸缩轨道适配多种窗户尺寸，支持米家APP和语音控制。
+  #   image: https://imgbed.904002.xyz/file/img/blog/equipment/米家智能窗帘伸缩轨道版.webp
+  #   link: https://www.mi.com/product/mijia-smart-curtain-extendable-rail
+  - name: 小米米家蓝牙温湿度计 2
+    specification: 蓝牙5.0 LCD显示屏 精度±0.3℃
+    description: 高精度温湿度传感器，支持米家APP查看历史数据，可联动其他智能设备。
+    image: https://imgbed.904002.xyz/file/img/blog/equipment/小米米家蓝牙温湿度计_2.webp
+    link: https://www.mi.com/shop/buy/detail?product_id=11190&cfrom=search
+  - name: 小米电视S Pro Mini LED 2025系列
+    specification: 85英寸 Mini LED 4K 144Hz 高亮度
+    description: 大屏Mini LED电视，画质出色，支持杜比视界和全景声，沉浸式观影体验。
+    image: https://imgbed.904002.xyz/file/img/blog/equipment/小米电视S_Pro_Mini_LED_2025系列.webp
+    link: https://www.mi.com/shop/buy/detail?product_id=10050050&cfrom=search
+  - name: 小米中枢网关
+    specification: WiFi+蓝牙Mesh2.0 支持本地自动化
+    description: 智能家居中枢设备，可实现设备间本地联动，响应更快。
+    image: https://imgbed.904002.xyz/file/img/blog/equipment/小米中枢网关.webp
+    link: https://www.mi.com/shop/buy/detail?product_id=15755&cfrom=search
+  - name: Xiaomi路由器 BE7000
+    specification: WiFi 7 7000Mbps速率 2.5G网口
+    description: 高性能WiFi 7路由器，支持多频段聚合，覆盖广速度快。
+    image: https://imgbed.904002.xyz/file/img/blog/equipment/Xiaomi路由器_BE7000.webp
+    link: https://www.mi.com/xiaomi-routers/be-7000?product_id=1230800346&cfrom=search
+  - name: 小米无线开关（蓝牙版）
+    specification: 蓝牙5.0 粘贴安装 支持单击/双击/长按
+    description: 无线智能开关，可自定义按键功能，联动控制其他智能设备。
+    image: https://imgbed.904002.xyz/file/img/blog/equipment/小米无线开关（蓝牙版）.webp
+    link: https://www.mi.com/shop/buy/detail?product_id=16797&cfrom=search

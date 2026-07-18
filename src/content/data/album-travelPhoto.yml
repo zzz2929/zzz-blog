@@ -10,14 +10,130 @@ album_list:
     content: 19岁生日征服泰山😎🥳
     image:
     - https://imgbed.904002.xyz/file/img/blog/album/travel/泰山日出.webp
-  - date: 2025-06-16
-    content: 偷感
-    image:
-    - https://imgbed.904002.xyz/file/img/blog/album/friend/偷感.webp
-- album_name: 聚会
-  description: 和朋友们的聚会时光
+- album_name: 武汉
+  description: 毕业旅行第一站-武汉
   items:
-  - date: 2024-12-31
-    content: 跨年聚会
+  - date: 2026-06-29 20:56:14
+    content: 晚上八点到武汉饿坏了，先尝尝三鲜豆皮
     image:
-    - https://imgbed.904002.xyz/file/img/blog/album/friend/跨年聚会.webp
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/三鲜豆皮.webp
+  - date: 2026-06-29 21:19:28
+    content: 再来碗热干面
+    image:
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/热干面.webp
+  - date: 2026-06-29 22:00:00
+    content: 吃完去黄鹤楼的夜景
+    image:
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/黄鹤楼.webp
+  - date: 2026-06-29 22:00:00
+    content: 昔人已乘黄鹤去，此地空余黄鹤楼
+    image:
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/昔人已乘黄鹤去，此地空余黄鹤楼.webp
+  - date: 2026-06-29 21:59:53
+    content: 阴间黄鹤楼👻😱
+    image:
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/阴间黄鹤楼.webp
+  - date: 2026-06-29 22:32:30
+    content: 武汉长江大桥
+    image:
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/武汉长江大桥.webp
+  - date: 2026-06-29 22:36:51
+    content: 武汉长江大桥-比心❤️
+    image:
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/武汉长江大桥-比心.webp
+  - date: 2026-06-30 06:41:37
+    content: 粮道街过早
+    image:
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/粮道街过早.webp
+  - date: 2026-06-30 06:54:04
+    content: 过早尝尝赵师傅油饼包烧麦😋
+    image:
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/赵师傅油饼包烧麦.webp
+  - date: 2026-06-30 07:27:08
+    content: 坐轮渡前往对岸
+    image:
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/武汉城市风景.webp
+  - date: 2026-06-30 07:49:29
+    content: 江汉关
+    image:
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/江汉关.webp
+  - date: 2026-06-30 08:29:52
+    content: 汉口江滩
+    image:
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/汉口江滩.webp
+  - date: 2026-06-30 08:22:04
+    content: 汉口江滩-猫咪
+    image:
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/汉口江滩-猫咪.webp
+  - date: 2026-06-30 08:22:41
+    content: 汉口江滩-凶狠猫咪
+    image:
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/汉口江滩-凶狠猫咪.webp
+  - date: 2026-06-30 08:32:34
+    content: 日日思君不见君，共饮长江水
+    image:
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/日日思君不见君，共饮长江水.webp
+  - date: 2026-06-30 09:53:04
+    content: 宋庆龄汉口旧居纪念馆-华侨大厦
+    image:
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/宋庆龄汉口旧居纪念馆-华侨大厦.webp
+  - date: 2026-06-30 11:43:12
+    content: 该吃午饭了，熊太婆水饺（在武汉馄饨叫做水饺🤔）
+    image:
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/熊太婆水饺.webp
+  - date: 2026-06-30 12:45:39
+    content: 肥肥虾庄
+    image:
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/肥肥虾庄.webp
+  - date: 2026-06-30 12:48:54
+    content: 肥肥虾庄-油爆虾（好美味😋）
+    image:
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/肥肥虾庄-油爆虾.webp
+  - date: 2026-06-30 15:12:03
+    content: 下午逛逛湖北省博物馆
+    image:
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/湖北省博物馆-北门.webp
+  - date: 2026-06-30 15:30:43
+    content: 湖北省博物馆-楚王车马阵
+    image:
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/湖北省博物馆-楚王车马阵.webp
+  - date: 2026-06-30 15:31:54
+    content: 战！
+    image:
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/湖北省博物馆-盔甲.webp
+  - date: 2026-06-30 15:33:13
+    content: 湖北省博物馆-编钟
+    image:
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/湖北省博物馆-编钟.webp
+  - date: 2026-06-30 15:36:26
+    content: 湖北省博物馆-锦衣
+    image:
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/湖北省博物馆-锦衣.webp
+  - date: 2026-06-30 15:49:02
+    content: 湖北省博物馆-曾侯乙墓主棺外棺
+    image:
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/湖北省博物馆-曾侯乙墓主棺外棺.webp
+  - date: 2026-06-30 15:49:16
+    content: 湖北省博物馆-曾侯乙墓主棺内棺
+    image:
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/湖北省博物馆-曾侯乙墓主棺内棺.webp
+  - date: 2026-06-30 15:59:47
+    content: 湖北省博物馆-越王勾践剑🗡️
+    image:
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/湖北省博物馆-越王勾践剑.webp
+  - date: 2026-06-30 16:10:51
+    content: 湖北省博物馆-曾侯乙编钟
+    image:
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/湖北省博物馆-曾侯乙编钟.webp
+  - date: 2026-06-30 16:12:04
+    content: 湖北省博物馆-铜建鼓座
+    image:
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/湖北省博物馆-铜建鼓座.webp
+  - date: 2026-06-30 16:16:58
+    content: 逛完了
+    image:
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/湖北省博物馆-南门.webp
+  - date: 2026-06-30 17:33:43
+    content: 前往下一站-长沙
+    image:
+    - https://imgbed.904002.xyz/file/img/blog/album/travel/武汉/武汉站.webp
