@@ -6,7 +6,6 @@ import Footer from "@/components/astro/Footer.astro";
 import RecentPosts from "@/components/astro/RecentPosts.astro";
 import EssayMarquee from "@/components/astro/EssayMarquee.astro";
 import HitokotoModule from "@/components/astro/HitokotoModule.astro";
-import CategoryCards from "@/components/astro/CategoryCards.astro";
 import RandomImageModule from "@/components/astro/RandomImageModule.astro";
 import SortFilterPosts from "@/components/react/SortFilterPosts.tsx";
 import viewCounts from "@/content/data/view-counts.json";
@@ -33,19 +32,14 @@ const postsData = posts.map((p) => ({
 <BaseLayout>
   <Header />
 
-  <main class="mx-auto px-4 py-6 sm:px-6 space-y-5" style="max-width: 1350px;">
+  <main class="mx-auto px-4 py-6 sm:px-6 space-y-6" style="max-width: 1350px;">
     <!-- 1. 随笔 Marquee -->
     <EssayMarquee />
 
-    <!-- 2. Hero: Hitokoto + Category cards + Random Image -->
-    <div class="flex flex-col gap-5 lg:flex-row lg:items-stretch">
-      <div class="lg:w-[52%] shrink-0 space-y-5">
-        <HitokotoModule />
-        <CategoryCards />
-      </div>
-      <div class="flex-1 lg:flex">
-        <RandomImageModule />
-      </div>
+    <!-- 2. 随一言 (Focal Point) + 随机图 (Supporting) -->
+    <div class="flex flex-col gap-6">
+      <HitokotoModule />
+      <RandomImageModule />
     </div>
 
     <!-- 3. Sort/Filter + Posts + Sidebar -->
