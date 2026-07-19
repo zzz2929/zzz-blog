@@ -18,14 +18,22 @@ try {
 
 const initialText =
   hitokotoList[Math.floor(Math.random() * hitokotoList.length)];
+
 ---
 
 <div
   class="hitokoto-module relative overflow-hidden"
-  style="height: 250px; border-radius: 16px; background: linear-gradient(-45deg, var(--color-primary), #0f4667, #2a6973, var(--color-accent)); background-size: 400% 400%; animation: gradient-shift 15s ease infinite;"
+  style="height: 400px; border-radius: 16px; background: linear(-45deg, var(--color-primary), #0f4667, #2a6973, var(--color-accent), var(--color-primary)); background-size: 400% 400%; animation: gradient-shift 15s ease infinite;"
   data-list={JSON.stringify(hitokotoList)}
 >
-  <div class="relative z-10 flex flex-col justify-between h-full p-5">
+  <style>
+    :global(#hitokoto-refresh):hover {
+      background: rgba(255,255,255,0.35);
+      transform: scale(1.05);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+  <div class="relative z-10 flex flex-col justify-between h-full p-8">
     <!-- Title -->
     <div class="flex items-center">
       <span
@@ -38,7 +46,7 @@ const initialText =
     <div class="flex-1 flex items-center px-2">
       <p
         id="hitokoto-text"
-        class="text-base leading-relaxed font-medium whitespace-pre-line"
+        class="text-xl leading-relaxed font-medium whitespace-pre-line"
         style="color: white; text-shadow: 0 1px 3px rgba(0,0,0,0.2); transition: opacity 0.3s ease, transform 0.3s ease;"
       >
         {initialText}
@@ -51,7 +59,7 @@ const initialText =
       <button
         id="hitokoto-refresh"
         class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300 hover:brightness-110"
-        style="background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.15); cursor: pointer;"
+        style="background: rgba(255,255,255,0.25); color: white; border: 1px solid rgba(255,255,255,0.2); cursor: pointer;"
         aria-label="刷新一言"
       >
         <svg

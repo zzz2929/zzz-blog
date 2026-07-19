@@ -25,7 +25,7 @@ const col2 = essayItems.filter((_, i) => i % 2 === 1);
 
 <div
   class="essay-marquee overflow-hidden"
-  style="height: 48px; border-radius: 12px; background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3);"
+  style="height: 48px; /* Increased for better visual balance */ border-radius: 12px; background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3);"
 >
   <div class="flex items-center h-full px-4 gap-4">
     <!-- Label -->
@@ -113,9 +113,10 @@ const col2 = essayItems.filter((_, i) => i % 2 === 1);
   /* Hover feedback on individual items */
   .essay-item:hover {
     color: var(--color-primary) !important;
-    background: rgba(66, 90, 239, 0.04);
+    background: rgba(66, 90, 239, 0.08);
     border-radius: 6px;
-    transform: translateX(4px);
+    transform: translateX(6px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
   .dark .essay-item:hover {
     color: var(--color-primary-dark) !important;
@@ -131,8 +132,9 @@ const col2 = essayItems.filter((_, i) => i % 2 === 1);
   .more-btn:hover {
     color: var(--color-primary) !important;
     border-color: var(--color-primary);
-    background: rgba(66, 90, 239, 0.06);
-    transform: translateX(2px);
+    background: rgba(66, 90, 239, 0.08);
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
   .more-btn:hover .more-arrow {
     transform: translateX(3px);
