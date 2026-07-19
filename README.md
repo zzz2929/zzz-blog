@@ -369,17 +369,17 @@ album_list:
 `src/components/astro/Comments.astro`
 
 | 配置项             | 说明              | 值                         |
-| ------------------ | ----------------- | ------------------------------ |
-| `serverURL`      | Waline 服务器地址 | `https://...` |
-| `emoji`          | 表情包列表        | bilibili、bmoji、qq、weibo     |
-| `meta`           | 评论者信息字段    | nick、mail、link               |
-| `requiredMeta`   | 必填字段          | nick、mail                     |
-| `login`          | 登录方式          | enable                         |
-| `pageSize`       | 每页评论数        | 10                             |
-| `imageUploader`  | 图片上传          | true                           |
-| `commentSorting` | 排序方式          | latest                         |
-| `math`           | 数学公式支持      | true                           |
-| `search`         | 评论搜索          | true                           |
+| ------------------ | ----------------- | -------------------------- |
+| `serverURL`      | Waline 服务器地址 | `https://...`            |
+| `emoji`          | 表情包列表        | bilibili、bmoji、qq、weibo |
+| `meta`           | 评论者信息字段    | nick、mail、link           |
+| `requiredMeta`   | 必填字段          | nick、mail                 |
+| `login`          | 登录方式          | enable                     |
+| `pageSize`       | 每页评论数        | 10                         |
+| `imageUploader`  | 图片上传          | true                       |
+| `commentSorting` | 排序方式          | latest                     |
+| `math`           | 数学公式支持      | true                       |
+| `search`         | 评论搜索          | true                       |
 
 评论占位符文案在 `src/i18n/{locale}.json` 的 `comment.placeholder` 中配置。
 
@@ -604,7 +604,7 @@ border-color: rgba(255,255,255,0.08);
 
 #### 右侧
 
-开往按钮 + 设置面板（深色模式 + 莫奈色系 + 语言切换）
+设置面板（深色模式 + 莫奈色系 + 语言切换）
 
 ---
 
