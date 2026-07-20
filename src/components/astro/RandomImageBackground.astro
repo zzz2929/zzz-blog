@@ -42,7 +42,7 @@ const t = useTranslations(locale);
       transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     "
-    aria-label="刷新图片"
+    aria-label={t('home.randomImage.refresh')}
   >
     <svg
       width="12"
@@ -75,12 +75,14 @@ const t = useTranslations(locale);
   (function () {
     const refreshBtn = document.getElementById('rim-bg-refresh');
     const bgImg = document.getElementById('rim-bg-img');
+    if (!bgImg) return;
 
     function refreshImage() {
       bgImg.style.opacity = '0';
       setTimeout(() => {
+        bgImg.onload = () => { bgImg.style.opacity = '1'; };
+        bgImg.onerror = () => { bgImg.style.opacity = '1'; };
         bgImg.src = 'https://api.elaina.cat/random/?t=' + Date.now();
-        bgImg.style.opacity = '1';
       }, 300);
     }
 
