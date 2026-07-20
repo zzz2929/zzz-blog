@@ -1,0 +1,115 @@
+---
+import yaml from "js-yaml";
+import raw from "../../content/data/essay.yml?raw";
+import { useTranslations, getLocaleFromURL } from '@/i18n';
+
+const locale = getLocaleFromURL(Astro.url.pathname);
+const t = useTranslations(locale);
+
+let essayItems: Array<{ content: string; date: string }> = [];
+
+try {
+  const data = yaml.load(raw) as any;
+  essayItems = (data?.essay_list || []).map((item: any) => ({
+    content: String(item.content || "").slice(0, 30),
+    date: String(item.date || ""),
+  }));
+} catch {
+  essayItems = [];
+}
+---
+
+<div
+  class="essay-panel"
+  style="width: 70%; height: 150px; position: absolute; top: 80px; right: 40px; background: rgba(255,255,255,0.1); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1); overflow: hidden;"
+>
+  <!-- Header row -->
+  <div class="flex items-center justify-between px-3 py-2">
+    <span
+      class="text-xs font-bold px-2.5 py-1 rounded-md"
+      style="background: linear-gradient(135deg, var(--color-primary), var(--color-accent)); color: white;"
+    >
+      {t('home.essay.label')}
+    </span>
+    <a
+      href="/essay/"
+      class="more-btn flex items-center gap-1 text-xs font-medium"
+      style="color: white; height: 28px; padding: 0 10px; border: 1px solid rgba(255,255,255,0.3); border-radius: 8px; background: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(255,255,255,0.1)); backdrop-filter: blur(10px); text-decoration: none; transition: all 0.3s cubic-bezier(0.23,1,0.32,1);"
+    >
+      {t('home.essay.more')}
+      <svg
+        class="more-arrow"
+        width="12"
+        height="12"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </a>
+  </div>
+
+  <!-- Scrollable content area -->
+  <div class="essay-scroll-area" style="height: 120px; overflow: hidden;">
+    <div class="essay-scroll-inner">
+      {
+        [...essayItems, ...essayItems].map((item) => (
+          <a
+            href="/essay/"
+            class="essay-item flex items-center gap-2 px-3 text-sm"
+            style="height: 40px; color: white; text-decoration: none; transition: all 0.3s cubic-bezier(0.23,1,0.32,1);"
+          >
+            <span class="opacity-30 shrink-0 text-xs">{item.date}</span>
+            <span class="truncate">{item.content}</span>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<style>
+  .essay-scroll-inner {
+    animation: essay-scroll-up 20s linear infinite;
+  }
+
+  .essay-panel:hover .essay-scroll-inner {
+    animation-play-state: paused;
+  }
+
+  .essay-item:hover {
+    color: var(--color-primary) !important;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    transform: translateX(6px);
+  }
+
+  .more-btn:hover {
+    color: var(--color-primary) !important;
+    border-color: var(--color-primary);
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .more-btn:hover .more-arrow {
+    transform: translateX(3px);
+  }
+
+  .more-arrow {
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  @keyframes essay-scroll-up {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-50%);
+    }
+  }
+</style>
