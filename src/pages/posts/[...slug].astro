@@ -207,6 +207,7 @@ const { Content, headings } = await render(post);
             arrowKeys: true,
             loop: true,
             initialSlide: index,
+            index: index,
             appendToEl: document.body,
             getThumbBoundsFn: () => ({
               x: rect.left,

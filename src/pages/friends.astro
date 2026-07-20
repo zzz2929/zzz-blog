@@ -9,6 +9,13 @@ import { useTranslations, getLocaleFromURL } from "@/i18n";
 const locale = getLocaleFromURL(Astro.url.pathname);
 const t = useTranslations(locale);
 const friendsData = await getCollection("friends");
+
+const selfInfo = {
+  name: "zzz-blog",
+  link: "https://blog.904002.xyz",
+  avatar: "https://imgbed.904002.xyz/file/img/blog/avatar/zzz.webp",
+  description: "冠以名则六欲泛生，止于此则七情方休",
+};
 ---
 
 <BaseLayout title={t('friends.title')}>
@@ -16,8 +23,31 @@ const friendsData = await getCollection("friends");
   <main class="mx-auto max-w-4xl px-4 py-8 sm:px-6">
     <h1 class="mb-8 text-3xl font-bold text-foreground">{t('friends.heading')}</h1>
 
+    <section class="mb-10">
+      <h2 class="mb-2 text-xl font-bold text-foreground">本站</h2>
+      <p class="mb-4 text-sm text-muted">欢迎交换友链，请先添加本站再告知我</p>
+      <ul class="space-y-3 text-sm text-foreground">
+        <li class="flex items-start gap-2">
+          <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" />
+          <span>name: zzz</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" />
+          <span>link: <a href={"https://blog.904002.xyz"} target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">https://blog.904002.xyz</a></span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" />
+          <span>description: 冠以名则六欲泛生，止于此则七情方休</span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" />
+          <span>avatar: <a href={"https://imgbed.904002.xyz/file/img/blog/avatar/zzz.webp"} target="_blank" rel="noopener noreferrer" class="text-primary hover:underline break-all">https://imgbed.904002.xyz/file/img/blog/avatar/zzz.webp</a></span>
+        </li>
+      </ul>
+    </section>
+
     {
-      friendsData.map((group) => (
+      friendsData.filter((group) => group.data.class_name !== "本站").map((group) => (
         <section class="mb-10">
           <h2 class="mb-2 text-xl font-bold text-foreground">
             {group.data.class_name}
@@ -43,7 +73,7 @@ const friendsData = await getCollection("friends");
                   <h3 class="font-medium text-foreground group-hover:text-primary transition-colors truncate">
                     {link.name}
                   </h3>
-                  <p class="text-xs text-muted line-clamp-2">{link.descr}</p>
+                  <p class="text-xs text-muted line-clamp-2">{link.description}</p>
                 </div>
                 {link.recommend && (
                   <span class="shrink-0 rounded-full bg-primary/10 px-2 py-0.5 text-xs text-primary">

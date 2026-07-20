@@ -107,3 +107,50 @@ const essay = essayData[0]?.data;
     border-radius: 12px;
   }
 </style>
+
+<script>
+  import PhotoSwipe from "photoswipe";
+  import "photoswipe/dist/photoswipe.css";
+
+  function initEssayPhotoswipe() {
+    const imgs = Array.from(
+      document.querySelectorAll("[id^='essay-'] img")
+    ) as HTMLImageElement[];
+    if (imgs.length === 0) return;
+
+    const items = imgs.map((el) => ({
+      src: el.src,
+      width: el.naturalWidth || 1920,
+      height: el.naturalHeight || 1080,
+    }));
+
+    imgs.forEach((img, i) => {
+      img.style.cursor = "zoom-in";
+      img.addEventListener("click", () => {
+        const rect = img.getBoundingClientRect();
+
+        const pswp = new PhotoSwipe({
+          dataSource: items,
+          bgOpacity: 0.92,
+          showHideOpacity: true,
+          counterEl: true,
+          arrowKeys: true,
+          loop: true,
+          initialSlide: i,
+          index: i,
+          appendToEl: document.body,
+          getThumbBoundsFn: () => ({
+            x: rect.left,
+            y: rect.top,
+            w: rect.width,
+            h: rect.height,
+          }),
+        } as any);
+        pswp.init();
+      });
+    });
+  }
+
+  initEssayPhotoswipe();
+  document.addEventListener("astro:page-load", initEssayPhotoswipe);
+</script>

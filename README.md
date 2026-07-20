@@ -182,7 +182,7 @@ essay_list:
     - name: 博客名
       link: https://...
       avatar: https://...jpg
-      descr: 描述
+      description: 描述
       siteshot: https://...jpg   # 可选
       tag: 技术                   # 可选
       recommend: true             # 可选

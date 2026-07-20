@@ -25,6 +25,7 @@ export default function Gallery({ images, initialIndex = 0, onClose }: GalleryPr
       dataSource: items,
       ...photoswipeConfig,
       initialSlide: initialIndex,
+      index: initialIndex,
       appendToEl: document.body,
       getThumbBoundsFn: () => ({
         x: window.innerWidth / 2 - 100,

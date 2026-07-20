@@ -26,7 +26,7 @@ const friends = defineCollection({
       name: z.string(),
       link: z.string(),
       avatar: z.string(),
-      descr: z.string(),
+      description: z.string(),
       siteshot: z.string().optional(),
       color: z.string().optional(),
       tag: z.string().optional(),
