@@ -4,9 +4,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import Header from "@/components/astro/Header.astro";
 import Footer from "@/components/astro/Footer.astro";
 import RecentPosts from "@/components/astro/RecentPosts.astro";
-import EssayMarquee from "@/components/astro/EssayMarquee.astro";
-import HitokotoModule from "@/components/astro/HitokotoModule.astro";
-import RandomImageModule from "@/components/astro/RandomImageModule.astro";
+import HeroModule from "@/components/astro/HeroModule.astro";
 import SortFilterPosts from "@/components/react/SortFilterPosts.tsx";
 import viewCounts from "@/content/data/view-counts.json";
 import { useTranslations, getLocaleFromURL } from "@/i18n";
@@ -33,14 +31,8 @@ const postsData = posts.map((p) => ({
   <Header />
 
   <main class="mx-auto px-3 py-4 sm:px-6 space-y-6" style="max-width: 1350px;">
-    <!-- 1. 随笔 Marquee -->
-    <EssayMarquee />
-
-    <!-- 2. 随一言 (Focal Point) + 随机图 (Supporting) -->
-    <div class="flex flex-col gap-6">
-      <HitokotoModule />
-      <RandomImageModule />
-    </div>
+    <!-- Hero: 随机图背景 + 一言浮动岛 + 随笔跑马灯浮动岛 -->
+    <HeroModule />
 
     <!-- 3. Sort/Filter + Posts + Sidebar -->
     <div class="flex flex-col gap-8 lg:flex-row">

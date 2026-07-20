@@ -1,0 +1,216 @@
+---
+import yaml from "js-yaml";
+import hitokotoRaw from "../../content/data/hitokoto.yml?raw";
+import essayRaw from "../../content/data/essay.yml?raw";
+import { useTranslations, getLocaleFromURL } from '@/i18n';
+
+const locale = getLocaleFromURL(Astro.url.pathname);
+const t = useTranslations(locale);
+
+// Hitokoto data
+let hitokotoList: string[] = [];
+try {
+  const data = yaml.load(hitokotoRaw) as any;
+  hitokotoList = (data?.hitokoto_list || [])
+    .map((item: any) => String(item.title || "").trim())
+    .filter(Boolean);
+} catch {
+  hitokotoList = ["一花一世界，一叶一追寻"];
+}
+const initialText = hitokotoList[Math.floor(Math.random() * hitokotoList.length)];
+
+// Essay data — grouped by year
+let essayItems: Array<{ content: string; date: string }> = [];
+try {
+  const data = yaml.load(essayRaw) as any;
+  essayItems = (data?.essay_list || []).map((item: any) => ({
+    content: String(item.content || "").slice(0, 20),
+    date: String(item.date || ""),
+  }));
+} catch {
+  essayItems = [];
+}
+
+type YearGroup = { year: string; items: typeof essayItems };
+
+const grouped: YearGroup[] = [];
+const map = new Map<string, typeof essayItems>();
+for (const item of essayItems) {
+  const [y] = item.date.split('/');
+  if (!y) continue;
+  if (!map.has(y)) map.set(y, []);
+  map.get(y)!.push(item);
+}
+for (const [year, items] of map) {
+  grouped.push({ year, items });
+}
+const displayGroups = grouped.length > 0 ? [grouped[0]] : [];
+---
+
+<!-- Hero with random image + combined hitokoto/essay card -->
+<div class="hero-module relative overflow-hidden w-full" data-hitokoto-list={JSON.stringify(hitokotoList)}>
+  <!-- Hero container -->
+  <div class="hero-container relative overflow-hidden" style="border-radius: 16px; height: 420px;">
+    <!-- Layer 1: Random image background -->
+    <img
+      id="hero-random-img"
+      src="https://api.elaina.cat/random/"
+      alt={t('home.randomImage.alt')}
+      class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+      loading="eager"
+    />
+
+    <!-- Layer 2: Combined essay + hitokoto card (bottom-right) -->
+    <div class="hero-combined-card absolute bottom-4 right-4 z-10 overflow-hidden flex flex-col" style="width: 28%; max-width: 260px; height: 300px; border-radius: 12px; background: rgba(255,255,255,0.25); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.4); box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: background 0.3s ease;">
+      <!-- Essay section (top) -->
+      <div class="px-3 pt-2.5 pb-1.5 flex flex-col flex-1 min-h-0 overflow-hidden">
+        <div class="flex items-center justify-between mb-1.5 flex-shrink-0">
+          <a href="/essay" class="text-xs font-bold px-2 py-0.5 rounded-md" style="background: rgba(0,0,0,0.08); color: #333; text-decoration: none;">
+            {t('home.essay.label')}
+          </a>
+          <a href="/essay" class="text-xs font-medium" style="color: #666; text-decoration: none;">
+            {t('home.essay.more')} →
+          </a>
+        </div>
+        <div class="flex-1 overflow-hidden relative">
+          <div id="essay-marquee" class="essay-marquee-list flex flex-col" style="animation: marquee-up 40s linear infinite;">
+            {[...displayGroups, ...displayGroups].map((yg) => (
+              <div class="essay-year-group">
+                <div class="essay-year-badge">{yg.year}</div>
+                {yg.items.map((item, i) => (
+                  <div class="essay-marquee-item flex items-center gap-2" data-date={item.date}>
+                    <div class="essay-timeline flex flex-col items-center flex-shrink-0" style="width: 14px;">
+                      <div class="essay-dot" style="width: 7px; height: 7px; border-radius: 50%; border: 1.5px solid rgba(0,0,0,0.25); background: transparent;"></div>
+                      {i < yg.items.length - 1 ? (
+                        <div class="essay-line" style="width: 1px; flex: 1; min-height: 8px; background: rgba(0,0,0,0.1);"></div>
+                      ) : null}
+                    </div>
+                    <span class="essay-date text-xs whitespace-nowrap flex-shrink-0" style="color: #555; font-size: 10px; font-variant-numeric: tabular-nums;">{item.date.slice(5)}</span>
+                    <span class="text-xs whitespace-nowrap overflow-hidden text-ellipsis flex-shrink" style="color: #333; max-width: 50%;">{item.content}</span>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <!-- Divider -->
+      <div class="mx-3" style="height: 1px; background: rgba(0,0,0,0.08);"></div>
+      <!-- Hitokoto section (bottom) -->
+      <div class="px-3 pt-1.5 pb-2.5 flex flex-col gap-1.5 flex-shrink-0">
+        <p
+          id="hero-hitokoto-text"
+          class="text-xs leading-relaxed font-medium"
+          style="color: #333; transition: opacity 0.3s ease, transform 0.3s ease; white-space: pre-line;"
+        >
+          {initialText}
+        </p>
+        <div class="flex items-center gap-2">
+          <div class="h-px flex-1" style="background: rgba(0,0,0,0.08);"></div>
+          <button
+            id="hero-hitokoto-refresh"
+            class="flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium transition-all duration-300"
+            style="background: rgba(0,0,0,0.06); color: #555; border: 1px solid rgba(0,0,0,0.08); cursor: pointer;"
+            aria-label="刷新一言"
+          >
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="23 4 23 10 17 10"></polyline>
+              <path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"></path>
+            </svg>
+            {t('home.hitokoto.refresh')}
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
+
+<style>
+  @keyframes marquee-up {
+    from { transform: translateY(0); }
+    to { transform: translateY(-50%); }
+  }
+
+  .hero-container {
+    height: 420px;
+  }
+
+  @media (max-width: 767px) {
+    .hero-container {
+      height: 280px;
+    }
+    .hero-combined-card {
+      width: 50% !important;
+      max-width: none !important;
+      height: 240px !important;
+      right: 12px !important;
+      bottom: 12px !important;
+    }
+  }
+
+  .hero-combined-card:hover {
+    background: rgba(255,255,255,0.4);
+  }
+  #hero-hitokoto-refresh:hover {
+    background: rgba(0,0,0,0.1);
+  }
+  .essay-year-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    color: #333;
+    background: rgba(0,0,0,0.06);
+    border-radius: 6px;
+    padding: 1px 8px;
+    margin-bottom: 4px;
+  }
+  .essay-marquee-item:hover .essay-dot {
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+  }
+  .essay-marquee-item:hover .essay-date {
+    color: var(--color-primary);
+  }
+  .essay-marquee-item:hover span:last-child {
+    color: var(--color-primary);
+  }
+  .essay-marquee-item {
+    cursor: pointer;
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    const module = document.querySelector(".hero-module");
+    if (!module) return;
+    const list = JSON.parse(module.dataset.hitokotoList || "[]");
+
+    // Hitokoto refresh
+    const textEl = document.getElementById("hero-hitokoto-text");
+    document.getElementById("hero-hitokoto-refresh")?.addEventListener("click", () => {
+      if (!textEl || !list.length) return;
+      textEl.style.opacity = "0";
+      textEl.style.transform = "translateY(8px)";
+      setTimeout(() => {
+        const next = list[Math.floor(Math.random() * list.length)];
+        textEl.textContent = next;
+        textEl.style.opacity = "1";
+        textEl.style.transform = "translateY(0)";
+      }, 200);
+    });
+
+    // Essay click → navigate to essay page
+    const marquee = document.getElementById("essay-marquee");
+    if (marquee) {
+      marquee.addEventListener("click", function(e) {
+        var item = e.target.closest(".essay-marquee-item");
+        if (!item) return;
+        var date = item.dataset.date;
+        if (date) window.location.href = "/essay#essay-" + date;
+      });
+    }
+  })();
+</script>

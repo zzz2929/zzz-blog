@@ -30,7 +30,7 @@ const essay = essayData[0]?.data;
     <div class="relative border-l-2 border-border pl-6">
       {
         essay?.essay_list.map((item) => (
-          <div class="mb-8 relative">
+          <div id={`essay-${item.date}`} class="mb-8 relative">
             <span
               class="absolute -left-[33px] top-1.5 h-2.5 w-2.5 rounded-full border-2 border-primary"
               style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px);"
@@ -42,14 +42,14 @@ const essay = essayData[0]?.data;
             >
               <p class="text-foreground whitespace-pre-line">{item.content}</p>
               {item.img && item.img.length > 0 && (
-                <div class={`mt-3 grid gap-2 ${item.img.length === 1 ? 'grid-cols-1' : item.img.length === 2 ? 'grid-cols-2' : 'grid-cols-3'}`}>
+                <div class={`mt-3 flex flex-wrap gap-2 ${item.img.length === 1 ? '' : 'justify-center'}`}>
                   {item.img.map((src) => (
                     <img
                       src={src}
                       alt=""
                       loading="lazy"
-                      class="rounded-lg w-full object-cover"
-                      style="max-height: 400px;"
+                      class="rounded-lg"
+                      style={`max-width: ${item.img.length === 1 ? '100%' : item.img.length === 2 ? '48%' : '31%'}; max-height: 500px; object-fit: contain;`}
                     />
                   ))}
                 </div>
@@ -95,3 +95,15 @@ const essay = essayData[0]?.data;
   </main>
   <Footer />
 </BaseLayout>
+
+<style>
+  @keyframes essay-highlight {
+    0% { background: rgba(66, 90, 239, 0.15); }
+    100% { background: transparent; }
+  }
+  [id^="essay-"]:target {
+    scroll-margin-top: 80px;
+    animation: essay-highlight 2s ease-out;
+    border-radius: 12px;
+  }
+</style>
