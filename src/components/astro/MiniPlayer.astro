@@ -12,13 +12,13 @@ const t = useTranslations(locale);
   data-t-select-song={t('music.selectSong')}>
   <!-- Collapsed: spinning cover -->
   <div class="mini-collapsed">
-    <img id="mini-cover" class="mini-cover" src="/音乐.svg" alt="" />
+    <img id="mini-cover" class="mini-cover" src="/music.svg" alt="" />
   </div>
 
   <!-- Expanded: full controls on hover -->
   <div class="mini-expanded">
     <div class="mini-player-info">
-      <img id="mini-cover-hover" class="mini-cover" src="/音乐.svg" alt="" />
+      <img id="mini-cover-hover" class="mini-cover" src="/music.svg" alt="" />
       <div class="mini-details">
         <div id="mini-title" class="mini-title">未播放</div>
         <div id="mini-artist" class="mini-artist">选择歌曲开始播放</div>
@@ -369,7 +369,7 @@ const t = useTranslations(locale);
       state = {
         title: "",
         artist: "",
-        cover: "/音乐.svg",
+        cover: "/music.svg",
         url: "",
         playlist: [],
         index: 0,
@@ -400,7 +400,7 @@ const t = useTranslations(locale);
         console.log("[MiniPlayer] restoring state, showing player");
         state.title = saved.title || "";
         state.artist = saved.artist || "";
-        state.cover = saved.cover || "/音乐.svg";
+        state.cover = saved.cover || "/music.svg";
         state.url = saved.url;
         state.playlist = saved.playlist || [];
         state.index = saved.index || 0;
@@ -533,7 +533,7 @@ const t = useTranslations(locale);
       if (!song) return;
       state.title = song.title || song.name;
       state.artist = song.artist;
-      state.cover = song.cover || song.pic || "/音乐.svg";
+      state.cover = song.cover || song.pic || "/music.svg";
       state.url = song.url;
       audio.src = song.url;
       audio.currentTime = 0;

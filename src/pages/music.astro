@@ -51,14 +51,14 @@ const playlistModules = [
 ].map((mod) => mod.default);
 const playlists = playlistModules.map((p) => ({
   name: p.name || t('music.unnamedPlaylist'),
-  cover: p.cover || "/音乐.svg",
+  cover: p.cover || "/music.svg",
   songs: (p.songs || []).map((s) => ({
     name: s.name,
     artist: s.artist,
     album: s.album || "",
     url: s.url,
     lrc: s.lrc || "",
-    pic: s.pic || "/音乐.svg",
+    pic: s.pic || "/music.svg",
   })),
 }));
 ---
@@ -92,7 +92,7 @@ const playlists = playlistModules.map((p) => ({
               <div class="album-cover-center">
                 <img
                   id="album-cover"
-                  src="/音乐.svg"
+                  src="/music.svg"
                   alt="Album Cover"
                   class="w-full h-full object-cover rounded-full"
                 />
@@ -298,7 +298,7 @@ const playlists = playlistModules.map((p) => ({
           <div class="flex items-center gap-3 min-w-0 z-10">
             <img
               id="fixed-album-cover"
-              src="/音乐.svg"
+              src="/music.svg"
               alt=""
               class="w-10 h-10 rounded-lg object-cover"
             />
@@ -523,7 +523,7 @@ const playlists = playlistModules.map((p) => ({
     <div class="lyrics-album-art">
       <img
         id="lyrics-album-cover"
-        src="/音乐.svg"
+        src="/music.svg"
         alt=""
         class="w-full h-full object-cover"
       />
@@ -1871,7 +1871,7 @@ const playlists = playlistModules.map((p) => ({
               artist: s.artist,
               album: s.album || "未知专辑",
               url: s.url,
-              cover: s.pic || "/音乐.svg",
+              cover: s.pic || "/music.svg",
               lrc: s.lrc,
             }));
             this.renderPlaylist();
@@ -2035,7 +2035,7 @@ const playlists = playlistModules.map((p) => ({
           artist: s.artist,
           album: s.album || T.unknownAlbum,
           url: s.url,
-          cover: s.pic || "/音乐.svg",
+          cover: s.pic || "/music.svg",
           lrc: s.lrc,
         }));
         this.currentIndex = 0;
@@ -2052,7 +2052,7 @@ const playlists = playlistModules.map((p) => ({
           artist: song.artist,
           album: song.album || T.unknownAlbum,
           url: song.url,
-          cover: song.pic || "/音乐.svg",
+          cover: song.pic || "/music.svg",
           lrc: song.lrc,
         };
         this.playlist.splice(this.currentIndex + 1, 0, newSong);
