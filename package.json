@@ -19,6 +19,7 @@
     "@astrojs/react": "^5.0.7",
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.3",
+    "@fancyapps/ui": "^6.1.14",
     "@rollup/plugin-yaml": "^5.0.0",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.3.0",
