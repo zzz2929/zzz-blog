@@ -31,7 +31,7 @@
     "js-yaml": "^4.1.0",
     "lucide-react": "^1.17.0",
     "pagefind": "^1.5.2",
-    "react": "^19.2.7",
+    "react": "^19.2.8",
     "react-dom": "^19.2.7",
     "shiki": "^4.2.0",
     "tailwindcss": "^4.3.0",
