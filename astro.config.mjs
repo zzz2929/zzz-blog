@@ -56,7 +56,7 @@ function rehypeCodeBlock() {
 
 export default defineConfig({
   site: 'https://blog.904002.xyz',
-  output: 'static',
+  output: 'hybrid',
   integrations: [react(), mdx(), sitemap()],
   i18n: {
     defaultLocale: 'zh-CN',
