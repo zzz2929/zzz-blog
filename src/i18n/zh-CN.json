@@ -102,6 +102,7 @@
   "album.heading": "相册集",
   "album.subtitle": "记录生活中的美好瞬间",
   "album.backToList": "← 返回",
+  "album.breadcrumb": "相册集",
   "album.photoCount": "{count} 张",
   "comment.placeholder": "欢迎留言评论...",
   "theme.toggleLight": "切换到浅色模式",

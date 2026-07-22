@@ -74,7 +74,10 @@ export default defineConfig({
       },
     },
     optimizeDeps: {
-      exclude: ['framer-motion'],
+      exclude: ['framer-motion', '@fancyapps/ui'],
+    },
+    ssr: {
+      noExternal: ['@fancyapps/ui'],
     },
     server: {
       watch: {

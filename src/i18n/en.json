@@ -102,6 +102,7 @@
   "album.heading": "Album",
   "album.subtitle": "Recording beautiful moments in life",
   "album.backToList": "← Back",
+  "album.breadcrumb": "Album",
   "album.photoCount": "{count} photos",
   "comment.placeholder": "Welcome to leave a comment...",
   "theme.toggleLight": "Switch to Light Mode",

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { Images, Camera, ImageOff } from 'lucide-react';
 import Gallery from './Gallery';
 import PolaroidGallery from './PolaroidGallery';
@@ -44,6 +44,25 @@ function PhotoImage({ src, alt }: { src: string; alt: string }) {
   );
 }
 
+function Breadcrumb({ items, onNavigate }: { items: Array<{ label: string; onClick?: () => void }> }) {
+  return (
+    <nav className="mb-6 flex items-center gap-1.5 text-sm text-foreground-muted">
+      {items.map((item, i) => (
+        <span key={i} className="flex items-center gap-1.5">
+          {i > 0 && <span className="text-foreground-muted/40">/</span>}
+          {item.onClick ? (
+            <button onClick={item.onClick} className="hover:text-primary transition-colors">
+              {item.label}
+            </button>
+          ) : (
+            <span className="text-foreground font-medium">{item.label}</span>
+          )}
+        </span>
+      ))}
+    </nav>
+  );
+}
+
 interface PhotoItem {
   date: string;
   content: string;
@@ -67,11 +86,50 @@ interface PhotoAlbumProps {
   locale?: Locale;
 }
 
+function getSearchParams() {
+  if (typeof window === 'undefined') return new URLSearchParams();
+  return new URLSearchParams(window.location.search);
+}
+
+function updateURL(album: string | null, groupName: string | null) {
+  const params = new URLSearchParams(window.location.search);
+  if (album) params.set('album', album); else params.delete('album');
+  if (groupName) params.set('group', groupName); else params.delete('group');
+  const qs = params.toString();
+  const url = qs ? `${window.location.pathname}?${qs}` : window.location.pathname;
+  window.history.replaceState(null, '', url);
+}
+
 export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps) {
   const t = useTranslations(locale);
-  const [gallery, setGallery] = useState<{ images: string[]; index: number } | null>(null);
-  const [activeAlbum, setActiveAlbum] = useState<string | null>(null);
-  const [activeGroup, setActiveGroup] = useState<{ name: string; group: AlbumGroup } | null>(null);
+
+  const [gallery, setGallery] = useState<{ images: string[]; captions: string[]; index: number } | null>(null);
+
+  // Initialize from URL search params
+  const [activeAlbum, setActiveAlbumState] = useState<string | null>(() => {
+    const params = getSearchParams();
+    return params.get('album') || null;
+  });
+  const [activeGroup, setActiveGroupState] = useState<{ name: string; group: AlbumGroup } | null>(() => {
+    const params = getSearchParams();
+    const albumName = params.get('album');
+    const groupName = params.get('group');
+    if (!albumName || !groupName) return null;
+    const album = albums.find((a) => a.path_name === albumName);
+    const group = album?.album_list.find((g) => g.album_name === groupName);
+    return group ? { name: groupName, group } : null;
+  });
+
+  const setActiveAlbum = useCallback((album: string | null) => {
+    setActiveAlbumState(album);
+    updateURL(album, null);
+    setActiveGroupState(null);
+  }, []);
+
+  const setActiveGroup = useCallback((group: { name: string; group: AlbumGroup } | null) => {
+    setActiveGroupState(group);
+    updateURL(activeAlbum, group?.name || null);
+  }, [activeAlbum]);
 
   const currentAlbum = activeAlbum ? albums.find((a) => a.path_name === activeAlbum) : null;
 
@@ -84,9 +142,11 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
 
     return (
       <div>
-        <button onClick={() => setActiveGroup(null)} className="mb-4 text-sm text-primary hover:underline">
-          ← {currentAlbum?.class_name || t('album.backToList')}
-        </button>
+        <Breadcrumb items={[
+          { label: t('album.breadcrumb'), onClick: () => setActiveAlbum(null) },
+          { label: currentAlbum?.class_name || '', onClick: () => setActiveGroup(null) },
+          { label: activeGroup.name },
+        ]} />
         <h2 className="text-2xl font-bold mb-6">{activeGroup.name}</h2>
 
         {allImages.length === 0 ? (
@@ -108,7 +168,7 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
                 }}
               >
                 <button
-                  onClick={() => setGallery({ images: photo.allImages, index: photo.idx })}
+                  onClick={() => setGallery({ images: photo.allImages, captions: photo.allImages.map(() => photo.title), index: photo.idx })}
                   className="w-full relative overflow-hidden bg-border"
                 >
                   <PhotoImage src={photo.src} alt={photo.title} />
@@ -123,7 +183,7 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
         )}
 
         {gallery && (
-          <Gallery images={gallery.images} initialIndex={gallery.index} onClose={() => setGallery(null)} />
+          <Gallery images={gallery.images} captions={gallery.captions} initialIndex={gallery.index} onClose={() => setGallery(null)} />
         )}
       </div>
     );
@@ -133,9 +193,10 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
   if (currentAlbum) {
     return (
       <div>
-        <button onClick={() => setActiveAlbum(null)} className="mb-4 text-sm text-primary hover:underline">
-          {t('album.backToList')}
-        </button>
+        <Breadcrumb items={[
+          { label: t('album.breadcrumb'), onClick: () => setActiveAlbum(null) },
+          { label: currentAlbum.class_name },
+        ]} />
         <h2 className="text-2xl font-bold mb-2">{currentAlbum.class_name}</h2>
         {currentAlbum.description && <p className="text-muted mb-6">{currentAlbum.description}</p>}
 
