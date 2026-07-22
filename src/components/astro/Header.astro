@@ -14,12 +14,12 @@ const menuItems = [
       {
         name: t("nav.archive"),
         href: `${prefix}/archives/`,
-        icon: "https://imgbed.904002.xyz/file/img/blog/icon/navigation/归档.svg",
+        icon: "/navigation/归档.svg",
       },
       {
         name: t("nav.categories"),
         href: `${prefix}/categories/`,
-        icon: "https://imgbed.904002.xyz/file/img/blog/icon/navigation/分类.svg",
+        icon: "/navigation/分类.svg",
       },
     ],
   },
@@ -29,7 +29,7 @@ const menuItems = [
       {
         name: t("nav.friendList"),
         href: `${prefix}/friends/`,
-        icon: "https://imgbed.904002.xyz/file/img/blog/icon/navigation/友链.svg",
+        icon: "/navigation/友链.svg",
       },
     ],
   },
@@ -39,17 +39,17 @@ const menuItems = [
       {
         name: t("nav.music"),
         href: `${prefix}/music/`,
-        icon: "https://imgbed.904002.xyz/file/img/blog/icon/navigation/音乐.svg",
+        icon: "/navigation/音乐.svg",
       },
       {
         name: t("nav.bangumis"),
         href: `${prefix}/bangumis/`,
-        icon: "https://imgbed.904002.xyz/file/img/blog/icon/navigation/追番.svg",
+        icon: "/navigation/追番.svg",
       },
       {
         name: t("nav.album"),
         href: `${prefix}/album/`,
-        icon: "https://imgbed.904002.xyz/file/img/blog/icon/navigation/相册.svg",
+        icon: "/navigation/相册.svg",
       },
     ],
   },
@@ -59,17 +59,17 @@ const menuItems = [
       {
         name: t("nav.aboutMe"),
         href: `${prefix}/about/`,
-        icon: "https://imgbed.904002.xyz/file/img/blog/icon/navigation/关于本人.svg",
+        icon: "/navigation/关于本人.svg",
       },
       {
         name: t("nav.essay"),
         href: `${prefix}/essay/`,
-        icon: "https://imgbed.904002.xyz/file/img/blog/icon/navigation/闲言碎语.svg",
+        icon: "/navigation/闲言碎语.svg",
       },
       {
         name: t("nav.equipment"),
         href: `${prefix}/equipment/`,
-        icon: "https://imgbed.904002.xyz/file/img/blog/icon/navigation/我的装备.svg",
+        icon: "/navigation/我的装备.svg",
       },
     ],
   },
@@ -241,20 +241,20 @@ function isImageIcon(icon) {
               </button>
               <div
                 class="nav-dropdown absolute top-full"
-                style="z-index: 99999; left: 50%; transform: translateX(-50%) translateY(8px) scale(0.96); opacity: 0; visibility: hidden; pointer-events: none; background: linear-gradient(135deg, rgba(255,255,255,0.75), rgba(255,255,255,0.45)); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(255,255,255,0.35); border-radius: 9999px; box-shadow: 0 12px 40px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06); padding: 6px; white-space: nowrap; transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s;"
+                style="z-index: 99999; left: 50%; transform: translateX(-50%) translateY(8px) scale(0.96); opacity: 0; visibility: hidden; pointer-events: none; background: linear-gradient(135deg, rgba(255,255,255,0.75), rgba(255,255,255,0.45)); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(255,255,255,0.35); border-radius: 16px; box-shadow: 0 12px 40px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06); padding: 6px; white-space: nowrap; transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s;"
               >
                 <div class="nav-dropdown-inner flex items-center gap-0.5">
                   {item.children.map((child, ci) => (
                     <a
                       href={child.href}
-                      class="nav-dropdown-item flex items-center gap-2.5 rounded-full px-4 py-2 whitespace-nowrap transition-all duration-200"
+                      class="nav-dropdown-item flex items-center gap-2.5 rounded-lg px-3 py-2 whitespace-nowrap transition-all duration-200"
                       style={`font-size: 15px; font-weight: 600; color: var(--color-foreground); opacity: 0; transform: translateY(6px); transition-delay: ${ci * 30}ms;`}
                     >
                       {isImageIcon(child.icon) ? (
                         <img
                           src={child.icon}
                           alt={child.name}
-                          style="width: 18px; height: 18px; object-fit: contain;"
+                          style="width: 18px; height: 18px; display: block; flex-shrink: 0;"
                         />
                       ) : (
                         <span class="text-base">{child.icon}</span>
