@@ -169,8 +169,9 @@ const { Content, headings } = await render(post);
   </script>
 
   <script>
-    import PhotoSwipe from "photoswipe";
-    import "photoswipe/dist/photoswipe.css";
+    import { Fancybox } from "@fancyapps/ui";
+    import "@fancyapps/ui/dist/fancybox/fancybox.css";
+    import fancyboxConfig from "@/config/fancybox";
 
     // Enable progressive loading effect
     document.querySelector(".prose")?.classList.add("prose--js-ready");
@@ -181,48 +182,24 @@ const { Content, headings } = await render(post);
       }
     });
 
-    // PhotoSwipe for blog images
-    function initBlogPhotoswipe() {
-      const proseImgs = Array.from(document.querySelectorAll(".prose img")) as HTMLImageElement[];
+    // Fancybox for blog images
+    function initBlogFancybox() {
+      const proseImgs = document.querySelectorAll(".prose img");
       if (proseImgs.length === 0) return;
 
       proseImgs.forEach((img) => {
+        img.setAttribute("data-fancybox", "blog");
+        img.setAttribute("data-caption", img.getAttribute("alt") || "");
         img.style.cursor = "zoom-in";
-        img.addEventListener("click", () => {
-          const clickedImg = img;
-          const rect = clickedImg.getBoundingClientRect();
+      });
 
-          const items = proseImgs.map((el) => ({
-            src: el.src,
-            width: el.naturalWidth || 1920,
-            height: el.naturalHeight || 1080,
-          }));
-          const index = proseImgs.indexOf(clickedImg);
-
-          const pswp = new PhotoSwipe({
-            dataSource: items,
-            bgOpacity: 0.92,
-            showHideOpacity: true,
-            counterEl: true,
-            arrowKeys: true,
-            loop: true,
-            initialSlide: index,
-            index: index,
-            appendToEl: document.body,
-            getThumbBoundsFn: () => ({
-              x: rect.left,
-              y: rect.top,
-              w: rect.width,
-              h: rect.height,
-            }),
-          } as any);
-          pswp.init();
-        });
+      Fancybox.bind('[data-fancybox="blog"]', {
+        ...fancyboxConfig,
       });
     }
 
-    initBlogPhotoswipe();
-    document.addEventListener("astro:page-load", initBlogPhotoswipe);
+    initBlogFancybox();
+    document.addEventListener("astro:page-load", initBlogFancybox);
 
     // Code block enhancements: line numbers, copy button
     const SHIKI_VARS = [
