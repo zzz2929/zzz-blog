@@ -1,7 +1,7 @@
 {
 	"compatibility_date": "2026-06-05",
 	"compatibility_flags": ["global_fetch_strictly_public"],
-	"name": "blog",
+	"name": "zzz-blog",
 	"main": "@astrojs/cloudflare/entrypoints/server",
 	"assets": {
 		"directory": "./dist",
@@ -9,11 +9,5 @@
 	},
 	"observability": {
 		"enabled": true
-	},
-	"kv_namespaces": [
-		{
-			"binding": "SESSION",
-			"id": "306a22bec0f6450fb53de97ade8fac2c"
-		}
-	]
+	}
 }
