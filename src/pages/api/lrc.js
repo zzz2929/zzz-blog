@@ -1,3 +1,5 @@
+export const prerender = false;
+
 export async function GET({ request }) {
   const url = new URL(request.url);
   const lrcUrl = url.searchParams.get('url');
