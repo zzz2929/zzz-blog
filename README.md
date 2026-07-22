@@ -427,18 +427,18 @@ public/
 
 | 文件         | 尺寸             | 格式 | 说明                |
 | ------------ | ---------------- | ---- | ------------------- |
-| `blog.svg` | 任意（矢量）     | SVG  | 现代浏览器首选      |
-| `blog.ico` | 32×32 或 16×16 | ICO  | 兼容旧浏览器        |
-| `blog.png` | 180×180         | PNG  | iOS Safari 书签图标 |
+| `favicon.svg` | 任意（矢量）     | SVG  | 现代浏览器首选      |
+| `favicon.ico` | 32×32 或 16×16 | ICO  | 兼容旧浏览器        |
+| `favicon.png` | 180×180         | PNG  | iOS Safari 书签图标 |
 
 #### 修改引用
 
 `BaseLayout.astro` 中的 `<head>` 部分：
 
 ```html
-<link rel="icon" type="image/svg+xml" href="/blog.svg" />
-<link rel="icon" href="/blog.ico" />
-<link rel="apple-touch-icon" href="/blog.png" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" href="/favicon.png" />
 ```
 
 ---
