@@ -184,6 +184,9 @@ const { Content, headings } = await render(post);
 
     // Fancybox for blog images
     function initBlogFancybox() {
+      Fancybox.close();
+      Fancybox.unbind('[data-fancybox="blog"]');
+
       const proseImgs = document.querySelectorAll(".prose img");
       if (proseImgs.length === 0) return;
 

@@ -120,6 +120,9 @@ const essay = essayData[0]?.data;
   import fancyboxConfig from '@/config/fancybox';
 
   function initEssayFancybox() {
+    Fancybox.close();
+    Fancybox.unbind('[data-fancybox="essay"]');
+
     const imgs = document.querySelectorAll("[id^='essay-'] img");
     if (imgs.length === 0) return;
 

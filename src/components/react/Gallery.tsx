@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Fancybox } from '@fancyapps/ui';
+import { Fancybox, type FancyboxOptions } from '@fancyapps/ui';
 import '@fancyapps/ui/dist/fancybox/fancybox.css';
 import fancyboxConfig from '@/config/fancybox';
 
@@ -26,7 +26,7 @@ export default function Gallery({ images, initialIndex = 0, onClose }: GalleryPr
           onClose();
         },
       },
-    } as any);
+    } as FancyboxOptions);
 
     return () => {
       Fancybox.close();
