@@ -10,13 +10,6 @@ import { useTranslations, getLocaleFromURL } from "@/i18n";
 const locale = getLocaleFromURL(Astro.url.pathname);
 const t = useTranslations(locale);
 const friendsData = await getCollection("friends");
-
-const selfInfo = {
-  name: "zzz-blog",
-  link: "https://blog.904002.xyz",
-  avatar: "https://imgbed.904002.xyz/file/img/blog/avatar/zzz.webp",
-  description: "冠以名则六欲泛生，止于此则七情方休",
-};
 ---
 
 <BaseLayout title={t('friends.title')}>
@@ -42,7 +35,7 @@ const selfInfo = {
         </li>
         <li class="flex items-start gap-2">
           <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-primary" />
-          <span>avatar: <a href={"https://imgbed.904002.xyz/file/img/blog/avatar/zzz.webp"} target="_blank" rel="noopener noreferrer" class="text-primary hover:underline break-all">https://imgbed.904002.xyz/file/img/blog/avatar/zzz.webp</a></span>
+          <span>avatar: <a href={"https://blog.904002.xyz/avatar.webp"} target="_blank" rel="noopener noreferrer" class="text-primary hover:underline break-all">https://blog.904002.xyz/avatar.webp</a></span>
         </li>
       </ul>
     </section>
