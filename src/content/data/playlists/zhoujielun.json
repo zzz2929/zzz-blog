@@ -1,483 +1,1568 @@
 {
   "name": "周杰伦",
   "cover": "https://y.qq.com/music/photo_new/T001R300x300M0000025NhlN2yWrP4_11.jpg?max_age=2592000",
+  "playlist": 3805603854,
   "songs": [
     {
-      "name": "星晴",
-      "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w7/audio/01/66/78/08d14e661c0ca6839620c4ce23a8a754/audio.mp3?at_=1781406919770&ak_=03a095d72be15f6b235a7014bd76d0e8&ad_=e186ac170bf4770e2c4da97dff76ee90",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000f01724fd7TH.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=001Zi7Ly4ZtVQk"    },
-    {
-      "name": "爱情废柴",
-      "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w8/audio/a0/17/45/7a15f8d94bc698904fd7d1c607995ae0/audio.mp3?at_=1781406965898&ak_=78aac72ae41062605e85c933f24de517&ad_=77124eb35b2a33f601d5e7775cc2f384",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003RMaRI1iFoYd.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=000eskGX0ijIFi"    },
-    {
-      "name": "爱在西元前",
-      "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w7/audio/a5/6f/4e/b341c21740d2bac0d3474342c2abd0dd/audio.mp3?at_=1781407013870&ak_=fa8c99ed1c6caf14db208348733b2430&ad_=424071653ee41ebc33ed2ab98ca34cc1",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000I5jJB3blWeN.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=002usg9o4GTAKf"  
+      "name": "恒星不忘 Forever Forever",
+      "artist": "周杰伦 / 言承旭 / 吴建豪 / 周渝民",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000004Bux530GytNj.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=002yIFEJ0ssJjj",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=002yIFEJ0ssJjj"
     },
     {
-      "name": "暗号",
+      "name": "太阳之子",
       "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w8/audio/62/9b/9c/143acf0c0dd880f48743b7926d3748ce/audio.mp3?at_=1781407049087&ak_=a752b1b7db0f2f404f8cadf45a6b8f8c&ad_=38afb97483187dc0d832fdc636c2ceca",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000004MGitN0zEHpb.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=000NQDjk4BA0W3"    },
-    {
-      "name": "枫",
-      "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w8/audio/65/7b/6c/da95ceea37e7c2a4ac6c0f7a205ef3ea/audio.mp3?at_=1781407082690&ak_=0b150711efcb85f9ba26ba88ddde5750&ad_=568b5858b6da50f7fbe98ebf35c27422",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000024bjiL2aocxT.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=003KtYhg4frNXC"    },
-    {
-      "name": "夜曲",
-      "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w7/audio/7d/db/35/0996258ed38b8f8393aa73db68389db4/audio.mp3?at_=1781407106237&ak_=e0947f47b813d7b41bc449bccd3ed226&ad_=8f18fc62509397c5cb92e21b37c9299f",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000024bjiL2aocxT.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=001zMQr71F1Qo8"    },
-    {
-      "name": "发如雪",
-      "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w7/audio/d7/30/50/5d5e38ec1dadecb408474339f5d2e42f/audio.mp3?at_=1781407133844&ak_=7a68bbcf7dd90f2da2bf40f5afb4f231&ad_=e76aec2c7c4a2216bdbf96989263e8fa",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000024bjiL2aocxT.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=0027oMO61wWi55"    },
-    {
-      "name": "一路向北",
-      "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w8/audio/40/71/26/303d7276dcada8d7afb79df5a4de98ea/audio.mp3?at_=1781407163846&ak_=3a4bcb4aed76d40a63c6e5644326c439&ad_=c1574e3cbae818862273e89703d1be79",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002MAeob3zLXwZ.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=001xd0HI0X9GNq"
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000041WVfh2vtlJE.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=0001bLnu2ULqYf",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=0001bLnu2ULqYf"
     },
     {
-      "name": "红尘客栈",
+      "name": "西西里",
       "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w8/audio/7d/27/ce/436e17ba8c354fd10149b4061a2a3228/audio.mp3?at_=1781407193235&ak_=3c636b63ba016ba432bd155e81b9c52b&ad_=e72698d48857df7a006ca1a0c67224e9",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003Ow85E3pnoqi.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=003xv4w313tZHV"
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000041WVfh2vtlJE.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003FdJZH1wljMU",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003FdJZH1wljMU"
     },
     {
-      "name": "爱你没差",
+      "name": "那天下雨了",
       "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w8/audio/32/38/b5/f1ceec1bca2a36b7f6772df7287e1fe9/audio.mp3?at_=1781407223724&ak_=64cc5e254cf5179f2e2eb0dd92fb9203&ad_=6ede0623302d27e1d07229ff6f503213",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003Ow85E3pnoqi.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=002tNzue0g8xQA"
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000041WVfh2vtlJE.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=0044SaFh0apuR2",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=0044SaFh0apuR2"
     },
     {
-      "name": "明明就",
+      "name": "湘女多情",
       "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w7/audio/1f/57/f0/d21797aeed645cae1a29bc11676dfc2a/audio.mp3?at_=1781407258570&ak_=049f681d0204a700424124b8cf75c87f&ad_=e823fe99bf5704f1d0a4b7221892bd0c",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003Ow85E3pnoqi.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=000oW8J53xPhZA"
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000041WVfh2vtlJE.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=0007XPND1Mf9dN",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=0007XPND1Mf9dN"
     },
     {
-      "name": "大笨钟",
+      "name": "谁稀罕",
       "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w8/audio/d4/3c/b9/852d927814961fb993ce73ce8baffd21/audio.mp3?at_=1781407287493&ak_=24dc579dc91316c1af5a2691a2ec0526&ad_=5da325d101928aca79d6194447abd3eb",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003Ow85E3pnoqi.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=002jkBM53MLB9Q"
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000041WVfh2vtlJE.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=000bcKcM3AaJCU",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=000bcKcM3AaJCU"
     },
     {
-      "name": "哪里都是你",
+      "name": "七月的极光",
       "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w8/audio/9d/ae/cf/f18347bfe3515fc18c94810141c36c87/audio.mp3?at_=1781407316646&ak_=f686ade332d562ff9bc74c8f3f07010b&ad_=eb1df556d6f215bf11744496622222d8",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003Ow85E3pnoqi.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=002sfzQB12abuc"
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000041WVfh2vtlJE.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003wwuRJ3OmrGc",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003wwuRJ3OmrGc"
     },
     {
-      "name": "晴天",
+      "name": "爱琴海",
       "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w8/audio/ee/73/f9/3d7d29c7007b59ed6987555b5e24c723/audio.mp3?at_=1781407351648&ak_=c4ac1f2198e1ce9ffd8120590dd983a1&ad_=ca186fe1156560376686c512bd807bfa",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000MkMni19ClKG.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=0039MnYb0qxYhV"
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000041WVfh2vtlJE.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003WPrjL4dimFE",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003WPrjL4dimFE"
     },
     {
-      "name": "以父之名",
+      "name": "I Do",
       "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w7/audio/5c/6c/d8/f5b980b71eae4727b4fe47ba6efab796/audio.mp3?at_=1781407377625&ak_=a0239fd97435a4402940d947ceac160c&ad_=e55fabb33ccfdb9aa619555ffb899bcb",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000MkMni19ClKG.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=001n4C3p1yv0FU"
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000041WVfh2vtlJE.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=000UVWY709sJLh",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=000UVWY709sJLh"
     },
     {
-      "name": "三年二班",
+      "name": "圣徒",
       "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w7/audio/3c/ad/03/27add25cd1c91f4dba8a570d771abc14/audio.mp3?at_=1781407403803&ak_=6dc439d9f278d66c48a4e8271666d75d&ad_=ba5adcce255f7d956c7988a4e2496b0a",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000MkMni19ClKG.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=004csbVP1E2dv1"
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000041WVfh2vtlJE.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001AuhUk0VdWjC",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001AuhUk0VdWjC"
     },
     {
-      "name": "告白气球",
+      "name": "女儿殿下",
       "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w8/audio/21/ec/13/2b574a10f3072f5766f4ae7674a3cc36/audio.mp3?at_=1781407438347&ak_=b57d8f881eb7439593b2dec916012873&ad_=1af62fdaac19ae5cd909f838bb02dd39",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003RMaRI1iFoYd.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=003OUlho2HcRHC"
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000041WVfh2vtlJE.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003kFxD41vOh6l",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003kFxD41vOh6l"
     },
     {
-      "name": "不该",
+      "name": "淘金小镇",
       "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w7/audio/6e/05/c8/bac1d0f2a203d0d7b8112e1286294c02/audio.mp3?at_=1781407470994&ak_=7c1664d8c0bcaba56d87fc636eef357c&ad_=0a234fc65159169836c71f86cbb3c646",
-      "pic": "",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=000ucmvN0Zdkmh"
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000041WVfh2vtlJE.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=004fFOIE1n0fhE",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=004fFOIE1n0fhE"
     },
     {
-      "name": "算什么男人",
+      "name": "乡间的路",
       "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w7/audio/23/fc/fe/7538c0a0ba774ac58c4041f7dc0e9b87/audio.mp3?at_=1781407493515&ak_=94fcf8ba4fa78216d12efed9c659e06d&ad_=aa4150926c856c734461f6b90cbac808",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001uqejs3d6EID.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=001Js78a40BZU6"
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000041WVfh2vtlJE.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=002Rf1gB25DDL4",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=002Rf1gB25DDL4"
     },
     {
-      "name": "美人鱼",
+      "name": "圣诞星 (feat. 杨瑞代)",
       "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w7/audio/7f/28/86/18419237d092a5bebfabb9b41492ebbb/audio.mp3?at_=1781407534741&ak_=c082ad3604065a22dc6829adcf29c6e9&ad_=f2f0d8490237b9293140db9487e04248",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001uqejs3d6EID.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=001XPgTm3faHRb"
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000041WVfh2vtlJE.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=000fpbFh2Uu80G",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=000fpbFh2Uu80G"
     },
     {
-      "name": "手写的从前",
+      "name": "圣诞星 (feat. 杨瑞代)",
       "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w8/audio/0d/1f/f9/7c48eb67b81adb8ab69dfb4bddd46759/audio.mp3?at_=1781407557706&ak_=7a5d02877c97f6afe592bdcc247c32bb&ad_=d3c8f06186b200db5b1e1af372979c71",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001uqejs3d6EID.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=002u8ZOM4C7QF4"
-    },
-    {
-      "name": "轨迹",
-      "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w7/audio/a3/a4/3c/79865207dfb32c90b35f2535848879e5/audio.mp3?at_=1781407585568&ak_=183a575233e778a6fe1b0cc484422f9c&ad_=3a1138c139232a84e69175c164996777",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001BGzMs369FzU.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=0036g6g628i2gI"
-    },
-    {
-      "name": "断了的弦",
-      "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w8/audio/22/53/4d/f57a615eba1aad32cdd95d052d8bb3af/audio.mp3?at_=1781407658218&ak_=bca877e817302e761a3869d641ae5918&ad_=b07d2588a6c5edb39921c6efc6be8230",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001BGzMs369FzU.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=003ZdxP61ClQZ5"
-    },
-    {
-      "name": "公主病",
-      "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w8/audio/1e/1e/6b/aeac5132965d6e18b8f939e21d426d2c/audio.mp3?at_=1781407713025&ak_=65e6cc437dbf7ccd18741db50278c34b&ad_=6727e3fbec31d5f39acba78223ad2fa8",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003KNcyk0t3mwg.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=003hWWWP4Rdj4A"
-    },
-    {
-      "name": "蒲公英的约定",
-      "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w8/audio/48/92/c4/ce7da54eb2261c53788d6a495e037b4d/audio.mp3?at_=1781407750502&ak_=350f23ed7ed8f94dc0948480cc8a5298&ad_=fc2234c2626ed12a96a3021c74f8cc88",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002eFUFm2XYZ7z.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=004Yi5BD3ksoAN"
-    },
-    {
-      "name": "阳光宅男",
-      "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w7/audio/46/c3/31/0bfa5d6520f5c1c43c5bc4fe5903dfd9/audio.mp3?at_=1781407780839&ak_=c38eb4c188d234df0b82cf0c5c5faf88&ad_=04cbd6af02df3db71df65a399e0aa4c6",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002eFUFm2XYZ7z.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=001bnNGN127Kbq"
-    },
-    {
-      "name": "青花瓷",
-      "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w7/audio/4b/d0/5a/d34eb530e23659cc730bef81b2075286/audio.mp3?at_=1781407809835&ak_=cb1a2fc340f224f490908c68c228e0d0&ad_=c01c8ccf69dc0eedd6e3f92ed41c4e3a",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002eFUFm2XYZ7z.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=002qU5aY3Qu24y"
-    },
-    {
-      "name": "甜甜的",
-      "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w7/audio/a0/48/6f/f19c96e93e3df62dc9b33bf63e7e5c50/audio.mp3?at_=1781407838871&ak_=61a7fa9c4e8f531f929a569a85e284e7&ad_=0c194b7fb908ed665c748496407437ce",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002eFUFm2XYZ7z.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=000xdZuV2LcQ19"
-    },
-    {
-      "name": "牛仔很忙",
-      "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w8/audio/33/47/5e/dd67e274ff5d06a579728ace37e578fd/audio.mp3?at_=1781407866109&ak_=45ecedef5ada6c323d8e7a795abd91ab&ad_=3a508b4382cdf94a499edf476fee943e",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002eFUFm2XYZ7z.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=003O5GaP1SYe94"
-    },
-    {
-      "name": "最长的电影",
-      "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w7/audio/c5/21/44/d5d85d64774d4a262ed752449eadbd69/audio.mp3?at_=1781407897635&ak_=20a0b8078a9c3c9e11e92a16037898fd&ad_=cbea55b02bfae181493bdc687df34166",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002eFUFm2XYZ7z.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=003ZrdgZ0UnjDl"
-    },
-    {
-      "name": "等你下课",
-      "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w8/audio/c6/92/e5/8e371b9c315723b99b736e08f670a3dd/audio.mp3?at_=1781407921262&ak_=ff8a32e92a13889817733c8c5760134d&ad_=4177e61c0ab98d2ad6f27885832fa0f9",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003bSL0v4bpKAx.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=001J5QJL1pRQYB"
-    },
-    {
-      "name": "说好不哭",
-      "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w7/audio/17/2c/34/acf3299e4013808284e59943ac2716d5/audio.mp3?at_=1781407972899&ak_=a673fa2b1e9be46df6e392fb4f79a64f&ad_=9a58176de4f028907e555e4ce8b29834",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002gBTVk4JEE2T.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=001qvvgF38HVc4"
-    },
-    {
-      "name": "最伟大的作品",
-      "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w8/audio/72/b2/29/46da03a7e17582f38ef543de074b8b49/audio.mp3?at_=1781408024699&ak_=85ca84771236fc932071b84008286886&ad_=d961b042a64eeb232392d16722d54469",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000042cH172YJ0mz.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=003w2xz20QlUZt"
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001ln9YB420a7b.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=0016aXcd24qSC8",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=0016aXcd24qSC8"
     },
     {
       "name": "我是如此相信",
       "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w7/audio/30/ca/5f/9c938bb58bd0df985ae8b75b1d4d7dfe/audio.mp3?at_=1781408059136&ak_=0ba0ff93a3f131baeda26d8abc02de38&ad_=6d9d99a0a5fbbc5a8a57fbab4679e468",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001hGx1Z0so1YX.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=001PLl3C4gPSCI"
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001hGx1Z0so1YX.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001PLl3C4gPSCI",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001PLl3C4gPSCI"
     },
     {
-      "name": "简单爱",
-      "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w7/audio/8a/2c/17/26bd20313bc2723dace667cbf08a45fa/audio.mp3?at_=1781408119229&ak_=7ce5fa57821ca4af47aaed6e17a5f54e&ad_=04d1b75885f2800ca1754f72a4c28349",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000I5jJB3blWeN.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=0009BCJK1nRaad"
+      "name": "不该 (with aMEI)",
+      "artist": "周杰伦 / 张惠妹",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003RMaRI1iFoYd.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=000sxzol11raSd",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=000sxzol11raSd"
     },
     {
-      "name": "不爱我就拉到",
+      "name": "Mojito",
       "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w8/audio/8c/3d/c1/ba3bc60c48c0ceab743cadc9bcbd6ca8/audio.mp3?at_=1781408154642&ak_=b696f160e28535960ec8bab099e2153b&ad_=f3442e087d0830e3509eee6ddde5e7f9",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001CnPE31iJ899.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=0031TAKo0095np"
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000009C3rp3Kfwg0.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001glaI72k8BQX",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001glaI72k8BQX"
     },
     {
-      "name": "爱在西元前",
+      "name": "告白气球",
       "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w7/audio/a5/6f/4e/b341c21740d2bac0d3474342c2abd0dd/audio.mp3?at_=1781408195393&ak_=59115ee7970d37dad7c06533a9c8847d&ad_=29f1782cade299e77dcfad60704ee5a2",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000I5jJB3blWeN.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=002usg9o4GTAKf"
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003RMaRI1iFoYd.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003OUlho2HcRHC",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003OUlho2HcRHC"
     },
     {
-      "name": "安静",
+      "name": "等你下课 (with 杨瑞代)",
       "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w8/audio/fd/42/9f/13730d4d6bcca94e588e59f84c766eb1/audio.mp3?at_=1781408216094&ak_=fb006c8b16636521357f92bc03013322&ad_=52a78655c361381d8b2a99679d0d99c6",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000I5jJB3blWeN.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=000amRvH3wxv56"
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000042cH172YJ0mz.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=00176bPZ2wu39R",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=00176bPZ2wu39R"
     },
     {
-      "name": "双截棍",
+      "name": "算什么男人",
       "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w8/audio/3c/dc/e7/43e6627fa23eb571547c68bcd019289e/audio.mp3?at_=1781408248583&ak_=8749e6cdd572f1588bf17c508ca56138&ad_=8d61deec019088cae187cd5afb3fe194",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000I5jJB3blWeN.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=00218ObD0yrANX"
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001uqejs3d6EID.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001Js78a40BZU6",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001Js78a40BZU6"
     },
     {
-      "name": "说了再见",
+      "name": "倒影",
       "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w8/audio/c9/fd/d2/33b6c4e1f8e2ceeea093e37b84e95529/audio.mp3?at_=1781408288091&ak_=f5d42f10a082e1fc30344d3dd2ea4cc9&ad_=45b8281d4e93f7d79a6308e5681f9863",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000bviBl4FjTpO.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=00265Jxe3JzXOJ"
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000042cH172YJ0mz.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003QrnHn2kR4FD",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003QrnHn2kR4FD"
     },
     {
-      "name": "自导自演",
+      "name": "粉色海洋",
       "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w8/audio/12/9f/ba/3522d84b607a0ce67a9e4d2ab9d78ea0/audio.mp3?at_=1781408328976&ak_=a3c66858091fee73981cd9e370a7542b&ad_=c30dd862975621fbdd2ccba1c7a66822",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000bviBl4FjTpO.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=003KrQ401gzm8x"
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000042cH172YJ0mz.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=000EqWxe275Yd2",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=000EqWxe275Yd2"
     },
     {
-      "name": "我落泪情绪零碎",
+      "name": "红尘客栈",
       "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w8/audio/21/f1/7c/7c2c0849741eba753621bd64a8000d22/audio.mp3?at_=1781408387607&ak_=62c95ebc59b2c64f191ad5081c85170e&ad_=37ef073a4d5e108b2d0e66b443aac83f",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000bviBl4FjTpO.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=0022b7OX2STU86"
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003Ow85E3pnoqi.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003xv4w313tZHV",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003xv4w313tZHV"
     },
     {
-      "name": "好久不见",
+      "name": "错过的烟火",
       "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w8/audio/df/69/69/51d2bd81cefaa7d60256755f7d6df224/audio.mp3?at_=1781408472840&ak_=5b25bc6b7002be7f3d292cf920ff4c04&ad_=e64b303f7d16a4960f5eaf1ccec73ba8",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000bviBl4FjTpO.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=002RqWle4FvqRy"
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000042cH172YJ0mz.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001RtHic1PivYc",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001RtHic1PivYc"
     },
     {
-      "name": "烟花易冷",
+      "name": "不爱我就拉倒",
       "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w8/audio/df/69/69/51d2bd81cefaa7d60256755f7d6df224/audio.mp3?at_=1781408472840&ak_=5b25bc6b7002be7f3d292cf920ff4c04&ad_=e64b303f7d16a4960f5eaf1ccec73ba8",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000bviBl4FjTpO.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=004emQMs09Z1lz"
-    },
-    {
-      "name": "霍元甲",
-      "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w8/audio/ad/66/35/8c906cc03083d9eb338299b97b75f005/audio.mp3?at_=1781408614833&ak_=e4cb718c33738f0ce92c2af075562b7c&ad_=ca690179a6da0ee1a14461bf000a1090",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000OixvE1YjIqd.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=002HeqcH2GMiOL"
-    },
-    {
-      "name": "说好的幸福呢",
-      "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w7/audio/11/34/93/c8bc70824cb1e794cf2fa99850bea870/audio.mp3?at_=1781408653232&ak_=24c14bf6846f1ad669c7d56e99315ed6&ad_=a983b07b218fa823c7431f0c2257746d",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002Neh8l0uciQZ.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=0042QMDR1VzSsx"
-    },
-    {
-      "name": "花海",
-      "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w8/audio/56/e1/d3/7b002bf717ffd2e244d00d1f500c33cd/audio.mp3?at_=1781408677363&ak_=38b1fc1f2edea80c91d1813241797902&ad_=a442adf2a8e61abe52e768447515d1fa",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002Neh8l0uciQZ.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=003cI52o4daJJL"
-    },
-    {
-      "name": "给我一首歌的时间",
-      "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w7/audio/fd/d5/c9/0f82d731cca16069c66d903ca2f2de73/audio.mp3?at_=1781408714974&ak_=52d1d0468cef04e855a1b9b2b186d466&ad_=d3f19ef89b79dc6a15278d8dbf7e63b6",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002Neh8l0uciQZ.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=004BhQke4adHcf"
-    },
-    {
-      "name": "时光机",
-      "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w8/audio/99/aa/e7/2990e7ad0a9d0f64a84a48aea393b26d/audio.mp3?at_=1781408748499&ak_=0e104ca21bea4531283d63f23726a696&ad_=8742d491994a45ee3650deb6372f63e5",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002Neh8l0uciQZ.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=000sRQrz0aEDFp"
-    },
-    {
-      "name": "兰亭序",
-      "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w7/audio/e2/72/fb/158659c62147c69618fa4cb99ecd31bd/audio.mp3?at_=1781408779416&ak_=48942480d78765daf97847073546f477&ad_=a0a1f71c34eac576d7565939e1f56aaf",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002Neh8l0uciQZ.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=00128N3r2SYKMF"
-    },
-    {
-      "name": "稻香",
-      "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w7/audio/13/77/25/21ee65cc5cc98b8f77e3d0c9e1f2e8e0/audio.mp3?at_=1781408810737&ak_=c67a8b6fd0cc7ef923d8adb97e8779cf&ad_=db2aac307dbd9f12e9c6dc16cbbb9576",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002Neh8l0uciQZ.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=003aAYrm3GE0Ac"
-    },
-    {
-      "name": "夜的第七章",
-      "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w7/audio/98/fa/b7/185e0d76d5e6b30e3430a78e0c663805/audio.mp3?at_=1781411155870&ak_=043046568b193c588145d76ee758fdeb&ad_=cef27a3c43ee539d24df915cd12aed2f",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002jLGWe16Tf1H.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=0010ibBn4bYFTk"
-    },
-    {
-      "name": "听妈妈的话",
-      "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w7/audio/98/fa/b7/185e0d76d5e6b30e3430a78e0c663805/audio.mp3?at_=1781411155870&ak_=043046568b193c588145d76ee758fdeb&ad_=cef27a3c43ee539d24df915cd12aed2f",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002jLGWe16Tf1H.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=002hXDfk0LX9KO"
-    },
-    {
-      "name": "说走就走",
-      "artist": "周杰伦",
-      "url": "https://pan-yz.cldisk.com/v2/external/resourceDetail.html?appid=1D734FA7-035A-4DEC-AA1C-DD63331D9267&nonce=1634057579&timestamp=1781411219999&showAppBar=true&puid=241245521&autoPreview=true&resid=1272893893508239360&objectId=&signature=7be0ac0d8f842467e8775abd98a6b7d5",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003RMaRI1iFoYd.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=003J6p942xp6ho"
-    },
-    {
-      "name": "听见下雨的声音",
-      "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w7/audio/98/fa/b7/185e0d76d5e6b30e3430a78e0c663805/audio.mp3?at_=1781411155870&ak_=043046568b193c588145d76ee758fdeb&ad_=cef27a3c43ee539d24df915cd12aed2f",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001uqejs3d6EID.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=0026N9sT4aBGcV"
-    },
-    {
-      "name": "心雨",
-      "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w7/audio/98/fa/b7/185e0d76d5e6b30e3430a78e0c663805/audio.mp3?at_=1781411155870&ak_=043046568b193c588145d76ee758fdeb&ad_=cef27a3c43ee539d24df915cd12aed2f",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002jLGWe16Tf1H.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=000Fylg7450RG2"
-    },
-    {
-      "name": "七里香",
-      "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w7/audio/98/fa/b7/185e0d76d5e6b30e3430a78e0c663805/audio.mp3?at_=1781411155870&ak_=043046568b193c588145d76ee758fdeb&ad_=cef27a3c43ee539d24df915cd12aed2f",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003DFRzD192KKD.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=004Z8Ihr0JIu5s"
-    },
-    {
-      "name": "千里之外",
-      "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w7/audio/98/fa/b7/185e0d76d5e6b30e3430a78e0c663805/audio.mp3?at_=1781411155870&ak_=043046568b193c588145d76ee758fdeb&ad_=cef27a3c43ee539d24df915cd12aed2f",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002jLGWe16Tf1H.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=003FRy0r0wyGHl"
-    },
-    {
-      "name": "还在流浪",
-      "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w7/audio/98/fa/b7/185e0d76d5e6b30e3430a78e0c663805/audio.mp3?at_=1781411155870&ak_=043046568b193c588145d76ee758fdeb&ad_=cef27a3c43ee539d24df915cd12aed2f",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000042cH172YJ0mz.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=000Zu3Ah1jb4gl"
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000042cH172YJ0mz.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001QeDJq1n9cCk",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001QeDJq1n9cCk"
     },
     {
       "name": "红颜如霜",
       "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w7/audio/98/fa/b7/185e0d76d5e6b30e3430a78e0c663805/audio.mp3?at_=1781411155870&ak_=043046568b193c588145d76ee758fdeb&ad_=cef27a3c43ee539d24df915cd12aed2f",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000042cH172YJ0mz.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=001KhHrT4Mv4pd"
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000042cH172YJ0mz.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001KhHrT4Mv4pd",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001KhHrT4Mv4pd"
     },
     {
-      "name": "搁浅",
+      "name": "说好不哭 (with 五月天阿信)",
       "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w7/audio/c5/04/b6/b01180bbe2fc9a498370348d386c79ae/audio.mp3?at_=1781414252333&ak_=a5030728a7e59b957d06a10163b3ee60&ad_=557e4be8d4775258ce74d4998ad0b85c",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003DFRzD192KKD.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=001Bbywq2gicae"
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000042cH172YJ0mz.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001QIYQm4BPlCe",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001QIYQm4BPlCe"
     },
     {
-      "name": "你比从前快乐",
+      "name": "还在流浪",
       "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w8/audio/c6/e0/d6/17c1fd56df094a2a504b4f0e6433a903/audio.mp3?at_=1781411990662&ak_=abc15c51898c2b6a2ab5a848b0bb0f20&ad_=a89579fa6f48ec9dfcf4af8cb504243e",
-      "pic": "",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=003bQrZ52fcFUM"
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000042cH172YJ0mz.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=000Zu3Ah1jb4gl",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=000Zu3Ah1jb4gl"
     },
     {
-      "name": "半岛铁盒",
+      "name": "最伟大的作品",
       "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w7/audio/48/88/e7/5948242d0893c8eb412d8058523df228/audio.mp3?at_=1781412104354&ak_=7b724f3e53e98cf3dab706b223569edf&ad_=ce008a33da3b9a9a6ddec41564626085",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000004MGitN0zEHpb.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=002OKIox28ad9a"
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000042cH172YJ0mz.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003w2xz20QlUZt",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003w2xz20QlUZt"
     },
     {
-      "name": "反方向的钟",
+      "name": "说好不哭 (with 五月天阿信)",
       "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w8/audio/71/0d/c1/da1820240c421460a237d610f304f598/audio.mp3?at_=1781412133592&ak_=2ca4611f681265218489b27001813bd4&ad_=4ce43d94572674caddab41765359f6cc",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000f01724fd7TH.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=0017K7gL4WYnw2"
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002gBTVk4JEE2T.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001qvvgF38HVc4",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001qvvgF38HVc4"
     },
     {
-      "name": "本草纲目",
+      "name": "不爱我就拉倒",
       "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w7/audio/95/79/a3/f5a6121913aee889c582b93707727c60/audio.mp3?at_=1781412191023&ak_=bb24be2d300948a2fec86e1534f7931b&ad_=f41c4e8c85099ca1a37904a4d9d45004",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002jLGWe16Tf1H.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=001bo9Wy1NfHpb"
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001CnPE31iJ899.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=0031TAKo0095np",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=0031TAKo0095np"
+    },
+    {
+      "name": "等你下课 (with 杨瑞代)",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003bSL0v4bpKAx.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001J5QJL1pRQYB",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001J5QJL1pRQYB"
+    },
+    {
+      "name": "爱情废柴",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003RMaRI1iFoYd.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=000eskGX0ijIFi",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=000eskGX0ijIFi"
+    },
+    {
+      "name": "Now You See Me",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003RMaRI1iFoYd.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=00376COL0nP51S",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=00376COL0nP51S"
+    },
+    {
+      "name": "土耳其冰淇淋",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003RMaRI1iFoYd.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003uYI3j4EDf5q",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003uYI3j4EDf5q"
+    },
+    {
+      "name": "英雄",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003RMaRI1iFoYd.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=0040jaL23QceqJ",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=0040jaL23QceqJ"
+    },
+    {
+      "name": "前世情人",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003RMaRI1iFoYd.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=000cFsFl1o17jp",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=000cFsFl1o17jp"
+    },
+    {
+      "name": "一点点",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003RMaRI1iFoYd.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=002lW4Yl3ylM02",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=002lW4Yl3ylM02"
+    },
+    {
+      "name": "说走就走",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003RMaRI1iFoYd.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003J6p942xp6ho",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003J6p942xp6ho"
+    },
+    {
+      "name": "床边故事",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003RMaRI1iFoYd.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=002MVjb31ZNK5m",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=002MVjb31ZNK5m"
+    },
+    {
+      "name": "英雄",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001uJFiE0tbGGa.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=004Qscj80GYhGR",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=004Qscj80GYhGR"
+    },
+    {
+      "name": "Try",
+      "artist": "派伟俊 / 周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001V8fw21OdEnP.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001faq2u0gVP6j",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001faq2u0gVP6j"
+    },
+    {
+      "name": "听见下雨的声音",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001uqejs3d6EID.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=0026N9sT4aBGcV",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=0026N9sT4aBGcV"
+    },
+    {
+      "name": "美人鱼",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001uqejs3d6EID.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001XPgTm3faHRb",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001XPgTm3faHRb"
+    },
+    {
+      "name": "听爸爸的话",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001uqejs3d6EID.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003BiKB44LknC0",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003BiKB44LknC0"
+    },
+    {
+      "name": "鞋子特大号",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001uqejs3d6EID.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=004KpNVr0EdY0v",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=004KpNVr0EdY0v"
+    },
+    {
+      "name": "手写的从前",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001uqejs3d6EID.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=002u8ZOM4C7QF4",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=002u8ZOM4C7QF4"
+    },
+    {
+      "name": "我要夏天",
+      "artist": "周杰伦 / 杨瑞代",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001uqejs3d6EID.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=0007w9Eb0lilhZ",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=0007w9Eb0lilhZ"
+    },
+    {
+      "name": "一口气全念对",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001uqejs3d6EID.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003md41m1MBhMc",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003md41m1MBhMc"
+    },
+    {
+      "name": "怎么了",
+      "artist": "周杰伦 / 袁咏琳",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001uqejs3d6EID.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001zqHER0WFQvO",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001zqHER0WFQvO"
+    },
+    {
+      "name": "天涯过客",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001uqejs3d6EID.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=00162TQ12285h4",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=00162TQ12285h4"
+    },
+    {
+      "name": "窃爱",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001uqejs3d6EID.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003zL01l3vYMKT",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003zL01l3vYMKT"
+    },
+    {
+      "name": "阳明山",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001uqejs3d6EID.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003b6hhl3jOPyV",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003b6hhl3jOPyV"
+    },
+    {
+      "name": "这所有的一切",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003b9EXT2QU0T7.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003C26R53MiwQL",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003C26R53MiwQL"
+    },
+    {
+      "name": "乌克丽丽",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003Ow85E3pnoqi.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001beoYX0K09xu",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001beoYX0K09xu"
+    },
+    {
+      "name": "哪里都是你",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003Ow85E3pnoqi.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=002sfzQB12abuc",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=002sfzQB12abuc"
+    },
+    {
+      "name": "大笨钟",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003Ow85E3pnoqi.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=002jkBM53MLB9Q",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=002jkBM53MLB9Q"
+    },
+    {
+      "name": "梦想启动",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003Ow85E3pnoqi.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001QnhDT0UJJIT",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001QnhDT0UJJIT"
+    },
+    {
+      "name": "爱你没差",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003Ow85E3pnoqi.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=002tNzue0g8xQA",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=002tNzue0g8xQA"
+    },
+    {
+      "name": "比较大的大提琴",
+      "artist": "周杰伦 / Lara梁心颐 / 杨瑞代",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003Ow85E3pnoqi.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=004O4Kun0wasxn",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=004O4Kun0wasxn"
+    },
+    {
+      "name": "傻笑",
+      "artist": "周杰伦 / 袁咏琳",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003Ow85E3pnoqi.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003t0fFq4JbjaR",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003t0fFq4JbjaR"
+    },
+    {
+      "name": "明明就",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003Ow85E3pnoqi.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=000oW8J53xPhZA",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=000oW8J53xPhZA"
+    },
+    {
+      "name": "公公偏头痛",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003Ow85E3pnoqi.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001KTt4d1BTJOz",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001KTt4d1BTJOz"
+    },
+    {
+      "name": "手语",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003Ow85E3pnoqi.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003APYKg4GrqPB",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003APYKg4GrqPB"
+    },
+    {
+      "name": "四季列车",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003Ow85E3pnoqi.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=0010jyte3izshw",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=0010jyte3izshw"
+    },
+    {
+      "name": "超跑女神",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003KNcyk0t3mwg.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=000rVzOf3JnUQg",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=000rVzOf3JnUQg"
+    },
+    {
+      "name": "皮影戏",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003KNcyk0t3mwg.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003HuF913gIZQ3",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003HuF913gIZQ3"
+    },
+    {
+      "name": "世界未末日",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003KNcyk0t3mwg.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=002I7ms805kX4p",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=002I7ms805kX4p"
+    },
+    {
+      "name": "水手怕水",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003KNcyk0t3mwg.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=0019fxNe1bLVch",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=0019fxNe1bLVch"
+    },
+    {
+      "name": "琴伤",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003KNcyk0t3mwg.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=000BZGDQ24uwTT",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=000BZGDQ24uwTT"
+    },
+    {
+      "name": "疗伤烧肉粽",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003KNcyk0t3mwg.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001CiqFG20FOXg",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001CiqFG20FOXg"
+    },
+    {
+      "name": "你好吗",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003KNcyk0t3mwg.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=0040Dgn94YNWxA",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=0040Dgn94YNWxA"
+    },
+    {
+      "name": "公主病",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003KNcyk0t3mwg.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003hWWWP4Rdj4A",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003hWWWP4Rdj4A"
+    },
+    {
+      "name": "Mine Mine",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003KNcyk0t3mwg.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=002CUU2B3WuGLc",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=002CUU2B3WuGLc"
+    },
+    {
+      "name": "迷魂曲",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003KNcyk0t3mwg.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=0016Wf0A0FhLBt",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=0016Wf0A0FhLBt"
+    },
+    {
+      "name": "惊叹号",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003KNcyk0t3mwg.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001TtMaW2j3k2h",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001TtMaW2j3k2h"
     },
     {
       "name": "超人不会飞",
       "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w8/audio/d4/70/8e/09d628549de8dd2f402360b97d56d070/audio.mp3?at_=1781412222097&ak_=441d05937c0b0c367974cdcde419faf3&ad_=86cb1605f662b9e862da524c82d8280a",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000bviBl4FjTpO.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=004JQ70v4Fddyj"
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000bviBl4FjTpO.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=004JQ70v4Fddyj",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=004JQ70v4Fddyj"
     },
     {
-      "name": "倒带",
+      "name": "自导自演",
       "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w7/audio/d5/5f/5d/5b2c81bc2ac54db17d3ee4ce16513f95/audio.mp3?at_=1781412246348&ak_=e7cc154c4a97dc703a7d47791adca020&ad_=de2a18551bc2e992b1d5d155749a583d",
-      "pic": "https://y.qq.com/music/photo_new/T002R300x300M0000032ezFm3F53yO_3.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=002aUjCy0gfltZ"
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000bviBl4FjTpO.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003KrQ401gzm8x",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003KrQ401gzm8x"
+    },
+    {
+      "name": "爱的飞行日记",
+      "artist": "周杰伦 / 杨瑞代",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000bviBl4FjTpO.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003CxS6w14OQyM",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003CxS6w14OQyM"
+    },
+    {
+      "name": "我落泪情绪零碎",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000bviBl4FjTpO.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=0022b7OX2STU86",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=0022b7OX2STU86"
+    },
+    {
+      "name": "嘻哈空姐",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000bviBl4FjTpO.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=000ES19W2iTudx",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=000ES19W2iTudx"
+    },
+    {
+      "name": "雨下一整晚",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000bviBl4FjTpO.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=002zouNc0L8Llg",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=002zouNc0L8Llg"
+    },
+    {
+      "name": "好久不见",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000bviBl4FjTpO.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=002RqWle4FvqRy",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=002RqWle4FvqRy"
+    },
+    {
+      "name": "免费教学录影带",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000bviBl4FjTpO.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=004Kvozl3zYFGx",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=004Kvozl3zYFGx"
+    },
+    {
+      "name": "烟花易冷",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000bviBl4FjTpO.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=004emQMs09Z1lz",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=004emQMs09Z1lz"
+    },
+    {
+      "name": "说了再见",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000bviBl4FjTpO.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=00265Jxe3JzXOJ",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=00265Jxe3JzXOJ"
+    },
+    {
+      "name": "跨时代",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000bviBl4FjTpO.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=004gKsOK06opcc",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=004gKsOK06opcc"
+    },
+    {
+      "name": "稻香",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002Neh8l0uciQZ.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003aAYrm3GE0Ac",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003aAYrm3GE0Ac"
+    },
+    {
+      "name": "乔克叔叔",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002Neh8l0uciQZ.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=002kuUy64JJlDi",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=002kuUy64JJlDi"
+    },
+    {
+      "name": "时光机",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002Neh8l0uciQZ.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=000sRQrz0aEDFp",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=000sRQrz0aEDFp"
+    },
+    {
+      "name": "流浪诗人",
+      "artist": "周杰伦 / 杨瑞代",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002Neh8l0uciQZ.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003suDvd4KLUmF",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003suDvd4KLUmF"
+    },
+    {
+      "name": "兰亭序",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002Neh8l0uciQZ.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=00128N3r2SYKMF",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=00128N3r2SYKMF"
+    },
+    {
+      "name": "说好的幸福呢",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002Neh8l0uciQZ.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=0042QMDR1VzSsx",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=0042QMDR1VzSsx"
+    },
+    {
+      "name": "魔术先生",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002Neh8l0uciQZ.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=000HcRmh2IYxm8",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=000HcRmh2IYxm8"
+    },
+    {
+      "name": "花海",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002Neh8l0uciQZ.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003cI52o4daJJL",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003cI52o4daJJL"
+    },
+    {
+      "name": "蛇舞",
+      "artist": "周杰伦 / Lara梁心颐",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002Neh8l0uciQZ.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001LNPit4TsTn8",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001LNPit4TsTn8"
+    },
+    {
+      "name": "给我一首歌的时间",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002Neh8l0uciQZ.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=004BhQke4adHcf",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=004BhQke4adHcf"
+    },
+    {
+      "name": "龙战骑士",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002Neh8l0uciQZ.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=000B3Ekk1I79hc",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=000B3Ekk1I79hc"
+    },
+    {
+      "name": "秘密花园",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000004RBqID0tABKW.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=000C7mLv3209PA",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=000C7mLv3209PA"
+    },
+    {
+      "name": "周大侠",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000004RBqID0tABKW.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=002kCqZy0Vrb14",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=002kCqZy0Vrb14"
+    },
+    {
+      "name": "最长的电影",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002eFUFm2XYZ7z.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003ZrdgZ0UnjDl",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003ZrdgZ0UnjDl"
+    },
+    {
+      "name": "甜甜的",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002eFUFm2XYZ7z.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=000xdZuV2LcQ19",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=000xdZuV2LcQ19"
+    },
+    {
+      "name": "扯",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002eFUFm2XYZ7z.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=0008S2Z53H5C07",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=0008S2Z53H5C07"
+    },
+    {
+      "name": "我不配",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002eFUFm2XYZ7z.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001T3JAT15palI",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001T3JAT15palI"
+    },
+    {
+      "name": "无双",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002eFUFm2XYZ7z.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=002Jp6If3ltWv9",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=002Jp6If3ltWv9"
+    },
+    {
+      "name": "蒲公英的约定",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002eFUFm2XYZ7z.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=004Yi5BD3ksoAN",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=004Yi5BD3ksoAN"
+    },
+    {
+      "name": "阳光宅男",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002eFUFm2XYZ7z.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001bnNGN127Kbq",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001bnNGN127Kbq"
+    },
+    {
+      "name": "青花瓷",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002eFUFm2XYZ7z.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=002qU5aY3Qu24y",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=002qU5aY3Qu24y"
+    },
+    {
+      "name": "彩虹",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002eFUFm2XYZ7z.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=004bRWFg3fej9y",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=004bRWFg3fej9y"
+    },
+    {
+      "name": "牛仔很忙",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002eFUFm2XYZ7z.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003O5GaP1SYe94",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003O5GaP1SYe94"
+    },
+    {
+      "name": "不能说的秘密",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001UP7mW458ipG.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=002MXZNu1GToOk",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=002MXZNu1GToOk"
+    },
+    {
+      "name": "Ending",
+      "artist": "周杰伦 / Terdsak Janpan",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001UP7mW458ipG.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=0038qZbv2McePS",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=0038qZbv2McePS"
+    },
+    {
+      "name": "琴房",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001UP7mW458ipG.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=002FccwC1x4Qvs",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=002FccwC1x4Qvs"
+    },
+    {
+      "name": "Secret (加长快板)",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001UP7mW458ipG.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003fStEw4EUu6v",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003fStEw4EUu6v"
+    },
+    {
+      "name": "小雨写立可白Ⅱ",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001UP7mW458ipG.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=002Lt2le2L6cIk",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=002Lt2le2L6cIk"
+    },
+    {
+      "name": "小雨写立可白Ⅰ",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001UP7mW458ipG.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003Knhk52gmVf6",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003Knhk52gmVf6"
+    },
+    {
+      "name": "Angel",
+      "artist": "周杰伦 / Terdsak Janpan",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001UP7mW458ipG.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=004P22Lb3D40aN",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=004P22Lb3D40aN"
+    },
+    {
+      "name": "Secret (慢板)",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001UP7mW458ipG.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003xZu291f7fig",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003xZu291f7fig"
+    },
+    {
+      "name": "Flash Back",
+      "artist": "周杰伦 / Terdsak Janpan",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001UP7mW458ipG.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=00372B0e3TNElt",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=00372B0e3TNElt"
+    },
+    {
+      "name": "The Swan",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001UP7mW458ipG.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=000CelP43oZcDn",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=000CelP43oZcDn"
+    },
+    {
+      "name": "路小雨",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001UP7mW458ipG.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001SSbin33rFNv",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001SSbin33rFNv"
+    },
+    {
+      "name": "与父共舞",
+      "artist": "周杰伦 / Terdsak Janpan",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001UP7mW458ipG.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=0038bxsH0sGtrJ",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=0038bxsH0sGtrJ"
+    },
+    {
+      "name": "阿郎与阿宝",
+      "artist": "周杰伦 / Terdsak Janpan",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001UP7mW458ipG.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003mQTrM2aqiRe",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003mQTrM2aqiRe"
+    },
+    {
+      "name": "晴天娃娃",
+      "artist": "江语晨",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001UP7mW458ipG.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001eeHMq0c1hcV",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001eeHMq0c1hcV"
+    },
+    {
+      "name": "女孩别为我哭泣",
+      "artist": "黄俊郎",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001UP7mW458ipG.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=0035fQhD0BDBu5",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=0035fQhD0BDBu5"
+    },
+    {
+      "name": "First Kiss",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001UP7mW458ipG.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001cyUse0cwhqA",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001cyUse0cwhqA"
+    },
+    {
+      "name": "情人的眼泪",
+      "artist": "姚苏蓉",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001UP7mW458ipG.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001pHHQ32YUk1E",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001pHHQ32YUk1E"
+    },
+    {
+      "name": "父与子",
+      "artist": "周杰伦 / Terdsak Janpan",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001UP7mW458ipG.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=0019zXpo0qjT69",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=0019zXpo0qjT69"
+    },
+    {
+      "name": "湘伦小雨四手联弹",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001UP7mW458ipG.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=004aSPdJ4839VS",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=004aSPdJ4839VS"
+    },
+    {
+      "name": "斗琴",
+      "artist": "周杰伦 / 詹宇豪",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001UP7mW458ipG.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001wmMSC2nWWJI",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001wmMSC2nWWJI"
+    },
+    {
+      "name": "淡水海边",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001UP7mW458ipG.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=000aBvbP158Oe4",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=000aBvbP158Oe4"
+    },
+    {
+      "name": "早操",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001UP7mW458ipG.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=00397zgP3fEhKA",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=00397zgP3fEhKA"
+    },
+    {
+      "name": "脚踏车",
+      "artist": "周杰伦 / Terdsak Janpan",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001UP7mW458ipG.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=002qt7884Xx39s",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=002qt7884Xx39s"
+    },
+    {
+      "name": "Opening",
+      "artist": "周杰伦 / Terdsak Janpan",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001UP7mW458ipG.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=002TKT9A1HkSIP",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=002TKT9A1HkSIP"
+    },
+    {
+      "name": "菊花台 (周杰伦钢琴演奏)",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002pPeJ54P94c0.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=002lgDjN462bpq",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=002lgDjN462bpq"
+    },
+    {
+      "name": "黄金甲",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002pPeJ54P94c0.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=000N1SIT2I0uPN",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=000N1SIT2I0uPN"
+    },
+    {
+      "name": "菊花台",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002jLGWe16Tf1H.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=004RUiXu49ufy1",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=004RUiXu49ufy1"
+    },
+    {
+      "name": "迷迭香",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002jLGWe16Tf1H.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=0016oRIN0hu5zE",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=0016oRIN0hu5zE"
+    },
+    {
+      "name": "白色风车",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002jLGWe16Tf1H.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=000DdOAF0ED7i4",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=000DdOAF0ED7i4"
+    },
+    {
+      "name": "心雨",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002jLGWe16Tf1H.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=000Fylg7450RG2",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=000Fylg7450RG2"
+    },
+    {
+      "name": "红模仿",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002jLGWe16Tf1H.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=000Ookkj0sEkfD",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=000Ookkj0sEkfD"
+    },
+    {
+      "name": "退后",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002jLGWe16Tf1H.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001L1lqm4UAdyo",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001L1lqm4UAdyo"
+    },
+    {
+      "name": "本草纲目",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002jLGWe16Tf1H.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001bo9Wy1NfHpb",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001bo9Wy1NfHpb"
+    },
+    {
+      "name": "千里之外",
+      "artist": "周杰伦 / 费玉清",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002jLGWe16Tf1H.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003FRy0r0wyGHl",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003FRy0r0wyGHl"
+    },
+    {
+      "name": "听妈妈的话",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002jLGWe16Tf1H.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=002hXDfk0LX9KO",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=002hXDfk0LX9KO"
+    },
+    {
+      "name": "夜的第七章",
+      "artist": "周杰伦 / 潘儿",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002jLGWe16Tf1H.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=0010ibBn4bYFTk",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=0010ibBn4bYFTk"
+    },
+    {
+      "name": "献世 (Live)",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000OixvE1YjIqd.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=002A2ipg4EsTS0",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=002A2ipg4EsTS0"
+    },
+    {
+      "name": "霍元甲",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000OixvE1YjIqd.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=002HeqcH2GMiOL",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=002HeqcH2GMiOL"
+    },
+    {
+      "name": "一路向北",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000024bjiL2aocxT.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003cfYDz2afFv1",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003cfYDz2afFv1"
+    },
+    {
+      "name": "飘移",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000024bjiL2aocxT.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=004DI5Vw0DnEOW",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=004DI5Vw0DnEOW"
+    },
+    {
+      "name": "珊瑚海",
+      "artist": "周杰伦 / Lara梁心颐",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000024bjiL2aocxT.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001K0AjL2huSxx",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001K0AjL2huSxx"
+    },
+    {
+      "name": "麦芽糖",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000024bjiL2aocxT.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003WtI8C0FMf3r",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003WtI8C0FMf3r"
+    },
+    {
+      "name": "逆鳞",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000024bjiL2aocxT.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003Q71hB2wOpFU",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003Q71hB2wOpFU"
+    },
+    {
+      "name": "浪漫手机",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000024bjiL2aocxT.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=002fi7iG0VvUj2",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=002fi7iG0VvUj2"
+    },
+    {
+      "name": "枫",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000024bjiL2aocxT.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003KtYhg4frNXC",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003KtYhg4frNXC"
+    },
+    {
+      "name": "四面楚歌",
+      "artist": "周杰伦 / 林迈可",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000024bjiL2aocxT.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=0043qT5x2DnxaL",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=0043qT5x2DnxaL"
+    },
+    {
+      "name": "黑色毛衣",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000024bjiL2aocxT.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003iY6cU4YG0xi",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003iY6cU4YG0xi"
+    },
+    {
+      "name": "发如雪",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000024bjiL2aocxT.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=0027oMO61wWi55",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=0027oMO61wWi55"
+    },
+    {
+      "name": "蓝色风暴",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000024bjiL2aocxT.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=004MQUa83RyfVJ",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=004MQUa83RyfVJ"
+    },
+    {
+      "name": "夜曲",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000024bjiL2aocxT.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001zMQr71F1Qo8",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001zMQr71F1Qo8"
+    },
+    {
+      "name": "开不了口 (Demo)",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002MAeob3zLXwZ.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001tzmdX0vsXSq",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001tzmdX0vsXSq"
+    },
+    {
+      "name": "双截棍 (Demo)",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002MAeob3zLXwZ.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001nXIkG2FEcjq",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001nXIkG2FEcjq"
+    },
+    {
+      "name": "爸，我回来了 (Demo)",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002MAeob3zLXwZ.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=004XLWBS1enApn",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=004XLWBS1enApn"
+    },
+    {
+      "name": "一路向北",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002MAeob3zLXwZ.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001xd0HI0X9GNq",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001xd0HI0X9GNq"
+    },
+    {
+      "name": "飘移",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002MAeob3zLXwZ.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=000AFpGM0vygk4",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=000AFpGM0vygk4"
+    },
+    {
+      "name": "止战之殇",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003DFRzD192KKD.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=0042fRqf4fC8ZB",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=0042fRqf4fC8ZB"
+    },
+    {
+      "name": "园游会",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003DFRzD192KKD.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003nEQHr3Ceet5",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003nEQHr3Ceet5"
+    },
+    {
+      "name": "困兽之斗",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003DFRzD192KKD.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=0048Gwq23HPs1o",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=0048Gwq23HPs1o"
+    },
+    {
+      "name": "乱舞春秋",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003DFRzD192KKD.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=0031tzbX3Lps0M",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=0031tzbX3Lps0M"
+    },
+    {
+      "name": "搁浅",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003DFRzD192KKD.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001Bbywq2gicae",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001Bbywq2gicae"
+    },
+    {
+      "name": "将军",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003DFRzD192KKD.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=000yJtoB39k2NF",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=000yJtoB39k2NF"
+    },
+    {
+      "name": "外婆",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003DFRzD192KKD.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=0027gHes1HjRNe",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=0027gHes1HjRNe"
+    },
+    {
+      "name": "借口",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003DFRzD192KKD.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=002XWgfo0IKPOH",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=002XWgfo0IKPOH"
+    },
+    {
+      "name": "七里香",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003DFRzD192KKD.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=004Z8Ihr0JIu5s",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=004Z8Ihr0JIu5s"
+    },
+    {
+      "name": "我的地盘",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003DFRzD192KKD.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=004WrpV81DMGHv",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=004WrpV81DMGHv"
+    },
+    {
+      "name": "断了的弦",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001BGzMs369FzU.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003ZdxP61ClQZ5",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003ZdxP61ClQZ5"
+    },
+    {
+      "name": "轨迹",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001BGzMs369FzU.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=0036g6g628i2gI",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=0036g6g628i2gI"
+    },
+    {
+      "name": "双刀",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000MkMni19ClKG.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003BkwkH0iS8Ko",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003BkwkH0iS8Ko"
+    },
+    {
+      "name": "梯田",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000MkMni19ClKG.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=000P0AxP15jei5",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=000P0AxP15jei5"
+    },
+    {
+      "name": "爱情悬崖",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000MkMni19ClKG.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=0037FWzg2csDmh",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=0037FWzg2csDmh"
+    },
+    {
+      "name": "她的睫毛",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000MkMni19ClKG.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001FSVRg08JLpi",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001FSVRg08JLpi"
+    },
+    {
+      "name": "同一种调调",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000MkMni19ClKG.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=000U62Ay0ndxCh",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=000U62Ay0ndxCh"
+    },
+    {
+      "name": "你听得到",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000MkMni19ClKG.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=002elTc93yuXu2",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=002elTc93yuXu2"
     },
     {
       "name": "东风破",
       "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w8/audio/a9/56/47/feb9ec86fa2eacbd40b20a8c199fd318/audio.mp3?at_=1781412270432&ak_=cc2aa8779a95ee730da104d3fef16c26&ad_=9b8461d17d59554eb9c1058f5f35d4c1",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000MkMni19ClKG.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=003uEbEr0jcW7c"
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000MkMni19ClKG.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003uEbEr0jcW7c",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003uEbEr0jcW7c"
     },
     {
-      "name": "爱的飞行日记",
+      "name": "三年二班",
       "artist": "周杰伦",
-      "url": "https://s2.cldisk.com/sv-w8/audio/ef/87/d2/98ecc95dd8b05a6fa35d36505cc78b22/audio.mp3?at_=1781412293993&ak_=2846e3299852361faae091215b2817d9&ad_=bd54011942600bee2e065a11779edd05",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000bviBl4FjTpO.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=003CxS6w14OQyM"
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000MkMni19ClKG.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=004csbVP1E2dv1",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=004csbVP1E2dv1"
+    },
+    {
+      "name": "晴天",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000MkMni19ClKG.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=0039MnYb0qxYhV",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=0039MnYb0qxYhV"
+    },
+    {
+      "name": "懦夫",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000MkMni19ClKG.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=000ZauFj0E8qi0",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=000ZauFj0E8qi0"
+    },
+    {
+      "name": "以父之名",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000MkMni19ClKG.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001n4C3p1yv0FU",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001n4C3p1yv0FU"
+    },
+    {
+      "name": "最后的战役",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000004MGitN0zEHpb.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=000HafPI0dzzwp",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=000HafPI0dzzwp"
+    },
+    {
+      "name": "米兰的小铁匠",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000004MGitN0zEHpb.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001HdNmX0urp4Q",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001HdNmX0urp4Q"
+    },
+    {
+      "name": "回到过去",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000004MGitN0zEHpb.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003rxgIM2eOFSF",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003rxgIM2eOFSF"
+    },
+    {
+      "name": "爷爷泡的茶",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000004MGitN0zEHpb.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=002IyJxz0FBFEJ",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=002IyJxz0FBFEJ"
+    },
+    {
+      "name": "分裂",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000004MGitN0zEHpb.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=002U3qIp3n7yke",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=002U3qIp3n7yke"
+    },
+    {
+      "name": "火车叨位去",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000004MGitN0zEHpb.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=002h3LO64ElQP2",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=002h3LO64ElQP2"
+    },
+    {
+      "name": "龙拳",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000004MGitN0zEHpb.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=004R20x748kyO1",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=004R20x748kyO1"
+    },
+    {
+      "name": "暗号",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000004MGitN0zEHpb.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=000NQDjk4BA0W3",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=000NQDjk4BA0W3"
+    },
+    {
+      "name": "半岛铁盒",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000004MGitN0zEHpb.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=002OKIox28ad9a",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=002OKIox28ad9a"
+    },
+    {
+      "name": "半兽人",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000004MGitN0zEHpb.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001FUQiy2ZCiVt",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001FUQiy2ZCiVt"
+    },
+    {
+      "name": "世界末日 (Live)",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003dAEX43IElBh.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001Q28XA0zApEm",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001Q28XA0zApEm"
+    },
+    {
+      "name": "你比从前快乐 (Live)",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003dAEX43IElBh.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001kjzAW2maqhO",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001kjzAW2maqhO"
+    },
+    {
+      "name": "蜗牛 (Live)",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003dAEX43IElBh.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003KVwG03rkmDG",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003KVwG03rkmDG"
+    },
+    {
+      "name": "安静",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000I5jJB3blWeN.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=000amRvH3wxv56",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=000amRvH3wxv56"
+    },
+    {
+      "name": "双截棍",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000I5jJB3blWeN.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=00218ObD0yrANX",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=00218ObD0yrANX"
+    },
+    {
+      "name": "威廉古堡",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000I5jJB3blWeN.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=0046grpK0A1l9G",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=0046grpK0A1l9G"
+    },
+    {
+      "name": "对不起",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000I5jJB3blWeN.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=000F0lmz1cBq4c",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=000F0lmz1cBq4c"
+    },
+    {
+      "name": "上海一九四三",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000I5jJB3blWeN.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=002YzCdA2Hybr0",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=002YzCdA2Hybr0"
+    },
+    {
+      "name": "开不了口",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000I5jJB3blWeN.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=0020qX4u2JJRxK",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=0020qX4u2JJRxK"
+    },
+    {
+      "name": "忍者",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000I5jJB3blWeN.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001MNqZU3YDLrE",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001MNqZU3YDLrE"
+    },
+    {
+      "name": "简单爱",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000I5jJB3blWeN.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=0009BCJK1nRaad",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=0009BCJK1nRaad"
+    },
+    {
+      "name": "爸，我回来了",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000I5jJB3blWeN.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001mhQbn2eKHiR",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001mhQbn2eKHiR"
+    },
+    {
+      "name": "爱在西元前",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000I5jJB3blWeN.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=002usg9o4GTAKf",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=002usg9o4GTAKf"
+    },
+    {
+      "name": "反方向的钟",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000f01724fd7TH.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=0017K7gL4WYnw2",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=0017K7gL4WYnw2"
+    },
+    {
+      "name": "龙卷风",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000f01724fd7TH.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=002l8JN71d2Dxy",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=002l8JN71d2Dxy"
+    },
+    {
+      "name": "印第安老斑鸠",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000f01724fd7TH.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=002GQJAQ3w9yuh",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=002GQJAQ3w9yuh"
+    },
+    {
+      "name": "伊斯坦堡",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000f01724fd7TH.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=0033ZO6x09eHB0",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=0033ZO6x09eHB0"
+    },
+    {
+      "name": "黑色幽默",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000f01724fd7TH.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=0006rBfE3htPqG",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=0006rBfE3htPqG"
+    },
+    {
+      "name": "斗牛",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000f01724fd7TH.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003J20t02i1vV5",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003J20t02i1vV5"
+    },
+    {
+      "name": "娘子",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000f01724fd7TH.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=002pImGM1R2Afa",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=002pImGM1R2Afa"
+    },
+    {
+      "name": "星晴",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000f01724fd7TH.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001Zi7Ly4ZtVQk",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001Zi7Ly4ZtVQk"
+    },
+    {
+      "name": "完美主义",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000f01724fd7TH.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001NQNgU2HfxJg",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001NQNgU2HfxJg"
+    },
+    {
+      "name": "可爱女人",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000f01724fd7TH.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=004VR0Hn3bkqqE",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=004VR0Hn3bkqqE"
+    },
+    {
+      "name": "即兴曲",
+      "artist": "周杰伦",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001uKKpF1RuJSd.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=0039yzJW0ZXHsO",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=0039yzJW0ZXHsO"
     }
   ]
 }

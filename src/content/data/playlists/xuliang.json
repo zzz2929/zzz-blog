@@ -1,246 +1,247 @@
 {
   "name": "徐良",
   "cover": "http://p1.music.126.net/gGl5n50qGIRjlNVrjie4KQ==/109951170120539554.jpg?param=200y200",
+  "playlist": 18178590868,
   "songs": [
     {
       "name": "坏女孩",
-      "album": null,
+      "album": "不良少年",
       "artist": "徐良 / 小凌",
-      "pic": "https://p2.music.126.net/a82aXr_eNkbFX0BkXuKvgg==/109951172050962571.jpg",
+      "pic": "https://p1.music.126.net/a82aXr_eNkbFX0BkXuKvgg==/109951172050962571.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=174956",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=174956"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=174956&format=yrc"
     },
     {
       "name": "那时雨",
-      "album": null,
+      "album": "情话",
       "artist": "徐良",
-      "pic": "https://p2.music.126.net/Eiq_XiRNqiXJEwmFzLTtow==/109951172050975516.jpg",
+      "pic": "https://p1.music.126.net/Eiq_XiRNqiXJEwmFzLTtow==/109951172050975516.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=27965209",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=27965209"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=27965209&format=yrc"
     },
     {
       "name": "后会无期",
-      "album": null,
+      "album": "不良少年",
       "artist": "徐良 / 汪苏泷",
-      "pic": "https://p2.music.126.net/a82aXr_eNkbFX0BkXuKvgg==/109951172050962571.jpg",
+      "pic": "https://p1.music.126.net/a82aXr_eNkbFX0BkXuKvgg==/109951172050962571.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=174944",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=174944"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=174944&format=yrc"
     },
     {
       "name": "客官不可以",
-      "album": null,
+      "album": "犯贱",
       "artist": "徐良 / 小凌",
-      "pic": "https://p2.music.126.net/ImNPIBQmUdqCjdeAs6mr6A==/28587302323242.jpg",
+      "pic": "https://p1.music.126.net/ImNPIBQmUdqCjdeAs6mr6A==/28587302323242.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=174963",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=174963"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=174963&format=yrc"
     },
     {
       "name": "七秒钟的记忆",
-      "album": null,
+      "album": "情话",
       "artist": "徐良 / 孙羽幽",
-      "pic": "https://p2.music.126.net/Eiq_XiRNqiXJEwmFzLTtow==/109951172050975516.jpg",
+      "pic": "https://p1.music.126.net/Eiq_XiRNqiXJEwmFzLTtow==/109951172050975516.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=26145112",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=26145112"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=26145112&format=yrc"
     },
     {
       "name": "犯贱",
-      "album": null,
+      "album": "犯贱",
       "artist": "徐良 / 阿悄",
-      "pic": "https://p2.music.126.net/ImNPIBQmUdqCjdeAs6mr6A==/28587302323242.jpg",
+      "pic": "https://p1.music.126.net/ImNPIBQmUdqCjdeAs6mr6A==/28587302323242.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=174960",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=174960"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=174960&format=yrc"
     },
     {
       "name": "无颜女",
-      "album": null,
+      "album": "无颜女",
       "artist": "徐良 / 小凌",
-      "pic": "https://p2.music.126.net/OCwY9sl-w3y-lzYf_bi1FA==/124244813944437.jpg",
+      "pic": "https://p1.music.126.net/OCwY9sl-w3y-lzYf_bi1FA==/124244813944437.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=174934",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=174934"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=174934&format=yrc"
     },
     {
       "name": "红装",
-      "album": null,
+      "album": "犯贱",
       "artist": "徐良 / 阿悄",
-      "pic": "https://p2.music.126.net/ImNPIBQmUdqCjdeAs6mr6A==/28587302323242.jpg",
+      "pic": "https://p1.music.126.net/ImNPIBQmUdqCjdeAs6mr6A==/28587302323242.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=174961",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=174961"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=174961&format=yrc"
     },
     {
       "name": "和平分手",
-      "album": null,
+      "album": "犯贱",
       "artist": "徐良 / Britneylee小暖",
-      "pic": "https://p2.music.126.net/ImNPIBQmUdqCjdeAs6mr6A==/28587302323242.jpg",
+      "pic": "https://p1.music.126.net/ImNPIBQmUdqCjdeAs6mr6A==/28587302323242.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=174962",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=174962"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=174962&format=yrc"
     },
     {
       "name": "抽离",
-      "album": null,
+      "album": "情话",
       "artist": "徐良 / 刘丹萌",
-      "pic": "https://p2.music.126.net/Eiq_XiRNqiXJEwmFzLTtow==/109951172050975516.jpg",
+      "pic": "https://p1.music.126.net/Eiq_XiRNqiXJEwmFzLTtow==/109951172050975516.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=27890395",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=27890395"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=27890395&format=yrc"
     },
     {
       "name": "情话",
-      "album": null,
+      "album": "北京巷弄",
       "artist": "徐良 / 孙羽幽",
-      "pic": "https://p2.music.126.net/7zWOgeB5pu8iVE7tmhtWjw==/109951164187964072.jpg",
+      "pic": "https://p1.music.126.net/7zWOgeB5pu8iVE7tmhtWjw==/109951164187964072.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=26609879",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=26609879"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=26609879&format=yrc"
     },
     {
       "name": "他的猫",
-      "album": null,
+      "album": "情话",
       "artist": "徐良 / 杨曦",
-      "pic": "https://p2.music.126.net/Eiq_XiRNqiXJEwmFzLTtow==/109951172050975516.jpg",
+      "pic": "https://p1.music.126.net/Eiq_XiRNqiXJEwmFzLTtow==/109951172050975516.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=26353161",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=26353161"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=26353161&format=yrc"
     },
     {
       "name": "虐心",
-      "album": null,
+      "album": "那时雨",
       "artist": "徐良 / 孙羽幽",
-      "pic": "https://p2.music.126.net/ecSWETjwzJuM47qaIm3ExA==/2279287604395078.jpg",
+      "pic": "https://p1.music.126.net/ecSWETjwzJuM47qaIm3ExA==/2279287604395078.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=26145111",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=26145111"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=26145111&format=yrc"
     },
     {
       "name": "北京巷弄",
-      "album": null,
+      "album": "北京巷弄",
       "artist": "徐良",
-      "pic": "https://p2.music.126.net/7zWOgeB5pu8iVE7tmhtWjw==/109951164187964072.jpg",
+      "pic": "https://p1.music.126.net/7zWOgeB5pu8iVE7tmhtWjw==/109951164187964072.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=26609875",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=26609875"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=26609875&format=yrc"
     },
     {
       "name": "飞机场",
-      "album": null,
+      "album": "飞机场",
       "artist": "徐良 / 小凌",
-      "pic": "https://p2.music.126.net/DvlrxSN0CLxVtfo7XaNa0g==/24189255823169.jpg",
+      "pic": "https://p1.music.126.net/DvlrxSN0CLxVtfo7XaNa0g==/24189255823169.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=174958",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=174958"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=174958&format=yrc"
     },
     {
       "name": "悲伤的李白",
-      "album": null,
+      "album": "情话",
       "artist": "徐良",
-      "pic": "https://p2.music.126.net/Eiq_XiRNqiXJEwmFzLTtow==/109951172050975516.jpg",
+      "pic": "https://p1.music.126.net/Eiq_XiRNqiXJEwmFzLTtow==/109951172050975516.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=27890394",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=27890394"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=27890394&format=yrc"
     },
     {
       "name": "月光",
-      "album": null,
+      "album": "犯贱",
       "artist": "徐良 / 阿悄",
-      "pic": "https://p2.music.126.net/ImNPIBQmUdqCjdeAs6mr6A==/28587302323242.jpg",
+      "pic": "https://p1.music.126.net/ImNPIBQmUdqCjdeAs6mr6A==/28587302323242.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=174966",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=174966"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=174966&format=yrc"
     },
     {
       "name": "电话里的秘密",
-      "album": null,
+      "album": "不良少年",
       "artist": "徐良",
-      "pic": "https://p2.music.126.net/a82aXr_eNkbFX0BkXuKvgg==/109951172050962571.jpg",
+      "pic": "https://p1.music.126.net/a82aXr_eNkbFX0BkXuKvgg==/109951172050962571.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=174941",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=174941"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=174941&format=yrc"
     },
     {
       "name": "友情出演",
-      "album": null,
+      "album": "不良少年",
       "artist": "徐良 / 小凌",
-      "pic": "https://p2.music.126.net/a82aXr_eNkbFX0BkXuKvgg==/109951172050962571.jpg",
+      "pic": "https://p1.music.126.net/a82aXr_eNkbFX0BkXuKvgg==/109951172050962571.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=174947",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=174947"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=174947&format=yrc"
     },
     {
       "name": "至尊宝",
-      "album": null,
+      "album": "考虑到可能再也见不到你",
       "artist": "徐良 / 杨威",
-      "pic": "https://p2.music.126.net/CKumVHRBsIFExQoK1Y77aQ==/109951163569789624.jpg",
+      "pic": "https://p1.music.126.net/CKumVHRBsIFExQoK1Y77aQ==/109951163569789624.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1301575218",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1301575218"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1301575218&format=yrc"
     },
     {
       "name": "不好听",
-      "album": null,
+      "album": "飞机场",
       "artist": "徐良",
-      "pic": "https://p2.music.126.net/DvlrxSN0CLxVtfo7XaNa0g==/24189255823169.jpg",
+      "pic": "https://p1.music.126.net/DvlrxSN0CLxVtfo7XaNa0g==/24189255823169.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=174959",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=174959"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=174959&format=yrc"
     },
     {
       "name": "天真",
-      "album": null,
+      "album": "犯贱",
       "artist": "徐良 / 阿悄",
-      "pic": "https://p2.music.126.net/ImNPIBQmUdqCjdeAs6mr6A==/28587302323242.jpg",
+      "pic": "https://p1.music.126.net/ImNPIBQmUdqCjdeAs6mr6A==/28587302323242.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=174964",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=174964"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=174964&format=yrc"
     },
     {
       "name": "女骑士",
-      "album": null,
+      "album": "情话",
       "artist": "徐良",
-      "pic": "https://p2.music.126.net/Eiq_XiRNqiXJEwmFzLTtow==/109951172050975516.jpg",
+      "pic": "https://p1.music.126.net/Eiq_XiRNqiXJEwmFzLTtow==/109951172050975516.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=27890397",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=27890397"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=27890397&format=yrc"
     },
     {
       "name": "美瞳",
-      "album": null,
+      "album": "徐良原创合集",
       "artist": "徐良",
-      "pic": "https://p2.music.126.net/fc__RxMAdr_pX2fTubeZLg==/4456320627390033.jpg",
+      "pic": "https://p1.music.126.net/fc__RxMAdr_pX2fTubeZLg==/4456320627390033.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=26600766",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=26600766"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=26600766&format=yrc"
     },
     {
       "name": "在回忆中死去",
-      "album": null,
+      "album": "犯贱",
       "artist": "徐良 / Britneylee小暖",
-      "pic": "https://p2.music.126.net/ImNPIBQmUdqCjdeAs6mr6A==/28587302323242.jpg",
+      "pic": "https://p1.music.126.net/ImNPIBQmUdqCjdeAs6mr6A==/28587302323242.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=174969",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=174969"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=174969&format=yrc"
     },
     {
       "name": "即使说抱歉",
-      "album": null,
+      "album": "犯贱",
       "artist": "徐良",
-      "pic": "https://p2.music.126.net/ImNPIBQmUdqCjdeAs6mr6A==/28587302323242.jpg",
+      "pic": "https://p1.music.126.net/ImNPIBQmUdqCjdeAs6mr6A==/28587302323242.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=174967",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=174967"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=174967&format=yrc"
     },
     {
       "name": "创作者",
-      "album": null,
+      "album": "创作者",
       "artist": "徐良 / 本兮",
-      "pic": "https://p2.music.126.net/hpGWjjwtZWoZVrdENOD9hw==/109951163063957989.jpg",
+      "pic": "https://p1.music.126.net/hpGWjjwtZWoZVrdENOD9hw==/109951163063957989.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=518863916",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=518863916"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=518863916&format=yrc"
     },
     {
       "name": "邂逅",
-      "album": null,
+      "album": "邂逅",
       "artist": "徐良 / 杨菲洋",
-      "pic": "https://p2.music.126.net/05Nn_sIjdnv351HXEqtnyg==/109951168750506105.jpg",
+      "pic": "https://p1.music.126.net/05Nn_sIjdnv351HXEqtnyg==/109951168750506105.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=28773451",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=28773451"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=28773451&format=yrc"
     },
     {
       "name": "小恋曲",
-      "album": null,
+      "album": "犯贱",
       "artist": "徐良",
-      "pic": "https://p2.music.126.net/ImNPIBQmUdqCjdeAs6mr6A==/28587302323242.jpg",
+      "pic": "https://p1.music.126.net/ImNPIBQmUdqCjdeAs6mr6A==/28587302323242.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=174968",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=174968"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=174968&format=yrc"
     },
     {
       "name": "学戏",
-      "album": null,
+      "album": "学戏",
       "artist": "徐良",
-      "pic": "https://p2.music.126.net/Uwe4aGnxIeMXqV9Rhy7v1A==/109951164235835158.jpg",
+      "pic": "https://p1.music.126.net/Uwe4aGnxIeMXqV9Rhy7v1A==/109951164235835158.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1379837697",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1379837697"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1379837697&format=yrc"
     }
   ]
 }

@@ -1,110 +1,111 @@
 {
   "name": "蔡依林",
   "cover": "http://p2.music.126.net/09GUy0j4V7EwyhXVIdqhDg==/109951171072766317.jpg?param=200y200",
+  "playlist": 18178624695,
   "songs": [
     {
-      "name": "倒带",
-      "album": null,
-      "artist": "蔡依林",
-      "pic": "https://p2.music.126.net/BB-vZbt7EN22vaVDHI60fg==/131941395350068.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=4875637",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=4875637"
-    },
-    {
-      "name": "日不落",
-      "album": null,
-      "artist": "蔡依林",
-      "pic": "https://p2.music.126.net/blmpVR6oio2Htt4lBtltIg==/109951169280787823.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=5250072",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=5250072"
+      "name": "今天你要嫁给我",
+      "album": "你是我一生最爱的人",
+      "artist": "陶喆 / 蔡依林",
+      "pic": "https://p1.music.126.net/ukJi8SPQR0StMTHS31titg==/109951163449486613.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=5254811",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=5254811&format=yrc"
     },
     {
       "name": "天空",
-      "album": null,
+      "album": "J-Top冠军精选",
       "artist": "蔡依林",
-      "pic": "https://p2.music.126.net/DqmJQQdpW0jct7v-C1kQrw==/109951165705498890.jpg",
+      "pic": "https://p1.music.126.net/DqmJQQdpW0jct7v-C1kQrw==/109951165705498890.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=209746",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=209746"
-    },
-    {
-      "name": "今天你要嫁给我",
-      "album": null,
-      "artist": "陶喆 / 蔡依林",
-      "pic": "https://p2.music.126.net/ukJi8SPQR0StMTHS31titg==/109951163449486613.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=5254811",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=5254811"
-    },
-    {
-      "name": "Love Love Love",
-      "album": null,
-      "artist": "蔡依林",
-      "pic": "https://p2.music.126.net/DqmJQQdpW0jct7v-C1kQrw==/109951165705498890.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=209750",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=209750"
-    },
-    {
-      "name": "柠檬草的味道",
-      "album": null,
-      "artist": "蔡依林",
-      "pic": "https://p2.music.126.net/DqmJQQdpW0jct7v-C1kQrw==/109951165705498890.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=209734",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=209734"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=209746&format=yrc"
     },
     {
       "name": "Fight as ONE",
-      "album": null,
+      "album": "Fight as ONE",
       "artist": "陈奕迅 / 蔡依林",
-      "pic": "https://p2.music.126.net/DmrUUFqk5gcBLSU4bQIaXQ==/109951164866101330.jpg",
+      "pic": "https://p1.music.126.net/DmrUUFqk5gcBLSU4bQIaXQ==/109951164866101330.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1437165631",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1437165631"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1437165631&format=yrc"
     },
     {
-      "name": "我知道你很难过",
-      "album": null,
+      "name": "日不落",
+      "album": "Love国语情歌集",
       "artist": "蔡依林",
-      "pic": "https://p2.music.126.net/z6ExtKrywQxZtK5ZaE9h-w==/109951165744900608.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=210106",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=210106"
+      "pic": "https://p1.music.126.net/blmpVR6oio2Htt4lBtltIg==/109951169280787823.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=5250072",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=5250072&format=yrc"
     },
     {
-      "name": "Stars Align",
-      "album": null,
-      "artist": "R3HAB / 蔡依林",
-      "pic": "https://p2.music.126.net/gHmBwtzrVmO_CLAE14FxUQ==/109951165847620943.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1833653230",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1833653230"
-    },
-    {
-      "name": "第三人称",
-      "album": null,
+      "name": "Love Love Love",
+      "album": "J-Top冠军精选",
       "artist": "蔡依林",
-      "pic": "https://p2.music.126.net/gHSIDAR8_3_QBPpGX4scNg==/6657542907310638.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=29722126",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=29722126"
+      "pic": "https://p1.music.126.net/DqmJQQdpW0jct7v-C1kQrw==/109951165705498890.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=209750",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=209750&format=yrc"
     },
     {
-      "name": "爱情36计",
-      "album": null,
+      "name": "倒带",
+      "album": "遇见100%幸福3 挚爱蓝盘",
       "artist": "蔡依林",
-      "pic": "https://p2.music.126.net/DqmJQQdpW0jct7v-C1kQrw==/109951165705498890.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=209732",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=209732"
+      "pic": "https://p1.music.126.net/BB-vZbt7EN22vaVDHI60fg==/131941395350068.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=4875637",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=4875637&format=yrc"
     },
     {
       "name": "看我72变",
-      "album": null,
+      "album": "J-Top冠军精选",
       "artist": "蔡依林",
-      "pic": "https://p2.music.126.net/DqmJQQdpW0jct7v-C1kQrw==/109951165705498890.jpg",
+      "pic": "https://p1.music.126.net/DqmJQQdpW0jct7v-C1kQrw==/109951165705498890.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=209729",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=209729"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=209729&format=yrc"
+    },
+    {
+      "name": "柠檬草的味道",
+      "album": "J-Top冠军精选",
+      "artist": "蔡依林",
+      "pic": "https://p1.music.126.net/DqmJQQdpW0jct7v-C1kQrw==/109951165705498890.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=209734",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=209734&format=yrc"
+    },
+    {
+      "name": "我知道你很难过",
+      "album": "Together",
+      "artist": "蔡依林",
+      "pic": "https://p1.music.126.net/z6ExtKrywQxZtK5ZaE9h-w==/109951165744900608.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=210106",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=210106&format=yrc"
+    },
+    {
+      "name": "第三人称",
+      "album": "第三人称",
+      "artist": "蔡依林",
+      "pic": "https://p1.music.126.net/gHSIDAR8_3_QBPpGX4scNg==/6657542907310638.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=29722126",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=29722126&format=yrc"
     },
     {
       "name": "我是谁",
-      "album": null,
+      "album": "狼殿下 影视原声碟PART.1",
       "artist": "蔡依林 / Jony J",
-      "pic": "https://p2.music.126.net/LOekHheOMDpdjuXrXWjfJg==/109951165483194861.jpg",
+      "pic": "https://p1.music.126.net/LOekHheOMDpdjuXrXWjfJg==/109951165483194861.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1496855338",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1496855338"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1496855338&format=yrc"
+    },
+    {
+      "name": "Stars Align",
+      "album": "Stars Align",
+      "artist": "R3HAB / 蔡依林",
+      "pic": "https://p1.music.126.net/gHmBwtzrVmO_CLAE14FxUQ==/109951165847620943.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1833653230",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1833653230&format=yrc"
+    },
+    {
+      "name": "爱情36计",
+      "album": "J-Top冠军精选",
+      "artist": "蔡依林",
+      "pic": "https://p1.music.126.net/DqmJQQdpW0jct7v-C1kQrw==/109951165705498890.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=209732",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=209732&format=yrc"
     }
   ]
 }

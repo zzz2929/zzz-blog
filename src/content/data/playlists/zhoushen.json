@@ -1,326 +1,327 @@
 {
   "name": "周深",
   "cover": "http://p1.music.126.net/O7iklZenQK0SdemoEeyovQ==/109951168649034709.jpg?param=200y200",
+  "playlist": 18178534036,
   "songs": [
     {
-      "name": "Rubia",
-      "album": null,
+      "name": "浮光",
+      "album": "浮光",
       "artist": "周深",
-      "pic": "https://p1.music.126.net/499AYZ3epP1T7GJYvnJZZQ==/109951165671947083.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1815684465",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1815684465"
+      "pic": "https://p2.music.126.net/zfdCU3cL-dsTqVvjmKPrjg==/109951169222823883.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2112196350",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2112196350&format=yrc"
     },
     {
       "name": "复刻回忆",
-      "album": null,
+      "album": "复刻回忆",
       "artist": "周深",
-      "pic": "https://p1.music.126.net/t9w_Fl7Tn4ofqR20MQs1QQ==/109951173448940896.jpg",
+      "pic": "https://p2.music.126.net/t9w_Fl7Tn4ofqR20MQs1QQ==/109951173448940896.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=3397439300",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=3397439300"
-    },
-    {
-      "name": "避难所/Sanctuary",
-      "album": null,
-      "artist": "周深",
-      "pic": "https://p1.music.126.net/3SUnkICQ93yqGG1dNc1KNQ==/109951164333515125.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1387564796",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1387564796"
-    },
-    {
-      "name": "好好生活就是美好生活",
-      "album": null,
-      "artist": "周深",
-      "pic": "https://p1.music.126.net/N6RvHRPpVmFULH09Beu0Vg==/109951166789161726.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1906097379",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1906097379"
-    },
-    {
-      "name": "可它爱着这个世界",
-      "album": null,
-      "artist": "周深",
-      "pic": "https://p1.music.126.net/VIb5IXMNi6hnxSO-YVRsZQ==/109951164620816092.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1416181167",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1416181167"
-    },
-    {
-      "name": "泪桥 (live)",
-      "album": null,
-      "artist": "古巨基 / 周深",
-      "pic": "https://p1.music.126.net/3nL__2mV7k65XMoUw6Gu-g==/109951169721390560.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2124385834",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2124385834"
-    },
-    {
-      "name": "望",
-      "album": null,
-      "artist": "周深",
-      "pic": "https://p1.music.126.net/8e1nM7gLbUrBbG5QfthfEA==/109951165649207576.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1814080666",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1814080666"
-    },
-    {
-      "name": "Monsters (Live)",
-      "album": null,
-      "artist": "周深",
-      "pic": "https://p1.music.126.net/8CBeG0BF2C0dPiA1FDflGQ==/109951164773621591.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1428598981",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1428598981"
-    },
-    {
-      "name": "雪花落下",
-      "album": null,
-      "artist": "周深",
-      "pic": "https://p1.music.126.net/vB5VcDUS3aE0OqWx8zmGwQ==/109951164784793909.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1429392929",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1429392929"
-    },
-    {
-      "name": "暗示",
-      "album": null,
-      "artist": "周深",
-      "pic": "https://p1.music.126.net/1UWVS742R3IBkoY1UsQZhw==/109951164943562862.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1443928242",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1443928242"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3397439300&format=yrc"
     },
     {
       "name": "小美满",
-      "album": null,
+      "album": "小美满",
       "artist": "周深",
       "pic": "https://p1.music.126.net/ve0l1aPRUBPP7e4x2Oz5DA==/109951169318479430.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2124381474",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2124381474"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2124381474&format=yrc"
     },
     {
-      "name": "记·念 (Live)",
-      "album": null,
+      "name": "望",
+      "album": "望",
       "artist": "周深",
-      "pic": "https://p1.music.126.net/8vNMEFVpMGCeaYdD7h1AYA==/109951167612169848.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1960650720",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1960650720"
-    },
-    {
-      "name": "独白",
-      "album": null,
-      "artist": "周深",
-      "pic": "https://p1.music.126.net/12AtJSuQuAGG3ic81wFj4A==/109951164625053721.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=864433326",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=864433326"
-    },
-    {
-      "name": "来不及勇敢",
-      "album": null,
-      "artist": "周深",
-      "pic": "https://p1.music.126.net/r0CnWQ5CxJywGSHtbRLfoQ==/109951163393139107.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=864107063",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=864107063"
-    },
-    {
-      "name": "愿得一心人",
-      "album": null,
-      "artist": "周深",
-      "pic": "https://p1.music.126.net/4IhEU_soSp0-SaYkld5wvg==/109951164474727408.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1401790402",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1401790402"
-    },
-    {
-      "name": "身骑白马 (Live)",
-      "album": null,
-      "artist": "周深",
-      "pic": "https://p1.music.126.net/KRGO_OFqVD4FYhng9QICEQ==/1383185644445715.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=436699548",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=436699548"
+      "pic": "https://p1.music.126.net/8e1nM7gLbUrBbG5QfthfEA==/109951165649207576.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1814080666",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1814080666&format=yrc"
     },
     {
       "name": "有可能的夜晚 (Live)",
-      "album": null,
+      "album": "歌手·当打之年 第7期",
       "artist": "周深",
       "pic": "https://p1.music.126.net/-EV4XhJEJn_Ib7ebS1OHhg==/109951164820593469.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1432427879",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1432427879"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1432427879&format=yrc"
     },
     {
-      "name": "有一件美好的事情将要发生",
-      "album": null,
+      "name": "泪桥 (live)",
+      "album": "声生不息·家年华 第12期",
+      "artist": "古巨基 / 周深",
+      "pic": "https://p1.music.126.net/3nL__2mV7k65XMoUw6Gu-g==/109951169721390560.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2124385834",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2124385834&format=yrc"
+    },
+    {
+      "name": "身骑白马 (Live)",
+      "album": "蒙面唱将猜猜猜 第六期",
       "artist": "周深",
-      "pic": "https://p1.music.126.net/wvnIU5Rf3Ty1MnqaBXfY5Q==/109951164839904183.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1433984099",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1433984099"
+      "pic": "https://p1.music.126.net/KRGO_OFqVD4FYhng9QICEQ==/1383185644445715.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=436699548",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=436699548&format=yrc"
     },
     {
-      "name": "蓝色降落伞",
-      "album": null,
+      "name": "天下有情人 (Live)",
+      "album": "中国梦之声·我们的歌 第10期",
+      "artist": "李克勤 / 周深",
+      "pic": "https://p1.music.126.net/67Z2P9VrQ20XfUJLTNuDvw==/109951164608302058.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1414813561",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1414813561&format=yrc"
+    },
+    {
+      "name": "独白",
+      "album": "天乩之白蛇传说 影视原声带",
       "artist": "周深",
-      "pic": "https://p1.music.126.net/Ay5wDVF_0TXZmE2K_ljX4g==/109951171292487969.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=514765774",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=514765774"
-    },
-    {
-      "name": "有我",
-      "album": null,
-      "artist": "周深",
-      "pic": "https://p1.music.126.net/aV5-rA0EXjVB0G8d6ba_BA==/109951167434346846.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1941629582",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1941629582"
-    },
-    {
-      "name": "听我说",
-      "album": null,
-      "artist": "周深",
-      "pic": "https://p1.music.126.net/EMWheF2efGCGJlVUq9fJzg==/109951164612139849.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1415078941",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1415078941"
-    },
-    {
-      "name": "爱的供养 (live)",
-      "album": null,
-      "artist": "汪苏泷 / 周深",
-      "pic": "https://p1.music.126.net/ycejoTGQ1z5MgZMnxZRl7A==/109951169566880374.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2111034432",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2111034432"
-    },
-    {
-      "name": "雪落下的声音 (Live)",
-      "album": null,
-      "artist": "周深",
-      "pic": "https://p1.music.126.net/Fw2LSopQplg5MKgbA-fyyA==/109951164515478462.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1406472218",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1406472218"
-    },
-    {
-      "name": "请笃信一个梦",
-      "album": null,
-      "artist": "周深",
-      "pic": "https://p1.music.126.net/aYqxcj1LJPFAX65J4otN3w==/109951165347995948.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1416619074",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1416619074"
+      "pic": "https://p1.music.126.net/12AtJSuQuAGG3ic81wFj4A==/109951164625053721.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=864433326",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=864433326&format=yrc"
     },
     {
       "name": "千千阙歌 (Live)",
-      "album": null,
+      "album": "聚划算55青春选择之夜晚会Live",
       "artist": "周深",
       "pic": "https://p1.music.126.net/awQVkO1OmMWoxZL--dikJg==/109951164970741627.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1446233390",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1446233390"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1446233390&format=yrc"
     },
     {
-      "name": "春雪",
-      "album": null,
-      "artist": "周深 / TerryZhong钟天利",
-      "pic": "https://p1.music.126.net/8tDlEXRC026h8Ak-nKUPVQ==/109951169424163724.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2137074704",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2137074704"
-    },
-    {
-      "name": "不想睡",
-      "album": null,
+      "name": "听我说",
+      "album": "听我说",
       "artist": "周深",
-      "pic": "https://p1.music.126.net/5ps6sZV7wq0OG1V2JjnuDA==/109951165040573781.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1453342107",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1453342107"
+      "pic": "https://p1.music.126.net/EMWheF2efGCGJlVUq9fJzg==/109951164612139849.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1415078941",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1415078941&format=yrc"
     },
     {
       "name": "光亮",
-      "album": null,
+      "album": "大型纪录片《紫禁城》主题歌音乐专辑",
       "artist": "周深",
       "pic": "https://p1.music.126.net/TqI53jH17yjOs860awgQeQ==/109951166681216835.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1899994040",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1899994040"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1899994040&format=yrc"
     },
     {
-      "name": "拂衣归",
-      "album": null,
+      "name": "暗示",
+      "album": "暗示",
       "artist": "周深",
-      "pic": "https://p1.music.126.net/oD4mReuwzXWHEXHqW7kITw==/109951164991132250.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1448533371",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1448533371"
+      "pic": "https://p1.music.126.net/1UWVS742R3IBkoY1UsQZhw==/109951164943562862.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1443928242",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1443928242&format=yrc"
     },
     {
-      "name": "无问 (Live)",
-      "album": null,
-      "artist": "周深",
-      "pic": "https://p1.music.126.net/OuL80LuI347696oR98b3SA==/109951164738867906.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1425818683",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1425818683"
+      "name": "春雪",
+      "album": "春雪",
+      "artist": "周深 / TerryZhong钟天利",
+      "pic": "https://p1.music.126.net/8tDlEXRC026h8Ak-nKUPVQ==/109951169424163724.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2137074704",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2137074704&format=yrc"
     },
     {
-      "name": "茫茫星河",
-      "album": null,
+      "name": "Rubia",
+      "album": "Rubia",
       "artist": "周深",
-      "pic": "https://p1.music.126.net/bJ1G6LXrwCRK9dyErp4-eg==/109951165741670916.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1816018288",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1816018288"
+      "pic": "https://p1.music.126.net/499AYZ3epP1T7GJYvnJZZQ==/109951165671947083.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1815684465",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1815684465&format=yrc"
     },
     {
-      "name": "浮光",
-      "album": null,
+      "name": "避难所/Sanctuary",
+      "album": "我在未来等你 电视剧原声专辑",
       "artist": "周深",
-      "pic": "https://p1.music.126.net/zfdCU3cL-dsTqVvjmKPrjg==/109951169222823883.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2112196350",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2112196350"
+      "pic": "https://p1.music.126.net/3SUnkICQ93yqGG1dNc1KNQ==/109951164333515125.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1387564796",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1387564796&format=yrc"
     },
     {
-      "name": "归处",
-      "album": null,
+      "name": "好好生活就是美好生活",
+      "album": "好好生活就是美好生活",
       "artist": "周深",
-      "pic": "https://p1.music.126.net/kCIZV2nVJ8eHaT3aJj8J6A==/109951165647436292.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1813888105",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1813888105"
-    },
-    {
-      "name": "影",
-      "album": null,
-      "artist": "周深",
-      "pic": "https://p1.music.126.net/dCB23rw9gYvhJBuwagNiqQ==/109951165174270635.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1459928972",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1459928972"
+      "pic": "https://p1.music.126.net/N6RvHRPpVmFULH09Beu0Vg==/109951166789161726.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1906097379",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1906097379&format=yrc"
     },
     {
       "name": "桃花诺 (live)",
-      "album": null,
+      "album": "声生不息·家年华 第3期",
       "artist": "周深 / 宋亚轩",
       "pic": "https://p1.music.126.net/uO70pUEpTU72gfagRUP5oA==/109951169560298051.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2108828148",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2108828148"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2108828148&format=yrc"
     },
     {
-      "name": "能解答一切的答案",
-      "album": null,
+      "name": "可它爱着这个世界",
+      "album": "可它爱着这个世界",
       "artist": "周深",
-      "pic": "https://p1.music.126.net/psg9sqkCKnA2mtZLCD8eUA==/109951165200638846.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1411991905",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1411991905"
-    },
-    {
-      "name": "爱若琉璃",
-      "album": null,
-      "artist": "周深",
-      "pic": "https://p1.music.126.net/J5zZ2sKKuUaW5OikQ-535w==/109951164857593249.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1436150979",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1436150979"
-    },
-    {
-      "name": "我以渺小爱你",
-      "album": null,
-      "artist": "周深",
-      "pic": "https://p1.music.126.net/C2ZRjMxyXEOo7PwS6Tpxjg==/109951169113908928.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2098693162",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2098693162"
+      "pic": "https://p1.music.126.net/VIb5IXMNi6hnxSO-YVRsZQ==/109951164620816092.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1416181167",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1416181167&format=yrc"
     },
     {
       "name": "过尽千帆",
-      "album": null,
+      "album": "过尽千帆",
       "artist": "周深",
       "pic": "https://p1.music.126.net/DRoKYlUYp7kQ09ktggcx2Q==/109951164468929141.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1401095609",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1401095609"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1401095609&format=yrc"
     },
     {
-      "name": "话语",
-      "album": null,
-      "artist": "Panta.Q 郭曲 / 周深",
-      "pic": "https://p1.music.126.net/ZiDqToCHyo_QaSsbxvS55g==/109951165017599371.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1450956881",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1450956881"
+      "name": "有我",
+      "album": "有我",
+      "artist": "周深",
+      "pic": "https://p1.music.126.net/aV5-rA0EXjVB0G8d6ba_BA==/109951167434346846.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1941629582",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1941629582&format=yrc"
+    },
+    {
+      "name": "请笃信一个梦",
+      "album": "请笃信一个梦",
+      "artist": "周深",
+      "pic": "https://p1.music.126.net/aYqxcj1LJPFAX65J4otN3w==/109951165347995948.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1416619074",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1416619074&format=yrc"
+    },
+    {
+      "name": "来不及勇敢",
+      "album": "来不及勇敢",
+      "artist": "周深",
+      "pic": "https://p1.music.126.net/r0CnWQ5CxJywGSHtbRLfoQ==/109951163393139107.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=864107063",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=864107063&format=yrc"
+    },
+    {
+      "name": "记·念 (Live)",
+      "album": "为歌而赞第二季 第12期",
+      "artist": "周深",
+      "pic": "https://p1.music.126.net/8vNMEFVpMGCeaYdD7h1AYA==/109951167612169848.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1960650720",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1960650720&format=yrc"
+    },
+    {
+      "name": "爱的供养 (live)",
+      "album": "声生不息·家年华 第4期",
+      "artist": "汪苏泷 / 周深",
+      "pic": "https://p1.music.126.net/ycejoTGQ1z5MgZMnxZRl7A==/109951169566880374.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2111034432",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2111034432&format=yrc"
+    },
+    {
+      "name": "拂衣归",
+      "album": "拂衣归",
+      "artist": "周深",
+      "pic": "https://p1.music.126.net/oD4mReuwzXWHEXHqW7kITw==/109951164991132250.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1448533371",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1448533371&format=yrc"
+    },
+    {
+      "name": "雪花落下",
+      "album": "雪花落下",
+      "artist": "周深",
+      "pic": "https://p1.music.126.net/vB5VcDUS3aE0OqWx8zmGwQ==/109951164784793909.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1429392929",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1429392929&format=yrc"
+    },
+    {
+      "name": "不想睡",
+      "album": "不想睡",
+      "artist": "周深",
+      "pic": "https://p1.music.126.net/5ps6sZV7wq0OG1V2JjnuDA==/109951165040573781.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1453342107",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1453342107&format=yrc"
+    },
+    {
+      "name": "人是_",
+      "album": "人是_",
+      "artist": "周深",
+      "pic": "https://p1.music.126.net/QVTp7VcO2GnoCYqINo5_aw==/109951168232255621.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2014291207",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2014291207&format=yrc"
+    },
+    {
+      "name": "雪落下的声音 (Live)",
+      "album": "蒙面唱将猜猜猜第三季 第7期",
+      "artist": "周深",
+      "pic": "https://p1.music.126.net/Fw2LSopQplg5MKgbA-fyyA==/109951164515478462.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1406472218",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1406472218&format=yrc"
+    },
+    {
+      "name": "蜃楼",
+      "album": "反深代词",
+      "artist": "周深",
+      "pic": "https://p1.music.126.net/KuzA_CG76o55rr8sHrQ0ag==/109951170008506786.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2140776001",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2140776001&format=yrc"
+    },
+    {
+      "name": "秦淮景+相思 (Live)",
+      "album": "歌手·当打之年 第9期",
+      "artist": "周深",
+      "pic": "https://p1.music.126.net/p7n_zp4eoxY3a1XPzIomHQ==/109951164863688864.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1436912291",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1436912291&format=yrc"
+    },
+    {
+      "name": "我，江湖！",
+      "album": "我，江湖！",
+      "artist": "周深",
+      "pic": "https://p1.music.126.net/4jjwQmF6pz4JcqAsH4thJA==/109951165674188085.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1813568808",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1813568808&format=yrc"
+    },
+    {
+      "name": "愿得一心人",
+      "album": "愿得一心人",
+      "artist": "周深",
+      "pic": "https://p1.music.126.net/4IhEU_soSp0-SaYkld5wvg==/109951164474727408.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1401790402",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1401790402&format=yrc"
+    },
+    {
+      "name": "爱若琉璃",
+      "album": "爱若琉璃",
+      "artist": "周深",
+      "pic": "https://p1.music.126.net/J5zZ2sKKuUaW5OikQ-535w==/109951164857593249.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1436150979",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1436150979&format=yrc"
+    },
+    {
+      "name": "Monsters (Live)",
+      "album": "歌手·当打之年 第5期",
+      "artist": "周深",
+      "pic": "https://p1.music.126.net/8CBeG0BF2C0dPiA1FDflGQ==/109951164773621591.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1428598981",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1428598981&format=yrc"
+    },
+    {
+      "name": "Baby, До свидания (达尼亚) (Live)",
+      "album": "歌手·当打之年 第6期",
+      "artist": "周深",
+      "pic": "https://p1.music.126.net/muqRnruZBkljZgnvzDzE_A==/109951164795622920.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1429908231",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1429908231&format=yrc"
+    },
+    {
+      "name": "自己按门铃自己听 (Live)",
+      "album": "歌手·当打之年 第10期",
+      "artist": "周深",
+      "pic": "https://p1.music.126.net/SnrbCk-XWOERwZ5wiulhwQ==/109951164887098113.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1439111144",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1439111144&format=yrc"
+    },
+    {
+      "name": "茫茫星河",
+      "album": "玲珑 电视原声带",
+      "artist": "周深",
+      "pic": "https://p1.music.126.net/bJ1G6LXrwCRK9dyErp4-eg==/109951165741670916.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1816018288",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1816018288&format=yrc"
+    },
+    {
+      "name": "影",
+      "album": "锦绣南歌 电视剧原声带",
+      "artist": "周深",
+      "pic": "https://p1.music.126.net/dCB23rw9gYvhJBuwagNiqQ==/109951165174270635.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1459928972",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1459928972&format=yrc"
     }
   ]
 }

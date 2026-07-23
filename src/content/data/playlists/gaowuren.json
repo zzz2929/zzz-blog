@@ -1,326 +1,327 @@
 {
   "name": "告五人",
   "cover": "http://p1.music.126.net/uaThdDXIC7MXjQkpNRq1ow==/109951171416023424.jpg?param=200y200",
+  "playlist": 18178642537,
   "songs": [
     {
-      "name": "一念之间",
-      "album": null,
-      "artist": "告五人",
-      "pic": "https://p1.music.126.net/PgcIr7Vv7J4N_OjYxQbo0g==/109951168306417191.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2022069284",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2022069284"
+      "name": "说我爱你的一百种方式",
+      "album": "说我爱你的一百种方式",
+      "artist": "与少年他 / 告五人",
+      "pic": "https://p2.music.126.net/faUeDhtc9M79ztkHKD3QoQ==/109951164931040864.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1442773498",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1442773498&format=yrc"
     },
     {
       "name": "形容 (Live)",
-      "album": null,
+      "album": "音乐好朋友 第三季",
       "artist": "告五人 / 音乐好朋友",
-      "pic": "https://p1.music.126.net/9RtiRtWQC9fFg5V0JW-HkA==/109951165351485047.jpg",
+      "pic": "https://p2.music.126.net/9RtiRtWQC9fFg5V0JW-HkA==/109951165351485047.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1486060214",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1486060214"
-    },
-    {
-      "name": "寂寞留白",
-      "album": null,
-      "artist": "告五人",
-      "pic": "https://p1.music.126.net/dEGpD8qCaA9URIEa5WEQSQ==/109951170330494512.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1892514735",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1892514735"
-    },
-    {
-      "name": "温蒂公主的侍卫",
-      "album": null,
-      "artist": "告五人",
-      "pic": "https://p1.music.126.net/5URIeP6GjMFg_hKhGloNTA==/109951165585701063.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1807796555",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1807796555"
-    },
-    {
-      "name": "晴れの日(晴天)",
-      "album": null,
-      "artist": "告五人 / DEAN FUJIOKA",
-      "pic": "https://p1.music.126.net/CADRnKgQ1C-3GnzXbeofBw==/109951168771945499.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2068063722",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2068063722"
-    },
-    {
-      "name": "爱在夏天",
-      "album": null,
-      "artist": "告五人",
-      "pic": "https://p1.music.126.net/ULodaeLSIk_NROrzamvXxw==/109951168110827116.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=563563366",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=563563366"
-    },
-    {
-      "name": "唯一",
-      "album": null,
-      "artist": "告五人",
-      "pic": "https://p1.music.126.net/5URIeP6GjMFg_hKhGloNTA==/109951165585701063.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1807799505",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1807799505"
-    },
-    {
-      "name": "带你飞",
-      "album": null,
-      "artist": "告五人",
-      "pic": "https://p1.music.126.net/PgcIr7Vv7J4N_OjYxQbo0g==/109951168306417191.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2022072828",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2022072828"
-    },
-    {
-      "name": "说我爱你的一百种方式",
-      "album": null,
-      "artist": "与少年他 / 告五人",
-      "pic": "https://p1.music.126.net/faUeDhtc9M79ztkHKD3QoQ==/109951164931040864.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1442773498",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1442773498"
-    },
-    {
-      "name": "我以为你不会出现",
-      "album": null,
-      "artist": "告五人",
-      "pic": "https://p1.music.126.net/i928-hIdPinzbW1p00sThQ==/109951167429598505.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1948145018",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1948145018"
-    },
-    {
-      "name": "在这座城市遗失了你",
-      "album": null,
-      "artist": "告五人",
-      "pic": "https://p1.music.126.net/5URIeP6GjMFg_hKhGloNTA==/109951165585701063.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1807799504",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1807799504"
-    },
-    {
-      "name": "远距离恋爱",
-      "album": null,
-      "artist": "告五人",
-      "pic": "https://p1.music.126.net/PgcIr7Vv7J4N_OjYxQbo0g==/109951168306417191.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2022072827",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2022072827"
-    },
-    {
-      "name": "好不容易",
-      "album": null,
-      "artist": "告五人",
-      "pic": "https://p1.music.126.net/w4tf-M6cGStcSrlJspIw_w==/109951166713402697.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1902251868",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1902251868"
-    },
-    {
-      "name": "红",
-      "album": null,
-      "artist": "告五人",
-      "pic": "https://p1.music.126.net/awJUvRnQYOjyoUJbzfL-Ig==/109951172190059964.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1368756097",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1368756097"
-    },
-    {
-      "name": "夜里无星",
-      "album": null,
-      "artist": "告五人",
-      "pic": "https://p1.music.126.net/awJUvRnQYOjyoUJbzfL-Ig==/109951172190059964.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1368754722",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1368754722"
-    },
-    {
-      "name": "倒带（Live版）",
-      "album": null,
-      "artist": "希林娜依高 / 告五人",
-      "pic": "https://p1.music.126.net/bxMKtc9vBLT-WFwuG0ya5A==/109951168667081237.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2054190758",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2054190758"
-    },
-    {
-      "name": "从没去过巴塞隆纳",
-      "album": null,
-      "artist": "告五人",
-      "pic": "https://p1.music.126.net/awJUvRnQYOjyoUJbzfL-Ig==/109951172190059964.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1368754724",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1368754724"
-    },
-    {
-      "name": "在凌晨睡着的自己",
-      "album": null,
-      "artist": "告五人",
-      "pic": "https://p1.music.126.net/2hpO_fHBK98PRs8H4h179Q==/109951168189459708.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2010289317",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2010289317"
-    },
-    {
-      "name": "人前人后",
-      "album": null,
-      "artist": "告五人",
-      "pic": "https://p1.music.126.net/5URIeP6GjMFg_hKhGloNTA==/109951165585701063.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1807796553",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1807796553"
-    },
-    {
-      "name": "爱在夏天-盛夏之约",
-      "album": null,
-      "artist": "告五人",
-      "pic": "https://p1.music.126.net/qJrWTbJaiYSBB7TiDtQy1g==/109951166538122376.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1888407050",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1888407050"
-    },
-    {
-      "name": "与海无关",
-      "album": null,
-      "artist": "告五人",
-      "pic": "https://p1.music.126.net/5URIeP6GjMFg_hKhGloNTA==/109951165585701063.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1807799506",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1807799506"
-    },
-    {
-      "name": "爱人错过 (Live版)",
-      "album": null,
-      "artist": "告五人",
-      "pic": "https://p1.music.126.net/PvCGnfEjm5O-16VDrqiNfw==/109951168652391588.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2052368796",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2052368796"
-    },
-    {
-      "name": "带我去找夜生活",
-      "album": null,
-      "artist": "告五人",
-      "pic": "https://p1.music.126.net/lmCtt6-3fOPSdA1uwGCY5Q==/109951164567402626.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1410647903",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1410647903"
-    },
-    {
-      "name": "同样一个你",
-      "album": null,
-      "artist": "告五人",
-      "pic": "https://p1.music.126.net/5URIeP6GjMFg_hKhGloNTA==/109951165585701063.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1807796551",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1807796551"
-    },
-    {
-      "name": "在未来的你跟我说声嗨",
-      "album": null,
-      "artist": "告五人",
-      "pic": "https://p1.music.126.net/43RBalJqy0bzTVRh-vtYeQ==/109951167974941367.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1990179959",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1990179959"
-    },
-    {
-      "name": "我无法克制自己",
-      "album": null,
-      "artist": "告五人",
-      "pic": "https://p1.music.126.net/PgcIr7Vv7J4N_OjYxQbo0g==/109951168306417191.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2022069283",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2022069283"
-    },
-    {
-      "name": "简答题",
-      "album": null,
-      "artist": "告五人",
-      "pic": "https://p1.music.126.net/awJUvRnQYOjyoUJbzfL-Ig==/109951172190059964.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1368754754",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1368754754"
-    },
-    {
-      "name": "爱的轮回",
-      "album": null,
-      "artist": "告五人",
-      "pic": "https://p1.music.126.net/CAevieieeDc6BUZvFbT_gg==/109951167912443110.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1984810617",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1984810617"
-    },
-    {
-      "name": "不具名的花",
-      "album": null,
-      "artist": "告五人",
-      "pic": "https://p1.music.126.net/awJUvRnQYOjyoUJbzfL-Ig==/109951172190059964.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1368754746",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1368754746"
-    },
-    {
-      "name": "爱你我没问题",
-      "album": null,
-      "artist": "告五人",
-      "pic": "https://p1.music.126.net/PgcIr7Vv7J4N_OjYxQbo0g==/109951168306417191.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2022072829",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2022072829"
-    },
-    {
-      "name": "运气来得若有似无",
-      "album": null,
-      "artist": "告五人",
-      "pic": "https://p1.music.126.net/5URIeP6GjMFg_hKhGloNTA==/109951165585701063.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1807796552",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1807796552"
-    },
-    {
-      "name": "愚人游戏",
-      "album": null,
-      "artist": "告五人",
-      "pic": "https://p1.music.126.net/5URIeP6GjMFg_hKhGloNTA==/109951165585701063.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1807796556",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1807796556"
-    },
-    {
-      "name": "迷雾之子",
-      "album": null,
-      "artist": "告五人",
-      "pic": "https://p1.music.126.net/hTfEeER_YfHLb_2RvtrXrQ==/109951168110801977.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=511921299",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=511921299"
-    },
-    {
-      "name": "只管向前",
-      "album": null,
-      "artist": "告五人",
-      "pic": "https://p1.music.126.net/QaZhdWDW5O0ryzrJYhxYIw==/109951166496727712.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1884621464",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1884621464"
-    },
-    {
-      "name": "温蒂公主的侍卫+爱人错过 (Live版)",
-      "album": null,
-      "artist": "告五人",
-      "pic": "https://p1.music.126.net/6kp_Q0ZeczFVI2GRRBiKTg==/109951168692019199.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2057712997",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2057712997"
-    },
-    {
-      "name": "独角兽",
-      "album": null,
-      "artist": "告五人",
-      "pic": "https://p1.music.126.net/hTfEeER_YfHLb_2RvtrXrQ==/109951168110801977.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=511920319",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=511920319"
-    },
-    {
-      "name": "啊我忘了带伞",
-      "album": null,
-      "artist": "告五人",
-      "pic": "https://p1.music.126.net/PgcIr7Vv7J4N_OjYxQbo0g==/109951168306417191.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2022069286",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2022069286"
-    },
-    {
-      "name": "又到天黑",
-      "album": null,
-      "artist": "告五人",
-      "pic": "https://p1.music.126.net/PgcIr7Vv7J4N_OjYxQbo0g==/109951168306417191.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2022072825",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2022072825"
-    },
-    {
-      "name": "Live A Little (Safari Club 调酒主题曲)",
-      "album": null,
-      "artist": "告五人",
-      "pic": "https://p1.music.126.net/LvQ4U319Xs3zFHHdSIcbNQ==/109951166669990154.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1899047769",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1899047769"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1486060214&format=yrc"
     },
     {
       "name": "不摇滚 (feat. 告五人)",
-      "album": null,
+      "album": "[ 人生就是用来XX的 ] 2021 线上生日趴",
       "artist": "八三夭 / 告五人",
-      "pic": "https://p1.music.126.net/NnNgJbwl3PeVcCyQVpoijA==/109951166459446375.jpg",
+      "pic": "https://p2.music.126.net/NnNgJbwl3PeVcCyQVpoijA==/109951166459446375.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1881684470",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1881684470"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1881684470&format=yrc"
+    },
+    {
+      "name": "带我去找夜生活",
+      "album": "带我去找夜生活",
+      "artist": "告五人",
+      "pic": "https://p2.music.126.net/lmCtt6-3fOPSdA1uwGCY5Q==/109951164567402626.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1410647903",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1410647903&format=yrc"
+    },
+    {
+      "name": "唯一",
+      "album": "运气来得若有似无",
+      "artist": "告五人",
+      "pic": "https://p2.music.126.net/5URIeP6GjMFg_hKhGloNTA==/109951165585701063.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1807799505",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1807799505&format=yrc"
+    },
+    {
+      "name": "丑人多作怪",
+      "album": "运气来得若有似无",
+      "artist": "告五人",
+      "pic": "https://p2.music.126.net/5URIeP6GjMFg_hKhGloNTA==/109951165585701063.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1807796549",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1807796549&format=yrc"
+    },
+    {
+      "name": "法兰西多士",
+      "album": "我肯定在几百年前就说过爱你",
+      "artist": "告五人",
+      "pic": "https://p2.music.126.net/awJUvRnQYOjyoUJbzfL-Ig==/109951172190059964.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1368753797",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1368753797&format=yrc"
+    },
+    {
+      "name": "我想要占据你 (Live)",
+      "album": "我们的歌第五季 第八期",
+      "artist": "告五人 / 刘逸云 Amber Liu",
+      "pic": "https://p2.music.126.net/OMVXWwM2JmsCpHVWDRVRkQ==/109951169095425482.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2103127140",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2103127140&format=yrc"
+    },
+    {
+      "name": "WEWE",
+      "album": "运气来得若有似无",
+      "artist": "告五人",
+      "pic": "https://p2.music.126.net/5URIeP6GjMFg_hKhGloNTA==/109951165585701063.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1807796550",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1807796550&format=yrc"
+    },
+    {
+      "name": "寂寞留白",
+      "album": "寂寞留白",
+      "artist": "告五人",
+      "pic": "https://p2.music.126.net/dEGpD8qCaA9URIEa5WEQSQ==/109951170330494512.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1892514735",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1892514735&format=yrc"
+    },
+    {
+      "name": "新世界",
+      "album": "新世界",
+      "artist": "告五人 / 阿爆",
+      "pic": "https://p2.music.126.net/KlgR1M1CedL44arSoCBvWg==/109951165247269075.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1472090563",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1472090563&format=yrc"
+    },
+    {
+      "name": "在未来的你跟我说声嗨",
+      "album": "在未来的你跟我说声嗨",
+      "artist": "告五人",
+      "pic": "https://p2.music.126.net/43RBalJqy0bzTVRh-vtYeQ==/109951167974941367.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1990179959",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1990179959&format=yrc"
+    },
+    {
+      "name": "我以为你不会出现",
+      "album": "我以为你不会出现",
+      "artist": "告五人",
+      "pic": "https://p2.music.126.net/i928-hIdPinzbW1p00sThQ==/109951167429598505.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1948145018",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1948145018&format=yrc"
+    },
+    {
+      "name": "披星戴月的想你 (Bonus track)",
+      "album": "我肯定在几百年前就说过爱你",
+      "artist": "告五人",
+      "pic": "https://p2.music.126.net/awJUvRnQYOjyoUJbzfL-Ig==/109951172190059964.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1368756196",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1368756196&format=yrc"
+    },
+    {
+      "name": "一念之间",
+      "album": "带你飞",
+      "artist": "告五人",
+      "pic": "https://p2.music.126.net/PgcIr7Vv7J4N_OjYxQbo0g==/109951168306417191.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2022069284",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2022069284&format=yrc"
+    },
+    {
+      "name": "好不容易",
+      "album": "好不容易",
+      "artist": "告五人",
+      "pic": "https://p2.music.126.net/w4tf-M6cGStcSrlJspIw_w==/109951166713402697.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1902251868",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1902251868&format=yrc"
+    },
+    {
+      "name": "简答题",
+      "album": "我肯定在几百年前就说过爱你",
+      "artist": "告五人",
+      "pic": "https://p2.music.126.net/awJUvRnQYOjyoUJbzfL-Ig==/109951172190059964.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1368754754",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1368754754&format=yrc"
+    },
+    {
+      "name": "远距离恋爱",
+      "album": "带你飞",
+      "artist": "告五人",
+      "pic": "https://p2.music.126.net/PgcIr7Vv7J4N_OjYxQbo0g==/109951168306417191.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2022072827",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2022072827&format=yrc"
+    },
+    {
+      "name": "温蒂公主的侍卫+爱人错过 (Live版)",
+      "album": "剧好听的歌 第3期",
+      "artist": "告五人",
+      "pic": "https://p2.music.126.net/6kp_Q0ZeczFVI2GRRBiKTg==/109951168692019199.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2057712997",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2057712997&format=yrc"
+    },
+    {
+      "name": "运气来得若有似无",
+      "album": "运气来得若有似无",
+      "artist": "告五人",
+      "pic": "https://p2.music.126.net/5URIeP6GjMFg_hKhGloNTA==/109951165585701063.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1807796552",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1807796552&format=yrc"
+    },
+    {
+      "name": "又到天黑",
+      "album": "带你飞",
+      "artist": "告五人",
+      "pic": "https://p2.music.126.net/PgcIr7Vv7J4N_OjYxQbo0g==/109951168306417191.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2022072825",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2022072825&format=yrc"
+    },
+    {
+      "name": "与海无关",
+      "album": "运气来得若有似无",
+      "artist": "告五人",
+      "pic": "https://p2.music.126.net/5URIeP6GjMFg_hKhGloNTA==/109951165585701063.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1807799506",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1807799506&format=yrc"
+    },
+    {
+      "name": "温蒂公主的侍卫",
+      "album": "运气来得若有似无",
+      "artist": "告五人",
+      "pic": "https://p2.music.126.net/5URIeP6GjMFg_hKhGloNTA==/109951165585701063.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1807796555",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1807796555&format=yrc"
+    },
+    {
+      "name": "人前人后",
+      "album": "运气来得若有似无",
+      "artist": "告五人",
+      "pic": "https://p2.music.126.net/5URIeP6GjMFg_hKhGloNTA==/109951165585701063.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1807796553",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1807796553&format=yrc"
+    },
+    {
+      "name": "独角兽",
+      "album": "迷雾之子",
+      "artist": "告五人",
+      "pic": "https://p2.music.126.net/hTfEeER_YfHLb_2RvtrXrQ==/109951168110801977.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=511920319",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=511920319&format=yrc"
+    },
+    {
+      "name": "我无法克制自己",
+      "album": "带你飞",
+      "artist": "告五人",
+      "pic": "https://p2.music.126.net/PgcIr7Vv7J4N_OjYxQbo0g==/109951168306417191.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2022069283",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2022069283&format=yrc"
+    },
+    {
+      "name": "爱人错过 (Live版)",
+      "album": "声生不息·宝岛季 第12期",
+      "artist": "告五人",
+      "pic": "https://p2.music.126.net/PvCGnfEjm5O-16VDrqiNfw==/109951168652391588.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2052368796",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2052368796&format=yrc"
+    },
+    {
+      "name": "开往早晨的午夜 (Live版)",
+      "album": "天赐的声音第四季 第9期",
+      "artist": "胡彦斌 / 告五人",
+      "pic": "https://p2.music.126.net/yG_0PsxZWDDXQ3p1JNUUHQ==/109951168692047003.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2057718119",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2057718119&format=yrc"
+    },
+    {
+      "name": "你所到之处 (就下雨)",
+      "album": "带你飞",
+      "artist": "告五人",
+      "pic": "https://p2.music.126.net/PgcIr7Vv7J4N_OjYxQbo0g==/109951168306417191.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2022069285",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2022069285&format=yrc"
+    },
+    {
+      "name": "Live A Little (Safari Club 调酒主题曲)",
+      "album": "Live A Little (Safari Club 调酒主题曲)",
+      "artist": "告五人",
+      "pic": "https://p2.music.126.net/LvQ4U319Xs3zFHHdSIcbNQ==/109951166669990154.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1899047769",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1899047769&format=yrc"
+    },
+    {
+      "name": "在凌晨睡着的自己",
+      "album": "在凌晨睡着的自己",
+      "artist": "告五人",
+      "pic": "https://p2.music.126.net/2hpO_fHBK98PRs8H4h179Q==/109951168189459708.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2010289317",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2010289317&format=yrc"
+    },
+    {
+      "name": "女孩 (Live版)",
+      "album": "天赐的声音第四季 第12期",
+      "artist": "告五人 / 吉克隽逸",
+      "pic": "https://p2.music.126.net/aSHcPfr8pHjF4bigM2PlEg==/109951168735281965.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2063468929",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2063468929&format=yrc"
+    },
+    {
+      "name": "啊我忘了带伞",
+      "album": "带你飞",
+      "artist": "告五人",
+      "pic": "https://p2.music.126.net/PgcIr7Vv7J4N_OjYxQbo0g==/109951168306417191.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2022069286",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2022069286&format=yrc"
+    },
+    {
+      "name": "爱在夏天-盛夏之约",
+      "album": "爱在夏天-盛夏之约",
+      "artist": "告五人",
+      "pic": "https://p2.music.126.net/qJrWTbJaiYSBB7TiDtQy1g==/109951166538122376.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1888407050",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1888407050&format=yrc"
+    },
+    {
+      "name": "从没去过巴塞隆纳",
+      "album": "我肯定在几百年前就说过爱你",
+      "artist": "告五人",
+      "pic": "https://p2.music.126.net/awJUvRnQYOjyoUJbzfL-Ig==/109951172190059964.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1368754724",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1368754724&format=yrc"
+    },
+    {
+      "name": "同样一个你",
+      "album": "运气来得若有似无",
+      "artist": "告五人",
+      "pic": "https://p2.music.126.net/5URIeP6GjMFg_hKhGloNTA==/109951165585701063.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1807796551",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1807796551&format=yrc"
+    },
+    {
+      "name": "爱你我没问题",
+      "album": "带你飞",
+      "artist": "告五人",
+      "pic": "https://p2.music.126.net/PgcIr7Vv7J4N_OjYxQbo0g==/109951168306417191.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2022072829",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2022072829&format=yrc"
+    },
+    {
+      "name": "晴れの日(晴天)",
+      "album": "晴れの日(晴天)",
+      "artist": "告五人 / DEAN FUJIOKA",
+      "pic": "https://p2.music.126.net/CADRnKgQ1C-3GnzXbeofBw==/109951168771945499.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2068063722",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2068063722&format=yrc"
+    },
+    {
+      "name": "爱在夏天",
+      "album": "爱在夏天",
+      "artist": "告五人",
+      "pic": "https://p2.music.126.net/ULodaeLSIk_NROrzamvXxw==/109951168110827116.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=563563366",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=563563366&format=yrc"
+    },
+    {
+      "name": "爱的轮回",
+      "album": "《台北女子图鉴》电视剧原声带",
+      "artist": "告五人",
+      "pic": "https://p2.music.126.net/CAevieieeDc6BUZvFbT_gg==/109951167912443110.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1984810617",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1984810617&format=yrc"
     }
   ]
 }

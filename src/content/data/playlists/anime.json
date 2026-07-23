@@ -1,0 +1,63 @@
+{
+  "name": "动漫",
+  "cover": "https://qpic.y.qq.com/music_cover/Ay2w92PeiaO57pZWMwecv6eTbnlVfJdCqXt7RChnaGrnRJJKR3uXNicg/600",
+  "playlist": 9562789104,
+  "songs": [
+    {
+      "name": "君じゃなきゃダメみたい",
+      "artist": "大石昌良 (オーイシマサヨシ)",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000004YmgSK4Yi6zF.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003kFsus4HNCkc",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003kFsus4HNCkc"
+    },
+    {
+      "name": "ルル (Ruru)",
+      "artist": "药师丸悦子 (やくしまる えつこ)",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001tHX9F2tXfSB.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=001SVsl70xXHMW",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=001SVsl70xXHMW"
+    },
+    {
+      "name": "シカ色デイズ",
+      "artist": "潘惠美 (潘めぐみ) / 藤田咲 (ふじた さき) / 田辺留依 (たなべ るい) / 和泉風花",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002V8MZ40Wuktx.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003hR0J632DJHR",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003hR0J632DJHR"
+    },
+    {
+      "name": "1番輝く星",
+      "artist": "上坂堇 (上坂すみれ)",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001YVx3h2XlAkF.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=000PRHZA0TZgik",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=000PRHZA0TZgik"
+    },
+    {
+      "name": "秘密の言葉",
+      "artist": "上坂堇 (上坂すみれ) / 花譜 (かふ)",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003uSYtK0ckAXH.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=004fZy0c1iKXYS",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=004fZy0c1iKXYS"
+    },
+    {
+      "name": "想い出がいっぱい",
+      "artist": "上坂堇 (上坂すみれ)",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002LNQhg4RS0Lp.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=003Maa8k3RsbnW",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=003Maa8k3RsbnW"
+    },
+    {
+      "name": "気ままな天使たち (随心所欲的天使们)",
+      "artist": "わたてん☆５",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003aEE9y2gyoHL.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=004EWcMb44h3tm",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=004EWcMb44h3tm"
+    },
+    {
+      "name": "LEveL",
+      "artist": "SawanoHiroyuki[nZk] (泽野弘之) / TOMORROW X TOGETHER (투모로우바이투게더)",
+      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000lHKZ11lFT7a.jpg",
+      "url": "https://meting.mikus.ink/api?server=tencent&type=url&id=004L7to0291W4S",
+      "lrc": "https://meting.mikus.ink/api?server=tencent&type=lrc&id=004L7to0291W4S"
+    }
+  ]
+}

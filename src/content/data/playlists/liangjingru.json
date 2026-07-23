@@ -1,262 +1,271 @@
 {
   "name": "梁静茹",
   "cover": "http://p1.music.126.net/RsBGuqdnEgMSSZuohnwg7w==/109951164078000677.jpg?param=200y200",
+  "playlist": 18178602843,
   "songs": [
     {
-      "name": "暖暖",
-      "album": null,
+      "name": "暖暖(Live)",
+      "album": "江苏卫视 2016 跨年演唱会",
       "artist": "梁静茹",
-      "pic": "https://p1.music.126.net/OpFMH1NN5u3DaOUdruORlw==/109951168144462962.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=254141",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=254141"
-    },
-    {
-      "name": "爱你不是两三天",
-      "album": null,
-      "artist": "梁静茹",
-      "pic": "https://p1.music.126.net/PavIMxZq16K7-0fSF5n-yg==/109951163240604120.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=254494",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=254494"
-    },
-    {
-      "name": "宁夏",
-      "album": null,
-      "artist": "梁静茹",
-      "pic": "https://p1.music.126.net/rFgwBbSgt0uda-sg_0cexA==/109951163447808569.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=5237761",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=5237761"
-    },
-    {
-      "name": "小手拉大手",
-      "album": null,
-      "artist": "梁静茹",
-      "pic": "https://p1.music.126.net/OpFMH1NN5u3DaOUdruORlw==/109951168144462962.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=254146",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=254146"
-    },
-    {
-      "name": "我喜欢",
-      "album": null,
-      "artist": "梁静茹",
-      "pic": "https://p1.music.126.net/RmwDo4IJ5veRVzZIu5sEtw==/109951172232899211.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=254424",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=254424"
-    },
-    {
-      "name": "如果有一天",
-      "album": null,
-      "artist": "梁静茹",
-      "pic": "https://p1.music.126.net/PavIMxZq16K7-0fSF5n-yg==/109951163240604120.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=254486",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=254486"
-    },
-    {
-      "name": "孤单北半球 (live)",
-      "album": null,
-      "artist": "梁静茹",
-      "pic": "https://p1.music.126.net/-zD4WRcHnIfEuMdMfyAfVg==/109951163268908553.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=254260",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=254260"
+      "pic": "https://p1.music.126.net/sF67FVEvm-TpP_-TA9I5vA==/3298534890576644.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=399353365",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=399353365&format=yrc"
     },
     {
       "name": "情歌",
-      "album": null,
+      "album": "现在开始我爱你",
       "artist": "梁静茹",
       "pic": "https://p1.music.126.net/QKCkMMW_fPDcczRNb0qZyg==/109951168163257789.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=254059",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=254059"
-    },
-    {
-      "name": "接受",
-      "album": null,
-      "artist": "梁静茹",
-      "pic": "https://p1.music.126.net/u_9SuUuQ960-2B1D94nWoQ==/109951172232898857.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=254271",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=254271"
-    },
-    {
-      "name": "勇气",
-      "album": null,
-      "artist": "梁静茹",
-      "pic": "https://p1.music.126.net/PavIMxZq16K7-0fSF5n-yg==/109951163240604120.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=254485",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=254485"
-    },
-    {
-      "name": "给未来的自己",
-      "album": null,
-      "artist": "梁静茹",
-      "pic": "https://p1.music.126.net/8E9NHOTIf6V6Vv45_Taxdg==/109951168163299080.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=254135",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=254135"
-    },
-    {
-      "name": "听不到",
-      "album": null,
-      "artist": "梁静茹",
-      "pic": "https://p1.music.126.net/u544zkCrn-cHlIyoLHLCBg==/109951163240601196.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=254297",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=254297"
-    },
-    {
-      "name": "可以的话",
-      "album": null,
-      "artist": "梁静茹",
-      "pic": "https://p1.music.126.net/KEw4WqyzSapRsSNRwDmA8w==/7998947094481817.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=34614557",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=34614557"
-    },
-    {
-      "name": "分手快乐",
-      "album": null,
-      "artist": "梁静茹",
-      "pic": "https://p1.music.126.net/RmwDo4IJ5veRVzZIu5sEtw==/109951172232899211.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=254422",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=254422"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=254059&format=yrc"
     },
     {
       "name": "会呼吸的痛",
-      "album": null,
+      "album": "崇拜",
       "artist": "梁静茹",
       "pic": "https://p1.music.126.net/8E9NHOTIf6V6Vv45_Taxdg==/109951168163299080.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=254132",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=254132"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=254132&format=yrc"
     },
     {
-      "name": "最想环游的世界",
-      "album": null,
+      "name": "勇气",
+      "album": "勇气",
       "artist": "梁静茹",
-      "pic": "https://p1.music.126.net/A0EW5dV8D5Ho3OhgKcmcuw==/109951163239084980.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=254454",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=254454"
+      "pic": "https://p1.music.126.net/PavIMxZq16K7-0fSF5n-yg==/109951163240604120.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=254485",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=254485&format=yrc"
     },
     {
-      "name": "无条件为你",
-      "album": null,
+      "name": "暖暖",
+      "album": "亲亲",
       "artist": "梁静茹",
-      "pic": "https://p1.music.126.net/A0EW5dV8D5Ho3OhgKcmcuw==/109951163239084980.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=254452",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=254452"
+      "pic": "https://p1.music.126.net/OpFMH1NN5u3DaOUdruORlw==/109951168144462962.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=254141",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=254141&format=yrc"
     },
     {
-      "name": "为你我受冷风吹 (Live)",
-      "album": null,
+      "name": "分手快乐",
+      "album": "Sunrise 我喜欢",
       "artist": "梁静茹",
-      "pic": "https://p1.music.126.net/-UKSkbwPem9KVVUX4n5exQ==/109951168160543092.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=108177",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=108177"
+      "pic": "https://p1.music.126.net/RmwDo4IJ5veRVzZIu5sEtw==/109951172232899211.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=254422",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=254422&format=yrc"
     },
     {
-      "name": "崇拜",
-      "album": null,
+      "name": "爱你不是两三天",
+      "album": "勇气",
       "artist": "梁静茹",
-      "pic": "https://p1.music.126.net/8E9NHOTIf6V6Vv45_Taxdg==/109951168163299080.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=254129",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=254129"
+      "pic": "https://p1.music.126.net/PavIMxZq16K7-0fSF5n-yg==/109951163240604120.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=254494",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=254494&format=yrc"
     },
     {
-      "name": "还是好朋友",
-      "album": null,
-      "artist": "古巨基 / 梁静茹",
-      "pic": "https://p1.music.126.net/iSgf-6zYJqMXB-WKlF6nbw==/109951165304540603.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=86283",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=86283"
-    },
-    {
-      "name": "Fly Away",
-      "album": null,
+      "name": "宁夏",
+      "album": "毕业旅行",
       "artist": "梁静茹",
-      "pic": "https://p1.music.126.net/u544zkCrn-cHlIyoLHLCBg==/109951163240601196.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=254294",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=254294"
+      "pic": "https://p1.music.126.net/rFgwBbSgt0uda-sg_0cexA==/109951163447808569.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=5237761",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=5237761&format=yrc"
     },
     {
-      "name": "可惜不是你(Live)",
-      "album": null,
+      "name": "小手拉大手",
+      "album": "亲亲",
       "artist": "梁静茹",
-      "pic": "https://p1.music.126.net/sF67FVEvm-TpP_-TA9I5vA==/3298534890576644.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=399353364",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=399353364"
+      "pic": "https://p1.music.126.net/OpFMH1NN5u3DaOUdruORlw==/109951168144462962.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=254146",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=254146&format=yrc"
     },
     {
-      "name": "明明很爱你",
-      "album": null,
-      "artist": "品冠 / 梁静茹",
-      "pic": "https://p1.music.126.net/SLukeaLTFAh96IH3uH6Vrw==/109951166194484563.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=141288",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=141288"
-    },
-    {
-      "name": "想都没想过",
-      "album": null,
+      "name": "如果有一天",
+      "album": "勇气",
       "artist": "梁静茹",
-      "pic": "https://p1.music.126.net/1nvSrlSRKWK1qMXjAWu1qQ==/109951163809975739.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1336862163",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1336862163"
+      "pic": "https://p1.music.126.net/PavIMxZq16K7-0fSF5n-yg==/109951163240604120.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=254486",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=254486&format=yrc"
     },
     {
-      "name": "明明白白我的心 (Live)",
-      "album": null,
-      "artist": "李宗盛 / 梁静茹",
-      "pic": "https://p1.music.126.net/-UKSkbwPem9KVVUX4n5exQ==/109951168160543092.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=108141",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=108141"
-    },
-    {
-      "name": "大人",
-      "album": null,
+      "name": "孤单北半球 (live)",
+      "album": "爱的大游行 Live全纪录",
       "artist": "梁静茹",
-      "pic": "https://p1.music.126.net/ZHsz4qjCaB4ZteW7dHPWYQ==/109951168622260056.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2048570550",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2048570550"
-    },
-    {
-      "name": "丝路",
-      "album": null,
-      "artist": "梁静茹",
-      "pic": "https://p1.music.126.net/F9sGH5Cw0u-8S7J0BJG0Xw==/109951172232902168.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=254180",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=254180"
-    },
-    {
-      "name": "夜夜夜夜 (Live)",
-      "album": null,
-      "artist": "梁静茹",
-      "pic": "https://p1.music.126.net/nf3Vm1TADSzhD4AJyzZBhA==/109951163376713931.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=5252288",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=5252288"
-    },
-    {
-      "name": "不想睡",
-      "album": null,
-      "artist": "梁静茹",
-      "pic": "https://p1.music.126.net/u544zkCrn-cHlIyoLHLCBg==/109951163240601196.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=254316",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=254316"
-    },
-    {
-      "name": "问 (Live)",
-      "album": null,
-      "artist": "梁静茹",
-      "pic": "https://p1.music.126.net/-UKSkbwPem9KVVUX4n5exQ==/109951168160543092.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=108143",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=108143"
+      "pic": "https://p1.music.126.net/-zD4WRcHnIfEuMdMfyAfVg==/109951163268908553.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=254260",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=254260&format=yrc"
     },
     {
       "name": "燕尾蝶",
-      "album": null,
+      "album": "燕尾蝶",
       "artist": "梁静茹",
       "pic": "https://p1.music.126.net/u_9SuUuQ960-2B1D94nWoQ==/109951172232898857.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=254270",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=254270"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=254270&format=yrc"
+    },
+    {
+      "name": "可以的话",
+      "album": "可以的话",
+      "artist": "梁静茹",
+      "pic": "https://p1.music.126.net/KEw4WqyzSapRsSNRwDmA8w==/7998947094481817.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=34614557",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=34614557&format=yrc"
+    },
+    {
+      "name": "明明很爱你",
+      "album": "门没锁",
+      "artist": "品冠 / 梁静茹",
+      "pic": "https://p1.music.126.net/SLukeaLTFAh96IH3uH6Vrw==/109951166194484563.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=141288",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=141288&format=yrc"
+    },
+    {
+      "name": "问 (Live)",
+      "album": "李宗盛 理性与感性作品音乐会 LIVE",
+      "artist": "梁静茹",
+      "pic": "https://p1.music.126.net/-UKSkbwPem9KVVUX4n5exQ==/109951168160543092.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=108143",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108143&format=yrc"
+    },
+    {
+      "name": "给未来的自己",
+      "album": "崇拜",
+      "artist": "梁静茹",
+      "pic": "https://p1.music.126.net/8E9NHOTIf6V6Vv45_Taxdg==/109951168163299080.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=254135",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=254135&format=yrc"
+    },
+    {
+      "name": "听不到",
+      "album": "恋爱的力量",
+      "artist": "梁静茹",
+      "pic": "https://p1.music.126.net/u544zkCrn-cHlIyoLHLCBg==/109951163240601196.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=254297",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=254297&format=yrc"
+    },
+    {
+      "name": "为你我受冷风吹 (Live)",
+      "album": "李宗盛 理性与感性作品音乐会 LIVE",
+      "artist": "梁静茹",
+      "pic": "https://p1.music.126.net/-UKSkbwPem9KVVUX4n5exQ==/109951168160543092.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=108177",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108177&format=yrc"
+    },
+    {
+      "name": "崇拜",
+      "album": "崇拜",
+      "artist": "梁静茹",
+      "pic": "https://p1.music.126.net/8E9NHOTIf6V6Vv45_Taxdg==/109951168163299080.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=254129",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=254129&format=yrc"
+    },
+    {
+      "name": "想都没想过",
+      "album": "寒单 电影原声带",
+      "artist": "梁静茹",
+      "pic": "https://p1.music.126.net/1nvSrlSRKWK1qMXjAWu1qQ==/109951163809975739.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1336862163",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1336862163&format=yrc"
+    },
+    {
+      "name": "我喜欢",
+      "album": "Sunrise 我喜欢",
+      "artist": "梁静茹",
+      "pic": "https://p1.music.126.net/RmwDo4IJ5veRVzZIu5sEtw==/109951172232899211.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=254424",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=254424&format=yrc"
+    },
+    {
+      "name": "接受",
+      "album": "燕尾蝶",
+      "artist": "梁静茹",
+      "pic": "https://p1.music.126.net/u_9SuUuQ960-2B1D94nWoQ==/109951172232898857.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=254271",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=254271&format=yrc"
+    },
+    {
+      "name": "无条件为你",
+      "album": "闪亮的星",
+      "artist": "梁静茹",
+      "pic": "https://p1.music.126.net/A0EW5dV8D5Ho3OhgKcmcuw==/109951163239084980.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=254452",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=254452&format=yrc"
+    },
+    {
+      "name": "还是好朋友",
+      "album": "我还是你的 - 情歌王",
+      "artist": "古巨基 / 梁静茹",
+      "pic": "https://p1.music.126.net/iSgf-6zYJqMXB-WKlF6nbw==/109951165304540603.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=86283",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=86283&format=yrc"
+    },
+    {
+      "name": "最想环游的世界",
+      "album": "闪亮的星",
+      "artist": "梁静茹",
+      "pic": "https://p1.music.126.net/A0EW5dV8D5Ho3OhgKcmcuw==/109951163239084980.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=254454",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=254454&format=yrc"
+    },
+    {
+      "name": "丝路",
+      "album": "丝路",
+      "artist": "梁静茹",
+      "pic": "https://p1.music.126.net/F9sGH5Cw0u-8S7J0BJG0Xw==/109951172232902168.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=254180",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=254180&format=yrc"
+    },
+    {
+      "name": "可惜不是你(Live)",
+      "album": "江苏卫视 2016 跨年演唱会",
+      "artist": "梁静茹",
+      "pic": "https://p1.music.126.net/sF67FVEvm-TpP_-TA9I5vA==/3298534890576644.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=399353364",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=399353364&format=yrc"
+    },
+    {
+      "name": "大人",
+      "album": "麋鹿",
+      "artist": "梁静茹",
+      "pic": "https://p1.music.126.net/ZHsz4qjCaB4ZteW7dHPWYQ==/109951168622260056.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2048570550",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2048570550&format=yrc"
+    },
+    {
+      "name": "Fly Away",
+      "album": "恋爱的力量",
+      "artist": "梁静茹",
+      "pic": "https://p1.music.126.net/u544zkCrn-cHlIyoLHLCBg==/109951163240601196.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=254294",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=254294&format=yrc"
+    },
+    {
+      "name": "明明白白我的心 (Live)",
+      "album": "李宗盛 理性与感性作品音乐会 LIVE",
+      "artist": "李宗盛 / 梁静茹",
+      "pic": "https://p1.music.126.net/-UKSkbwPem9KVVUX4n5exQ==/109951168160543092.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=108141",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108141&format=yrc"
+    },
+    {
+      "name": "不想睡",
+      "album": "恋爱的力量",
+      "artist": "梁静茹",
+      "pic": "https://p1.music.126.net/u544zkCrn-cHlIyoLHLCBg==/109951163240601196.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=254316",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=254316&format=yrc"
+    },
+    {
+      "name": "夜夜夜夜 (Live)",
+      "album": "超级星光Pk宝典2",
+      "artist": "梁静茹",
+      "pic": "https://p1.music.126.net/nf3Vm1TADSzhD4AJyzZBhA==/109951163376713931.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=5252288",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=5252288&format=yrc"
     },
     {
       "name": "大地之歌",
-      "album": null,
+      "album": "一起飞",
       "artist": "周华健 / 任贤齐 / 李心洁 / 窦智孔 / 辛晓琪 / 万芳 / 刘若英 / 齐豫 / 莫文蔚 / 汪佩蓉 / 锦绣二重唱 / 梁静茹 / 光良 / 杜德伟 / 苏慧伦 / 品冠 / 五月天",
       "pic": "https://p1.music.126.net/OKO89SLcjFCRTq72uITeUg==/109951163292061121.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=5250816",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=5250816"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=5250816&format=yrc"
     }
   ]
 }

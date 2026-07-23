@@ -1,10 +1,11 @@
 {
   "name": "李荣浩",
   "cover": "http://p1.music.126.net/gGl5n50qGIRjlNVrjie4KQ==/109951170120539554.jpg?param=200y200",
+  "playlist": 18178642558,
   "songs": [
     {
       "name": "不将就",
-      "album": null,
+      "album": "有理想",
       "artist": "李荣浩",
       "pic": "https://p1.music.126.net/e-Uc6W3Kug-HFHJ5nvCUPg==/109951166562828988.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=31654343",
@@ -12,7 +13,7 @@
     },
     {
       "name": "年少有为",
-      "album": null,
+      "album": "耳朵",
       "artist": "李荣浩",
       "pic": "https://p1.music.126.net/tt8xwK-ASC2iqXNUXYKoDQ==/109951163606377163.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1293886117",
@@ -20,7 +21,7 @@
     },
     {
       "name": "恋人",
-      "album": null,
+      "album": "黑马",
       "artist": "李荣浩",
       "pic": "https://p1.music.126.net/0bk3Iqe2OZGBH2Iuyx7RzA==/109951170045577565.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2600493765",
@@ -28,7 +29,7 @@
     },
     {
       "name": "戒烟",
-      "album": null,
+      "album": "戒烟",
       "artist": "李荣浩",
       "pic": "https://p1.music.126.net/yoxDYFnoCq_gFmsdwyYkiQ==/109951168205342389.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=518686034",
@@ -36,7 +37,7 @@
     },
     {
       "name": "麻雀",
-      "album": null,
+      "album": "麻雀",
       "artist": "李荣浩",
       "pic": "https://p1.music.126.net/JzsER44sOReoM6mR8XKnsw==/109951165182029540.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1407551413",
@@ -44,7 +45,7 @@
     },
     {
       "name": "模特",
-      "album": null,
+      "album": "模特",
       "artist": "李荣浩",
       "pic": "https://p1.music.126.net/0uZ_bKtm4E188Uk9LFN1qg==/109951163187393370.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=27731176",
@@ -52,7 +53,7 @@
     },
     {
       "name": "老街",
-      "album": null,
+      "album": "小黄",
       "artist": "李荣浩",
       "pic": "https://p1.music.126.net/i3E6Y0tNyVub89_q0L_zZg==/109951170731461412.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=133998",
@@ -60,7 +61,7 @@
     },
     {
       "name": "李白",
-      "album": null,
+      "album": "模特",
       "artist": "李荣浩",
       "pic": "https://p1.music.126.net/0uZ_bKtm4E188Uk9LFN1qg==/109951163187393370.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=27678655",
@@ -68,7 +69,7 @@
     },
     {
       "name": "喜剧之王",
-      "album": null,
+      "album": "喜剧之王",
       "artist": "李荣浩",
       "pic": "https://p1.music.126.net/C-jIzrvUhr7JE4iYERM-zg==/3249056860423905.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=29710981",
@@ -76,7 +77,7 @@
     },
     {
       "name": "作曲家",
-      "album": null,
+      "album": "李荣浩",
       "artist": "李荣浩",
       "pic": "https://p1.music.126.net/_9UcTe1Ewh97qRWBqS6oXA==/109951166562838294.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=29764562",
@@ -84,7 +85,7 @@
     },
     {
       "name": "爸爸妈妈",
-      "album": null,
+      "album": "有理想",
       "artist": "李荣浩",
       "pic": "https://p1.music.126.net/e-Uc6W3Kug-HFHJ5nvCUPg==/109951166562828988.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=407450223",
@@ -92,7 +93,7 @@
     },
     {
       "name": "走走",
-      "album": null,
+      "album": "黑马",
       "artist": "李荣浩",
       "pic": "https://p1.music.126.net/0bk3Iqe2OZGBH2Iuyx7RzA==/109951170045577565.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2608448649",
@@ -100,7 +101,7 @@
     },
     {
       "name": "乌梅子酱",
-      "album": null,
+      "album": "纵横四海",
       "artist": "李荣浩",
       "pic": "https://p1.music.126.net/dvBE3I5IYmDTmZq9SyKoRA==/109951168159576909.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1997438791",
@@ -108,7 +109,7 @@
     },
     {
       "name": "耳朵",
-      "album": null,
+      "album": "耳朵",
       "artist": "李荣浩",
       "pic": "https://p1.music.126.net/tt8xwK-ASC2iqXNUXYKoDQ==/109951163606377163.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1318235595",
@@ -116,7 +117,7 @@
     },
     {
       "name": "拜拜",
-      "album": null,
+      "album": "模特",
       "artist": "李荣浩",
       "pic": "https://p1.music.126.net/0uZ_bKtm4E188Uk9LFN1qg==/109951163187393370.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=27731171",
@@ -124,7 +125,7 @@
     },
     {
       "name": "蓝绿",
-      "album": null,
+      "album": "模特",
       "artist": "李荣浩",
       "pic": "https://p1.music.126.net/0uZ_bKtm4E188Uk9LFN1qg==/109951163187393370.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=27731173",
@@ -132,7 +133,7 @@
     },
     {
       "name": "花样年华",
-      "album": null,
+      "album": "麻雀",
       "artist": "李荣浩",
       "pic": "https://p1.music.126.net/JzsER44sOReoM6mR8XKnsw==/109951165182029540.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1449782659",
@@ -140,7 +141,7 @@
     },
     {
       "name": "同根",
-      "album": null,
+      "album": "麻雀",
       "artist": "李荣浩",
       "pic": "https://p1.music.126.net/JzsER44sOReoM6mR8XKnsw==/109951165182029540.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1420575583",
@@ -148,7 +149,7 @@
     },
     {
       "name": "乐团",
-      "album": null,
+      "album": "耳朵",
       "artist": "李荣浩",
       "pic": "https://p1.music.126.net/tt8xwK-ASC2iqXNUXYKoDQ==/109951163606377163.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1318234981",
@@ -156,7 +157,7 @@
     },
     {
       "name": "张家明和婉君",
-      "album": null,
+      "album": "耳朵",
       "artist": "李荣浩",
       "pic": "https://p1.music.126.net/tt8xwK-ASC2iqXNUXYKoDQ==/109951163606377163.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1309866644",
@@ -164,7 +165,7 @@
     },
     {
       "name": "裙姊",
-      "album": null,
+      "album": "嗯",
       "artist": "李荣浩",
       "pic": "https://p1.music.126.net/gjD2cn2P9eM3NMaOmjGh6g==/109951169107056081.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=519250018",
@@ -172,7 +173,7 @@
     },
     {
       "name": "少年",
-      "album": null,
+      "album": "嗯",
       "artist": "李荣浩",
       "pic": "https://p2.music.126.net/gjD2cn2P9eM3NMaOmjGh6g==/109951169107056081.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=519250024",
@@ -180,7 +181,7 @@
     },
     {
       "name": "满座",
-      "album": null,
+      "album": "有理想",
       "artist": "李荣浩",
       "pic": "https://p2.music.126.net/e-Uc6W3Kug-HFHJ5nvCUPg==/109951166562828988.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=407450221",
@@ -188,7 +189,7 @@
     },
     {
       "name": "大太阳",
-      "album": null,
+      "album": "有理想",
       "artist": "李荣浩",
       "pic": "https://p2.music.126.net/e-Uc6W3Kug-HFHJ5nvCUPg==/109951166562828988.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=407459149",
@@ -196,7 +197,7 @@
     },
     {
       "name": "天生",
-      "album": null,
+      "album": "李荣浩",
       "artist": "李荣浩",
       "pic": "https://p2.music.126.net/_9UcTe1Ewh97qRWBqS6oXA==/109951166562838294.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=29764568",
@@ -204,7 +205,7 @@
     },
     {
       "name": "不说",
-      "album": null,
+      "album": "不说 (电影《从你的全世界路过》路过版主题曲)",
       "artist": "李荣浩",
       "pic": "https://p2.music.126.net/KsKM8fTqQzemsRvjbA-sag==/109951164476217041.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=428375722",
@@ -212,7 +213,7 @@
     },
     {
       "name": "山川",
-      "album": null,
+      "album": "纵横四海",
       "artist": "李荣浩",
       "pic": "https://p2.music.126.net/dvBE3I5IYmDTmZq9SyKoRA==/109951168159576909.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1878225963",
@@ -220,7 +221,7 @@
     },
     {
       "name": "纵横四海",
-      "album": null,
+      "album": "纵横四海",
       "artist": "李荣浩",
       "pic": "https://p2.music.126.net/dvBE3I5IYmDTmZq9SyKoRA==/109951168159576909.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1859925367",
@@ -228,7 +229,7 @@
     },
     {
       "name": "也许是爱情",
-      "album": null,
+      "album": "纵横四海",
       "artist": "李荣浩",
       "pic": "https://p2.music.126.net/dvBE3I5IYmDTmZq9SyKoRA==/109951168159576909.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1997437579",
@@ -236,7 +237,7 @@
     },
     {
       "name": "脱胎换骨",
-      "album": null,
+      "album": "纵横四海",
       "artist": "李荣浩",
       "pic": "https://p2.music.126.net/dvBE3I5IYmDTmZq9SyKoRA==/109951168159576909.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1925396986",
@@ -244,7 +245,7 @@
     },
     {
       "name": "不搭",
-      "album": null,
+      "album": "李荣浩",
       "artist": "李荣浩",
       "pic": "https://p2.music.126.net/_9UcTe1Ewh97qRWBqS6oXA==/109951166562838294.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=29764563",
@@ -252,7 +253,7 @@
     },
     {
       "name": "我们好好的",
-      "album": null,
+      "album": "纵横四海",
       "artist": "李荣浩",
       "pic": "https://p2.music.126.net/dvBE3I5IYmDTmZq9SyKoRA==/109951168159576909.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1871993457",
@@ -260,7 +261,7 @@
     },
     {
       "name": "情人",
-      "album": null,
+      "album": "纵横四海",
       "artist": "李荣浩",
       "pic": "https://p2.music.126.net/dvBE3I5IYmDTmZq9SyKoRA==/109951168159576909.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1890906933",
@@ -268,7 +269,7 @@
     },
     {
       "name": "太坦白",
-      "album": null,
+      "album": "模特",
       "artist": "李荣浩",
       "pic": "https://p2.music.126.net/0uZ_bKtm4E188Uk9LFN1qg==/109951163187393370.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=27731177",
@@ -276,7 +277,7 @@
     },
     {
       "name": "老伴",
-      "album": null,
+      "album": "模特",
       "artist": "李荣浩",
       "pic": "https://p2.music.126.net/0uZ_bKtm4E188Uk9LFN1qg==/109951163187393370.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=27731174",
@@ -284,7 +285,7 @@
     },
     {
       "name": "在一起嘛好不好",
-      "album": null,
+      "album": "麻雀",
       "artist": "李荣浩",
       "pic": "https://p2.music.126.net/JzsER44sOReoM6mR8XKnsw==/109951165182029540.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1452439191",
@@ -292,7 +293,7 @@
     },
     {
       "name": "获奖人",
-      "album": null,
+      "album": "纵横四海",
       "artist": "李荣浩",
       "pic": "https://p2.music.126.net/dvBE3I5IYmDTmZq9SyKoRA==/109951168159576909.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1969333373",
@@ -300,7 +301,7 @@
     },
     {
       "name": "习惯晚睡",
-      "album": null,
+      "album": "纵横四海",
       "artist": "李荣浩",
       "pic": "https://p2.music.126.net/dvBE3I5IYmDTmZq9SyKoRA==/109951168159576909.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1955946574",
@@ -308,7 +309,7 @@
     },
     {
       "name": "都一样",
-      "album": null,
+      "album": "模特",
       "artist": "李荣浩",
       "pic": "https://p2.music.126.net/0uZ_bKtm4E188Uk9LFN1qg==/109951163187393370.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=27731172",
@@ -316,7 +317,7 @@
     },
     {
       "name": "有理想",
-      "album": null,
+      "album": "有理想",
       "artist": "李荣浩",
       "pic": "https://p2.music.126.net/e-Uc6W3Kug-HFHJ5nvCUPg==/109951166562828988.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=407450218",
@@ -324,7 +325,7 @@
     },
     {
       "name": "我看着你的时候",
-      "album": null,
+      "album": "我看着你的时候",
       "artist": "李荣浩",
       "pic": "https://p2.music.126.net/Mi_esXN5SuzR58mlUdzigA==/109951163692949297.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=506092654",
@@ -332,7 +333,7 @@
     },
     {
       "name": "歌谣",
-      "album": null,
+      "album": "歌谣",
       "artist": "李荣浩",
       "pic": "https://p2.music.126.net/0ow5Qi3AvaMl09CnjvuIZQ==/109951164121491420.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=502242110",
@@ -340,7 +341,7 @@
     },
     {
       "name": "落俗",
-      "album": null,
+      "album": "李荣浩",
       "artist": "李荣浩",
       "pic": "https://p2.music.126.net/_9UcTe1Ewh97qRWBqS6oXA==/109951166562838294.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=29764561",
@@ -348,7 +349,7 @@
     },
     {
       "name": "我爱你",
-      "album": null,
+      "album": "麻雀",
       "artist": "李荣浩",
       "pic": "https://p2.music.126.net/JzsER44sOReoM6mR8XKnsw==/109951165182029540.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1442031605",
@@ -356,7 +357,7 @@
     },
     {
       "name": "老友记",
-      "album": null,
+      "album": "麻雀",
       "artist": "李荣浩",
       "pic": "https://p2.music.126.net/JzsER44sOReoM6mR8XKnsw==/109951165182029540.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1410490187",
@@ -364,7 +365,7 @@
     },
     {
       "name": "贝贝",
-      "album": null,
+      "album": "耳朵",
       "artist": "李荣浩",
       "pic": "https://p2.music.126.net/tt8xwK-ASC2iqXNUXYKoDQ==/109951163606377163.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1318234987",
@@ -372,7 +373,7 @@
     },
     {
       "name": "等着等着就老了",
-      "album": null,
+      "album": "麻雀",
       "artist": "李荣浩",
       "pic": "https://p2.music.126.net/JzsER44sOReoM6mR8XKnsw==/109951165182029540.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1430224832",
@@ -380,7 +381,7 @@
     },
     {
       "name": "自拍",
-      "album": null,
+      "album": "李荣浩",
       "artist": "李荣浩",
       "pic": "https://p2.music.126.net/_9UcTe1Ewh97qRWBqS6oXA==/109951166562838294.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=29764564",
@@ -388,7 +389,7 @@
     },
     {
       "name": "祝你幸福",
-      "album": null,
+      "album": "祝你幸福",
       "artist": "李荣浩",
       "pic": "https://p2.music.126.net/8bZeyMGD4xY-O3eXtP-C4w==/109951166562842114.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=511920347",
@@ -396,7 +397,7 @@
     },
     {
       "name": "成长之重量",
-      "album": null,
+      "album": "耳朵",
       "artist": "李荣浩",
       "pic": "https://p2.music.126.net/tt8xwK-ASC2iqXNUXYKoDQ==/109951163606377163.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=570334069",
@@ -404,7 +405,7 @@
     },
     {
       "name": "我知道是你",
-      "album": null,
+      "album": "耳朵",
       "artist": "李荣浩",
       "pic": "https://p2.music.126.net/tt8xwK-ASC2iqXNUXYKoDQ==/109951163606377163.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1318234982",
@@ -412,7 +413,7 @@
     },
     {
       "name": "女孩",
-      "album": null,
+      "album": "有理想",
       "artist": "李荣浩",
       "pic": "https://p2.music.126.net/e-Uc6W3Kug-HFHJ5nvCUPg==/109951166562828988.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=407459147",

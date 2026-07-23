@@ -1,1214 +1,1215 @@
 {
   "name": "薛之谦",
   "cover": "http://p1.music.126.net/PLrMsE0bTG2p1lL6QfKC9g==/109951172414278510.jpg?param=200y200",
+  "playlist": 18178634575,
   "songs": [
     {
-      "name": "迟迟 (Live版)",
-      "album": "天赐的声音第七季 第1期",
+      "name": "媚人",
+      "album": "媚人",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=3392549604&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3392549604&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951173367500013"
+      "pic": "https://p2.music.126.net/5prRrPKgXP3sbfoPQVoUSg==/109951173570464058.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=3407451664",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3407451664&format=yrc"
     },
     {
       "name": "人字拖",
       "album": "人字拖",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=3375826417&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3375826417&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951173138463665"
+      "pic": "https://p2.music.126.net/Mr-JTZqfbGJ_9Rj88kAzVA==/109951173138463665.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=3375826417",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3375826417&format=yrc"
     },
     {
       "name": "那是你离开了北京的生活",
       "album": "怪咖",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=571340283&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=571340283&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163755246383"
+      "pic": "https://p2.music.126.net/TOkRGd59o3hAOKsnMMmMMA==/109951163755246383.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=571340283",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=571340283&format=yrc"
     },
     {
       "name": "陪你去流浪",
       "album": "尘",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1374056689&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1374056689&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164583315133"
+      "pic": "https://p2.music.126.net/DHUrNjC-1d6Snpcfg20Umw==/109951164583315133.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1374056689",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1374056689&format=yrc"
     },
     {
       "name": "我好像在哪见过你",
       "album": "初学者",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=417859631&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=417859631&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=1369991500930171"
+      "pic": "https://p2.music.126.net/hti_a0LADoFMBHvOBwAtRA==/1369991500930171.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=417859631",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=417859631&format=yrc"
     },
     {
       "name": "刚刚好",
       "album": "初学者",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=415792881&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=415792881&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=1369991500930171"
+      "pic": "https://p2.music.126.net/hti_a0LADoFMBHvOBwAtRA==/1369991500930171.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=415792881",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=415792881&format=yrc"
     },
     {
       "name": "天份",
       "album": "怪咖",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1334647784&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1334647784&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163755246383"
+      "pic": "https://p2.music.126.net/TOkRGd59o3hAOKsnMMmMMA==/109951163755246383.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1334647784",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1334647784&format=yrc"
     },
     {
       "name": "一半",
       "album": "一半",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=35528482&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=35528482&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168707346683"
+      "pic": "https://p2.music.126.net/h-qQKtPVMxIfdCI8jPYs0w==/109951168707346683.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=35528482",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=35528482&format=yrc"
     },
     {
       "name": "我害怕",
       "album": "渡",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=474567044&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=474567044&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163069265719"
+      "pic": "https://p2.music.126.net/fNbj5uDwltSDLbETdnEYYQ==/109951163069265719.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=474567044",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=474567044&format=yrc"
     },
     {
       "name": "初学者",
       "album": "初学者",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=412902689&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=412902689&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=1369991500930171"
+      "pic": "https://p2.music.126.net/hti_a0LADoFMBHvOBwAtRA==/1369991500930171.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=412902689",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=412902689&format=yrc"
     },
     {
       "name": "狐狸",
       "album": "怪咖",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=525241230&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=525241230&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163755246383"
+      "pic": "https://p1.music.126.net/TOkRGd59o3hAOKsnMMmMMA==/109951163755246383.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=525241230",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=525241230&format=yrc"
     },
     {
       "name": "野心",
       "album": "天外来物",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1803349526&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1803349526&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167040040692"
+      "pic": "https://p1.music.126.net/MgH6SepYHboKPr6FR8yg-w==/109951167040040692.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1803349526",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1803349526&format=yrc"
     },
     {
       "name": "金斧子银斧子",
       "album": "金斧子银斧子",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2733021390&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2733021390&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171699802265"
+      "pic": "https://p1.music.126.net/fxLGO11wCV5-Tm87v2c3QA==/109951171699802265.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2733021390",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2733021390&format=yrc"
     },
     {
       "name": "丑八怪",
       "album": "意外",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=27808044&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=27808044&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164499974026"
+      "pic": "https://p1.music.126.net/ywVjRpbu9KpcBQh9KJz2HA==/109951164499974026.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=27808044",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=27808044&format=yrc"
     },
     {
       "name": "动物世界",
       "album": "渡",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=468517654&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=468517654&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163069265719"
+      "pic": "https://p1.music.126.net/fNbj5uDwltSDLbETdnEYYQ==/109951163069265719.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=468517654",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=468517654&format=yrc"
     },
     {
       "name": "怪咖",
       "album": "怪咖",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=574921549&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=574921549&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163755246383"
+      "pic": "https://p1.music.126.net/TOkRGd59o3hAOKsnMMmMMA==/109951163755246383.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=574921549",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=574921549&format=yrc"
     },
     {
       "name": "渡",
       "album": "渡",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=517571371&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=517571371&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163069265719"
+      "pic": "https://p1.music.126.net/fNbj5uDwltSDLbETdnEYYQ==/109951163069265719.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=517571371",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=517571371&format=yrc"
     },
     {
       "name": "我的雅典娜",
       "album": "未完成的歌",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=169156&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169156&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269232420"
+      "pic": "https://p1.music.126.net/fqiX7ZmISM4fHm7v4GrV2Q==/109951171269232420.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=169156",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169156&format=yrc"
     },
     {
       "name": "凤毛麟角",
       "album": "无数",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1906034595&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1906034595&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167891177817"
+      "pic": "https://p1.music.126.net/z0b7uhQmjXdFqkgBTSpsfA==/109951167891177817.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1906034595",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1906034595&format=yrc"
     },
     {
       "name": "背过手",
       "album": "渡",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=520458481&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=520458481&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163069265719"
+      "pic": "https://p1.music.126.net/fNbj5uDwltSDLbETdnEYYQ==/109951163069265719.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=520458481",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=520458481&format=yrc"
     },
     {
       "name": "念",
       "album": "守村人",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2064033095&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2064033095&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170187416564"
+      "pic": "https://p1.music.126.net/0iaU-AX6NMutfTGflAiocA==/109951170187416564.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2064033095",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2064033095&format=yrc"
     },
     {
       "name": "违背的青春",
       "album": "怪咖",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1307334195&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1307334195&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163755246383"
+      "pic": "https://p1.music.126.net/TOkRGd59o3hAOKsnMMmMMA==/109951163755246383.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1307334195",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1307334195&format=yrc"
     },
     {
       "name": "骆驼",
       "album": "渡",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=518894283&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=518894283&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163069265719"
+      "pic": "https://p1.music.126.net/fNbj5uDwltSDLbETdnEYYQ==/109951163069265719.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=518894283",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=518894283&format=yrc"
     },
     {
       "name": "认真的雪",
       "album": "未完成的歌",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=169185&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169185&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269232420"
+      "pic": "https://p1.music.126.net/fqiX7ZmISM4fHm7v4GrV2Q==/109951171269232420.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=169185",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169185&format=yrc"
     },
     {
       "name": "其实",
       "album": "意外",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=27955654&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=27955654&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164499974026"
+      "pic": "https://p1.music.126.net/ywVjRpbu9KpcBQh9KJz2HA==/109951164499974026.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=27955654",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=27955654&format=yrc"
     },
     {
       "name": "平庸 (Live)",
       "album": "音乐缘计划2 第3期",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=3315586072&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3315586072&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172249608110"
+      "pic": "https://p1.music.126.net/e8cYboPCmYso8lUMhdjRrg==/109951172249608110.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=3315586072",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3315586072&format=yrc"
     },
     {
       "name": "在那天回不去的路上",
       "album": "守村人",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2636416718&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2636416718&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170187399887"
+      "pic": "https://p1.music.126.net/8fM0bZmH5pvN8fsQFGLuFg==/109951170187399887.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2636416718",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2636416718&format=yrc"
     },
     {
       "name": "最好",
       "album": "怪咖",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1294910785&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1294910785&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163755246383"
+      "pic": "https://p1.music.126.net/TOkRGd59o3hAOKsnMMmMMA==/109951163755246383.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1294910785",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1294910785&format=yrc"
     },
     {
       "name": "哑巴",
       "album": "怪咖",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=557583281&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=557583281&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163755246383"
-    },
-    {
-      "name": "愛好（live薛之謙）",
-      "album": "NIGHT（Mr-DJ小廖Remix）",
-      "artist": "ros",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2692654913&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2692654913&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172345305800"
+      "pic": "https://p1.music.126.net/TOkRGd59o3hAOKsnMMmMMA==/109951163755246383.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=557583281",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=557583281&format=yrc"
     },
     {
       "name": "笑场",
       "album": "尘",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1374061038&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1374061038&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164583315133"
-    },
-    {
-      "name": "演员",
-      "album": "绅士",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=32507038&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=32507038&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168707343730"
+      "pic": "https://p1.music.126.net/DHUrNjC-1d6Snpcfg20Umw==/109951164583315133.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1374061038",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1374061038&format=yrc"
     },
     {
       "name": "不爱我",
       "album": "天外来物",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1463168014&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1463168014&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167040040692"
+      "pic": "https://p1.music.126.net/MgH6SepYHboKPr6FR8yg-w==/109951167040040692.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1463168014",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1463168014&format=yrc"
     },
     {
       "name": "你还要我怎样",
       "album": "意外",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=27955653&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=27955653&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164499974026"
+      "pic": "https://p1.music.126.net/ywVjRpbu9KpcBQh9KJz2HA==/109951164499974026.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=27955653",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=27955653&format=yrc"
     },
     {
       "name": "像风一样",
       "album": "渡",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=516657051&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=516657051&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163069265719"
-    },
-    {
-      "name": "绅士",
-      "album": "绅士",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=32192436&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=32192436&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168707343730"
-    },
-    {
-      "name": "意外",
-      "album": "意外",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=27890306&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=27890306&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164499974026"
-    },
-    {
-      "name": "天外来物",
-      "album": "天外来物",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1463165983&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1463165983&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167040040692"
-    },
-    {
-      "name": "深深爱过你(前世)",
-      "album": "深深爱过你",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=169200&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169200&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269239134"
-    },
-    {
-      "name": "方圆几里",
-      "album": "意外",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=27955658&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=27955658&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164499974026"
-    },
-    {
-      "name": "跃",
-      "album": "跃",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2726242405&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2726242405&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171467067629"
-    },
-    {
-      "name": "人字拖 (Live)",
-      "album": "音乐缘计划2 第8期",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=3327897359&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3327897359&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172418987244"
-    },
-    {
-      "name": "肆无忌惮",
-      "album": "怪咖",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=557581967&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=557581967&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163755246383"
-    },
-    {
-      "name": "暧昧",
-      "album": "渡",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=471385043&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=471385043&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163069265719"
-    },
-    {
-      "name": "迟迟",
-      "album": "天外来物",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1808053189&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1808053189&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167040040692"
-    },
-    {
-      "name": "变废为宝",
-      "album": "无数",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1861640530&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1861640530&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167891177817"
-    },
-    {
-      "name": "下雨了",
-      "album": "绅士",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=32507039&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=32507039&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168707343730"
-    },
-    {
-      "name": "崇拜",
-      "album": "守村人",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2055887708&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2055887708&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170187415122"
-    },
-    {
-      "name": "别",
-      "album": "渡",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=515803379&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=515803379&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163069265719"
-    },
-    {
-      "name": "来日方长",
-      "album": "来日方长",
-      "artist": "薛之谦/黄龄",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=429450375&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=429450375&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172273479929"
-    },
-    {
-      "name": "纸船",
-      "album": "天外来物",
-      "artist": "薛之谦/郁可唯",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1442312981&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1442312981&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167040040692"
-    },
-    {
-      "name": "小尖尖",
-      "album": "天外来物",
-      "artist": "薛之谦/韩红",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1473782328&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1473782328&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167040040692"
-    },
-    {
-      "name": "聊表心意",
-      "album": "尘",
-      "artist": "薛之谦/刘惜君",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1374061043&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1374061043&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164583315133"
-    },
-    {
-      "name": "可",
-      "album": "无数",
-      "artist": "薛之谦/张靓颖",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1954420092&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1954420092&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167891177817"
-    },
-    {
-      "name": "霸王别姬",
-      "album": "霸王别姬",
-      "artist": "薛之谦/张靓颖",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2747836950&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2747836950&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172036106473"
-    },
-    {
-      "name": "银河少年",
-      "album": "守村人",
-      "artist": "王啸坤/薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2013452462&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2013452462&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170187414766"
-    },
-    {
-      "name": "苏黎世的从前",
-      "album": "你过得好吗",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=169221&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169221&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269233427"
-    },
-    {
-      "name": "这么久没见",
-      "album": "尘",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1374061036&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1374061036&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164583315133"
-    },
-    {
-      "name": "木偶人",
-      "album": "尘",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1374051000&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1374051000&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164583315133"
-    },
-    {
-      "name": "病态",
-      "album": "尘",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1374056687&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1374056687&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164583315133"
-    },
-    {
-      "name": "配合",
-      "album": "尘",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1374061040&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1374061040&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164583315133"
-    },
-    {
-      "name": "无数",
-      "album": "无数",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1982706733&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1982706733&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167891177817"
-    },
-    {
-      "name": "高尚",
-      "album": "渡",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=466122271&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=466122271&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163069265719"
-    },
-    {
-      "name": "顽疾",
-      "album": "顽疾",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=3368387749&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3368387749&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951173022187941"
-    },
-    {
-      "name": "租购",
-      "album": "守村人",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2648841571&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2648841571&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170187391473"
-    },
-    {
-      "name": "洛城",
-      "album": "无数",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1907820140&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1907820140&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167891177817"
-    },
-    {
-      "name": "火星人来过",
-      "album": "渡",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=443277013&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=443277013&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163069265719"
-    },
-    {
-      "name": "解解闷",
-      "album": "守村人",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2613690917&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2613690917&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170187402840"
-    },
-    {
-      "name": "AI",
-      "album": "守村人",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2125012052&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2125012052&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170187409617"
-    },
-    {
-      "name": "湖泊",
-      "album": "湖泊",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=3349578101&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3349578101&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172741269727"
-    },
-    {
-      "name": "醒来 (Live)",
-      "album": "怪咖",
-      "artist": "薛之谦/岳云鹏",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1336088717&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1336088717&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163755246383"
-    },
-    {
-      "name": "男二号",
-      "album": "无数",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1915297033&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1915297033&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167891177817"
-    },
-    {
-      "name": "关于你",
-      "album": "无数",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1964644539&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1964644539&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167891177817"
-    },
-    {
-      "name": "摩天大楼",
-      "album": "怪咖",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=553543014&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=553543014&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163755246383"
-    },
-    {
-      "name": "尘",
-      "album": "尘",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1374056688&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1374056688&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164583315133"
-    },
-    {
-      "name": "农民与土地 (Live)",
-      "album": "音乐缘计划2 第6期",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=3322410882&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3322410882&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172350692393"
-    },
-    {
-      "name": "慢半拍",
-      "album": "尘",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1374061028&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1374061028&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164583315133"
-    },
-    {
-      "name": "坦白 (Live)",
-      "album": "音乐缘计划2 第7期",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=3324801986&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3324801986&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172382806404"
-    },
-    {
-      "name": "守村人",
-      "album": "守村人",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2608471890&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2608471890&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170731228693"
-    },
-    {
-      "name": "被人",
-      "album": "无数",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1982706722&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1982706722&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167891177817"
-    },
-    {
-      "name": "花儿和少年",
-      "album": "初学者",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=421160838&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=421160838&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=1369991500930171"
-    },
-    {
-      "name": "Stay Here",
-      "album": "初学者",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=421148955&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=421148955&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=1369991500930171"
-    },
-    {
-      "name": "Nothing",
-      "album": "守村人",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2040577534&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2040577534&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170187417580"
-    },
-    {
-      "name": "把你揉碎捏成苹果",
-      "album": "天外来物",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1806096611&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1806096611&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167040040692"
-    },
-    {
-      "name": "顽疾 (Live)",
-      "album": "音乐缘计划2 第1期",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2758218600&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2758218600&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172185235309"
-    },
-    {
-      "name": "耗尽",
-      "album": "天外来物",
-      "artist": "薛之谦/郭聪明",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1498342485&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1498342485&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167040040692"
-    },
-    {
-      "name": "环",
-      "album": "尘",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1374056690&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1374056690&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164583315133"
-    },
-    {
-      "name": "潘金莲",
-      "album": "天外来物",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1808157402&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1808157402&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167040040692"
-    },
-    {
-      "name": "我终于成了别人的女人",
-      "album": "几个薛之谦",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=169144&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169144&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269238155"
-    },
-    {
-      "name": "让我欢喜让我忧 (Live)",
-      "album": "2023中国好声音 第一期",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2067808196&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2067808196&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168769529178"
-    },
-    {
-      "name": "天后 (Live)",
-      "album": "蒙面唱将猜猜猜第二季 第11期",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=519250411&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=519250411&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163066407523"
-    },
-    {
-      "name": "遗憾 (Live)",
-      "album": "蒙面唱将猜猜猜第二季 第6期",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=512489621&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=512489621&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163039514710"
-    },
-    {
-      "name": "湖泊 (Live)",
-      "album": "音乐缘计划2 第2期",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=3312881999&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3312881999&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172218309162"
-    },
-    {
-      "name": "小孩",
-      "album": "一半",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=35288183&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=35288183&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168707346683"
-    },
-    {
-      "name": "黄色枫叶",
-      "album": "未完成的歌",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=169183&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169183&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269232420"
-    },
-    {
-      "name": "王子归来",
-      "album": "薛之谦",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=169241&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169241&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269080648"
-    },
-    {
-      "name": "装货 (Live)",
-      "album": "音乐缘计划2 第5期",
-      "artist": "欧阳娜娜/薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=3320401411&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3320401411&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172322214563"
-    },
-    {
-      "name": "如果说 (Live)",
-      "album": "我的音乐你听吗 总决赛",
-      "artist": "薛之谦/郁一凡",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1891169712&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1891169712&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168996166263"
-    },
-    {
-      "name": "情书",
-      "album": "守村人",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2106384511&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2106384511&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170187415040"
-    },
-    {
-      "name": "你不是一个人",
-      "album": "你不是一个人",
-      "artist": "张信哲/薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1973067211&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1973067211&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167790113435"
-    },
-    {
-      "name": "蝠 (Live)",
-      "album": "音乐缘计划2 第10期",
-      "artist": "张弛/薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=3332756151&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3332756151&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172490945638"
-    },
-    {
-      "name": "这样一来我算什么 (Live)",
-      "album": "音乐缘计划2 第4期",
-      "artist": "薛之谦/陈卓璇",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=3317989736&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3317989736&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172283582362"
-    },
-    {
-      "name": "歌曲：方的言（live）",
-      "album": "2025年中央广播电视总台春节联欢晚会",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2670097544&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2670097544&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170412800167"
-    },
-    {
-      "name": "守候",
-      "album": "无数",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1982704623&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1982704623&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167891177817"
-    },
-    {
-      "name": "重返十七岁(新版)",
-      "album": "重返十七岁",
-      "artist": "鹿晗/大张伟/薛之谦/魏晨/潘玮柏/刘敏涛/陈嘉桦/Flyn张慧雯/张丹峰",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=418603445&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=418603445&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=3433774817962316"
-    },
-    {
-      "name": "彩券",
-      "album": "天外来物",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1486513704&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1486513704&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167040040692"
-    },
-    {
-      "name": "Melody (Live)",
-      "album": "中国梦之声·我们的歌第三季 第5期",
-      "artist": "薛之谦/锤娜丽莎",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1974417083&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1974417083&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169005618929"
-    },
-    {
-      "name": "陪你去流浪 (Live)",
-      "album": "中国梦之声·我们的歌第三季 第10期",
-      "artist": "薛之谦/锤娜丽莎",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1974414066&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1974414066&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169005618932"
-    },
-    {
-      "name": "火柴天堂 (Live)",
-      "album": "中国梦之声·我们的歌第三季 第11期",
-      "artist": "薛之谦/锤娜丽莎",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1974414076&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1974414076&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169005616455"
-    },
-    {
-      "name": "友情提示 (Live)",
-      "album": "音乐缘计划2 第9期",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=3330124293&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3330124293&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172454584686"
-    },
-    {
-      "name": "梦开始的原点",
-      "album": "深深爱过你",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=169216&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169216&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269239134"
-    },
-    {
-      "name": "我们爱过就好",
-      "album": "我们爱过就好",
-      "artist": "薛之谦/黄龄",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=26600199&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=26600199&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172067846239"
-    },
-    {
-      "name": "潮流季",
-      "album": "意外",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=27955651&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=27955651&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164499974026"
-    },
-    {
-      "name": "有没有",
-      "album": "意外",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=27955656&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=27955656&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164499974026"
-    },
-    {
-      "name": "爱我的人 谢谢你",
-      "album": "未完成的歌",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=169188&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169188&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269232420"
-    },
-    {
-      "name": "Memory",
-      "album": "未完成的歌",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=169171&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169171&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269232420"
-    },
-    {
-      "name": "几个你",
-      "album": "几个薛之谦",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=169140&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169140&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269238155"
-    },
-    {
-      "name": "等我回家",
-      "album": "意外",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=27955652&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=27955652&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164499974026"
-    },
-    {
-      "name": "我的Show",
-      "album": "薛之谦",
-      "artist": "薛之谦/君君",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=169251&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169251&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269080648"
-    },
-    {
-      "name": "独角戏 (Live)",
-      "album": "金曲捞第二季 第10期",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1312166612&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1312166612&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163568990758"
-    },
-    {
-      "name": "占有（Live）",
-      "album": "音乐缘计划2 年度盛典",
-      "artist": "周深/薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=3335225812&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3335225812&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172534086898"
+      "pic": "https://p1.music.126.net/fNbj5uDwltSDLbETdnEYYQ==/109951163069265719.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=516657051",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=516657051&format=yrc"
     },
     {
       "name": "淘金热.JokerXue",
       "album": "关于你",
       "artist": "JokerSun",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2644665623&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2644665623&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169976198023"
+      "pic": "https://p1.music.126.net/TjqznEIlncjoXLOWan1KHQ==/109951169976198023.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2644665623",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2644665623&format=yrc"
     },
     {
-      "name": "红尘女子",
-      "album": "薛之谦",
+      "name": "绅士",
+      "album": "绅士",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=169245&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169245&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269080648"
+      "pic": "https://p1.music.126.net/vu7SHbVlMuszmSuKR2SKAQ==/109951168707343730.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=32192436",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=32192436&format=yrc"
     },
     {
-      "name": "钗头凤",
-      "album": "薛之谦",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=169255&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169255&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269080648"
-    },
-    {
-      "name": "深深爱过你(今生)",
-      "album": "深深爱过你",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=169214&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169214&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269239134"
-    },
-    {
-      "name": "伏笔",
-      "album": "几个薛之谦",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=169142&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169142&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269238155"
-    },
-    {
-      "name": "你过得好吗",
-      "album": "你过得好吗",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=169223&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169223&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269233427"
-    },
-    {
-      "name": "我想起你了",
+      "name": "意外",
       "album": "意外",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=27955655&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=27955655&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164499974026"
+      "pic": "https://p1.music.126.net/ywVjRpbu9KpcBQh9KJz2HA==/109951164499974026.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=27890306",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=27890306&format=yrc"
     },
     {
-      "name": "我知道你都知道",
-      "album": "几个薛之谦",
+      "name": "天外来物",
+      "album": "天外来物",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=169137&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169137&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269238155"
+      "pic": "https://p1.music.126.net/MgH6SepYHboKPr6FR8yg-w==/109951167040040692.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1463165983",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1463165983&format=yrc"
     },
     {
-      "name": "我们的世界",
+      "name": "深深爱过你(前世)",
       "album": "深深爱过你",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=169207&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169207&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269239134"
+      "pic": "https://p1.music.126.net/FVmvp0s8JpA03btFfeaX5w==/109951171269239134.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=169200",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169200&format=yrc"
     },
     {
-      "name": "为了遇见你",
-      "album": "几个薛之谦",
+      "name": "方圆几里",
+      "album": "意外",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=33071053&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=33071053&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269238155"
+      "pic": "https://p1.music.126.net/ywVjRpbu9KpcBQh9KJz2HA==/109951164499974026.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=27955658",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=27955658&format=yrc"
     },
     {
-      "name": "未完成的歌",
+      "name": "演员",
+      "album": "绅士",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/vu7SHbVlMuszmSuKR2SKAQ==/109951168707343730.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=32507038",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=32507038&format=yrc"
+    },
+    {
+      "name": "洛城",
+      "album": "无数",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/z0b7uhQmjXdFqkgBTSpsfA==/109951167891177817.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1907820140",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1907820140&format=yrc"
+    },
+    {
+      "name": "跃",
+      "album": "跃",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/T_eGEM-5oxu0JPXf4X_w-w==/109951171467067629.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2726242405",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2726242405&format=yrc"
+    },
+    {
+      "name": "人字拖 (Live)",
+      "album": "音乐缘计划2 第8期",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/05niw9hnQgwMqNVvYN2fiw==/109951172418987244.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=3327897359",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3327897359&format=yrc"
+    },
+    {
+      "name": "爱我的人 谢谢你",
       "album": "未完成的歌",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=169152&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169152&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269232420"
+      "pic": "https://p1.music.126.net/fqiX7ZmISM4fHm7v4GrV2Q==/109951171269232420.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=169188",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169188&format=yrc"
     },
     {
-      "name": "小孩与我 (Live)",
-      "album": "音乐缘计划2 第8期",
-      "artist": "魏翔/薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=3327897304&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3327897304&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172418987244"
-    },
-    {
-      "name": "星河之役",
-      "album": "深深爱过你",
+      "name": "肆无忌惮",
+      "album": "怪咖",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=169212&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169212&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269239134"
+      "pic": "https://p1.music.126.net/TOkRGd59o3hAOKsnMMmMMA==/109951163755246383.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=557581967",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=557581967&format=yrc"
     },
     {
-      "name": "给我的爱人",
-      "album": "深深爱过你",
+      "name": "暧昧",
+      "album": "渡",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=169204&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169204&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269239134"
+      "pic": "https://p1.music.126.net/fNbj5uDwltSDLbETdnEYYQ==/109951163069265719.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=471385043",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=471385043&format=yrc"
     },
     {
-      "name": "倾城",
-      "album": "你过得好吗",
+      "name": "迟迟",
+      "album": "天外来物",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=169230&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169230&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269233427"
+      "pic": "https://p1.music.126.net/MgH6SepYHboKPr6FR8yg-w==/109951167040040692.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1808053189",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1808053189&format=yrc"
     },
     {
-      "name": "爱不走",
-      "album": "薛之谦",
+      "name": "变废为宝",
+      "album": "无数",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=169247&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169247&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269080648"
+      "pic": "https://p1.music.126.net/z0b7uhQmjXdFqkgBTSpsfA==/109951167891177817.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1861640530",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1861640530&format=yrc"
     },
     {
-      "name": "朋友你们还好吗",
-      "album": "你过得好吗",
+      "name": "别",
+      "album": "渡",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=169227&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169227&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269233427"
+      "pic": "https://p1.music.126.net/fNbj5uDwltSDLbETdnEYYQ==/109951163069265719.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=515803379",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=515803379&format=yrc"
     },
     {
-      "name": "商圣范蠡",
-      "album": "热门华语92",
+      "name": "下雨了",
+      "album": "绅士",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=27906824&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=27906824&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951166361218466"
+      "pic": "https://p1.music.126.net/vu7SHbVlMuszmSuKR2SKAQ==/109951168707343730.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=32507039",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=32507039&format=yrc"
     },
     {
-      "name": "楚河汉界",
-      "album": "几个薛之谦",
+      "name": "崇拜",
+      "album": "守村人",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=33071050&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=33071050&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269238155"
-    },
-    {
-      "name": "爱情宣判",
-      "album": "你过得好吗",
-      "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=169225&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169225&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269233427"
+      "pic": "https://p1.music.126.net/jPQ7ZbIm5PdimnkkCo1oWA==/109951170187415122.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2055887708",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2055887708&format=yrc"
     },
     {
       "name": "爱的期限",
       "album": "未完成的歌",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=169180&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169180&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269232420"
+      "pic": "https://p1.music.126.net/fqiX7ZmISM4fHm7v4GrV2Q==/109951171269232420.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=169180",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169180&format=yrc"
+    },
+    {
+      "name": "黄色枫叶",
+      "album": "未完成的歌",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/fqiX7ZmISM4fHm7v4GrV2Q==/109951171269232420.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=169183",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169183&format=yrc"
+    },
+    {
+      "name": "来日方长",
+      "album": "来日方长",
+      "artist": "薛之谦 / 黄龄",
+      "pic": "https://p1.music.126.net/GBom96pvwp1lhlOMQlUpbQ==/109951172273479929.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=429450375",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=429450375&format=yrc"
+    },
+    {
+      "name": "纸船",
+      "album": "天外来物",
+      "artist": "薛之谦 / 郁可唯",
+      "pic": "https://p1.music.126.net/MgH6SepYHboKPr6FR8yg-w==/109951167040040692.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1442312981",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1442312981&format=yrc"
+    },
+    {
+      "name": "小尖尖",
+      "album": "天外来物",
+      "artist": "薛之谦 / 韩红",
+      "pic": "https://p1.music.126.net/MgH6SepYHboKPr6FR8yg-w==/109951167040040692.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1473782328",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1473782328&format=yrc"
+    },
+    {
+      "name": "聊表心意",
+      "album": "尘",
+      "artist": "薛之谦 / 刘惜君",
+      "pic": "https://p1.music.126.net/DHUrNjC-1d6Snpcfg20Umw==/109951164583315133.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1374061043",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1374061043&format=yrc"
+    },
+    {
+      "name": "可",
+      "album": "无数",
+      "artist": "薛之谦 / 张靓颖",
+      "pic": "https://p1.music.126.net/z0b7uhQmjXdFqkgBTSpsfA==/109951167891177817.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1954420092",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1954420092&format=yrc"
+    },
+    {
+      "name": "这样一来我算什么 (Live)",
+      "album": "音乐缘计划2 第4期",
+      "artist": "薛之谦 / 陈卓璇",
+      "pic": "https://p1.music.126.net/bX-R_rj_bnoSVFf0Q2-y9g==/109951172283582362.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=3317989736",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3317989736&format=yrc"
+    },
+    {
+      "name": "霸王别姬",
+      "album": "霸王别姬",
+      "artist": "薛之谦 / 张靓颖",
+      "pic": "https://p1.music.126.net/QfDKo2a5S4F6QKpPUoD1-g==/109951172036106473.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2747836950",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2747836950&format=yrc"
+    },
+    {
+      "name": "银河少年",
+      "album": "守村人",
+      "artist": "王啸坤 / 薛之谦",
+      "pic": "https://p1.music.126.net/rkvMuKBv-MTxNFGN2mYy0A==/109951170187414766.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2013452462",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2013452462&format=yrc"
+    },
+    {
+      "name": "苏黎世的从前",
+      "album": "你过得好吗",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/CumiqG6D2JI9S0dvcsretA==/109951171269233427.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=169221",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169221&format=yrc"
+    },
+    {
+      "name": "这么久没见",
+      "album": "尘",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/DHUrNjC-1d6Snpcfg20Umw==/109951164583315133.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1374061036",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1374061036&format=yrc"
+    },
+    {
+      "name": "木偶人",
+      "album": "尘",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/DHUrNjC-1d6Snpcfg20Umw==/109951164583315133.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1374051000",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1374051000&format=yrc"
+    },
+    {
+      "name": "病态",
+      "album": "尘",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/DHUrNjC-1d6Snpcfg20Umw==/109951164583315133.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1374056687",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1374056687&format=yrc"
+    },
+    {
+      "name": "配合",
+      "album": "尘",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/DHUrNjC-1d6Snpcfg20Umw==/109951164583315133.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1374061040",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1374061040&format=yrc"
+    },
+    {
+      "name": "无数",
+      "album": "无数",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/z0b7uhQmjXdFqkgBTSpsfA==/109951167891177817.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1982706733",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1982706733&format=yrc"
+    },
+    {
+      "name": "高尚",
+      "album": "渡",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/fNbj5uDwltSDLbETdnEYYQ==/109951163069265719.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=466122271",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=466122271&format=yrc"
+    },
+    {
+      "name": "顽疾",
+      "album": "顽疾",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/Ot4fQ6ho7nnTtXn4skbauw==/109951173022187941.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=3368387749",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3368387749&format=yrc"
+    },
+    {
+      "name": "租购",
+      "album": "守村人",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/Lt8gKt_ibLUmXJW1YOIC8g==/109951170187391473.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2648841571",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2648841571&format=yrc"
+    },
+    {
+      "name": "火星人来过",
+      "album": "渡",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/fNbj5uDwltSDLbETdnEYYQ==/109951163069265719.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=443277013",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=443277013&format=yrc"
+    },
+    {
+      "name": "解解闷",
+      "album": "守村人",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/Zf51IQpncQaCRAPgkxaxXg==/109951170187402840.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2613690917",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2613690917&format=yrc"
+    },
+    {
+      "name": "AI",
+      "album": "守村人",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/FFP7ReeRfodaTjsHVLbDEg==/109951170187409617.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2125012052",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2125012052&format=yrc"
+    },
+    {
+      "name": "湖泊",
+      "album": "湖泊",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/3NpQC5_gBMWD9fhbjE4yjA==/109951172741269727.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=3349578101",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3349578101&format=yrc"
+    },
+    {
+      "name": "醒来 (Live)",
+      "album": "怪咖",
+      "artist": "薛之谦 / 岳云鹏",
+      "pic": "https://p1.music.126.net/TOkRGd59o3hAOKsnMMmMMA==/109951163755246383.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1336088717",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1336088717&format=yrc"
+    },
+    {
+      "name": "男二号",
+      "album": "无数",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/z0b7uhQmjXdFqkgBTSpsfA==/109951167891177817.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1915297033",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1915297033&format=yrc"
+    },
+    {
+      "name": "关于你",
+      "album": "无数",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/z0b7uhQmjXdFqkgBTSpsfA==/109951167891177817.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1964644539",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1964644539&format=yrc"
+    },
+    {
+      "name": "风的语言（粤语）.wav",
+      "album": "薛之谦现场版",
+      "artist": "王慕青",
+      "pic": "https://p1.music.126.net/OxWhHoM4ZgC2-dKqaacShg==/109951170963492155.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2703112924",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2703112924&format=yrc"
+    },
+    {
+      "name": "摩天大楼",
+      "album": "怪咖",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/TOkRGd59o3hAOKsnMMmMMA==/109951163755246383.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=553543014",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=553543014&format=yrc"
+    },
+    {
+      "name": "尘",
+      "album": "尘",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/DHUrNjC-1d6Snpcfg20Umw==/109951164583315133.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1374056688",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1374056688&format=yrc"
+    },
+    {
+      "name": "农民与土地 (Live)",
+      "album": "音乐缘计划2 第6期",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/Gz1jNNV6uUxVDgUhFPyyZA==/109951172350692393.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=3322410882",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3322410882&format=yrc"
+    },
+    {
+      "name": "慢半拍",
+      "album": "尘",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/DHUrNjC-1d6Snpcfg20Umw==/109951164583315133.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1374061028",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1374061028&format=yrc"
+    },
+    {
+      "name": "坦白 (Live)",
+      "album": "音乐缘计划2 第7期",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/87o5VHyS2UF5TzzjqnQ8sA==/109951172382806404.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=3324801986",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3324801986&format=yrc"
+    },
+    {
+      "name": "守村人",
+      "album": "守村人",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/v8RODXnCXQcMsihjKBK4hg==/109951170731228693.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2608471890",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2608471890&format=yrc"
+    },
+    {
+      "name": "被人",
+      "album": "无数",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/z0b7uhQmjXdFqkgBTSpsfA==/109951167891177817.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1982706722",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1982706722&format=yrc"
+    },
+    {
+      "name": "花儿和少年",
+      "album": "初学者",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/hti_a0LADoFMBHvOBwAtRA==/1369991500930171.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=421160838",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=421160838&format=yrc"
+    },
+    {
+      "name": "Stay Here",
+      "album": "初学者",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/hti_a0LADoFMBHvOBwAtRA==/1369991500930171.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=421148955",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=421148955&format=yrc"
+    },
+    {
+      "name": "Nothing",
+      "album": "守村人",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/sjWNktYmZBlLObZI1SO54A==/109951170187417580.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2040577534",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2040577534&format=yrc"
+    },
+    {
+      "name": "把你揉碎捏成苹果",
+      "album": "天外来物",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/MgH6SepYHboKPr6FR8yg-w==/109951167040040692.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1806096611",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1806096611&format=yrc"
+    },
+    {
+      "name": "小孩",
+      "album": "一半",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/h-qQKtPVMxIfdCI8jPYs0w==/109951168707346683.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=35288183",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=35288183&format=yrc"
+    },
+    {
+      "name": "顽疾 (Live)",
+      "album": "音乐缘计划2 第1期",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/gpVfzl2KNr4OYXbtVtE2sw==/109951172185235309.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2758218600",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2758218600&format=yrc"
+    },
+    {
+      "name": "耗尽",
+      "album": "天外来物",
+      "artist": "薛之谦 / 郭聪明",
+      "pic": "https://p1.music.126.net/MgH6SepYHboKPr6FR8yg-w==/109951167040040692.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1498342485",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1498342485&format=yrc"
+    },
+    {
+      "name": "迟迟 (Live版)",
+      "album": "天赐的声音第七季 第1期",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/Cth2xwO1UaRkZL9toFM32w==/109951173367500013.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=3392549604",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3392549604&format=yrc"
+    },
+    {
+      "name": "湖泊 (Live)",
+      "album": "音乐缘计划2 第2期",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/xeb6nwQo2UbHF4halsSDuQ==/109951172218309162.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=3312881999",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3312881999&format=yrc"
+    },
+    {
+      "name": "等我回家",
+      "album": "意外",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/ywVjRpbu9KpcBQh9KJz2HA==/109951164499974026.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=27955652",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=27955652&format=yrc"
+    },
+    {
+      "name": "几个你",
+      "album": "几个薛之谦",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/DABYyTdpxl6Bp_n3gtf6mQ==/109951171269238155.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=169140",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169140&format=yrc"
+    },
+    {
+      "name": "我终于成了别人的女人",
+      "album": "几个薛之谦",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/DABYyTdpxl6Bp_n3gtf6mQ==/109951171269238155.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=169144",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169144&format=yrc"
+    },
+    {
+      "name": "王子归来",
+      "album": "薛之谦",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/XDeJ0DaAyhiV08u9s86SoQ==/109951171269080648.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=169241",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169241&format=yrc"
+    },
+    {
+      "name": "环",
+      "album": "尘",
+      "artist": "薛之谦",
+      "pic": "https://p1.music.126.net/DHUrNjC-1d6Snpcfg20Umw==/109951164583315133.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1374056690",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1374056690&format=yrc"
+    },
+    {
+      "name": "潘金莲",
+      "album": "天外来物",
+      "artist": "薛之谦",
+      "pic": "https://p2.music.126.net/MgH6SepYHboKPr6FR8yg-w==/109951167040040692.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1808157402",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1808157402&format=yrc"
+    },
+    {
+      "name": "装货 (Live)",
+      "album": "音乐缘计划2 第5期",
+      "artist": "欧阳娜娜 / 薛之谦",
+      "pic": "https://p2.music.126.net/Q-7W7d8t-LDP_HqoC3LO6w==/109951172322214563.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=3320401411",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3320401411&format=yrc"
+    },
+    {
+      "name": "如果说 (Live)",
+      "album": "我的音乐你听吗 总决赛",
+      "artist": "薛之谦 / 郁一凡",
+      "pic": "https://p2.music.126.net/RTvfuspuDJtgeWupnEp1dA==/109951168996166263.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1891169712",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1891169712&format=yrc"
+    },
+    {
+      "name": "你不是一个人",
+      "album": "你不是一个人",
+      "artist": "张信哲 / 薛之谦",
+      "pic": "https://p2.music.126.net/LYjbauJ0VQBrkHhsl-TM0Q==/109951167790113435.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1973067211",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1973067211&format=yrc"
+    },
+    {
+      "name": "情书",
+      "album": "守村人",
+      "artist": "薛之谦",
+      "pic": "https://p2.music.126.net/LC5tWPHxn473MNBPcVEjgQ==/109951170187415040.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2106384511",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2106384511&format=yrc"
+    },
+    {
+      "name": "彩券",
+      "album": "天外来物",
+      "artist": "薛之谦",
+      "pic": "https://p2.music.126.net/MgH6SepYHboKPr6FR8yg-w==/109951167040040692.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1486513704",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1486513704&format=yrc"
+    },
+    {
+      "name": "我们爱过就好",
+      "album": "我们爱过就好",
+      "artist": "薛之谦 / 黄龄",
+      "pic": "https://p2.music.126.net/OTgxewNjx7u--j3qWok3Gw==/109951172067846239.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=26600199",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=26600199&format=yrc"
+    },
+    {
+      "name": "让我欢喜让我忧 (Live)",
+      "album": "2023中国好声音 第一期",
+      "artist": "薛之谦",
+      "pic": "https://p2.music.126.net/pcLw5yHiBNMBAby1WTt2wg==/109951168769529178.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2067808196",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2067808196&format=yrc"
+    },
+    {
+      "name": "守候",
+      "album": "无数",
+      "artist": "薛之谦",
+      "pic": "https://p2.music.126.net/z0b7uhQmjXdFqkgBTSpsfA==/109951167891177817.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1982704623",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1982704623&format=yrc"
+    },
+    {
+      "name": "重返十七岁(新版)",
+      "album": "重返十七岁",
+      "artist": "鹿晗 / 大张伟 / 薛之谦 / 魏晨 / 潘玮柏 / 刘敏涛 / 陈嘉桦 / Flyn张慧雯 / 张丹峰",
+      "pic": "https://p2.music.126.net/4ckm-rjqKs6jB69Fn7ymQw==/3433774817962316.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=418603445",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=418603445&format=yrc"
+    },
+    {
+      "name": "友情提示 (Live)",
+      "album": "音乐缘计划2 第9期",
+      "artist": "薛之谦",
+      "pic": "https://p2.music.126.net/WphIFnDUpf4JhxKTZbRo0A==/109951172454584686.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=3330124293",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3330124293&format=yrc"
+    },
+    {
+      "name": "天后 (Live)",
+      "album": "蒙面唱将猜猜猜第二季 第11期",
+      "artist": "薛之谦",
+      "pic": "https://p2.music.126.net/v-8kpO9KjWs4GtYEDk5DzQ==/109951163066407523.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=519250411",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=519250411&format=yrc"
+    },
+    {
+      "name": "遗憾 (Live)",
+      "album": "蒙面唱将猜猜猜第二季 第6期",
+      "artist": "薛之谦",
+      "pic": "https://p2.music.126.net/wUwH532yw1k_ij3842KjFA==/109951163039514710.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=512489621",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=512489621&format=yrc"
+    },
+    {
+      "name": "蝠 (Live)",
+      "album": "音乐缘计划2 第10期",
+      "artist": "张弛 / 薛之谦",
+      "pic": "https://p2.music.126.net/QhWciHI8MFAgdeDEJTAB0A==/109951172490945638.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=3332756151",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3332756151&format=yrc"
+    },
+    {
+      "name": "陪你去流浪 (Live)",
+      "album": "中国梦之声·我们的歌第三季 第10期",
+      "artist": "薛之谦 / 锤娜丽莎",
+      "pic": "https://p2.music.126.net/4_rSzxvZqPtCDAmGn8k04g==/109951169005618932.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1974414066",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1974414066&format=yrc"
+    },
+    {
+      "name": "Melody (Live)",
+      "album": "中国梦之声·我们的歌第三季 第5期",
+      "artist": "薛之谦 / 锤娜丽莎",
+      "pic": "https://p2.music.126.net/mW8oawU1LMdmPbFLe8c2eA==/109951169005618929.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1974417083",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1974417083&format=yrc"
+    },
+    {
+      "name": "火柴天堂 (Live)",
+      "album": "中国梦之声·我们的歌第三季 第11期",
+      "artist": "薛之谦 / 锤娜丽莎",
+      "pic": "https://p2.music.126.net/E6ms4WSUbtjB2Oz2gpk3CQ==/109951169005616455.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1974414076",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1974414076&format=yrc"
+    },
+    {
+      "name": "梦开始的原点",
+      "album": "深深爱过你",
+      "artist": "薛之谦",
+      "pic": "https://p2.music.126.net/FVmvp0s8JpA03btFfeaX5w==/109951171269239134.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=169216",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169216&format=yrc"
+    },
+    {
+      "name": "潮流季",
+      "album": "意外",
+      "artist": "薛之谦",
+      "pic": "https://p2.music.126.net/ywVjRpbu9KpcBQh9KJz2HA==/109951164499974026.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=27955651",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=27955651&format=yrc"
+    },
+    {
+      "name": "有没有",
+      "album": "意外",
+      "artist": "薛之谦",
+      "pic": "https://p2.music.126.net/ywVjRpbu9KpcBQh9KJz2HA==/109951164499974026.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=27955656",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=27955656&format=yrc"
+    },
+    {
+      "name": "Memory",
+      "album": "未完成的歌",
+      "artist": "薛之谦",
+      "pic": "https://p2.music.126.net/fqiX7ZmISM4fHm7v4GrV2Q==/109951171269232420.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=169171",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169171&format=yrc"
+    },
+    {
+      "name": "我的Show",
+      "album": "薛之谦",
+      "artist": "薛之谦 / 君君",
+      "pic": "https://p2.music.126.net/XDeJ0DaAyhiV08u9s86SoQ==/109951171269080648.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=169251",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169251&format=yrc"
+    },
+    {
+      "name": "独角戏 (Live)",
+      "album": "金曲捞第二季 第10期",
+      "artist": "薛之谦",
+      "pic": "https://p2.music.126.net/WhrIscSW-pHhEZnDNZJ_qA==/109951163568990758.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1312166612",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1312166612&format=yrc"
+    },
+    {
+      "name": "占有（Live）",
+      "album": "音乐缘计划2 年度盛典",
+      "artist": "周深 / 薛之谦",
+      "pic": "https://p2.music.126.net/oUuK-y7LjC6vdtL1fKR5BQ==/109951172534086898.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=3335225812",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3335225812&format=yrc"
+    },
+    {
+      "name": "红尘女子",
+      "album": "薛之谦",
+      "artist": "薛之谦",
+      "pic": "https://p2.music.126.net/XDeJ0DaAyhiV08u9s86SoQ==/109951171269080648.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=169245",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169245&format=yrc"
+    },
+    {
+      "name": "钗头凤",
+      "album": "薛之谦",
+      "artist": "薛之谦",
+      "pic": "https://p2.music.126.net/XDeJ0DaAyhiV08u9s86SoQ==/109951171269080648.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=169255",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169255&format=yrc"
+    },
+    {
+      "name": "深深爱过你(今生)",
+      "album": "深深爱过你",
+      "artist": "薛之谦",
+      "pic": "https://p2.music.126.net/FVmvp0s8JpA03btFfeaX5w==/109951171269239134.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=169214",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169214&format=yrc"
+    },
+    {
+      "name": "你过得好吗",
+      "album": "你过得好吗",
+      "artist": "薛之谦",
+      "pic": "https://p2.music.126.net/CumiqG6D2JI9S0dvcsretA==/109951171269233427.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=169223",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169223&format=yrc"
+    },
+    {
+      "name": "给我的爱人",
+      "album": "深深爱过你",
+      "artist": "薛之谦",
+      "pic": "https://p2.music.126.net/FVmvp0s8JpA03btFfeaX5w==/109951171269239134.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=169204",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169204&format=yrc"
+    },
+    {
+      "name": "我想起你了",
+      "album": "意外",
+      "artist": "薛之谦",
+      "pic": "https://p2.music.126.net/ywVjRpbu9KpcBQh9KJz2HA==/109951164499974026.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=27955655",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=27955655&format=yrc"
+    },
+    {
+      "name": "我知道你都知道",
+      "album": "几个薛之谦",
+      "artist": "薛之谦",
+      "pic": "https://p2.music.126.net/DABYyTdpxl6Bp_n3gtf6mQ==/109951171269238155.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=169137",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169137&format=yrc"
+    },
+    {
+      "name": "我们的世界",
+      "album": "深深爱过你",
+      "artist": "薛之谦",
+      "pic": "https://p2.music.126.net/FVmvp0s8JpA03btFfeaX5w==/109951171269239134.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=169207",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169207&format=yrc"
+    },
+    {
+      "name": "为了遇见你",
+      "album": "几个薛之谦",
+      "artist": "薛之谦",
+      "pic": "https://p2.music.126.net/DABYyTdpxl6Bp_n3gtf6mQ==/109951171269238155.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=33071053",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=33071053&format=yrc"
+    },
+    {
+      "name": "未完成的歌",
+      "album": "未完成的歌",
+      "artist": "薛之谦",
+      "pic": "https://p2.music.126.net/fqiX7ZmISM4fHm7v4GrV2Q==/109951171269232420.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=169152",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169152&format=yrc"
+    },
+    {
+      "name": "伏笔",
+      "album": "几个薛之谦",
+      "artist": "薛之谦",
+      "pic": "https://p2.music.126.net/DABYyTdpxl6Bp_n3gtf6mQ==/109951171269238155.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=169142",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169142&format=yrc"
+    },
+    {
+      "name": "星河之役",
+      "album": "深深爱过你",
+      "artist": "薛之谦",
+      "pic": "https://p2.music.126.net/FVmvp0s8JpA03btFfeaX5w==/109951171269239134.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=169212",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169212&format=yrc"
+    },
+    {
+      "name": "小孩与我 (Live)",
+      "album": "音乐缘计划2 第8期",
+      "artist": "魏翔 / 薛之谦",
+      "pic": "https://p2.music.126.net/05niw9hnQgwMqNVvYN2fiw==/109951172418987244.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=3327897304",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3327897304&format=yrc"
+    },
+    {
+      "name": "倾城",
+      "album": "你过得好吗",
+      "artist": "薛之谦",
+      "pic": "https://p2.music.126.net/CumiqG6D2JI9S0dvcsretA==/109951171269233427.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=169230",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169230&format=yrc"
+    },
+    {
+      "name": "爱不走",
+      "album": "薛之谦",
+      "artist": "薛之谦",
+      "pic": "https://p2.music.126.net/XDeJ0DaAyhiV08u9s86SoQ==/109951171269080648.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=169247",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169247&format=yrc"
+    },
+    {
+      "name": "朋友你们还好吗",
+      "album": "你过得好吗",
+      "artist": "薛之谦",
+      "pic": "https://p2.music.126.net/CumiqG6D2JI9S0dvcsretA==/109951171269233427.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=169227",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169227&format=yrc"
+    },
+    {
+      "name": "商圣范蠡",
+      "album": "热门华语92",
+      "artist": "薛之谦",
+      "pic": "https://p2.music.126.net/cpoUinrExafBHL5Nv5iDHQ==/109951166361218466.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=27906824",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=27906824&format=yrc"
+    },
+    {
+      "name": "楚河汉界",
+      "album": "几个薛之谦",
+      "artist": "薛之谦",
+      "pic": "https://p2.music.126.net/DABYyTdpxl6Bp_n3gtf6mQ==/109951171269238155.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=33071050",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=33071050&format=yrc"
+    },
+    {
+      "name": "爱情宣判",
+      "album": "你过得好吗",
+      "artist": "薛之谦",
+      "pic": "https://p2.music.126.net/CumiqG6D2JI9S0dvcsretA==/109951171269233427.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=169225",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169225&format=yrc"
     },
     {
       "name": "Let You Go",
       "album": "深深爱过你",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=169202&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169202&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269239134"
+      "pic": "https://p2.music.126.net/FVmvp0s8JpA03btFfeaX5w==/109951171269239134.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=169202",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169202&format=yrc"
     },
     {
       "name": "续雪",
       "album": "你过得好吗",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=169234&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169234&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269233427"
+      "pic": "https://p2.music.126.net/CumiqG6D2JI9S0dvcsretA==/109951171269233427.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=169234",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169234&format=yrc"
     },
     {
       "name": "流星的眼泪",
       "album": "深深爱过你",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=169210&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169210&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269239134"
+      "pic": "https://p2.music.126.net/FVmvp0s8JpA03btFfeaX5w==/109951171269239134.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=169210",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169210&format=yrc"
     },
     {
       "name": "快乐帮",
       "album": "薛之谦",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=169249&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169249&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269080648"
+      "pic": "https://p2.music.126.net/XDeJ0DaAyhiV08u9s86SoQ==/109951171269080648.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=169249",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169249&format=yrc"
     },
     {
       "name": "丢手绢",
       "album": "你过得好吗",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=169232&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169232&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269233427"
+      "pic": "https://p2.music.126.net/CumiqG6D2JI9S0dvcsretA==/109951171269233427.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=169232",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169232&format=yrc"
     },
     {
       "name": "马戏小丑",
       "album": "未完成的歌",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=169162&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169162&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269232420"
+      "pic": "https://p2.music.126.net/fqiX7ZmISM4fHm7v4GrV2Q==/109951171269232420.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=169162",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169162&format=yrc"
     },
     {
       "name": "传说",
       "album": "深深爱过你",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=169198&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169198&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269239134"
+      "pic": "https://p2.music.126.net/FVmvp0s8JpA03btFfeaX5w==/109951171269239134.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=169198",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=169198&format=yrc"
     },
     {
       "name": "敷衍",
       "album": "几个薛之谦",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=33071052&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=33071052&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269238155"
+      "pic": "https://p2.music.126.net/DABYyTdpxl6Bp_n3gtf6mQ==/109951171269238155.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=33071052",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=33071052&format=yrc"
     },
     {
       "name": "为什么",
       "album": "几个薛之谦",
       "artist": "薛之谦",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=33071051&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=33071051&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171269238155"
+      "pic": "https://p2.music.126.net/DABYyTdpxl6Bp_n3gtf6mQ==/109951171269238155.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=33071051",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=33071051&format=yrc"
     }
   ]
 }

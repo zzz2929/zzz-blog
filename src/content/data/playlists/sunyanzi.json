@@ -1,287 +1,327 @@
 {
   "name": "孙燕姿",
   "cover": "http://p2.music.126.net/4egsgJXURoPcBNjj00YQHQ==/109951170045684137.jpg?param=200y200",
+  "playlist": 18178558922,
   "songs": [
     {
-      "title": "遇见",
-      "author": "孙燕姿",
-      "pic": "https://p1.music.126.net/KZ0VfIoFYsxpjz9sTQuLVQ==/17687843556430013.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=454828887",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=454828887"
-    },
-    {
-      "title": "180度",
-      "author": "孙燕姿",
-      "pic": "https://p1.music.126.net/I9O-KpO4bLC6LWOKYfJj4Q==/109951165992337446.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=286966",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=286966"
-    },
-    {
-      "title": "坏天气",
-      "author": "孙燕姿",
-      "pic": "https://p1.music.126.net/1HJILQwc62AfvcXkGgVJHQ==/109951165549820772.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287717",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=287717"
-    },
-    {
-      "title": "Honey Honey",
-      "author": "孙燕姿",
-      "pic": "https://p1.music.126.net/fDHMWWX7pLkAxVPK10OQ7g==/109951168311119114.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287251",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=287251"
-    },
-    {
-      "title": "开始懂了",
-      "author": "孙燕姿",
-      "pic": "https://p1.music.126.net/UQo40hhzMpnP3bFvqIu16w==/109951166191908812.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287018",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=287018"
-    },
-    {
-      "title": "雨天",
-      "author": "孙燕姿",
-      "pic": "https://p1.music.126.net/UQo40hhzMpnP3bFvqIu16w==/109951166191908812.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=286980",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=286980"
-    },
-    {
-      "title": "绿光",
-      "author": "孙燕姿",
-      "pic": "https://p1.music.126.net/1ZEUEfCDxUPOHpEJFNKliA==/109951169717938522.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287611",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=287611"
-    },
-    {
-      "title": "逆光",
-      "author": "孙燕姿",
-      "pic": "https://p1.music.126.net/wF25xzePLml5EGUWM2eInw==/109951173219336672.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287057",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=287057"
-    },
-    {
-      "title": "当冬夜渐暖",
-      "author": "孙燕姿",
-      "pic": "https://p1.music.126.net/I9O-KpO4bLC6LWOKYfJj4Q==/109951165992337446.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=286959",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=286959"
-    },
-    {
-      "title": "第一天",
-      "author": "孙燕姿",
-      "pic": "https://p1.music.126.net/Hbbi1qNd5VW-uQy0vF3kiA==/109951164015979601.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1360465550",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1360465550"
-    },
-    {
-      "title": "雨还是不停地落下",
-      "author": "孙燕姿",
-      "pic": "https://p1.music.126.net/IpXZzvX4xgseWGfZhXHCyQ==/109951163115291601.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=28283351",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=28283351"
-    },
-    {
-      "title": "隐形人",
-      "author": "孙燕姿",
-      "pic": "https://p1.music.126.net/UQo40hhzMpnP3bFvqIu16w==/109951166191908812.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287031",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=287031"
-    },
-    {
-      "title": "尚好的青春",
-      "author": "孙燕姿",
-      "pic": "https://p1.music.126.net/IpXZzvX4xgseWGfZhXHCyQ==/109951163115291601.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=28283346",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=28283346"
-    },
-    {
-      "title": "天黑黑",
-      "author": "孙燕姿",
-      "pic": "https://p1.music.126.net/MNKGTEU8rqL0v1W1KdOe5w==/109951166191897217.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287749",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=287749"
-    },
-    {
-      "title": "不是真的爱我",
-      "author": "孙燕姿",
-      "pic": "https://p1.music.126.net/1ZEUEfCDxUPOHpEJFNKliA==/109951169717938522.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287620",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=287620"
-    },
-    {
-      "title": "原点",
-      "author": "孙燕姿 / 蔡健雅",
-      "pic": "https://p1.music.126.net/UQo40hhzMpnP3bFvqIu16w==/109951166191908812.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287025",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=287025"
-    },
-    {
-      "title": "风筝",
-      "author": "孙燕姿",
-      "pic": "https://p1.music.126.net/1ZEUEfCDxUPOHpEJFNKliA==/109951169717938522.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287614",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=287614"
-    },
-    {
-      "title": "我怀念的 (Live)",
-      "author": "孙燕姿",
-      "pic": "https://p1.music.126.net/0BzbHjZTdW8zcbgWAnzS7Q==/7931876884848881.jpg",
+      "name": "我怀念的 (Live)",
+      "album": "2010垦丁半岛音乐嘉年华",
+      "artist": "孙燕姿",
+      "pic": "https://p2.music.126.net/0BzbHjZTdW8zcbgWAnzS7Q==/7931876884848881.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=34200623",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=34200623"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=34200623&format=yrc"
     },
     {
-      "title": "我的爱",
-      "author": "孙燕姿",
-      "pic": "https://p1.music.126.net/EZu5tfacW02KP_UeUjVBYQ==/109951166890613011.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287274",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=287274"
+      "name": "绿光",
+      "album": "风筝",
+      "artist": "孙燕姿",
+      "pic": "https://p2.music.126.net/1ZEUEfCDxUPOHpEJFNKliA==/109951169717938522.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287611",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=287611&format=yrc"
     },
     {
-      "title": "原来你什么都不要",
-      "author": "孙燕姿",
-      "pic": "https://p1.music.126.net/kuucZsNIv_8fBzdaMmF7hA==/109951169717932170.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287575",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=287575"
+      "name": "开始懂了",
+      "album": "My Story, Your Song 经典全纪录 (主打精华版)",
+      "artist": "孙燕姿",
+      "pic": "https://p2.music.126.net/UQo40hhzMpnP3bFvqIu16w==/109951166191908812.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287018",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=287018&format=yrc"
     },
     {
-      "title": "在,也不见",
-      "author": "孙燕姿",
-      "pic": "https://p1.music.126.net/DVFRGabbYQ88SdlXNQP5xw==/109951165992343715.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=408212737",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=408212737"
+      "name": "直来直往",
+      "album": "My Story, Your Song 经典全纪录 (主打精华版)",
+      "artist": "孙燕姿",
+      "pic": "https://p2.music.126.net/UQo40hhzMpnP3bFvqIu16w==/109951166191908812.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287039",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=287039&format=yrc"
     },
     {
-      "title": "害怕",
-      "author": "孙燕姿",
-      "pic": "https://p1.music.126.net/UQo40hhzMpnP3bFvqIu16w==/109951166191908812.jpg",
+      "name": "遇见",
+      "album": "白羽毛之恋 华语典藏情歌 Vol.2",
+      "artist": "孙燕姿",
+      "pic": "https://p2.music.126.net/KZ0VfIoFYsxpjz9sTQuLVQ==/17687843556430013.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=454828887",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=454828887&format=yrc"
+    },
+    {
+      "name": "雨天",
+      "album": "My Story, Your Song 经典全纪录 (主打精华版)",
+      "artist": "孙燕姿",
+      "pic": "https://p2.music.126.net/UQo40hhzMpnP3bFvqIu16w==/109951166191908812.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=286980",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=286980&format=yrc"
+    },
+    {
+      "name": "第一天",
+      "album": "My Story 2006 新歌+精选",
+      "artist": "孙燕姿",
+      "pic": "https://p2.music.126.net/Hbbi1qNd5VW-uQy0vF3kiA==/109951164015979601.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1360465550",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1360465550&format=yrc"
+    },
+    {
+      "name": "咕叽咕叽",
+      "album": "逆光",
+      "artist": "孙燕姿",
+      "pic": "https://p2.music.126.net/wF25xzePLml5EGUWM2eInw==/109951173219336672.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287061",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=287061&format=yrc"
+    },
+    {
+      "name": "180度",
+      "album": "是时候",
+      "artist": "孙燕姿",
+      "pic": "https://p2.music.126.net/I9O-KpO4bLC6LWOKYfJj4Q==/109951165992337446.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=286966",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=286966&format=yrc"
+    },
+    {
+      "name": "当冬夜渐暖",
+      "album": "是时候",
+      "artist": "孙燕姿",
+      "pic": "https://p2.music.126.net/I9O-KpO4bLC6LWOKYfJj4Q==/109951165992337446.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=286959",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=286959&format=yrc"
+    },
+    {
+      "name": "原点",
+      "album": "My Story, Your Song 经典全纪录 (主打精华版)",
+      "artist": "孙燕姿 / 蔡健雅",
+      "pic": "https://p2.music.126.net/UQo40hhzMpnP3bFvqIu16w==/109951166191908812.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287025",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=287025&format=yrc"
+    },
+    {
+      "name": "害怕",
+      "album": "My Story, Your Song 经典全纪录 (主打精华版)",
+      "artist": "孙燕姿",
+      "pic": "https://p2.music.126.net/UQo40hhzMpnP3bFvqIu16w==/109951166191908812.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=286992",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=286992"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=286992&format=yrc"
     },
     {
-      "title": "同类",
-      "author": "孙燕姿",
-      "pic": "https://p1.music.126.net/EZu5tfacW02KP_UeUjVBYQ==/109951166890613011.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287287",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=287287"
-    },
-    {
-      "title": "天使的指纹",
-      "author": "孙燕姿",
-      "pic": "https://p1.music.126.net/IpXZzvX4xgseWGfZhXHCyQ==/109951163115291601.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=28274554",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=28274554"
-    },
-    {
-      "title": "眼泪成诗",
-      "author": "孙燕姿",
-      "pic": "https://p1.music.126.net/UQo40hhzMpnP3bFvqIu16w==/109951166191908812.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287041",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=287041"
-    },
-    {
-      "title": "我要的幸福",
-      "author": "孙燕姿",
-      "pic": "https://p1.music.126.net/1HJILQwc62AfvcXkGgVJHQ==/109951165549820772.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287716",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=287716"
-    },
-    {
-      "title": "我不难过",
-      "author": "孙燕姿",
-      "pic": "https://p1.music.126.net/Pzxy6py26NgNmhJjYMf2RQ==/109951169724216323.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287398",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=287398"
-    },
-    {
-      "title": "The Moment",
-      "author": "孙燕姿",
-      "pic": "https://p1.music.126.net/pQnsyev650dd7V2da-u7Sw==/109951169717940503.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287318",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=287318"
-    },
-    {
-      "title": "余额",
-      "author": "孙燕姿",
-      "pic": "https://p1.music.126.net/HyRKUlLWAqdCzwUbVAnRhA==/109951165671976745.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1815692964",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1815692964"
-    },
-    {
-      "title": "漩涡",
-      "author": "孙燕姿",
-      "pic": "https://p1.music.126.net/wF25xzePLml5EGUWM2eInw==/109951173219336672.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287071",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=287071"
-    },
-    {
-      "title": "风衣",
-      "author": "孙燕姿",
-      "pic": "https://p1.music.126.net/_VjuIgInJqwxdyoy4FF3IA==/18357446138140955.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=516657213",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=516657213"
-    },
-    {
-      "title": "安宁",
-      "author": "孙燕姿",
-      "pic": "https://p1.music.126.net/wF25xzePLml5EGUWM2eInw==/109951173219336672.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287065",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=287065"
-    },
-    {
-      "title": "半句再见",
-      "author": "孙燕姿 / 马嘉",
-      "pic": "https://p1.music.126.net/8OYS5shW8pqplo-7qDkuAg==/18520173860146257.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=474567124",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=474567124"
-    },
-    {
-      "title": "极美",
-      "author": "孙燕姿",
-      "pic": "https://p1.music.126.net/_VjuIgInJqwxdyoy4FF3IA==/18357446138140955.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=516657215",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=516657215"
-    },
-    {
-      "title": "渴",
-      "author": "孙燕姿",
-      "pic": "https://p1.music.126.net/IpXZzvX4xgseWGfZhXHCyQ==/109951163115291601.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=28283344",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=28283344"
-    },
-    {
-      "title": "逃亡",
-      "author": "孙燕姿",
-      "pic": "https://p1.music.126.net/1ZEUEfCDxUPOHpEJFNKliA==/109951169717938522.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287617",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=287617"
-    },
-    {
-      "title": "飘着",
-      "author": "孙燕姿",
-      "pic": "https://p1.music.126.net/wF25xzePLml5EGUWM2eInw==/109951173219336672.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287067",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=287067"
-    },
-    {
-      "title": "明天的记忆",
-      "author": "孙燕姿",
-      "pic": "https://p1.music.126.net/I9O-KpO4bLC6LWOKYfJj4Q==/109951165992337446.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=286965",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=286965"
-    },
-    {
-      "title": "克卜勒",
-      "author": "孙燕姿",
-      "pic": "https://p1.music.126.net/IpXZzvX4xgseWGfZhXHCyQ==/109951163115291601.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=28196001",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=28196001"
+      "name": "在,也不见",
+      "album": "在,也不见",
+      "artist": "孙燕姿",
+      "pic": "https://p2.music.126.net/DVFRGabbYQ88SdlXNQP5xw==/109951165992343715.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=408212737",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=408212737&format=yrc"
     },
     {
       "name": "愚人的国度",
-      "album": null,
+      "album": "是时候",
       "artist": "孙燕姿",
-      "pic": "https://p1.music.126.net/I9O-KpO4bLC6LWOKYfJj4Q==/109951165992337446.jpg",
+      "pic": "https://p2.music.126.net/I9O-KpO4bLC6LWOKYfJj4Q==/109951165992337446.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=286970",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=286970"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=286970&format=yrc"
+    },
+    {
+      "name": "逆光",
+      "album": "逆光",
+      "artist": "孙燕姿",
+      "pic": "https://p2.music.126.net/wF25xzePLml5EGUWM2eInw==/109951173219336672.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287057",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=287057&format=yrc"
+    },
+    {
+      "name": "风衣",
+      "album": "孙燕姿No. 13作品：跳舞的梵谷",
+      "artist": "孙燕姿",
+      "pic": "https://p2.music.126.net/_VjuIgInJqwxdyoy4FF3IA==/18357446138140955.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=516657213",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=516657213&format=yrc"
+    },
+    {
+      "name": "坏天气",
+      "album": "我要的幸福",
+      "artist": "孙燕姿",
+      "pic": "https://p2.music.126.net/1HJILQwc62AfvcXkGgVJHQ==/109951165549820772.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287717",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=287717&format=yrc"
+    },
+    {
+      "name": "隐形人",
+      "album": "My Story, Your Song 经典全纪录 (主打精华版)",
+      "artist": "孙燕姿",
+      "pic": "https://p2.music.126.net/UQo40hhzMpnP3bFvqIu16w==/109951166191908812.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287031",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=287031&format=yrc"
+    },
+    {
+      "name": "明天的记忆",
+      "album": "是时候",
+      "artist": "孙燕姿",
+      "pic": "https://p2.music.126.net/I9O-KpO4bLC6LWOKYfJj4Q==/109951165992337446.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=286965",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=286965&format=yrc"
+    },
+    {
+      "name": "不是真的爱我",
+      "album": "风筝",
+      "artist": "孙燕姿",
+      "pic": "https://p2.music.126.net/1ZEUEfCDxUPOHpEJFNKliA==/109951169717938522.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287620",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=287620&format=yrc"
+    },
+    {
+      "name": "Honey Honey",
+      "album": "完美的一天",
+      "artist": "孙燕姿",
+      "pic": "https://p2.music.126.net/fDHMWWX7pLkAxVPK10OQ7g==/109951168311119114.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287251",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=287251&format=yrc"
+    },
+    {
+      "name": "余额",
+      "album": "余额",
+      "artist": "孙燕姿",
+      "pic": "https://p2.music.126.net/HyRKUlLWAqdCzwUbVAnRhA==/109951165671976745.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1815692964",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1815692964&format=yrc"
+    },
+    {
+      "name": "雨还是不停地落下",
+      "album": "克卜勒",
+      "artist": "孙燕姿",
+      "pic": "https://p2.music.126.net/IpXZzvX4xgseWGfZhXHCyQ==/109951163115291601.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=28283351",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=28283351&format=yrc"
+    },
+    {
+      "name": "漩涡",
+      "album": "逆光",
+      "artist": "孙燕姿",
+      "pic": "https://p2.music.126.net/wF25xzePLml5EGUWM2eInw==/109951173219336672.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287071",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=287071&format=yrc"
+    },
+    {
+      "name": "眼泪成诗",
+      "album": "My Story, Your Song 经典全纪录 (主打精华版)",
+      "artist": "孙燕姿",
+      "pic": "https://p2.music.126.net/UQo40hhzMpnP3bFvqIu16w==/109951166191908812.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287041",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=287041&format=yrc"
+    },
+    {
+      "name": "天黑黑",
+      "album": "孙燕姿 同名专辑",
+      "artist": "孙燕姿",
+      "pic": "https://p2.music.126.net/MNKGTEU8rqL0v1W1KdOe5w==/109951166191897217.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287749",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=287749&format=yrc"
+    },
+    {
+      "name": "跳舞的梵谷",
+      "album": "孙燕姿No. 13作品：跳舞的梵谷",
+      "artist": "孙燕姿",
+      "pic": "https://p2.music.126.net/_VjuIgInJqwxdyoy4FF3IA==/18357446138140955.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=514055051",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=514055051&format=yrc"
+    },
+    {
+      "name": "我的爱",
+      "album": "Stefanie",
+      "artist": "孙燕姿",
+      "pic": "https://p2.music.126.net/EZu5tfacW02KP_UeUjVBYQ==/109951166890613011.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287274",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=287274&format=yrc"
+    },
+    {
+      "name": "风筝",
+      "album": "风筝",
+      "artist": "孙燕姿",
+      "pic": "https://p2.music.126.net/1ZEUEfCDxUPOHpEJFNKliA==/109951169717938522.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287614",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=287614&format=yrc"
+    },
+    {
+      "name": "渴",
+      "album": "克卜勒",
+      "artist": "孙燕姿",
+      "pic": "https://p2.music.126.net/IpXZzvX4xgseWGfZhXHCyQ==/109951163115291601.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=28283344",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=28283344&format=yrc"
+    },
+    {
+      "name": "神奇",
+      "album": "未完成",
+      "artist": "孙燕姿",
+      "pic": "https://p2.music.126.net/Pzxy6py26NgNmhJjYMf2RQ==/109951169724216323.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287384",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=287384&format=yrc"
+    },
+    {
+      "name": "无限大",
+      "album": "克卜勒",
+      "artist": "孙燕姿",
+      "pic": "https://p2.music.126.net/IpXZzvX4xgseWGfZhXHCyQ==/109951163115291601.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=28283345",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=28283345&format=yrc"
+    },
+    {
+      "name": "安宁",
+      "album": "逆光",
+      "artist": "孙燕姿",
+      "pic": "https://p2.music.126.net/wF25xzePLml5EGUWM2eInw==/109951173219336672.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287065",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=287065&format=yrc"
+    },
+    {
+      "name": "我要的幸福",
+      "album": "我要的幸福",
+      "artist": "孙燕姿",
+      "pic": "https://p2.music.126.net/1HJILQwc62AfvcXkGgVJHQ==/109951165549820772.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287716",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=287716&format=yrc"
+    },
+    {
+      "name": "极美",
+      "album": "孙燕姿No. 13作品：跳舞的梵谷",
+      "artist": "孙燕姿",
+      "pic": "https://p2.music.126.net/_VjuIgInJqwxdyoy4FF3IA==/18357446138140955.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=516657215",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=516657215&format=yrc"
+    },
+    {
+      "name": "飘着",
+      "album": "逆光",
+      "artist": "孙燕姿",
+      "pic": "https://p2.music.126.net/wF25xzePLml5EGUWM2eInw==/109951173219336672.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287067",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=287067&format=yrc"
+    },
+    {
+      "name": "天使的指纹",
+      "album": "克卜勒",
+      "artist": "孙燕姿",
+      "pic": "https://p2.music.126.net/IpXZzvX4xgseWGfZhXHCyQ==/109951163115291601.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=28274554",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=28274554&format=yrc"
+    },
+    {
+      "name": "尚好的青春",
+      "album": "克卜勒",
+      "artist": "孙燕姿",
+      "pic": "https://p2.music.126.net/IpXZzvX4xgseWGfZhXHCyQ==/109951163115291601.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=28283346",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=28283346&format=yrc"
+    },
+    {
+      "name": "我不难过",
+      "album": "未完成",
+      "artist": "孙燕姿",
+      "pic": "https://p2.music.126.net/Pzxy6py26NgNmhJjYMf2RQ==/109951169724216323.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287398",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=287398&format=yrc"
+    },
+    {
+      "name": "感动每一刻",
+      "album": "感动每一刻",
+      "artist": "林俊杰 / 孙燕姿 / 蔡健雅 / 阿杜",
+      "pic": "https://p2.music.126.net/Hf5rRE0cqlaxyf_92Qro3w==/109951171387080733.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=108362",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108362&format=yrc"
     }
   ]
 }

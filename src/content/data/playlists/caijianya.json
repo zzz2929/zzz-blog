@@ -1,326 +1,327 @@
 {
   "name": "蔡健雅",
   "cover": "http://p1.music.126.net/Z0BJgIIvL4ELo7epACRX1g==/109951169487525151.jpg?param=200y200",
+  "playlist": 18178516108,
   "songs": [
     {
-      "name": "越来越不懂",
-      "album": null,
-      "artist": "蔡健雅",
-      "pic": "https://p1.music.126.net/VJ4tv5U02cEWumd9hOQ14g==/109951164795908580.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=208915",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=208915"
-    },
-    {
-      "name": "思念是一种病",
-      "album": null,
-      "artist": "张震岳 / 蔡健雅",
-      "pic": "https://p1.music.126.net/N61oLy0iLfEkZTHD2j87iA==/18693896697392706.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=185700",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=185700"
-    },
-    {
-      "name": "红色高跟鞋",
-      "album": null,
-      "artist": "蔡健雅",
-      "pic": "https://p1.music.126.net/jJOaqlez9x5VofjgB7B_Bw==/109951166195459631.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=208902",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=208902"
-    },
-    {
-      "name": "下一次爱情来的时候",
-      "album": null,
-      "artist": "蔡健雅",
-      "pic": "https://p1.music.126.net/XimQqI8ilRweP5yd8pQVSQ==/109951168637068609.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=209046",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=209046"
-    },
-    {
-      "name": "Letting Go",
-      "album": null,
-      "artist": "蔡健雅",
-      "pic": "https://p1.music.126.net/5TTqb3sID_G-u2YOS2P0aA==/109951171536245206.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=208891",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=208891"
-    },
-    {
-      "name": "空白格",
-      "album": null,
-      "artist": "蔡健雅",
-      "pic": "https://p1.music.126.net/AryQmM2GgfCk4C9XfwV5uQ==/109951168271384367.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=208938",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=208938"
-    },
-    {
-      "name": "坠落",
-      "album": null,
-      "artist": "蔡健雅",
-      "pic": "https://p1.music.126.net/RLrFydREIra5P5rTzIpybQ==/109951166118886951.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=27747329",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=27747329"
-    },
-    {
-      "name": "原点",
-      "album": null,
-      "artist": "孙燕姿 / 蔡健雅",
-      "pic": "https://p1.music.126.net/UQo40hhzMpnP3bFvqIu16w==/109951166191908812.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287025",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=287025"
-    },
-    {
-      "name": "当你离开的时候",
-      "album": null,
-      "artist": "蔡健雅",
-      "pic": "https://p1.music.126.net/AryQmM2GgfCk4C9XfwV5uQ==/109951168271384367.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=208937",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=208937"
-    },
-    {
-      "name": "陌生人",
-      "album": null,
-      "artist": "蔡健雅",
-      "pic": "https://p1.music.126.net/9d2wwkv7BqdGZVHOAbHBVA==/109951169603869280.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=209121",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=209121"
-    },
-    {
-      "name": "记念",
-      "album": null,
-      "artist": "蔡健雅",
-      "pic": "https://p1.music.126.net/Blk_vxCUyT6QR4WvIjhBSA==/109951163447764377.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=209250",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=209250"
-    },
-    {
-      "name": "Beautiful Love",
-      "album": null,
-      "artist": "蔡健雅",
-      "pic": "https://p1.music.126.net/nr_1dAwED8y7FOyf8fwWwA==/528865124409107.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=38018395",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=38018395"
-    },
-    {
-      "name": "Nightglow",
-      "album": null,
-      "artist": "蔡健雅",
-      "pic": "https://p1.music.126.net/TAiliOjM10DlKiL56fPIMw==/109951163737497396.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1333199831",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1333199831"
-    },
-    {
       "name": "达尔文",
-      "album": null,
+      "album": "预见爱情",
       "artist": "蔡健雅",
       "pic": "https://p1.music.126.net/wbkrh_thnNRkWkXdFJHX_w==/40681930244552.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=5248060",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=5248060"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=5248060&format=yrc"
     },
     {
-      "name": "无底洞",
-      "album": null,
+      "name": "红色高跟鞋",
+      "album": "若你碰到他",
       "artist": "蔡健雅",
-      "pic": "https://p1.music.126.net/KZ0VfIoFYsxpjz9sTQuLVQ==/17687843556430013.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=454828893",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=454828893"
+      "pic": "https://p1.music.126.net/jJOaqlez9x5VofjgB7B_Bw==/109951166195459631.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=208902",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=208902&format=yrc"
     },
     {
-      "name": "旧行李",
-      "album": null,
+      "name": "Letting Go",
+      "album": "说到爱",
       "artist": "蔡健雅",
       "pic": "https://p1.music.126.net/5TTqb3sID_G-u2YOS2P0aA==/109951171536245206.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=208887",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=208887"
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=208891",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=208891&format=yrc"
     },
     {
-      "name": "生锈游乐场",
-      "album": null,
+      "name": "坠落",
+      "album": "天使与魔鬼的对话",
       "artist": "蔡健雅",
-      "pic": "https://p1.music.126.net/jJOaqlez9x5VofjgB7B_Bw==/109951166195459631.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=208905",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=208905"
-    },
-    {
-      "name": "思念",
-      "album": null,
-      "artist": "蔡健雅",
-      "pic": "https://p1.music.126.net/VJ4tv5U02cEWumd9hOQ14g==/109951164795908580.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=208927",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=208927"
-    },
-    {
-      "name": "让浪漫作主",
-      "album": null,
-      "artist": "蔡健雅",
-      "pic": "https://p1.music.126.net/Um5PpfGlfPZMJj81frDvRw==/109951166274970187.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1868851806",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1868851806"
-    },
-    {
-      "name": "我要给世界最悠长的湿吻",
-      "album": null,
-      "artist": "蔡健雅",
-      "pic": "https://p1.music.126.net/mG8qKdonSNSx3Dn1lnJnwA==/109951163738862744.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1334659052",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1334659052"
-    },
-    {
-      "name": "Easy Come Easy go",
-      "album": null,
-      "artist": "蔡健雅 / MC HotDog 热狗",
-      "pic": "https://p1.music.126.net/CCcKx3Ts_A1NKrD3DOfUEg==/2246302255571975.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=26269002",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=26269002"
-    },
-    {
-      "name": "别找我麻烦",
-      "album": null,
-      "artist": "蔡健雅",
-      "pic": "https://p1.music.126.net/nr_1dAwED8y7FOyf8fwWwA==/528865124409107.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=38018396",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=38018396"
-    },
-    {
-      "name": "谁",
-      "album": null,
-      "artist": "蔡健雅",
-      "pic": "https://p1.music.126.net/jJOaqlez9x5VofjgB7B_Bw==/109951166195459631.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=208900",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=208900"
-    },
-    {
-      "name": "晨间新闻",
-      "album": null,
-      "artist": "蔡健雅",
-      "pic": "https://p1.music.126.net/AryQmM2GgfCk4C9XfwV5uQ==/109951168271384367.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=208948",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=208948"
-    },
-    {
-      "name": "True Love",
-      "album": null,
-      "artist": "蔡健雅",
-      "pic": "https://p1.music.126.net/z0XvDY4N-duGGB9JwLa99w==/109951169989763505.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=209008",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=209008"
+      "pic": "https://p1.music.126.net/RLrFydREIra5P5rTzIpybQ==/109951166118886951.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=27747329",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=27747329&format=yrc"
     },
     {
       "name": "被驯服的象",
-      "album": null,
+      "album": "天使与魔鬼的对话",
       "artist": "蔡健雅",
       "pic": "https://p1.music.126.net/RLrFydREIra5P5rTzIpybQ==/109951166118886951.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=27747330",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=27747330"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=27747330&format=yrc"
     },
     {
-      "name": "下次见",
-      "album": null,
+      "name": "越来越不懂",
+      "album": "My Space",
       "artist": "蔡健雅",
-      "pic": "https://p1.music.126.net/5TTqb3sID_G-u2YOS2P0aA==/109951171536245206.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=208893",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=208893"
+      "pic": "https://p1.music.126.net/VJ4tv5U02cEWumd9hOQ14g==/109951164795908580.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=208915",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=208915&format=yrc"
+    },
+    {
+      "name": "思念是一种病",
+      "album": "OK",
+      "artist": "张震岳 / 蔡健雅",
+      "pic": "https://p1.music.126.net/N61oLy0iLfEkZTHD2j87iA==/18693896697392706.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=185700",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=185700&format=yrc"
+    },
+    {
+      "name": "别找我麻烦",
+      "album": "隐藏的歌手 第八期",
+      "artist": "蔡健雅",
+      "pic": "https://p1.music.126.net/nr_1dAwED8y7FOyf8fwWwA==/528865124409107.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=38018396",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=38018396&format=yrc"
     },
     {
       "name": "失语者",
-      "album": null,
+      "album": "失语者",
       "artist": "蔡健雅",
       "pic": "https://p1.music.126.net/HYpbNrm63LYFUxdEVbhD-g==/109951166118861127.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=36024442",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=36024442"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=36024442&format=yrc"
     },
     {
-      "name": "如果你爱我",
-      "album": null,
-      "artist": "蔡健雅",
-      "pic": "https://p1.music.126.net/AryQmM2GgfCk4C9XfwV5uQ==/109951168271384367.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=208942",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=208942"
+      "name": "Easy Come Easy go",
+      "album": "美丽突然发生 巡回演唱会",
+      "artist": "蔡健雅 / MC HotDog 热狗",
+      "pic": "https://p1.music.126.net/CCcKx3Ts_A1NKrD3DOfUEg==/2246302255571975.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=26269002",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=26269002&format=yrc"
     },
     {
-      "name": "全部的所有",
-      "album": null,
+      "name": "让浪漫作主",
+      "album": "DEPART",
       "artist": "蔡健雅",
       "pic": "https://p1.music.126.net/Um5PpfGlfPZMJj81frDvRw==/109951166274970187.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1868850860",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1868850860"
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1868851806",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1868851806&format=yrc"
     },
     {
-      "name": "失忆症",
-      "album": null,
+      "name": "我要给世界最悠长的湿吻",
+      "album": "我要给世界最悠长的湿吻",
       "artist": "蔡健雅",
-      "pic": "https://p1.music.126.net/XimQqI8ilRweP5yd8pQVSQ==/109951168637068609.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=209061",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=209061"
+      "pic": "https://p1.music.126.net/mG8qKdonSNSx3Dn1lnJnwA==/109951163738862744.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1334659052",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1334659052&format=yrc"
     },
     {
-      "name": "抛物线",
-      "album": null,
-      "artist": "蔡健雅",
-      "pic": "https://p1.music.126.net/jJOaqlez9x5VofjgB7B_Bw==/109951166195459631.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=208901",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=208901"
-    },
-    {
-      "name": "若你碰到他",
-      "album": null,
-      "artist": "蔡健雅",
-      "pic": "https://p1.music.126.net/jJOaqlez9x5VofjgB7B_Bw==/109951166195459631.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=208908",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=208908"
+      "name": "原点",
+      "album": "My Story, Your Song 经典全纪录 (主打精华版)",
+      "artist": "孙燕姿 / 蔡健雅",
+      "pic": "https://p1.music.126.net/UQo40hhzMpnP3bFvqIu16w==/109951166191908812.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=287025",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=287025&format=yrc"
     },
     {
       "name": "舞步",
-      "album": null,
+      "album": "我要给世界最悠长的湿吻",
       "artist": "蔡健雅",
       "pic": "https://p1.music.126.net/mG8qKdonSNSx3Dn1lnJnwA==/109951163738862744.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1334649916",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1334649916"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1334649916&format=yrc"
     },
     {
-      "name": "善良的我们",
-      "album": null,
+      "name": "当你离开的时候",
+      "album": "Goodbye & Hello",
       "artist": "蔡健雅",
-      "pic": "https://p1.music.126.net/M8CZjEcpFrBXHFlTq31qHQ==/109951169499292192.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2141610707",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2141610707"
+      "pic": "https://p1.music.126.net/AryQmM2GgfCk4C9XfwV5uQ==/109951168271384367.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=208937",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=208937&format=yrc"
+    },
+    {
+      "name": "空白格",
+      "album": "Goodbye & Hello",
+      "artist": "蔡健雅",
+      "pic": "https://p1.music.126.net/AryQmM2GgfCk4C9XfwV5uQ==/109951168271384367.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=208938",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=208938&format=yrc"
+    },
+    {
+      "name": "下一次爱情来的时候",
+      "album": "双栖动物",
+      "artist": "蔡健雅",
+      "pic": "https://p1.music.126.net/XimQqI8ilRweP5yd8pQVSQ==/109951168637068609.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=209046",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=209046&format=yrc"
+    },
+    {
+      "name": "无底洞",
+      "album": "白羽毛之恋 华语典藏情歌 Vol.2",
+      "artist": "蔡健雅",
+      "pic": "https://p1.music.126.net/KZ0VfIoFYsxpjz9sTQuLVQ==/17687843556430013.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=454828893",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=454828893&format=yrc"
+    },
+    {
+      "name": "True Love",
+      "album": "T-TIME",
+      "artist": "蔡健雅",
+      "pic": "https://p1.music.126.net/z0XvDY4N-duGGB9JwLa99w==/109951169989763505.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=209008",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=209008&format=yrc"
+    },
+    {
+      "name": "重来",
+      "album": "Cherished 割爱",
+      "artist": "蔡健雅",
+      "pic": "https://p1.music.126.net/FWECW2UFsWN4hv1_UD57Bg==/109951163105324107.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=529747142",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=529747142&format=yrc"
+    },
+    {
+      "name": "全部的所有",
+      "album": "DEPART",
+      "artist": "蔡健雅",
+      "pic": "https://p1.music.126.net/Um5PpfGlfPZMJj81frDvRw==/109951166274970187.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1868850860",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1868850860&format=yrc"
+    },
+    {
+      "name": "谁",
+      "album": "若你碰到他",
+      "artist": "蔡健雅",
+      "pic": "https://p1.music.126.net/jJOaqlez9x5VofjgB7B_Bw==/109951166195459631.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=208900",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=208900&format=yrc"
     },
     {
       "name": "真爱等一下",
-      "album": null,
+      "album": "再见你好吗",
       "artist": "陶喆 / 蔡健雅",
       "pic": "https://p1.music.126.net/l-rHTU3Zv6g7yjN9PH3GQw==/109951168271401133.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=26425123",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=26425123"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=26425123&format=yrc"
     },
     {
-      "name": "路口",
-      "album": null,
+      "name": "Beautiful Love",
+      "album": "隐藏的歌手 第八期",
       "artist": "蔡健雅",
-      "pic": "https://p1.music.126.net/z0XvDY4N-duGGB9JwLa99w==/109951169989763505.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=208970",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=208970"
+      "pic": "https://p1.music.126.net/nr_1dAwED8y7FOyf8fwWwA==/528865124409107.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=38018395",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=38018395&format=yrc"
+    },
+    {
+      "name": "陌生人",
+      "album": "陌生人",
+      "artist": "蔡健雅",
+      "pic": "https://p1.music.126.net/9d2wwkv7BqdGZVHOAbHBVA==/109951169603869280.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=209121",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=209121&format=yrc"
+    },
+    {
+      "name": "旧行李",
+      "album": "说到爱",
+      "artist": "蔡健雅",
+      "pic": "https://p1.music.126.net/5TTqb3sID_G-u2YOS2P0aA==/109951171536245206.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=208887",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=208887&format=yrc"
+    },
+    {
+      "name": "停格",
+      "album": "停格",
+      "artist": "蔡健雅",
+      "pic": "https://p1.music.126.net/Zd5uWVAOsomKwGseZxikHg==/7787840859786160.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=30590559",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=30590559&format=yrc"
+    },
+    {
+      "name": "下次见",
+      "album": "说到爱",
+      "artist": "蔡健雅",
+      "pic": "https://p1.music.126.net/5TTqb3sID_G-u2YOS2P0aA==/109951171536245206.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=208893",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=208893&format=yrc"
     },
     {
       "name": "贪图",
-      "album": null,
+      "album": "Cherished 割爱",
       "artist": "蔡健雅",
       "pic": "https://p1.music.126.net/FWECW2UFsWN4hv1_UD57Bg==/109951163105324107.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=529747143",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=529747143"
-    },
-    {
-      "name": "纪念",
-      "album": null,
-      "artist": "蔡健雅",
-      "pic": "https://p1.music.126.net/nr_1dAwED8y7FOyf8fwWwA==/528865124409107.jpg",
-      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=38018397",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=38018397"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=529747143&format=yrc"
     },
     {
       "name": "半途",
-      "album": null,
+      "album": "我要给世界最悠长的湿吻",
       "artist": "蔡健雅",
       "pic": "https://p1.music.126.net/mG8qKdonSNSx3Dn1lnJnwA==/109951163738862744.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1334659053",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1334659053"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1334659053&format=yrc"
+    },
+    {
+      "name": "生锈游乐场",
+      "album": "若你碰到他",
+      "artist": "蔡健雅",
+      "pic": "https://p1.music.126.net/jJOaqlez9x5VofjgB7B_Bw==/109951166195459631.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=208905",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=208905&format=yrc"
+    },
+    {
+      "name": "记念",
+      "album": "记念",
+      "artist": "蔡健雅",
+      "pic": "https://p1.music.126.net/Blk_vxCUyT6QR4WvIjhBSA==/109951163447764377.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=209250",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=209250&format=yrc"
+    },
+    {
+      "name": "纪念",
+      "album": "隐藏的歌手 第八期",
+      "artist": "蔡健雅",
+      "pic": "https://p1.music.126.net/nr_1dAwED8y7FOyf8fwWwA==/528865124409107.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=38018397",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=38018397&format=yrc"
+    },
+    {
+      "name": "思念",
+      "album": "My Space",
+      "artist": "蔡健雅",
+      "pic": "https://p1.music.126.net/VJ4tv5U02cEWumd9hOQ14g==/109951164795908580.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=208927",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=208927&format=yrc"
+    },
+    {
+      "name": "善良的我们",
+      "album": "不够善良的我们 : 戏剧音乐设计专辑",
+      "artist": "蔡健雅",
+      "pic": "https://p1.music.126.net/M8CZjEcpFrBXHFlTq31qHQ==/109951169499292192.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2141610707",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2141610707&format=yrc"
+    },
+    {
+      "name": "如果你爱我",
+      "album": "Goodbye & Hello",
+      "artist": "蔡健雅",
+      "pic": "https://p1.music.126.net/AryQmM2GgfCk4C9XfwV5uQ==/109951168271384367.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=208942",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=208942&format=yrc"
+    },
+    {
+      "name": "Into The Wild",
+      "album": "DEPART",
+      "artist": "蔡健雅 / 阿云嘎",
+      "pic": "https://p1.music.126.net/Um5PpfGlfPZMJj81frDvRw==/109951166274970187.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1868850856",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1868850856&format=yrc"
+    },
+    {
+      "name": "抛物线",
+      "album": "若你碰到他",
+      "artist": "蔡健雅",
+      "pic": "https://p1.music.126.net/jJOaqlez9x5VofjgB7B_Bw==/109951166195459631.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=208901",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=208901&format=yrc"
+    },
+    {
+      "name": "Nightglow",
+      "album": "崩坏3-Onwards-Original Soundtrack",
+      "artist": "蔡健雅",
+      "pic": "https://p1.music.126.net/TAiliOjM10DlKiL56fPIMw==/109951163737497396.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1333199831",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1333199831&format=yrc"
+    },
+    {
+      "name": "感动每一刻",
+      "album": "感动每一刻",
+      "artist": "林俊杰 / 孙燕姿 / 蔡健雅 / 阿杜",
+      "pic": "https://p1.music.126.net/Hf5rRE0cqlaxyf_92Qro3w==/109951171387080733.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=108362",
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=108362&format=yrc"
     }
   ]
 }

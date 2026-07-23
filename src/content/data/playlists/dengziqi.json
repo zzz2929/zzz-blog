@@ -1,806 +1,807 @@
 {
   "name": "邓紫棋",
   "cover": "http://p1.music.126.net/oJorrgJ3IotZUAbZkBMuFw==/109951167771736533.jpg?param=200y200",
+  "playlist": 18178528034,
   "songs": [
     {
       "name": "多远都要在一起",
-      "album": null,
+      "album": "新的心跳",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/kVwk6b8Qdya8oDyGDcyAVA==/1364493930777368.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=30612793",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=30612793"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=30612793&format=yrc"
     },
     {
       "name": "唯一",
-      "album": null,
+      "album": "T.I.M.E.",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/aJWtwvdYRXvKUpAE2C6NoA==/109951168919708423.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2083785152",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2083785152"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2083785152&format=yrc"
     },
     {
       "name": "句号",
-      "album": null,
+      "album": "摩天动物园",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/KTo5oSxH3CPA5PBTeFKDyA==/109951164581432409.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1405283464",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1405283464"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1405283464&format=yrc"
     },
     {
       "name": "光年之外 (G.E.M.重生版)",
-      "album": null,
+      "album": "I AM GLORIA",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/Dmg-cQJctLB_4ID4WRytIw==/109951171291365368.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2714278528",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2714278528"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2714278528&format=yrc"
     },
     {
       "name": "摩天动物园",
-      "album": null,
+      "album": "摩天动物园",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/KTo5oSxH3CPA5PBTeFKDyA==/109951164581432409.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1409382131",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1409382131"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1409382131&format=yrc"
     },
     {
       "name": "来自天堂的魔鬼",
-      "album": null,
+      "album": "新的心跳",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/kVwk6b8Qdya8oDyGDcyAVA==/1364493930777368.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=36270426",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=36270426"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=36270426&format=yrc"
     },
     {
       "name": "倒数",
-      "album": null,
+      "album": "另一个童话",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/tXCIFsVDK6IKcQ9YWxwOEg==/109951163523944497.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1299550532",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1299550532"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1299550532&format=yrc"
     },
     {
       "name": "再见（good bye）",
-      "album": null,
+      "album": "新的心跳",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/kVwk6b8Qdya8oDyGDcyAVA==/1364493930777368.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=36024806",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=36024806"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=36024806&format=yrc"
     },
     {
       "name": "画 (G.E.M.重生版)",
-      "album": null,
+      "album": "I AM GLORIA",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/Dmg-cQJctLB_4ID4WRytIw==/109951171291365368.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2714278524",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2714278524"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2714278524&format=yrc"
     },
     {
       "name": "GLORIA",
-      "album": null,
+      "album": "启示录",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/5WBF8uSFXhLVjvMOCeqflQ==/109951167859171747.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1970550394",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1970550394"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1970550394&format=yrc"
     },
     {
       "name": "喜欢你 (G.E.M.重生版)",
-      "album": null,
+      "album": "I AM GLORIA",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/Dmg-cQJctLB_4ID4WRytIw==/109951171291365368.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2714278526",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2714278526"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2714278526&format=yrc"
     },
     {
       "name": "孤独",
-      "album": null,
+      "album": "孤独",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/OAaxmYfsDZNXPk9H_h4pMQ==/109951165369903131.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1484967131",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1484967131"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1484967131&format=yrc"
     },
     {
       "name": "你不是真正的快乐 (Live)",
-      "album": null,
+      "album": "我是歌手第二季 半决赛",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/uq8Y-O1mSUSqv3zOW4sNCg==/5989039836716828.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=28341146",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=28341146"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=28341146&format=yrc"
     },
     {
       "name": "透明",
-      "album": null,
+      "album": "摩天动物园",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/KTo5oSxH3CPA5PBTeFKDyA==/109951164581432409.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1412264550",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1412264550"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1412264550&format=yrc"
     },
     {
       "name": "平凡天使",
-      "album": null,
+      "album": "平凡天使",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/8JkfznEa_qqASaJvUIicyw==/109951164784376724.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1429363572",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1429363572"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1429363572&format=yrc"
     },
     {
       "name": "泡沫 (G.E.M.重生版)",
-      "album": null,
+      "album": "I AM GLORIA",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/Dmg-cQJctLB_4ID4WRytIw==/109951171291365368.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2714278532",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2714278532"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2714278532&format=yrc"
     },
     {
       "name": "后会无期 (G.E.M.重生版)",
-      "album": null,
+      "album": "I AM GLORIA",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/Dmg-cQJctLB_4ID4WRytIw==/109951171291365368.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2714278527",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2714278527"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2714278527&format=yrc"
     },
     {
       "name": "很久以后",
-      "album": null,
+      "album": "摩天动物园",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/KTo5oSxH3CPA5PBTeFKDyA==/109951164581432409.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1412263970",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1412263970"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1412263970&format=yrc"
     },
     {
       "name": "手心的蔷薇",
-      "album": null,
+      "album": "新地球 - 人 (Special Edition)",
       "artist": "林俊杰 / G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/2e__sKuIQsTSVVGr5Hk1FA==/109951170313536564.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=29848657",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=29848657"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=29848657&format=yrc"
     },
     {
       "name": "龙卷风 (Live)",
-      "album": null,
+      "album": "我是歌手第二季 第9期",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/dK6twuFYKKBde1rDmDVbPQ==/5981343255261449.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=28427775",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=28427775"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=28427775&format=yrc"
     },
     {
       "name": "红蔷薇白玫瑰 (G.E.M.重生版)",
-      "album": null,
+      "album": "I AM GLORIA",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/Dmg-cQJctLB_4ID4WRytIw==/109951171291365368.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2714278533",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2714278533"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2714278533&format=yrc"
     },
     {
       "name": "海阔天空",
-      "album": null,
+      "album": "T.I.M.E.",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/aJWtwvdYRXvKUpAE2C6NoA==/109951168919708423.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2102012051",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2102012051"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2102012051&format=yrc"
     },
     {
       "name": "情人",
-      "album": null,
+      "album": "T.I.M.E.",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/aJWtwvdYRXvKUpAE2C6NoA==/109951168919708423.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2082700997",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2082700997"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2082700997&format=yrc"
     },
     {
       "name": "桃花诺",
-      "album": null,
+      "album": "上古情歌 电视剧原声带",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/_v7ezNPQOEJ3aFir8MZmzQ==/19050138463061697.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=480579393",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=480579393"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=480579393&format=yrc"
     },
     {
       "name": "攀登 (Live)",
-      "album": null,
+      "album": "中国新说唱 第13期",
       "artist": "潘玮柏 / G.E.M.邓紫棋 / 艾热 AIR",
       "pic": "https://p2.music.126.net/WlkSXIjLZcenMU1g0anGeg==/109951163589728383.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1313107926",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1313107926"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1313107926&format=yrc"
     },
     {
       "name": "你不是第一个离开的人",
-      "album": null,
+      "album": "启示录",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/5WBF8uSFXhLVjvMOCeqflQ==/109951167859171747.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1970559930",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1970559930"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1970559930&format=yrc"
     },
     {
       "name": "HELL",
-      "album": null,
+      "album": "启示录",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/5WBF8uSFXhLVjvMOCeqflQ==/109951167859171747.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1970554402",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1970554402"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1970554402&format=yrc"
     },
     {
       "name": "倒流时间",
-      "album": null,
+      "album": "倒流时间",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/FCKp2mI10gDcVKosKqZ_Rw==/109951166738436559.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1904192389",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1904192389"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1904192389&format=yrc"
     },
     {
       "name": "差不多姑娘",
-      "album": null,
+      "album": "摩天动物园",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/KTo5oSxH3CPA5PBTeFKDyA==/109951164581432409.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1379444316",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1379444316"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1379444316&format=yrc"
     },
     {
       "name": "A.I.N.Y. 爱你 (G.E.M.重生版)",
-      "album": null,
+      "album": "I AM GLORIA",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/Dmg-cQJctLB_4ID4WRytIw==/109951171291365368.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2714278525",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2714278525"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2714278525&format=yrc"
     },
     {
       "name": "11",
-      "album": null,
+      "album": "T.I.M.E.",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/aJWtwvdYRXvKUpAE2C6NoA==/109951168919708423.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2093526245",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2093526245"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2093526245&format=yrc"
     },
     {
       "name": "Walk On Water",
-      "album": null,
+      "album": "摩天动物园",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/KTo5oSxH3CPA5PBTeFKDyA==/109951164581432409.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1398247728",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1398247728"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1398247728&format=yrc"
     },
     {
       "name": "好想好想你",
-      "album": null,
+      "album": "摩天动物园",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/KTo5oSxH3CPA5PBTeFKDyA==/109951164581432409.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1412266089",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1412266089"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1412266089&format=yrc"
     },
     {
       "name": "不想回家",
-      "album": null,
+      "album": "启示录",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/5WBF8uSFXhLVjvMOCeqflQ==/109951167859171747.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1970559933",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1970559933"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1970559933&format=yrc"
     },
     {
       "name": "超能力",
-      "album": null,
+      "album": "超能力",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/CaQIm9X9xy9CMhc86e3qaA==/109951165847509270.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1833633769",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1833633769"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1833633769&format=yrc"
     },
     {
       "name": "受难曲",
-      "album": null,
+      "album": "启示录",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/5WBF8uSFXhLVjvMOCeqflQ==/109951167859171747.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1970559946",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1970559946"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1970559946&format=yrc"
     },
     {
       "name": "冰河时代",
-      "album": null,
+      "album": "启示录",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/5WBF8uSFXhLVjvMOCeqflQ==/109951167859171747.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1970559943",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1970559943"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1970559943&format=yrc"
     },
     {
       "name": "Fly Away",
-      "album": null,
+      "album": "摩天动物园",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/KTo5oSxH3CPA5PBTeFKDyA==/109951164581432409.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1412263909",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1412263909"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1412263909&format=yrc"
     },
     {
       "name": "李香兰",
-      "album": null,
+      "album": "T.I.M.E.",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/aJWtwvdYRXvKUpAE2C6NoA==/109951168919708423.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2090583416",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2090583416"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2090583416&format=yrc"
     },
     {
       "name": "岩石里的花",
-      "album": null,
+      "album": "睡皇后",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/fI5OPx5-0G4g384rGNQftA==/109951163751293472.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1331535573",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1331535573"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1331535573&format=yrc"
     },
     {
       "name": "心之焰",
-      "album": null,
+      "album": "心之焰",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/zOBhCHqAwqVYZKZWkU8YsQ==/18501482162515911.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=481535566",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=481535566"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=481535566&format=yrc"
     },
     {
       "name": "死了都要 • 爱",
-      "album": null,
+      "album": "死了都要 • 爱",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/99IxCWvRFSETlw_b2woNyg==/3300733913838962.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=444524243",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=444524243"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=444524243&format=yrc"
     },
     {
       "name": "只有我和你的地方",
-      "album": null,
+      "album": "启示录",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/5WBF8uSFXhLVjvMOCeqflQ==/109951167859171747.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1970559924",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1970559924"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1970559924&format=yrc"
     },
     {
       "name": "一路逆风",
-      "album": null,
+      "album": "新的心跳",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/kVwk6b8Qdya8oDyGDcyAVA==/1364493930777368.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=36103237",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=36103237"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=36103237&format=yrc"
     },
     {
       "name": "萤火",
-      "album": null,
+      "album": "摩天动物园",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/KTo5oSxH3CPA5PBTeFKDyA==/109951164581432409.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1412264008",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1412264008"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1412264008&format=yrc"
     },
     {
       "name": "别勉强",
-      "album": null,
+      "album": "摩天动物园",
       "artist": "G.E.M.邓紫棋 / 周兴哲",
       "pic": "https://p2.music.126.net/KTo5oSxH3CPA5PBTeFKDyA==/109951164581432409.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1412264712",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1412264712"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1412264712&format=yrc"
     },
     {
       "name": "面壁者",
-      "album": null,
+      "album": "面壁者",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/15-M_C_SUgY33WYEEl_Q9Q==/109951168126517713.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2004999754",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2004999754"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2004999754&format=yrc"
     },
     {
       "name": "那一夜",
-      "album": null,
+      "album": "毒苹果",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/X7f92tSJ-b0_sC1u9tgAyQ==/109951163654227442.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1318284264",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1318284264"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1318284264&format=yrc"
     },
     {
       "name": "Victoria",
-      "album": null,
+      "album": "Victoria",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/qzdd2dpFpaAYd1761X4EtQ==/109951163068840572.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=520460023",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=520460023"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=520460023&format=yrc"
     },
     {
       "name": "新的心跳",
-      "album": null,
+      "album": "新的心跳",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/kVwk6b8Qdya8oDyGDcyAVA==/1364493930777368.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=33190007",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=33190007"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=33190007&format=yrc"
     },
     {
       "name": "天空没有极限 (粤)",
-      "album": null,
+      "album": "I AM GLORIA",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/Dmg-cQJctLB_4ID4WRytIw==/109951171291365368.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2714278534",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2714278534"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2714278534&format=yrc"
     },
     {
       "name": "天空没有极限",
-      "album": null,
+      "album": "启示录",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/5WBF8uSFXhLVjvMOCeqflQ==/109951167859171747.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1970560265",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1970560265"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1970560265&format=yrc"
     },
     {
       "name": "灰狼",
-      "album": null,
+      "album": "摩天动物园",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/KTo5oSxH3CPA5PBTeFKDyA==/109951164581432409.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1412264641",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1412264641"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1412264641&format=yrc"
     },
     {
       "name": "差不多姑娘 (Live)",
-      "album": null,
+      "album": "中国新说唱2019 第六期",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/MyhR7VUQk7TTxS6TgqA6Aw==/109951164224106671.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1378898254",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1378898254"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1378898254&format=yrc"
     },
     {
       "name": "多美丽",
-      "album": null,
+      "album": "摩天动物园",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/KTo5oSxH3CPA5PBTeFKDyA==/109951164581432409.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1412264735",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1412264735"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1412264735&format=yrc"
     },
     {
       "name": "两个你",
-      "album": null,
+      "album": "两个你",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/ktAw4FNwGL4owGZW_5227w==/109951166669987126.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1899047747",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1899047747"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1899047747&format=yrc"
     },
     {
       "name": "依然睡公主",
-      "album": null,
+      "album": "摩天动物园",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/KTo5oSxH3CPA5PBTeFKDyA==/109951164581432409.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1412264741",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1412264741"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1412264741&format=yrc"
     },
     {
       "name": "有心人",
-      "album": null,
+      "album": "有心人",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/xKGpj-VeccKJHxbUFUcsdA==/1401877332359781.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=410518476",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=410518476"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=410518476&format=yrc"
     },
     {
       "name": "于是",
-      "album": null,
+      "album": "新的心跳",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/kVwk6b8Qdya8oDyGDcyAVA==/1364493930777368.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=36198060",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=36198060"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=36198060&format=yrc"
     },
     {
       "name": "少年与海",
-      "album": null,
+      "album": "启示录",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/5WBF8uSFXhLVjvMOCeqflQ==/109951167859171747.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1970559918",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1970559918"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1970559918&format=yrc"
     },
     {
       "name": "老人与海",
-      "album": null,
+      "album": "启示录",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/5WBF8uSFXhLVjvMOCeqflQ==/109951167859171747.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1970554437",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1970554437"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1970554437&format=yrc"
     },
     {
       "name": "写不完的温柔",
-      "album": null,
+      "album": "18 Plus",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/Ucjk_bkpGOHX1lYnezd4qw==/109951172128640538.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=234014",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=234014"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=234014&format=yrc"
     },
     {
       "name": "光年之外 (热爱版)",
-      "album": null,
+      "album": "光年之外 (热爱版)",
       "artist": "G.E.M.邓紫棋 / 艾热 AIR",
       "pic": "https://p2.music.126.net/-tBRFXYkEoT73fFAgQcg5w==/109951163717782652.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1332424898",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1332424898"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1332424898&format=yrc"
     },
     {
       "name": "夜的尽头",
-      "album": null,
+      "album": "启示录",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/5WBF8uSFXhLVjvMOCeqflQ==/109951167859171747.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1970560262",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1970560262"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1970560262&format=yrc"
     },
     {
       "name": "让世界暂停一分钟",
-      "album": null,
+      "album": "启示录",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/5WBF8uSFXhLVjvMOCeqflQ==/109951167859171747.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1970568707",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1970568707"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1970568707&format=yrc"
     },
     {
       "name": "FIND YOU",
-      "album": null,
+      "album": "启示录",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/5WBF8uSFXhLVjvMOCeqflQ==/109951167859171747.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1970560257",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1970560257"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1970560257&format=yrc"
     },
     {
       "name": "离心力",
-      "album": null,
+      "album": "启示录",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/5WBF8uSFXhLVjvMOCeqflQ==/109951167859171747.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1970560258",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1970560258"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1970560258&format=yrc"
     },
     {
       "name": "Where Did U Go (G.E.M.重生版)",
-      "album": null,
+      "album": "I AM GLORIA",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/Dmg-cQJctLB_4ID4WRytIw==/109951171291365368.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2714278530",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2714278530"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2714278530&format=yrc"
     },
     {
       "name": "盲点",
-      "album": null,
+      "album": "新的心跳",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/kVwk6b8Qdya8oDyGDcyAVA==/1364493930777368.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=36199531",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=36199531"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=36199531&format=yrc"
     },
     {
       "name": "你成为了谁的幸福",
-      "album": null,
+      "album": "T.I.M.E.",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/aJWtwvdYRXvKUpAE2C6NoA==/109951168919708423.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2098173325",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2098173325"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2098173325&format=yrc"
     },
     {
       "name": "另一个童话",
-      "album": null,
+      "album": "另一个童话",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/tXCIFsVDK6IKcQ9YWxwOEg==/109951163523944497.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1305366734",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1305366734"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1305366734&format=yrc"
     },
     {
       "name": "泡沫 (Live)",
-      "album": null,
+      "album": "我是歌手第二季 第1期",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/FFCQQMYJA3n2Ig9bS6Lh2g==/5890083790192984.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=28427707",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=28427707"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=28427707&format=yrc"
     },
     {
       "name": "万国觉醒",
-      "album": null,
+      "album": "万国觉醒",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/aR8dJbf6OWzaODKbCKgbGg==/109951165338552216.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1481592204",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1481592204"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1481592204&format=yrc"
     },
     {
       "name": "毒苹果",
-      "album": null,
+      "album": "毒苹果",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/X7f92tSJ-b0_sC1u9tgAyQ==/109951163654227442.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1323304372",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1323304372"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1323304372&format=yrc"
     },
     {
       "name": "你把我灌醉",
-      "album": null,
+      "album": "The Best of G.E.M. 2008 - 2012 (Deluxe Version)",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/fqleir2BWqbmE8tDNLa5Pg==/109951163789160762.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=26550057",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=26550057"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=26550057&format=yrc"
     },
     {
       "name": "我的秘密 (G.E.M.重生版)",
-      "album": null,
+      "album": "I AM GLORIA",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/Dmg-cQJctLB_4ID4WRytIw==/109951171291365368.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2714278531",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2714278531"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2714278531&format=yrc"
     },
     {
       "name": "瞬间",
-      "album": null,
+      "album": "新的心跳",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/kVwk6b8Qdya8oDyGDcyAVA==/1364493930777368.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=34723529",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=34723529"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=34723529&format=yrc"
     },
     {
       "name": "北京北京",
-      "album": null,
+      "album": "北京北京",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/tCCG-qQWlpskI2DwyYAIRg==/1364493961825021.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=399353351",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=399353351"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=399353351&format=yrc"
     },
     {
       "name": "我说了算",
-      "album": null,
+      "album": "我说了算",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/7H3R_hFWpcqsYHqKpjIKGg==/109951164371661836.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1391453675",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1391453675"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1391453675&format=yrc"
     },
     {
       "name": "查克靠近",
-      "album": null,
+      "album": "新的心跳",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/kVwk6b8Qdya8oDyGDcyAVA==/1364493930777368.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=36308329",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=36308329"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=36308329&format=yrc"
     },
     {
       "name": "两个自己",
-      "album": null,
+      "album": "两个你",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/ktAw4FNwGL4owGZW_5227w==/109951166669987126.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1899045414",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1899045414"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1899045414&format=yrc"
     },
     {
       "name": "错过不错",
-      "album": null,
+      "album": "另一个童话",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/tXCIFsVDK6IKcQ9YWxwOEg==/109951163523944497.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1305364667",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1305364667"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1305364667&format=yrc"
     },
     {
       "name": "Fly Away (ft. KEY.L刘聪/刘炫廷) (Live)",
-      "album": null,
+      "album": "中国新说唱2019 第九期",
       "artist": "G.E.M.邓紫棋 / KEY.L刘聪 / 刘炫廷",
       "pic": "https://p2.music.126.net/Q1HwzbhGO8GB_1QaNciYTQ==/109951164279479954.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1383211739",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1383211739"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1383211739&format=yrc"
     },
     {
       "name": "回忆的沙漏 (G.E.M.重生版)",
-      "album": null,
+      "album": "I AM GLORIA",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/Dmg-cQJctLB_4ID4WRytIw==/109951171291365368.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2714278529",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2714278529"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2714278529&format=yrc"
     },
     {
       "name": "睡公主 (G.E.M.重生版)",
-      "album": null,
+      "album": "I AM GLORIA",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/Dmg-cQJctLB_4ID4WRytIw==/109951171291365368.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2714278535",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2714278535"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2714278535&format=yrc"
     },
     {
       "name": "睡皇后",
-      "album": null,
+      "album": "睡皇后",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/fI5OPx5-0G4g384rGNQftA==/109951163751293472.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1335819187",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1335819187"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1335819187&format=yrc"
     },
     {
       "name": "单行的轨道",
-      "album": null,
+      "album": "新的心跳",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/kVwk6b8Qdya8oDyGDcyAVA==/1364493930777368.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=31234186",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=31234186"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=31234186&format=yrc"
     },
     {
       "name": "死了都要爱 (Live)",
-      "album": null,
+      "album": "中国新说唱 第4期",
       "artist": "G.E.M.邓紫棋 / 潘玮柏",
       "pic": "https://p2.music.126.net/HXcjOs84rrn8olYNylT8ZQ==/109951163441260592.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1297743782",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1297743782"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1297743782&format=yrc"
     },
     {
       "name": "爱如意",
-      "album": null,
+      "album": "爱如意",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/egPNbidvf9TaI-asdoHpSg==/109951163380057849.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=574919590",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=574919590"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=574919590&format=yrc"
     },
     {
       "name": "喜欢你 (Live)",
-      "album": null,
+      "album": "我是歌手第二季 第6期",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/O5UrE1MKE18QUi5VXD519g==/5978044720384863.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=28427753",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=28427753"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=28427753&format=yrc"
     },
     {
       "name": "给你的歌 (Live Piano Session II)",
-      "album": null,
+      "album": "再见",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/fouKnh_hQKyyaCZ2PIQUEA==/1410673427960641.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=412327083",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=412327083"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=412327083&format=yrc"
     },
     {
       "name": "突然之间",
-      "album": null,
+      "album": "毒苹果",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/X7f92tSJ-b0_sC1u9tgAyQ==/109951163654227442.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1323301365",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1323301365"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1323301365&format=yrc"
     },
     {
       "name": "If I Were A Boy",
-      "album": null,
+      "album": "我是歌手第二季 第5期",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/oFps9u9qkvlvmUtVb3bERw==/5888984278563663.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=28427745",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=28427745"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=28427745&format=yrc"
     },
     {
       "name": "多远都要在一起 (Dub Mix)",
-      "album": null,
+      "album": "25LOOKS",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/eX7aCeGTF3Lt_swJSbE4yQ==/18700493765616158.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=432698302",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=432698302"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=432698302&format=yrc"
     },
     {
       "name": "We Are Young (Live)",
-      "album": null,
+      "album": "中国新说唱2019 第十二期",
       "artist": "G.E.M.邓紫棋 / OB03 / 刘炫廷 / Capper / FOX胡天渝",
       "pic": "https://p2.music.126.net/H4ryR1IdYYdy4MTuJltUNw==/109951164333318771.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1387615548",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1387615548"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1387615548&format=yrc"
     },
     {
       "name": "我要我们在一起",
-      "album": null,
+      "album": "我是歌手第二季 第4期",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/i8lbMCcN171MNrTSKpwxyw==/5990139348287553.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=28427737",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=28427737"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=28427737&format=yrc"
     },
     {
       "name": "蝶恋花",
-      "album": null,
+      "album": "热门华语183",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/cpoUinrExafBHL5Nv5iDHQ==/109951166361218466.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=27937620",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=27937620"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=27937620&format=yrc"
     },
     {
       "name": "存在 (Live)",
-      "album": null,
+      "album": "我是歌手第二季 第2期",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/Z4voMXpr0OA-AiCc_Od33g==/6028622255349214.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=28427721",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=28427721"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=28427721&format=yrc"
     },
     {
       "name": "倒数 (Live)",
-      "album": null,
+      "album": "中国新说唱 第12期",
       "artist": "G.E.M.邓紫棋",
       "pic": "https://p2.music.126.net/Hx-PJgpdWJIA8PEx_2XJag==/109951163575606355.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1313107594",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1313107594"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1313107594&format=yrc"
     },
     {
       "name": "蜕变 (Live)",
-      "album": null,
+      "album": "中国新说唱 第8期",
       "artist": "潘玮柏 / G.E.M.邓紫棋 / 艾热 AIR / ICE杨长青",
       "pic": "https://p2.music.126.net/rq-UPiSvde8PUUDgw7iUzw==/109951163528111375.jpg",
       "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1306507052",
-      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1306507052"
+      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1306507052&format=yrc"
     }
   ]
 }
