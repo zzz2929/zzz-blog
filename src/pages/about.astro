@@ -14,7 +14,7 @@ const posts = await getCollection("blog");
 
 <BaseLayout title={t('about.title')}>
   <Header />
-  <main class="mx-auto max-w-4xl px-4 py-8 sm:px-6">
+  <main class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
     <!-- Hero -->
     <section class="mb-12 flex flex-col items-center text-center">
       <img
@@ -89,70 +89,65 @@ const posts = await getCollection("blog");
       </div>
     </section>
 
-    <!-- Maxim & Buff -->
-    <section class="mb-10 grid gap-4 sm:grid-cols-2">
-      <div class="rounded-xl border border-border bg-card p-6">
-        <h3 class="mb-2 text-sm font-semibold text-muted">
-          {about.maxim.maxim_tips}
-        </h3>
-        <p class="text-foreground">{about.maxim.maxim_top}</p>
-        <p class="text-foreground">{about.maxim.maxim_bottom}</p>
-      </div>
-      <div class="rounded-xl border border-border bg-card p-6">
-        <h3 class="mb-2 text-sm font-semibold text-muted">
-          {about.buff.buff_tips}
-        </h3>
-        <p class="text-foreground">{about.buff.buff_top}</p>
-        <p class="text-foreground">{about.buff.buff_bottom}</p>
-      </div>
-    </section>
-
-    <!-- Game -->
-    <section
-      class="mb-10 rounded-xl border border-border bg-card overflow-hidden"
-    >
+    <!-- Game & Comics Row -->
+    <section class="mb-10 flex flex-col sm:flex-row gap-4">
+      <!-- Game Card -->
       <div
-        class="relative h-32 bg-cover bg-center"
+        class="sm:w-[55%] rounded-2xl overflow-hidden relative min-h-[280px] bg-center bg-top"
         style={`background-image: url(${about.game.game_bg})`}
       >
-        <div class="absolute inset-0 bg-black/40 flex items-end p-4">
+        <div class="card-content absolute inset-0 p-5 flex flex-col justify-between">
           <div>
-            <p class="text-xs text-white/80">{about.game.game_tips}</p>
-            <p class="text-lg font-bold text-white">{about.game.game_title}</p>
-            <p class="text-sm text-white/80">{about.game.game_uid}</p>
+            <p class="item-tips text-xs text-white/70 mb-1">{about.game.game_tips}</p>
+            <span class="item-title text-2xl font-bold text-white">{about.game.game_title}</span>
+          </div>
+          <div class="game-content-bottom">
+            <div class="flex items-end justify-between mt-auto">
+              <div class="flex gap-2">
+                {['🔥','💧','🌿','⚡','❄️','⭐','🪨'].map((el) => (
+                  <span class="text-lg opacity-80">{el}</span>
+                ))}
+              </div>
+              <p class="game-uid text-xs text-white/70">{about.game.game_uid}</p>
+            </div>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- Comics -->
-    <section class="mb-10">
-      <h2 class="mb-4 text-xl font-bold text-foreground">
-        {about.comic.comic_tips} · {about.comic.comic_title}
-      </h2>
-      <div class="grid grid-cols-2 gap-4 sm:grid-cols-3">
-        {
-          about.comic.comic_list.map((item: any) => (
-            <a
-              href={item.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="group"
-            >
-              <div class="aspect-[2/3] overflow-hidden rounded-lg bg-border">
-                <img
-                  src={item.cover}
-                  alt={item.name}
-                  class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                />
-              </div>
-              <p class="mt-2 text-sm font-medium text-foreground group-hover:text-primary transition-colors line-clamp-2">
-                {item.name}
-              </p>
-            </a>
-          ))
-        }
+      <!-- Comics Card -->
+      <div class="sm:w-[45%] rounded-2xl overflow-hidden relative min-h-[280px] bg-border comic-content">
+        <div class="absolute top-5 left-5 z-20">
+          <p class="text-xs text-white/70 mb-1">{about.comic.comic_tips}</p>
+          <div class="text-2xl font-bold text-white">{about.comic.comic_title}</div>
+        </div>
+        <div class="comic-box absolute inset-0 flex overflow-hidden">
+          {
+            about.comic.comic_list.map((item: any, i: number) => (
+              <a
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="comic-item relative flex-1 overflow-hidden group transition-all duration-500 hover:z-10 hover:flex-[1.5]"
+                title={item.name}
+              >
+                <div class="absolute inset-0 transition-transform duration-500 group-hover:scale-110">
+                  <img
+                    src={item.cover}
+                    alt={item.name}
+                    class="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                {i < about.comic.comic_list.length - 1 && (
+                  <div
+                    class="absolute top-0 bottom-0 right-0 w-[3px] bg-white/70 z-10"
+                    style="transform: skewX(-8deg); transform-origin: top right;"
+                  ></div>
+                )}
+              </a>
+            ))
+          }
+        </div>
       </div>
     </section>
 

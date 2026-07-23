@@ -1,6 +1,6 @@
 {
   "class_name": "关于页",
-  "subtitle": "👉人生本就是无法回头的旅程，所以放心大胆地向前走就好👈",
+  "subtitle": "👉冠以名则六欲泛生，止于此则七情方休。👈",
   "avatarImg": "https://imgbed.904002.xyz/file/img/blog/avatar/zzz.webp",
   "avatarSkills": {
     "left": [
@@ -47,8 +47,8 @@
     "cover": "https://bu.dusays.com/2023/05/01/644f4b037b930.jpg"
   },
   "map": {
-    "title": "我现在住在",
-    "StrengthenTitle": "中国，商丘市，梁园区，商丘师范学院",
+    "title": "👨‍🎓毕业于",
+    "StrengthenTitle": "中国，河南省，商丘市，商丘师范学院",
     "background": "https://imgbed.904002.xyz/file/img/blog/background/sqnu/艺术楼-1.webp",
     "backgroundDark": "https://imgbed.904002.xyz/file/img/blog/background/sqnu/艺术楼-2.webp"
   },
@@ -57,8 +57,8 @@
     "selfInfoContentYear": 2004,
     "selfInfoTips2": "商丘师范学院",
     "selfInfoContent2": "数据科学与大数据技术",
-    "selfInfoTips3": "现在职业",
-    "selfInfoContent3": "大四学生👨‍🎓(求职中)"
+    "selfInfoTips3": "目前",
+    "selfInfoContent3": "求职中"
   },
   "personalities": {
     "author_name": "提倡者",
