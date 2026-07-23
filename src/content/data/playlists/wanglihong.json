@@ -1,294 +1,270 @@
 {
   "name": "王力宏",
   "cover": "http://p1.music.126.net/T5eZ-cn4-_JAdsnB_WtHzQ==/109951170336953174.jpg?param=200y200",
-  "songs":[
+  "songs": [
     {
       "name": "唯一",
-      "album": "唯一",
+      "album": null,
       "artist": "王力宏",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=27483167&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=27483167&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170708268079"
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=27483167",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=27483167",
+      "pic": "https://p2.music.126.net/59G6Y2NZlfqCHuTorgDNAw==/109951170708268079.jpg"
     },
     {
       "name": "好心分手",
-      "album": "不能不爱…卢巧音精选",
-      "artist": "卢巧音/王力宏",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=27713963&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=27713963&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165994496224"
+      "album": null,
+      "artist": "卢巧音 / 王力宏",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=27713963",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=27713963",
+      "pic": "https://p2.music.126.net/PNNb7OIbiHY7cy9i9rDxyw==/109951165994496224.jpg"
     },
     {
       "name": "爱的就是你",
-      "album": "Evolution 王力宏的音乐进化论 '95-'02 新歌+精选",
+      "album": null,
       "artist": "王力宏",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=25643327&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=25643327&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167107188111"
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=25643327",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=25643327",
+      "pic": "https://p2.music.126.net/gmDKnAG8b473bzxJNnL9eQ==/109951167107188111.jpg"
     },
     {
       "name": "落叶归根 (live)",
-      "album": "歌手2025 第13期",
-      "artist": "单依纯/王力宏",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2734285785&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2734285785&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171813286534"
+      "album": null,
+      "artist": "单依纯 / 王力宏",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2734285785",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2734285785",
+      "pic": "https://p2.music.126.net/Psj837f78xGlhMSi6ezF7Q==/109951171813286534.jpg"
     },
     {
       "name": "爱你等于爱自己",
-      "album": "公转自转",
+      "album": null,
       "artist": "王力宏",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=25643227&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=25643227&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169079597324"
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=25643227",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=25643227",
+      "pic": "https://p2.music.126.net/r4Mxc4dyVbym01BFZtxYMg==/109951169079597324.jpg"
     },
     {
       "name": "天地龙鳞",
-      "album": "大型纪录片《紫禁城》主题歌音乐专辑",
+      "album": null,
       "artist": "王力宏",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1899989255&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1899989255&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951166681216835"
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1899989255",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1899989255",
+      "pic": "https://p2.music.126.net/TqI53jH17yjOs860awgQeQ==/109951166681216835.jpg"
     },
     {
       "name": "Julia",
-      "album": "不可能错过你",
+      "album": null,
       "artist": "王力宏",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=25642769&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=25642769&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167368691120"
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=25642769",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=25642769",
+      "pic": "https://p2.music.126.net/23ANjzwAzlATxsZJrJpe8A==/109951167368691120.jpg"
     },
     {
       "name": "公转自转",
-      "album": "公转自转",
+      "album": null,
       "artist": "王力宏",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=25643299&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=25643299&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169079597324"
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=25643299",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=25643299",
+      "pic": "https://p2.music.126.net/r4Mxc4dyVbym01BFZtxYMg==/109951169079597324.jpg"
+    },
+    {
+      "name": "火力全开+爱错 (Live版)",
+      "album": null,
+      "artist": "王力宏",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2722525160",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2722525160",
+      "pic": "https://p2.music.126.net/Eys34xFpKgHkY9kz62hHxw==/109951171393091593.jpg"
     },
     {
       "name": "飘向北方 (Live)",
-      "album": "天赐的声音 第9期",
-      "artist": "王力宏/那吾克热-NW",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1443886308&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1443886308&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164943193444"
+      "album": null,
+      "artist": "王力宏 / 那吾克热-NW",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1443886308",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1443886308",
+      "pic": "https://p2.music.126.net/tC-uCCZhGZoFVE130e0xTg==/109951164943193444.jpg"
     },
     {
       "name": "雪人",
-      "album": "男女情歌对唱冠军全记录",
-      "artist": "范晓萱/王力宏",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=5257150&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=5257150&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165671182684"
+      "album": null,
+      "artist": "范晓萱 / 王力宏",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=5257150",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=5257150",
+      "pic": "https://p2.music.126.net/81BsxxhomJ4aJZYvEbyPkw==/109951165671182684.jpg"
     },
     {
       "name": "Flow (feat. 王力宏)",
-      "album": "JTW西游记",
-      "artist": "方大同/王力宏",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=431855963&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=431855963&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172683065558"
+      "album": null,
+      "artist": "方大同 / 王力宏",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=431855963",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=431855963",
+      "pic": "https://p2.music.126.net/U0O4bNjCvxf7J5vUaR8SmQ==/109951172683065558.jpg"
     },
     {
       "name": "风中的遗憾",
-      "album": "好想你",
+      "album": null,
       "artist": "王力宏",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=155844&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=155844&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167343164616"
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=155844",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=155844",
+      "pic": "https://p2.music.126.net/jGc_3Ze2Qgp-11bTucnsMw==/109951167343164616.jpg"
+    },
+    {
+      "name": "大城小爱(Live)",
+      "album": null,
+      "artist": "王力宏",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=25643093",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=25643093",
+      "pic": "https://p2.music.126.net/VO6eCEnJa-utaDQ-BO3DYg==/109951165958703234.jpg"
     },
     {
       "name": "安全感",
-      "album": "唯一",
+      "album": null,
       "artist": "王力宏",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=27483170&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=27483170&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170708268079"
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=27483170",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=27483170",
+      "pic": "https://p2.music.126.net/59G6Y2NZlfqCHuTorgDNAw==/109951170708268079.jpg"
     },
     {
       "name": "让我取暖",
-      "album": "给Lisa",
-      "artist": "彭羚/王力宏",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=281647&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=281647&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165958452754"
+      "album": null,
+      "artist": "彭羚 / 王力宏",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=281647",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=281647",
+      "pic": "https://p2.music.126.net/BwwXpWkoC3EYBsZU1EHNeg==/109951165958452754.jpg"
     },
     {
       "name": "不要害怕",
-      "album": "永远的第一天",
+      "album": null,
       "artist": "王力宏",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=27591648&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=27591648&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172439950540"
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=27591648",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=27591648",
+      "pic": "https://p2.music.126.net/Q1T2TwbT-Dxy0kiFyuzCTw==/109951172439950540.jpg"
     },
     {
       "name": "情敌贝多芬",
-      "album": "情敌贝多芬",
+      "album": null,
       "artist": "王力宏",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=26093464&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=26093464&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169208158722"
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=26093464",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=26093464",
+      "pic": "https://p2.music.126.net/oLiOFkn-KGCjbffOtYpnHQ==/109951169208158722.jpg"
     },
     {
       "name": "流泪手心",
-      "album": "不可能错过你",
+      "album": null,
       "artist": "王力宏",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=25642800&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=25642800&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167368691120"
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=25642800",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=25642800",
+      "pic": "https://p2.music.126.net/23ANjzwAzlATxsZJrJpe8A==/109951167368691120.jpg"
     },
     {
       "name": "改变自己(Live)",
-      "album": "MUSIC-MAN 2008王力宏世界巡回演唱会影音全记录",
+      "album": null,
       "artist": "王力宏",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=25642225&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=25642225&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165958744989"
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=25642225",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=25642225",
+      "pic": "https://p2.music.126.net/38srh98L8X2qURL1RkBX5g==/109951165958744989.jpg"
     },
     {
       "name": "龙的传人",
-      "album": "Evolution 王力宏的音乐进化论 '95-'02 新歌+精选",
+      "album": null,
       "artist": "王力宏",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=25643359&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=25643359&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167107188111"
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=25643359",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=25643359",
+      "pic": "https://p2.music.126.net/gmDKnAG8b473bzxJNnL9eQ==/109951167107188111.jpg"
     },
     {
       "name": "缘分一道桥 (Live)",
-      "album": "2019中国好声音中秋晚会",
+      "album": null,
       "artist": "王力宏",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1391212005&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1391212005&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168023765427"
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1391212005",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1391212005",
+      "pic": "https://p2.music.126.net/Uf4kb35nouWu5PjSIqoLtg==/109951168023765427.jpg"
     },
     {
       "name": "永远的第一天",
-      "album": "永远的第一天",
+      "album": null,
       "artist": "王力宏",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=25643466&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=25643466&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172439950540"
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=25643466",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=25643466",
+      "pic": "https://p2.music.126.net/Q1T2TwbT-Dxy0kiFyuzCTw==/109951172439950540.jpg"
     },
     {
       "name": "心中的日月(Live)",
-      "album": "MUSIC-MAN 2008王力宏世界巡回演唱会影音全记录",
+      "album": null,
       "artist": "王力宏",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=25642252&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=25642252&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165958744989"
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=25642252",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=25642252",
+      "pic": "https://p2.music.126.net/38srh98L8X2qURL1RkBX5g==/109951165958744989.jpg"
     },
     {
       "name": "爱情攻略",
-      "album": "爱情攻略",
+      "album": null,
       "artist": "王力宏",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=5258847&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=5258847&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=97856534889363"
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=5258847",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=5258847",
+      "pic": "https://p2.music.126.net/QhGZA3qTRZ3v3rhcXd2k5w==/97856534889363.jpg"
     },
     {
       "name": "Kiss Goodbye(Live)",
-      "album": "MUSIC-MAN 2008王力宏世界巡回演唱会影音全记录",
+      "album": null,
       "artist": "王力宏",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=25642208&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=25642208&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165958744989"
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=25642208",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=25642208",
+      "pic": "https://p2.music.126.net/38srh98L8X2qURL1RkBX5g==/109951165958744989.jpg"
     },
     {
       "name": "梦一场 (Live)",
-      "album": "2019中国好声音 第1期",
+      "album": null,
       "artist": "王力宏",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1382323162&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1382323162&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168021618871"
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1382323162",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1382323162",
+      "pic": "https://p2.music.126.net/ORKeWGKab2IVy1-G-LWDmw==/109951168021618871.jpg"
     },
     {
       "name": "Perfect (Live)",
-      "album": "王力宏 2019福利秀台北大安森林公园LIVE专辑",
+      "album": null,
       "artist": "王力宏",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2006452425&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2006452425&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168144192557"
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2006452425",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2006452425",
+      "pic": "https://p2.music.126.net/166K6IWcFkdHkdSphxo18A==/109951168144192557.jpg"
     },
     {
       "name": "我要",
-      "album": "唯一",
+      "album": null,
       "artist": "王力宏",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=27483176&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=27483176&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170708268079"
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=27483176",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=27483176",
+      "pic": "https://p2.music.126.net/59G6Y2NZlfqCHuTorgDNAw==/109951170708268079.jpg"
     },
     {
       "name": "第一个清晨(Live)",
-      "album": "MUSIC-MAN 2008王力宏世界巡回演唱会影音全记录",
+      "album": null,
       "artist": "王力宏",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=25642223&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=25642223&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165958744989"
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=25642223",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=25642223",
+      "pic": "https://p2.music.126.net/38srh98L8X2qURL1RkBX5g==/109951165958744989.jpg"
     },
     {
       "name": "如果你听见我的歌(Live)",
-      "album": "MUSIC-MAN 2008王力宏世界巡回演唱会影音全记录",
+      "album": null,
       "artist": "王力宏",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=25642244&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=25642244&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165958744989"
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=25642244",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=25642244",
+      "pic": "https://p2.music.126.net/38srh98L8X2qURL1RkBX5g==/109951165958744989.jpg"
     },
     {
       "name": "无问西东 (Live)",
-      "album": "天赐的声音 第7期",
-      "artist": "王力宏/陈楚生",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1440133242&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1440133242&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164900345260"
+      "album": null,
+      "artist": "王力宏 / 陈楚生",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1440133242",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1440133242",
+      "pic": "https://p2.music.126.net/mLbxEHGdL-R5_SU77we5pg==/109951164900345260.jpg"
     },
     {
       "name": "一首简单的歌(Live)",
-      "album": "MUSIC-MAN 2008王力宏世界巡回演唱会影音全记录",
+      "album": null,
       "artist": "王力宏",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=25642258&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=25642258&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165958744989"
-    },
-    {
-      "name": "爱错",
-      "album": "心中的日月",
-      "artist": "王力宏",
-      "url": "https://s2.cldisk.com/sv-w7/audio/cb/df/e5/ec912148f7c9a140c2dff1c2be1c96ef/audio.mp3?at_=1781405629880&ak_=0a2b9946c0ba34eab519f37f829c09b8&ad_=e8a0c439dae455f604ba36e509550ca5",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002ElVxf43rOue.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=004fneUm24gD2c"
-    },
-    {
-      "name": "大城小爱",
-      "album": "盖世英雄",
-      "artist": "王力宏",
-      "url": "https://s2.cldisk.com/sv-w7/audio/4d/8c/87/7402601f71c5892869e543c5c2be64ad/audio.mp3?at_=1781405630461&ak_=d7e8d91ad0949f1b0a0fa0249db9b2b5&ad_=d451718cca35bd0838b59e45b1e8cb97",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000001a0Dts37jw2M.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=004O1DHG4MjYOi"
-    },
-    {
-      "name": "需要人陪",
-      "album": "十八般武艺",
-      "artist": "王力宏",
-      "url": "https://s2.cldisk.com/sv-w8/audio/2b/cc/d3/89f8ece0597e14c6237a164811095fbe/audio.mp3?at_=1781405629600&ak_=ad93bb5da5402f0d391eb7595a639559&ad_=303f5380626026a242aba6b62981e4b7",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002iWU6B2ZvA8V.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=004AeIvh4ML0Bz"
-    },
-    {
-      "name": "我们的歌",
-      "album": "改变自己",
-      "artist": "王力宏",
-      "url": "https://s2.cldisk.com/sv-w8/audio/f8/3f/ff/8071087695ff0af80693d281a574a2e3/audio.mp3?at_=1781405820385&ak_=60b87cce16632765d96a84ba8ff23703&ad_=98f031a7e7afee864ade719d3eb774ca",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002Zwh5p4HgecI.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=000NqZLy2lfXjT"
-    },
-    {
-      "name": "你不知道的事",
-      "album": "十八般武艺",
-      "artist": "王力宏",
-      "url": "https://s2.cldisk.com/sv-w8/audio/69/2e/91/fd46cecf97593f93a27fd1ca3c5e5d01/audio.mp3?at_=1781406330577&ak_=58eda993d309bba219ed3b83f07643db&ad_=af856b0f1d1ef06b3aa9eb23370d3c2f",
-      "pic": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002iWU6B2ZvA8V.jpg?max_age=2592000",
-      "lrc": "https://163.hyc.moe?server=tencent&type=lrc&id=004OhZs82CZXfA"
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=25642258",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=25642258",
+      "pic": "https://p2.music.126.net/38srh98L8X2qURL1RkBX5g==/109951165958744989.jpg"
     }
   ]
 }

@@ -12,9 +12,9 @@ def convert_music_file(input_file='./src/content/data/playlists/wanglihong.json'
         for item in original_data:
             # 提取需要的字段，缺失则设为 None 或空字符串（按需调整）
             new_item = {
-                'name': item.get('name'),
+                'name': item.get('title'),
                 'album': item.get('album'),
-                'artist': item.get('artist'),
+                'artist': item.get('author'),
                 'url': item.get('url'),
                 'lrc': item.get('lrc'),
                 'pic': item.get('pic')

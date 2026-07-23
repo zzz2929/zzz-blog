@@ -3,324 +3,285 @@
   "cover": "https://p2.music.126.net/t7BUAen_jTN758ZFAUJyzQ==/109951170330578790.jpg?param=200y200",
   "songs": [
     {
-      "name": "干杯",
-      "album": "第二人生 (明日版)",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=22197007&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=22197007&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168162347102"
+      "title": "知足",
+      "author": "五月天",
+      "pic": "https://p1.music.126.net/3rVgLGrLIcUMPZ_YX2qYfQ==/109951166656672793.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1897964065",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1897964065"
     },
     {
-      "name": "诺亚方舟",
-      "album": "Do You Ever Shine?",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=3384869433&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3384869433&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168144461398"
+      "title": "诺亚方舟",
+      "author": "五月天",
+      "pic": "https://p1.music.126.net/aZpzJf--Faw-NsLRZrrc1A==/109951168144461398.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=3384869433",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=3384869433"
     },
     {
-      "name": "如烟",
-      "album": "后青春期的诗",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=22198023&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=22198023&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168163397768"
+      "title": "温柔",
+      "author": "五月天",
+      "pic": "https://p1.music.126.net/7pvCROH2UGqGAszPS5WfSw==/109951163093296876.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=4877413",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=4877413"
     },
     {
-      "name": "倔强",
-      "album": "神的孩子都在跳舞",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=386175&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=386175&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172136049624"
+      "title": "恋爱ing",
+      "author": "五月天",
+      "pic": "https://p1.music.126.net/pLn35sx61-IXRYfCbfPnCA==/109951171415600711.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=385973",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=385973"
     },
     {
-      "name": "笑忘歌",
-      "album": "后青春期的诗",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=22198025&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=22198025&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168163397768"
+      "title": "倔强",
+      "author": "五月天",
+      "pic": "https://p1.music.126.net/6BGLm69kJGI_NPaezIPihA==/109951172136049624.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=386175",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=386175"
     },
     {
-      "name": "星空",
-      "album": "第二人生 (末日版)",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=385556&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=385556&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168162296454"
+      "title": "干杯",
+      "author": "五月天",
+      "pic": "https://p1.music.126.net/5Bu3XLAvh-M9Iwkh0wlOYg==/109951168162347102.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=22197007",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=22197007"
     },
     {
-      "name": "转眼",
-      "album": "自传",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=422094257&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=422094257&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=3434874331529456"
+      "title": "后来的我们",
+      "author": "五月天",
+      "pic": "https://p1.music.126.net/lt4R_XbCZsT-yzRfWs9VfQ==/3434874331529456.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=422104138",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=422104138"
     },
     {
-      "name": "咸鱼",
-      "album": "知足 最真杰作选",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=386040&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=386040&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171415600711"
+      "title": "第一天",
+      "author": "五月天",
+      "pic": "https://p1.music.126.net/9PJtiZ7hxCUJ-CWhWO0CAw==/109951163376764097.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=543798371",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=543798371"
     },
     {
-      "name": "温柔",
-      "album": "涩女郎 电视原声带",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=4877413&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=4877413&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163093296876"
+      "title": "时光机",
+      "author": "五月天",
+      "pic": "https://p1.music.126.net/aAJOyog1Aie6PnBvQClfbQ==/109951163188730555.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=386469",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=386469"
     },
     {
-      "name": "人生海海",
-      "album": "人生海海",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=386717&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=386717&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163188731559"
+      "title": "星空",
+      "author": "五月天",
+      "pic": "https://p1.music.126.net/XfnZ4gol6GP2cEERPW5uaA==/109951168162296454.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=385556",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=385556"
     },
     {
-      "name": "第一天",
-      "album": "超级星光PK宝典",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=543798371&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=543798371&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163376764097"
+      "title": "好好 (想把你写成一首歌)",
+      "author": "五月天",
+      "pic": "https://p1.music.126.net/lt4R_XbCZsT-yzRfWs9VfQ==/3434874331529456.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=422094253",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=422094253"
     },
     {
-      "name": "为你写下这首情歌",
-      "album": "为你写下这首情歌",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2008202858&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2008202858&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168181355474"
+      "title": "让我照顾你",
+      "author": "五月天",
+      "pic": "https://p1.music.126.net/6BGLm69kJGI_NPaezIPihA==/109951172136049624.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=386181",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=386181"
     },
     {
-      "name": "顽固",
-      "album": "自传",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=422104166&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=422104166&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=3434874331529456"
+      "title": "突然好想你",
+      "author": "五月天",
+      "pic": "https://p1.music.126.net/l0vGEnowGfj6DgFSGojyfQ==/109951168163397768.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=385781",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=385781"
     },
     {
-      "name": "仓颉",
-      "album": "第二人生 (明日版)",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=22197008&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=22197008&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168162347102"
+      "title": "为你写下这首情歌",
+      "author": "五月天",
+      "pic": "https://p1.music.126.net/oy433NJOoMdCpWRdYOLqNA==/109951168181355474.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2008202858",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2008202858"
     },
     {
-      "name": "任意门",
-      "album": "自传",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=422094256&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=422094256&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=3434874331529456"
+      "title": "步步",
+      "author": "五月天",
+      "pic": "https://p2.music.126.net/7g0QYe0twjfOeCCWy9qxMw==/109951168144493672.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=28181103",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=28181103"
     },
     {
-      "name": "最重要的小事",
-      "album": "为爱而生",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=385905&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=385905&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168160434557"
+      "title": "如果我们不曾相遇",
+      "author": "五月天",
+      "pic": "https://p2.music.126.net/lt4R_XbCZsT-yzRfWs9VfQ==/3434874331529456.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=417953659",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=417953659"
     },
     {
-      "name": "因为你 所以我",
-      "album": "因为你 所以我",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1806926690&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1806926690&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168163428009"
+      "title": "爱情的模样",
+      "author": "五月天",
+      "pic": "https://p2.music.126.net/8htgrvYuwdrNQijDNqQstg==/109951163188731022.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=386931",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=386931"
     },
     {
-      "name": "知足",
-      "album": "《无神之地不下雨》电视原声带",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1897964065&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1897964065&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951166656672793"
+      "title": "我不愿让你一个人",
+      "author": "五月天",
+      "pic": "https://p2.music.126.net/XfnZ4gol6GP2cEERPW5uaA==/109951168162296454.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=385554",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=385554"
     },
     {
-      "name": "成名在望",
-      "album": "自传",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=422094252&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=422094252&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=3434874331529456"
+      "title": "拥抱",
+      "author": "五月天",
+      "pic": "https://p2.music.126.net/8htgrvYuwdrNQijDNqQstg==/109951163188731022.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=386927",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=386927"
     },
     {
-      "name": "拥抱",
-      "album": "第一张创作专辑",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=386927&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=386927&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163188731022"
+      "title": "仓颉",
+      "author": "五月天",
+      "pic": "https://p2.music.126.net/5Bu3XLAvh-M9Iwkh0wlOYg==/109951168162347102.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=22197008",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=22197008"
     },
     {
-      "name": "一颗苹果",
-      "album": "人生海海",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=386691&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=386691&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163188731559"
+      "title": "听不到",
+      "author": "五月天",
+      "pic": "https://p2.music.126.net/z5jrOL-OSXWKfQjyPJas8w==/109951163093838994.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=386425",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=386425"
     },
     {
-      "name": "恋爱ing",
-      "album": "知足 最真杰作选",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=385973&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=385973&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171415600711"
+      "title": "因为你 所以我",
+      "author": "五月天",
+      "pic": "https://p2.music.126.net/Jvt8qxXo5FoGd13218Lv2Q==/109951168163428009.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1806926690",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1806926690"
     },
     {
-      "name": "黑暗骑士",
-      "album": "因你而在",
-      "artist": "林俊杰/五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=25794008&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=25794008&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163187408030"
+      "title": "而我知道",
+      "author": "五月天",
+      "pic": "https://p2.music.126.net/pLn35sx61-IXRYfCbfPnCA==/109951171415600711.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=385984",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=385984"
     },
     {
-      "name": "而我知道",
-      "album": "知足 最真杰作选",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=385984&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=385984&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171415600711"
+      "title": "转眼",
+      "author": "五月天",
+      "pic": "https://p2.music.126.net/lt4R_XbCZsT-yzRfWs9VfQ==/3434874331529456.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=422094257",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=422094257"
     },
     {
-      "name": "志明与春娇",
-      "album": "第一张创作专辑",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=386936&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=386936&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163188731022"
+      "title": "如烟",
+      "author": "五月天",
+      "pic": "https://p2.music.126.net/l0vGEnowGfj6DgFSGojyfQ==/109951168163397768.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=22198023",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=22198023"
     },
     {
-      "name": "爱情的模样",
-      "album": "第一张创作专辑",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=386931&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=386931&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163188731022"
+      "title": "笑忘歌",
+      "author": "五月天",
+      "pic": "https://p2.music.126.net/l0vGEnowGfj6DgFSGojyfQ==/109951168163397768.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=22198025",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=22198025"
     },
     {
-      "name": "听不到",
-      "album": "听不到",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=386425&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=386425&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163093838994"
+      "title": "任意门",
+      "author": "五月天",
+      "pic": "https://p2.music.126.net/lt4R_XbCZsT-yzRfWs9VfQ==/3434874331529456.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=422094256",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=422094256"
+    },
+    {
+      "title": "顽固",
+      "author": "五月天",
+      "pic": "https://p2.music.126.net/lt4R_XbCZsT-yzRfWs9VfQ==/3434874331529456.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=422104166",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=422104166"
+    },
+    {
+      "title": "最重要的小事",
+      "author": "五月天",
+      "pic": "https://p2.music.126.net/JB1KSCawP8fE9ClAEP_31w==/109951168160434557.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=385905",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=385905"
+    },
+    {
+      "title": "超人",
+      "author": "五月天",
+      "pic": "https://p2.music.126.net/6BGLm69kJGI_NPaezIPihA==/109951172136049624.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=386191",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=386191"
+    },
+    {
+      "title": "人生海海",
+      "author": "五月天",
+      "pic": "https://p2.music.126.net/X79dz2556bKOt59JdQj5yA==/109951163188731559.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=386717",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=386717"
+    },
+    {
+      "title": "一颗苹果",
+      "author": "五月天",
+      "pic": "https://p2.music.126.net/X79dz2556bKOt59JdQj5yA==/109951163188731559.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=386691",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=386691"
+    },
+    {
+      "title": "志明与春娇",
+      "author": "五月天",
+      "pic": "https://p2.music.126.net/8htgrvYuwdrNQijDNqQstg==/109951163188731022.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=386936",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=386936"
+    },
+    {
+      "title": "咸鱼",
+      "author": "五月天",
+      "pic": "https://p2.music.126.net/pLn35sx61-IXRYfCbfPnCA==/109951171415600711.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=386040",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=386040"
+    },
+    {
+      "title": "成名在望",
+      "author": "五月天",
+      "pic": "https://p2.music.126.net/lt4R_XbCZsT-yzRfWs9VfQ==/3434874331529456.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=422094252",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=422094252"
+    },
+    {
+      "title": "黑暗骑士",
+      "author": "林俊杰 / 五月天",
+      "pic": "https://p2.music.126.net/D_hiKMwrdQlqD36LoKLO2w==/109951163187408030.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=25794008",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=25794008"
+    },
+    {
+      "title": "离开地球表面",
+      "author": "五月天",
+      "pic": "https://p2.music.126.net/W-51_KarHCksGktUAnk0Cg==/109951168160514616.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=385821",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=385821"
+    },
+    {
+      "title": "孙悟空",
+      "author": "五月天",
+      "pic": "https://p2.music.126.net/6BGLm69kJGI_NPaezIPihA==/109951172136049624.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=386173",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=386173"
     },
     {
       "name": "夜访吸血鬼",
-      "album": "后青春期的诗",
+      "album": null,
       "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=22198018&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=22198018&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168163397768"
+      "pic": "https://p2.music.126.net/l0vGEnowGfj6DgFSGojyfQ==/109951168163397768.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=22198018",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=22198018"
     },
     {
-      "name": "好好 (想把你写成一首歌)",
-      "album": "自传",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=422094253&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=422094253&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=3434874331529456"
-    },
-    {
-      "name": "让我照顾你",
-      "album": "神的孩子都在跳舞",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=386181&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=386181&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172136049624"
-    },
-    {
-      "name": "时光机",
-      "album": "时光机",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=386469&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=386469&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163188730555"
-    },
-    {
-      "name": "派对动物",
-      "album": "自传",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=417953658&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=417953658&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=3434874331529456"
-    },
-    {
-      "name": "如果我们不曾相遇",
-      "album": "自传",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=417953659&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=417953659&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=3434874331529456"
-    },
-    {
-      "name": "离开地球表面",
-      "album": "离开地球表面 Jump! The World 2007极限大碟",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=385821&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=385821&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168160514616"
-    },
-    {
-      "name": "孙悟空",
-      "album": "神的孩子都在跳舞",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=386173&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=386173&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172136049624"
-    },
-    {
-      "name": "超人",
-      "album": "神的孩子都在跳舞",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=386191&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=386191&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172136049624"
-    },
-    {
-      "name": "突然好想你",
-      "album": "后青春期的诗",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=385781&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=385781&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168163397768"
-    },
-    {
-      "name": "步步",
-      "album": "步步 自选作品辑",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=28181103&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=28181103&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168144493672"
-    },
-    {
-      "name": "盛夏光年",
-      "album": "步步 自选作品辑",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=28181110&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=28181110&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168144493672"
-    },
-    {
-      "name": "后来的我们",
-      "album": "自传",
-      "artist": "五月天",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=422104138&br=400",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=422104138&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=3434874331529456"
+      "title": "派对动物",
+      "author": "五月天",
+      "pic": "https://p2.music.126.net/lt4R_XbCZsT-yzRfWs9VfQ==/3434874331529456.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=417953658",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=417953658"
     }
   ]
 }

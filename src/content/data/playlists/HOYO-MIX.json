@@ -1,598 +1,606 @@
 {
   "name": "HOYO-MiX",
   "cover": "http://p1.music.126.net/Y2_BNSAyXLMHztZWCfUKKA==/109951168127138041.jpg?param=200y200",
-  "songs":[
+  "songs": [
+    {
+      "name": "预言 Prophecy",
+      "album": null,
+      "artist": "三Z-STUDIO / HOYO-MiX / Gin Wigmore",
+      "pic": "https://p1.music.126.net/GMhoLGA7QirasJvSjO6lPg==/109951173514046267.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=3402223603",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=3402223603"
+    },
     {
       "name": "Billy Mode",
-      "album": "绝区零-Billy Mode",
-      "artist": "三Z-STUDIO/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=3386678531",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3386678531&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951173285784311"
+      "album": null,
+      "artist": "三Z-STUDIO / HOYO-MiX",
+      "pic": "https://p2.music.126.net/nmBPQuB_yScQweWPrVnuVA==/109951173285784311.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=3386678531",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=3386678531"
     },
     {
       "name": "妄想色心跳",
-      "album": "绝区零-妄想色心跳",
-      "artist": "三Z-STUDIO/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=3362538431",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3362538431&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172934379594"
+      "album": null,
+      "artist": "三Z-STUDIO / HOYO-MiX",
+      "pic": "https://p2.music.126.net/W5gLcZvHblk_s90K9bYiBQ==/109951172934379594.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=3362538431",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=3362538431"
     },
     {
       "name": "天使加载中…^_−☆",
-      "album": "绝区零-天使加载中…^_−☆",
-      "artist": "三Z-STUDIO/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=3355611650",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3355611650&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172836713962"
+      "album": null,
+      "artist": "三Z-STUDIO / HOYO-MiX",
+      "pic": "https://p2.music.126.net/rj_LPoZHC9j1dBt2QFv7Zw==/109951172836713962.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=3355611650",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=3355611650"
     },
     {
       "name": "ReDreaming Angel 复梦天使",
-      "album": "绝区零-ReDreaming Angel 复梦天使",
-      "artist": "三Z-STUDIO/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=3343287820",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3343287820&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172646589896"
+      "album": null,
+      "artist": "三Z-STUDIO / HOYO-MiX",
+      "pic": "https://p2.music.126.net/TKe1FYdCt7qrQOsm8kVMjQ==/109951172646589896.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=3343287820",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=3343287820"
     },
     {
       "name": "天使ロード中…^_−☆",
-      "album": "绝区零-天使加载中…^_−☆",
-      "artist": "三Z-STUDIO/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=3355612824",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3355612824&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172836713962"
+      "album": null,
+      "artist": "三Z-STUDIO / HOYO-MiX",
+      "pic": "https://p2.music.126.net/rj_LPoZHC9j1dBt2QFv7Zw==/109951172836713962.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=3355612824",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=3355612824"
     },
     {
       "name": "千万次初见",
-      "album": "绝区零-千万次初见",
-      "artist": "三Z-STUDIO/HOYO-MiX/黄美珍",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=3334431717",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3334431717&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172518076566"
+      "album": null,
+      "artist": "三Z-STUDIO / HOYO-MiX / 黄美珍",
+      "pic": "https://p2.music.126.net/fBrr695W0PPC_ukiUg2EVg==/109951172518076566.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=3334431717",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=3334431717"
     },
     {
       "name": "Tiny Giant 小巨星",
-      "album": "绝区零-Tiny Giant 小巨星",
-      "artist": "三Z-STUDIO/HOYO-MiX/Ashley Alisha",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=3334421408",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3334421408&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172517696025"
+      "album": null,
+      "artist": "三Z-STUDIO / HOYO-MiX / Ashley Alisha",
+      "pic": "https://p2.music.126.net/je6r0FdStxxXMpCixgoCMg==/109951172517696025.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=3334421408",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=3334421408"
     },
     {
       "name": "凝固的浪花 Frozen Tides",
-      "album": "崩坏星穹铁道-洞穴寓言（下篇）Allegory of the Cave (Part 3)",
+      "album": null,
       "artist": "HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=3319810672",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3319810672&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172314032223"
+      "pic": "https://p2.music.126.net/WKqtYDENdEsefIEoxPubKg==/109951172314032223.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=3319810672",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=3319810672"
     },
     {
       "name": "ReDreaming Angel",
-      "album": "绝区零-ReDreaming Angel 复梦天使",
-      "artist": "三Z-STUDIO/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=3343287821",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3343287821&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172646589896"
+      "album": null,
+      "artist": "三Z-STUDIO / HOYO-MiX",
+      "pic": "https://p2.music.126.net/TKe1FYdCt7qrQOsm8kVMjQ==/109951172646589896.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=3343287821",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=3343287821"
     },
     {
       "name": "丽都假日",
-      "album": "绝区零-天琴座+",
-      "artist": "三Z-STUDIO/HOYO-MiX/于梓贝",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=3334395674",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3334395674&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170383379551"
+      "album": null,
+      "artist": "三Z-STUDIO / HOYO-MiX / 于梓贝",
+      "pic": "https://p2.music.126.net/5cqBvZaAFyb7lLWbicmyWA==/109951170383379551.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=3334395674",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=3334395674"
     },
     {
       "name": "昔涟",
-      "album": "崩坏星穹铁道-昔涟 Ripples of Past Reverie",
-      "artist": "张韶涵/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=3316968660",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3316968660&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172268004943"
+      "album": null,
+      "artist": "张韶涵 / HOYO-MiX",
+      "pic": "https://p2.music.126.net/BKJrPO1FlbXcy-98AYXOzg==/109951172268004943.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=3316968660",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=3316968660"
     },
     {
       "name": "挪德卡莱 Nod-Krai",
-      "album": "原神-幽暮衬映之月 Outside It Is Growing Dark",
-      "artist": "AURORA/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2756019200",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2756019200&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172156847671"
+      "album": null,
+      "artist": "AURORA / HOYO-MiX",
+      "pic": "https://p2.music.126.net/JSLtNdDEdVOHtmh64LOoAg==/109951172156847671.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2756019200",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2756019200"
     },
     {
       "name": "DAMIDAMI",
-      "album": "绝区零-DAMIDAMI",
-      "artist": "Sihan/三Z-STUDIO/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2755332551",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2755332551&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172148710780"
+      "album": null,
+      "artist": "Sihan / 三Z-STUDIO / HOYO-MiX",
+      "pic": "https://p2.music.126.net/I3mbGo_JRv_dTIWK8S-mNQ==/109951172148710780.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2755332551",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2755332551"
     },
     {
       "name": "捉迷藏",
-      "album": "绝区零-极限委托2.0",
-      "artist": "三Z-STUDIO/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=3337106240",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3337106240&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172552640296"
+      "album": null,
+      "artist": "三Z-STUDIO / HOYO-MiX",
+      "pic": "https://p2.music.126.net/j80-bTT1GiSQoai8vBq8Cw==/109951172552640296.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=3337106240",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=3337106240"
     },
     {
       "name": "新月的摇篮曲（其一）：伴月同眠 Lullaby of the New Moon (I): Somnias a Luna",
-      "album": "原神-幽暮衬映之月 Outside It Is Growing Dark",
+      "album": null,
       "artist": "HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2756019215",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2756019215&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172156847671"
+      "pic": "https://p2.music.126.net/JSLtNdDEdVOHtmh64LOoAg==/109951172156847671.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2756019215",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2756019215"
     },
     {
       "name": "Ripples of Past Reverie",
-      "album": "崩坏星穹铁道-昔涟 Ripples of Past Reverie",
-      "artist": "Cassie Wei/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=3316971855",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3316971855&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172268004943"
+      "album": null,
+      "artist": "Cassie Wei / HOYO-MiX",
+      "pic": "https://p2.music.126.net/BKJrPO1FlbXcy-98AYXOzg==/109951172268004943.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=3316971855",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=3316971855"
     },
     {
       "name": "FURYON 狂怒觉醒",
-      "album": "绝区零-FURYON 狂怒觉醒",
-      "artist": "三Z-STUDIO/HOYO-MiX/Alaina Cross",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2749055455",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2749055455&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172055488007"
+      "album": null,
+      "artist": "三Z-STUDIO / HOYO-MiX / Alaina Cross",
+      "pic": "https://p2.music.126.net/0fJwUpR-GmYVOyE8-7wfsg==/109951172055488007.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2749055455",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2749055455"
     },
     {
       "name": "食通万物 修心修身",
-      "album": "绝区零-食通万物 修心修身",
-      "artist": "Hanser/三Z-STUDIO/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2719007449",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2719007449&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171354669870"
+      "album": null,
+      "artist": "Hanser / 三Z-STUDIO / HOYO-MiX",
+      "pic": "https://p2.music.126.net/NrUuQGY81gFIxSHqJLEqxQ==/109951171354669870.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2719007449",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2719007449"
     },
     {
       "name": "PEAK",
-      "album": "绝区零-极限委托2.0",
-      "artist": "三Z-STUDIO/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=3336859490",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3336859490&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172552640296"
+      "album": null,
+      "artist": "三Z-STUDIO / HOYO-MiX",
+      "pic": "https://p2.music.126.net/j80-bTT1GiSQoai8vBq8Cw==/109951172552640296.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=3336859490",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=3336859490"
     },
     {
       "name": "耀斑",
-      "album": "崩坏星穹铁道-耀斑 Flares of the Blazing Sun",
-      "artist": "HOYO-MiX/YMIR",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2722510685",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2722510685&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171396677694"
+      "album": null,
+      "artist": "HOYO-MiX / YMIR",
+      "pic": "https://p2.music.126.net/DYDACa_8zB5irAOrasVgnQ==/109951171396677694.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2722510685",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2722510685"
     },
     {
       "name": "尘间星旅 Star Odyssey",
-      "album": "原神-尘间星旅 Star Odyssey",
-      "artist": "鈴木愛理/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2716475457",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2716475457&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171319964430"
+      "album": null,
+      "artist": "鈴木愛理 / HOYO-MiX",
+      "pic": "https://p2.music.126.net/iC43P5rGn6ED-9bYXkkEcg==/109951171319964430.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2716475457",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2716475457"
     },
     {
       "name": "不及",
-      "album": "绝区零-不及",
-      "artist": "苏诗丁/三Z-STUDIO/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2711809790",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2711809790&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171259018341"
+      "album": null,
+      "artist": "苏诗丁 / 三Z-STUDIO / HOYO-MiX",
+      "pic": "https://p2.music.126.net/MuuEgVNMiaFV6jr80Z-yug==/109951171259018341.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2711809790",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2711809790"
     },
     {
       "name": "Fearless 无所畏惧",
-      "album": "绝区零-Fearless 无所畏惧",
-      "artist": "三Z-STUDIO/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2651562175",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2651562175&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170202086974"
+      "album": null,
+      "artist": "三Z-STUDIO / HOYO-MiX",
+      "pic": "https://p2.music.126.net/OI2gkdCxW1zQPct-kbEmaQ==/109951170202086974.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2651562175",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2651562175"
     },
     {
       "name": "拂晓 Proi Proi",
-      "album": "崩坏星穹铁道-洞穴寓言（中篇）Allegory of the Cave (Part 2)",
-      "artist": "HOYO-MiX/NIDA",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2709812973",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2709812973&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951171066942237"
+      "album": null,
+      "artist": "HOYO-MiX / NIDA",
+      "pic": "https://p2.music.126.net/2qGGwWFlMYF2o-GyNMhH5A==/109951171066942237.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2709812973",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2709812973"
     },
     {
       "name": "My Curse, My Fate (Destin et malédiction)",
-      "album": "绝区零-My Curse, My Fate",
-      "artist": "宫阁/三Z-STUDIO/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2704988304",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2704988304&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170983919856"
+      "album": null,
+      "artist": "宫阁 / 三Z-STUDIO / HOYO-MiX",
+      "pic": "https://p2.music.126.net/Y7h7WIogahlJhjTUNIYj2w==/109951170983919856.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2704988304",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2704988304"
     },
     {
       "name": "回家的路 The Long Way Home",
-      "album": "原神-回家的路 The Long Way Home",
+      "album": null,
       "artist": "HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2750878526",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2750878526&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172080551184"
+      "pic": "https://p2.music.126.net/242LjmgdazIdZoi1_odNvw==/109951172080551184.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2750878526",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2750878526"
     },
     {
       "name": "拂晓之空 闪耀之誓",
-      "album": "绝区零-拂晓之空 闪耀之誓",
-      "artist": "三Z-STUDIO/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2691982296",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2691982296&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170698640676"
+      "album": null,
+      "artist": "三Z-STUDIO / HOYO-MiX",
+      "pic": "https://p2.music.126.net/R6apfJmqJ6pjhkll5eiw6Q==/109951170698640676.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2691982296",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2691982296"
     },
     {
       "name": "Stars Align 当群星交汇 (Feat.耀嘉音)",
-      "album": "绝区零-Stars Align 当群星交汇",
-      "artist": "三Z-STUDIO/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2675131838",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2675131838&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170483388690"
+      "album": null,
+      "artist": "三Z-STUDIO / HOYO-MiX",
+      "pic": "https://p2.music.126.net/HR2fa5FcWS1yCuv3f9hk0w==/109951170483388690.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2675131838",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2675131838"
     },
     {
       "name": "若我不曾见过太阳",
-      "album": "崩坏星穹铁道-空气蛹 INSIDE",
-      "artist": "知更鸟/HOYO-MiX/Chevy",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2155423469",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2155423469&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169585655912"
+      "album": null,
+      "artist": "知更鸟 / HOYO-MiX / Chevy",
+      "pic": "https://p2.music.126.net/aR4BlDNkA84tFbg8bBpriA==/109951169585655912.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2155423469",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2155423469"
     },
     {
       "name": "闪亮",
-      "album": "绝区零-天琴座+",
-      "artist": "三Z-STUDIO/HOYO-MiX/于梓贝",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2666662368",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2666662368&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170383379551"
+      "album": null,
+      "artist": "三Z-STUDIO / HOYO-MiX / 于梓贝",
+      "pic": "https://p2.music.126.net/5cqBvZaAFyb7lLWbicmyWA==/109951170383379551.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2666662368",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2666662368"
     },
     {
       "name": "最后的修行",
-      "album": "绝区零-极限委托：PV原声集",
-      "artist": "三Z-STUDIO/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2663827234",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2663827234&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170356685089"
+      "album": null,
+      "artist": "三Z-STUDIO / HOYO-MiX",
+      "pic": "https://p2.music.126.net/n-NetYfSY4rMeypze2RFJw==/109951170356685089.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2663827234",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2663827234"
     },
     {
       "name": "晓",
-      "album": "绝区零-晓",
-      "artist": "三Z-STUDIO/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2658093531",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2658093531&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170280932175"
+      "album": null,
+      "artist": "三Z-STUDIO / HOYO-MiX",
+      "pic": "https://p2.music.126.net/1q8Nsdd7TIp_KG5_mVg4aw==/109951170280932175.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2658093531",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2658093531"
     },
     {
       "name": "绘本",
-      "album": "绝区零-绘本",
-      "artist": "三Z-STUDIO/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2658101767",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2658101767&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170281185479"
+      "album": null,
+      "artist": "三Z-STUDIO / HOYO-MiX",
+      "pic": "https://p2.music.126.net/9WW5sgL67ZBAPZ5LTpO7Aw==/109951170281185479.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2658101767",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2658101767"
     },
     {
       "name": "红透晚烟青",
-      "album": "绝区零-红透晚烟青",
-      "artist": "金玟岐/三Z-STUDIO/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2618046004",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2618046004&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169878501910"
+      "album": null,
+      "artist": "金玟岐 / 三Z-STUDIO / HOYO-MiX",
+      "pic": "https://p2.music.126.net/xZwzMCIG6Tb0RvIf64q2Lg==/109951169878501910.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2618046004",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2618046004"
     },
     {
       "name": "一颗方糖悬滞的时间",
-      "album": "绝区零-一颗方糖悬滞的时间",
-      "artist": "阿兰/三Z-STUDIO/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2612750275",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2612750275&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169830037842"
+      "album": null,
+      "artist": "阿兰 / 三Z-STUDIO / HOYO-MiX",
+      "pic": "https://p2.music.126.net/WPMB8_esDaIFrAIliT3GCw==/109951169830037842.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2612750275",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2612750275"
     },
     {
       "name": "pinKing",
-      "album": "绝区零-pinKing",
-      "artist": "ChiliChill乐团/三Z-STUDIO/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2633466472",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2633466472&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170015228246"
+      "album": null,
+      "artist": "ChiliChill乐团 / 三Z-STUDIO / HOYO-MiX",
+      "pic": "https://p2.music.126.net/Ed6EnpLBp2pg2wgRtIrkgA==/109951170015228246.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2633466472",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2633466472"
     },
     {
       "name": "乐园游梦记",
-      "album": "绝区零-天琴座+",
-      "artist": "三Z-STUDIO/HOYO-MiX/于梓贝",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2666660478",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2666660478&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170383379551"
+      "album": null,
+      "artist": "三Z-STUDIO / HOYO-MiX / 于梓贝",
+      "pic": "https://p2.music.126.net/5cqBvZaAFyb7lLWbicmyWA==/109951170383379551.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2666660478",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2666660478"
     },
     {
       "name": "原色",
-      "album": "绝区零-天琴座+",
-      "artist": "三Z-STUDIO/HOYO-MiX/于梓贝",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2666660479",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2666660479&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170383379551"
+      "album": null,
+      "artist": "三Z-STUDIO / HOYO-MiX / 于梓贝",
+      "pic": "https://p2.music.126.net/5cqBvZaAFyb7lLWbicmyWA==/109951170383379551.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2666660479",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2666660479"
     },
     {
       "name": "不眠之夜",
-      "album": "崩坏星穹铁道-不眠之夜 WHITE NIGHT",
-      "artist": "张杰/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2122308127",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2122308127&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169297766755"
+      "album": null,
+      "artist": "张杰 / HOYO-MiX",
+      "pic": "https://p2.music.126.net/sZ-rACbFrybF0x_lI6XNMw==/109951169297766755.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2122308127",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2122308127"
     },
     {
       "name": "WHITE NIGHT (不眠之夜)",
-      "album": "崩坏星穹铁道-不眠之夜 WHITE NIGHT",
-      "artist": "Jake Miller/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2122308128",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2122308128&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169297766755"
+      "album": null,
+      "artist": "Jake Miller / HOYO-MiX",
+      "pic": "https://p2.music.126.net/sZ-rACbFrybF0x_lI6XNMw==/109951169297766755.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2122308128",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2122308128"
     },
     {
       "name": "Befall",
-      "album": "崩坏3-Impact- Original Soundtrack",
+      "album": null,
       "artist": "尚雯婕",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=569212270",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=569212270&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=19198572532779991"
+      "pic": "https://p2.music.126.net/YC4pwc7iaLoO_-bR0wBJsA==/19198572532779991.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=569212270",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=569212270"
     },
     {
       "name": "Moon Halo",
-      "album": "Moon Halo",
-      "artist": "茶理理/TetraCalyx/Hanser/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1859652717",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1859652717&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951166159281275"
+      "album": null,
+      "artist": "茶理理 / TetraCalyx / Hanser / HOYO-MiX",
+      "pic": "https://p2.music.126.net/ciLKATqflV2YWSV3ltE2Kw==/109951166159281275.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1859652717",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1859652717"
     },
     {
       "name": "轻涟 La vaguelette",
-      "album": "原神-「轻涟 La vaguelette」游戏原声EP专辑",
+      "album": null,
       "artist": "HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2100334024",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2100334024&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169058808374"
+      "pic": "https://p2.music.126.net/I-cw5yaq4Pz0EL2dZAmq1g==/109951169058808374.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2100334024",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2100334024"
     },
     {
       "name": "神女劈观·唤情 Devastation and Redemption",
-      "album": "「飞彩镌流年」游戏原声EP专辑",
+      "album": null,
       "artist": "HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1910911958",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1910911958&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951166919194723"
+      "pic": "https://p2.music.126.net/8gMfTTbDifrypmWQ2fM0Ig==/109951166919194723.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1910911958",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1910911958"
     },
     {
       "name": "Rubia",
-      "album": "Rubia",
+      "album": null,
       "artist": "周深",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1815684465",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1815684465&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165671947083"
+      "pic": "https://p2.music.126.net/499AYZ3epP1T7GJYvnJZZQ==/109951165671947083.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1815684465",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1815684465"
     },
     {
       "name": "Nightglow",
-      "album": "崩坏3-Onwards-Original Soundtrack",
+      "album": null,
       "artist": "蔡健雅",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1333199831",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1333199831&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163737497396"
+      "pic": "https://p2.music.126.net/TAiliOjM10DlKiL56fPIMw==/109951163737497396.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1333199831",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1333199831"
     },
     {
       "name": "星と君が消えた日",
-      "album": "最新热歌慢摇95",
+      "album": null,
       "artist": "泠鸢yousa",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=419594940",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=419594940&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951166361039007"
+      "pic": "https://p2.music.126.net/FZX7XAjsmEPGyVOqm4H7aQ==/109951166361039007.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=419594940",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=419594940"
     },
     {
       "name": "在银河中孤独摇摆",
-      "album": "崩坏星穹铁道-空气蛹 INSIDE",
-      "artist": "知更鸟/HOYO-MiX/Chevy",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2155423467",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2155423467&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169585655912"
+      "album": null,
+      "artist": "知更鸟 / HOYO-MiX / Chevy",
+      "pic": "https://p2.music.126.net/aR4BlDNkA84tFbg8bBpriA==/109951169585655912.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2155423467",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2155423467"
     },
     {
       "name": "希望有羽毛和翅膀",
-      "album": "崩坏星穹铁道-空气蛹 INSIDE",
-      "artist": "知更鸟/HOYO-MiX/Chevy",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2155423468",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2155423468&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169585655912"
+      "album": null,
+      "artist": "知更鸟 / HOYO-MiX / Chevy",
+      "pic": "https://p2.music.126.net/aR4BlDNkA84tFbg8bBpriA==/109951169585655912.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2155423468",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2155423468"
     },
     {
       "name": "TruE",
-      "album": "TruE",
-      "artist": "黄龄/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1971144922",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1971144922&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951167767293721"
+      "album": null,
+      "artist": "黄龄 / HOYO-MiX",
+      "pic": "https://p2.music.126.net/cu9T_JCh5mt3aipWJoy03w==/109951167767293721.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1971144922",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1971144922"
     },
     {
       "name": "野火 Wildfire",
-      "album": "崩坏星穹铁道-雪融于烬 Of Snow and Ember",
-      "artist": "HOYO-MiX/Jonathan Steingard",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2045806409",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2045806409&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168599498949"
+      "album": null,
+      "artist": "HOYO-MiX / Jonathan Steingard",
+      "pic": "https://p2.music.126.net/-K-1PuWcHjGLNuH4xPJwpQ==/109951168599498949.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2045806409",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2045806409"
     },
     {
       "name": "Regression",
-      "album": "Regression",
-      "artist": "阿云嘎/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1913478990",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1913478990&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951166957048928"
+      "album": null,
+      "artist": "阿云嘎 / HOYO-MiX",
+      "pic": "https://p2.music.126.net/DbD08enxZN2kDFScDFxcdQ==/109951166957048928.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1913478990",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1913478990"
     },
     {
       "name": "星间旅行 Interstellar Journey (中文版)",
-      "album": "崩坏星穹铁道-星间旅行 Interstellar Journey",
-      "artist": "HOYO-MiX/茶理理",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2043169389",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2043169389&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168575641463"
+      "album": null,
+      "artist": "HOYO-MiX / 茶理理",
+      "pic": "https://p2.music.126.net/JaSa3Gt5oaJ77cDfJBR1fg==/109951168575641463.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2043169389",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2043169389"
     },
     {
       "name": "水龙吟 Samudrartha",
-      "album": "崩坏星穹铁道-长生梦短 Svah Sanishyu",
-      "artist": "HOYO-MiX/优素Yusuf",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2067222280",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2067222280&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168765200998"
+      "album": null,
+      "artist": "HOYO-MiX / 优素Yusuf",
+      "pic": "https://p2.music.126.net/oDhurcFOPMPVMLnc6xF99A==/109951168765200998.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2067222280",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2067222280"
     },
     {
       "name": "崩坏世界的歌姬 (Movie Ver.)",
-      "album": "崩坏3-Review-Original Soundtrack",
+      "album": null,
       "artist": "小林未郁",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1459722976",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1459722976&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951165105147714"
+      "pic": "https://p2.music.126.net/XftX_EwaEBhjPgddMv7Lbw==/109951165105147714.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1459722976",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1459722976"
     },
     {
       "name": "使一颗心免于哀伤",
-      "album": "崩坏星穹铁道-空气蛹 INSIDE",
-      "artist": "知更鸟/HOYO-MiX/Chevy",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2155422573",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2155422573&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169585655912"
+      "album": null,
+      "artist": "知更鸟 / HOYO-MiX / Chevy",
+      "pic": "https://p2.music.126.net/aR4BlDNkA84tFbg8bBpriA==/109951169585655912.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2155422573",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2155422573"
     },
     {
       "name": "ZENLESS",
-      "album": "ZENLESS",
-      "artist": "Tiësto/Lucas & Steve/Silent Child/三Z-STUDIO",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2604006843",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2604006843&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169741090666"
+      "album": null,
+      "artist": "Tiësto / Lucas & Steve / Silent Child / 三Z-STUDIO",
+      "pic": "https://p2.music.126.net/YrqrdOrzt4fVBF_8WIAZkQ==/109951169741090666.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2604006843",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2604006843"
     },
     {
       "name": "Da Capo",
-      "album": "Da Capo",
+      "album": null,
       "artist": "HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2026565329",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2026565329&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951168434956885"
+      "pic": "https://p2.music.126.net/awzv1LpuBJiKTeB7roh_Aw==/109951168434956885.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2026565329",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2026565329"
     },
     {
       "name": "Starfall",
-      "album": "Starfall",
+      "album": null,
       "artist": "袁娅维TIA RAY",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1426087898",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1426087898&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951164742955396"
+      "pic": "https://p2.music.126.net/0t5kKAKNdwVMnZiFjxMbRA==/109951164742955396.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1426087898",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1426087898"
     },
     {
       "name": "Cyberangel",
-      "album": "崩坏3-Onwards-Original Soundtrack",
+      "album": null,
       "artist": "Hanser",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=1375725396",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=1375725396&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951163737497396"
+      "pic": "https://p2.music.126.net/TAiliOjM10DlKiL56fPIMw==/109951163737497396.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=1375725396",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=1375725396"
     },
     {
       "name": "Burning Desires 绝望吧台",
-      "album": "绝区零-Burning Desires 绝望吧台",
-      "artist": "三Z-STUDIO/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2639322684",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2639322684&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170067502589"
+      "album": null,
+      "artist": "三Z-STUDIO / HOYO-MiX",
+      "pic": "https://p2.music.126.net/JvFMNXjtDFt7ipCDH5geAA==/109951170067502589.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2639322684",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2639322684"
     },
     {
       "name": "烬火 Emberfire",
-      "album": "原神-「烬火 Emberfire」游戏原声EP专辑",
-      "artist": "希林娜依高/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2147140935",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2147140935&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169507860443"
+      "album": null,
+      "artist": "希林娜依高 / HOYO-MiX",
+      "pic": "https://p2.music.126.net/8ruouvL88OZyJcWtohLqyg==/109951169507860443.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2147140935",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2147140935"
     },
     {
       "name": "不乱不破",
-      "album": "崩坏星穹铁道-不乱不破 No Dazzle, No Break",
-      "artist": "HOYO-MiX/Reol",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2639639291",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2639639291&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170068353568"
+      "album": null,
+      "artist": "HOYO-MiX / Reol",
+      "pic": "https://p2.music.126.net/19mLZf_OsMfKdU1vyv89jg==/109951170068353568.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2639639291",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2639639291"
     },
     {
       "name": "未行之路 The Road Not Taken",
-      "album": "原神-「未行之路 The Road Not Taken」游戏原声EP专辑",
-      "artist": "HOYO-MiX/Aimer",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2160850755",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2160850755&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169633070129"
+      "album": null,
+      "artist": "HOYO-MiX / Aimer",
+      "pic": "https://p2.music.126.net/ZyOMYSjK9k63yZ2y02i6EQ==/109951169633070129.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2160850755",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2160850755"
     },
     {
       "name": "Passing Memories",
-      "album": "原神-「经过 Passing memories」四周年主题曲EP专辑",
-      "artist": "Faouzia/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2631336273",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2631336273&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170000140542"
+      "album": null,
+      "artist": "Faouzia / HOYO-MiX",
+      "pic": "https://p2.music.126.net/xLbGwnQdnbGVmXili1Xo9Q==/109951170000140542.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2631336273",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2631336273"
     },
     {
       "name": "Come Alive Stripped.",
-      "album": "绝区零-极限委托",
-      "artist": "三Z-STUDIO/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2658039041",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2658039041&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170278788820"
+      "album": null,
+      "artist": "三Z-STUDIO / HOYO-MiX",
+      "pic": "https://p2.music.126.net/LG92Y-ZMYZnFzWynq5jeWw==/109951170278788820.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2658039041",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2658039041"
     },
     {
       "name": "小停再出发",
-      "album": "绝区零-小停再出发",
-      "artist": "三Z-STUDIO/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2644569024",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2644569024&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170130858980"
+      "album": null,
+      "artist": "三Z-STUDIO / HOYO-MiX",
+      "pic": "https://p2.music.126.net/lCNxRyqAuVvIPkuhUXkcdg==/109951170130858980.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2644569024",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2644569024"
     },
     {
       "name": "何者",
-      "album": "崩坏星穹铁道-何者 Nameless Faces",
-      "artist": "谭晶/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2658660685",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2658660685&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170292455448"
+      "album": null,
+      "artist": "谭晶 / HOYO-MiX",
+      "pic": "https://p2.music.126.net/gtunmoxObQyoH01HzURNUw==/109951170292455448.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2658660685",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2658660685"
     },
     {
       "name": "Blazing Heart (英文版)",
-      "album": "原神-灼火之心 Blazing Heart",
-      "artist": "Chrissy Costanza/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2662252635",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2662252635&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170341015135"
+      "album": null,
+      "artist": "Chrissy Costanza / HOYO-MiX",
+      "pic": "https://p2.music.126.net/uw3MNlh3Vf4tN2MTuLyjNQ==/109951170341015135.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2662252635",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2662252635"
     },
     {
       "name": "BITE! 咬合力",
-      "album": "绝区零-BITE! 咬合力",
-      "artist": "雷雨心/三Z-STUDIO/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2606329521",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2606329521&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951169764682272"
+      "album": null,
+      "artist": "雷雨心 / 三Z-STUDIO / HOYO-MiX",
+      "pic": "https://p2.music.126.net/aAU_B5ZXJvPLoFnUIYKcQw==/109951169764682272.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2606329521",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2606329521"
     },
     {
       "name": "灼火之心 Blazing Heart",
-      "album": "原神-灼火之心 Blazing Heart",
-      "artist": "袁娅维TIA RAY/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2662252634",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2662252634&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170341015135"
+      "album": null,
+      "artist": "袁娅维TIA RAY / HOYO-MiX",
+      "pic": "https://p2.music.126.net/uw3MNlh3Vf4tN2MTuLyjNQ==/109951170341015135.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2662252634",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2662252634"
     },
     {
       "name": "制服·剪刀·鲨鱼尾",
-      "album": "绝区零-极限委托：PV原声集",
-      "artist": "三Z-STUDIO/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2663823112",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2663823112&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170356685089"
+      "album": null,
+      "artist": "三Z-STUDIO / HOYO-MiX",
+      "pic": "https://p2.music.126.net/n-NetYfSY4rMeypze2RFJw==/109951170356685089.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2663823112",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2663823112"
     },
     {
       "name": "痴人说梦",
-      "album": "崩坏星穹铁道-痴人说梦 Ravings",
+      "album": null,
       "artist": "HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=3357230091",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=3357230091&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951172859676412"
+      "pic": "https://p2.music.126.net/k5J6MOO37tQT52Aa9mGIpA==/109951172859676412.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=3357230091",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=3357230091"
     },
     {
       "name": "不虚此行 On the Journey",
-      "album": "崩坏星穹铁道-不虚此行 On the Journey",
-      "artist": "魏晨/Nea/HOYO-MiX",
-      "url": "http://163.hyc.moe?server=netease&type=url&id=2699981246",
-      "lrc": "http://163.hyc.moe?server=netease&type=lrc&id=2699981246&format=yrc",
-      "pic": "http://163.hyc.moe?server=netease&type=pic&id=109951170923618735"
+      "album": null,
+      "artist": "魏晨 / Nea / HOYO-MiX",
+      "pic": "https://p2.music.126.net/Yr2Os6k_nkk8_3U7nsdn9g==/109951170923618735.jpg",
+      "url": "https://meting.mikus.ink/api?server=netease&type=url&id=2699981246",
+      "lrc": "https://meting.mikus.ink/api?server=netease&type=lrc&id=2699981246"
     }
   ]
 }
