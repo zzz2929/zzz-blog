@@ -4,25 +4,27 @@ import mdx from '@astrojs/mdx';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import { visit } from 'unist-util-visit';
-import fs from 'node:fs';
-import path from 'node:path';
+import { unified } from '@astrojs/markdown-remark';
 
 import cloudflare from '@astrojs/cloudflare';
 
 /** Vite plugin: inline navigation SVGs from public/ at build time */
 function navSvgPlugin() {
-  const navDir = path.resolve('public/navigation');
-  const svgs = fs.readdirSync(navDir).filter(f => f.endsWith('.svg'));
-  const entries = svgs.map(f => {
-    const content = fs.readFileSync(path.join(navDir, f), 'utf-8');
-    const key = `/navigation/${f}`;
-    return `${JSON.stringify(key)}: ${JSON.stringify(content)}`;
-  });
-  const code = `export default { ${entries.join(', ')} }`;
   return {
     name: 'nav-svg-plugin',
     resolveId(id) { if (id === 'virtual:nav-svgs') return '\0virtual:nav-svgs'; },
-    load(id) { if (id === '\0virtual:nav-svgs') return code; },
+    async load(id) {
+      if (id !== '\0virtual:nav-svgs') return;
+      const fs = await import('node:fs');
+      const path = await import('node:path');
+      const navDir = path.default.resolve('public/navigation');
+      const svgs = fs.default.readdirSync(navDir).filter(f => f.endsWith('.svg'));
+      const entries = svgs.map(f => {
+        const content = fs.default.readFileSync(path.default.join(navDir, f), 'utf-8');
+        return `${JSON.stringify(`/navigation/${f}`)}: ${JSON.stringify(content)}`;
+      });
+      return `export default { ${entries.join(', ')} }`;
+    },
   };
 }
 
@@ -111,7 +113,9 @@ export default defineConfig({
   },
 
   markdown: {
-    rehypePlugins: [rehypeImgLazyLoad, rehypeCodeBlock],
+    processor: unified({
+      rehypePlugins: [rehypeImgLazyLoad, rehypeCodeBlock],
+    }),
     shikiConfig: {
       themes: {
         light: 'ayu-light',
