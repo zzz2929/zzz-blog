@@ -78,24 +78,22 @@
     "buff_bottom": "二次元指数 MAX"
   },
   "game": {
-    "game_tips": "爱好游戏",
-    "game_title": "原神",
+    "game_title": "游戏",
     "game_uid": "UID: 195433728",
     "game_bg": "https://imgbed.904002.xyz/file/img/blog/background/game/yuanshen.webp"
   },
   "comic": {
-    "comic_tips": "爱好番剧",
     "comic_title": "追番",
     "comic_list": [
-      {
-        "name": "邪神与厨二病少女",
-        "href": "https://www.bilibili.com/bangumi/play/ss24630",
-        "cover": "https://imgbed.904002.xyz/file/img/blog/background/cartoon/邪神与厨二病少女.webp"
-      },
       {
         "name": "青春猪头少年",
         "href": "https://www.bilibili.com/bangumi/play/ep251076?from_spmid=666.25.episode.0",
         "cover": "https://imgbed.904002.xyz/file/img/blog/background/cartoon/青春猪头少年.webp"
+      },
+      {
+        "name": "邪神与厨二病少女",
+        "href": "https://www.bilibili.com/bangumi/play/ss24630",
+        "cover": "https://imgbed.904002.xyz/file/img/blog/background/cartoon/邪神与厨二病少女.webp"
       },
       {
         "name": "间谍过家家",
@@ -111,11 +109,6 @@
         "name": "因为太怕痛就全点防御力了",
         "href": "https://www.bilibili.com/bangumi/play/ss29358",
         "cover": "https://imgbed.904002.xyz/file/img/blog/background/cartoon/因为太怕痛就全点防御力了.webp"
-      },
-      {
-        "name": "我独自升级",
-        "href": "https://www.bilibili.com/bangumi/play/ep814613?from_spmid=666.25.episode.0",
-        "cover": "https://imgbed.904002.xyz/file/img/blog/background/cartoon/我独自升级.webp"
       }
     ]
   },
