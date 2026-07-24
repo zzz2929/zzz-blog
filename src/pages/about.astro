@@ -120,25 +120,28 @@ const posts = await getCollection("blog");
           <p class="text-xs text-white/70 mb-1">{about.comic.comic_tips}</p>
           <div class="text-2xl font-bold text-white">{about.comic.comic_title}</div>
         </div>
-        <div class="comic-box absolute inset-0 flex overflow-hidden">
+        <div class="comic-box absolute inset-0 flex overflow-hidden" style="width: 115%; left: -7.5%;">
           {
             about.comic.comic_list.map((item: any, i: number) => (
               <a
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="comic-item relative flex-1 overflow-hidden group transition-all duration-500 hover:z-10 hover:flex-[1.5]"
+                class="comic-item relative flex-1 overflow-hidden group transition-all duration-500 hover:z-10 hover:flex-[2.3]"
                 title={item.name}
+                style="transform: skew(-10deg, 0deg); contain: paint;"
               >
-                <div class="absolute inset-0 transition-transform duration-500 group-hover:scale-110">
+                <div
+                  class="absolute top-0 h-full transition-all duration-500"
+                  style="left: -50%; width: 200%; transform: skew(10deg, 0deg);"
+                >
                   <img
                     src={item.cover}
                     alt={item.name}
-                    class="w-full h-full object-cover"
+                    class="h-full max-w-none object-cover"
                     loading="lazy"
                   />
                 </div>
-
               </a>
             ))
           }
@@ -244,3 +247,10 @@ const posts = await getCollection("blog");
   </main>
   <Footer />
 </BaseLayout>
+
+<style>
+  .comic-item:hover > div {
+    left: -10% !important;
+    width: 120% !important;
+  }
+</style>
