@@ -57,7 +57,7 @@ src/
 │   │   ├── CategoryCards.astro    # 分类卡片
 │   │   ├── RandomImageModule.astro # 随机图 + 文章推荐
 │   │   ├── RecentPosts.astro      # 近期文章
-│   │   ├── SkillsGrid.astro       # 技能网格
+│   │   ├── SkillsGrid.astro       # 技术栈网格
 │   │   └── MiniPlayer.astro       # 跨页面迷你播放器
 │   └── react/
 │       ├── AnimatedBackground.tsx # 动态背景
@@ -405,10 +405,10 @@ album_list:
 | `music`              | 音乐偏好                     |
 | `map`                | 所在位置                     |
 | `statistic`          | 文章统计链接                 |
-| `skills`             | 技能网格（name + icon）      |
+| `skills`             | 技术栈网格（name + icon）      |
 | `reward_list`        | 赞赏二维码（null 不显示）    |
 
-技能网格修改：编辑 `skills` 数组，每项包含 `name`（技能名）和 `icon`（图标 URL）。
+技术栈网格修改：编辑 `skills` 数组，每项包含 `name`（技术栈名）和 `icon`（图标 URL）。
 
 ### 网站图标
 
@@ -585,7 +585,7 @@ border-color: rgba(255,255,255,0.08);
 
 #### 中间
 
-文章/友链/我的/关于 四个菜单（`menuItems` 数组），hover 展开二级菜单
+文章/友链/娱乐/我的 四个菜单（`menuItems` 数组），hover 展开二级菜单
 
 修改菜单：`Header.astro` 的 `menuItems` 数组。
 

@@ -12,7 +12,7 @@ const about = aboutData as any;
 const posts = await getCollection("blog");
 ---
 
-<BaseLayout title={t('about.title')}>
+<BaseLayout title={t("about.title")}>
   <Header />
   <main class="mx-auto max-w-6xl px-4 py-8 sm:px-6">
     <!-- Hero -->
@@ -45,45 +45,53 @@ const posts = await getCollection("blog");
 
     <!-- Self Info -->
     <section class="mb-10 rounded-xl border border-border bg-card p-6">
-      <h2 class="mb-4 text-xl font-bold text-foreground">{t('about.personalInfo')}</h2>
-      <div class="grid gap-4 sm:grid-cols-2">
-        <div class="flex items-center gap-3">
-          <span class="text-lg">🎂</span>
-          <div>
-            <p class="text-xs text-muted">{about.selfInfo.selfInfoTips1}</p>
-            <p class="font-medium text-foreground">
-              {about.selfInfo.selfInfoContentYear}
-            </p>
+      <h2 class="mb-4 text-xl font-bold text-foreground">
+        {t("about.personalInfo")}
+      </h2>
+      <div class="flex flex-col sm:flex-row gap-6">
+        <!-- Left: Personal Info -->
+        <div class="flex-1 flex flex-col gap-4">
+          <div class="flex items-center gap-3">
+            <span class="text-lg">💼</span>
+            <div>
+              <p class="text-xs text-muted">{about.selfInfo.selfInfoTips}</p>
+              <p class="font-medium text-foreground">
+                {about.selfInfo.selfInfoContent}
+              </p>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-lg">🧠</span>
+            <div>
+              <p class="text-xs text-muted">
+                {about.personalities.author_name}
+              </p>
+              <a
+                href={about.personalities.name_url}
+                target="_blank"
+                class="font-medium text-primary hover:underline"
+                >{about.personalities.personality_type}</a
+              >
+            </div>
           </div>
         </div>
-        <div class="flex items-center gap-3">
-          <span class="text-lg">🏫</span>
+      </div>
+    </section>
+
+    <!-- Location -->
+    <section
+      class="mb-10 rounded-xl border border-border bg-card overflow-hidden"
+    >
+      <div
+        class="relative h-40 bg-cover bg-center"
+        style={`background-image: url(${about.map.background})`}
+      >
+        <div class="absolute inset-0 bg-black/30 flex items-end p-4">
           <div>
-            <p class="text-xs text-muted">{about.selfInfo.selfInfoTips2}</p>
-            <p class="font-medium text-foreground">
-              {about.selfInfo.selfInfoContent2}
+            <p class="text-xs text-white/80">{about.map.title}</p>
+            <p class="text-lg font-bold text-white">
+              {about.map.StrengthenTitle}
             </p>
-          </div>
-        </div>
-        <div class="flex items-center gap-3">
-          <span class="text-lg">💼</span>
-          <div>
-            <p class="text-xs text-muted">{about.selfInfo.selfInfoTips3}</p>
-            <p class="font-medium text-foreground">
-              {about.selfInfo.selfInfoContent3}
-            </p>
-          </div>
-        </div>
-        <div class="flex items-center gap-3">
-          <span class="text-lg">🧠</span>
-          <div>
-            <p class="text-xs text-muted">{about.personalities.author_name}</p>
-            <a
-              href={about.personalities.name_url}
-              target="_blank"
-              class="font-medium text-primary hover:underline"
-              >{about.personalities.personality_type}</a
-            >
           </div>
         </div>
       </div>
@@ -96,31 +104,48 @@ const posts = await getCollection("blog");
         class="sm:w-[55%] rounded-2xl overflow-hidden relative min-h-[280px] bg-center bg-top"
         style={`background-image: url(${about.game.game_bg})`}
       >
-        <div class="card-content absolute inset-0 p-5 flex flex-col justify-between">
+        <div
+          class="card-content absolute inset-0 p-5 flex flex-col justify-between"
+        >
           <div>
-            <p class="item-tips text-xs text-white/70 mb-1">{about.game.game_tips}</p>
-            <span class="item-title text-2xl font-bold text-white">{about.game.game_title}</span>
+            <p class="item-tips text-xs text-white/70 mb-1">
+              {about.game.game_tips}
+            </p>
+            <span class="item-title text-2xl font-bold text-white"
+              >{about.game.game_title}</span
+            >
           </div>
           <div class="game-content-bottom">
             <div class="flex items-end justify-between mt-auto">
               <div class="flex gap-2">
-                {['🔥','💧','🌿','⚡','❄️','⭐','🪨'].map((el) => (
-                  <span class="text-lg opacity-80">{el}</span>
-                ))}
+                {
+                  ["🔥", "💧", "🌿", "⚡", "❄️", "⭐", "🪨"].map((el) => (
+                    <span class="text-lg opacity-80">{el}</span>
+                  ))
+                }
               </div>
-              <p class="game-uid text-xs text-white/70">{about.game.game_uid}</p>
+              <p class="game-uid text-xs text-white/70">
+                {about.game.game_uid}
+              </p>
             </div>
           </div>
         </div>
       </div>
 
       <!-- Comics Card -->
-      <div class="sm:w-[45%] rounded-2xl overflow-hidden relative min-h-[280px] bg-border comic-content">
+      <div
+        class="sm:w-[45%] rounded-2xl overflow-hidden relative min-h-[280px] bg-border comic-content"
+      >
         <div class="absolute top-5 left-5 z-20">
           <p class="text-xs text-white/70 mb-1">{about.comic.comic_tips}</p>
-          <div class="text-2xl font-bold text-white">{about.comic.comic_title}</div>
+          <div class="text-2xl font-bold text-white">
+            {about.comic.comic_title}
+          </div>
         </div>
-        <div class="comic-box absolute inset-0 flex overflow-hidden" style="width: 115%; left: -7.5%;">
+        <div
+          class="comic-box absolute inset-0 flex overflow-hidden"
+          style="width: 115%; left: -7.5%;"
+        >
           {
             about.comic.comic_list.map((item: any, i: number) => (
               <a
@@ -151,78 +176,36 @@ const posts = await getCollection("blog");
 
     <!-- Skills -->
     <section class="mb-10">
-      <h2 class="mb-4 text-xl font-bold text-foreground">{t('about.skills')}</h2>
-      <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
-        {about.skills.map((skill: any, i: number) => (
-          <div
-            class="group card flex flex-col items-center gap-2 p-4 cursor-default"
-            style={`animation: fade-in-up 0.4s ease ${i * 0.06}s backwards; transition: all 0.3s ease;`}
-          >
-            <div
-              class="relative flex h-12 w-12 items-center justify-center rounded-xl transition-all duration-300 group-hover:scale-110 group-hover:rotate-3"
-              style={`background: rgba(66,90,239,0.07);`}
-            >
-              <img src={skill.icon} alt={skill.name} class="h-8 w-8 object-contain" loading="lazy" />
-            </div>
-            <span class="text-xs font-medium text-foreground transition-colors group-hover:text-primary">
-              {skill.name}
-            </span>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <!-- Location -->
-    <section
-      class="mb-10 rounded-xl border border-border bg-card overflow-hidden"
-    >
+      <h2 class="mb-4 text-xl font-bold text-foreground">
+        {t("about.skills")}
+      </h2>
       <div
-        class="relative h-40 bg-cover bg-center"
-        style={`background-image: url(${about.map.background})`}
+        class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4"
       >
-        <div class="absolute inset-0 bg-black/30 flex items-end p-4">
-          <div>
-            <p class="text-xs text-white/80">{about.map.title}</p>
-            <p class="text-lg font-bold text-white">
-              {about.map.StrengthenTitle}
-            </p>
-          </div>
-        </div>
+        {
+          about.skills.map((skill: any, i: number) => (
+            <div
+              class="group card flex flex-col items-center gap-2 p-4 cursor-default"
+              style={`animation: fade-in-up 0.4s ease ${i * 0.06}s backwards; transition: all 0.3s ease;`}
+            >
+              <div
+                class="relative flex h-12 w-12 items-center justify-center rounded-xl transition-all duration-300 group-hover:scale-110 group-hover:rotate-3"
+                style={`background: rgba(66,90,239,0.07);`}
+              >
+                <img
+                  src={skill.icon}
+                  alt={skill.name}
+                  class="h-8 w-8 object-contain"
+                  loading="lazy"
+                />
+              </div>
+              <span class="text-xs font-medium text-foreground transition-colors group-hover:text-primary">
+                {skill.name}
+              </span>
+            </div>
+          ))
+        }
       </div>
-    </section>
-
-    <!-- Interests -->
-    <section class="mb-10 grid gap-4 sm:grid-cols-2">
-      <div class="rounded-xl border border-border bg-card overflow-hidden">
-        <div
-          class="h-24 bg-cover bg-center"
-          style={`background-image: url(${about.like.like_bg})`}
-        >
-        </div>
-        <div class="p-4">
-          <p class="text-xs text-muted">{about.like.like_tips}</p>
-          <p class="font-bold text-foreground">{about.like.like_title}</p>
-          <p class="text-sm text-muted">{about.like.like_bottom}</p>
-        </div>
-      </div>
-      <a
-        href={about.music.music_link}
-        class="group rounded-xl border border-border bg-card overflow-hidden"
-      >
-        <div
-          class="h-24 bg-cover bg-center"
-          style={`background-image: url(${about.music.music_bg})`}
-        >
-        </div>
-        <div class="p-4">
-          <p class="text-xs text-muted">{about.music.music_tips}</p>
-          <p
-            class="font-bold text-foreground group-hover:text-primary transition-colors"
-          >
-            {about.music.music_title}
-          </p>
-        </div>
-      </a>
     </section>
 
     <!-- Statistics -->
@@ -254,4 +237,3 @@ const posts = await getCollection("blog");
     width: 100% !important;
   }
 </style>
-

@@ -25,22 +25,6 @@
       "一生为一人"
     ]
   },
-  "helloAbout": "Hello there!",
-  "skillsTips": {
-    "tips": "技能",
-    "title": "开启创造力"
-  },
-  "careers": {
-    "tips": "生涯",
-    "title": "无限进步",
-    "list": [
-      {
-        "desc": "EDU，商丘师范学院，数据科学与大数据技术",
-        "color": "#357ef5"
-      }
-    ],
-    "img": null
-  },
   "statistic": {
     "link": "/archives",
     "text": "文章隧道",
@@ -53,12 +37,8 @@
     "backgroundDark": "https://imgbed.904002.xyz/file/img/blog/background/sqnu/艺术楼-2.webp"
   },
   "selfInfo": {
-    "selfInfoTips1": "生于",
-    "selfInfoContentYear": 2004,
-    "selfInfoTips2": "商丘师范学院",
-    "selfInfoContent2": "数据科学与大数据技术",
-    "selfInfoTips3": "目前",
-    "selfInfoContent3": "求职中"
+    "selfInfoTips": "目前",
+    "selfInfoContent": "求职中"
   },
   "personalities": {
     "author_name": "提倡者",
@@ -66,16 +46,6 @@
     "photo_url": "https://api.elaina.cat/random/",
     "personality_img": "https://imgbed.904002.xyz/file/img/blog/icon/infj.svg",
     "name_url": "https://www.16personalities.com/ch/infj-%E4%BA%BA%E6%A0%BC"
-  },
-  "maxim": {
-    "maxim_tips": "座右铭",
-    "maxim_top": "冠以名则六欲泛生，",
-    "maxim_bottom": "止于此则七情方休。"
-  },
-  "buff": {
-    "buff_tips": "特长",
-    "buff_top": "动手能力 MAX",
-    "buff_bottom": "二次元指数 MAX"
   },
   "game": {
     "game_title": "游戏",
@@ -111,18 +81,6 @@
         "cover": "https://imgbed.904002.xyz/file/img/blog/background/cartoon/因为太怕痛就全点防御力了.webp"
       }
     ]
-  },
-  "like": {
-    "like_tips": "关注偏好",
-    "like_title": "数码科技",
-    "like_bg": "https://imgbed.904002.xyz/file/img/blog/background/科技.webp",
-    "like_bottom": "手机、电脑软硬件"
-  },
-  "music": {
-    "music_tips": "音乐偏好",
-    "music_title": "民谣、华语流行",
-    "music_bg": "https://p2.music.126.net/Mrg1i7DwcwjWBvQPIMt_Mg==/79164837213438.jpg",
-    "music_link": "/music"
   },
   "skills": [
     { "name": "Astro", "icon": "https://imgbed.904002.xyz/file/img/blog/icon/skill/Astro.svg" },
