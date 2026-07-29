@@ -32,83 +32,152 @@ const { Content, headings } = await render(post);
 
   <main class="mx-auto px-4 py-5 sm:px-6 lg:px-8" style="max-width: 1360px;">
     <!-- Header card -->
-    <div
-      class="mb-5"
-      style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 16px; box-shadow: 0 1px 24px rgba(0,0,0,0.1); padding: 16px 20px;"
-    >
-      {
-        post.data.cover && (
-          <div
-            class="mb-4 overflow-hidden"
-            style="border-radius: 12px; max-height: 240px;"
-          >
-            <img
-              src={post.data.cover}
-              alt={post.data.title}
-              class="h-auto w-full object-cover"
-              style="max-height: 240px;"
-              loading="eager"
-            />
-          </div>
-        )
-      }
-      <h1
-        class="mb-2 text-2xl font-bold tracking-tight text-foreground sm:text-3xl"
-      >
-        {post.data.title}
-      </h1>
-      <div
-        class="flex flex-wrap items-center gap-2 text-sm text-foreground-muted"
-      >
-        <time datetime={post.data.date.toISOString()}
-          >{formatDate(post.data.date)}</time
+    {
+      post.data.cover && (
+        <div
+          class="relative overflow-hidden mb-5 rounded-2xl"
+          style="min-height: 450px;"
         >
-        {
-          post.data.updated && (
-            <>
-              <>
-                <span class="opacity-30">·</span>
-                <span>
-                  {t("post.updated")}{" "}
-                  <time datetime={post.data.updated.toISOString()}>
-                    {formatDate(post.data.updated)}
-                  </time>
-                </span>
-              </>
-            </>
-          )
-        }
-        <span class="ml-auto">
-          <VercountDisplay client:only="react" pagePv />
-        </span>
-      </div>
-      {
-        post.data.categories.length > 0 && (
-          <div class="mt-2 flex flex-wrap items-center gap-2">
-            {post.data.categories.map((cat) => (
-              <a
-                href={`/categories/${cat}`}
-                class="inline-block rounded-full px-3 py-0.5 text-xs font-medium text-primary transition-colors hover:bg-primary/15"
-                style="background: rgba(66,90,239,0.08);"
+          <!-- Cover image fills the card -->
+          <img
+            src={post.data.cover}
+            alt={post.data.title}
+            class="absolute inset-0 w-full h-full object-cover"
+            loading="eager"
+          />
+          <!-- Subtle gradient overlay for readability -->
+          <div
+            class="absolute inset-0"
+            style="background: linear-gradient(to top, rgba(0,0,0,0.15) 0%, transparent 40%);"
+          ></div>
+          <!-- Metadata overlay on image -->
+          <div
+            class="absolute left-5 right-5 bottom-5 rounded-xl p-6 sm:p-8 cover-overlay-card"
+            style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 1px 24px rgba(0,0,0,0.1);"
+          >
+            <h1
+              class="mb-2 text-2xl font-bold tracking-tight text-white/90 sm:text-3xl"
+              style="text-shadow: 0 1px 6px rgba(0,0,0,0.3);"
+            >
+              {post.data.title}
+            </h1>
+            <div
+              class="flex flex-wrap items-center gap-2 text-sm text-white/80"
+            >
+              <time datetime={post.data.date.toISOString()}
+                >{formatDate(post.data.date)}</time
               >
-                {cat}
-              </a>
-            ))}
-          </div>
-        )
-      }
-      {
-        post.data.tags.length > 0 && (
-          <div class="mt-1.5 flex flex-wrap items-center gap-2">
-            {post.data.tags.map((tag) => (
-              <span class="tag-pill">
-                #{tag}
+              {
+                post.data.updated && (
+                  <>
+                    <span class="opacity-30">·</span>
+                    <span>
+                      {t("post.updated")}{" "}
+                      <time datetime={post.data.updated.toISOString()}>
+                        {formatDate(post.data.updated)}
+                      </time>
+                    </span>
+                  </>
+                )
+              }
+              <span class="ml-auto">
+                <VercountDisplay client:only="react" pagePv />
               </span>
-            ))}
+            </div>
+            {
+              post.data.categories.length > 0 && (
+                <div class="mt-2 flex flex-wrap items-center gap-2">
+                  {post.data.categories.map((cat) => (
+                    <a
+                      href={`/categories/${cat}`}
+                      class="inline-block rounded-full px-3 py-0.5 text-xs font-medium text-white/90 transition-colors hover:bg-white/15"
+                      style="background: rgba(255,255,255,0.12);"
+                    >
+                      {cat}
+                    </a>
+                  ))}
+                </div>
+              )
+            }
+            {
+              post.data.tags.length > 0 && (
+                <div class="mt-1.5 flex flex-wrap items-center gap-2">
+                  {post.data.tags.map((tag) => (
+                    <span class="text-xs text-white/70">
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+              )
+            }
           </div>
-        )
-      }
-    </div>
+        </div>
+      )
+    }
+
+    {
+      !post.data.cover && (
+        <div
+          class="mb-5"
+          style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 16px; box-shadow: 0 1px 24px rgba(0,0,0,0.1); padding: 16px 20px;"
+        >
+          <h1
+            class="mb-2 text-2xl font-bold tracking-tight text-foreground sm:text-3xl"
+          >
+            {post.data.title}
+          </h1>
+          <div
+            class="flex flex-wrap items-center gap-2 text-sm text-foreground-muted"
+          >
+            <time datetime={post.data.date.toISOString()}
+              >{formatDate(post.data.date)}</time
+            >
+            {
+              post.data.updated && (
+                <>
+                  <span class="opacity-30">·</span>
+                  <span>
+                    {t("post.updated")}{" "}
+                    <time datetime={post.data.updated.toISOString()}>
+                      {formatDate(post.data.updated)}
+                    </time>
+                  </span>
+                </>
+              )
+            }
+            <span class="ml-auto">
+              <VercountDisplay client:only="react" pagePv />
+            </span>
+          </div>
+          {
+            post.data.categories.length > 0 && (
+              <div class="mt-2 flex flex-wrap items-center gap-2">
+                {post.data.categories.map((cat) => (
+                  <a
+                    href={`/categories/${cat}`}
+                    class="inline-block rounded-full px-3 py-0.5 text-xs font-medium text-primary transition-colors hover:bg-primary/15"
+                    style="background: rgba(66,90,239,0.08);"
+                  >
+                    {cat}
+                  </a>
+                ))}
+              </div>
+            )
+          }
+          {
+            post.data.tags.length > 0 && (
+              <div class="mt-1.5 flex flex-wrap items-center gap-2">
+                {post.data.tags.map((tag) => (
+                  <span class="tag-pill">
+                    #{tag}
+                  </span>
+                ))}
+              </div>
+            )
+          }
+        </div>
+      )
+    }
 
     <!-- Content + TOC side by side -->
     <div class="flex gap-5">
@@ -142,6 +211,15 @@ const { Content, headings } = await render(post);
 
   <style is:global>
     .dark .prose-card {
+      background: linear-gradient(
+        135deg,
+        rgba(30, 30, 40, 0.6),
+        rgba(30, 30, 40, 0.3)
+      ) !important;
+      border-color: rgba(255, 255, 255, 0.08) !important;
+    }
+
+    .dark .cover-overlay-card {
       background: linear-gradient(
         135deg,
         rgba(30, 30, 40, 0.6),
