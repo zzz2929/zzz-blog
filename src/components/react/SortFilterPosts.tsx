@@ -110,6 +110,8 @@ export default function SortFilterPosts({ posts, viewCounts = {}, locale = 'zh-C
   const [sortDir, setSortDir] = useState<SortDir>('desc');
   const [category, setCategory] = useState<string>('all');
   const [query, setQuery] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const postsPerPage = 9;
 
   const categories = useMemo(() => {
     const cats = new Set<string>();
@@ -138,6 +140,15 @@ export default function SortFilterPosts({ posts, viewCounts = {}, locale = 'zh-C
 
     return list;
   }, [posts, sortDir, category, query]);
+
+  // Reset to first page when filters change
+  useMemo(() => {
+    setCurrentPage(1);
+  }, [sortDir, category, query]);
+
+  const totalPages = Math.ceil(filtered.length / postsPerPage);
+  const startIndex = (currentPage - 1) * postsPerPage;
+  const currentPosts = filtered.slice(startIndex, startIndex + postsPerPage);
 
   const btn = (active: boolean): React.CSSProperties => ({
     padding: '3px 10px',
@@ -205,17 +216,71 @@ export default function SortFilterPosts({ posts, viewCounts = {}, locale = 'zh-C
         </div>
 
         <span style={{ fontSize: 11, color: 'var(--color-foreground-muted)', flexShrink: 0, opacity: 0.6 }}>
-          {t('home.filter.count').replace('{count}', String(filtered.length))}
+          {currentPage === 1 && totalPages === 1
+            ? t('home.filter.count').replace('{count}', String(filtered.length))
+            : `${startIndex + 1}-${Math.min(startIndex + postsPerPage, filtered.length)} / ${filtered.length}`}
         </span>
       </div>
 
       {/* Article grid */}
       {filtered.length > 0 ? (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 20 }}>
-          {filtered.map((post) => (
-            <PostCard key={post.slug} post={post} viewCount={viewCounts[post.slug] ?? 0} />
-          ))}
-        </div>
+        <>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 20 }}>
+            {currentPosts.map((post) => (
+              <PostCard key={post.slug} post={post} viewCount={viewCounts[post.slug] ?? 0} />
+            ))}
+          </div>
+
+          {/* Pagination */}
+          {totalPages > 1 && (
+            <div style={{
+              display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 8,
+              marginTop: 20, padding: '8px 0'
+            }}>
+              <button
+                onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
+                disabled={currentPage === 1}
+                style={{
+                  padding: '6px 12px', borderRadius: 6, border: '1px solid var(--color-border)',
+                  background: 'transparent', color: currentPage === 1 ? 'var(--color-foreground-muted)' : 'var(--color-primary)',
+                  cursor: currentPage === 1 ? 'not-allowed' : 'pointer', fontSize: 12,
+                  opacity: currentPage === 1 ? 0.5 : 1
+                }}
+              >
+                &lt;
+              </button>
+
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                <button
+                  key={page}
+                  onClick={() => setCurrentPage(page)}
+                  style={{
+                    padding: '6px 10px', borderRadius: 6, border: '1px solid var(--color-border)',
+                    background: currentPage === page ? 'var(--color-primary)' : 'transparent',
+                    color: currentPage === page ? 'white' : 'var(--color-foreground)',
+                    cursor: 'pointer', fontSize: 12, fontWeight: currentPage === page ? 600 : 400,
+                    minWidth: 32, textAlign: 'center' as const
+                  }}
+                >
+                  {page}
+                </button>
+              ))}
+
+              <button
+                onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
+                disabled={currentPage === totalPages}
+                style={{
+                  padding: '6px 12px', borderRadius: 6, border: '1px solid var(--color-border)',
+                  background: 'transparent', color: currentPage === totalPages ? 'var(--color-foreground-muted)' : 'var(--color-primary)',
+                  cursor: currentPage === totalPages ? 'not-allowed' : 'pointer', fontSize: 12,
+                  opacity: currentPage === totalPages ? 0.5 : 1
+                }}
+              >
+                &gt;
+              </button>
+            </div>
+          )}
+        </>
       ) : (
         <div style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1))', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.3)', borderRadius: 16, padding: '48px 16px', textAlign: 'center', color: 'var(--color-foreground-muted)' }}>
           <p style={{ fontSize: 16, marginBottom: 4 }}>{t('home.empty.title')}</p>
