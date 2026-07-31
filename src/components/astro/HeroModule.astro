@@ -60,6 +60,22 @@ const displayGroups = grouped.length > 0 ? [grouped[0]] : [];
       loading="eager"
     />
 
+    <!-- Refresh button in bottom-left corner -->
+    <div class="absolute bottom-3 left-3 z-10">
+      <button
+        id="hero-image-refresh"
+        class="flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium transition-all duration-300"
+        style="background: rgba(255,255,255,0.25); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); color: #555; border: 1px solid rgba(255,255,255,0.3); cursor: pointer;"
+        aria-label={t('home.randomImage.refresh')}
+      >
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="23 4 23 10 17 10"></polyline>
+          <path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"></path>
+        </svg>
+        {t('home.randomImage.refresh')}
+      </button>
+    </div>
+
     <!-- Layer 2: Combined essay + hitokoto card (bottom-right) -->
     <div class="hero-combined-card absolute bottom-4 right-4 z-10 overflow-hidden flex flex-col" style="width: 28%; max-width: 260px; height: 300px; border-radius: 12px; background: rgba(255,255,255,0.25); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.4); box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: background 0.3s ease;">
       <!-- Essay section (top) -->
@@ -157,6 +173,9 @@ const displayGroups = grouped.length > 0 ? [grouped[0]] : [];
   #hero-hitokoto-refresh:hover {
     background: rgba(0,0,0,0.1);
   }
+  #hero-image-refresh:hover {
+    background: rgba(255,255,255,0.35);
+  }
   .essay-year-badge {
     display: inline-block;
     font-size: 11px;
@@ -199,6 +218,24 @@ const displayGroups = grouped.length > 0 ? [grouped[0]] : [];
         textEl.textContent = next;
         textEl.style.opacity = "1";
         textEl.style.transform = "translateY(0)";
+      }, 200);
+    });
+
+    // Random image refresh
+    const heroImage = document.getElementById("hero-random-img");
+    document.getElementById("hero-image-refresh")?.addEventListener("click", () => {
+      if (!heroImage) return;
+      // Add a small fade effect
+      heroImage.style.opacity = "0.8";
+      heroImage.style.transform = "scale(1.02)";
+
+      // Change the image source with timestamp to prevent caching
+      heroImage.src = "https://api.elaina.cat/random/?t=" + Date.now();
+
+      // Restore styles after a short delay
+      setTimeout(() => {
+        heroImage.style.opacity = "1";
+        heroImage.style.transform = "scale(1)";
       }, 200);
     });
 

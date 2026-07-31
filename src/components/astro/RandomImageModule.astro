@@ -32,9 +32,13 @@ const t = useTranslations(locale);
 
 
   <!-- Bottom buttons -->
-  <div class="absolute bottom-3 right-3 z-10">
-    <!-- Only refresh button will remain here -->
-    <button id="rim-refresh" class="recommend-btn">
+  <div class="absolute bottom-3 left-3 z-10">
+    <button
+      id="rim-refresh"
+      class="flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium transition-all duration-300"
+      style="background: rgba(255,255,255,0.25); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); color: #555; border: 1px solid rgba(255,255,255,0.3); cursor: pointer;"
+      aria-label={t('home.randomImage.refresh')}
+    >
       <svg
         width="12"
         height="12"
@@ -48,41 +52,14 @@ const t = useTranslations(locale);
         <polyline points="23 4 23 10 17 10"></polyline>
         <path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"></path>
       </svg>
+      {t('home.randomImage.refresh')}
     </button>
   </div>
 </div>
 
 <style>
-  .recommend-btn {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 8px 16px;
-    border-radius: 9999px;
-    color: white;
-    font-size: 12px;
-    font-weight: 500;
-    background: linear-gradient(
-      135deg,
-      rgba(66, 90, 239, 0.7),
-      rgba(0, 196, 182, 0.7)
-    );
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  }
-  .recommend-btn:hover {
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(66, 90, 239, 0.3);
-    background: linear-gradient(
-      135deg,
-      rgba(66, 90, 239, 0.9),
-      rgba(0, 196, 182, 0.9)
-    );
-  }
-  .recommend-btn:active {
-    transform: scale(0.95);
+  #rim-refresh:hover {
+    background: rgba(255,255,255,0.35);
   }
 </style>
 
