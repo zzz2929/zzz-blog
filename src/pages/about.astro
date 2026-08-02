@@ -101,34 +101,38 @@ const posts = await getCollection("blog");
     <section class="mb-10 flex flex-col sm:flex-row gap-4">
       <!-- Game Card -->
       <div
-        class="sm:w-[55%] rounded-2xl overflow-hidden relative min-h-[280px] bg-center bg-top"
-        style={`background-image: url(${about.game.game_bg})`}
+        class="sm:w-[55%] rounded-2xl overflow-hidden relative min-h-[280px] bg-border game-content"
       >
+        <div class="absolute top-5 left-5 z-20">
+          <div class="text-2xl font-bold text-white">
+            {about.game.game_title}
+          </div>
+        </div>
         <div
-          class="card-content absolute inset-0 p-5 flex flex-col justify-between"
+          class="game-box absolute inset-0 flex overflow-hidden"
+          style="width: 115%; left: -7.5%;"
         >
-          <div>
-            <p class="item-tips text-xs text-white/70 mb-1">
-              {about.game.game_tips}
-            </p>
-            <span class="item-title text-2xl font-bold text-white"
-              >{about.game.game_title}</span
-            >
-          </div>
-          <div class="game-content-bottom">
-            <div class="flex items-end justify-between mt-auto">
-              <div class="flex gap-2">
-                {
-                  ["🔥", "💧", "🌿", "⚡", "❄️", "⭐", "🪨"].map((el) => (
-                    <span class="text-lg opacity-80">{el}</span>
-                  ))
-                }
+          {
+            about.game.game_list.map((item: any, i: number) => (
+              <div
+                class="game-item relative flex-1 overflow-hidden group transition-all duration-500 hover:z-10 hover:flex-[2.3]"
+                title={item.name}
+                style="transform: skew(-10deg, 0deg); contain: paint;"
+              >
+                <div
+                  class="absolute top-0 h-full transition-all duration-500"
+                  style={`left: ${i === 0 ? '-30%' : '-20%'}; width: ${i === 0 ? '150%' : '200%'}; transform: skew(10deg, 0deg);`}
+                >
+                  <img
+                    src={item.bg}
+                    alt={item.name}
+                    class="h-full max-w-none object-cover transition-transform duration-500 group-hover:scale-[1.4]"
+                    loading="lazy"
+                  />
+                </div>
               </div>
-              <p class="game-uid text-xs text-white/70">
-                {about.game.game_uid}
-              </p>
-            </div>
-          </div>
+            ))
+          }
         </div>
       </div>
 
@@ -232,7 +236,8 @@ const posts = await getCollection("blog");
 </BaseLayout>
 
 <style>
-  .comic-item:hover > div {
+  .comic-item:hover > div,
+  .game-item:hover > div {
     left: 0 !important;
     width: 100% !important;
   }

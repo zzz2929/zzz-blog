@@ -32,7 +32,7 @@
   },
   "map": {
     "title": "👨‍🎓毕业于",
-    "StrengthenTitle": "中国，河南省，商丘市，商丘师范学院",
+    "StrengthenTitle": "河南省，商丘市，商丘师范学院",
     "background": "https://imgbed.904002.xyz/file/img/blog/background/sqnu/艺术楼-1.webp",
     "backgroundDark": "https://imgbed.904002.xyz/file/img/blog/background/sqnu/艺术楼-2.webp"
   },
@@ -43,14 +43,21 @@
   "personalities": {
     "author_name": "提倡者",
     "personality_type": "INFJ-A",
-    "photo_url": "https://api.elaina.cat/random/",
     "personality_img": "https://imgbed.904002.xyz/file/img/blog/icon/infj.svg",
     "name_url": "https://www.16personalities.com/ch/infj-%E4%BA%BA%E6%A0%BC"
   },
   "game": {
     "game_title": "游戏",
-    "game_uid": "UID: 195433728",
-    "game_bg": "https://imgbed.904002.xyz/file/img/blog/background/game/yuanshen.webp"
+    "game_list": [
+      {
+        "name": "崩坏：星穹铁道",
+        "bg": "https://imgbed.904002.xyz/file/img/blog/background/game/崩坏：星穹铁道.webp"
+      },
+      {
+        "name": "原神",
+        "bg": "https://imgbed.904002.xyz/file/img/blog/background/game/yuanshen.webp"
+      }
+    ]
   },
   "comic": {
     "comic_title": "追番",
