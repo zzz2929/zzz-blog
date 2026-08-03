@@ -44,36 +44,65 @@ const posts = await getCollection("blog");
     </section>
 
     <!-- Self Info -->
-    <section class="mb-10 rounded-xl border border-border bg-card p-6">
-      <h2 class="mb-4 text-xl font-bold text-foreground">
-        {t("about.personalInfo")}
-      </h2>
-      <div class="flex flex-col sm:flex-row gap-6">
-        <!-- Left: Personal Info -->
-        <div class="flex-1 flex flex-col gap-4">
-          <div class="flex items-center gap-3">
-            <span class="text-lg">💼</span>
-            <div>
-              <p class="text-xs text-muted">{about.selfInfo.selfInfoTips}</p>
-              <p class="font-medium text-foreground">
-                {about.selfInfo.selfInfoContent}
-              </p>
+    <section class="mb-10 flex flex-col sm:flex-row gap-4">
+      <!-- Left: Personal Info -->
+      <div class="sm:w-[55%] rounded-xl border border-border bg-card p-6">
+        <h2 class="mb-4 text-xl font-bold text-foreground">
+          {t("about.personalInfo")}
+        </h2>
+        <div class="flex flex-col sm:flex-row gap-6">
+          <div class="flex-1 flex flex-col gap-4">
+            <div class="flex items-center gap-3">
+              <span class="text-lg">💼</span>
+              <div>
+                <p class="text-xs text-muted">{about.selfInfo.selfInfoTips}</p>
+                <p class="font-medium text-foreground">
+                  {about.selfInfo.selfInfoContent}
+                </p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-lg">🧠</span>
+              <div>
+                <p class="text-xs text-muted">
+                  {about.personalities.author_name}
+                </p>
+                <a
+                  href={about.personalities.name_url}
+                  target="_blank"
+                  class="font-medium text-primary hover:underline"
+                  >{about.personalities.personality_type}</a
+                >
+              </div>
             </div>
           </div>
-          <div class="flex items-center gap-3">
-            <span class="text-lg">🧠</span>
-            <div>
-              <p class="text-xs text-muted">
-                {about.personalities.author_name}
-              </p>
-              <a
-                href={about.personalities.name_url}
-                target="_blank"
-                class="font-medium text-primary hover:underline"
-                >{about.personalities.personality_type}</a
-              >
-            </div>
-          </div>
+        </div>
+      </div>
+
+      <!-- Right: Beautiful World -->
+      <div class="sm:w-[45%] rounded-xl border border-border bg-card p-6">
+        <p class="text-lg font-medium text-muted mb-2 opacity-90">
+          {about.aboutsiteTips.tips}
+        </p>
+        <h2 class="text-[32px] font-bold text-foreground mb-1 leading-[1.1] tracking-[-0.02em]">
+          {about.aboutsiteTips.title1}
+        </h2>
+        <h2 class="text-[32px] font-bold text-foreground opacity-60 mb-1 leading-[1.1] tracking-[-0.02em]">
+          {about.aboutsiteTips.title2}
+        </h2>
+        <div class="mask" id="beautiful-world-mask">
+          {about.aboutsiteTips.word.slice(0, -2).map((wordItem: string, index: number) => (
+            <span class={index === 0 ? 'first-tips' : ''}>
+              {wordItem}
+            </span>
+          ))}
+          <span data-up>
+            {about.aboutsiteTips.word[about.aboutsiteTips.word.length - 2]}
+          </span>
+          {' '}
+          <span data-show>
+            {about.aboutsiteTips.word[about.aboutsiteTips.word.length - 1]}
+          </span>
         </div>
       </div>
     </section>
@@ -241,4 +270,80 @@ const posts = await getCollection("blog");
     left: 0 !important;
     width: 100% !important;
   }
+
+  .mask span {
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    top: 36px;
+    padding-bottom: var(--offset, 0px);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    background-size: 100% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    background-repeat: no-repeat;
+  }
+
+  .mask {
+    height: 36px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 12px;
+    font-family: Helvetica;
+  }
+
+  .mask span[data-show] {
+    transform: translateY(-100%);
+    transition: 0.5s transform ease-in-out;
+  }
+
+  .mask span[data-up] {
+    transform: translateY(-200%);
+    transition: 0.5s transform ease-in-out;
+  }
+
+  .mask span:nth-child(1) {
+    background-image: linear-gradient(45deg, #0ecffe 50%, #07a6f1);
+  }
+
+  .mask span:nth-child(2) {
+    background-image: linear-gradient(45deg, #18e198 50%, #0ec15d);
+  }
+
+  .mask span:nth-child(3) {
+    background-image: linear-gradient(45deg, #8a7cfb 50%, #633e9c);
+  }
+
+  .mask span:nth-child(4) {
+    background-image: linear-gradient(45deg, #fa7671 50%, #f45f7f);
+  }
 </style>
+
+<script>
+  // Exact copy from original pug file, line 390-404
+  var pursuitInterval = null;
+  pursuitInterval = setInterval(function () {
+    const show = document.querySelector("span[data-show]");
+    const next = show.nextElementSibling || document.querySelector(".first-tips");
+    const up = document.querySelector("span[data-up]");
+
+    if (up) {
+      up.removeAttribute("data-up");
+    }
+
+    show.removeAttribute("data-show");
+    show.setAttribute("data-up", "");
+
+    next.setAttribute("data-show", "");
+  }, 2000);
+
+  // Clean up (Astro equivalent of pjax:send)
+  document.addEventListener('astro:before-preparation', function () {
+    pursuitInterval && clearInterval(pursuitInterval);
+  });
+</script>
