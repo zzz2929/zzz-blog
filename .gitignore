@@ -1,18 +1,13 @@
 .DS_Store
 Thumbs.db
-db.json
 *.log
 node_modules/
 .deploy*/
-_multiconfig.yml
 docs/
 dist/
 .astro/
 .claude/
 .wrangler/
-CLAUDE.md
 worker-configuration.d.ts
-package-lock.json
 mimo.exe
-/src/content/playlists/Standardize musicjson.py
 .mimocode
