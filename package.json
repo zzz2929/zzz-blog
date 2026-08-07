@@ -46,6 +46,9 @@
     ],
     "overrides": {
       "vite": "^8"
-    }
+    },
+    "ignoredBuiltDependencies": [
+      "workerd"
+    ]
   }
 }

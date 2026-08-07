@@ -45,7 +45,7 @@
   "home.filter.count": "{count}篇",
   "home.empty.title": "没有找到匹配的文章",
   "home.empty.hint": "试试其他关键词或分类",
-  "post.updated": "更新于",
+  "post.updated": "最后更新于",
   "post.copyCode": "复制代码",
   "post.toc": "目录",
   "categories.title": "分类",
