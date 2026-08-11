@@ -15,6 +15,7 @@ export async function getStaticPaths() {
 
 const { slug } = Astro.params;
 const posts = await getPostsByCategory(slug!);
+const locale = getLocaleFromURL(Astro.url.pathname);
 ---
 
 <BaseLayout title={`${t("categories.title")}: ${slug}`}>
@@ -38,6 +39,7 @@ const posts = await getPostsByCategory(slug!);
             tags={post.data.tags}
             categories={post.data.categories}
             slug={post.id}
+            locale={locale}
           />
         ))
       }

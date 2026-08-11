@@ -48,6 +48,8 @@
   "post.updated": "Last Updated",
   "post.copyCode": "Copy Code",
   "post.toc": "Table of Contents",
+  "post.outdated.prev": "It has been",
+  "post.outdated.next": "days since the last update, the content of the article may be outdated.",
   "categories.title": "Categories",
   "categories.back": "← Back to Categories",
   "categories.count": "{count} articles in total",

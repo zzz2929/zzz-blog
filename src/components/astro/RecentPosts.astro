@@ -9,6 +9,8 @@ const allPosts = await getCollection('blog');
 const recentPosts = allPosts
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 5);
+
+const prefix = locale === "zh-CN" ? "" : `/${locale}`;
 ---
 
 <div style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 16px; box-shadow: 0 1px 24px rgba(0,0,0,0.1); padding: 20px;">
@@ -20,7 +22,7 @@ const recentPosts = allPosts
     {recentPosts.map((post, i) => (
       <li style={`animation: fade-in-up 0.3s ease ${i * 0.06}s backwards;`}>
         <a
-          href={`/posts/${post.id}`}
+          href={`${prefix}/posts/${post.id}`}
           class="group flex items-start gap-3 rounded-lg px-2 py-2 transition-all duration-200 hover:bg-foreground/[0.03]"
         >
           <!-- Timeline dot -->

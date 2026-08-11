@@ -1,0 +1,120 @@
+---
+import { siteConfig } from "@/config/site";
+
+interface Props {
+  updated?: Date;
+  t: (key: string) => string;
+}
+
+const { updated, t } = Astro.props;
+
+const config = siteConfig.noticeOutdate;
+
+// Compute days since last update
+const now = new Date();
+const lastUpdate = updated ? new Date(updated) : null;
+const daysSince = lastUpdate
+  ? Math.floor((now.getTime() - lastUpdate.getTime()) / (1000 * 60 * 60 * 24))
+  : 0;
+
+// Determine if the notice should be shown
+const isOutdated = config.enable && lastUpdate !== null && daysSince > config.limit_day;
+---
+
+{
+  isOutdated && (
+    <div
+      class:list={[
+        "outdate-notice",
+        config.style === "flat" && "outdate-notice--flat",
+        config.style === "simple" && "outdate-notice--simple",
+      ]}
+    >
+      <div class="outdate-notice__inner">
+        <svg
+          class="outdate-notice__icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+          <line x1="12" y1="9" x2="12" y2="13" />
+          <line x1="12" y1="17" x2="12.01" y2="17" />
+        </svg>
+        <span class="outdate-notice__text">
+          {t("post.outdated.prev")} {daysSince} {t("post.outdated.next")}
+        </span>
+      </div>
+    </div>
+  )
+}
+
+<style>
+  .outdate-notice {
+    margin-bottom: 1rem;
+  }
+
+  .outdate-notice__inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+  }
+
+  .outdate-notice__icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+  }
+
+  .outdate-notice__text {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  /* Flat style */
+  .outdate-notice--flat .outdate-notice__inner {
+    background: rgba(251, 191, 36, 0.15);
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    color: #92400e;
+  }
+
+  .outdate-notice--flat .outdate-notice__icon {
+    color: #f59e0b;
+  }
+
+  /* Simple style */
+  .outdate-notice--simple .outdate-notice__inner {
+    background: transparent;
+    border-left: 3px solid #f59e0b;
+    color: #92400e;
+    padding-left: 0.75rem;
+    border-radius: 0;
+  }
+
+  .outdate-notice--simple .outdate-notice__icon {
+    color: #f59e0b;
+  }
+
+  /* Dark mode */
+  :global(.dark) .outdate-notice--flat .outdate-notice__inner {
+    background: rgba(251, 191, 36, 0.1);
+    border-color: rgba(251, 191, 36, 0.2);
+    color: #fbbf24;
+  }
+
+  :global(.dark) .outdate-notice--simple .outdate-notice__inner {
+    border-left-color: #fbbf24;
+    color: #fbbf24;
+  }
+
+  :global(.dark) .outdate-notice--flat .outdate-notice__icon,
+  :global(.dark) .outdate-notice--simple .outdate-notice__icon {
+    color: #fbbf24;
+  }
+</style>

@@ -11,15 +11,17 @@ interface Props {
   categories?: string[];
   slug: string;
   index?: number;
+  locale?: string;
 }
 
-const { title, date, excerpt, cover, tags = [], categories = [], slug, index = 0 } = Astro.props;
+const { title, date, excerpt, cover, tags = [], categories = [], slug, index = 0, locale = "zh-CN" } = Astro.props;
 
 const delay = index * 0.06;
+const prefix = locale === "zh-CN" ? "" : `/${locale}`;
 ---
 
 <a
-  href={`/posts/${slug}`}
+  href={`${prefix}/posts/${slug}`}
   class="post-card group block relative overflow-hidden"
   style={`
     animation: fade-in-up 0.4s ${delay}s backwards;

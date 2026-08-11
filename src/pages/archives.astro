@@ -13,6 +13,8 @@ const posts = (await getCollection("blog")).sort(
 );
 
 const grouped = groupPostsByDate(posts);
+
+const prefix = locale === "zh-CN" ? "" : `/${locale}`;
 ---
 
 <BaseLayout title={t('archives.title')}>
@@ -55,7 +57,7 @@ const grouped = groupPostsByDate(posts);
                         })}
                       </time>
                       <a
-                        href={`/posts/${post.id}`}
+                        href={`${prefix}/posts/${post.id}`}
                         class="text-foreground hover:text-primary transition-colors"
                       >
                         {post.data.title}

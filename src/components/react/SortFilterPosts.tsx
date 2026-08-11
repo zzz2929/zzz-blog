@@ -28,10 +28,11 @@ function formatDate(iso: string): string {
   return `${y}/${m}/${day}`;
 }
 
-function PostCard({ post, viewCount }: { post: Post; viewCount: number }) {
+function PostCard({ post, viewCount, locale }: { post: Post; viewCount: number; locale: string }) {
+  const prefix = locale === 'zh-CN' ? '' : `/${locale}`;
   return (
     <a
-      href={`/posts/${post.slug}`}
+      href={`${prefix}/posts/${post.slug}`}
       style={{
         display: 'block',
         position: 'relative',
@@ -227,7 +228,7 @@ export default function SortFilterPosts({ posts, viewCounts = {}, locale = 'zh-C
         <>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 20 }}>
             {currentPosts.map((post) => (
-              <PostCard key={post.slug} post={post} viewCount={viewCounts[post.slug] ?? 0} />
+              <PostCard key={post.slug} post={post} viewCount={viewCounts[post.slug] ?? 0} locale={locale} />
             ))}
           </div>
 

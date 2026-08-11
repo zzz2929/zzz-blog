@@ -10,6 +10,15 @@ const locale = getLocaleFromURL(Astro.url.pathname) as Locale;
 const t = useTranslations(locale);
 const prefix = locale === "zh-CN" ? "" : `/${locale}`;
 
+// Keep the current page when switching languages: strip the active locale
+// prefix to get the canonical (zh-CN) path, then re-add the target prefix.
+const basePath =
+  prefix && Astro.url.pathname.startsWith(prefix)
+    ? Astro.url.pathname.slice(prefix.length) || "/"
+    : Astro.url.pathname;
+const switchLocaleHref = (target: Locale) =>
+  target === "zh-CN" ? basePath : `/${target}${basePath}`;
+
 const menuItems = [
   {
     label: t("nav.posts"),
@@ -423,7 +432,7 @@ function isImageIcon(icon) {
               >
               <div class="flex gap-1">
                 <a
-                  href="/"
+                  href={switchLocaleHref("zh-CN")}
                   class:list={[
                     "px-2 py-1 rounded text-xs font-medium transition-colors",
                     locale === "zh-CN"
@@ -435,7 +444,7 @@ function isImageIcon(icon) {
                     : ""}>简</a
                 >
                 <a
-                  href="/zh-TW/"
+                  href={switchLocaleHref("zh-TW")}
                   class:list={[
                     "px-2 py-1 rounded text-xs font-medium transition-colors",
                     locale === "zh-TW"
@@ -447,7 +456,7 @@ function isImageIcon(icon) {
                     : ""}>繁</a
                 >
                 <a
-                  href="/en/"
+                  href={switchLocaleHref("en")}
                   class:list={[
                     "px-2 py-1 rounded text-xs font-medium transition-colors",
                     locale === "en"

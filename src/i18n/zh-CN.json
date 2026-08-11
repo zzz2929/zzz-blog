@@ -48,6 +48,8 @@
   "post.updated": "最后更新于",
   "post.copyCode": "复制代码",
   "post.toc": "目录",
+  "post.outdated.prev": "距离上次更新已过去",
+  "post.outdated.next": "天，文章内容可能已经过时，仅供参考。",
   "categories.title": "分类",
   "categories.back": "← 返回分类",
   "categories.count": "共 {count} 篇文章",

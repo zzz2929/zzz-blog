@@ -1,6 +1,7 @@
 ---
 import { AnimatedBackground } from "@/components/react/AnimatedBackground";
 import MiniPlayer from "@/components/astro/MiniPlayer.astro";
+import Analytics from "@/components/astro/Analytics.astro";
 import { getLocaleFromURL } from "@/i18n";
 
 interface Props {
@@ -76,6 +77,7 @@ const isMusicPage =
         }
       })();
     </script>
+    <Analytics />
   </head>
   <body
     class="min-h-screen bg-background text-foreground font-sans antialiased"

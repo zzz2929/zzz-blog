@@ -5,11 +5,10 @@ import Header from "@/components/astro/Header.astro";
 import Footer from "@/components/astro/Footer.astro";
 import TOC from "@/components/astro/TOC.astro";
 import Comments from "@/components/astro/Comments.astro";
+import PostExpiryAlert from "@/components/astro/PostExpiryAlert.astro";
 import VercountDisplay from "@/components/react/VercountDisplay.tsx";
 import { formatDate } from "@/lib/posts";
 import { useTranslations, getLocaleFromURL } from "@/i18n";
-
-const t = useTranslations(getLocaleFromURL(Astro.url.pathname));
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -21,6 +20,9 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content, headings } = await render(post);
+
+const locale = getLocaleFromURL(Astro.url.pathname);
+const t = useTranslations(locale);
 ---
 
 <BaseLayout
@@ -186,6 +188,7 @@ const { Content, headings } = await render(post);
         class="prose-card min-w-0 flex-1"
         style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 16px; box-shadow: 0 1px 24px rgba(0,0,0,0.1); padding: 16px 20px;"
       >
+        <PostExpiryAlert updated={post.data.updated} t={t} />
         <div class="prose">
           <Content />
         </div>
