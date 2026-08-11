@@ -75,6 +75,53 @@ function rehypeCodeBlock() {
   };
 }
 
+/** Rehype plugin: GitHub-style alerts (> [!NOTE] / [!TIP] / …) → themed callout boxes */
+function rehypeGithubAlerts() {
+  const LABELS = {
+    note: 'Note',
+    tip: 'Tip',
+    important: 'Important',
+    warning: 'Warning',
+    caution: 'Caution',
+  };
+  const MARKER = /^\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\][ \t]*(\r?\n|$)/i;
+
+  return (tree) => {
+    visit(tree, 'element', (node) => {
+      if (node.tagName !== 'blockquote') return;
+
+      const firstP = node.children.find(
+        (c) => c.type === 'element' && c.tagName === 'p',
+      );
+      const firstText = firstP?.children?.[0];
+      if (!firstText || firstText.type !== 'text') return;
+
+      const match = firstText.value.match(MARKER);
+      if (!match) return;
+
+      const type = match[1].toLowerCase();
+      const rest = firstText.value.slice(match[0].length);
+
+      if (rest === '' && firstP.children.length === 1) {
+        // Marker sat on its own line → drop the now-empty paragraph.
+        node.children.splice(node.children.indexOf(firstP), 1);
+      } else {
+        // Marker shared its line with body text → keep the remainder.
+        firstText.value = rest;
+      }
+
+      node.tagName = 'div';
+      node.properties = { class: `markdown-alert markdown-alert-${type}` };
+      node.children.unshift({
+        type: 'element',
+        tagName: 'p',
+        properties: { class: 'markdown-alert-title' },
+        children: [{ type: 'text', value: LABELS[type] }],
+      });
+    });
+  };
+}
+
 export default defineConfig({
   site: 'https://blog.904002.xyz',
   output: 'static',
@@ -95,7 +142,7 @@ export default defineConfig({
       },
     },
     optimizeDeps: {
-      exclude: ['framer-motion', '@fancyapps/ui'],
+      exclude: ['framer-motion', '@fancyapps/ui', '@vercount/react', '@vercount/core'],
     },
     ssr: {
       noExternal: ['@fancyapps/ui'],
@@ -114,7 +161,7 @@ export default defineConfig({
 
   markdown: {
     processor: unified({
-      rehypePlugins: [rehypeImgLazyLoad, rehypeCodeBlock],
+      rehypePlugins: [rehypeImgLazyLoad, rehypeCodeBlock, rehypeGithubAlerts],
     }),
     shikiConfig: {
       themes: {
