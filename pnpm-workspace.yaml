@@ -1,0 +1,12 @@
+# pnpm-workspace.yaml
+
+overrides:
+  vite: ^8
+
+allowBuilds:
+  esbuild: true
+  sharp: true
+  workerd: false
+
+ignoreBuilds:
+  workerd: true
