@@ -38,5 +38,18 @@
     "tailwindcss": "^4.3.3",
     "unist-util-visit": "^5.1.0",
     "wrangler": "^4.127.1"
+  },
+  "pnpm": {
+    "overrides": {
+      "vite": "^8"
+    },
+    "allowBuilds": {
+      "esbuild": true,
+      "sharp": true,
+      "workerd": false
+    },
+    "ignoreBuilds": {
+      "workerd": true
+    }
   }
 }
