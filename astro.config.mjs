@@ -142,7 +142,7 @@ export default defineConfig({
       },
     },
     optimizeDeps: {
-      exclude: ['framer-motion', '@fancyapps/ui', '@vercount/react', '@vercount/core'],
+      exclude: ['motion/react', '@fancyapps/ui', '@vercount/react', '@vercount/core'],
     },
     ssr: {
       noExternal: ['@fancyapps/ui'],
