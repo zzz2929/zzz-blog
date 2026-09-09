@@ -377,7 +377,7 @@ function isImageIcon(icon) {
           </button>
           <div
             class="settings-dropdown absolute right-0 top-full mt-2 p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200"
-            style="z-index: 99999; width: 220px; background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255,0.4)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 14px; box-shadow: 0 8px 32px rgba(0,0,0,0.12);"
+            style="z-index: 99999; width: 320px; background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255,0.4)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 14px; box-shadow: 0 8px 32px rgba(0,0,0,0.12);"
           >
             <div class="flex items-center justify-between mb-3">
               <span
@@ -397,58 +397,55 @@ function isImageIcon(icon) {
                 style="font-size: 16px; font-weight: 700; color: var(--color-foreground);"
                 >{t("nav.bgColor")}</span
               >
-              <div
-                id="monet-palette-grid"
-                style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px;"
-              >
+              <div id="monet-palette-grid" class="container-items">
                 <button
-                  class="monet-swatch"
+                  class="item-color"
                   data-color="#EDE8DE"
+                  aria-color="云端漫步"
                   title="云端漫步"
-                  style="width: 100%; aspect-ratio: 1; border-radius: 8px; border: 2px solid transparent; cursor: pointer; background: #EDE8DE; transition: all 0.2s ease;"
-                ></button>
+                  style="--color: #EDE8DE;"></button>
                 <button
-                  class="monet-swatch"
+                  class="item-color"
                   data-color="#E8E0F0"
+                  aria-color="睡莲"
                   title="睡莲"
-                  style="width: 100%; aspect-ratio: 1; border-radius: 8px; border: 2px solid transparent; cursor: pointer; background: #E8E0F0; transition: all 0.2s ease;"
-                ></button>
+                  style="--color: #E8E0F0;"></button>
                 <button
-                  class="monet-swatch"
+                  class="item-color"
                   data-color="#F5E6D8"
+                  aria-color="日出印象"
                   title="日出印象"
-                  style="width: 100%; aspect-ratio: 1; border-radius: 8px; border: 2px solid transparent; cursor: pointer; background: #F5E6D8; transition: all 0.2s ease;"
-                ></button>
+                  style="--color: #F5E6D8;"></button>
                 <button
-                  class="monet-swatch"
+                  class="item-color"
                   data-color="#F0E4C8"
+                  aria-color="干草堆"
                   title="干草堆"
-                  style="width: 100%; aspect-ratio: 1; border-radius: 8px; border: 2px solid transparent; cursor: pointer; background: #F0E4C8; transition: all 0.2s ease;"
-                ></button>
+                  style="--color: #F0E4C8;"></button>
                 <button
-                  class="monet-swatch"
+                  class="item-color"
                   data-color="#E5DAE8"
+                  aria-color="紫藤"
                   title="紫藤"
-                  style="width: 100%; aspect-ratio: 1; border-radius: 8px; border: 2px solid transparent; cursor: pointer; background: #E5DAE8; transition: all 0.2s ease;"
-                ></button>
+                  style="--color: #E5DAE8;"></button>
                 <button
-                  class="monet-swatch"
+                  class="item-color"
                   data-color="#DDE4EA"
+                  aria-color="鲁昂大教堂"
                   title="鲁昂大教堂"
-                  style="width: 100%; aspect-ratio: 1; border-radius: 8px; border: 2px solid transparent; cursor: pointer; background: #DDE4EA; transition: all 0.2s ease;"
-                ></button>
+                  style="--color: #DDE4EA;"></button>
                 <button
-                  class="monet-swatch"
+                  class="item-color"
                   data-color="#D8E8E0"
+                  aria-color="塞纳河"
                   title="塞纳河"
-                  style="width: 100%; aspect-ratio: 1; border-radius: 8px; border: 2px solid transparent; cursor: pointer; background: #D8E8E0; transition: all 0.2s ease;"
-                ></button>
+                  style="--color: #D8E8E0;"></button>
                 <button
-                  class="monet-swatch"
+                  class="item-color"
                   data-color="#F7F9FE"
+                  aria-color="纯白"
                   title="纯白"
-                  style="width: 100%; aspect-ratio: 1; border-radius: 8px; border: 2px solid transparent; cursor: pointer; background: #F7F9FE; transition: all 0.2s ease;"
-                ></button>
+                  style="--color: #F7F9FE;"></button>
               </div>
             </div>
             <div
@@ -605,7 +602,7 @@ function isImageIcon(icon) {
 
   // Monet palette switcher (light mode only)
   (function () {
-    const swatches = document.querySelectorAll(".monet-swatch");
+    const swatches = document.querySelectorAll(".item-color");
     const paletteGrid = document.getElementById("monet-palette-grid");
     const stored = localStorage.getItem("monet-bg") || "#EDE8DE";
 
@@ -624,7 +621,6 @@ function isImageIcon(icon) {
         if (paletteGrid) paletteGrid.style.opacity = "0.4";
         swatches.forEach((s) => {
           s.style.pointerEvents = "none";
-          s.style.borderColor = "transparent";
         });
         return;
       }
@@ -644,8 +640,7 @@ function isImageIcon(icon) {
         `rgb(${Math.max(0, r - 15)}, ${Math.max(0, g - 15)}, ${Math.max(0, b - 15)})`,
       );
       swatches.forEach((s) => {
-        s.style.borderColor =
-          s.dataset.color === color ? "var(--color-primary)" : "transparent";
+        s.classList.toggle("selected", s.dataset.color === color);
       });
     }
 
@@ -821,12 +816,88 @@ function isImageIcon(icon) {
       transform: rotate(360deg);
     }
   }
-  /* Monet swatch hover */
-  .monet-swatch:hover {
-    transform: scale(1.15);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  /* Monet palette swatches (uiverse 3D scale style) */
+  .container-items {
+    display: flex;
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
   }
-  .monet-swatch:active {
-    transform: scale(0.95);
+  .item-color {
+    position: relative;
+    flex-shrink: 0;
+    width: 32px;
+    height: 40px;
+    border: none;
+    outline: none;
+    background: none;
+    padding: 0;
+    transition: 500ms cubic-bezier(0.175, 0.885, 0.32, 1.1);
+    cursor: pointer;
+  }
+  .item-color::after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    background-color: var(--color);
+    border-radius: 6px;
+    transform: scale(1.2);
+    pointer-events: none;
+    transition: 500ms cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  }
+  .item-color::before {
+    position: absolute;
+    content: attr(aria-color);
+    left: 65%;
+    bottom: 52px;
+    transform: translateX(-50%);
+    padding: 2px 8px;
+    font-size: 10px;
+    line-height: 14px;
+    white-space: nowrap;
+    color: var(--color-foreground);
+    background-color: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: 500ms cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  }
+  .dark .item-color::before {
+    color: #eee;
+    background-color: rgba(30, 30, 40, 0.95);
+  }
+  .item-color:hover {
+    transform: scale(1.5);
+    z-index: 99999;
+  }
+  .item-color:hover::before {
+    opacity: 1;
+    visibility: visible;
+  }
+  .item-color:active::after {
+    transform: scale(1.1);
+  }
+  .item-color.selected::after {
+    box-shadow: 0 0 0 2px var(--color-primary);
+  }
+  .item-color:hover + * {
+    transform: scale(1.3);
+    z-index: 9999;
+  }
+  .item-color:hover + * + * {
+    transform: scale(1.15);
+    z-index: 999;
+  }
+  .item-color:has(+ *:hover) {
+    transform: scale(1.3);
+    z-index: 9999;
+  }
+  .item-color:has(+ * + *:hover) {
+    transform: scale(1.15);
+    z-index: 999;
   }
 </style>

@@ -14,7 +14,7 @@ const friendsData = await getCollection("friends");
 
 <BaseLayout title={t('friends.title')}>
   <Header />
-  <main class="mx-auto max-w-4xl px-4 py-8 sm:px-6">
+  <main class="mx-auto max-w-[1152px] px-4 py-8 sm:px-6">
     <h1 class="mb-8 text-3xl font-bold text-foreground">{t('friends.heading')}</h1>
 
     <section class="mb-10">
@@ -82,7 +82,7 @@ const friendsData = await getCollection("friends");
     }
   </main>
 
-  <div class="mx-auto max-w-4xl px-4 sm:px-6">
+  <div class="mx-auto max-w-[1152px] px-4 sm:px-6">
     <Comments />
   </div>
 
