@@ -33,15 +33,12 @@ function PostCard({ post, viewCount, locale }: { post: Post; viewCount: number; 
   return (
     <a
       href={`${prefix}/posts/${post.slug}`}
+      className="glass-card"
       style={{
         display: 'block',
         position: 'relative',
         overflow: 'hidden',
         textDecoration: 'none',
-        background: 'linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1))',
-        backdropFilter: 'blur(20px)',
-        WebkitBackdropFilter: 'blur(20px)',
-        border: '1px solid rgba(255,255,255,0.3)',
         borderRadius: 16,
         boxShadow: '0 1px 24px rgba(0,0,0,0.1)',
         transition: 'all 0.3s ease',
@@ -167,11 +164,7 @@ export default function SortFilterPosts({ posts, viewCounts = {}, locale = 'zh-C
   return (
     <>
       {/* Controls bar */}
-      <div style={{
-        background: 'linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1))',
-        backdropFilter: 'blur(20px)',
-        WebkitBackdropFilter: 'blur(20px)',
-        border: '1px solid rgba(255,255,255,0.3)',
+      <div className="glass-card" style={{
         borderRadius: 12,
         padding: '10px 14px',
         display: 'flex',
@@ -283,7 +276,7 @@ export default function SortFilterPosts({ posts, viewCounts = {}, locale = 'zh-C
           )}
         </>
       ) : (
-        <div style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1))', backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)', border: '1px solid rgba(255,255,255,0.3)', borderRadius: 16, padding: '48px 16px', textAlign: 'center', color: 'var(--color-foreground-muted)' }}>
+        <div className="glass-card" style={{ borderRadius: 16, padding: '48px 16px', textAlign: 'center', color: 'var(--color-foreground-muted)' }}>
           <p style={{ fontSize: 16, marginBottom: 4 }}>{t('home.empty.title')}</p>
           <p style={{ fontSize: 12, opacity: 0.6 }}>{t('home.empty.hint')}</p>
         </div>

@@ -1,35 +1,24 @@
 ---
-import yaml from "js-yaml";
-import hitokotoRaw from "../../content/data/hitokoto.yml?raw";
-import essayRaw from "../../content/data/essay.yml?raw";
+import { getCollection } from "astro:content";
 import { useTranslations, getLocaleFromURL } from '@/i18n';
 
 const locale = getLocaleFromURL(Astro.url.pathname);
 const t = useTranslations(locale);
 
 // Hitokoto data
-let hitokotoList: string[] = [];
-try {
-  const data = yaml.load(hitokotoRaw) as any;
-  hitokotoList = (data?.hitokoto_list || [])
-    .map((item: any) => String(item.title || "").trim())
-    .filter(Boolean);
-} catch {
-  hitokotoList = ["一花一世界，一叶一追寻"];
-}
+const hitokotoData = await getCollection("hitokoto");
+const hitokotoList = (hitokotoData[0]?.data.hitokoto_list ?? [])
+  .map((item) => String(item.title || "").trim())
+  .filter(Boolean);
+if (hitokotoList.length === 0) hitokotoList.push("一花一世界，一叶一追寻");
 const initialText = hitokotoList[Math.floor(Math.random() * hitokotoList.length)];
 
 // Essay data — grouped by year
-let essayItems: Array<{ content: string; date: string }> = [];
-try {
-  const data = yaml.load(essayRaw) as any;
-  essayItems = (data?.essay_list || []).map((item: any) => ({
-    content: String(item.content || "").slice(0, 20),
-    date: String(item.date || ""),
-  }));
-} catch {
-  essayItems = [];
-}
+const essayData = await getCollection("essay");
+const essayItems = (essayData[0]?.data.essay_list ?? []).map((item) => ({
+  content: String(item.content || "").slice(0, 20),
+  date: String(item.date || ""),
+}));
 
 type YearGroup = { year: string; items: typeof essayItems };
 

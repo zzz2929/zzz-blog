@@ -95,14 +95,8 @@ export default function BangumiList({ wantWatch, watching, watched, locale = 'zh
           placeholder={t('bangumis.search')}
           value={search}
           onChange={e => setSearch(e.target.value)}
-          className="flex-1 min-w-[200px] px-3 py-2 rounded-lg text-sm outline-none transition-colors"
-          style={{
-            background: 'linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1))',
-            backdropFilter: 'blur(20px)',
-            WebkitBackdropFilter: 'blur(20px)',
-            border: '1px solid rgba(255,255,255,0.3)',
-            color: 'var(--color-foreground)',
-          }}
+          className="glass-card flex-1 min-w-[200px] px-3 py-2 rounded-lg text-sm outline-none transition-colors"
+          style={{ color: 'var(--color-foreground)' }}
         />
         {allGenres.length > 1 && (
           <div className="flex gap-1.5 flex-wrap">

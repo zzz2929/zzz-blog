@@ -4,6 +4,7 @@ import Header from "@/components/astro/Header.astro";
 import Footer from "@/components/astro/Footer.astro";
 import musicData from "@/content/data/music.json";
 import { useTranslations, getLocaleFromURL } from "@/i18n";
+import { MINI_PLAYER_STORAGE_KEY } from "@/lib/miniPlayerState";
 
 const locale = getLocaleFromURL(Astro.url.pathname);
 const t = useTranslations(locale);
@@ -121,8 +122,8 @@ const playlists = playlistModules.map((p) => ({
         <!-- Right Column: Playlist / Lyrics Tabs -->
         <div class="flex flex-col min-w-0 lg:w-4/5">
           <div
-            class="panel-content flex-1 flex flex-col rounded-2xl overflow-hidden"
-            style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); min-height: 350px; max-height: 450px;"
+            class="panel-content flex-1 flex flex-col rounded-2xl overflow-hidden glass-card"
+            style="min-height: 350px; max-height: 450px"
           >
             <!-- Tab Buttons -->
             <div
@@ -200,8 +201,7 @@ const playlists = playlistModules.map((p) => ({
           playlists.map((pl, i) => (
             <div class="playlist-card" data-playlist-index={i}>
               <div
-                class="playlist-card-header flex items-center gap-4 p-4 cursor-pointer rounded-2xl transition-all"
-                style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3);"
+                class="playlist-card-header flex items-center gap-4 p-4 cursor-pointer rounded-2xl transition-all glass-card"
               >
                 <img
                   src={pl.cover}
@@ -290,8 +290,8 @@ const playlists = playlistModules.map((p) => ({
   <div id="fixed-controls" class="fixed bottom-0 left-0 right-0 z-50 px-4 pb-3">
     <div class="mx-auto max-w-[1152px]">
       <div
-        class="rounded-full"
-        style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 1px 24px rgba(0,0,0,0.1);"
+        class="rounded-full glass-card"
+        style="box-shadow: 0 1px 24px rgba(0,0,0,0.1)"
       >
         <!-- Controls -->
         <div
@@ -1558,7 +1558,7 @@ const playlists = playlistModules.map((p) => ({
   <!-- Music Data Container -->
   <div id="music-data" style="display: none;"></div>
 
-  <script is:inline define:vars={{ musicDataJSON: JSON.stringify(musicData), playlistsJSON: JSON.stringify(playlists), notPlaying: t('music.notPlaying'), selectSong: t('music.selectSong'), noLyrics: t('music.noLyrics'), unknownAlbum: t('music.unknownAlbum') }}>
+  <script is:inline define:vars={{ musicDataJSON: JSON.stringify(musicData), playlistsJSON: JSON.stringify(playlists), notPlaying: t('music.notPlaying'), selectSong: t('music.selectSong'), noLyrics: t('music.noLyrics'), unknownAlbum: t('music.unknownAlbum'), storageKey: MINI_PLAYER_STORAGE_KEY }}>
     window.__MUSIC_DATA__ = JSON.parse(musicDataJSON);
     window.__PLAYLISTS__ = JSON.parse(playlistsJSON);
     window.__MUSIC_T__ = {
@@ -1889,7 +1889,7 @@ const playlists = playlistModules.map((p) => ({
       // ====== State Restoration ======
       restoreSavedState() {
         try {
-          const savedState = localStorage.getItem("mini-player-state");
+          const savedState = localStorage.getItem(storageKey);
           if (!savedState) return;
 
           const state = JSON.parse(savedState);
@@ -1973,7 +1973,7 @@ const playlists = playlistModules.map((p) => ({
         } catch (e) {
           console.error("Failed to restore state:", e);
           // Clear any invalid saved state
-          localStorage.removeItem("mini-player-state");
+          localStorage.removeItem(storageKey);
         }
       }
 
@@ -2375,7 +2375,7 @@ const playlists = playlistModules.map((p) => ({
             playMode: this.playMode,
             timestamp: Date.now(), // Add timestamp to help detect stale state
           };
-          localStorage.setItem("mini-player-state", JSON.stringify(state));
+          localStorage.setItem(storageKey, JSON.stringify(state));
         } catch (e) {
           console.error("Failed to sync mini player state:", e);
         }

@@ -61,8 +61,8 @@ const cardBasis = (item) =>
             <div class="mt-2 flex flex-wrap items-start gap-3">
               {group.items.map((item) => (
                 <div
-                  class="rounded-xl p-4"
-                  style={`flex: 0 1 ${cardBasis(item)}px; min-width: 200px; background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 1px 24px rgba(0,0,0,0.1);`}
+                  class="rounded-xl p-4 glass-card"
+                  style={`flex: 0 1 ${cardBasis(item)}px; min-width: 200px; box-shadow: 0 1px 24px rgba(0,0,0,0.1);`}
                 >
                   <p class="text-foreground whitespace-pre-line">{item.content}</p>
                   {item.img && item.img.length > 0 && (
@@ -140,26 +140,10 @@ const cardBasis = (item) =>
 </style>
 
 <script>
-  import { Fancybox } from '@fancyapps/ui';
-  import '@fancyapps/ui/dist/fancybox/fancybox.css';
-  import fancyboxConfig from '@/config/fancybox';
+  import { initImageFancybox } from '@/lib/fancybox';
 
   function initEssayFancybox() {
-    Fancybox.close();
-    Fancybox.unbind('[data-fancybox="essay"]');
-
-    const imgs = document.querySelectorAll("[id^='essay-'] img");
-    if (imgs.length === 0) return;
-
-    imgs.forEach((img) => {
-      img.setAttribute('data-fancybox', 'essay');
-      img.setAttribute('data-caption', img.getAttribute('alt') || '');
-      img.style.cursor = 'zoom-in';
-    });
-
-    Fancybox.bind('[data-fancybox="essay"]', {
-      ...fancyboxConfig,
-    });
+    initImageFancybox('essay', "[id^='essay-']");
   }
 
   initEssayFancybox();

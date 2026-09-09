@@ -100,4 +100,13 @@ const album = defineCollection({
   }),
 });
 
-export const collections = { blog, friends, equipment, essay, album };
+const hitokoto = defineCollection({
+  loader: glob({ pattern: 'hitokoto.yml', base: './src/content/data' }),
+  schema: z.object({
+    hitokoto_list: z.array(z.object({
+      title: z.string(),
+    })),
+  }),
+});
+
+export const collections = { blog, friends, equipment, essay, album, hitokoto };

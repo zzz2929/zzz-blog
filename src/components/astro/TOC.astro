@@ -12,37 +12,13 @@ const t = useTranslations(locale);
 
 // H1 is the page title (rendered separately), start from H2
 const filteredHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 6);
-
-const indentMap: Record<number, string> = {
-  2: "0px",
-  3: "14px",
-  4: "28px",
-  5: "42px",
-  6: "56px",
-};
-
-const sizeMap: Record<number, string> = {
-  2: "14px",
-  3: "13px",
-  4: "12px",
-  5: "11px",
-  6: "11px",
-};
-
-const weightMap: Record<number, number> = {
-  2: 700,
-  3: 600,
-  4: 500,
-  5: 400,
-  6: 400,
-};
 ---
 
 {
   filteredHeadings.length > 0 && (
     <nav
-      class="toc"
-      style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 16px; box-shadow: 0 1px 24px rgba(0,0,0,0.1); padding: 20px;"
+      class="toc glass-card"
+      style="border-radius: 16px; box-shadow: 0 1px 24px rgba(0,0,0,0.1); padding: 20px;"
     >
       <h4 class="mb-3 text-sm font-semibold text-foreground flex items-center gap-2">
         <span
@@ -53,134 +29,112 @@ const weightMap: Record<number, number> = {
       </h4>
 
       <div
-        class="toc-list-wrap toc-container"
+        class="toc-list-wrap"
         style="overflow-y: auto; max-height: calc(100vh - 110px);"
       >
-        <ul class="space-y-0.5">
-          {filteredHeadings.map((heading, i) => (
-            <li
-              style={`animation: slide-in-right 0.3s ease ${i * 0.05}s backwards;`}
-            >
-              <a
-                href={`#${heading.slug}`}
-                class="toc-link block py-0.5 transition-all duration-300"
-                data-weight={weightMap[heading.depth]}
-                style={`
-                color: var(--color-foreground-muted);
-                padding-left: calc(16px + ${indentMap[heading.depth]});
-                font-size: ${sizeMap[heading.depth]};
-                font-weight: ${weightMap[heading.depth]};
-              `}
-              >
-                {heading.text}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div id="toc" />
       </div>
     </nav>
   )
 }
 
-<script is:inline>
-  (function () {
-    const links = document.querySelectorAll(".toc-link");
-    const headingEls = Array.from(links).map((link) => {
-      const id = link.getAttribute("href")?.slice(1);
-      return document.getElementById(id || "");
-    });
+<style is:global>
+  /* tocbot 生成的目录结构样式（客户端渲染，无 scoped 属性，需全局选择器） */
+  #toc .toc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  #toc .toc-list ol {
+    list-style: none;
+    margin: 0;
+    padding-left: 14px;
+  }
+  #toc a.toc-link {
+    position: relative;
+    display: block;
+    padding: 2px 0 2px 16px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-foreground-muted);
+    transition: color 0.3s ease;
+  }
+  #toc a.toc-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 0;
+    background: linear-gradient(180deg, var(--color-primary), var(--color-accent));
+    border-radius: 2px;
+    transition: height 0.3s ease;
+  }
+  #toc a.toc-link:hover::before,
+  #toc a.toc-link.is-active-link::before {
+    height: 100%;
+  }
+  #toc a.toc-link.node-name--H3 {
+    font-size: 13px;
+    font-weight: 600;
+  }
+  #toc a.toc-link.node-name--H4 {
+    font-size: 12px;
+    font-weight: 500;
+  }
+  #toc a.toc-link.node-name--H5,
+  #toc a.toc-link.node-name--H6 {
+    font-size: 11px;
+    font-weight: 400;
+  }
+  #toc a.toc-link:hover,
+  #toc a.toc-link.is-active-link {
+    color: var(--color-primary);
+    font-weight: 700;
+  }
+</style>
 
-    // Smooth scroll with header offset on TOC link click
-    links.forEach((link, i) => {
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
-        const target = headingEls[i];
-        if (!target) return;
-        const headerHeight = 80;
-        const top =
-          target.getBoundingClientRect().top + window.scrollY - headerHeight;
-        window.scrollTo({ top, behavior: "smooth" });
-        history.pushState(null, "", link.getAttribute("href"));
-      });
-    });
+<script>
+  import tocbot from 'tocbot';
 
-    let lastActiveIndex = -1;
-    let hoverIndex = -1;
-    let isHovering = false;
-
-    function setActiveLink(index) {
-      links.forEach((link, i) => {
-        const origWeight = link.getAttribute("data-weight") || "400";
-        if (i === index) {
-          link.classList.add("toc-active");
-          link.style.color = "var(--color-primary)";
-          link.style.fontWeight = "700";
-        } else {
-          link.classList.remove("toc-active");
-          link.style.color = "var(--color-foreground-muted)";
-          link.style.fontWeight = origWeight;
-        }
+  // 目录较长时，让当前激活项保持可见
+  function keepActiveInView() {
+    const wrap = document.querySelector('.toc-list-wrap');
+    const active = document.querySelector('#toc a.is-active-link');
+    if (!wrap || !active) return;
+    const top =
+      active.getBoundingClientRect().top -
+      wrap.getBoundingClientRect().top +
+      wrap.scrollTop;
+    if (
+      top < wrap.scrollTop ||
+      top + active.offsetHeight > wrap.scrollTop + wrap.clientHeight
+    ) {
+      wrap.scrollTo({
+        top: top - wrap.clientHeight / 2 + active.offsetHeight / 2,
+        behavior: 'smooth',
       });
     }
+  }
 
-    function updateActive() {
-      if (isHovering) return; // Don't update while hovering
-
-      let activeIndex = 0;
-      const offset = 100;
-      for (let i = 0; i < headingEls.length; i++) {
-        if (
-          headingEls[i] &&
-          headingEls[i].getBoundingClientRect().top <= offset
-        ) {
-          activeIndex = i;
-        }
-      }
-      setActiveLink(activeIndex);
-
-      // Auto-scroll TOC to active item
-      if (activeIndex !== lastActiveIndex) {
-        lastActiveIndex = activeIndex;
-        const activeLink = links[activeIndex];
-        if (activeLink) {
-          const tocWrap = document.querySelector(".toc-list-wrap");
-          if (tocWrap) {
-            const linkTop = activeLink.offsetTop;
-            const linkHeight = activeLink.offsetHeight;
-            const wrapHeight = tocWrap.clientHeight;
-            const scrollTop = tocWrap.scrollTop;
-
-            // Scroll if active item is out of view
-            if (
-              linkTop < scrollTop ||
-              linkTop + linkHeight > scrollTop + wrapHeight
-            ) {
-              tocWrap.scrollTo({
-                top: linkTop - wrapHeight / 2 + linkHeight / 2,
-                behavior: "smooth",
-              });
-            }
-          }
-        }
-      }
-    }
-
-    // Add hover events to TOC links
-    links.forEach((link, i) => {
-      link.addEventListener("mouseenter", () => {
-        isHovering = true;
-        hoverIndex = i;
-        setActiveLink(i);
-      });
-
-      link.addEventListener("mouseleave", () => {
-        isHovering = false;
-        hoverIndex = -1;
-        updateActive(); // Restore scroll-based active state
-      });
+  function initToc() {
+    tocbot.destroy();
+    if (!document.getElementById('toc')) return;
+    tocbot.init({
+      tocSelector: '#toc',
+      contentSelector: '.prose',
+      headingSelector: 'h2, h3, h4, h5, h6',
+      headingsOffset: 90,
+      scrollSmooth: true,
+      scrollSmoothDuration: 300,
+      collapseDepth: 6,
+      scrollEndCallback: keepActiveInView,
     });
+  }
 
-    window.addEventListener("scroll", updateActive, { passive: true });
-    updateActive();
-  })();
+  initToc();
+  document.addEventListener('astro:page-load', initToc);
+  // 图片懒加载会改变文档高度，加载完成后刷新标题位置
+  window.addEventListener('load', () => tocbot.refresh());
 </script>

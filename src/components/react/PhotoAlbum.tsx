@@ -159,13 +159,7 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
             {allImages.map((photo, i) => (
               <div
                 key={`${photo.src}-${i}`}
-                className="break-inside-avoid rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group"
-                style={{
-                  background: 'linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1))',
-                  backdropFilter: 'blur(20px)',
-                  WebkitBackdropFilter: 'blur(20px)',
-                  border: '1px solid rgba(255,255,255,0.3)',
-                }}
+                className="glass-card break-inside-avoid rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group"
               >
                 <button
                   onClick={() => setGallery({ images: photo.allImages, captions: photo.allImages.map(() => photo.title), index: photo.idx })}
@@ -210,13 +204,7 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
               <button
                 key={group.album_name}
                 onClick={() => setActiveGroup({ name: group.album_name, group })}
-                className="text-left rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer"
-                style={{
-                  background: 'linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1))',
-                  backdropFilter: 'blur(20px)',
-                  WebkitBackdropFilter: 'blur(20px)',
-                  border: '1px solid rgba(255,255,255,0.3)',
-                }}
+                className="glass-card text-left rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer"
               >
                 <div className="p-5">
                   <div className="flex items-center justify-between mb-2">

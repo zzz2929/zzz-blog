@@ -57,8 +57,8 @@ const t = useTranslations(locale);
           ></div>
           <!-- Metadata overlay on image -->
           <div
-            class="absolute left-5 right-5 bottom-5 rounded-xl p-6 sm:p-8 cover-overlay-card"
-            style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 1px 24px rgba(0,0,0,0.1);"
+            class="absolute left-5 right-5 bottom-5 rounded-xl p-6 sm:p-8 cover-overlay-card glass-card"
+            style="box-shadow: 0 1px 24px rgba(0,0,0,0.1)"
           >
             <h1
               class="mb-2 text-2xl font-bold tracking-tight text-white/90 sm:text-3xl"
@@ -123,8 +123,8 @@ const t = useTranslations(locale);
     {
       !post.data.cover && (
         <div
-          class="mb-[20px]"
-          style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 16px; box-shadow: 0 1px 24px rgba(0,0,0,0.1); padding: 16px 20px;"
+          class="mb-[20px] glass-card"
+          style="border-radius: 16px; box-shadow: 0 1px 24px rgba(0,0,0,0.1); padding: 16px 20px"
         >
           <h1
             class="mb-2 text-2xl font-bold tracking-tight text-foreground sm:text-3xl"
@@ -188,8 +188,8 @@ const t = useTranslations(locale);
     <div class="flex gap-[20px]">
       <!-- Content card -->
       <div
-        class="prose-card min-w-0 flex-1"
-        style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 16px; box-shadow: 0 1px 24px rgba(0,0,0,0.1); padding: 16px 20px;"
+        class="prose-card min-w-0 flex-1 glass-card"
+        style="border-radius: 16px; box-shadow: 0 1px 24px rgba(0,0,0,0.1); padding: 16px 20px"
       >
         <PostExpiryAlert updated={post.data.updated} t={t} />
         <div class="prose">
@@ -253,9 +253,7 @@ const t = useTranslations(locale);
   </script>
 
   <script>
-    import { Fancybox } from "@fancyapps/ui";
-    import "@fancyapps/ui/dist/fancybox/fancybox.css";
-    import fancyboxConfig from "@/config/fancybox";
+    import { initImageFancybox } from "@/lib/fancybox";
 
     // Enable progressive loading effect
     document.querySelector(".prose")?.classList.add("prose--js-ready");
@@ -268,21 +266,7 @@ const t = useTranslations(locale);
 
     // Fancybox for blog images
     function initBlogFancybox() {
-      Fancybox.close();
-      Fancybox.unbind('[data-fancybox="blog"]');
-
-      const proseImgs = document.querySelectorAll(".prose img");
-      if (proseImgs.length === 0) return;
-
-      proseImgs.forEach((img) => {
-        img.setAttribute("data-fancybox", "blog");
-        img.setAttribute("data-caption", img.getAttribute("alt") || "");
-        img.style.cursor = "zoom-in";
-      });
-
-      Fancybox.bind('[data-fancybox="blog"]', {
-        ...fancyboxConfig,
-      });
+      initImageFancybox("blog", ".prose");
     }
 
     initBlogFancybox();

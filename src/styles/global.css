@@ -422,17 +422,27 @@ body {
   box-shadow: 0 1px 24px rgba(0, 0, 0, 0.2) !important;
 }
 
-/* ====== Animations ====== */
-@keyframes slide-in-right {
-  from {
-    opacity: 0;
-    transform: translateX(20px);
-  }
+/* ====== 玻璃拟态卡片（统一原先 10+ 处重复的内联样式） ====== */
+@utility glass-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.1)
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
 
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+@utility glass-card-strong {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.4)
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 @keyframes gradient-shift {
@@ -899,12 +909,6 @@ body {
   background: linear-gradient(180deg, var(--color-primary-dark), var(--color-accent-orange));
 }
 
-/* TOC scrollbar */
-.toc-container {
-  overflow-y: auto;
-  max-height: calc(100vh - 200px);
-}
-
 /* Prose code block scrollbar */
 .prose pre {
   overflow-x: auto;
@@ -915,35 +919,6 @@ body {
   white-space: pre;
   word-break: normal;
   overflow-wrap: normal;
-}
-
-/* ====== TOC ====== */
-.toc-link {
-  position: relative;
-  padding-left: 16px;
-  transition: all 0.3s ease;
-}
-
-.toc-link::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 3px;
-  height: 0;
-  background: linear-gradient(180deg, var(--color-primary), var(--color-accent));
-  border-radius: 2px;
-  transition: height 0.3s ease;
-}
-
-.toc-link.toc-active::before {
-  height: 100%;
-}
-
-.toc-link.toc-active {
-  color: var(--color-primary);
-  font-weight: 600;
 }
 
 /* ====== Selection ====== */

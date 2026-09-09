@@ -191,16 +191,16 @@ function isImageIcon(icon) {
 >
   <div class="mx-auto" style="max-width: 1308px;">
     <div
-      class="header-bar flex items-center justify-between px-4 sm:px-6 rounded-full"
-      style="height: var(--header-height); background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255,0.4)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 1px 24px rgba(0,0,0,0.1); overflow: visible !important;"
+      class="header-bar flex items-center justify-between px-4 sm:px-6 rounded-full glass-card-strong"
+      style="height: var(--header-height); box-shadow: 0 1px 24px rgba(0,0,0,0.1); overflow: visible !important"
     >
       <div class="flex items-center gap-1 shrink-0">
         <!-- Site switcher -->
         <div class="site-switcher relative group">
           <button
-            class="switcher-btn flex items-center justify-center rounded-xl transition-all duration-300"
+            class="switcher-btn flex items-center justify-center rounded-xl transition-all duration-300 glass-card-strong"
             aria-label={t("nav.siteNav")}
-            style="width: 38px; height: 38px; border: 1px solid rgba(255,255,255,0.3); color: var(--color-foreground-muted); background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255,0.4)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);"
+            style="width: 38px; height: 38px; color: var(--color-foreground-muted)"
           >
             <svg
               class="transition-transform duration-300"
@@ -219,8 +219,8 @@ function isImageIcon(icon) {
             </svg>
           </button>
           <div
-            class="site-switcher-dropdown absolute left-0 top-full mt-2 p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300"
-            style="z-index: 99999; width: max-content; max-width: calc(100vw - 32px); background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255,0.4)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 14px; box-shadow: 0 8px 32px rgba(0,0,0,0.12);"
+            class="site-switcher-dropdown absolute left-0 top-full mt-2 p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 glass-card-strong"
+            style="z-index: 99999; width: max-content; max-width: calc(100vw - 32px); border-radius: 14px; box-shadow: 0 8px 32px rgba(0,0,0,0.12)"
           >
             <div class="grid grid-cols-[repeat(2,auto)] gap-1">
               {
@@ -252,9 +252,9 @@ function isImageIcon(icon) {
         <!-- Logo -->
         <a
           href={`${prefix}/`}
-          class="logo-box group relative ml-1 flex items-center overflow-hidden rounded-xl cursor-pointer"
+          class="logo-box group relative ml-1 flex items-center overflow-hidden rounded-xl cursor-pointer glass-card-strong"
           aria-label={t("nav.home")}
-          style="width: 112px; height: 38px; border: 1px solid rgba(255,255,255,0.3); background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255,0.4)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); transition: border-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out;"
+          style="width: 112px; height: 38px; transition: border-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out"
         >
           <span
             class="logo-icon absolute inset-y-0 left-0 z-10 flex items-center justify-center transition-all duration-500 ease-in-out"
@@ -348,10 +348,10 @@ function isImageIcon(icon) {
         <!-- Settings -->
         <div class="settings-menu relative group">
           <button
-            class="settings-btn"
+            class="settings-btn glass-card-strong"
             aria-label={t("nav.settings")}
             title={t("nav.settings")}
-            style="display: flex; justify-content: center; align-items: center; padding: 6px 12px; gap: 8px; height: 36px; border: 1px solid rgba(255,255,255,0.3); background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255,0.4)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-radius: 20px; cursor: pointer; transition: all 0.3s ease;"
+            style="display: flex; justify-content: center; align-items: center; padding: 6px 12px; gap: 8px; height: 36px; border-radius: 20px; cursor: pointer; transition: all 0.3s ease"
           >
             <svg
               class="settings-icon"
@@ -376,8 +376,8 @@ function isImageIcon(icon) {
             >
           </button>
           <div
-            class="settings-dropdown absolute right-0 top-full mt-2 p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200"
-            style="z-index: 99999; width: 320px; background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255,0.4)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 14px; box-shadow: 0 8px 32px rgba(0,0,0,0.12);"
+            class="settings-dropdown absolute right-0 top-full mt-2 p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 glass-card-strong"
+            style="z-index: 99999; width: 320px; border-radius: 14px; box-shadow: 0 8px 32px rgba(0,0,0,0.12)"
           >
             <div class="flex items-center justify-between mb-3">
               <span
@@ -525,8 +525,8 @@ function isImageIcon(icon) {
     style="max-width: var(--content-max-width); margin-top: 8px;"
   >
     <div
-      class="px-4 py-3 rounded-full space-y-1"
-      style="background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255,0.4)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 8px 32px rgba(0,0,0,0.12);"
+      class="px-4 py-3 rounded-full space-y-1 glass-card-strong"
+      style="box-shadow: 0 8px 32px rgba(0,0,0,0.12)"
     >
       {
         menuItems.map((item) => (

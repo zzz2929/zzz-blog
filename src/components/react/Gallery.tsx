@@ -1,7 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { Fancybox } from '@fancyapps/ui';
-import '@fancyapps/ui/dist/fancybox/fancybox.css';
-import fancyboxConfig from '@/config/fancybox';
+import { Fancybox, fancyboxConfig } from '@/lib/fancybox';
 
 interface GalleryProps {
   images: string[];
