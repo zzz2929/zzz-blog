@@ -32,12 +32,15 @@ const t = useTranslations(locale);
 >
   <Header />
 
-  <main class="mx-auto px-4 py-5 sm:px-6 lg:px-8" style="max-width: 1350px;">
+  <main
+    class="mx-auto px-4 pt-[20px] pb-[20px] sm:px-6 lg:px-8"
+    style="max-width: 1350px;"
+  >
     <!-- Header card -->
     {
       post.data.cover && (
         <div
-          class="relative overflow-hidden mb-5 rounded-2xl"
+          class="relative overflow-hidden mb-[20px] rounded-2xl"
           style="min-height: 450px;"
         >
           <!-- Cover image fills the card -->
@@ -120,7 +123,7 @@ const t = useTranslations(locale);
     {
       !post.data.cover && (
         <div
-          class="mb-5"
+          class="mb-[20px]"
           style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.3); border-radius: 16px; box-shadow: 0 1px 24px rgba(0,0,0,0.1); padding: 16px 20px;"
         >
           <h1
@@ -182,7 +185,7 @@ const t = useTranslations(locale);
     }
 
     <!-- Content + TOC side by side -->
-    <div class="flex gap-5">
+    <div class="flex gap-[20px]">
       <!-- Content card -->
       <div
         class="prose-card min-w-0 flex-1"
@@ -198,7 +201,7 @@ const t = useTranslations(locale);
       {
         headings.length > 0 && (
           <aside class="hidden xl:block shrink-0" style="width: 250px;">
-            <div style="position: sticky; top: 80px;">
+            <div style="position: sticky; top: 90px;">
               <TOC headings={headings} />
             </div>
           </aside>
