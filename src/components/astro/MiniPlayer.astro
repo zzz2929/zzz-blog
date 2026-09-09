@@ -17,63 +17,67 @@ const t = useTranslations(locale);
 
   <!-- Expanded: full controls on hover -->
   <div class="mini-expanded">
-    <div class="mini-player-info">
-      <img id="mini-cover-hover" class="mini-cover" src="/music.svg" alt="" />
-      <div class="mini-details">
-        <div id="mini-title" class="mini-title">未播放</div>
-        <div id="mini-artist" class="mini-artist">选择歌曲开始播放</div>
-      </div>
-      <div class="mini-volume-bars">
-        <span></span><span></span><span></span><span></span><span></span>
-      </div>
-    </div>
-    <div class="mini-controls">
-      <button id="mini-prev" class="mini-btn" title={t('music.prev')}>
-        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"
-          ><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"></path></svg
-        >
-      </button>
-      <button id="mini-play" class="mini-btn mini-btn-play" title={t('music.play')}>
-        <svg
-          id="mini-play-icon"
-          class="w-5 h-5 ml-0.5"
-          fill="currentColor"
-          viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg
-        >
-        <svg
-          id="mini-pause-icon"
-          class="w-5 h-5 hidden"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-          ><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg
-        >
-      </button>
-      <button id="mini-next" class="mini-btn" title={t('music.next')}>
-        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"
-          ><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"></path></svg
-        >
-      </button>
-    </div>
-    <div class="flex items-center gap-2 mt-1 mb-1">
-      <div id="mini-progress" class="flex-1 cursor-pointer group">
-        <div
-          class="h-1 group-hover:h-1.5 bg-gray-200/30 rounded-full overflow-hidden transition-all duration-200"
-        >
-          <div
-            id="mini-progress-fill"
-            class="h-full bg-foreground rounded-full transition-[width] duration-100 ease-linear"
-            style="width: 0%"
-          >
+    <div class="mini-expanded-clip">
+      <div class="mini-expanded-content">
+        <div class="mini-player-info">
+          <img id="mini-cover-hover" class="mini-cover" src="/music.svg" alt="" />
+          <div class="mini-details">
+            <div id="mini-title" class="mini-title">未播放</div>
+            <div id="mini-artist" class="mini-artist">选择歌曲开始播放</div>
+          </div>
+          <div class="mini-volume-bars">
+            <span></span><span></span><span></span><span></span><span></span>
           </div>
         </div>
+        <div class="mini-controls">
+          <button id="mini-prev" class="mini-btn" title={t('music.prev')}>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"
+              ><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"></path></svg
+            >
+          </button>
+          <button id="mini-play" class="mini-btn mini-btn-play" title={t('music.play')}>
+            <svg
+              id="mini-play-icon"
+              class="w-5 h-5 ml-0.5"
+              fill="currentColor"
+              viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg
+            >
+            <svg
+              id="mini-pause-icon"
+              class="w-5 h-5 hidden"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              ><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg
+            >
+          </button>
+          <button id="mini-next" class="mini-btn" title={t('music.next')}>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"
+              ><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"></path></svg
+            >
+          </button>
+        </div>
+        <div class="flex items-center gap-2 mt-1 mb-1">
+          <div id="mini-progress" class="flex-1 cursor-pointer group">
+            <div
+              class="h-1 group-hover:h-1.5 bg-gray-200/30 rounded-full overflow-hidden transition-all duration-200"
+            >
+              <div
+                id="mini-progress-fill"
+                class="h-full bg-foreground rounded-full transition-[width] duration-100 ease-linear"
+                style="width: 0%"
+              >
+              </div>
+            </div>
+          </div>
+          <span
+            class="text-xs text-muted tabular-nums flex-shrink-0 whitespace-nowrap"
+          >
+            <span id="mini-current-time">00:00</span>
+            <span> / </span>
+            <span id="mini-duration">00:00</span>
+          </span>
+        </div>
       </div>
-      <span
-        class="text-xs text-muted tabular-nums flex-shrink-0 whitespace-nowrap"
-      >
-        <span id="mini-current-time">00:00</span>
-        <span> / </span>
-        <span id="mini-duration">00:00</span>
-      </span>
     </div>
   </div>
 </div>
@@ -81,11 +85,12 @@ const t = useTranslations(locale);
 <style>
   .mini-player {
     position: fixed;
-    bottom: 24px;
-    left: 24px;
+    bottom: 12px;
+    left: max(12px, (max(16px, (100% - 1350px) / 2 + 16px) - var(--header-height)) / 2);
     z-index: 9990;
-    width: 56px;
-    height: 56px;
+    width: var(--header-height);
+    height: auto;
+    min-height: var(--header-height);
     border-radius: 50%;
     background: linear-gradient(
       135deg,
@@ -97,7 +102,9 @@ const t = useTranslations(locale);
     border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     font-family: -apple-system, system-ui, sans-serif;
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    transition:
+      width 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+      border-radius 0.5s cubic-bezier(0.23, 1, 0.32, 1);
     cursor: pointer;
     overflow: hidden;
   }
@@ -119,7 +126,6 @@ const t = useTranslations(locale);
   .mini-player:hover,
   .mini-player.expanded {
     width: 300px;
-    height: auto;
     border-radius: 20px;
     cursor: default;
   }
@@ -134,16 +140,23 @@ const t = useTranslations(locale);
     position: absolute;
     top: 0;
     left: 0;
+    transition:
+      opacity 0.25s ease,
+      transform 0.45s cubic-bezier(0.23, 1, 0.32, 1),
+      visibility 0.45s;
   }
 
   .mini-player:hover .mini-collapsed,
   .mini-player.expanded .mini-collapsed {
-    display: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.4);
+    pointer-events: none;
   }
 
   .mini-cover {
-    width: 48px;
-    height: 48px;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
     object-fit: cover;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
@@ -163,14 +176,37 @@ const t = useTranslations(locale);
     }
   }
 
-  /* Expanded: full card */
+  /* Expanded: full card. grid-template-rows 0fr -> 1fr animates the height smoothly */
   .mini-expanded {
-    display: none;
-    padding: 12px 14px 10px;
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition:
+      grid-template-rows 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+      opacity 0.25s ease;
   }
   .mini-player:hover .mini-expanded,
   .mini-player.expanded .mini-expanded {
-    display: block;
+    grid-template-rows: 1fr;
+    opacity: 1;
+    transition:
+      grid-template-rows 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+      opacity 0.3s ease 0.12s;
+  }
+  .mini-expanded-clip {
+    min-height: 0;
+    overflow: hidden;
+  }
+  .mini-expanded-content {
+    width: 272px;
+    padding: 12px 14px 10px;
+    transform: translateY(6px);
+    transition: transform 0.3s ease;
+  }
+  .mini-player:hover .mini-expanded-content,
+  .mini-player.expanded .mini-expanded-content {
+    transform: translateY(0);
+    transition: transform 0.45s cubic-bezier(0.23, 1, 0.32, 1) 0.12s;
   }
 
   .mini-player-info {

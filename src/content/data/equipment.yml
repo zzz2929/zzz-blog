@@ -26,6 +26,11 @@ good_things:
     description: 独特背屏设计，大R角，性能强劲。
     image: https://imgbed.904002.xyz/file/img/blog/equipment/Xiaomi_17_Pro_Max.webp
     link: https://www.mi.com/prod/xiaomi-17-pro-max
+  - name: 拓竹 X2D 3D打印机
+    specification: 双喷嘴 256×256×260mm³ 65℃主动加热腔
+    description: 人人可用的双喷头3D打印机，支持多材料、可溶支撑与最多25色打印，内置31个传感器和AI监控，配合Bambu Studio的调校参数，打印成功率高，支撑也容易拆。
+    image: https://portal.bblmw.cn/compare/printer/2nt1ohdkf2f/X2D.png
+    link: https://bambulab.cn/zh-cn/x2d
 - title: 出行
   description: 用来出行的实物及设备
   equipment_list:
