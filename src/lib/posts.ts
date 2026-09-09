@@ -15,32 +15,10 @@ export async function getAllCategories() {
     .sort((a, b) => b.count - a.count);
 }
 
-export async function getAllTags() {
-  const posts = await getCollection('blog');
-  const tagMap = new Map<string, number>();
-
-  for (const post of posts) {
-    for (const tag of post.data.tags) {
-      tagMap.set(tag, (tagMap.get(tag) || 0) + 1);
-    }
-  }
-
-  return Array.from(tagMap.entries())
-    .map(([name, count]) => ({ name, count, slug: name }))
-    .sort((a, b) => b.count - a.count);
-}
-
 export async function getPostsByCategory(category: string) {
   const posts = await getCollection('blog');
   return posts
     .filter((post) => post.data.categories.includes(category))
-    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-}
-
-export async function getPostsByTag(tag: string) {
-  const posts = await getCollection('blog');
-  return posts
-    .filter((post) => post.data.tags.includes(tag))
     .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 }
 

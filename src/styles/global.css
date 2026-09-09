@@ -422,18 +422,6 @@ body {
   box-shadow: 0 1px 24px rgba(0, 0, 0, 0.2) !important;
 }
 
-@utility card-hover {
-  &:hover {
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.14);
-    transform: translateY(-2px);
-  }
-}
-
-.dark .card-hover {
-  background: rgba(30, 30, 40, 0.6);
-  border-color: rgba(255, 255, 255, 0.08);
-}
-
 /* ====== Animations ====== */
 @keyframes slide-in-right {
   from {

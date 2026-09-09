@@ -400,7 +400,6 @@ const t = useTranslations(locale);
     }
 
     function init() {
-      console.log("[MiniPlayer] init called");
       audio = new Audio();
       state = {
         title: "",
@@ -431,9 +430,7 @@ const t = useTranslations(locale);
 
       // Restore state
       const saved = loadState();
-      console.log("[MiniPlayer] saved state:", saved);
       if (saved && saved.url) {
-        console.log("[MiniPlayer] restoring state, showing player");
         state.title = saved.title || "";
         state.artist = saved.artist || "";
         state.cover = saved.cover || "/music.svg";
@@ -443,11 +440,9 @@ const t = useTranslations(locale);
         audio.src = saved.url;
         audio.volume = (saved.volume ?? 80) / 100;
         updateDisplay();
-        console.log("[MiniPlayer] elements.player:", elements.player);
         if (elements.player) {
           elements.player.classList.remove("hidden");
           elements.player.style.display = "";
-          console.log("[MiniPlayer] player shown, url:", state.url);
         } else {
           console.error("[MiniPlayer] player element not found!");
         }

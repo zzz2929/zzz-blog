@@ -1855,7 +1855,6 @@ const playlists = playlistModules.map((p) => ({
                 this.isPlaying = true;
                 this.updatePlayButton();
               }).catch((e) => {
-                console.log("Auto-play blocked, updating UI to reflect paused state");
                 this.isPlaying = false;
                 this.updatePlayButton();
               });
