@@ -82,71 +82,131 @@ const isMusicPage =
   <body
     class="min-h-screen bg-background text-foreground font-sans antialiased"
   >
-    <!-- Page loading overlay (uiverse mobinkakei/grumpy-turtle-41) -->
-    <div id="page-loader" aria-hidden="true">
-      <div class="pl-wrapper">
-        <div class="pl-circle"></div>
-        <div class="pl-circle"></div>
-        <div class="pl-circle"></div>
-        <div class="pl-shadow"></div>
-        <div class="pl-shadow"></div>
-        <div class="pl-shadow"></div>
-      </div>
-    </div>
-    <script is:inline>
-      (function () {
-        var loader = document.getElementById("page-loader");
-        if (!loader) return;
-        var hidden = false;
-        // Match the stored Monet palette (light mode) so the overlay blends in
-        var storedBg = localStorage.getItem("monet-bg");
-        if (storedBg && !document.documentElement.classList.contains("dark")) {
-          loader.style.background = storedBg;
-        }
-        function hide() {
-          if (hidden) return;
-          hidden = true;
-          loader.classList.add("done");
-          setTimeout(function () {
-            loader.remove();
-          }, 400);
-        }
-        if (document.readyState === "complete") {
-          hide();
-        } else {
-          window.addEventListener("load", hide);
-          // Fallback: never let a stalled resource keep the overlay up
-          setTimeout(hide, 4000);
-        }
-      })();
-    </script>
     <AnimatedBackground client:only="react" />
     <slot />
     {!isMusicPage && <MiniPlayer />}
+
+    <!-- Image loading placeholder (uiverse mobinkakei/grumpy-turtle-41) -->
+    <script is:inline>
+      (function () {
+        function mount(img) {
+          if (img.dataset.imgLoader) return;
+          img.dataset.imgLoader = "1";
+          if (img.complete && img.naturalWidth > 0) return;
+          var parent = img.parentElement;
+          if (!parent) return;
+          var overlay = document.createElement("div");
+          overlay.className = "img-loading-overlay";
+          overlay.innerHTML =
+            '<div class="pl-wrapper"><div class="pl-circle"></div><div class="pl-circle"></div><div class="pl-circle"></div><div class="pl-shadow"></div><div class="pl-shadow"></div><div class="pl-shadow"></div></div>';
+          var pr = parent.getBoundingClientRect();
+          var ir = img.getBoundingClientRect();
+          if (getComputedStyle(parent).position === "static") {
+            parent.style.position = "relative";
+            pr = parent.getBoundingClientRect();
+          }
+          overlay.style.left = ir.left - pr.left + "px";
+          overlay.style.top = ir.top - pr.top + "px";
+          overlay.style.width = ir.width + "px";
+          overlay.style.height = ir.height + "px";
+          var scale = Math.min(
+            1,
+            ir.width / 200 || 0,
+            ir.height / 60 || 0,
+          );
+          if (scale > 0 && scale < 1) {
+            overlay.style.setProperty("--pl-scale", scale.toFixed(3));
+          }
+          parent.appendChild(overlay);
+          img.__plOverlay = overlay;
+          var done = function () {
+            if (!overlay.parentNode) return;
+            overlay.classList.add("done");
+            setTimeout(function () {
+              overlay.remove();
+            }, 250);
+          };
+          img.addEventListener("load", done);
+          img.addEventListener("error", done);
+          if (img.complete) done();
+        }
+        function scan(root) {
+          (root || document)
+            .querySelectorAll("img")
+            .forEach(mount);
+        }
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", function () {
+            scan();
+          });
+        } else {
+          scan();
+        }
+        // Images added later (filters, dynamic panels) get placeholders too;
+        // removed images take their placeholder with them
+        var cleanupRemoved = function (node) {
+          if (node.tagName === "IMG") {
+            if (node.__plOverlay) {
+              node.__plOverlay.remove();
+              node.__plOverlay = null;
+            }
+          } else if (node.querySelectorAll) {
+            node.querySelectorAll("img").forEach(function (img) {
+              if (img.__plOverlay) {
+                img.__plOverlay.remove();
+                img.__plOverlay = null;
+              }
+            });
+          }
+        };
+        var observer = new MutationObserver(function (mutations) {
+          mutations.forEach(function (m) {
+            m.addedNodes.forEach(function (node) {
+              if (!node.tagName) return;
+              if (node.tagName === "IMG") mount(node);
+              else if (node.querySelectorAll) scan(node);
+            });
+            m.removedNodes.forEach(function (node) {
+              if (node.tagName) cleanupRemoved(node);
+            });
+          });
+        });
+        observer.observe(document.documentElement, {
+          childList: true,
+          subtree: true,
+        });
+      })();
+    </script>
   </body>
 </html>
 
 <style is:global>
   @import "@/styles/global.css";
 
-  /* ===== Page loading overlay ===== */
-  .page-loader,
-  #page-loader {
-    position: fixed;
-    inset: 0;
-    z-index: 999999;
+  /* ===== Image loading placeholder ===== */
+  .img-loading-overlay {
+    position: absolute;
+    z-index: 5;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--color-background);
-    transition: opacity 0.35s ease;
-  }
-  .dark #page-loader {
-    background: var(--color-background-dark);
-  }
-  #page-loader.done {
-    opacity: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.04);
     pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+  .img-loading-overlay.done {
+    opacity: 0;
+  }
+  .dark .img-loading-overlay {
+    background: rgba(255, 255, 255, 0.06);
+  }
+  .img-loading-overlay .pl-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(var(--pl-scale, 1));
   }
 
   .pl-wrapper {
