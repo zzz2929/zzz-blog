@@ -259,8 +259,13 @@ const t = useTranslations(locale);
     document.querySelector(".prose")?.classList.add("prose--js-ready");
 
     document.querySelectorAll(".prose img").forEach((img) => {
-      if (img.complete && !img.classList.contains("loaded")) {
-        img.classList.add("loaded");
+      const show = () => img.classList.add("loaded");
+      if (img.complete) {
+        show();
+      } else {
+        // 图片加载完成（或失败）后解除隐藏，否则懒加载的图片会一直不可见
+        img.addEventListener("load", show, { once: true });
+        img.addEventListener("error", show, { once: true });
       }
     });
 
