@@ -5,7 +5,9 @@ import Footer from "@/components/astro/Footer.astro";
 import { getAllCategories } from "@/lib/posts";
 import { useTranslations, getLocaleFromURL } from "@/i18n";
 
-const t = useTranslations(getLocaleFromURL(Astro.url.pathname));
+const locale = getLocaleFromURL(Astro.url.pathname);
+const t = useTranslations(locale);
+const prefix = locale === "zh-CN" ? "" : `/${locale}`;
 const categories = await getAllCategories();
 ---
 
@@ -17,8 +19,8 @@ const categories = await getAllCategories();
       {
         categories.map((cat) => (
           <a
-            href={`/categories/${cat.slug}`}
-            class="group flex items-center justify-between rounded-xl border border-border bg-card p-5 transition-all hover:shadow-md hover:border-primary/30"
+            href={`${prefix}/categories/${cat.slug}`}
+            class="group flex items-center justify-between rounded-xl border border-border bg-card-bg p-5 transition-all hover:shadow-md hover:border-primary/30"
           >
             <div class="flex items-center gap-3">
               <span class="text-2xl">📂</span>

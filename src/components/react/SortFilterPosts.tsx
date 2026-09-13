@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useTranslations } from '@/i18n';
 import type { Locale } from '@/i18n';
 
@@ -140,7 +140,7 @@ export default function SortFilterPosts({ posts, viewCounts = {}, locale = 'zh-C
   }, [posts, sortDir, category, query]);
 
   // Reset to first page when filters change
-  useMemo(() => {
+  useEffect(() => {
     setCurrentPage(1);
   }, [sortDir, category, query]);
 

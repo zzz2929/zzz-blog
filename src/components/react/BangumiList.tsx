@@ -153,10 +153,10 @@ export default function BangumiList({ wantWatch, watching, watched, locale = 'zh
                   )}
                   <div className="absolute bottom-1 right-1 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                     {item.id && (
-                      <a href={`https://www.bilibili.com/bangumi/play/ss${item.id}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-7 h-7 rounded-full text-[10px] font-bold transition-transform hover:scale-110" style={{ background: 'rgba(0,174,236,0.9)', color: 'white' }} title="B站" onClick={e => e.stopPropagation()}>B</a>
+                      <a href={`https://www.bilibili.com/bangumi/play/ss${item.id}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-7 h-7 rounded-full text-[10px] font-bold transition-transform hover:scale-110" style={{ background: 'rgba(0,174,236,0.9)', color: 'white' }} title="B站">B</a>
                     )}
                     {item.tmdb?.tmdbId && (
-                      <a href={`https://www.themoviedb.org/tv/${item.tmdb.tmdbId}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-7 h-7 rounded-full text-[10px] font-bold transition-transform hover:scale-110" style={{ background: 'rgba(1,210,117,0.9)', color: 'white' }} title="TMDB" onClick={e => e.stopPropagation()}>T</a>
+                      <a href={`https://www.themoviedb.org/tv/${item.tmdb.tmdbId}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-7 h-7 rounded-full text-[10px] font-bold transition-transform hover:scale-110" style={{ background: 'rgba(1,210,117,0.9)', color: 'white' }} title="TMDB">T</a>
                     )}
                   </div>
                 </div>

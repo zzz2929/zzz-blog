@@ -604,13 +604,14 @@ function isImageIcon(icon) {
   (function () {
     const swatches = document.querySelectorAll(".item-color");
     const paletteGrid = document.getElementById("monet-palette-grid");
-    const stored = localStorage.getItem("monet-bg") || "#EDE8DE";
+    let stored = localStorage.getItem("monet-bg") || "#EDE8DE";
 
     function isDark() {
       return document.documentElement.classList.contains("dark");
     }
 
     function applyPalette(color) {
+      stored = color; // 同步闭包状态，深色模式切换回切时才能恢复用户选的颜色
       if (isDark()) {
         // Dark mode: remove inline background, let CSS starfield take over
         document.body.style.background = "";

@@ -4,6 +4,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import Header from "@/components/astro/Header.astro";
 import Footer from "@/components/astro/Footer.astro";
 import Comments from "@/components/astro/Comments.astro";
+import EssayCard from "@/components/astro/EssayCard.astro";
 
 import { useTranslations, getLocaleFromURL } from "@/i18n";
 
@@ -11,27 +12,32 @@ const locale = getLocaleFromURL(Astro.url.pathname);
 const t = useTranslations(locale);
 const essayData = await getCollection("essay");
 const essay = essayData[0]?.data;
+const TL_COLORS = ["#22c55e", "#06b6d4", "#3b82f6", "#ec4899", "#d97706", "#ef4444", "#f97316", "#eab308"];
 
-// Group essays by day (list order within a day is chronological)
-const dayGroups = [];
+// Group essays by day (date format: "YYYY-MM-DD HH:MM:SS"), then sort each
+// day chronologically by the full timestamp (earliest first)
+const itemsByDay = new Map();
 for (const item of essay?.essay_list ?? []) {
-  const last = dayGroups[dayGroups.length - 1];
-  if (last && last.date === item.date) last.items.push(item);
-  else dayGroups.push({ date: item.date, items: [item] });
+  const day = (item.date || "").slice(0, 10);
+  if (!itemsByDay.has(day)) itemsByDay.set(day, []);
+  itemsByDay.get(day).push(item);
 }
-// Preferred card width grows with the amount of content; cards shrink
-// proportionally when a day's row runs out of space
-const cardBasis = (item) =>
-  Math.min(
-    440,
-    Math.max(
-      150,
-      (item.content?.length || 0) * 10 +
-        (item.img?.length || 0) * 110 +
-        (item.video?.length ? 300 : 0) +
-        40,
-    ),
-  );
+const dayGroups = [...itemsByDay].map(([date, items]) => ({ date, items }));
+for (const group of dayGroups) {
+  group.items.sort((a, b) => (a.date || "").localeCompare(b.date || ""));
+  // 每行固定 4 个节点；奇数行方向反转，形成蛇形时间轴
+  group.tlRows = [];
+  for (let i = 0; i < group.items.length; i += 4) {
+    group.tlRows.push(
+      group.items.slice(i, i + 4).map((item, j) => ({
+        item,
+        color: TL_COLORS[(i + j) % TL_COLORS.length],
+      })),
+    );
+  }
+}
+// 多条随笔的时间轴节点配色（参照 uiverse 时间轴样式轮换）
+
 ---
 
 <BaseLayout title={t('essay.title')}>
@@ -58,49 +64,36 @@ const cardBasis = (item) =>
               style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px);"
             />
             <time class="text-xs text-muted">{group.date}</time>
-            <div class="mt-2 flex flex-wrap items-start gap-3">
-              {group.items.map((item) => (
-                <div
-                  class="rounded-xl p-4 glass-card"
-                  style={`flex: 0 1 ${cardBasis(item)}px; min-width: 200px; box-shadow: 0 1px 24px rgba(0,0,0,0.1);`}
-                >
-                  <p class="text-foreground whitespace-pre-line">{item.content}</p>
-                  {item.img && item.img.length > 0 && (
-                    <div class={`mt-3 flex flex-wrap gap-2 ${item.img.length === 1 ? '' : 'justify-center'}`}>
-                      {item.img.map((src) => (
-                        <img
-                          src={src}
-                          alt=""
-                          loading="lazy"
-                          class="rounded-lg"
-                          style={`max-width: ${item.img.length === 1 ? '100%' : item.img.length === 2 ? '48%' : '31%'}; max-height: 500px; object-fit: contain;`}
+            {group.items.length > 1 ? (
+              <div class="essay-tl mt-2">
+                {group.tlRows.map((row, r) => (
+                  <div class:list={["essay-tl-row", { rtl: r % 2 === 1 }]}>
+                    {row.map(({ item, color }) => (
+                      <div
+                        class="essay-tl-item"
+                        style={`--tl-color: ${color}`}
+                      >
+                        <div class="essay-tl-time">
+                          {item.date.slice(11, 16) === "00:00" ? " " : item.date.slice(11, 16)}
+                        </div>
+                        <div class="essay-tl-node" />
+                        <EssayCard
+                          item={item}
+                          imgWidth="100%"
+                          borderColor="color-mix(in srgb, var(--tl-color) 55%, transparent)"
                         />
-                      ))}
-                    </div>
-                  )}
-                  {item.video?.map((url) => (
-                    <div class="mt-3 aspect-video overflow-hidden rounded-lg">
-                      <iframe
-                        src={url}
-                        class="h-full w-full"
-                        allowfullscreen
-                        loading="lazy"
-                      />
-                    </div>
-                  ))}
-                  {item.link && (
-                    <a
-                      href={item.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="mt-2 inline-block text-sm text-primary hover:underline"
-                    >
-                      {t('essay.viewLink')}
-                    </a>
-                  )}
-                </div>
-              ))}
-            </div>
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div class="mt-2">
+                {group.items.map((item) => (
+                  <EssayCard item={item} imgWidth="auto" class="max-w-[460px]" />
+                ))}
+              </div>
+            )}
           </div>
         ))
       }
@@ -137,6 +130,113 @@ const cardBasis = (item) =>
     animation: essay-highlight 2s ease-out;
     border-radius: 12px;
   }
+
+  /* ====== 同日多条随笔的蛇形时间轴（每行 4 节点，奇偶行反向） ====== */
+  .essay-tl {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+  }
+  .essay-tl-row {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    gap: 24px;
+    width: 1032px; /* 4 × 240 卡片 + 3 × 24 间距，保证奇偶行节点纵向对齐 */
+    max-width: 100%;
+  }
+  .essay-tl-row.rtl {
+    flex-direction: row-reverse;
+    justify-content: flex-start; /* row-reverse 的主轴起点在右侧，从右往左排 */
+  }
+  .essay-tl-item {
+    position: relative;
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .essay-tl-time {
+    height: 20px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    color: var(--color-foreground);
+  }
+  .essay-tl-node {
+    width: 20px;
+    height: 20px;
+    margin: 4px 0 6px;
+    border-radius: 50%;
+    border: 6px solid var(--tl-color);
+    background: var(--color-foreground);
+    box-sizing: border-box;
+  }
+  /* 行内相邻节点：连线 + 箭头（节点中心间距 264px，几何固定） */
+  .essay-tl-row:not(.rtl) .essay-tl-item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 33px;
+    left: 136px;
+    width: 232px;
+    height: 2px;
+    background: #9ca3af;
+  }
+  .essay-tl-row.rtl .essay-tl-item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 33px;
+    right: 136px;
+    width: 232px;
+    height: 2px;
+    background: #9ca3af;
+  }
+  /* 行间衔接：本行最后一个节点沿外侧圆角拐弯，进入下一行首个节点 */
+  .essay-tl-row:not(.rtl):not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 33px;
+    left: 928px;
+    right: -13px;
+    bottom: -61px;
+    border-top: 2px solid #9ca3af;
+    border-right: 2px solid #9ca3af;
+    border-bottom: 2px solid #9ca3af;
+    border-top-right-radius: 24px;
+    border-bottom-right-radius: 24px;
+  }
+  .essay-tl-row.rtl:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 33px;
+    right: 928px;
+    left: -13px;
+    bottom: -61px;
+    border-top: 2px solid #9ca3af;
+    border-left: 2px solid #9ca3af;
+    border-bottom: 2px solid #9ca3af;
+    border-top-left-radius: 24px;
+    border-bottom-left-radius: 24px;
+  }
+  @media (max-width: 1069px) {
+    /* 视口放不下固定 4 列时退化为普通换行，隐藏行间衔接 */
+    .essay-tl-row {
+      flex-wrap: wrap;
+      justify-content: center;
+      row-gap: 28px;
+    }
+    .essay-tl-row::after,
+    .essay-tl-row::before {
+      display: none;
+    }
+  }
+  @media (max-width: 639px) {
+    .essay-tl-row .essay-tl-item::after,
+    .essay-tl-row .essay-tl-item::before {
+      display: none;
+    }
+  }
 </style>
 
 <script>
@@ -147,5 +247,41 @@ const cardBasis = (item) =>
   }
 
   initEssayFancybox();
-  document.addEventListener('astro:page-load', initEssayFancybox);
+
+  // 单图卡片宽度随图片自适应（左对齐时间轴），避免图片两侧大面积留白；多图卡片保持满宽
+  function fitCardWidths() {
+    document.querySelectorAll("main [id^='essay-'] .essay-card").forEach((card) => {
+      const imgs = card.querySelectorAll('img');
+      if (imgs.length !== 1) return;
+      const img = imgs[0];
+      // 只适配 width:auto 的图片（单条/瀑布流卡片）；时间轴卡片 width:100%，跳过
+      if (img.style.width !== 'auto') return;
+      if (!img.complete || !img.naturalWidth) return;
+      const w = Math.ceil(img.getBoundingClientRect().width);
+      if (w > 0) {
+        card.style.width = `${w + 34}px`; // p-4 内边距 + 边框
+        card.style.maxWidth = '100%'; // 不超出瀑布流列宽
+      }
+    });
+  }
+  let fitScheduled = false;
+  function scheduleFit() {
+    if (fitScheduled) return;
+    fitScheduled = true;
+    requestAnimationFrame(() => {
+      fitScheduled = false;
+      fitCardWidths();
+    });
+  }
+  const imgResizeObserver = new ResizeObserver(scheduleFit);
+  function bindFitTriggers() {
+    document.querySelectorAll("main [id^='essay-'] .essay-card img").forEach((img) => {
+      if (img.dataset.fitBound) return;
+      img.dataset.fitBound = '1';
+      imgResizeObserver.observe(img);
+    });
+  }
+  window.addEventListener('resize', scheduleFit);
+  bindFitTriggers();
+  fitCardWidths();
 </script>

@@ -23,6 +23,8 @@ const { Content, headings } = await render(post);
 
 const locale = getLocaleFromURL(Astro.url.pathname);
 const t = useTranslations(locale);
+const prefix = locale === "zh-CN" ? "" : `/${locale}`;
+const categoryHref = (cat) => `${prefix}/categories/${encodeURIComponent(cat)}`;
 ---
 
 <BaseLayout
@@ -94,7 +96,7 @@ const t = useTranslations(locale);
                 <div class="mt-2 flex flex-wrap items-center gap-2">
                   {post.data.categories.map((cat) => (
                     <a
-                      href={`/categories/${cat}`}
+                      href={categoryHref(cat)}
                       class="inline-block rounded-full px-3 py-0.5 text-xs font-medium text-white/90 transition-colors hover:bg-white/15"
                       style="background: rgba(255,255,255,0.12);"
                     >
@@ -159,7 +161,7 @@ const t = useTranslations(locale);
               <div class="mt-2 flex flex-wrap items-center gap-2">
                 {post.data.categories.map((cat) => (
                   <a
-                    href={`/categories/${cat}`}
+                    href={categoryHref(cat)}
                     class="inline-block rounded-full px-3 py-0.5 text-xs font-medium text-primary transition-colors hover:bg-primary/15"
                     style="background: rgba(66,90,239,0.08);"
                   >
@@ -239,7 +241,13 @@ const t = useTranslations(locale);
     (function () {
       const slug = window.location.pathname;
       const readKey = "zzz-blog-read-posts";
-      const readPosts = JSON.parse(localStorage.getItem(readKey) || "[]");
+      let readPosts = [];
+      try {
+        const parsed = JSON.parse(localStorage.getItem(readKey) || "[]");
+        if (Array.isArray(parsed)) readPosts = parsed;
+      } catch (e) {
+        /* localStorage 数据损坏时按未读处理 */
+      }
       const postSlug = slug.replace(/^\/posts\//, "").replace(/\/$/, "");
       if (postSlug && !readPosts.includes(postSlug)) {
         readPosts.push(postSlug);
@@ -275,7 +283,6 @@ const t = useTranslations(locale);
     }
 
     initBlogFancybox();
-    document.addEventListener("astro:page-load", initBlogFancybox);
 
     // Code block enhancements: line numbers, copy button
     const clipboardSvg =
@@ -382,7 +389,7 @@ const t = useTranslations(locale);
         setTimeout(() => {
           btn.innerHTML = clipboardSvg;
         }, 2000);
-      });
+      }).catch(() => {});
     });
   </script>
 </BaseLayout>

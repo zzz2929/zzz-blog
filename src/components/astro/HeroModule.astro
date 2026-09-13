@@ -4,6 +4,7 @@ import { useTranslations, getLocaleFromURL } from '@/i18n';
 
 const locale = getLocaleFromURL(Astro.url.pathname);
 const t = useTranslations(locale);
+const prefix = locale === "zh-CN" ? "" : `/${locale}`;
 
 // Hitokoto data
 const hitokotoData = await getCollection("hitokoto");
@@ -25,7 +26,7 @@ type YearGroup = { year: string; items: typeof essayItems };
 const grouped: YearGroup[] = [];
 const map = new Map<string, typeof essayItems>();
 for (const item of essayItems) {
-  const [y] = item.date.split('/');
+  const y = item.date.slice(0, 4);
   if (!y) continue;
   if (!map.has(y)) map.set(y, []);
   map.get(y)!.push(item);
@@ -39,7 +40,7 @@ const displayGroups = grouped.length > 0 ? [grouped[0]] : [];
 <!-- Hero with random image + combined hitokoto/essay card -->
 <div class="hero-module relative overflow-hidden w-full" data-hitokoto-list={JSON.stringify(hitokotoList)}>
   <!-- Hero container -->
-  <div class="hero-container relative overflow-hidden" style="border-radius: 16px; height: 420px;">
+  <div class="hero-container relative overflow-hidden" style="border-radius: 16px;">
     <!-- Layer 1: Random image background -->
     <img
       id="hero-random-img"
@@ -70,10 +71,10 @@ const displayGroups = grouped.length > 0 ? [grouped[0]] : [];
       <!-- Essay section (top) -->
       <div class="px-3 pt-2.5 pb-1.5 flex flex-col flex-1 min-h-0 overflow-hidden">
         <div class="flex items-center justify-between mb-1.5 flex-shrink-0">
-          <a href="/essay" class="text-xs font-bold px-2 py-0.5 rounded-md" style="background: rgba(0,0,0,0.08); color: #333; text-decoration: none;">
+          <a href={`${prefix}/essay`} class="text-xs font-bold px-2 py-0.5 rounded-md" style="background: rgba(0,0,0,0.08); color: #333; text-decoration: none;">
             {t('home.essay.label')}
           </a>
-          <a href="/essay" class="text-xs font-medium" style="color: #666; text-decoration: none;">
+          <a href={`${prefix}/essay`} class="text-xs font-medium" style="color: #666; text-decoration: none;">
             {t('home.essay.more')} →
           </a>
         </div>
@@ -90,7 +91,7 @@ const displayGroups = grouped.length > 0 ? [grouped[0]] : [];
                         <div class="essay-line" style="width: 1px; flex: 1; min-height: 8px; background: rgba(0,0,0,0.1);"></div>
                       ) : null}
                     </div>
-                    <span class="essay-date text-xs whitespace-nowrap flex-shrink-0" style="color: #555; font-size: 10px; font-variant-numeric: tabular-nums;">{item.date.slice(5)}</span>
+                    <span class="essay-date text-xs whitespace-nowrap flex-shrink-0" style="color: #555; font-size: 10px; font-variant-numeric: tabular-nums;">{item.date.slice(5, 10)}</span>
                     <span class="text-xs whitespace-nowrap overflow-hidden text-ellipsis flex-shrink" style="color: #333; max-width: 50%;">{item.content}</span>
                   </div>
                 ))}
@@ -235,7 +236,13 @@ const displayGroups = grouped.length > 0 ? [grouped[0]] : [];
         var item = e.target.closest(".essay-marquee-item");
         if (!item) return;
         var date = item.dataset.date;
-        if (date) window.location.href = "/essay#essay-" + date;
+        // 锚点 id 是按天分组的 "essay-YYYY-MM-DD"（见 essay.astro），截掉时分秒；
+        // is:inline 脚本拿不到 frontmatter 变量，语言前缀从当前路径推导
+        if (date) {
+          var m = location.pathname.match(/^\/(en|zh-TW)(\/|$)/);
+          var prefix = m ? "/" + m[1] : "";
+          window.location.href = prefix + "/essay#essay-" + date.slice(0, 10);
+        }
       });
     }
   })();

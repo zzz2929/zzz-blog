@@ -1702,6 +1702,7 @@ const playlists = playlistModules.map((p) => ({
           );
         if (this.progressBar) {
           this.progressBar.addEventListener("click", (e) => {
+            if (!Number.isFinite(this.audio.duration)) return;
             const rect = this.progressBar.getBoundingClientRect();
             this.audio.currentTime =
               ((e.clientX - rect.left) / rect.width) * this.audio.duration;
@@ -1774,6 +1775,7 @@ const playlists = playlistModules.map((p) => ({
         const progressBar = document.getElementById("fixed-progress-bar");
         if (progressBar) {
           progressBar.addEventListener("click", (e) => {
+            if (!Number.isFinite(this.audio.duration)) return;
             const rect = progressBar.getBoundingClientRect();
             this.audio.currentTime =
               ((e.clientX - rect.left) / rect.width) * this.audio.duration;
@@ -1817,6 +1819,7 @@ const playlists = playlistModules.map((p) => ({
         );
         if (lyricsProgressBar) {
           lyricsProgressBar.addEventListener("click", (e) => {
+            if (!Number.isFinite(this.audio.duration)) return;
             const rect = lyricsProgressBar.getBoundingClientRect();
             this.audio.currentTime =
               ((e.clientX - rect.left) / rect.width) * this.audio.duration;
@@ -1872,7 +1875,7 @@ const playlists = playlistModules.map((p) => ({
             this.playlist = MUSIC_DATA.map((s) => ({
               title: s.name,
               artist: s.artist,
-              album: s.album || "未知专辑",
+              album: s.album || T.unknownAlbum,
               url: s.url,
               cover: s.pic || "/music.svg",
               lrc: s.lrc,
@@ -1927,6 +1930,21 @@ const playlists = playlistModules.map((p) => ({
             this.updateVolumeIcon();
             if (this.fixedVolumeSlider) {
               this.fixedVolumeSlider.value = this.volume;
+            }
+
+            // Restore playback mode (saved by syncMiniPlayer)
+            if ([0, 1, 2].includes(state.playMode)) {
+              this.playMode = state.playMode;
+              const titles = [T.playMode, T.singleLoop, T.shufflePlay];
+              if (this.modeBtn) {
+                this.modeBtn.title = titles[this.playMode];
+                this.modeBtn.querySelectorAll(".mode-icon").forEach((icon) => {
+                  icon.classList.toggle(
+                    "hidden",
+                    parseInt(icon.dataset.mode) !== this.playMode,
+                  );
+                });
+              }
             }
 
             // Set saved playback state - use a more robust approach
@@ -2074,14 +2092,19 @@ const playlists = playlistModules.map((p) => ({
         this.playlist.forEach((song, index) => {
           const item = document.createElement("div");
           item.className = `playlist-item ${index === this.currentIndex ? "active" : ""}`;
+          // 歌名/歌手/封面来自外部 JSON，统一转义后再拼 HTML
+          const esc = (v) =>
+            String(v ?? "").replace(/[&<>"']/g, (c) => ({
+              "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
+            })[c]);
           item.innerHTML = `
             <span class="song-number">${index + 1}</span>
-            <img class="song-cover" src="${song.cover}" alt="" />
+            <img class="song-cover" src="${esc(song.cover)}" alt="" />
             <div class="song-info">
-              <div class="song-title">${song.title}</div>
-              <div class="song-artist">${song.artist}</div>
+              <div class="song-title">${esc(song.title)}</div>
+              <div class="song-artist">${esc(song.artist)}</div>
             </div>
-            <button class="playlist-remove-btn" title="${T.removeFromList}">
+            <button class="playlist-remove-btn" title="${esc(T.removeFromList)}">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
               </svg>
@@ -2149,7 +2172,8 @@ const playlists = playlistModules.map((p) => ({
 
       playSong(index) {
         this.loadSong(index);
-        this.audio.play();
+        // 自动播放策略可能拒绝播放，catch 避免未处理的 Promise 拒绝
+        this.audio.play().catch(() => {});
         this.isPlaying = true;
         this.updatePlayButton();
         this.syncMiniPlayer();
@@ -2181,7 +2205,11 @@ const playlists = playlistModules.map((p) => ({
       }
 
       togglePlay() {
-        this.isPlaying ? this.audio.pause() : this.audio.play();
+        if (this.isPlaying) {
+          this.audio.pause();
+        } else {
+          this.audio.play().catch(() => {});
+        }
         this.isPlaying = !this.isPlaying;
         this.updatePlayButton();
         this.syncMiniPlayer();
@@ -2367,6 +2395,7 @@ const playlists = playlistModules.map((p) => ({
               artist: s.artist,
               cover: s.cover,
               url: s.url,
+              lrc: s.lrc, // 必须保留，否则恢复的播放列表永远匹配不到歌词
             })),
             index: this.currentIndex,
             currentTime: this.audio.currentTime,

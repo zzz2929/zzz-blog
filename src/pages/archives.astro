@@ -51,7 +51,7 @@ const prefix = locale === "zh-CN" ? "" : `/${locale}`;
                         class="mt-0.5 shrink-0 text-xs text-muted"
                         datetime={post.data.date.toISOString()}
                       >
-                        {post.data.date.toLocaleDateString("zh-CN", {
+                        {post.data.date.toLocaleDateString(locale === "en" ? "en-US" : locale === "zh-TW" ? "zh-TW" : "zh-CN", {
                           month: "2-digit",
                           day: "2-digit",
                         })}

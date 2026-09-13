@@ -9,7 +9,10 @@ interface ThemeToggleProps {
 
 export default function ThemeToggle({ locale = 'zh-CN' }: ThemeToggleProps) {
   const t = useTranslations(locale);
-  const [isDark, setIsDark] = useState(false);
+  // 惰性初始化：client:only 水合时直接读到真实主题，避免暗色用户看到亮色初态闪一下
+  const [isDark, setIsDark] = useState(
+    () => document.documentElement.classList.contains('dark'),
+  );
 
   useEffect(() => {
     const stored = localStorage.getItem('theme');

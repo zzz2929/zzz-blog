@@ -60,7 +60,6 @@
   --color-accent-yellow: #f2b94b;
 
   --color-background: #EDE8DE;
-  --color-background-dark: #18171d;
   --color-foreground: #1F2D3D;
   --color-foreground-muted: #858585;
   --color-card-bg: #ffffff;
@@ -422,6 +421,12 @@ body {
   box-shadow: 0 1px 24px rgba(0, 0, 0, 0.2) !important;
 }
 
+/* bg-card-bg 卡片（about/friends/equipment/categories 等页）的暗色覆盖 */
+.dark .bg-card-bg {
+  background-color: var(--color-card-bg-dark);
+  border-color: var(--color-border-dark);
+}
+
 /* ====== 玻璃拟态卡片（统一原先 10+ 处重复的内联样式） ====== */
 @utility glass-card {
   background: linear-gradient(
@@ -443,20 +448,6 @@ body {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-@keyframes gradient-shift {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
 }
 
 @keyframes pulse-glow {

@@ -513,9 +513,15 @@ const t = useTranslations(locale);
       });
 
       // Audio events
+      // timeupdate 约 4 次/秒，节流到 3 秒写一次 localStorage；播放/暂停/拖动结束时仍立即保存
+      let lastSaveTime = 0;
       audio.addEventListener("timeupdate", () => {
         if (!isDragging) updateProgress();
-        saveState();
+        const now = Date.now();
+        if (now - lastSaveTime > 3000) {
+          lastSaveTime = now;
+          saveState();
+        }
       });
       audio.addEventListener("loadedmetadata", () => updateProgress());
       audio.addEventListener("ended", () => navigate(1));
@@ -540,7 +546,7 @@ const t = useTranslations(locale);
         state.playlist = s.playlist;
         state.index = s.index;
         audio.src = s.url;
-        audio.volume = (s.volume ?? 50) / 100;
+        audio.volume = (s.volume ?? 80) / 100;
         updateDisplay();
         audio.addEventListener(
           "loadedmetadata",

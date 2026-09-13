@@ -35,7 +35,7 @@ const isMusicPage =
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" href="/favicon.webp" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
 
     <meta name="generator" content={Astro.generator} />
 
@@ -89,8 +89,13 @@ const isMusicPage =
     <!-- Image loading placeholder (uiverse mobinkakei/grumpy-turtle-41) -->
     <script is:inline>
       (function () {
+        // 灯箱（Fancybox）的 DOM 不参与占位系统，避免拖慢开关动画
+        function inFancybox(el) {
+          return !!(el.closest && el.closest(".fancybox__container"));
+        }
         function mount(img) {
           if (img.dataset.imgLoader) return;
+          if (inFancybox(img)) return;
           img.dataset.imgLoader = "1";
           if (img.complete && img.naturalWidth > 0) return;
           var parent = img.parentElement;
@@ -163,11 +168,14 @@ const isMusicPage =
           mutations.forEach(function (m) {
             m.addedNodes.forEach(function (node) {
               if (!node.tagName) return;
+              // Fancybox 打开时会批量插入 DOM，跳过以免卡顿
+              if (node.classList && node.classList.contains("fancybox__container")) return;
+              if (inFancybox(node)) return;
               if (node.tagName === "IMG") mount(node);
-              else if (node.querySelectorAll) scan(node);
+              else if (node.querySelectorAll && !node.querySelector(".fancybox__container")) scan(node);
             });
             m.removedNodes.forEach(function (node) {
-              if (node.tagName) cleanupRemoved(node);
+              if (node.tagName && !inFancybox(node)) cleanupRemoved(node);
             });
           });
         });

@@ -105,7 +105,13 @@ const prefix = locale === "zh-CN" ? "" : `/${locale}`;
   // Read/unread tracking
   (function () {
     const readKey = 'zzz-blog-read-posts';
-    const readPosts = JSON.parse(localStorage.getItem(readKey) || '[]');
+    let readPosts = [];
+    try {
+      const parsed = JSON.parse(localStorage.getItem(readKey) || '[]');
+      if (Array.isArray(parsed)) readPosts = parsed;
+    } catch (e) {
+      /* localStorage 数据损坏时按未读处理 */
+    }
 
     document.querySelectorAll('.unread-dot').forEach((dot) => {
       const slug = dot.dataset.slug;

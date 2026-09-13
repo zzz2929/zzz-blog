@@ -9,10 +9,9 @@ interface TImage {
 interface PolaroidGalleryProps {
   images: TImage[];
   maxVisible?: number;
-  onClick?: () => void;
 }
 
-export default function PolaroidGallery({ images, maxVisible = 6, onClick }: PolaroidGalleryProps) {
+export default function PolaroidGallery({ images, maxVisible = 6 }: PolaroidGalleryProps) {
   const [isVisible, setIsVisible] = useState(false);
   const displayImages = images.slice(0, maxVisible);
 
@@ -22,7 +21,7 @@ export default function PolaroidGallery({ images, maxVisible = 6, onClick }: Pol
   }, []);
 
   const cardWidth = 116;
-  const spacing = 30;
+  const spacing = 32; // 与 Polaroid 的 index * 32 堆叠间距保持一致
   const totalWidth = (displayImages.length - 1) * spacing + cardWidth;
   const offsetLeft = -(totalWidth / 2 - cardWidth / 2);
 
@@ -32,7 +31,6 @@ export default function PolaroidGallery({ images, maxVisible = 6, onClick }: Pol
       style={{ height: '190px', minHeight: '190px' }}
       whileHover={{ scale: 1.02 }}
       transition={{ duration: 0.2 }}
-      onClick={onClick}
     >
       <div
         className="relative"

@@ -134,7 +134,6 @@ const filteredHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 6);
   }
 
   initToc();
-  document.addEventListener('astro:page-load', initToc);
   // 图片懒加载会改变文档高度，加载完成后刷新标题位置
   window.addEventListener('load', () => tocbot.refresh());
 </script>

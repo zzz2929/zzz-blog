@@ -24,10 +24,12 @@ async function fetchViewCount(postUrl) {
       body: JSON.stringify({ url: postUrl, isNewUv: false }),
       signal: AbortSignal.timeout(5000),
     });
+    if (!res.ok) return null;
     const data = await res.json();
-    return Number(data?.data?.page_pv ?? 0);
+    const pv = Number(data?.data?.page_pv);
+    return Number.isFinite(pv) ? pv : null;
   } catch {
-    return 0;
+    return null; // 区分"确实是 0"和"请求失败"
   }
 }
 
@@ -38,6 +40,14 @@ async function main() {
 
   console.log(`Fetching view counts for ${slugs.length} posts...`);
 
+  // 请求失败时沿用旧数据，避免一次网络故障把真实浏览量清零
+  let previous = {};
+  try {
+    previous = JSON.parse(fs.readFileSync(OUTPUT, 'utf8'));
+  } catch {
+    /* 首次运行没有旧文件 */
+  }
+
   const counts = {};
 
   // Fetch in batches of 5 to avoid rate limiting
@@ -47,12 +57,12 @@ async function main() {
       batch.map(async (slug) => {
         const url = `${SITE_URL}/posts/${slug}`;
         const count = await fetchViewCount(url);
-        console.log(`  ${slug}: ${count}`);
+        console.log(`  ${slug}: ${count ?? `${previous[slug] ?? 0} (cached, fetch failed)`}`);
         return [slug, count];
       })
     );
     for (const [slug, count] of results) {
-      counts[slug] = count;
+      counts[slug] = count ?? previous[slug] ?? 0;
     }
   }
 
