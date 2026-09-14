@@ -189,7 +189,7 @@ function isImageIcon(icon) {
   id="site-header"
   style="top: 10px; padding: 0 16px; z-index: 9999;"
 >
-  <div class="mx-auto" style="max-width: 1308px;">
+  <div class="mx-auto" style="max-width: 1318px;">
     <div
       class="header-bar flex items-center justify-between px-4 sm:px-6 rounded-full glass-card-strong"
       style="height: var(--header-height); box-shadow: 0 1px 24px rgba(0,0,0,0.1); overflow: visible !important"
@@ -400,52 +400,52 @@ function isImageIcon(icon) {
               <div id="monet-palette-grid" class="container-items">
                 <button
                   class="item-color"
-                  data-color="#EDE8DE"
+                  data-color="var(--monet-1)"
                   aria-color="云端漫步"
                   title="云端漫步"
-                  style="--color: #EDE8DE;"></button>
+                  style="--color: var(--monet-1);"></button>
                 <button
                   class="item-color"
-                  data-color="#E8E0F0"
+                  data-color="var(--monet-2)"
                   aria-color="睡莲"
                   title="睡莲"
-                  style="--color: #E8E0F0;"></button>
+                  style="--color: var(--monet-2);"></button>
                 <button
                   class="item-color"
-                  data-color="#F5E6D8"
+                  data-color="var(--monet-3)"
                   aria-color="日出印象"
                   title="日出印象"
-                  style="--color: #F5E6D8;"></button>
+                  style="--color: var(--monet-3);"></button>
                 <button
                   class="item-color"
-                  data-color="#F0E4C8"
+                  data-color="var(--monet-4)"
                   aria-color="干草堆"
                   title="干草堆"
-                  style="--color: #F0E4C8;"></button>
+                  style="--color: var(--monet-4);"></button>
                 <button
                   class="item-color"
-                  data-color="#E5DAE8"
+                  data-color="var(--monet-5)"
                   aria-color="紫藤"
                   title="紫藤"
-                  style="--color: #E5DAE8;"></button>
+                  style="--color: var(--monet-5);"></button>
                 <button
                   class="item-color"
-                  data-color="#DDE4EA"
+                  data-color="var(--monet-6)"
                   aria-color="鲁昂大教堂"
                   title="鲁昂大教堂"
-                  style="--color: #DDE4EA;"></button>
+                  style="--color: var(--monet-6);"></button>
                 <button
                   class="item-color"
-                  data-color="#D8E8E0"
+                  data-color="var(--monet-7)"
                   aria-color="塞纳河"
                   title="塞纳河"
-                  style="--color: #D8E8E0;"></button>
+                  style="--color: var(--monet-7);"></button>
                 <button
                   class="item-color"
-                  data-color="#F7F9FE"
+                  data-color="var(--monet-8)"
                   aria-color="纯白"
                   title="纯白"
-                  style="--color: #F7F9FE;"></button>
+                  style="--color: var(--monet-8);"></button>
               </div>
             </div>
             <div
@@ -604,10 +604,20 @@ function isImageIcon(icon) {
   (function () {
     const swatches = document.querySelectorAll(".item-color");
     const paletteGrid = document.getElementById("monet-palette-grid");
-    let stored = localStorage.getItem("monet-bg") || "#EDE8DE";
+    let stored = localStorage.getItem("monet-bg") || "var(--monet-1)";
 
     function isDark() {
       return document.documentElement.classList.contains("dark");
+    }
+
+    // swatch 传的是 var(--monet-N)，计算边框色时需要解析成实际 hex
+    function resolveColor(color) {
+      if (!color.startsWith("var(")) return color;
+      return (
+        getComputedStyle(document.documentElement)
+          .getPropertyValue(color.slice(4, -1).trim())
+          .trim() || "#EDE8DE"
+      );
     }
 
     function applyPalette(color) {
@@ -633,9 +643,10 @@ function isImageIcon(icon) {
       document.body.style.background = color;
       localStorage.setItem("monet-bg", color);
       // Match border color
-      const r = parseInt(color.slice(1, 3), 16);
-      const g = parseInt(color.slice(3, 5), 16);
-      const b = parseInt(color.slice(5, 7), 16);
+      const hex = resolveColor(color);
+      const r = parseInt(hex.slice(1, 3), 16);
+      const g = parseInt(hex.slice(3, 5), 16);
+      const b = parseInt(hex.slice(5, 7), 16);
       document.documentElement.style.setProperty(
         "--color-border",
         `rgb(${Math.max(0, r - 15)}, ${Math.max(0, g - 15)}, ${Math.max(0, b - 15)})`,

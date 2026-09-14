@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { formatDate } from '@/lib/format';
 import { useTranslations, getLocaleFromURL } from '@/i18n';
 
 const locale = getLocaleFromURL(Astro.url.pathname);
@@ -46,7 +47,7 @@ const prefix = locale === "zh-CN" ? "" : `/${locale}`;
               ))}
             </div>
             <time class="text-xs text-foreground-muted mt-0.5 block" datetime={post.data.date.toISOString()}>
-              {post.data.date.toLocaleDateString(locale === "en" ? "en-US" : locale === "zh-TW" ? "zh-TW" : "zh-CN")}
+              {formatDate(post.data.date, locale)}
             </time>
           </div>
         </a>

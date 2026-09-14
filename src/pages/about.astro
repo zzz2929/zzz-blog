@@ -46,7 +46,7 @@ const posts = await getCollection("blog");
     <!-- Self Info -->
     <section class="mb-10 flex flex-col sm:flex-row gap-4">
       <!-- Left: Personal Info -->
-      <div class="sm:w-[55%] rounded-xl border border-border bg-card p-6">
+      <div class="sm:w-[55%] rounded-xl border border-border glass-card p-6">
         <h2 class="mb-4 text-xl font-bold text-foreground">
           {t("about.personalInfo")}
         </h2>
@@ -80,7 +80,7 @@ const posts = await getCollection("blog");
       </div>
 
       <!-- Right: Beautiful World -->
-      <div class="sm:w-[45%] rounded-xl border border-border bg-card p-6">
+      <div class="sm:w-[45%] rounded-xl border border-border glass-card p-6">
         <p class="text-lg font-medium text-muted mb-2 opacity-90">
           {about.aboutsiteTips.tips}
         </p>
@@ -109,7 +109,7 @@ const posts = await getCollection("blog");
 
     <!-- Location -->
     <section
-      class="mb-10 rounded-xl border border-border bg-card overflow-hidden"
+      class="mb-10 rounded-xl border border-border glass-card overflow-hidden"
     >
       <div
         class="relative h-40 bg-cover bg-center"
@@ -243,7 +243,7 @@ const posts = await getCollection("blog");
 
     <!-- Statistics -->
     <section
-      class="mb-10 rounded-xl border border-border bg-card overflow-hidden"
+      class="mb-10 rounded-xl border border-border glass-card overflow-hidden"
     >
       <div
         class="relative h-32 bg-cover bg-center"
@@ -341,9 +341,4 @@ const posts = await getCollection("blog");
 
     next.setAttribute("data-show", "");
   }, 2000);
-
-  // Clean up (Astro equivalent of pjax:send)
-  document.addEventListener('astro:before-preparation', function () {
-    pursuitInterval && clearInterval(pursuitInterval);
-  });
 </script>

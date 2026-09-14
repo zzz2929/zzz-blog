@@ -421,9 +421,9 @@ body {
   box-shadow: 0 1px 24px rgba(0, 0, 0, 0.2) !important;
 }
 
-/* bg-card-bg 卡片（about/friends/equipment/categories 等页）的暗色覆盖 */
-.dark .bg-card-bg {
-  background-color: var(--color-card-bg-dark);
+/* 玻璃卡片（glass-card）的暗色统一覆盖，与 header/footer 的暗色玻璃一致 */
+.dark .glass-card {
+  background: linear-gradient(135deg, rgba(30, 30, 40, 0.6), rgba(30, 30, 40, 0.3));
   border-color: var(--color-border-dark);
 }
 

@@ -4,6 +4,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import Header from "@/components/astro/Header.astro";
 import Footer from "@/components/astro/Footer.astro";
 import { groupPostsByDate } from "@/lib/posts";
+import { formatDate } from "@/lib/format";
 import { useTranslations, getLocaleFromURL } from "@/i18n";
 
 const locale = getLocaleFromURL(Astro.url.pathname);
@@ -51,7 +52,7 @@ const prefix = locale === "zh-CN" ? "" : `/${locale}`;
                         class="mt-0.5 shrink-0 text-xs text-muted"
                         datetime={post.data.date.toISOString()}
                       >
-                        {post.data.date.toLocaleDateString(locale === "en" ? "en-US" : locale === "zh-TW" ? "zh-TW" : "zh-CN", {
+                        {formatDate(post.data.date, locale, {
                           month: "2-digit",
                           day: "2-digit",
                         })}

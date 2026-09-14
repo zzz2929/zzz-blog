@@ -9,63 +9,27 @@ import { MINI_PLAYER_STORAGE_KEY } from "@/lib/miniPlayerState";
 const locale = getLocaleFromURL(Astro.url.pathname);
 const t = useTranslations(locale);
 
-const anime = await import("@/content/data/playlists/anime.json");
-const caijianya = await import("@/content/data/playlists/caijianya.json");
-const caiyilin = await import("@/content/data/playlists/caiyilin.json");
-const chenyixun = await import("@/content/data/playlists/chenyixun.json");
-const dengziqi = await import("@/content/data/playlists/dengziqi.json");
-const fangdatong = await import("@/content/data/playlists/fangdatong.json");
-const gaowuren = await import("@/content/data/playlists/gaowuren.json");
-const HOYO_MIX = await import("@/content/data/playlists/HOYO-MIX.json");
-const liangjingru = await import("@/content/data/playlists/liangjingru.json");
-const linjunjie = await import("@/content/data/playlists/linjunjie.json");
-const lironghao = await import("@/content/data/playlists/lironghao.json");
-const mijinxuanshi = await import("@/content/data/playlists/mijinxuanshi.json");
-const mowenwei = await import("@/content/data/playlists/mowenwei.json");
-const sunyanzi = await import("@/content/data/playlists/sunyanzi.json");
-const taozhe = await import("@/content/data/playlists/taozhe.json");
-const wanglihong = await import("@/content/data/playlists/wanglihong.json");
-const wuyuetian = await import("@/content/data/playlists/wuyuetian.json");
-const xuezhiqian = await import("@/content/data/playlists/xuezhiqian.json");
-const xuliang = await import("@/content/data/playlists/xuliang.json");
-const zhoujielun = await import("@/content/data/playlists/zhoujielun.json");
-const zhoushen = await import("@/content/data/playlists/zhoushen.json");
-
-const playlistModules = [
-  anime,
-  caijianya,
-  caiyilin,
-  chenyixun,
-  dengziqi,
-  fangdatong,
-  gaowuren,
-  HOYO_MIX,
-  liangjingru,
-  linjunjie,
-  lironghao,
-  mijinxuanshi,
-  mowenwei,
-  sunyanzi,
-  taozhe,
-  wanglihong,
-  wuyuetian,
-  xuezhiqian,
-  xuliang,
-  zhoujielun,
-  zhoushen,
-].map((mod) => mod.default);
-const playlists = playlistModules.map((p) => ({
-  name: p.name || t('music.unnamedPlaylist'),
-  cover: p.cover || "/music.svg",
-  songs: (p.songs || []).map((s) => ({
-    name: s.name,
-    artist: s.artist,
-    album: s.album || "",
-    url: s.url,
-    lrc: s.lrc || "",
-    pic: s.pic || "/music.svg",
-  })),
-}));
+// 加载全部歌单 JSON；新增歌单文件无需改代码（按文件名不区分大小写排序，保持原 UI 顺序）
+const playlistModules = Object.entries(
+  import.meta.glob("@/content/data/playlists/*.json", { eager: true }),
+).sort(([a], [b]) =>
+  a.localeCompare(b, "zh-Hans-CN", { sensitivity: "base" }),
+);
+const playlists = playlistModules.map(([, mod]) => {
+  const p = mod.default;
+  return {
+    name: p.name || t('music.unnamedPlaylist'),
+    cover: p.cover || "/music.svg",
+    songs: (p.songs || []).map((s) => ({
+      name: s.name,
+      artist: s.artist,
+      album: s.album || "",
+      url: s.url,
+      lrc: s.lrc || "",
+      pic: s.pic || "/music.svg",
+    })),
+  };
+});
 ---
 
 <BaseLayout title={t('music.title')}>

@@ -6,7 +6,6 @@ import Footer from "@/components/astro/Footer.astro";
 import RecentPosts from "@/components/astro/RecentPosts.astro";
 import HeroModule from "@/components/astro/HeroModule.astro";
 import SortFilterPosts from "@/components/react/SortFilterPosts.tsx";
-import viewCounts from "@/content/data/view-counts.json";
 import { useTranslations, getLocaleFromURL } from "@/i18n";
 
 const locale = getLocaleFromURL(Astro.url.pathname);
@@ -43,7 +42,7 @@ const postsData = posts.map((p) => ({
         <SortFilterPosts
           client:only="react"
           posts={postsData}
-          viewCounts={viewCounts}
+          siteUrl={Astro.site?.origin}
           locale={locale}
         />
       </div>

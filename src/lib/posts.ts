@@ -1,4 +1,7 @@
 import { getCollection } from 'astro:content';
+import { formatDate } from '@/lib/format';
+
+export { formatDate };
 
 export async function getAllCategories() {
   const posts = await getCollection('blog');
@@ -20,14 +23,6 @@ export async function getPostsByCategory(category: string) {
   return posts
     .filter((post) => post.data.categories.includes(category))
     .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-}
-
-export function formatDate(date: Date): string {
-  return date.toLocaleDateString('zh-CN', {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  });
 }
 
 export function groupPostsByDate(posts: Array<{ data: { date: Date } }>) {

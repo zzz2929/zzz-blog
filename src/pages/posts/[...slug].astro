@@ -72,7 +72,7 @@ const categoryHref = (cat) => `${prefix}/categories/${encodeURIComponent(cat)}`;
               class="flex flex-wrap items-center gap-2 text-sm text-white/80"
             >
               <time datetime={post.data.date.toISOString()}
-                >{formatDate(post.data.date)}</time
+                >{formatDate(post.data.date, locale)}</time
               >
               {
                 post.data.updated && (
@@ -81,7 +81,7 @@ const categoryHref = (cat) => `${prefix}/categories/${encodeURIComponent(cat)}`;
                     <span>
                       {t("post.updated")}{" "}
                       <time datetime={post.data.updated.toISOString()}>
-                        {formatDate(post.data.updated)}
+                        {formatDate(post.data.updated, locale)}
                       </time>
                     </span>
                   </>
@@ -137,7 +137,7 @@ const categoryHref = (cat) => `${prefix}/categories/${encodeURIComponent(cat)}`;
             class="flex flex-wrap items-center gap-2 text-sm text-foreground-muted"
           >
             <time datetime={post.data.date.toISOString()}
-              >{formatDate(post.data.date)}</time
+              >{formatDate(post.data.date, locale)}</time
             >
             {
               post.data.updated && (
@@ -146,7 +146,7 @@ const categoryHref = (cat) => `${prefix}/categories/${encodeURIComponent(cat)}`;
                   <span>
                     {t("post.updated")}{" "}
                     <time datetime={post.data.updated.toISOString()}>
-                      {formatDate(post.data.updated)}
+                      {formatDate(post.data.updated, locale)}
                     </time>
                   </span>
                 </>

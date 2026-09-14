@@ -20,7 +20,7 @@ const categories = await getAllCategories();
         categories.map((cat) => (
           <a
             href={`${prefix}/categories/${cat.slug}`}
-            class="group flex items-center justify-between rounded-xl border border-border bg-card-bg p-5 transition-all hover:shadow-md hover:border-primary/30"
+            class="group flex items-center justify-between rounded-xl border border-border glass-card p-5 transition-all hover:shadow-md hover:border-primary/30"
           >
             <div class="flex items-center gap-3">
               <span class="text-2xl">📂</span>

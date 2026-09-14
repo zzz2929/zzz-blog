@@ -18,6 +18,7 @@ const { title, date, excerpt, cover, tags = [], categories = [], slug, index = 0
 
 const delay = index * 0.06;
 const prefix = locale === "zh-CN" ? "" : `/${locale}`;
+const postUrl = Astro.site ? `${Astro.site.origin}${prefix}/posts/${slug}` : undefined;
 ---
 
 <a
@@ -62,14 +63,14 @@ const prefix = locale === "zh-CN" ? "" : `/${locale}`;
         </span>
       )}
       <span class="opacity-30">·</span>
-      <time datetime={new Date(date).toISOString()}>{formatDate(new Date(date))}</time>
+      <time datetime={new Date(date).toISOString()}>{formatDate(new Date(date), locale)}</time>
       <span class="ml-auto flex items-center gap-1.5">
         <span
           class="unread-dot h-1.5 w-1.5 rounded-full"
           style="background: var(--color-accent-red); box-shadow: 0 0 6px var(--color-accent-red);"
           data-slug={slug}
         />
-        <VercountDisplay client:only="react" pagePv />
+        <VercountDisplay client:only="react" pagePv url={postUrl} />
       </span>
     </div>
 

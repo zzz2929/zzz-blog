@@ -16,13 +16,14 @@ export async function getStaticPaths() {
 const { slug } = Astro.params;
 const posts = await getPostsByCategory(slug!);
 const locale = getLocaleFromURL(Astro.url.pathname);
+const prefix = locale === "zh-CN" ? "" : `/${locale}`;
 ---
 
 <BaseLayout title={`${t("categories.title")}: ${slug}`}>
   <Header />
   <main class="mx-auto max-w-[1152px] px-4 pt-[20px] pb-[20px] sm:px-6">
     <div class="mb-8">
-      <a href="/categories/" class="text-sm text-primary hover:underline"
+      <a href={`${prefix}/categories/`} class="text-sm text-primary hover:underline"
         >{t("categories.back")}</a
       >
       <h1 class="mt-2 text-3xl font-bold text-foreground">📂 {slug}</h1>

@@ -35,7 +35,7 @@ const equip = equipmentData[0]?.data;
             <p class="mb-4 text-sm text-muted">{section.description}</p>
             <div class="grid gap-4 sm:grid-cols-2">
               {section.equipment_list.map((item) => (
-                <div class="group flex gap-4 rounded-xl border border-border bg-card p-4 transition-all hover:shadow-md hover:border-primary/30">
+                <div class="group flex gap-4 rounded-xl border border-border glass-card p-4 transition-all hover:shadow-md hover:border-primary/30">
                   <img src={item.image} alt={item.name} class="h-20 w-20 shrink-0 rounded-lg object-contain" loading="lazy" />
                   <div class="min-w-0 flex-1">
                     <h3 class="font-medium text-foreground">{item.name}</h3>

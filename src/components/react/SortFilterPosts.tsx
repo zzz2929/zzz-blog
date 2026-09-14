@@ -1,6 +1,8 @@
 import { useState, useMemo, useEffect } from 'react';
 import { useTranslations } from '@/i18n';
 import type { Locale } from '@/i18n';
+import { formatDate } from '@/lib/format';
+import VercountDisplay from './VercountDisplay';
 
 interface Post {
   title: string;
@@ -14,21 +16,14 @@ interface Post {
 
 interface Props {
   posts: Post[];
-  viewCounts?: Record<string, number>;
+  /** 站点 origin，用于拼接文章的 vercount 统计 URL */
+  siteUrl?: string;
   locale?: Locale;
 }
 
 type SortDir = 'asc' | 'desc';
 
-function formatDate(iso: string): string {
-  const d = new Date(iso);
-  const y = d.getFullYear();
-  const m = String(d.getMonth() + 1).padStart(2, '0');
-  const day = String(d.getDate()).padStart(2, '0');
-  return `${y}/${m}/${day}`;
-}
-
-function PostCard({ post, viewCount, locale }: { post: Post; viewCount: number; locale: string }) {
+function PostCard({ post, siteUrl, locale }: { post: Post; siteUrl: string; locale: string }) {
   const prefix = locale === 'zh-CN' ? '' : `/${locale}`;
   return (
     <a
@@ -73,13 +68,10 @@ function PostCard({ post, viewCount, locale }: { post: Post; viewCount: number; 
             </span>
           )}
           <span style={{ opacity: 0.3 }}>·</span>
-          <time>{formatDate(post.date)}</time>
-          {viewCount > 0 && (
-            <span style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 4, opacity: 0.6 }}>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /></svg>
-              {viewCount}
-            </span>
-          )}
+          <time>{formatDate(post.date, locale)}</time>
+          <span style={{ marginLeft: 'auto' }}>
+            <VercountDisplay pagePv url={`${siteUrl}/posts/${post.slug}`} />
+          </span>
         </div>
         <h3 style={{ fontSize: 17, fontWeight: 700, lineHeight: 1.4, color: 'var(--color-foreground)', transition: 'color 0.3s', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
           {post.title}
@@ -103,7 +95,7 @@ function PostCard({ post, viewCount, locale }: { post: Post; viewCount: number; 
   );
 }
 
-export default function SortFilterPosts({ posts, viewCounts = {}, locale = 'zh-CN' }: Props) {
+export default function SortFilterPosts({ posts, siteUrl = '', locale = 'zh-CN' }: Props) {
   const t = useTranslations(locale);
   const [sortDir, setSortDir] = useState<SortDir>('desc');
   const [category, setCategory] = useState<string>('all');
@@ -221,7 +213,7 @@ export default function SortFilterPosts({ posts, viewCounts = {}, locale = 'zh-C
         <>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 20 }}>
             {currentPosts.map((post) => (
-              <PostCard key={post.slug} post={post} viewCount={viewCounts[post.slug] ?? 0} locale={locale} />
+              <PostCard key={post.slug} post={post} siteUrl={siteUrl} locale={locale} />
             ))}
           </div>
 
