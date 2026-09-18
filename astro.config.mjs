@@ -158,6 +158,8 @@ export default defineConfig({
 
   image: {
     service: { entrypoint: 'astro/assets/services/sharp' },
+    // 允许 <Image> 优化远程图床图片（随笔卡片缩略图在开发/构建时按需生成）
+    remotePatterns: [{ hostname: 'imgbed.904002.xyz' }],
   },
 
   markdown: {

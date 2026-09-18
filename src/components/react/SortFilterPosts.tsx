@@ -19,11 +19,14 @@ interface Props {
   /** 站点 origin，用于拼接文章的 vercount 统计 URL */
   siteUrl?: string;
   locale?: Locale;
+  /** 服务端预优化的封面（原始 URL → 小图 src + 尺寸），缺省退回原图 */
+  coverMap?: Record<string, { src: string; width?: number; height?: number }>;
 }
 
 type SortDir = 'asc' | 'desc';
 
-function PostCard({ post, siteUrl, locale }: { post: Post; siteUrl: string; locale: string }) {
+function PostCard({ post, siteUrl, locale, coverMap }: { post: Post; siteUrl: string; locale: string; coverMap?: Record<string, { src: string; width?: number; height?: number }> }) {
+  const cover = coverMap?.[post.cover];
   const prefix = locale === 'zh-CN' ? '' : `/${locale}`;
   return (
     <a
@@ -50,8 +53,10 @@ function PostCard({ post, siteUrl, locale }: { post: Post; siteUrl: string; loca
       {post.cover && (
         <div style={{ height: 200, borderRadius: '16px 16px 0 0', overflow: 'hidden', position: 'relative' }}>
           <img
-            src={post.cover}
+            src={cover?.src ?? post.cover}
             alt={post.title}
+            width={cover?.width}
+            height={cover?.height}
             loading="lazy"
             style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'all 0.5s ease' }}
             onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.05)'; e.currentTarget.style.filter = 'brightness(0.85)'; }}
@@ -95,7 +100,7 @@ function PostCard({ post, siteUrl, locale }: { post: Post; siteUrl: string; loca
   );
 }
 
-export default function SortFilterPosts({ posts, siteUrl = '', locale = 'zh-CN' }: Props) {
+export default function SortFilterPosts({ posts, siteUrl = '', locale = 'zh-CN', coverMap }: Props) {
   const t = useTranslations(locale);
   const [sortDir, setSortDir] = useState<SortDir>('desc');
   const [category, setCategory] = useState<string>('all');
@@ -213,7 +218,7 @@ export default function SortFilterPosts({ posts, siteUrl = '', locale = 'zh-CN' 
         <>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 20 }}>
             {currentPosts.map((post) => (
-              <PostCard key={post.slug} post={post} siteUrl={siteUrl} locale={locale} />
+              <PostCard key={post.slug} post={post} siteUrl={siteUrl} locale={locale} coverMap={coverMap} />
             ))}
           </div>
 

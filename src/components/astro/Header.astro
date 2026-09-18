@@ -319,7 +319,7 @@ function isImageIcon(icon) {
                   {item.children.map((child, ci) => (
                     <a
                       href={child.href}
-                      class="nav-dropdown-item flex items-center gap-2.5 rounded-lg px-3 py-2 whitespace-nowrap transition-all duration-200"
+                      class="nav-dropdown-item flex items-center gap-2.5 rounded-[10px] px-3 py-2 whitespace-nowrap transition-all duration-200"
                       style={`font-size: 15px; font-weight: 600; color: var(--color-foreground); opacity: 0; transform: translateY(6px); transition-delay: ${ci * 30}ms;`}
                     >
                       {iconMap[child.icon] ? (
@@ -892,6 +892,9 @@ function isImageIcon(icon) {
   }
   .item-color:active::after {
     transform: scale(1.1);
+  }
+  .item-color.selected {
+    z-index: 1; /* 画在相邻色块之上，蓝框不被右邻盖住 */
   }
   .item-color.selected::after {
     box-shadow: 0 0 0 2px var(--color-primary);

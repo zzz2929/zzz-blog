@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import { getImage } from "astro:assets";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Header from "@/components/astro/Header.astro";
 import Footer from "@/components/astro/Footer.astro";
@@ -24,6 +25,23 @@ const postsData = posts.map((p) => ({
   tags: p.data.tags,
   categories: p.data.categories,
 }));
+
+// 封面在服务端预优化（约 720px webp），React 列表直接用小图渲染
+const coverMap: Record<string, { src: string; width?: number; height?: number }> = {};
+await Promise.all(
+  [...new Set(postsData.map((p) => p.cover).filter(Boolean))].map(async (url) => {
+    try {
+      const img = await getImage({ src: url, inferSize: true, width: 720 });
+      coverMap[url] = {
+        src: img.src,
+        width: img.attributes?.width as number | undefined,
+        height: img.attributes?.height as number | undefined,
+      };
+    } catch {
+      /* 单张失败时退回原图 */
+    }
+  }),
+);
 ---
 
 <BaseLayout>
@@ -42,6 +60,7 @@ const postsData = posts.map((p) => ({
         <SortFilterPosts
           client:only="react"
           posts={postsData}
+          coverMap={coverMap}
           siteUrl={Astro.site?.origin}
           locale={locale}
         />

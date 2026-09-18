@@ -12,7 +12,10 @@ function formatDate(d: string): string {
   return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
 }
 
-function PhotoImage({ src, alt }: { src: string; alt: string }) {
+type OptimizedMap = Record<string, { src: string; width?: number; height?: number }>;
+
+function PhotoImage({ src, alt, optimized }: { src: string; alt: string; optimized?: OptimizedMap }) {
+  const o = optimized?.[src];
   const [error, setError] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
@@ -33,8 +36,10 @@ function PhotoImage({ src, alt }: { src: string; alt: string }) {
         </div>
       )}
       <img
-        src={src}
+        src={o?.src ?? src}
         alt={alt}
+        width={o?.width}
+        height={o?.height}
         className={`w-full h-full object-cover transform group-hover:scale-105 transition-all duration-500 ease-out ${loaded ? 'opacity-100' : 'opacity-0'}`}
         loading="lazy"
         onLoad={() => setLoaded(true)}
@@ -83,6 +88,8 @@ interface PhotoAlbumProps {
     description?: string;
     album_list: AlbumGroup[];
   }>;
+  /** 服务端预优化的图片（原始 URL → 小图 src + 尺寸），缺省退回原图 */
+  optimized?: OptimizedMap;
   locale?: Locale;
 }
 
@@ -100,7 +107,7 @@ function updateURL(album: string | null, groupName: string | null) {
   window.history.replaceState(null, '', url);
 }
 
-export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps) {
+export default function PhotoAlbum({ albums, optimized, locale = 'zh-CN' }: PhotoAlbumProps) {
   const t = useTranslations(locale);
 
   const [gallery, setGallery] = useState<{ images: string[]; captions: string[]; index: number } | null>(null);
@@ -165,7 +172,7 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
                   onClick={() => setGallery({ images: photo.allImages, captions: photo.allImages.map(() => photo.title), index: photo.idx })}
                   className="w-full relative overflow-hidden bg-border"
                 >
-                  <PhotoImage src={photo.src} alt={photo.title} />
+                  <PhotoImage src={photo.src} alt={photo.title} optimized={optimized} />
                 </button>
                 <div className="p-5">
                   <h3 className="text-lg font-bold text-foreground mb-1">{photo.title}</h3>
@@ -198,7 +205,7 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
           {currentAlbum.album_list.map((group) => {
             const allImages = group.items.flatMap((item) => item.image);
             const firstItem = group.items[0];
-            const polaroidImages = allImages.slice(0, 6).map((src) => ({ src }));
+            const polaroidImages = allImages.slice(0, 6).map((src) => ({ src: optimized?.[src]?.src ?? src }));
 
             return (
               <button
@@ -249,7 +256,7 @@ export default function PhotoAlbum({ albums, locale = 'zh-CN' }: PhotoAlbumProps
           className="group text-left"
         >
           <div className="relative aspect-[4/3] rounded-xl overflow-hidden bg-border">
-            {album.cover && <PhotoImage src={album.cover} alt={album.class_name} />}
+            {album.cover && <PhotoImage src={album.cover} alt={album.class_name} optimized={optimized} />}
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
               <div>
                 <h3 className="text-white font-bold text-lg">{album.class_name}</h3>

@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import { getImage } from "astro:assets";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Header from "@/components/astro/Header.astro";
 import Footer from "@/components/astro/Footer.astro";
@@ -11,6 +12,31 @@ const locale = getLocaleFromURL(Astro.url.pathname);
 const t = useTranslations(locale);
 const albumData = await getCollection("album");
 const albums = albumData.map((a) => a.data);
+
+// 相册照片在服务端预优化（约 900px webp），画廊灯箱仍用原图
+const optimized: Record<string, { src: string; width?: number; height?: number }> = {};
+const albumUrls = [
+  ...new Set(
+    albums.flatMap((a) => [
+      ...(a.cover ? [a.cover] : []),
+      ...a.album_list.flatMap((g) => g.items.flatMap((item) => item.image)),
+    ]),
+  ),
+];
+await Promise.all(
+  albumUrls.map(async (url) => {
+    try {
+      const img = await getImage({ src: url, inferSize: true, width: 900 });
+      optimized[url] = {
+        src: img.src,
+        width: img.attributes?.width as number | undefined,
+        height: img.attributes?.height as number | undefined,
+      };
+    } catch {
+      /* 单张失败时退回原图 */
+    }
+  }),
+);
 ---
 
 <BaseLayout title={t('album.title')}>
@@ -21,7 +47,7 @@ const albums = albumData.map((a) => a.data);
       <p class="mt-2 text-muted">{t('album.subtitle')}</p>
     </div>
 
-    <PhotoAlbum client:only="react" albums={albums} locale={locale} />
+    <PhotoAlbum client:only="react" albums={albums} optimized={optimized} locale={locale} />
   </main>
   <Footer />
 </BaseLayout>
