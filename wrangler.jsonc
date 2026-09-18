@@ -9,8 +9,5 @@
 	},
 	"observability": {
 		"enabled": true
-	},
-	"vars": {
-    "PNPM_VERSION": "12.3.4"
-    }
+	}
 }
