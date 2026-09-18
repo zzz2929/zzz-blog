@@ -16,13 +16,13 @@ const fancyboxConfig: Partial<FancyboxOptions> = {
   // 是否启用缩放动画（从缩略图放大到原图的效果）
   zoomEffect: true,
 
-  // 灯箱打开时的动画类名（可在 CSS 中自定义）
-  // 可选值: 'fancybox-fadeIn' | false | 自定义类名
-  showClass: 'fancybox-fadeIn',
+  // 灯箱打开时的动画类名（必须是 fancybox.css 里真实存在的类）
+  // 可选值: 'f-fadeIn' | 'f-zoomInUp' | false | 自定义类名
+  showClass: 'f-fadeIn',
 
-  // 灯箱关闭时的动画类名（可在 CSS 中自定义）
-  // 可选值: 'fancybox-fadeOut' | false | 自定义类名
-  hideClass: 'fancybox-fadeOut',
+  // 灯箱关闭时的动画类名（必须是 fancybox.css 里真实存在的类）
+  // 可选值: 'f-fadeOut' | false | 自定义类名
+  hideClass: 'f-fadeOut',
 
   // ==================== 界面设置 ====================
 

@@ -450,6 +450,22 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+/* ====== 灯箱打开期间的性能保护 ======
+   站内几十层 blur(20px) 毛玻璃（暗色下还叠加星空位移动画）会让灯箱开/关动画的
+   每一帧都触发大量模糊层重新合成，导致明显掉帧；遮罩近乎不透明，期间停用模糊、
+   暂停星空都没有视觉差异。Fancybox v5 会把容器包在 <dialog class="fancybox__dialog">
+   里，所以用后代选择器而非直接子元素；而不用 Fancybox 的 html 类名，是因为类名在
+   关闭淡出开始时就被移除，:has 能把淡出动画全程覆盖住（容器要等动画结束才移除）。 */
+body:has(.fancybox__container) :not(.fancybox__container):not(.fancybox__container *) {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+body:has(.fancybox__container)::before,
+body:has(.fancybox__container)::after {
+  animation-play-state: paused;
+}
+
 @keyframes pulse-glow {
 
   0%,
