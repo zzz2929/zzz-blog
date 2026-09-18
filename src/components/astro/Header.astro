@@ -320,7 +320,7 @@ function isImageIcon(icon) {
                     <a
                       href={child.href}
                       class="nav-dropdown-item flex items-center gap-2.5 rounded-[10px] px-3 py-2 whitespace-nowrap transition-all duration-200"
-                      style={`font-size: 15px; font-weight: 600; color: var(--color-foreground); opacity: 0; transform: translateY(6px); transition-delay: ${ci * 30}ms;`}
+                      style={`font-size: 15px; font-weight: 600; color: var(--color-foreground); opacity: 0; transition-delay: ${ci * 30}ms;`}
                     >
                       {iconMap[child.icon] ? (
                         <Fragment set:html={iconMap[child.icon].replace(/width="[^"]*"/, 'width="18"').replace(/height="[^"]*"/, 'height="18"')} />
@@ -777,7 +777,6 @@ function isImageIcon(icon) {
   }
   .nav-item:hover .nav-dropdown .nav-dropdown-item {
     opacity: 1 !important;
-    transform: translateY(0) !important;
   }
   .nav-dropdown-item:hover {
     background: rgba(66, 90, 239, 0.08) !important;
