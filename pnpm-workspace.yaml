@@ -1,6 +1,3 @@
-# 声明根目录为唯一工作区包;老版本 pnpm(Cloudflare 构建镜像默认 10.11.1)要求该字段存在,勿删
-packages:
-  - '.'
 allowBuilds:
   esbuild: true
   sharp: true
