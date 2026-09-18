@@ -1,4 +1,10 @@
 allowBuilds:
-  esbuild: false
-  sharp: set this to true or false
+  esbuild: true
+  sharp: true
   workerd: false
+overrides:
+  vite: ^8
+minimumReleaseAgeExclude:
+  - '@astrojs/cloudflare@14.3.2'
+  - '@astrojs/react@6.0.6'
+  - astro@7.3.3

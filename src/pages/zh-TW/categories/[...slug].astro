@@ -1,4 +1,10 @@
 ---
 import CategoriesDetail from '../../categories/[...slug].astro';
+import { getAllCategories } from "@/lib/posts";
+
+export async function getStaticPaths() {
+  const categories = await getAllCategories();
+  return categories.map((cat) => ({ params: { slug: cat.slug } }));
+}
 ---
 <CategoriesDetail />

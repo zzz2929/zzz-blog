@@ -11,7 +11,7 @@ const t = useTranslations(locale);
 
 // 加载全部歌单 JSON；新增歌单文件无需改代码（按文件名不区分大小写排序，保持原 UI 顺序）
 const playlistModules = Object.entries(
-  import.meta.glob("@/content/data/playlists/*.json", { eager: true }),
+  import.meta.glob("/src/content/data/playlists/*.json", { eager: true }),
 ).sort(([a], [b]) =>
   a.localeCompare(b, "zh-Hans-CN", { sensitivity: "base" }),
 );

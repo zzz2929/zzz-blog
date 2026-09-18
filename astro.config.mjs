@@ -125,6 +125,7 @@ function rehypeGithubAlerts() {
 export default defineConfig({
   site: 'https://blog.904002.xyz',
   output: 'static',
+  session: false,
   integrations: [react(), mdx(), sitemap()],
   i18n: {
     defaultLocale: 'zh-CN',
@@ -171,5 +172,5 @@ export default defineConfig({
     },
   },
 
-  adapter: cloudflare()
+  adapter: cloudflare({ imageService: 'compile' })
 });
