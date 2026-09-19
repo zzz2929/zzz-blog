@@ -110,6 +110,18 @@ html {
   scroll-behavior: smooth;
   font-size: 14px;
   line-height: 2;
+  /* 全站随视口等比缩放：以 1600 宽视口为比例基准（用户显示器，zoom=1 时与
+     原设计观感一致），上下限防止极端视口；zoom 对所有 px（含内联样式）统一
+     等比，比例在任何分辨率/系统缩放率下一致。不支持 calc 长度除法的旧浏览器
+     忽略此声明回退 zoom:1（即原状）。 */
+  zoom: clamp(0.5, calc(100vw / 1600px), 2);
+}
+
+/* 移动端有独立的自适应布局，不做等比缩放 */
+@media (max-width: 767px) {
+  html {
+    zoom: 1;
+  }
 }
 
 body {

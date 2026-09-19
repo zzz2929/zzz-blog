@@ -219,7 +219,9 @@ for (const group of dayGroups) {
     border-top-left-radius: 24px;
     border-bottom-left-radius: 24px;
   }
-  @media (max-width: 1069px) {
+  /* 全站 zoom 等比缩放下，1032px 的行在任何桌面视口都等比放得下，无需中途退化；
+     仅在移动端（zoom=1 的区间）保留换行退化 */
+  @media (max-width: 767px) {
     /* 视口放不下固定 4 列时退化为普通换行，隐藏行间衔接 */
     .essay-tl-row {
       flex-wrap: wrap;
@@ -263,7 +265,9 @@ for (const group of dayGroups) {
       // 只适配 width:auto 的图片（单条/瀑布流卡片）；时间轴卡片 width:100%，跳过
       if (img.style.width !== 'auto') return;
       if (!img.complete || !img.naturalWidth) return;
-      const w = Math.ceil(img.getBoundingClientRect().width);
+      // zoom 等比缩放下 rect 返回视觉像素，style.width 是布局像素，需除以 zoom
+      const zoom = parseFloat(getComputedStyle(document.documentElement).zoom) || 1;
+      const w = Math.ceil(img.getBoundingClientRect().width / zoom);
       if (w > 0) {
         card.style.width = `${w + 34}px`; // p-4 内边距 + 边框
         card.style.maxWidth = '100%'; // 不超出瀑布流列宽
