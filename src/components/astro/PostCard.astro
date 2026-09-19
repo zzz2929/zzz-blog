@@ -1,6 +1,6 @@
 ---
-import { Image } from 'astro:assets';
 import VercountDisplay from '@/components/react/VercountDisplay.tsx';
+import { optimizedRemoteImage } from '@/lib/remoteImage';
 import { formatDate } from '@/lib/posts';
 
 interface Props {
@@ -16,6 +16,7 @@ interface Props {
 }
 
 const { title, date, excerpt, cover, tags = [], categories = [], slug, index = 0, locale = "zh-CN" } = Astro.props;
+const coverImg = cover ? await optimizedRemoteImage(cover, 720) : null;
 
 const delay = index * 0.06;
 const prefix = locale === "zh-CN" ? "" : `/${locale}`;
@@ -41,11 +42,11 @@ const postUrl = Astro.site ? `${Astro.site.origin}${prefix}/posts/${slug}` : und
   <!-- Cover Image on top -->
   {cover && (
     <div class="relative overflow-hidden" style="height: 200px; border-radius: 16px 16px 0 0;">
-      <Image
-        src={cover}
+      <img
+        src={coverImg?.src ?? cover}
         alt={title}
-        inferSize
-        width={720}
+        width={coverImg?.width}
+        height={coverImg?.height}
         class="h-full w-full object-cover transition-all duration-500 group-hover:scale-[1.05] group-hover:brightness-[0.85]"
         loading="lazy"
       />

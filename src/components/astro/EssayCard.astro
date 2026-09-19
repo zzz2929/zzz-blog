@@ -1,6 +1,6 @@
 ---
-import { Image } from 'astro:assets';
 import { useTranslations, getLocaleFromURL } from '@/i18n';
+import { optimizedRemoteImage } from '@/lib/remoteImage';
 
 interface Props {
   item: Record<string, any>;
@@ -11,6 +11,7 @@ interface Props {
 }
 
 const { item, imgWidth = 'auto', class: className = '', borderColor } = Astro.props;
+const images = await Promise.all((item.img ?? []).map((src: string) => optimizedRemoteImage(src, 800)));
 const locale = getLocaleFromURL(Astro.url.pathname);
 const t = useTranslations(locale);
 ---
@@ -22,16 +23,16 @@ const t = useTranslations(locale);
   {
     item.img && item.img.length > 0 && (
       <div class="flex flex-wrap items-center justify-center gap-2">
-        {item.img.map((src: string) => (
-          <Image
-            src={src}
+        {images.map((img, i) => (
+          <img
+            src={img.src}
             alt=""
-            inferSize
-            width={800}
             loading="lazy"
             decoding="async"
+            width={img.width}
+            height={img.height}
             class="essay-img rounded-lg"
-            data-src={src}
+            data-src={item.img![i]}
             style={`width: ${imgWidth}; max-width: 100%; max-height: 420px; object-fit: contain;`}
           />
         ))}

@@ -1,20 +1,19 @@
 ---
 import { getCollection } from "astro:content";
-import { getImage } from "astro:assets";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Header from "@/components/astro/Header.astro";
 import Footer from "@/components/astro/Footer.astro";
 import PhotoAlbum from "@/components/react/PhotoAlbum.tsx";
 
 import { useTranslations, getLocaleFromURL } from "@/i18n";
+import { optimizedRemoteImageMap } from "@/lib/remoteImage";
 
 const locale = getLocaleFromURL(Astro.url.pathname);
 const t = useTranslations(locale);
 const albumData = await getCollection("album");
 const albums = albumData.map((a) => a.data);
 
-// 相册照片在服务端预优化（约 900px webp），画廊灯箱仍用原图
-const optimized: Record<string, { src: string; width?: number; height?: number }> = {};
+// 相册照片在服务端预优化（约 900px 等比缩略图），画廊灯箱仍用原图
 const albumUrls = [
   ...new Set(
     albums.flatMap((a) => [
@@ -23,20 +22,7 @@ const albumUrls = [
     ]),
   ),
 ];
-await Promise.all(
-  albumUrls.map(async (url) => {
-    try {
-      const img = await getImage({ src: url, inferSize: true, width: 900 });
-      optimized[url] = {
-        src: img.src,
-        width: img.attributes?.width as number | undefined,
-        height: img.attributes?.height as number | undefined,
-      };
-    } catch {
-      /* 单张失败时退回原图 */
-    }
-  }),
-);
+const optimized = await optimizedRemoteImageMap(albumUrls, 900);
 ---
 
 <BaseLayout title={t('album.title')}>
