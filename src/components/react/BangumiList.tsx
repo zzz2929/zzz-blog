@@ -69,7 +69,7 @@ export default function BangumiList({ wantWatch, watching, watched, locale = 'zh
   return (
     <div>
       {/* Tabs */}
-      <div className="flex gap-2 mb-4">
+      <div className="flex flex-wrap gap-2 mb-4">
         {([['all', t('bangumis.all'), allItems.length],
            ['wantWatch', t('bangumis.wantWatch'), wantWatch.length],
            ['watching', t('bangumis.watching'), watching.length],

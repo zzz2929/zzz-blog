@@ -43,7 +43,7 @@ const categoryHref = (cat) => `${prefix}/categories/${encodeURIComponent(cat)}`;
       post.data.cover && (
         <div
           class="relative overflow-hidden mb-[20px] rounded-2xl"
-          style="min-height: 450px;"
+          style="min-height: clamp(280px, 35vw, 450px);"
         >
           <!-- Cover image fills the card -->
           <img
@@ -202,7 +202,7 @@ const categoryHref = (cat) => `${prefix}/categories/${encodeURIComponent(cat)}`;
       <!-- TOC sidebar -->
       {
         headings.length > 0 && (
-          <aside class="hidden xl:block shrink-0" style="width: 250px;">
+          <aside class="toc-drawer hidden lg:block shrink-0" style="width: 250px;">
             <div style="position: sticky; top: 90px;">
               <TOC headings={headings} />
             </div>
@@ -210,6 +210,17 @@ const categoryHref = (cat) => `${prefix}/categories/${encodeURIComponent(cat)}`;
         )
       }
     </div>
+
+    <!-- 移动端目录：浮动按钮 + 抽屉（<1280 显示；桌面仍用右侧固定栏） -->
+    {headings.length > 0 && (
+      <button id="toc-fab" class="toc-fab lg:hidden" aria-label={t('post.toc')}>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="4" y1="6" x2="20" y2="6"></line>
+          <line x1="4" y1="12" x2="16" y2="12"></line>
+          <line x1="4" y1="18" x2="20" y2="18"></line>
+        </svg>
+      </button>
+    )}
 
     <!-- Comments -->
     <Comments />
@@ -234,6 +245,57 @@ const categoryHref = (cat) => `${prefix}/categories/${encodeURIComponent(cat)}`;
         rgba(30, 30, 40, 0.3)
       ) !important;
       border-color: rgba(255, 255, 255, 0.08) !important;
+    }
+
+    /* ====== 移动端目录抽屉（<1280：FAB 开关；≥1280 走右侧固定栏） ====== */
+    .toc-fab {
+      position: fixed;
+      right: 16px;
+      bottom: 84px;
+      z-index: 9998;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      color: var(--color-foreground);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.45));
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+    }
+    .dark .toc-fab {
+      background: linear-gradient(135deg, rgba(30, 30, 40, 0.7), rgba(30, 30, 40, 0.4));
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* display 不写在外层：unlayered scoped 样式会压过 lg:hidden 工具类 */
+    @media (max-width: 1279px) {
+      .toc-fab {
+        display: flex;
+      }
+      .toc-drawer {
+        position: fixed;
+        right: 16px;
+        bottom: 140px;
+        width: min(320px, calc(100vw - 32px)) !important;
+        max-height: 65vh;
+        overflow-y: auto;
+        z-index: 9999;
+      }
+      .toc-drawer.toc-open {
+        display: block;
+      }
+      .toc-drawer > div {
+        position: static !important;
+      }
+    }
+    @media (min-width: 1280px) {
+      .toc-fab {
+        display: none;
+      }
     }
   </style>
 
@@ -283,6 +345,16 @@ const categoryHref = (cat) => `${prefix}/categories/${encodeURIComponent(cat)}`;
     }
 
     initBlogFancybox();
+
+    // 移动端目录抽屉（<1280 时右下角按钮开关）
+    const tocFab = document.getElementById("toc-fab");
+    const tocDrawer = document.querySelector(".toc-drawer");
+    if (tocFab && tocDrawer) {
+      tocFab.addEventListener("click", () => tocDrawer.classList.toggle("toc-open"));
+      tocDrawer.addEventListener("click", (e) => {
+        if (e.target.closest("a")) tocDrawer.classList.remove("toc-open");
+      });
+    }
 
     // Code block enhancements: line numbers, copy button
     const clipboardSvg =

@@ -144,7 +144,8 @@ const displayGroups = grouped.length > 0 ? [grouped[0]] : [];
     height: 420px;
   }
 
-  @media (max-width: 767px) {
+  /* 手机与平板（<1024，zoom=1 区间）降低 hero 高度 */
+  @media (max-width: 1023px) {
     .hero-container {
       height: 280px;
     }

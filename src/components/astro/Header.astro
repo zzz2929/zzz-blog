@@ -164,9 +164,9 @@ const siteLinks = [
     icon: "https://imgbed.904002.xyz/file/img/blog/icon/Media_Go.webp",
   },
   {
-    name: "cover",
+    name: "easy_cover",
     href: "https://cover.904002.xyz/",
-    icon: "https://imgbed.904002.xyz/file/img/blog/icon/cover.svg",
+    icon: "https://imgbed.904002.xyz/file/img/blog/icon/easy_cover.svg",
   },
 ];
 
@@ -377,7 +377,7 @@ function isImageIcon(icon) {
           </button>
           <div
             class="settings-dropdown absolute right-0 top-full mt-2 p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 glass-card-strong"
-            style="z-index: 99999; width: 320px; border-radius: 14px; box-shadow: 0 8px 32px rgba(0,0,0,0.12)"
+            style="z-index: 99999; width: 320px; max-width: calc(100vw - 32px); border-radius: 14px; box-shadow: 0 8px 32px rgba(0,0,0,0.12)"
           >
             <div class="flex items-center justify-between mb-3">
               <span
@@ -573,6 +573,22 @@ function isImageIcon(icon) {
   document.getElementById("mobile-menu-btn")?.addEventListener("click", () => {
     document.getElementById("mobile-menu")?.classList.toggle("hidden");
   });
+
+  // 设置面板：触屏设备无 hover，点击设置按钮展开，点外部收起
+  (function () {
+    if (!window.matchMedia("(hover: none)").matches) return;
+    const menu = document.querySelector(".settings-menu");
+    const btn = document.querySelector(".settings-btn");
+    const dropdown = document.querySelector(".settings-dropdown");
+    if (!menu || !btn || !dropdown) return;
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      dropdown.classList.toggle("touch-open");
+    });
+    document.addEventListener("click", (e) => {
+      if (!menu.contains(e.target)) dropdown.classList.remove("touch-open");
+    });
+  })();
 
   // Scroll effect: shrink shadow on scroll
   (function () {
@@ -892,6 +908,12 @@ function isImageIcon(icon) {
   }
   .item-color:active::after {
     transform: scale(1.1);
+  }
+  /* 设置面板触屏点击展开（仅 hover:none 的设备绑定 JS；桌面仍走 hover） */
+  .settings-dropdown.touch-open {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
   }
   .item-color.selected {
     z-index: 1; /* 画在相邻色块之上，蓝框不被右邻盖住 */

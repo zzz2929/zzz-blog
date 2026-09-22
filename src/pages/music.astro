@@ -480,8 +480,8 @@ const playlists = playlistModules.map(([, mod]) => {
     </div>
   </div>
 
-  <!-- Spacer for Footer -->
-  <div style="height: 90px;"></div>
+  <!-- Spacer for Footer（需高于固定控制条 60px + 进度行） -->
+  <div style="height: 130px;"></div>
 
   <Footer />
 
@@ -679,6 +679,11 @@ const playlists = playlistModules.map(([, mod]) => {
         transparent 100%
       );
     }
+    @media (max-width: 1023px) {
+      .lyrics-scroll-container {
+        padding: 80px 20px;
+      }
+    }
     .lyrics-scroll-container::-webkit-scrollbar {
       display: none;
     }
@@ -800,8 +805,10 @@ const playlists = playlistModules.map(([, mod]) => {
 
     /* ====== Record Player ====== */
     .record-player {
-      width: 300px;
-      height: 300px;
+      width: 100%;
+      max-width: 300px;
+      aspect-ratio: 1;
+      height: auto;
       background-color: #abc4aa;
       border-radius: 10px;
       position: relative;

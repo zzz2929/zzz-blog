@@ -89,6 +89,12 @@
   --header-height: 60px;
   --card-radius: 16px;
 
+  /* 断点平移：平板（768-1023）走移动端布局（配合下方 zoom 豁免），
+     1024 起为桌面布局。sm=640 不变，xl 顺延到 1536。 */
+  --breakpoint-md: 1024px;
+  --breakpoint-lg: 1280px;
+  --breakpoint-xl: 1536px;
+
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', consolas, Menlo,
@@ -117,8 +123,8 @@ html {
   zoom: clamp(0.5, calc(100vw / 1600px), 2);
 }
 
-/* 移动端有独立的自适应布局，不做等比缩放 */
-@media (max-width: 767px) {
+/* 手机与平板（<1024）走移动端自适应布局，不做等比缩放；1024 起为桌面布局 */
+@media (max-width: 1023px) {
   html {
     zoom: 1;
   }

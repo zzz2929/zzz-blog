@@ -216,7 +216,7 @@ export default function SortFilterPosts({ posts, siteUrl = '', locale = 'zh-CN',
       {/* Article grid */}
       {filtered.length > 0 ? (
         <>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 20 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(300px, 100%), 1fr))', gap: 20 }}>
             {currentPosts.map((post) => (
               <PostCard key={post.slug} post={post} siteUrl={siteUrl} locale={locale} coverMap={coverMap} />
             ))}

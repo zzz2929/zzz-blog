@@ -345,6 +345,25 @@ const t = useTranslations(locale);
       elements,
       isDragging = false;
 
+    // 触屏设备无 hover：点击悬浮球展开/收起（桌面仍走 hover，不绑定）
+    function bindTouchExpand() {
+      if (!window.matchMedia("(hover: none)").matches) return;
+      const player = document.querySelector(".mini-player");
+      if (!player) return;
+      player.addEventListener("click", (e) => {
+        if (e.target.closest("button, #mini-progress")) return;
+        player.classList.toggle("expanded");
+      });
+      document.addEventListener("click", (e) => {
+        if (!player.contains(e.target)) player.classList.remove("expanded");
+      });
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", bindTouchExpand);
+    } else {
+      bindTouchExpand();
+    }
+
     function formatTime(s) {
       if (!s || isNaN(s)) return "00:00";
       return `${Math.floor(s / 60)
