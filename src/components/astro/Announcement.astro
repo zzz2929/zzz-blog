@@ -1,0 +1,70 @@
+---
+import { getCollection } from "astro:content";
+import { useTranslations, getLocaleFromURL } from "@/i18n";
+
+const locale = getLocaleFromURL(Astro.url.pathname);
+const t = useTranslations(locale);
+
+const noticeData = await getCollection("notice");
+const noticeList = (noticeData[0]?.data.notice_list ?? [])
+  .map((item) => ({
+    content: String(item.content || "").trim(),
+    date: String(item.date || ""),
+    link: item.link || "",
+    external: /^https?:\/\//.test(item.link || ""),
+  }))
+  .filter((item) => item.content);
+---
+
+{noticeList.length > 0 && (
+  <div
+    class="glass-card"
+    style="border-radius: 16px; box-shadow: 0 1px 24px rgba(0,0,0,0.1); padding: 20px;"
+  >
+    <h3 class="mb-4 flex items-center gap-2 text-lg font-semibold text-foreground">
+      <span
+        class="inline-block h-5 w-1 rounded-full"
+        style="background: linear-gradient(180deg, var(--color-accent-orange), var(--color-accent-red));"
+      ></span>
+      {t("home.notice.title")}
+    </h3>
+    <ul class="space-y-3">
+      {noticeList.map((item) => (
+        <li class="flex items-start gap-2.5">
+          <svg
+            class="mt-0.5 shrink-0 text-primary"
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="m3 11 18-5v12L3 14v-3z"></path>
+            <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path>
+          </svg>
+          <div class="min-w-0 flex-1">
+            {item.link ? (
+              <a
+                href={item.link}
+                target={item.external ? "_blank" : undefined}
+                rel={item.external ? "noopener" : undefined}
+                class="text-sm leading-relaxed text-foreground transition-colors hover:text-primary"
+              >
+                {item.content}
+              </a>
+            ) : (
+              <p class="text-sm leading-relaxed text-foreground">{item.content}</p>
+            )}
+            {item.date && (
+              <time class="mt-0.5 block text-xs text-foreground-muted">{item.date}</time>
+            )}
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+)}

@@ -377,7 +377,7 @@ function isImageIcon(icon) {
           </button>
           <div
             class="settings-dropdown absolute right-0 top-full mt-2 p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 glass-card-strong"
-            style="z-index: 99999; width: 320px; max-width: calc(100vw - 32px); border-radius: 14px; box-shadow: 0 8px 32px rgba(0,0,0,0.12)"
+            style="z-index: 99999; border-radius: 14px; box-shadow: 0 8px 32px rgba(0,0,0,0.12)"
           >
             <div class="flex items-center justify-between mb-3">
               <span
@@ -525,7 +525,7 @@ function isImageIcon(icon) {
     style="max-width: var(--content-max-width); margin-top: 8px;"
   >
     <div
-      class="px-4 py-3 rounded-full space-y-1 glass-card-strong"
+      class="px-4 py-3 rounded-2xl space-y-1 glass-card-strong"
       style="box-shadow: 0 8px 32px rgba(0,0,0,0.12)"
     >
       {
@@ -570,23 +570,56 @@ function isImageIcon(icon) {
 <div style="height: calc(var(--header-height) + 10px);"></div>
 
 <script is:inline>
+  // 汉堡菜单：展开时收起设置/站点切换的下拉，避免重叠
   document.getElementById("mobile-menu-btn")?.addEventListener("click", () => {
-    document.getElementById("mobile-menu")?.classList.toggle("hidden");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const opening = mobileMenu?.classList.contains("hidden");
+    mobileMenu?.classList.toggle("hidden");
+    if (opening) {
+      document
+        .querySelector(".settings-dropdown")
+        ?.classList.remove("touch-open");
+      document
+        .querySelector(".site-switcher-dropdown")
+        ?.classList.remove("touch-open");
+    }
   });
 
-  // 设置面板：触屏设备无 hover，点击设置按钮展开，点外部收起
+  // 设置 / 站点切换：点击展开，三者互斥，点外部收起。
+  // touch-open 的显示样式只在无 hover 的触屏设备生效（见样式表），
+  // 桌面 hover 设备上点击添加的类无视觉效果，仍由 group-hover 接管。
   (function () {
-    if (!window.matchMedia("(hover: none)").matches) return;
-    const menu = document.querySelector(".settings-menu");
-    const btn = document.querySelector(".settings-btn");
-    const dropdown = document.querySelector(".settings-dropdown");
-    if (!menu || !btn || !dropdown) return;
-    btn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      dropdown.classList.toggle("touch-open");
-    });
-    document.addEventListener("click", (e) => {
-      if (!menu.contains(e.target)) dropdown.classList.remove("touch-open");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const menus = [
+      {
+        menu: document.querySelector(".settings-menu"),
+        btn: document.querySelector(".settings-btn"),
+        dropdown: document.querySelector(".settings-dropdown"),
+      },
+      {
+        menu: document.querySelector(".site-switcher"),
+        btn: document.querySelector(".switcher-btn"),
+        dropdown: document.querySelector(".site-switcher-dropdown"),
+      },
+    ];
+    menus.forEach(({ menu, btn, dropdown }) => {
+      if (!menu || !btn || !dropdown) return;
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const opening = !dropdown.classList.contains("touch-open");
+        // 互斥：关闭其他下拉面板
+        menus.forEach((other) => {
+          if (other.dropdown !== dropdown)
+            other.dropdown.classList.remove("touch-open");
+        });
+        dropdown.classList.toggle("touch-open");
+        // 展开下拉时收起汉堡菜单
+        if (opening) mobileMenu?.classList.add("hidden");
+      });
+      document.addEventListener("click", (e) => {
+        if (!menu.contains(e.target))
+          dropdown.classList.remove("touch-open");
+      });
     });
   })();
 
@@ -909,11 +942,27 @@ function isImageIcon(icon) {
   .item-color:active::after {
     transform: scale(1.1);
   }
-  /* 设置面板触屏点击展开（仅 hover:none 的设备绑定 JS；桌面仍走 hover） */
-  .settings-dropdown.touch-open {
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: auto !important;
+  /* 设置面板：宽度与视口保护放在样式表里（内联 calc 在个别加载瞬间会算出 0，
+     导致面板塌缩只剩文字浮在页面上） */
+  .settings-dropdown {
+    width: 320px;
+    max-width: calc(100vw - 32px);
+  }
+  .settings-dropdown .container-items {
+    max-width: 100%;
+  }
+  /* 点击展开的强制显示样式仅在无 hover 的触屏设备生效；
+     桌面 hover 设备上 touch-open 无视觉效果，仍由 group-hover 接管 */
+  @media (hover: none) {
+    .settings-dropdown.touch-open,
+    .site-switcher-dropdown.touch-open {
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+    }
+    .site-switcher-dropdown.touch-open {
+      transform: translateY(0) !important;
+    }
   }
   .item-color.selected {
     z-index: 1; /* 画在相邻色块之上，蓝框不被右邻盖住 */

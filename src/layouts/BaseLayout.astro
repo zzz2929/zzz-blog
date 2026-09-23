@@ -110,14 +110,20 @@ const isMusicPage =
             parent.style.position = "relative";
             pr = parent.getBoundingClientRect();
           }
-          overlay.style.left = ir.left - pr.left + "px";
-          overlay.style.top = ir.top - pr.top + "px";
-          overlay.style.width = ir.width + "px";
-          overlay.style.height = ir.height + "px";
+          // 全站 html 设置了 zoom（global.css: clamp(0.5, 100vw/1600px, 2)）。
+          // getBoundingClientRect() 返回视觉像素，而 style.left/top/width 用布局像素，
+          // 必须除以 zoom，否则占位框会随 zoom 放大/缩小并相对真实图片错位（侧边头像已复现）。
+          var zoom = parseFloat(getComputedStyle(document.documentElement).zoom) || 1;
+          var iw = ir.width / zoom;
+          var ih = ir.height / zoom;
+          overlay.style.left = (ir.left - pr.left) / zoom + "px";
+          overlay.style.top = (ir.top - pr.top) / zoom + "px";
+          overlay.style.width = iw + "px";
+          overlay.style.height = ih + "px";
           var scale = Math.min(
             1,
-            ir.width / 200 || 0,
-            ir.height / 60 || 0,
+            iw / 200 || 0,
+            ih / 60 || 0,
           );
           if (scale > 0 && scale < 1) {
             overlay.style.setProperty("--pl-scale", scale.toFixed(3));

@@ -109,4 +109,15 @@ const hitokoto = defineCollection({
   }),
 });
 
-export const collections = { blog, friends, equipment, essay, album, hitokoto };
+const notice = defineCollection({
+  loader: glob({ pattern: 'notice.yml', base: './src/content/data' }),
+  schema: z.object({
+    notice_list: z.array(z.object({
+      content: z.string(),
+      date: z.string().optional(),
+      link: z.string().optional(),
+    })),
+  }),
+});
+
+export const collections = { blog, friends, equipment, essay, album, hitokoto, notice };

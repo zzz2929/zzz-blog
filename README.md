@@ -44,6 +44,7 @@ src/
 │       ├── friends-*.yml          # 友链
 │       ├── hitokoto.yml           # 一言语录
 │       ├── music.json             # 歌曲队列
+│       ├── notice.yml             # 公告
 │       └── playlists/*.json       # 歌单文件
 ├── components/
 │   ├── astro/
@@ -154,6 +155,19 @@ hitokoto_list:
 ```
 
 支持多行文本，每条独立显示。刷新按钮随机切换。
+
+### 公告
+
+`src/content/data/notice.yml`
+
+```yaml
+notice_list:
+  - content: 公告内容
+    date: 2026-09-23        # 可选
+    link: https://...       # 可选，http(s) 外链新窗口打开
+```
+
+首页侧边栏顶部展示，按文件顺序从上到下显示；标题文案在 `src/i18n/{locale}.json` 的 `home.notice.title` 中配置。
 
 ### 随笔
 
