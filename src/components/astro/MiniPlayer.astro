@@ -104,7 +104,8 @@ const t = useTranslations(locale);
     font-family: -apple-system, system-ui, sans-serif;
     transition:
       width 0.5s cubic-bezier(0.23, 1, 0.32, 1),
-      border-radius 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+      border-radius 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+      transform 0.45s cubic-bezier(0.23, 1, 0.32, 1);
     cursor: pointer;
     overflow: hidden;
   }
@@ -152,6 +153,14 @@ const t = useTranslations(locale);
     visibility: hidden;
     transform: scale(0.4);
     pointer-events: none;
+  }
+
+  /* 移动端闲置后自动半隐藏到左边缘，只露出一条侧边把手；
+     auto-hidden 类只在触屏设备由 JS 添加，桌面 hover 设备不触发 */
+  @media (hover: none) {
+    .mini-player.auto-hidden {
+      transform: translateX(calc(-100% + 2px));
+    }
   }
 
   .mini-cover {
@@ -345,18 +354,54 @@ const t = useTranslations(locale);
       elements,
       isDragging = false;
 
-    // 触屏设备无 hover：点击悬浮球展开/收起（桌面仍走 hover，不绑定）
+    // 触屏设备无 hover：点击悬浮球展开/收起；闲置后自动半隐藏到侧边
     function bindTouchExpand() {
       if (!window.matchMedia("(hover: none)").matches) return;
       const player = document.querySelector(".mini-player");
       if (!player) return;
+
+      // 闲置自动半隐藏：收起态 3 秒无操作则滑到左边缘，只露侧边把手
+      let hideTimer = null;
+      function scheduleAutoHide() {
+        clearTimeout(hideTimer);
+        hideTimer = setTimeout(() => {
+          if (!player.classList.contains("expanded"))
+            player.classList.add("auto-hidden");
+        }, 3000);
+      }
+      function wake() {
+        clearTimeout(hideTimer);
+        player.classList.remove("auto-hidden");
+      }
+
       player.addEventListener("click", (e) => {
-        if (e.target.closest("button, #mini-progress")) return;
+        // 半隐藏态：首次点击只让小球滑回完整位置，不直接展开
+        if (player.classList.contains("auto-hidden")) {
+          wake();
+          scheduleAutoHide();
+          return;
+        }
+        if (e.target.closest("button, #mini-progress")) {
+          wake();
+          scheduleAutoHide();
+          return;
+        }
+        wake();
         player.classList.toggle("expanded");
+        if (player.classList.contains("expanded")) {
+          clearTimeout(hideTimer); // 展开期间不自动隐藏
+        } else {
+          scheduleAutoHide(); // 收起后重新计时
+        }
       });
       document.addEventListener("click", (e) => {
-        if (!player.contains(e.target)) player.classList.remove("expanded");
+        if (!player.contains(e.target)) {
+          player.classList.remove("expanded");
+          scheduleAutoHide(); // 点外部收起后也自动半隐藏
+        }
       });
+
+      scheduleAutoHide();
     }
     if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", bindTouchExpand);

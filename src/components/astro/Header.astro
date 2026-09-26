@@ -964,6 +964,43 @@ function isImageIcon(icon) {
       transform: translateY(0) !important;
     }
   }
+
+  /* ===== 移动端二级菜单布局优化 =====
+     下拉改为 fixed 相对视口水平居中，避免 absolute 相对按钮容器定位
+     在窄屏向左/右溢出；高度过高时内部滚动。 */
+  @media (max-width: 767px) {
+    .settings-dropdown,
+    .site-switcher-dropdown {
+      position: fixed;
+      left: 50%;
+      right: auto;
+      top: calc(var(--header-height) + 18px);
+      margin: 0;
+      width: calc(100vw - 32px);
+      max-width: calc(100vw - 32px);
+    }
+    .settings-dropdown {
+      transform: translateX(-50%) !important;
+    }
+    .site-switcher-dropdown {
+      transform: translateX(-50%) translateY(-6px) !important;
+      max-height: calc(100vh - var(--header-height) - 40px);
+      overflow-y: auto;
+    }
+    .site-switcher:hover .site-switcher-dropdown,
+    .site-switcher-dropdown.touch-open {
+      transform: translateX(-50%) translateY(0) !important;
+    }
+    /* 站点链接：两等宽列，长名称允许换行而非溢出 */
+    .site-switcher-dropdown .grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .site-switcher-dropdown a {
+      white-space: normal;
+      font-size: 14px;
+    }
+  }
+
   .item-color.selected {
     z-index: 1; /* 画在相邻色块之上，蓝框不被右邻盖住 */
   }

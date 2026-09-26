@@ -350,9 +350,19 @@ const categoryHref = (cat) => `${prefix}/categories/${encodeURIComponent(cat)}`;
     const tocFab = document.getElementById("toc-fab");
     const tocDrawer = document.querySelector(".toc-drawer");
     if (tocFab && tocDrawer) {
-      tocFab.addEventListener("click", () => tocDrawer.classList.toggle("toc-open"));
+      tocFab.addEventListener("click", (e) => {
+        e.stopPropagation();
+        tocDrawer.classList.toggle("toc-open");
+      });
       tocDrawer.addEventListener("click", (e) => {
+        e.stopPropagation();
         if (e.target.closest("a")) tocDrawer.classList.remove("toc-open");
+      });
+      // 点击抽屉与按钮之外的区域关闭目录
+      document.addEventListener("click", (e) => {
+        if (!tocDrawer.contains(e.target) && !tocFab.contains(e.target)) {
+          tocDrawer.classList.remove("toc-open");
+        }
       });
     }
 
