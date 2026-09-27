@@ -41,13 +41,15 @@ const displayGroups = grouped.length > 0 ? [grouped[0]] : [];
 <div class="hero-module relative overflow-hidden w-full" data-hitokoto-list={JSON.stringify(hitokotoList)}>
   <!-- Hero container -->
   <div class="hero-container relative overflow-hidden" style="border-radius: 16px;">
-    <!-- Layer 1: Random image background -->
+    <!-- Layer 1: Random image background（首屏 LCP 元素：高优先级加载） -->
     <img
       id="hero-random-img"
       src="https://api.elaina.cat/random/"
       alt={t('home.randomImage.alt')}
       class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 hover:scale-105"
       loading="eager"
+      fetchpriority="high"
+      decoding="async"
     />
 
     <!-- Refresh button in bottom-left corner -->
@@ -142,6 +144,11 @@ const displayGroups = grouped.length > 0 ? [grouped[0]] : [];
 
   .hero-container {
     height: 420px;
+    /* 随机图 API 响应慢（~1.5s+），渐变底色让首屏先有内容可画 */
+    background: linear-gradient(135deg, #cfe3f5 0%, #e8d9ee 55%, #f5dfd2 100%);
+  }
+  .dark .hero-container {
+    background: linear-gradient(135deg, #22304a 0%, #2d2440 55%, #3a2b33 100%);
   }
 
   /* 手机与平板（<1024，zoom=1 区间）降低 hero 高度 */

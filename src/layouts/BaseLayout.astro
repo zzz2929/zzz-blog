@@ -39,6 +39,13 @@ const isMusicPage =
 
     <meta name="generator" content={Astro.generator} />
 
+    <!-- Perf: 提前与首屏关键资源域建连（LCP 随机图 / 图床图片）；
+         统计与计数器属低优先级请求，仅做 DNS 预解析 -->
+    <link rel="preconnect" href="https://api.elaina.cat" />
+    <link rel="preconnect" href="https://imgbed.904002.xyz" />
+    <link rel="dns-prefetch" href="https://events.vercount.one" />
+    <link rel="dns-prefetch" href="https://hm.baidu.com" />
+
     <!-- SEO -->
     <title>{siteTitle}</title>
     <meta name="description" content={description} />
@@ -82,7 +89,7 @@ const isMusicPage =
   <body
     class="min-h-screen bg-background text-foreground font-sans antialiased"
   >
-    <AnimatedBackground client:only="react" />
+    <AnimatedBackground client:idle="react" />
     <slot />
     {!isMusicPage && <MiniPlayer />}
 

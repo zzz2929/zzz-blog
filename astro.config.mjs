@@ -28,12 +28,19 @@ function navSvgPlugin() {
   };
 }
 
-/** Rehype plugin: add loading="lazy" to all <img> tags */
+/** Rehype plugin: lazy-load <img> tags, except the first one per document
+ * （正文首图常是文章页 LCP，懒加载会显著推迟其渲染；其余图片照旧 lazy） */
 function rehypeImgLazyLoad() {
   return (tree) => {
+    let first = true;
     visit(tree, 'element', (node) => {
       if (node.tagName !== 'img') return;
       if (!node.properties) node.properties = {};
+      if (first) {
+        first = false;
+        node.properties.loading = 'eager';
+        return;
+      }
       node.properties.loading = 'lazy';
     });
   };

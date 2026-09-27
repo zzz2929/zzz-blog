@@ -48,7 +48,7 @@ const coverMap = await optimizedRemoteImageMap(
         style="display: flex; flex-direction: column; gap: 20px;"
       >
         <SortFilterPosts
-          client:only="react"
+          client:idle="react"
           posts={postsData}
           coverMap={coverMap}
           siteUrl={Astro.site?.origin}
@@ -124,12 +124,16 @@ const coverMap = await optimizedRemoteImageMap(
           <img
             src="https://imgbed.904002.xyz/file/img/blog/others/hello_白_.webp"
             alt="hello"
+            width="1080"
+            height="608"
             class="hello-img hello-light w-full"
             loading="lazy"
           />
           <img
             src="https://imgbed.904002.xyz/file/img/blog/others/hello_黑_.webp"
             alt="hello"
+            width="1080"
+            height="608"
             class="hello-img hello-dark w-full"
             loading="lazy"
             style="display: none;"

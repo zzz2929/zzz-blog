@@ -8,6 +8,7 @@ import Comments from "@/components/astro/Comments.astro";
 import PostExpiryAlert from "@/components/astro/PostExpiryAlert.astro";
 import VercountDisplay from "@/components/react/VercountDisplay.tsx";
 import { formatDate } from "@/lib/posts";
+import { optimizedRemoteImage } from "@/lib/remoteImage";
 import { useTranslations, getLocaleFromURL } from "@/i18n";
 
 export async function getStaticPaths() {
@@ -20,6 +21,11 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content, headings } = await render(post);
+
+// 头图是文章页 LCP：服务端预优化到 ≤1600px 等比图，避免直出原图（可达数 MB）
+const coverOptimized = post.data.cover
+  ? await optimizedRemoteImage(post.data.cover, 1600)
+  : null;
 
 const locale = getLocaleFromURL(Astro.url.pathname);
 const t = useTranslations(locale);
@@ -47,10 +53,11 @@ const categoryHref = (cat) => `${prefix}/categories/${encodeURIComponent(cat)}`;
         >
           <!-- Cover image fills the card -->
           <img
-            src={post.data.cover}
+            src={coverOptimized?.src ?? post.data.cover}
             alt={post.data.title}
             class="absolute inset-0 w-full h-full object-cover"
             loading="eager"
+            fetchpriority="high"
           />
           <!-- Subtle gradient overlay for readability -->
           <div
