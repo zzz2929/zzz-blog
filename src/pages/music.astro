@@ -46,9 +46,9 @@ const playlists = playlistModules.map(([, mod]) => {
       <div class="flex flex-col lg:flex-row gap-8">
         <!-- Album Art -->
         <div
-          class="album-art-container flex-shrink-0 flex flex-col items-center"
+          class="album-art-container flex-shrink-0 flex flex-col items-center lg:w-2/5"
         >
-          <div class="record-player w-64 h-64 lg:w-80 lg:h-80 relative">
+          <div class="record-player relative">
             <div class="record-container">
               <div class="plate">
                 <div class="black" id="vinyl-record">
@@ -84,10 +84,10 @@ const playlists = playlistModules.map(([, mod]) => {
         </div>
 
         <!-- Right Column: Playlist / Lyrics Tabs -->
-        <div class="flex flex-col min-w-0 lg:w-4/5">
+        <div class="flex flex-col min-w-0 lg:w-3/5">
           <div
             class="panel-content flex-1 flex flex-col rounded-2xl overflow-hidden glass-card"
-            style="min-height: 350px; max-height: 450px"
+            style="min-height: 350px; max-height: 540px"
           >
             <!-- Tab Buttons -->
             <div
@@ -132,6 +132,63 @@ const playlists = playlistModules.map(([, mod]) => {
                 </svg>
                 {t('music.lyrics')}
               </button>
+
+              <!-- 歌词设置入口 -->
+              <div class="lyric-settings-host relative ml-auto">
+                <button
+                  id="lyric-settings-btn-tab"
+                  class="lyric-settings-btn"
+                  aria-label={t('music.lyricSettings')}
+                  title={t('music.lyricSettings')}
+                >
+                  <svg
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  </svg>
+                </button>
+                <div class="lyric-settings-popover hidden">
+                  <div class="lyric-setting-row">
+                    <span class="lyric-setting-label">{t('music.wordByWord')}</span>
+                    <button
+                      type="button"
+                      class="lyric-toggle lyric-word-toggle"
+                      role="switch"
+                      aria-checked="true"
+                      aria-label={t('music.wordByWord')}></button>
+                  </div>
+                  <div class="lyric-setting-row">
+                    <span class="lyric-setting-label">{t('music.lyricOffset')}</span>
+                    <div class="lyric-offset-controls">
+                      <button
+                        type="button"
+                        class="lyric-offset-btn lyric-offset-minus"
+                        title={t('music.offsetHint')}>−0.5s</button>
+                      <span class="lyric-offset-value">0.0s</span>
+                      <button
+                        type="button"
+                        class="lyric-offset-btn lyric-offset-plus"
+                        title={t('music.offsetHint')}>+0.5s</button>
+                    </div>
+                  </div>
+                  <div class="lyric-setting-row">
+                    <span class="lyric-setting-hint">{t('music.offsetHint')}</span>
+                    <button type="button" class="lyric-offset-reset">{t('music.offsetReset')}</button>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <!-- Playlist Tab -->
@@ -142,10 +199,17 @@ const playlists = playlistModules.map(([, mod]) => {
             <!-- Lyrics Tab -->
             <div
               id="lyrics-tab"
-              class="tab-content flex-1 overflow-y-auto hidden"
+              class="tab-content flex-1 overflow-hidden hidden"
             >
-              <div id="lyrics" class="lyrics-content p-6 text-center">
-                <p class="text-muted text-lg">{t('music.noLyrics')}</p>
+              <div class="relative h-full">
+                <div
+                  id="lyrics"
+                  class="lyrics-content p-6 text-center h-full overflow-y-auto"
+                >
+                  <p class="text-muted text-lg">{t('music.noLyrics')}</p>
+                </div>
+                <div class="lyric-edge-fade lyric-edge-fade-top"></div>
+                <div class="lyric-edge-fade lyric-edge-fade-bottom"></div>
               </div>
             </div>
           </div>
@@ -208,6 +272,20 @@ const playlists = playlistModules.map(([, mod]) => {
                       data-playlist-index={i}
                       data-song-index={j}
                     >
+                      <button
+                        class="play-song-btn p-1 rounded-full transition-all flex-shrink-0"
+                        data-playlist-index={i}
+                        data-song-index={j}
+                        title={t('music.play')}
+                      >
+                        <svg
+                          class="w-4 h-4"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M8 5v14l11-7z"></path>
+                        </svg>
+                      </button>
                       <div class="min-w-0 flex-1">
                         <div class="text-sm font-medium text-foreground truncate">
                           {song.name}
@@ -512,15 +590,76 @@ const playlists = playlistModules.map(([, mod]) => {
       </svg>
     </button>
 
+    <!-- 全屏歌词设置入口 -->
+    <div class="lyric-settings-host fs-lyric-settings-host">
+      <button
+        id="lyric-settings-btn-fs"
+        class="lyric-settings-btn"
+        aria-label={t('music.lyricSettings')}
+        title={t('music.lyricSettings')}
+      >
+        <svg
+          class="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+        </svg>
+      </button>
+      <div class="lyric-settings-popover hidden">
+        <div class="lyric-setting-row">
+          <span class="lyric-setting-label">{t('music.wordByWord')}</span>
+          <button
+            type="button"
+            class="lyric-toggle lyric-word-toggle"
+            role="switch"
+            aria-checked="true"
+            aria-label={t('music.wordByWord')}></button>
+        </div>
+        <div class="lyric-setting-row">
+          <span class="lyric-setting-label">{t('music.lyricOffset')}</span>
+          <div class="lyric-offset-controls">
+            <button
+              type="button"
+              class="lyric-offset-btn lyric-offset-minus"
+              title={t('music.offsetHint')}>−0.5s</button>
+            <span class="lyric-offset-value">0.0s</span>
+            <button
+              type="button"
+              class="lyric-offset-btn lyric-offset-plus"
+              title={t('music.offsetHint')}>+0.5s</button>
+          </div>
+        </div>
+        <div class="lyric-setting-row">
+          <span class="lyric-setting-hint">{t('music.offsetHint')}</span>
+          <button type="button" class="lyric-offset-reset">{t('music.offsetReset')}</button>
+        </div>
+      </div>
+    </div>
+
     <div class="lyrics-song-info">
       <h2 id="lyrics-song-title" class="text-2xl font-bold">{t('music.notPlaying')}</h2>
       <p id="lyrics-song-artist" class="text-lg opacity-80"></p>
     </div>
 
-    <div class="lyrics-scroll-container" id="lyrics-scroll-container">
-      <div class="lyrics-lines" id="fullscreen-lyrics-content">
-        <p class="text-2xl opacity-50">{t('music.noLyrics')}</p>
+    <div class="lyrics-scroll-area">
+      <div class="lyrics-scroll-container" id="lyrics-scroll-container">
+        <div class="lyrics-lines" id="fullscreen-lyrics-content">
+          <p class="text-2xl opacity-50">{t('music.noLyrics')}</p>
+        </div>
       </div>
+      <div class="lyric-edge-fade lyric-edge-fade-top"></div>
+      <div class="lyric-edge-fade lyric-edge-fade-bottom"></div>
     </div>
 
     <div class="lyrics-progress-container">
@@ -657,13 +796,18 @@ const playlists = playlistModules.map(([, mod]) => {
       opacity: 0.8;
     }
 
-    .lyrics-scroll-container {
+    .lyrics-scroll-area {
+      position: relative;
       flex: 1;
       width: 100%;
       max-width: 800px;
+      min-height: 0;
+    }
+    .lyrics-scroll-container {
+      height: 100%;
+      width: 100%;
       overflow-y: auto;
       padding: 100px 60px;
-      scroll-behavior: smooth;
       mask-image: linear-gradient(
         to bottom,
         transparent 0%,
@@ -678,6 +822,28 @@ const playlists = playlistModules.map(([, mod]) => {
         black 85%,
         transparent 100%
       );
+    }
+
+    /* 歌词区上下边缘：真实模糊 + 羽化（backdrop-filter 配合 mask） */
+    .lyric-edge-fade {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 72px;
+      pointer-events: none;
+      z-index: 5;
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+    }
+    .lyric-edge-fade-top {
+      top: 0;
+      -webkit-mask-image: linear-gradient(to bottom, black, transparent);
+      mask-image: linear-gradient(to bottom, black, transparent);
+    }
+    .lyric-edge-fade-bottom {
+      bottom: 0;
+      -webkit-mask-image: linear-gradient(to top, black, transparent);
+      mask-image: linear-gradient(to top, black, transparent);
     }
     @media (max-width: 1023px) {
       .lyrics-scroll-container {
@@ -694,13 +860,19 @@ const playlists = playlistModules.map(([, mod]) => {
       gap: 24px;
     }
 
+    /* 基准字号固定，非激活行用 scale 缩小（transform 不触发重排，
+       替换掉原来的 font-size 过渡，逐行切换时不再整页 reflow） */
     .lyric-line-full {
-      font-size: 2rem;
+      font-size: 2.5rem;
       font-weight: 600;
       line-height: 1.4;
       color: rgba(255, 255, 255, 0.3);
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      transform: scale(0.8);
       transform-origin: left center;
+      transition:
+        color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        filter 0.5s cubic-bezier(0.4, 0, 0.2, 1);
       cursor: pointer;
     }
     .lyric-line-full:hover {
@@ -708,15 +880,26 @@ const playlists = playlistModules.map(([, mod]) => {
     }
     .lyric-line-full.active {
       color: white;
-      font-size: 2.5rem;
-      text-shadow:
-        0 0 40px rgba(255, 255, 255, 0.3),
-        0 0 80px rgba(255, 255, 255, 0.1);
+      transform: scale(1);
     }
     .lyric-line-full.past {
       color: rgba(255, 255, 255, 0.2);
       filter: blur(1px);
-      transform: scale(0.95);
+      transform: scale(0.8);
+    }
+
+    /* 卡拉OK扫色：--p（0-100）由 JS 逐帧写入当前行，
+       渐变断点跟随进度推进，替代 text-shadow 发光 */
+    .lyric-line-full.active .lyric-main {
+      background-image: linear-gradient(
+        90deg,
+        #fff calc(var(--p, 0) * 1%),
+        rgba(255, 255, 255, 0.35) calc(var(--p, 0) * 1%)
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
     }
 
     .lyric-translation {
@@ -729,12 +912,42 @@ const playlists = playlistModules.map(([, mod]) => {
       color: rgba(255, 255, 255, 0.7);
     }
 
-    .lyric-word {
-      display: inline;
-      transition: color 0.1s;
+    /* 逐字歌词：未唱字模糊渐显，演唱字渐变填充（--wp 由 JS 逐帧写入）+ 轻微弹跳 */
+    .lyric-line-full.has-words.active .lyric-main {
+      background-image: none;
     }
-    .lyric-word.sung {
-      color: white;
+    .lyric-line-full.active .lyric-word {
+      --wp: 0;
+      display: inline-block;
+      background-image: linear-gradient(
+        90deg,
+        #fff calc(var(--wp) * 1%),
+        rgba(255, 255, 255, 0.35) calc(var(--wp) * 1%)
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      filter: blur(2px);
+    }
+    .lyric-line-full.active .lyric-word.sung,
+    .lyric-line-full.active .lyric-word.past {
+      filter: blur(0);
+      transition: filter 0.25s ease;
+    }
+    @keyframes lyric-word-pop {
+      0% {
+        transform: scale(1);
+      }
+      35% {
+        transform: scale(1.12);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    .lyric-line-full.active .lyric-word.sung {
+      animation: lyric-word-pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
     .lyrics-progress-container {
@@ -803,6 +1016,167 @@ const playlists = playlistModules.map(([, mod]) => {
       transform: scale(1.05);
     }
 
+    /* ====== 歌词设置 ====== */
+    .lyric-settings-host {
+      position: relative;
+    }
+    .fullscreen-lyrics .lyric-settings-host {
+      position: absolute;
+      top: 80px;
+      left: 20px;
+      z-index: 10;
+    }
+    .lyric-settings-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: none;
+      background: transparent;
+      color: var(--color-muted);
+      cursor: pointer;
+      transition:
+        background 0.2s,
+        color 0.2s;
+    }
+    .lyric-settings-btn:hover {
+      background: rgba(0, 0, 0, 0.06);
+      color: var(--color-foreground);
+    }
+    .dark .lyric-settings-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .fullscreen-lyrics .lyric-settings-btn {
+      width: 44px;
+      height: 44px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+    }
+    .fullscreen-lyrics .lyric-settings-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    .lyric-settings-popover {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      z-index: 20;
+      width: 252px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      background: rgba(20, 20, 30, 0.72);
+      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #fff;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+      font-size: 13px;
+      text-align: left;
+    }
+    .lyric-settings-popover.hidden {
+      display: none;
+    }
+    .panel-header .lyric-settings-popover {
+      left: auto;
+      right: 0;
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      color: var(--color-foreground);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    }
+    .dark .panel-header .lyric-settings-popover {
+      background: rgba(30, 30, 40, 0.88);
+      border-color: rgba(255, 255, 255, 0.12);
+      color: #f0f0f0;
+    }
+    .lyric-setting-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 6px 0;
+    }
+    .lyric-setting-hint {
+      font-size: 11px;
+      opacity: 0.55;
+    }
+    .lyric-toggle {
+      position: relative;
+      width: 40px;
+      height: 22px;
+      flex-shrink: 0;
+      border-radius: 999px;
+      border: none;
+      background: rgba(128, 128, 128, 0.4);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .lyric-toggle::after {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .lyric-toggle.on {
+      background: #3a65e8;
+    }
+    .panel-header .lyric-toggle.on {
+      background: var(--lyric-active-color, var(--color-foreground));
+    }
+    .lyric-toggle.on::after {
+      transform: translateX(18px);
+    }
+    .lyric-offset-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .lyric-offset-value {
+      min-width: 44px;
+      text-align: center;
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+    }
+    .lyric-offset-btn {
+      border: 1px solid rgba(128, 128, 128, 0.35);
+      background: transparent;
+      color: inherit;
+      border-radius: 8px;
+      padding: 3px 8px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .lyric-offset-btn:hover {
+      background: rgba(128, 128, 128, 0.15);
+    }
+    .lyric-offset-reset {
+      border: none;
+      background: transparent;
+      color: inherit;
+      opacity: 0.7;
+      font-size: 12px;
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .lyric-offset-reset:hover {
+      opacity: 1;
+    }
+    /* 侧边栏面板较矮，边缘模糊区域收窄 */
+    .panel-content .lyric-edge-fade {
+      height: 48px;
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+    }
+
     /* ====== Record Player ====== */
     .record-player {
       width: 100%;
@@ -813,6 +1187,20 @@ const playlists = playlistModules.map(([, mod]) => {
       border-radius: 10px;
       position: relative;
       box-shadow: 5px 5px 0 0 #675d50;
+    }
+    /* 桌面端放大唱片机，与歌词面板保持 2/5 - 3/5 的均衡布局；
+       黑胶盘与唱臂整体按 400/300 等比缩放，内部元素保持原设计比例 */
+    @media (min-width: 1024px) {
+      .record-player {
+        max-width: 400px;
+      }
+      .record-container {
+        transform: scale(1.3333);
+      }
+      .player {
+        transform: scale(1.3333);
+        transform-origin: bottom right;
+      }
     }
     .record-container {
       width: 100%;
@@ -1130,21 +1518,49 @@ const playlists = playlistModules.map(([, mod]) => {
     }
     .lyrics-content .lyric-word {
       display: inline-block;
-      transition:
-        transform 0.08s ease,
-        color 0.08s ease;
       color: inherit;
       transform-origin: center bottom;
     }
+    /* 逐字歌词：未唱字模糊，演唱字以主题色渐变填充（--wp 由 JS 逐帧写入）+ 轻微弹跳。
+       transition 只放在 sung/past 上：CSS 过渡取自目标状态，行切换时整行模糊
+       即时生效（一次绘制，不卡顿），仅单字唱完变清晰时平滑过渡 */
     .lyrics-content .lyric-line.active .lyric-word {
-      color: rgba(128, 128, 128, 0.5);
+      --wp: 0;
+      background-image: linear-gradient(
+        90deg,
+        var(--lyric-active-color, var(--color-foreground))
+          calc(var(--wp) * 1%),
+        rgba(128, 128, 128, 0.5) calc(var(--wp) * 1%)
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      filter: blur(1px);
+    }
+    .lyrics-content .lyric-line.active .lyric-word.sung,
+    .lyrics-content .lyric-line.active .lyric-word.past {
+      filter: blur(0);
+      transition: filter 0.25s ease;
+    }
+    @keyframes lyric-word-pop-sm {
+      0% {
+        transform: scale(1);
+      }
+      35% {
+        transform: scale(1.15);
+      }
+      100% {
+        transform: scale(1);
+      }
     }
     .lyrics-content .lyric-line.active .lyric-word.sung {
-      color: var(--lyric-active-color, var(--color-foreground));
-      transform: scale(1.3);
+      animation: lyric-word-pop-sm 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
-    .lyrics-content .lyric-line.active .lyric-word.past {
-      color: var(--lyric-active-color, var(--color-foreground));
+    /* 逐字行自身已有填充动画，去掉整行发光避免文字阴影盖在渐变字上 */
+    .lyrics-content .lyric-line.active.has-words,
+    .dark .lyrics-content .lyric-line.active.has-words {
+      text-shadow: none;
     }
 
     .lyrics-content .lyric-line.past {
@@ -1253,13 +1669,15 @@ const playlists = playlistModules.map(([, mod]) => {
     .playlist-song-item:hover {
       background: rgba(0, 0, 0, 0.05);
     }
-    .add-song-btn {
+    .add-song-btn,
+    .play-song-btn {
       color: var(--color-muted);
       background: transparent;
       border: none;
       cursor: pointer;
     }
-    .add-song-btn:hover {
+    .add-song-btn:hover,
+    .play-song-btn:hover {
       color: var(--color-foreground);
       background: rgba(0, 0, 0, 0.08);
     }
@@ -1289,7 +1707,8 @@ const playlists = playlistModules.map(([, mod]) => {
     .dark .playlist-song-item:hover {
       background: rgba(255, 255, 255, 0.05);
     }
-    .dark .add-song-btn:hover {
+    .dark .add-song-btn:hover,
+    .dark .play-song-btn:hover {
       background: rgba(255, 255, 255, 0.08);
     }
 
@@ -1308,6 +1727,19 @@ const playlists = playlistModules.map(([, mod]) => {
       opacity: 0.7;
       animation: wave var(--dur, 1s) ease-in-out var(--del, 0s) infinite
         alternate paused;
+    }
+    /* 桌面端放大音律条：加宽加高，并通过 keyframes 里的 --h 变量整体抬高振幅 */
+    @media (min-width: 1024px) {
+      .waveform {
+        gap: 6px;
+        height: 90px;
+      }
+      .waveform span {
+        width: 6px;
+        --h1: 8px;
+        --h2: 66px;
+        --h3: 16px;
+      }
     }
     .waveform.playing span {
       animation-play-state: running;
@@ -1529,6 +1961,13 @@ const playlists = playlistModules.map(([, mod]) => {
   <!-- Music Data Container -->
   <div id="music-data" style="display: none;"></div>
 
+  <script>
+    // 桥接：模块脚本打包 gsap，供下方 is:inline 播放器脚本使用
+    // （模块脚本是 deferred，先于 DOMContentLoaded 执行，时序安全）
+    import { gsap } from "gsap";
+    window.gsap = gsap;
+  </script>
+
   <script is:inline define:vars={{ musicDataJSON: JSON.stringify(musicData), playlistsJSON: JSON.stringify(playlists), notPlaying: t('music.notPlaying'), selectSong: t('music.selectSong'), noLyrics: t('music.noLyrics'), unknownAlbum: t('music.unknownAlbum'), storageKey: MINI_PLAYER_STORAGE_KEY }}>
     window.__MUSIC_DATA__ = JSON.parse(musicDataJSON);
     window.__PLAYLISTS__ = JSON.parse(playlistsJSON);
@@ -1559,6 +1998,7 @@ const playlists = playlistModules.map(([, mod]) => {
     };
 
     const MUSIC_DATA = window.__MUSIC_DATA__ || [];
+    const LYRIC_SETTINGS_KEY = "music-lyric-settings";
 
     class MusicPlayer {
       constructor() {
@@ -1570,14 +2010,30 @@ const playlists = playlistModules.map(([, mod]) => {
         this.volume = 80;
         this.lyrics = [];
         this.translations = [];
+        this.lyricsLoadId = 0; // 歌词请求代际号，切歌后作废在途请求
         this.isFullscreen = false;
         this.playlists = [];
         this.expandedPlaylist = -1;
         this.lyricsUserScrolled = false;
         this.lyricsScrollTimeout = null;
+        this.fsUserScrolled = false;
+        this.fsScrollTimeout = null;
+        this.activeLyricIndex = -1;
+        this.activeFullIndex = -1;
+        this.lyricOffset = 0; // 正值延后歌词、负值提前，单位秒
+        this.wordByWord = true;
+        this.reduceMotion =
+          window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ??
+          false;
+        this._lyricTick = () => {
+          this.updateLyrics(this.audio.currentTime);
+          this.updateFullscreenLyrics(this.audio.currentTime);
+        };
 
         this.initElements();
+        this.loadLyricSettings();
         this.initEventListeners();
+        this.initLyricSettings();
         this.loadDefaultPlaylist();
         this.loadPlaylists();
         this.switchTab("playlist");
@@ -1769,20 +2225,21 @@ const playlists = playlistModules.map(([, mod]) => {
         if (this.lyricsNextBtn)
           this.lyricsNextBtn.addEventListener("click", () => this.next());
 
-        // Pause auto-scroll when user manually scrolls lyrics
-        if (this.lyricsTab) {
-          this.lyricsTab.addEventListener(
-            "scroll",
-            () => {
-              this.lyricsUserScrolled = true;
-              clearTimeout(this.lyricsScrollTimeout);
-              this.lyricsScrollTimeout = setTimeout(() => {
-                this.lyricsUserScrolled = false;
-              }, 2000);
-            },
-            { passive: true },
-          );
-        }
+        // Pause auto-scroll only on real user input (wheel/touch/scrollbar drag
+        // won't fire from programmatic scrolls, so auto-follow never fights itself)
+        this.bindUserScrollPause(this.lyricsEl, "lyricsUserScrolled", "lyricsScrollTimeout", "activeLyricIndex", "_el");
+        this.bindUserScrollPause(this.lyricsScrollContainer, "fsUserScrolled", "fsScrollTimeout", "activeFullIndex", "_fEl");
+
+        // 窗口尺寸变化会改变 html zoom，旧的滚动位置随之失真，防抖后重新对中
+        let recenterTimer;
+        window.addEventListener(
+          "resize",
+          () => {
+            clearTimeout(recenterTimer);
+            recenterTimer = setTimeout(() => this.recenterLyrics(), 150);
+          },
+          { passive: true },
+        );
 
         // Fullscreen progress bar
         const lyricsProgressBar = document.querySelector(
@@ -1799,6 +2256,19 @@ const playlists = playlistModules.map(([, mod]) => {
 
         // Audio events
         this.audio.addEventListener("timeupdate", () => this.updateProgress());
+        this.audio.addEventListener("play", () => {
+          if (window.gsap) window.gsap.ticker.add(this._lyricTick);
+        });
+        this.audio.addEventListener("pause", () => {
+          if (window.gsap) window.gsap.ticker.remove(this._lyricTick);
+          // 暂停/后台标签页后补一次同步，让卡拉OK进度与高亮停在准确位置
+          this.updateLyrics(this.audio.currentTime);
+          this.updateFullscreenLyrics(this.audio.currentTime);
+        });
+        this.audio.addEventListener("seeked", () => {
+          this.updateLyrics(this.audio.currentTime, true);
+          this.updateFullscreenLyrics(this.audio.currentTime, true);
+        });
         this.audio.addEventListener("ended", () => this.onSongEnd());
         this.audio.addEventListener("loadedmetadata", () =>
           this.updateDuration(),
@@ -1822,19 +2292,23 @@ const playlists = playlistModules.map(([, mod]) => {
 
         // Handle page visibility changes - restore playback when page becomes visible again
         document.addEventListener("visibilitychange", () => {
-          if (!document.hidden && this.isPlaying) {
-            // Page became visible while playing
-            const retryPlay = () => {
-              this.audio.play().then(() => {
-                this.isPlaying = true;
-                this.updatePlayButton();
-              }).catch((e) => {
-                this.isPlaying = false;
-                this.updatePlayButton();
-              });
-            };
-            // Small delay to ensure the page is fully ready
-            setTimeout(retryPlay, 300);
+          if (!document.hidden) {
+            // 标签页恢复后内部滚动位置可能失真，重新对中当前行
+            this.recenterLyrics();
+            if (this.isPlaying) {
+              // Page became visible while playing
+              const retryPlay = () => {
+                this.audio.play().then(() => {
+                  this.isPlaying = true;
+                  this.updatePlayButton();
+                }).catch((e) => {
+                  this.isPlaying = false;
+                  this.updatePlayButton();
+                });
+              };
+              // Small delay to ensure the page is fully ready
+              setTimeout(retryPlay, 300);
+            }
           }
         });
       }
@@ -2008,6 +2482,16 @@ const playlists = playlistModules.map(([, mod]) => {
           });
         });
 
+        document.querySelectorAll(".play-song-btn").forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            this.playFromPlaylist(
+              parseInt(btn.dataset.playlistIndex),
+              parseInt(btn.dataset.songIndex),
+            );
+          });
+        });
+
         document.querySelectorAll(".add-song-btn").forEach((btn) => {
           btn.addEventListener("click", (e) => {
             e.stopPropagation();
@@ -2020,8 +2504,13 @@ const playlists = playlistModules.map(([, mod]) => {
       }
 
       playAllFromPlaylist(i) {
+        this.playFromPlaylist(i, 0);
+      }
+
+      // 将歌单整个载入队列并从 startIndex 直接播放
+      playFromPlaylist(i, startIndex) {
         const pl = this.playlists[i];
-        if (!pl?.songs?.length) return;
+        if (!pl?.songs?.[startIndex]) return;
         this.playlist = pl.songs.map((s) => ({
           title: s.name,
           artist: s.artist,
@@ -2030,9 +2519,9 @@ const playlists = playlistModules.map(([, mod]) => {
           cover: s.pic || "/music.svg",
           lrc: s.lrc,
         }));
-        this.currentIndex = 0;
+        this.currentIndex = startIndex;
         this.renderPlaylist();
-        this.playSong(0);
+        this.playSong(startIndex);
       }
 
       addSongFromPlaylist(pi, si) {
@@ -2130,6 +2619,7 @@ const playlists = playlistModules.map(([, mod]) => {
         if (song.lrc) {
           this.loadLyricsFromUrl(song.lrc);
         } else {
+          this.lyricsLoadId++; // 无歌词同样作废在途请求
           this.lyrics = [];
           this.translations = [];
           if (this.lyricsEl)
@@ -2255,6 +2745,8 @@ const playlists = playlistModules.map(([, mod]) => {
         this.tabLyricsBtn.classList.toggle("active", !isPlaylist);
         this.playlistTab.classList.toggle("hidden", !isPlaylist);
         this.lyricsTab.classList.toggle("hidden", isPlaylist);
+        if (!isPlaylist)
+          this.updateLyrics(this.audio.currentTime, true);
       }
 
       setVolume(value) {
@@ -2269,6 +2761,12 @@ const playlists = playlistModules.map(([, mod]) => {
         this.isFullscreen = !this.isFullscreen;
         this.fullscreenLyrics.classList.toggle("hidden", !this.isFullscreen);
         document.body.style.overflow = this.isFullscreen ? "hidden" : "";
+        if (this.isFullscreen)
+          this.updateFullscreenLyrics(this.audio.currentTime, true);
+        else
+          document
+            .querySelectorAll(".lyric-settings-popover")
+            .forEach((p) => p.classList.add("hidden"));
       }
 
       // ====== UI Updates ======
@@ -2306,8 +2804,6 @@ const playlists = playlistModules.map(([, mod]) => {
         if (this.lyricsProgress) this.lyricsProgress.style.width = `${pct}%`;
         if (this.lyricsCurrentTime)
           this.lyricsCurrentTime.textContent = this.formatTime(currentTime);
-        this.updateLyrics(currentTime);
-        this.updateFullscreenLyrics(currentTime);
       }
 
       updateDuration() {
@@ -2430,21 +2926,28 @@ const playlists = playlistModules.map(([, mod]) => {
 
       // ====== Lyrics ======
       async loadLyricsFromUrl(lrcUrl) {
+        // 记录本次请求的代际号；期间再切歌会令其失效，
+        // 慢返回的旧歌词直接丢弃，不再覆盖新歌
+        const reqId = ++this.lyricsLoadId;
         for (let attempt = 0; attempt < 3; attempt++) {
           try {
             const resp = await fetch(
               `/api/lrc?url=${encodeURIComponent(lrcUrl)}`,
               { signal: AbortSignal.timeout(10000) },
             );
+            if (reqId !== this.lyricsLoadId) return;
             if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
             const text = await resp.text();
+            if (reqId !== this.lyricsLoadId) return;
             if (!text || text.length < 10) throw new Error("Empty lyrics");
             this.parseLyrics(text);
             return;
           } catch (e) {
+            if (reqId !== this.lyricsLoadId) return;
             if (attempt < 2) await new Promise(r => setTimeout(r, 1000));
           }
         }
+        if (reqId !== this.lyricsLoadId) return;
         console.warn("Lyrics load failed after 3 attempts");
         this.lyrics = [];
         this.translations = [];
@@ -2517,23 +3020,43 @@ const playlists = playlistModules.map(([, mod]) => {
             `<p class="text-muted text-lg">${T.noLyrics}</p>`;
           return;
         }
+        if (window.gsap) {
+          window.gsap.killTweensOf(this.lyricsEl, "scrollTop");
+          window.gsap.killTweensOf(this.lyricsScrollContainer, "scrollTop");
+        }
+        this.activeLyricIndex = -1;
+        this.lyricsUserScrolled = false;
+        this.fsUserScrolled = false;
+        clearTimeout(this.lyricsScrollTimeout);
+        clearTimeout(this.fsScrollTimeout);
 
         const spacer = document.createElement("div");
         spacer.className = "lyric-spacer";
         this.lyricsEl.appendChild(spacer);
 
         this.lyrics.forEach((lyric) => {
+          const useWords = !!(lyric.words && this.wordByWord);
           const div = document.createElement("div");
-          div.className = "lyric-line";
+          div.className = `lyric-line${useWords ? " has-words" : ""}`;
           div.dataset.time = lyric.time;
+          lyric._el = div;
+          lyric._words = null;
 
-          if (lyric.words) {
+          if (useWords) {
             div.innerHTML = lyric.words
               .map(
                 (w) =>
                   `<span class="lyric-word" data-start="${w.start}" data-end="${w.end}">${w.text}</span>`,
               )
               .join("");
+            lyric._words = [...div.querySelectorAll(".lyric-word")].map(
+              (el) => ({
+                el,
+                start: parseFloat(el.dataset.start),
+                end: parseFloat(el.dataset.end),
+                state: "",
+              }),
+            );
           } else {
             div.innerHTML = `<span class="lyric-text">${lyric.text}</span>`;
           }
@@ -2562,11 +3085,35 @@ const playlists = playlistModules.map(([, mod]) => {
             `<p class="text-2xl opacity-50">${T.noLyrics}</p>`;
           return;
         }
+        this.activeFullIndex = -1;
         this.lyrics.forEach((lyric) => {
+          const useWords = !!(lyric.words && this.wordByWord);
           const div = document.createElement("div");
-          div.className = "lyric-line-full";
+          div.className = `lyric-line-full${useWords ? " has-words" : ""}`;
           div.dataset.time = lyric.time;
-          div.innerHTML = `<span class="lyric-main">${lyric.text}</span>`;
+          lyric._fEl = div;
+          lyric._fWords = null;
+          if (useWords) {
+            div.innerHTML =
+              `<span class="lyric-main">` +
+              lyric.words
+                .map(
+                  (w) =>
+                    `<span class="lyric-word" data-start="${w.start}" data-end="${w.end}">${w.text}</span>`,
+                )
+                .join("") +
+              `</span>`;
+            lyric._fWords = [...div.querySelectorAll(".lyric-word")].map(
+              (el) => ({
+                el,
+                start: parseFloat(el.dataset.start),
+                end: parseFloat(el.dataset.end),
+                state: "",
+              }),
+            );
+          } else {
+            div.innerHTML = `<span class="lyric-main">${lyric.text}</span>`;
+          }
           const trans = this.translations.find(
             (t) => Math.abs(t.time - lyric.time) < 0.5,
           );
@@ -2579,67 +3126,335 @@ const playlists = playlistModules.map(([, mod]) => {
         });
       }
 
-      updateLyrics(currentTime) {
-        if (!this.lyricsEl) return;
-        const lines = this.lyricsEl.querySelectorAll(".lyric-line");
-        let active = 0;
-        lines.forEach((l, i) => {
-          if (currentTime >= parseFloat(l.dataset.time)) active = i;
-        });
-        lines.forEach((l, i) => {
-          l.classList.remove("active", "past");
-          if (i === active) l.classList.add("active");
-          else if (i < active) l.classList.add("past");
+      /**
+       * 找到当前播放行（二分查找）。返回 -1 表示还没唱到第一句。
+       */
+      findLyricIndex(currentTime) {
+        const lines = this.lyrics;
+        let lo = 0,
+          hi = lines.length - 1,
+          res = -1;
+        while (lo <= hi) {
+          const mid = (lo + hi) >> 1;
+          if (currentTime >= lines[mid].time) {
+            res = mid;
+            lo = mid + 1;
+          } else hi = mid - 1;
+        }
+        return res;
+      }
 
-          // Word-by-word highlight
-          const words = l.querySelectorAll(".lyric-word");
-          if (words.length) {
-            words.forEach((w) => {
-              const start = parseFloat(w.dataset.start);
-              const end = parseFloat(w.dataset.end);
-              w.classList.toggle(
-                "sung",
-                currentTime >= start && currentTime < end,
-              );
-              w.classList.toggle("past", currentTime >= end);
-            });
-          }
+      /**
+       * 把某行滚动到容器垂直居中。instant=true 时直接定位（切换标签页/seek），
+       * 否则用 GSAP 平滑滚动（逐行跟进）。
+       */
+      scrollLyricsTo(container, el, instant) {
+        if (!container || !el || !container.clientHeight) return;
+        const cr = container.getBoundingClientRect();
+        const lr = el.getBoundingClientRect();
+        const target =
+          container.scrollTop +
+          (lr.top - cr.top) -
+          container.clientHeight / 2 +
+          lr.height / 2;
+        if (instant || !window.gsap || this.reduceMotion) {
+          container.scrollTop = target;
+          return;
+        }
+        window.gsap.to(container, {
+          scrollTop: target,
+          duration: 0.45,
+          ease: "power2.out",
+          overwrite: "auto",
         });
+      }
 
-        const el = this.lyricsEl.querySelector(".lyric-line.active");
-        if (el && !this.lyricsUserScrolled && this.lyricsTab) {
-          const cr = this.lyricsTab.getBoundingClientRect();
-          const lr = el.getBoundingClientRect();
-          this.lyricsTab.scrollTop +=
-            lr.top - cr.top - this.lyricsTab.clientHeight / 2 + lr.height / 2;
+      /**
+       * 把当前播放行重新对中（窗口尺寸/缩放变化、标签页恢复后
+       * 滚动位置会相对新布局失真）。用户手动滚动后的暂停期内不动。
+       */
+      recenterLyrics() {
+        if (!this.lyricsUserScrolled) {
+          const line = this.lyrics[this.activeLyricIndex];
+          if (line && line._el)
+            this.scrollLyricsTo(this.lyricsEl, line._el, true);
+        }
+        if (this.isFullscreen && !this.fsUserScrolled) {
+          const line = this.lyrics[this.activeFullIndex];
+          if (line && line._fEl)
+            this.scrollLyricsTo(this.lyricsScrollContainer, line._fEl, true);
         }
       }
 
-      updateFullscreenLyrics(currentTime) {
-        if (!this.fullscreenLyricsContent) return;
-        const lines =
-          this.fullscreenLyricsContent.querySelectorAll(".lyric-line-full");
-        let active = 0;
-        lines.forEach((l, i) => {
-          if (currentTime >= parseFloat(l.dataset.time)) active = i;
+      /**
+       * 只在真实用户输入时暂停自动跟随。
+       * wheel/touchmove/pointerdown 都不会由程序滚动触发。
+       * 停止操作 3 秒后主动跳回当前播放行，而不是干等下一行开唱才跟上。
+       */
+      bindUserScrollPause(container, flagName, timerName, indexKey, elKey) {
+        if (!container) return;
+        const pause = () => {
+          if (window.gsap)
+            window.gsap.killTweensOf(container, "scrollTop");
+          this[flagName] = true;
+          clearTimeout(this[timerName]);
+          this[timerName] = setTimeout(() => {
+            this[flagName] = false;
+            const line = this.lyrics[this[indexKey]];
+            if (line && line[elKey])
+              this.scrollLyricsTo(container, line[elKey], false);
+          }, 3000);
+        };
+        container.addEventListener("wheel", pause, { passive: true });
+        container.addEventListener("touchmove", pause, { passive: true });
+        container.addEventListener("pointerdown", pause, { passive: true });
+      }
+
+      // ====== 歌词设置（偏移 / 逐字开关） ======
+      loadLyricSettings() {
+        try {
+          const s = JSON.parse(
+            localStorage.getItem(LYRIC_SETTINGS_KEY) || "{}",
+          );
+          if (Number.isFinite(s.offset))
+            this.lyricOffset = Math.min(Math.max(s.offset, -5), 5);
+          if (typeof s.wordByWord === "boolean")
+            this.wordByWord = s.wordByWord;
+        } catch (e) {
+          // 本地设置损坏时按默认值使用
+        }
+      }
+
+      saveLyricSettings() {
+        try {
+          localStorage.setItem(
+            LYRIC_SETTINGS_KEY,
+            JSON.stringify({
+              offset: this.lyricOffset,
+              wordByWord: this.wordByWord,
+            }),
+          );
+        } catch (e) {}
+      }
+
+      setLyricOffset(v) {
+        // 0.5s 步进，范围 ±5s
+        this.lyricOffset = Math.round(Math.min(Math.max(v, -5), 5) * 2) / 2;
+        this.saveLyricSettings();
+        this.syncLyricSettingsUI();
+        // 偏移变化后立即按新时间轴刷新高亮与滚动
+        this.updateLyrics(this.audio.currentTime, true);
+        this.updateFullscreenLyrics(this.audio.currentTime, true);
+      }
+
+      toggleWordByWord() {
+        this.wordByWord = !this.wordByWord;
+        this.saveLyricSettings();
+        this.renderLyrics();
+        this.renderFullscreenLyrics();
+        this.updateLyrics(this.audio.currentTime, true);
+        this.updateFullscreenLyrics(this.audio.currentTime, true);
+        this.syncLyricSettingsUI();
+      }
+
+      syncLyricSettingsUI() {
+        document.querySelectorAll(".lyric-word-toggle").forEach((btn) => {
+          btn.classList.toggle("on", this.wordByWord);
+          btn.setAttribute("aria-checked", String(this.wordByWord));
         });
-        lines.forEach((l, i) => {
-          l.classList.remove("active", "past");
-          if (i === active) {
-            l.classList.add("active");
-            if (this.lyricsScrollContainer) {
-              const cr = this.lyricsScrollContainer.getBoundingClientRect();
-              const lr = l.getBoundingClientRect();
-              this.lyricsScrollContainer.scrollTop +=
-                lr.top -
-                cr.top -
-                this.lyricsScrollContainer.clientHeight / 2 +
-                lr.height / 2;
+        document.querySelectorAll(".lyric-offset-value").forEach((el) => {
+          const v = this.lyricOffset;
+          el.textContent = `${v > 0 ? "+" : ""}${v.toFixed(1)}s`;
+        });
+      }
+
+      initLyricSettings() {
+        document.querySelectorAll(".lyric-settings-btn").forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const pop = btn.parentElement.querySelector(
+              ".lyric-settings-popover",
+            );
+            if (!pop) return;
+            const willShow = pop.classList.contains("hidden");
+            document
+              .querySelectorAll(".lyric-settings-popover")
+              .forEach((p) => p.classList.add("hidden"));
+            if (willShow) {
+              pop.classList.remove("hidden");
+              if (
+                btn.id === "lyric-settings-btn-tab" &&
+                this.lyricsTab.classList.contains("hidden")
+              )
+                this.switchTab("lyrics");
             }
-          } else if (i < active) {
-            l.classList.add("past");
-          }
+          });
         });
+        // 点击面板外关闭
+        document.addEventListener("click", (e) => {
+          if (e.target.closest(".lyric-settings-host")) return;
+          document
+            .querySelectorAll(".lyric-settings-popover")
+            .forEach((p) => p.classList.add("hidden"));
+        });
+        document.querySelectorAll(".lyric-word-toggle").forEach((btn) =>
+          btn.addEventListener("click", () => this.toggleWordByWord()),
+        );
+        document.querySelectorAll(".lyric-offset-minus").forEach((btn) =>
+          btn.addEventListener("click", () =>
+            this.setLyricOffset(this.lyricOffset - 0.5),
+          ),
+        );
+        document.querySelectorAll(".lyric-offset-plus").forEach((btn) =>
+          btn.addEventListener("click", () =>
+            this.setLyricOffset(this.lyricOffset + 0.5),
+          ),
+        );
+        document.querySelectorAll(".lyric-offset-reset").forEach((btn) =>
+          btn.addEventListener("click", () => this.setLyricOffset(0)),
+        );
+        this.syncLyricSettingsUI();
+      }
+
+      updateLyrics(currentTime, force = false) {
+        const lines = this.lyrics;
+        if (!this.lyricsEl || !lines.length) return;
+
+        // 歌词偏移：正值延后、负值提前
+        currentTime -= this.lyricOffset;
+
+        const prev = this.activeLyricIndex;
+        const active = this.findLyricIndex(currentTime);
+        const changed = active !== prev;
+
+        if (changed) {
+          this.activeLyricIndex = active;
+          const lo = Math.max(Math.min(prev, active), 0);
+          const hi = Math.max(prev, active);
+          for (let i = lo; i <= hi; i++) {
+            const el = lines[i]?._el;
+            if (!el) continue;
+            el.classList.toggle("active", i === active);
+            el.classList.toggle("past", i !== active && i < active);
+          }
+          if (prev >= 0 && lines[prev]?._words)
+            lines[prev]._words.forEach((w) => {
+              w.state = "";
+              w.el.classList.remove("sung", "past");
+              w.el.style.setProperty("--wp", "0");
+            });
+        }
+
+        // 逐字高亮只处理当前行（逐行 LRC 或关闭逐字时该数组为空）
+        const words = lines[active]?._words;
+        if (words)
+          for (const w of words) {
+            const state =
+              currentTime >= w.end ? "past" : currentTime >= w.start ? "sung" : "";
+            if (state !== w.state) {
+              w.state = state;
+              w.el.classList.toggle("sung", state === "sung");
+              w.el.classList.toggle("past", state === "past");
+              // 离散状态切换时重置填充进度，正在演唱的字再逐帧推进
+              if (state === "past") w.el.style.setProperty("--wp", "100");
+              else if (state === "") w.el.style.setProperty("--wp", "0");
+            }
+            if (state === "sung") {
+              const p =
+                w.end > w.start
+                  ? (currentTime - w.start) / (w.end - w.start)
+                  : 1;
+              w.el.style.setProperty(
+                "--wp",
+                (Math.min(Math.max(p, 0), 1) * 100).toFixed(2),
+              );
+            }
+          }
+
+        if ((changed || force) && active >= 0) {
+          if (force) {
+            this.lyricsUserScrolled = false;
+            clearTimeout(this.lyricsScrollTimeout);
+          }
+          if (!this.lyricsUserScrolled)
+            this.scrollLyricsTo(this.lyricsEl, lines[active]._el, force);
+        }
+      }
+
+      updateFullscreenLyrics(currentTime, force = false) {
+        const lines = this.lyrics;
+        if (!this.fullscreenLyricsContent || !lines.length) return;
+
+        // 歌词偏移：正值延后、负值提前
+        currentTime -= this.lyricOffset;
+
+        const prev = this.activeFullIndex;
+        const active = this.findLyricIndex(currentTime);
+        const changed = active !== prev;
+
+        if (changed) {
+          this.activeFullIndex = active;
+          const lo = Math.max(Math.min(prev, active), 0);
+          const hi = Math.max(prev, active);
+          for (let i = lo; i <= hi; i++) {
+            const el = lines[i]?._fEl;
+            if (!el) continue;
+            el.classList.toggle("active", i === active);
+            el.classList.toggle("past", i !== active && i < active);
+          }
+          if (prev >= 0 && lines[prev]?._fWords)
+            lines[prev]._fWords.forEach((w) => {
+              w.state = "";
+              w.el.classList.remove("sung", "past");
+              w.el.style.setProperty("--wp", "0");
+            });
+        }
+
+        const line = lines[active];
+        if (!line?._fEl) return;
+
+        if (line._fWords) {
+          // 逐字模式：逐字推进填充进度（--wp 由 CSS 渐变消费）
+          for (const w of line._fWords) {
+            const state =
+              currentTime >= w.end ? "past" : currentTime >= w.start ? "sung" : "";
+            if (state !== w.state) {
+              w.state = state;
+              w.el.classList.toggle("sung", state === "sung");
+              w.el.classList.toggle("past", state === "past");
+              if (state === "past") w.el.style.setProperty("--wp", "100");
+              else if (state === "") w.el.style.setProperty("--wp", "0");
+            }
+            if (state === "sung") {
+              const p =
+                w.end > w.start
+                  ? (currentTime - w.start) / (w.end - w.start)
+                  : 1;
+              w.el.style.setProperty(
+                "--wp",
+                (Math.min(Math.max(p, 0), 1) * 100).toFixed(2),
+              );
+            }
+          }
+        } else {
+          // 卡拉OK渐变扫色：--p 为该行已唱进度百分比，由 CSS 渐变消费
+          const start = line.time;
+          const nextT = lines[active + 1]
+            ? lines[active + 1].time
+            : this.audio.duration || start + 8;
+          const dur = Math.min(Math.max(nextT - start, 1), 12);
+          const p = Math.min(Math.max((currentTime - start) / dur, 0), 1);
+          line._fEl.style.setProperty("--p", (p * 100).toFixed(2));
+        }
+
+        if (changed || force) {
+          if (force) {
+            this.fsUserScrolled = false;
+            clearTimeout(this.fsScrollTimeout);
+          }
+          if (!this.fsUserScrolled)
+            this.scrollLyricsTo(this.lyricsScrollContainer, line._fEl, force);
+        }
       }
     }
 

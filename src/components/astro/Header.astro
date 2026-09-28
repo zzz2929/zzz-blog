@@ -912,8 +912,12 @@ function isImageIcon(icon) {
     position: absolute;
     content: attr(aria-color);
     left: 65%;
-    bottom: 52px;
-    transform: translateX(-50%);
+    /* 父级 hover scale(1.5) 会把 tooltip 一并放大抬高：
+       53px 定位 + scale(0.6667) 反向缩放，最终贴在放大色块顶缘上方 3px、文字保持原始大小 */
+    bottom: 53px;
+    transform: translateX(-50%) scale(0.6667);
+    transform-origin: 50% 100%;
+    z-index: 2;
     padding: 2px 8px;
     font-size: 10px;
     line-height: 14px;
@@ -950,6 +954,9 @@ function isImageIcon(icon) {
   }
   .settings-dropdown .container-items {
     max-width: 100%;
+    /* hover 放大后的色块（局部坐标向上越出 16px）需要顶部余量，
+       否则会盖住上方"切换背景色"标题 */
+    padding-top: 20px;
   }
   /* 点击展开的强制显示样式仅在无 hover 的触屏设备生效；
      桌面 hover 设备上 touch-open 无视觉效果，仍由 group-hover 接管 */
