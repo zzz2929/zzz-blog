@@ -2,6 +2,7 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Header from "@/components/astro/Header.astro";
 import Footer from "@/components/astro/Footer.astro";
+import LyricSettingsPopover from "@/components/astro/LyricSettingsPopover.astro";
 import musicData from "@/content/data/music.json";
 import { useTranslations, getLocaleFromURL } from "@/i18n";
 import { MINI_PLAYER_STORAGE_KEY } from "@/lib/miniPlayerState";
@@ -159,35 +160,7 @@ const playlists = playlistModules.map(([, mod]) => {
                       d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                   </svg>
                 </button>
-                <div class="lyric-settings-popover hidden">
-                  <div class="lyric-setting-row">
-                    <span class="lyric-setting-label">{t('music.wordByWord')}</span>
-                    <button
-                      type="button"
-                      class="lyric-toggle lyric-word-toggle"
-                      role="switch"
-                      aria-checked="true"
-                      aria-label={t('music.wordByWord')}></button>
-                  </div>
-                  <div class="lyric-setting-row">
-                    <span class="lyric-setting-label">{t('music.lyricOffset')}</span>
-                    <div class="lyric-offset-controls">
-                      <button
-                        type="button"
-                        class="lyric-offset-btn lyric-offset-minus"
-                        title={t('music.offsetHint')}>−0.5s</button>
-                      <span class="lyric-offset-value">0.0s</span>
-                      <button
-                        type="button"
-                        class="lyric-offset-btn lyric-offset-plus"
-                        title={t('music.offsetHint')}>+0.5s</button>
-                    </div>
-                  </div>
-                  <div class="lyric-setting-row">
-                    <span class="lyric-setting-hint">{t('music.offsetHint')}</span>
-                    <button type="button" class="lyric-offset-reset">{t('music.offsetReset')}</button>
-                  </div>
-                </div>
+                <LyricSettingsPopover />
               </div>
             </div>
 
@@ -616,35 +589,7 @@ const playlists = playlistModules.map(([, mod]) => {
             d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
         </svg>
       </button>
-      <div class="lyric-settings-popover hidden">
-        <div class="lyric-setting-row">
-          <span class="lyric-setting-label">{t('music.wordByWord')}</span>
-          <button
-            type="button"
-            class="lyric-toggle lyric-word-toggle"
-            role="switch"
-            aria-checked="true"
-            aria-label={t('music.wordByWord')}></button>
-        </div>
-        <div class="lyric-setting-row">
-          <span class="lyric-setting-label">{t('music.lyricOffset')}</span>
-          <div class="lyric-offset-controls">
-            <button
-              type="button"
-              class="lyric-offset-btn lyric-offset-minus"
-              title={t('music.offsetHint')}>−0.5s</button>
-            <span class="lyric-offset-value">0.0s</span>
-            <button
-              type="button"
-              class="lyric-offset-btn lyric-offset-plus"
-              title={t('music.offsetHint')}>+0.5s</button>
-          </div>
-        </div>
-        <div class="lyric-setting-row">
-          <span class="lyric-setting-hint">{t('music.offsetHint')}</span>
-          <button type="button" class="lyric-offset-reset">{t('music.offsetReset')}</button>
-        </div>
-      </div>
+      <LyricSettingsPopover />
     </div>
 
     <div class="lyrics-song-info">
@@ -863,7 +808,7 @@ const playlists = playlistModules.map(([, mod]) => {
     /* 基准字号固定，非激活行用 scale 缩小（transform 不触发重排，
        替换掉原来的 font-size 过渡，逐行切换时不再整页 reflow） */
     .lyric-line-full {
-      font-size: 2.5rem;
+      font-size: calc(2.5rem * var(--lyric-font-scale, 1));
       font-weight: 600;
       line-height: 1.4;
       color: rgba(255, 255, 255, 0.3);
@@ -903,7 +848,7 @@ const playlists = playlistModules.map(([, mod]) => {
     }
 
     .lyric-translation {
-      font-size: 1rem;
+      font-size: calc(1rem * var(--lyric-font-scale, 1));
       font-weight: 400;
       color: rgba(255, 255, 255, 0.4);
       margin-top: 8px;
@@ -948,6 +893,15 @@ const playlists = playlistModules.map(([, mod]) => {
     }
     .lyric-line-full.active .lyric-word.sung {
       animation: lyric-word-pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    /* 设置面板关闭未唱字模糊效果 */
+    .lyric-no-blur .lyrics-content .lyric-line.active .lyric-word,
+    .lyric-no-blur .lyric-line-full.active .lyric-word {
+      filter: none;
+    }
+    /* 设置面板关闭全屏翻译显示 */
+    .no-translation .lyric-translation {
+      display: none;
     }
 
     .lyrics-progress-container {
@@ -1063,6 +1017,8 @@ const playlists = playlistModules.map(([, mod]) => {
       left: 0;
       z-index: 20;
       width: 252px;
+      max-height: 330px;
+      overflow-y: auto;
       padding: 12px 16px;
       border-radius: 14px;
       background: rgba(20, 20, 30, 0.72);
@@ -1095,7 +1051,40 @@ const playlists = playlistModules.map(([, mod]) => {
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      padding: 6px 0;
+      padding: 4px 0;
+    }
+    .lyric-setting-col {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 4px 0;
+    }
+    .lyric-size-group {
+      display: flex;
+      gap: 4px;
+    }
+    .lyric-size-btn {
+      border: 1px solid rgba(128, 128, 128, 0.35);
+      background: transparent;
+      color: inherit;
+      border-radius: 8px;
+      padding: 3px 8px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .lyric-size-btn:hover {
+      background: rgba(128, 128, 128, 0.15);
+    }
+    .lyric-size-btn.active {
+      background: #3a65e8;
+      border-color: #3a65e8;
+      color: #fff;
+    }
+    .panel-header .lyric-size-btn.active {
+      background: var(--lyric-active-color, var(--color-foreground));
+      border-color: transparent;
+      color: #fff;
     }
     .lyric-setting-hint {
       font-size: 11px;
@@ -1501,7 +1490,8 @@ const playlists = playlistModules.map(([, mod]) => {
       padding: 8px 12px;
       border-radius: 8px;
       transition: color 0.15s ease;
-      font-size: 16px;
+      /* 字号随设置面板的 --lyric-font-scale 缩放 */
+      font-size: calc(16px * var(--lyric-font-scale, 1));
       color: rgba(128, 128, 128, 0.5);
       cursor: pointer;
     }
@@ -2022,6 +2012,10 @@ const playlists = playlistModules.map(([, mod]) => {
         this.activeFullIndex = -1;
         this.lyricOffset = 0; // 正值延后歌词、负值提前，单位秒
         this.wordByWord = true;
+        this.fontScale = 1; // 歌词字号倍率
+        this.blurEffect = true; // 未唱字模糊效果
+        this.showTranslation = true; // 全屏翻译显示
+        this.autoScroll = true; // 歌词自动跟随滚动
         this.reduceMotion =
           window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ??
           false;
@@ -2032,6 +2026,7 @@ const playlists = playlistModules.map(([, mod]) => {
 
         this.initElements();
         this.loadLyricSettings();
+        this.applyLyricPreferences();
         this.initEventListeners();
         this.initLyricSettings();
         this.loadDefaultPlaylist();
@@ -3174,6 +3169,7 @@ const playlists = playlistModules.map(([, mod]) => {
        * 滚动位置会相对新布局失真）。用户手动滚动后的暂停期内不动。
        */
       recenterLyrics() {
+        if (!this.autoScroll) return;
         if (!this.lyricsUserScrolled) {
           const line = this.lyrics[this.activeLyricIndex];
           if (line && line._el)
@@ -3200,6 +3196,7 @@ const playlists = playlistModules.map(([, mod]) => {
           clearTimeout(this[timerName]);
           this[timerName] = setTimeout(() => {
             this[flagName] = false;
+            if (!this.autoScroll) return;
             const line = this.lyrics[this[indexKey]];
             if (line && line[elKey])
               this.scrollLyricsTo(container, line[elKey], false);
@@ -3220,6 +3217,14 @@ const playlists = playlistModules.map(([, mod]) => {
             this.lyricOffset = Math.min(Math.max(s.offset, -5), 5);
           if (typeof s.wordByWord === "boolean")
             this.wordByWord = s.wordByWord;
+          if (Number.isFinite(s.fontScale) && s.fontScale >= 0.85 && s.fontScale <= 1.4)
+            this.fontScale = s.fontScale;
+          if (typeof s.blurEffect === "boolean")
+            this.blurEffect = s.blurEffect;
+          if (typeof s.showTranslation === "boolean")
+            this.showTranslation = s.showTranslation;
+          if (typeof s.autoScroll === "boolean")
+            this.autoScroll = s.autoScroll;
         } catch (e) {
           // 本地设置损坏时按默认值使用
         }
@@ -3232,9 +3237,30 @@ const playlists = playlistModules.map(([, mod]) => {
             JSON.stringify({
               offset: this.lyricOffset,
               wordByWord: this.wordByWord,
+              fontScale: this.fontScale,
+              blurEffect: this.blurEffect,
+              showTranslation: this.showTranslation,
+              autoScroll: this.autoScroll,
             }),
           );
         } catch (e) {}
+      }
+
+      // 把字号倍率 / 模糊 / 翻译偏好落到 DOM
+      applyLyricPreferences() {
+        document.documentElement.style.setProperty(
+          "--lyric-font-scale",
+          String(this.fontScale),
+        );
+        document.documentElement.classList.toggle(
+          "lyric-no-blur",
+          !this.blurEffect,
+        );
+        if (this.fullscreenLyricsContent)
+          this.fullscreenLyricsContent.classList.toggle(
+            "no-translation",
+            !this.showTranslation,
+          );
       }
 
       setLyricOffset(v) {
@@ -3247,20 +3273,42 @@ const playlists = playlistModules.map(([, mod]) => {
         this.updateFullscreenLyrics(this.audio.currentTime, true);
       }
 
-      toggleWordByWord() {
-        this.wordByWord = !this.wordByWord;
+      setLyricToggle(key) {
+        if (typeof this[key] !== "boolean") return;
+        this[key] = !this[key];
         this.saveLyricSettings();
-        this.renderLyrics();
-        this.renderFullscreenLyrics();
+        this.applyLyricPreferences();
+        if (key === "wordByWord") {
+          // 逐字开关改变渲染结构，需要重建歌词 DOM
+          this.renderLyrics();
+          this.renderFullscreenLyrics();
+        }
         this.updateLyrics(this.audio.currentTime, true);
         this.updateFullscreenLyrics(this.audio.currentTime, true);
         this.syncLyricSettingsUI();
       }
 
+      setLyricFontScale(v) {
+        this.fontScale = v;
+        this.saveLyricSettings();
+        this.applyLyricPreferences();
+        this.syncLyricSettingsUI();
+        // 字号变化后行高改变，重新对中当前行
+        this.updateLyrics(this.audio.currentTime, true);
+        this.updateFullscreenLyrics(this.audio.currentTime, true);
+      }
+
       syncLyricSettingsUI() {
-        document.querySelectorAll(".lyric-word-toggle").forEach((btn) => {
-          btn.classList.toggle("on", this.wordByWord);
-          btn.setAttribute("aria-checked", String(this.wordByWord));
+        document.querySelectorAll("[data-lyric-toggle]").forEach((btn) => {
+          const on = !!this[btn.dataset.lyricToggle];
+          btn.classList.toggle("on", on);
+          btn.setAttribute("aria-checked", String(on));
+        });
+        document.querySelectorAll("[data-lyric-size]").forEach((btn) => {
+          btn.classList.toggle(
+            "active",
+            parseFloat(btn.dataset.lyricSize) === this.fontScale,
+          );
         });
         document.querySelectorAll(".lyric-offset-value").forEach((el) => {
           const v = this.lyricOffset;
@@ -3297,8 +3345,15 @@ const playlists = playlistModules.map(([, mod]) => {
             .querySelectorAll(".lyric-settings-popover")
             .forEach((p) => p.classList.add("hidden"));
         });
-        document.querySelectorAll(".lyric-word-toggle").forEach((btn) =>
-          btn.addEventListener("click", () => this.toggleWordByWord()),
+        document.querySelectorAll("[data-lyric-toggle]").forEach((btn) =>
+          btn.addEventListener("click", () =>
+            this.setLyricToggle(btn.dataset.lyricToggle),
+          ),
+        );
+        document.querySelectorAll("[data-lyric-size]").forEach((btn) =>
+          btn.addEventListener("click", () =>
+            this.setLyricFontScale(parseFloat(btn.dataset.lyricSize)),
+          ),
         );
         document.querySelectorAll(".lyric-offset-minus").forEach((btn) =>
           btn.addEventListener("click", () =>
@@ -3376,7 +3431,7 @@ const playlists = playlistModules.map(([, mod]) => {
             this.lyricsUserScrolled = false;
             clearTimeout(this.lyricsScrollTimeout);
           }
-          if (!this.lyricsUserScrolled)
+          if (this.autoScroll && !this.lyricsUserScrolled)
             this.scrollLyricsTo(this.lyricsEl, lines[active]._el, force);
         }
       }
@@ -3452,7 +3507,7 @@ const playlists = playlistModules.map(([, mod]) => {
             this.fsUserScrolled = false;
             clearTimeout(this.fsScrollTimeout);
           }
-          if (!this.fsUserScrolled)
+          if (this.autoScroll && !this.fsUserScrolled)
             this.scrollLyricsTo(this.lyricsScrollContainer, line._fEl, force);
         }
       }

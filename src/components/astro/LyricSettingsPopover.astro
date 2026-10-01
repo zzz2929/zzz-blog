@@ -1,0 +1,70 @@
+---
+// 歌词设置弹层（音乐页侧边栏与全屏共用）。
+// 开关状态由音乐页脚本按 data-lyric-toggle / data-lyric-size 同步。
+import { useTranslations, getLocaleFromURL } from "@/i18n";
+
+const t = useTranslations(getLocaleFromURL(Astro.url.pathname));
+
+const toggles = [
+  { key: "wordByWord", label: t("music.wordByWord") },
+  { key: "blurEffect", label: t("music.blurEffect") },
+  { key: "showTranslation", label: t("music.showTranslation") },
+  { key: "autoScroll", label: t("music.autoScroll") },
+];
+const sizes = [
+  { value: "0.85", label: t("music.sizeS") },
+  { value: "1", label: t("music.sizeM") },
+  { value: "1.2", label: t("music.sizeL") },
+  { value: "1.4", label: t("music.sizeXL") },
+];
+---
+
+<div class="lyric-settings-popover hidden">
+  {
+    toggles.map((item) => (
+      <div class="lyric-setting-row">
+        <span class="lyric-setting-label">{item.label}</span>
+        <button
+          type="button"
+          class="lyric-toggle"
+          data-lyric-toggle={item.key}
+          role="switch"
+          aria-checked="true"
+          aria-label={item.label}
+        />
+      </div>
+    ))
+  }
+  <div class="lyric-setting-col">
+    <span class="lyric-setting-label">{t("music.lyricSize")}</span>
+    <div class="lyric-size-group">
+      {
+        sizes.map((s) => (
+          <button type="button" class="lyric-size-btn" data-lyric-size={s.value}>
+            {s.label}
+          </button>
+        ))
+      }
+    </div>
+  </div>
+  <div class="lyric-setting-row">
+    <span class="lyric-setting-label">{t("music.lyricOffset")}</span>
+    <div class="lyric-offset-controls">
+      <button
+        type="button"
+        class="lyric-offset-btn lyric-offset-minus"
+        title={t("music.offsetHint")}>−0.5s</button
+      >
+      <span class="lyric-offset-value">0.0s</span>
+      <button
+        type="button"
+        class="lyric-offset-btn lyric-offset-plus"
+        title={t("music.offsetHint")}>+0.5s</button
+      >
+    </div>
+  </div>
+  <div class="lyric-setting-row">
+    <span class="lyric-setting-hint">{t("music.offsetHint")}</span>
+    <button type="button" class="lyric-offset-reset">{t("music.offsetReset")}</button>
+  </div>
+</div>
