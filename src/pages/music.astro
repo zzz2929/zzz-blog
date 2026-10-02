@@ -1702,7 +1702,9 @@ const playlists = playlistModules.map(([, mod]) => {
       background: rgba(255, 255, 255, 0.08);
     }
 
-    /* Waveform Animation */
+    /* ====== 音律条 ====== */
+    /* 颜色跟随歌曲主题色（--lyric-active-color，由 JS 按页面背景计算写入），
+       条以中线为轴上下律动，与渐变端点淡出呼应 */
     .waveform {
       display: flex;
       align-items: center;
@@ -1713,10 +1715,37 @@ const playlists = playlistModules.map(([, mod]) => {
     .waveform span {
       display: block;
       width: 4px;
-      border-radius: 2px;
+      border-radius: 999px;
+      background: var(--lyric-active-color, #3a65e8);
       opacity: 0.7;
       animation: wave var(--dur, 1s) ease-in-out var(--del, 0s) infinite
         alternate paused;
+    }
+    /* CSS 动画兜底模式的节奏与高低错落（真实频谱模式下被 .real 覆盖） */
+    .waveform span:nth-child(5n + 1) {
+      --dur: 0.9s;
+      --del: 0s;
+      height: 30px;
+    }
+    .waveform span:nth-child(5n + 2) {
+      --dur: 1.1s;
+      --del: 0.08s;
+      height: 20px;
+    }
+    .waveform span:nth-child(5n + 3) {
+      --dur: 0.7s;
+      --del: 0.16s;
+      height: 42px;
+    }
+    .waveform span:nth-child(5n + 4) {
+      --dur: 1.25s;
+      --del: 0.05s;
+      height: 16px;
+    }
+    .waveform span:nth-child(5n) {
+      --dur: 0.95s;
+      --del: 0.12s;
+      height: 36px;
     }
     /* 桌面端放大音律条：加宽加高，并通过 keyframes 里的 --h 变量整体抬高振幅 */
     @media (min-width: 1024px) {
@@ -1731,191 +1760,36 @@ const playlists = playlistModules.map(([, mod]) => {
         --h3: 16px;
       }
     }
-    .waveform.playing span {
-      animation-play-state: running;
+    /* 真实频谱模式：JS 逐帧写高度，禁用 CSS 关键帧 */
+    .waveform.real {
+      position: relative;
     }
-
-    .waveform span:nth-child(1) {
-      background: #3a65e8;
-      --dur: 0.8s;
-      --del: 0s;
-      height: 30px;
+    /* 中线细线锚定条的镜像轴 */
+    .waveform.real::before {
+      content: "";
+      position: absolute;
+      left: 4%;
+      right: 4%;
+      top: 50%;
+      height: 1px;
+      background: color-mix(
+        in srgb,
+        var(--lyric-active-color, #3a65e8) 30%,
+        transparent
+      );
     }
-    .waveform span:nth-child(2) {
-      background: #7c3aed;
-      --dur: 1.1s;
-      --del: 0.05s;
-      height: 22px;
+    .waveform.real span {
+      animation: none;
+      opacity: 0.9;
+      background: linear-gradient(
+        to bottom,
+        color-mix(in srgb, var(--lyric-active-color, #3a65e8) 30%, transparent),
+        var(--lyric-active-color, #3a65e8)
+      );
+      box-shadow: 0 0 8px
+        color-mix(in srgb, var(--lyric-active-color, #3a65e8) 30%, transparent);
+      transition: height 0.12s ease-out;
     }
-    .waveform span:nth-child(3) {
-      background: #c2410c;
-      --dur: 0.7s;
-      --del: 0.1s;
-      height: 40px;
-    }
-    .waveform span:nth-child(4) {
-      background: #3a65e8;
-      --dur: 1.3s;
-      --del: 0.15s;
-      height: 18px;
-    }
-    .waveform span:nth-child(5) {
-      background: #0d9488;
-      --dur: 0.9s;
-      --del: 0.2s;
-      height: 35px;
-    }
-    .waveform span:nth-child(6) {
-      background: #7c3aed;
-      --dur: 1s;
-      --del: 0.08s;
-      height: 28px;
-    }
-    .waveform span:nth-child(7) {
-      background: #3a65e8;
-      --dur: 0.6s;
-      --del: 0.25s;
-      height: 45px;
-    }
-    .waveform span:nth-child(8) {
-      background: #c2410c;
-      --dur: 1.2s;
-      --del: 0.12s;
-      height: 20px;
-    }
-    .waveform span:nth-child(9) {
-      background: #0d9488;
-      --dur: 0.85s;
-      --del: 0.3s;
-      height: 38px;
-    }
-    .waveform span:nth-child(10) {
-      background: #7c3aed;
-      --dur: 1.4s;
-      --del: 0.03s;
-      height: 15px;
-    }
-    .waveform span:nth-child(11) {
-      background: #3a65e8;
-      --dur: 0.75s;
-      --del: 0.18s;
-      height: 32px;
-    }
-    .waveform span:nth-child(12) {
-      background: #c2410c;
-      --dur: 1.05s;
-      --del: 0.22s;
-      height: 25px;
-    }
-    .waveform span:nth-child(13) {
-      background: #0d9488;
-      --dur: 0.65s;
-      --del: 0.07s;
-      height: 42px;
-    }
-    .waveform span:nth-child(14) {
-      background: #7c3aed;
-      --dur: 1.15s;
-      --del: 0.28s;
-      height: 17px;
-    }
-    .waveform span:nth-child(15) {
-      background: #3a65e8;
-      --dur: 0.95s;
-      --del: 0.13s;
-      height: 36px;
-    }
-    .waveform span:nth-child(16) {
-      background: #c2410c;
-      --dur: 0.7s;
-      --del: 0.06s;
-      height: 27px;
-    }
-    .waveform span:nth-child(17) {
-      background: #0d9488;
-      --dur: 1.25s;
-      --del: 0.2s;
-      height: 44px;
-    }
-    .waveform span:nth-child(18) {
-      background: #3a65e8;
-      --dur: 0.8s;
-      --del: 0.33s;
-      height: 19px;
-    }
-    .waveform span:nth-child(19) {
-      background: #7c3aed;
-      --dur: 1s;
-      --del: 0.1s;
-      height: 33px;
-    }
-    .waveform span:nth-child(20) {
-      background: #c2410c;
-      --dur: 0.6s;
-      --del: 0.25s;
-      height: 41px;
-    }
-    .waveform span:nth-child(21) {
-      background: #0d9488;
-      --dur: 1.35s;
-      --del: 0.02s;
-      height: 16px;
-    }
-    .waveform span:nth-child(22) {
-      background: #3a65e8;
-      --dur: 0.9s;
-      --del: 0.16s;
-      height: 29px;
-    }
-    .waveform span:nth-child(23) {
-      background: #7c3aed;
-      --dur: 0.7s;
-      --del: 0.3s;
-      height: 37px;
-    }
-    .waveform span:nth-child(24) {
-      background: #c2410c;
-      --dur: 1.1s;
-      --del: 0.09s;
-      height: 21px;
-    }
-    .waveform span:nth-child(25) {
-      background: #0d9488;
-      --dur: 0.85s;
-      --del: 0.22s;
-      height: 39px;
-    }
-    .waveform span:nth-child(26) {
-      background: #3a65e8;
-      --dur: 1.2s;
-      --del: 0.04s;
-      height: 14px;
-    }
-    .waveform span:nth-child(27) {
-      background: #7c3aed;
-      --dur: 0.75s;
-      --del: 0.27s;
-      height: 34px;
-    }
-    .waveform span:nth-child(28) {
-      background: #c2410c;
-      --dur: 1s;
-      --del: 0.14s;
-      height: 26px;
-    }
-    .waveform span:nth-child(29) {
-      background: #0d9488;
-      --dur: 0.65s;
-      --del: 0.32s;
-      height: 43px;
-    }
-    .waveform span:nth-child(30) {
-      background: #3a65e8;
-      --dur: 1.15s;
-      --del: 0.08s;
-      height: 23px;
-    }
-
     @keyframes wave {
       0% {
         height: var(--h1, 6px);
@@ -1993,6 +1867,8 @@ const playlists = playlistModules.map(([, mod]) => {
     class MusicPlayer {
       constructor() {
         this.audio = new Audio();
+        // 音源（meting 及其 CDN）全链路带 CORS 头，标注后 Web Audio 才能读到真实频谱
+        this.audio.crossOrigin = "anonymous";
         this.playlist = [];
         this.currentIndex = 0;
         this.isPlaying = false;
@@ -2016,6 +1892,15 @@ const playlists = playlistModules.map(([, mod]) => {
         this.blurEffect = true; // 未唱字模糊效果
         this.showTranslation = true; // 全屏翻译显示
         this.autoScroll = true; // 歌词自动跟随滚动
+        this.audioCtx = null; // 真实频谱：Web Audio 图
+        this.analyser = null;
+        this.freqData = null;
+        this.waveformEl = null;
+        this.waveBars = [];
+        this.waveReal = false; // 真实频谱模式是否生效
+        this._spectrumProbe = false; // 图初始化后的全零探测
+        this._zeroFrames = 0;
+        this._corsRetriedFor = -1; // 已做过去 CORS 重试的歌曲
         this.reduceMotion =
           window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ??
           false;
@@ -2023,9 +1908,12 @@ const playlists = playlistModules.map(([, mod]) => {
           this.updateLyrics(this.audio.currentTime);
           this.updateFullscreenLyrics(this.audio.currentTime);
         };
+        this._spectrumTick = () => this.updateSpectrum();
 
         this.initElements();
         this.loadLyricSettings();
+        // 初始就算一次主题色，未播放时音律条/歌词也有正确的强调色
+        this.syncLyricColor();
         this.applyLyricPreferences();
         this.initEventListeners();
         this.initLyricSettings();
@@ -2061,6 +1949,10 @@ const playlists = playlistModules.map(([, mod]) => {
         this.lyricsEl = document.getElementById("lyrics");
         this.vinylRecord = document.getElementById("vinyl-record");
         this.tonearm = document.querySelector(".player");
+        this.waveformEl = document.getElementById("waveform");
+        this.waveBars = this.waveformEl
+          ? [...this.waveformEl.querySelectorAll("span")]
+          : [];
 
         // Tab panel elements
         this.tabPlaylistBtn = document.getElementById("tab-playlist-btn");
@@ -2253,12 +2145,38 @@ const playlists = playlistModules.map(([, mod]) => {
         this.audio.addEventListener("timeupdate", () => this.updateProgress());
         this.audio.addEventListener("play", () => {
           if (window.gsap) window.gsap.ticker.add(this._lyricTick);
+          if (window.gsap) window.gsap.ticker.add(this._spectrumTick);
+          // 标签页切回等场景下 AudioContext 可能被挂起，恢复它否则音频静音
+          if (this.audioCtx) this.audioCtx.resume().catch(() => {});
         });
         this.audio.addEventListener("pause", () => {
           if (window.gsap) window.gsap.ticker.remove(this._lyricTick);
+          if (window.gsap) window.gsap.ticker.remove(this._spectrumTick);
           // 暂停/后台标签页后补一次同步，让卡拉OK进度与高亮停在准确位置
           this.updateLyrics(this.audio.currentTime);
           this.updateFullscreenLyrics(this.audio.currentTime);
+          // 真实频谱模式下音律条回落到静息态，而不是僵在最后一帧
+          if (this.waveReal)
+            this.waveBars.forEach((b, i) => {
+              b.style.height = 8 + (i % 4) * 2 + "%";
+            });
+        });
+        this.audio.addEventListener("error", () => {
+          // 个别音源链路不支持 CORS 时 crossOrigin 会让加载直接失败：
+          // 去掉重试一次（此时频谱不可用，音律条退回 CSS 动画，但播放不中断）
+          if (
+            !this.audio.crossOrigin ||
+            this._corsRetriedFor === this.currentIndex
+          )
+            return;
+          this._corsRetriedFor = this.currentIndex;
+          const url = this.playlist[this.currentIndex]?.url;
+          if (!url) return;
+          const wasPlaying = this.isPlaying;
+          this.audio.crossOrigin = null;
+          this.audio.src = url;
+          if (wasPlaying) this.audio.play().catch(() => {});
+          this.degradeWaveform();
         });
         this.audio.addEventListener("seeked", () => {
           this.updateLyrics(this.audio.currentTime, true);
@@ -2593,6 +2511,8 @@ const playlists = playlistModules.map(([, mod]) => {
             `<p class="text-2xl opacity-50">${T.noLyrics}</p>`;
 
         this.audio.src = song.url;
+        // 每首歌重新尝试 CORS 标注（前一首批不支持 CORS 的源被 error 兜底去掉后，换歌再试回来）
+        this.audio.crossOrigin = "anonymous";
         if (this.songTitle) this.songTitle.textContent = song.title;
         if (this.songArtist) this.songArtist.textContent = song.artist;
         if (this.songAlbum) this.songAlbum.textContent = song.album;
@@ -2628,6 +2548,7 @@ const playlists = playlistModules.map(([, mod]) => {
 
       playSong(index) {
         this.loadSong(index);
+        this.initAudioGraph();
         // 自动播放策略可能拒绝播放，catch 避免未处理的 Promise 拒绝
         this.audio.play().catch(() => {});
         this.isPlaying = true;
@@ -2664,6 +2585,7 @@ const playlists = playlistModules.map(([, mod]) => {
         if (this.isPlaying) {
           this.audio.pause();
         } else {
+          this.initAudioGraph();
           this.audio.play().catch(() => {});
         }
         this.isPlaying = !this.isPlaying;
@@ -2835,6 +2757,87 @@ const playlists = playlistModules.map(([, mod]) => {
         update();
       }
 
+      // ====== 真实频谱音律条 ======
+      /**
+       * 建立 Web Audio 图（元素 → 分析器 → 输出），驱动音律条随真实频谱律动。
+       * 只能在用户手势触发的播放路径里调用：否则 AudioContext 保持挂起，
+       * 路由进图里的音乐会静音。失败时音律条保持 CSS 动画，不影响播放。
+       */
+      initAudioGraph() {
+        if (this.audioCtx || !this.waveBars.length) return;
+        try {
+          const Ctx = window.AudioContext || window.webkitAudioContext;
+          if (!Ctx) return;
+          this.audioCtx = new Ctx();
+          const source = this.audioCtx.createMediaElementSource(this.audio);
+          this.analyser = this.audioCtx.createAnalyser();
+          this.analyser.fftSize = 256;
+          this.analyser.smoothingTimeConstant = 0.8;
+          // 默认量程(-100~-30dB)下音乐常态就顶格，收窄量程留出动态空间
+          this.analyser.minDecibels = -80;
+          this.analyser.maxDecibels = -12;
+          this.freqData = new Uint8Array(this.analyser.frequencyBinCount);
+          source.connect(this.analyser);
+          this.analyser.connect(this.audioCtx.destination);
+          this.waveReal = true;
+          this._spectrumProbe = true;
+          this._zeroFrames = 0;
+          if (this.waveformEl) this.waveformEl.classList.add("real");
+          this.audioCtx.resume().catch(() => {});
+        } catch (e) {
+          console.warn("频谱初始化失败，音律条退回 CSS 动画", e);
+          this.waveReal = false;
+        }
+      }
+
+      /** 真实频谱不可用时退回 CSS 动画（跨域污染 / 加载失败兜底） */
+      degradeWaveform() {
+        this.waveReal = false;
+        this._spectrumProbe = false;
+        if (this.waveformEl) this.waveformEl.classList.remove("real");
+      }
+
+      /**
+       * 每帧把频谱数据按对数分桶写进 30 根音律条（百分比高度，随容器缩放）。
+       * 音乐能量集中在中低频，只取前 3/4 的 bin；桶内取峰值让节奏更跟手。
+       * 每根条独立做"快起慢落"平滑，律动比纯数据更连贯。
+       */
+      updateSpectrum() {
+        if (!this.analyser || !this.waveReal || !this.waveBars.length) return;
+        this.analyser.getByteFrequencyData(this.freqData);
+        const bins = this.freqData.length;
+        const n = this.waveBars.length;
+        const usable = Math.floor(bins * 0.75);
+        if (!this._barLevels || this._barLevels.length !== n)
+          this._barLevels = new Array(n).fill(0);
+        let sum = 0;
+        for (let i = 0; i < n; i++) {
+          const lo = Math.floor(Math.pow(usable, i / n));
+          const hi = Math.max(lo + 1, Math.floor(Math.pow(usable, (i + 1) / n)));
+          let peak = 0;
+          for (let j = lo; j < hi; j++)
+            if (this.freqData[j] > peak) peak = this.freqData[j];
+          // 高频天然偏弱，做一点倾斜补偿
+          const v = Math.min((peak / 255) * (1 + (i / n) * 0.35), 1);
+          sum += v;
+          // 快起慢落：起音快速逼近，衰减缓慢滑落
+          const level = this._barLevels[i];
+          this._barLevels[i] =
+            v > level ? level + (v - level) * 0.4 : level + (v - level) * 0.14;
+          // 指数 >1 压低小信号：轻微声音小幅起伏，强拍才打满
+          const p = Math.pow(this._barLevels[i], 1.5);
+          this.waveBars[i].style.height = (8 + p * 92).toFixed(1) + "%";
+        }
+        // 初始化后的探测期：音频在走但数据持续全零，说明源被跨域污染，退回 CSS
+        if (this._spectrumProbe && !this.audio.paused) {
+          if (sum > 0.5) {
+            this._spectrumProbe = false;
+          } else if (++this._zeroFrames > 180) {
+            this.degradeWaveform();
+          }
+        }
+      }
+
       formatTime(s) {
         return `${Math.floor(s / 60)
           .toString()
@@ -2903,6 +2906,10 @@ const playlists = playlistModules.map(([, mod]) => {
         if (this.lyricsEl) {
           this.lyricsEl.style.setProperty("--lyric-active-color", lyricColor);
           this.lyricsEl.style.setProperty("--glow-color", lyricColor);
+        }
+        // 音律条与歌词共用同一主题色
+        if (this.waveformEl) {
+          this.waveformEl.style.setProperty("--lyric-active-color", lyricColor);
         }
       }
 
