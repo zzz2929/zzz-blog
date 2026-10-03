@@ -821,9 +821,10 @@ function isImageIcon(icon) {
   }
   .settings-dropdown .container-items {
     max-width: 100%;
-    /* hover 放大后的色块（局部坐标向上越出 16px）需要顶部余量，
-       否则会盖住上方"切换背景色"标题 */
-    padding-top: 20px;
+    /* tooltip（::before）在 hover 放大几何下需要色块顶缘上方约 48px：
+       bottom:53px 经 scale(1.5) 展开后 tooltip 顶缘在按钮顶上方 ~47.5px，
+       余量不足会钻进「切换背景色」标题行盖住文字 */
+    padding-top: 50px;
   }
   /* 点击展开的强制显示样式仅在无 hover 的触屏设备生效；
      桌面 hover 设备上 touch-open 无视觉效果，仍由 group-hover 接管 */
@@ -876,7 +877,8 @@ function isImageIcon(icon) {
   }
 
   .item-color.selected {
-    z-index: 1; /* 画在相邻色块之上，蓝框不被右邻盖住 */
+    /* 蓝框不被悬停邻块的放大色块盖住；仍低于悬停块本身（99999） */
+    z-index: 99998;
   }
   .item-color.selected::after {
     box-shadow: 0 0 0 2px var(--color-primary);

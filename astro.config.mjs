@@ -155,6 +155,10 @@ function rehypeGithubAlerts() {
   };
 }
 
+// astro dev 时 NODE_ENV=development：跳过 Cloudflare adapter，避免 dev 启动拉起
+// workerd 平台代理；/api/lrc 在 dev 下由 Astro 原生运行（已实测可用）
+const isDev = process.env.NODE_ENV === 'development';
+
 export default defineConfig({
   site: siteConfig.url,
   output: 'static',
@@ -183,6 +187,7 @@ export default defineConfig({
     ssr: {
       noExternal: ['@fancyapps/ui'],
     },
+    // 本机原生文件监听失效（实测内容变更无 HMR），必须用轮询；勿删
     server: {
       watch: {
         usePolling: true,
@@ -210,5 +215,6 @@ export default defineConfig({
     },
   },
 
-  adapter: cloudflare({ imageService: 'compile' })
+  // adapter 仅在 build/preview 时加载
+  adapter: isDev ? undefined : cloudflare({ imageService: 'compile' }),
 });
