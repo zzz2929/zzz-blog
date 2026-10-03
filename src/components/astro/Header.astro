@@ -2,6 +2,7 @@
 import ThemeToggle from "@/components/react/ThemeToggle.tsx";
 import { useTranslations, getLocaleFromURL } from "@/i18n";
 import type { Locale } from "@/i18n";
+import { siteConfig } from "@/config/site";
 
 // Navigation SVGs inlined at build time (virtual module from astro.config.mjs)
 import iconMap from 'virtual:nav-svgs';
@@ -19,156 +20,20 @@ const basePath =
 const switchLocaleHref = (target: Locale) =>
   target === "zh-CN" ? basePath : `/${target}${basePath}`;
 
-const menuItems = [
-  {
-    label: t("nav.posts"),
-    children: [
-      {
-        name: t("nav.archive"),
-        href: `${prefix}/archives/`,
-        icon: "/navigation/归档.svg",
-      },
-      {
-        name: t("nav.categories"),
-        href: `${prefix}/categories/`,
-        icon: "/navigation/分类.svg",
-      },
-    ],
-  },
-  {
-    label: t("nav.friends"),
-    children: [
-      {
-        name: t("nav.friendList"),
-        href: `${prefix}/friends/`,
-        icon: "/navigation/友链.svg",
-      },
-    ],
-  },
-  {
-    label: t("nav.entertainment"),
-    children: [
-      {
-        name: t("nav.music"),
-        href: `${prefix}/music/`,
-        icon: "/navigation/音乐.svg",
-      },
-      {
-        name: t("nav.bangumis"),
-        href: `${prefix}/bangumis/`,
-        icon: "/navigation/追番.svg",
-      },
-      {
-        name: t("nav.album"),
-        href: `${prefix}/album/`,
-        icon: "/navigation/相册.svg",
-      },
-    ],
-  },
-  {
-    label: t("nav.about"),
-    children: [
-      {
-        name: t("nav.aboutMe"),
-        href: `${prefix}/about/`,
-        icon: "/navigation/关于本人.svg",
-      },
-      {
-        name: t("nav.essay"),
-        href: `${prefix}/essay/`,
-        icon: "/navigation/闲言碎语.svg",
-      },
-      {
-        name: t("nav.equipment"),
-        href: `${prefix}/equipment/`,
-        icon: "/navigation/我的装备.svg",
-      },
-    ],
-  },
-];
+// 「站点切换」外链列表在 src/config/site.ts（siteLinks）中维护
+const siteLinks = siteConfig.siteLinks;
 
-const siteLinks = [
-  {
-    name: "博客",
-    href: "https://blog.904002.xyz/",
-    icon: "https://imgbed.904002.xyz/file/img/blog/icon/blog.svg",
-  },
-  {
-    name: "图床",
-    href: "https://imgbed.904002.xyz/",
-    icon: "https://imgbed.904002.xyz/file/img/blog/icon/图床.svg",
-  },
-  {
-    name: "Waline",
-    href: "https://waline.904002.xyz/",
-    icon: "https://imgbed.904002.xyz/file/img/blog/icon/waline.webp",
-  },
-  {
-    name: "FnOS",
-    href: "https://zxyzzz.fnos.net/",
-    icon: "https://imgbed.904002.xyz/file/img/blog/icon/fnos/fnos1.svg",
-  },
-  {
-    name: "ConvertX",
-    href: "https://convertx-fn.904002.xyz/",
-    icon: "https://imgbed.904002.xyz/file/img/blog/icon/ConvertX.svg",
-  },
-  {
-    name: "Openlist",
-    href: "https://openlist.904002.xyz/",
-    icon: "https://imgbed.904002.xyz/file/img/blog/icon/Openlist.svg",
-  },
-  {
-    name: "道理鱼",
-    href: "https://daoliyu-fn.904002.xyz/",
-    icon: "https://imgbed.904002.xyz/file/img/blog/icon/daoliyu.webp",
-  },
-  {
-    name: "Home Assistant",
-    href: "https://ha-fn.904002.xyz/",
-    icon: "https://imgbed.904002.xyz/file/img/blog/icon/Homeassistant.svg",
-  },
-  {
-    name: "OmniTools",
-    href: "https://omnitools-fn.904002.xyz/",
-    icon: "https://imgbed.904002.xyz/file/img/blog/icon/OmniTools.svg",
-  },
-  {
-    name: "AI Draw",
-    href: "https://aidraw.904002.xyz/",
-    icon: "https://imgbed.904002.xyz/file/img/blog/icon/aidraw.webp",
-  },
-  {
-    name: "米家",
-    href: "https://fn-mijia.904002.xyz:7999",
-    icon: "https://imgbed.904002.xyz/file/img/blog/icon/米家.svg",
-  },
-  {
-    name: "路由器",
-    href: "https://fn-xiaomirouter.904002.xyz:7999",
-    icon: "https://imgbed.904002.xyz/file/img/blog/icon/路由器.svg",
-  },
-  {
-    name: "Meting-API",
-    href: "https://fn-metingapi.904002.xyz:7999",
-    icon: "https://imgbed.904002.xyz/file/img/blog/icon/api-music.svg",
-  },
-  {
-    name: "飞牛音乐",
-    href: "https://fn-music.904002.xyz:7999",
-    icon: "https://imgbed.904002.xyz/file/img/blog/icon/飞牛音乐.webp",
-  },
-  {
-    name: "Media Go",
-    href: "https://fn-mediago.904002.xyz:7999",
-    icon: "https://imgbed.904002.xyz/file/img/blog/icon/Media_Go.webp",
-  },
-  {
-    name: "easy_cover",
-    href: "https://cover.904002.xyz/",
-    icon: "https://q2.qlogo.cn/headimg_dl?dst_uin=2726730791&spec=100",
-  },
-];
+// 顶部导航菜单在 src/config/site.ts（nav.menu）中维护；
+// label/name 支持 i18n key 或文字，href 自动带上语言前缀
+const menuItems = siteConfig.nav.menu.map((item) => ({
+  label: t(item.label),
+  children: item.children.map((child) => ({
+    ...child,
+    name: t(child.name),
+    href: `${prefix}${child.href}`,
+  })),
+}));
+
 
 function isImageIcon(icon) {
   return (
@@ -448,6 +313,7 @@ function isImageIcon(icon) {
                   style="--color: var(--monet-8);"></button>
               </div>
             </div>
+            {siteConfig.features.i18n.enable && (
             <div
               style="height: 1px; background: var(--color-border); margin-bottom: 12px;"
             >
@@ -496,6 +362,7 @@ function isImageIcon(icon) {
                 >
               </div>
             </div>
+            )}
           </div>
         </div>
 

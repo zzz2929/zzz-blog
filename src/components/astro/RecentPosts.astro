@@ -2,14 +2,16 @@
 import { getCollection } from 'astro:content';
 import { formatDate } from '@/lib/format';
 import { useTranslations, getLocaleFromURL } from '@/i18n';
+import { siteConfig } from '@/config/site';
 
 const locale = getLocaleFromURL(Astro.url.pathname);
 const t = useTranslations(locale);
 
 const allPosts = await getCollection('blog');
+// 篇数来自 src/config/site.ts（home.recentPostsCount）
 const recentPosts = allPosts
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, 5);
+  .slice(0, siteConfig.home.recentPostsCount);
 
 const prefix = locale === "zh-CN" ? "" : `/${locale}`;
 ---

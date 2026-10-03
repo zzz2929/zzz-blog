@@ -1,6 +1,8 @@
 import { Fancybox } from "@fancyapps/ui";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
-import fancyboxConfig from "@/config/fancybox";
+import { siteConfig } from "@/config/site";
+
+const fancyboxConfig = siteConfig.fancybox;
 
 export { Fancybox, fancyboxConfig };
 

@@ -3,6 +3,7 @@ import { AnimatedBackground } from "@/components/react/AnimatedBackground";
 import MiniPlayer from "@/components/astro/MiniPlayer.astro";
 import Analytics from "@/components/astro/Analytics.astro";
 import { getLocaleFromURL } from "@/i18n";
+import { siteConfig } from "@/config/site";
 
 interface Props {
   title?: string;
@@ -11,21 +12,18 @@ interface Props {
 }
 
 const locale = getLocaleFromURL(Astro.url.pathname);
-const descriptionMap: Record<string, string> = {
-  en: "zzz's personal blog",
-  "zh-TW": "zzz 的個人部落格",
-  "zh-CN": "zzz 的个人博客",
-};
 const {
-  title = "zzz-blog",
-  description = descriptionMap[locale],
+  title = siteConfig.title,
+  description = siteConfig.description[locale],
   image,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const siteTitle = title === "zzz-blog" ? title : `${title} | zzz-blog`;
+const siteTitle = title === siteConfig.title ? title : `${title} | ${siteConfig.title}`;
 const isMusicPage =
   Astro.url.pathname === "/music/" || Astro.url.pathname === "/music";
+// 首屏关键资源域（来自 src/config/site.ts 的 hero.randomImageApi / imageBedHost）
+const heroImageOrigin = new URL(siteConfig.hero.randomImageApi).origin;
 ---
 
 <!doctype html>
@@ -41,8 +39,8 @@ const isMusicPage =
 
     <!-- Perf: 提前与首屏关键资源域建连（LCP 随机图 / 图床图片）；
          统计与计数器属低优先级请求，仅做 DNS 预解析 -->
-    <link rel="preconnect" href="https://api.elaina.cat" />
-    <link rel="preconnect" href="https://imgbed.904002.xyz" />
+    <link rel="preconnect" href={heroImageOrigin} />
+    <link rel="preconnect" href={`https://${siteConfig.imageBedHost}`} />
     <link rel="dns-prefetch" href="https://events.vercount.one" />
     <link rel="dns-prefetch" href="https://hm.baidu.com" />
 
@@ -56,7 +54,7 @@ const isMusicPage =
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={siteTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:site_name" content="zzz-blog" />
+    <meta property="og:site_name" content={siteConfig.title} />
     {image && <meta property="og:image" content={new URL(image, Astro.site)} />}
 
     <!-- Twitter Card -->
@@ -91,7 +89,7 @@ const isMusicPage =
   >
     <AnimatedBackground client:idle="react" />
     <slot />
-    {!isMusicPage && <MiniPlayer />}
+    {!isMusicPage && siteConfig.features.miniPlayer.enable && <MiniPlayer />}
 
     <!-- Image loading placeholder (uiverse mobinkakei/grumpy-turtle-41) -->
     <script is:inline>

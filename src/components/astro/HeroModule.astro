@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import { useTranslations, getLocaleFromURL } from '@/i18n';
+import { siteConfig } from "@/config/site";
 
 const locale = getLocaleFromURL(Astro.url.pathname);
 const t = useTranslations(locale);
@@ -11,7 +12,7 @@ const hitokotoData = await getCollection("hitokoto");
 const hitokotoList = (hitokotoData[0]?.data.hitokoto_list ?? [])
   .map((item) => String(item.title || "").trim())
   .filter(Boolean);
-if (hitokotoList.length === 0) hitokotoList.push("一花一世界，一叶一追寻");
+if (hitokotoList.length === 0) hitokotoList.push(siteConfig.hero.fallbackQuote);
 const initialText = hitokotoList[Math.floor(Math.random() * hitokotoList.length)];
 
 // Essay data — grouped by year
@@ -34,7 +35,7 @@ for (const item of essayItems) {
 for (const [year, items] of map) {
   grouped.push({ year, items });
 }
-const displayGroups = grouped.length > 0 ? [grouped[0]] : [];
+const displayGroups = grouped.slice(0, siteConfig.hero.essayMarqueeYears);
 ---
 
 <!-- Hero with random image + combined hitokoto/essay card -->
@@ -44,7 +45,8 @@ const displayGroups = grouped.length > 0 ? [grouped[0]] : [];
     <!-- Layer 1: Random image background（首屏 LCP 元素：高优先级加载） -->
     <img
       id="hero-random-img"
-      src="https://api.elaina.cat/random/"
+      src={siteConfig.hero.randomImageApi}
+      data-src-template={`${siteConfig.hero.randomImageApi}?t=`}
       alt={t('home.randomImage.alt')}
       class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 hover:scale-105"
       loading="eager"
@@ -81,7 +83,7 @@ const displayGroups = grouped.length > 0 ? [grouped[0]] : [];
           </a>
         </div>
         <div class="flex-1 overflow-hidden relative">
-          <div id="essay-marquee" class="essay-marquee-list flex flex-col" style="animation: marquee-up 40s linear infinite;">
+          <div id="essay-marquee" class="essay-marquee-list flex flex-col" style={`animation: marquee-up ${siteConfig.hero.essayMarqueeDuration}s linear infinite;`}>
             {[...displayGroups, ...displayGroups].map((yg) => (
               <div class="essay-year-group">
                 <div class="essay-year-badge">{yg.year}</div>
@@ -228,7 +230,8 @@ const displayGroups = grouped.length > 0 ? [grouped[0]] : [];
       heroImage.style.transform = "scale(1.02)";
 
       // Change the image source with timestamp to prevent caching
-      heroImage.src = "https://api.elaina.cat/random/?t=" + Date.now();
+      // 随机图 API 来自 src/config/site.ts（hero.randomImageApi），经 data-src-template 传入
+      heroImage.src = heroImage.dataset.srcTemplate + Date.now();
 
       // Restore styles after a short delay
       setTimeout(() => {

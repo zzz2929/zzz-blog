@@ -1,5 +1,11 @@
 ---
 import { useTranslations, getLocaleFromURL } from '@/i18n';
+import { siteConfig } from '@/config/site';
+
+const commentConfig = siteConfig.features.comments;
+
+// 评论区在 src/config/site.ts（features.comments.enable）中统一开关
+if (!commentConfig.enable) return null;
 
 const locale = getLocaleFromURL(Astro.url.pathname);
 const t = useTranslations(locale);
@@ -10,6 +16,30 @@ const walineLangMap: Record<string, string> = {
   'zh-TW': 'zh-TW',
 };
 const walineLang = walineLangMap[locale] || 'zh-CN';
+
+// 传给客户端脚本的 Waline 初始化参数（全部来自 src/config/site.ts → features.comments）
+const walineOptions = JSON.stringify({
+  serverURL: commentConfig.serverURL,
+  emoji: commentConfig.emoji,
+  meta: commentConfig.meta,
+  requiredMeta: commentConfig.requiredMeta,
+  login: commentConfig.login,
+  wordLimit: commentConfig.wordLimit,
+  pageSize: commentConfig.pageSize,
+  commentSorting: commentConfig.commentSorting,
+  placeholder: commentConfig.placeholder,
+  dark: commentConfig.dark,
+  imageUploader: commentConfig.imageUploader,
+  highlighter: commentConfig.highlighter,
+  search: commentConfig.search,
+  reaction: commentConfig.reaction,
+  comment: commentConfig.comment,
+  pageview: commentConfig.pageview,
+  math: commentConfig.math,
+  visitor: commentConfig.visitor,
+  sortBy: commentConfig.sortBy,
+  noRss: commentConfig.noRss,
+});
 ---
 
 <link
@@ -21,6 +51,7 @@ const walineLang = walineLangMap[locale] || 'zh-CN';
   class="mt-5 glass-card"
   data-waline-lang={walineLang}
   data-waline-placeholder={t('comment.placeholder')}
+  data-waline-options={walineOptions}
   style="border-radius: 16px; box-shadow: 0 1px 24px rgba(0,0,0,0.1); padding: 16px 20px"
 >
 </div>
@@ -28,34 +59,12 @@ const walineLang = walineLangMap[locale] || 'zh-CN';
   import { init } from "https://unpkg.com/@waline/client@v3/dist/waline.js";
 
   const el = document.getElementById("waline");
+  const options = JSON.parse(el?.dataset.walineOptions || "{}");
   init({
     el: "#waline",
-    serverURL: "https://waline.904002.xyz/",
     path: window.location.pathname.replace(/\/$/, ""),
     lang: el?.dataset.walineLang ?? "zh-CN",
-    emoji: [
-      "https://unpkg.com/@waline/emojis@1.2.0/bilibili",
-      "https://unpkg.com/@waline/emojis@1.4.0/bmoji",
-      "https://unpkg.com/@waline/emojis@1.4.0/qq",
-      "https://unpkg.com/@waline/emojis@1.2.0/weibo",
-    ],
-    dark: "html.dark",
-    commentSorting: "latest",
-    meta: ["nick", "mail", "link"],
-    requiredMeta: ["nick", "mail"],
-    login: "enable",
-    wordLimit: 0,
-    pageSize: 10,
-    imageUploader: true,
-    highlighter: true,
-    search: true,
-    noRss: false,
-    reaction: false,
-    comment: true,
-    pageview: false,
-    math: true,
-    sortBy: "insertTimeDesc",
-    visitor: true,
-    placeholder: el?.dataset.walinePlaceholder ?? "欢迎留言评论...",
+    ...options,
+    placeholder: el?.dataset.walinePlaceholder ?? options.placeholder,
   });
 </script>

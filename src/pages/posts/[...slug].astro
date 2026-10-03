@@ -10,6 +10,7 @@ import VercountDisplay from "@/components/react/VercountDisplay.tsx";
 import { formatDate } from "@/lib/posts";
 import { optimizedRemoteImage } from "@/lib/remoteImage";
 import { useTranslations, getLocaleFromURL } from "@/i18n";
+import { siteConfig } from "@/config/site";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -206,9 +207,9 @@ const categoryHref = (cat) => `${prefix}/categories/${encodeURIComponent(cat)}`;
         </div>
       </div>
 
-      <!-- TOC sidebar -->
+      <!-- TOC sidebar（src/config/site.ts → features.toc.enable）-->
       {
-        headings.length > 0 && (
+        siteConfig.features.toc.enable && headings.length > 0 && (
           <aside class="toc-drawer hidden lg:block shrink-0" style="width: 250px;">
             <div style="position: sticky; top: 90px;">
               <TOC headings={headings} />
@@ -219,7 +220,7 @@ const categoryHref = (cat) => `${prefix}/categories/${encodeURIComponent(cat)}`;
     </div>
 
     <!-- 移动端目录：浮动按钮 + 抽屉（<1280 显示；桌面仍用右侧固定栏） -->
-    {headings.length > 0 && (
+    {siteConfig.features.toc.enable && headings.length > 0 && (
       <button id="toc-fab" class="toc-fab lg:hidden" aria-label={t('post.toc')}>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
           <line x1="4" y1="6" x2="20" y2="6"></line>

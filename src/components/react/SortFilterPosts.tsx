@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect } from 'react';
 import { useTranslations } from '@/i18n';
 import type { Locale } from '@/i18n';
 import { formatDate } from '@/lib/format';
+import { siteConfig } from '@/config/site';
 import VercountDisplay from './VercountDisplay';
 
 interface Post {
@@ -106,7 +107,8 @@ export default function SortFilterPosts({ posts, siteUrl = '', locale = 'zh-CN',
   const [category, setCategory] = useState<string>('all');
   const [query, setQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const postsPerPage = 9;
+  // 每页篇数来自 src/config/site.ts（home.postsPerPage）
+  const postsPerPage = siteConfig.home.postsPerPage;
 
   const categories = useMemo(() => {
     const cats = new Set<string>();

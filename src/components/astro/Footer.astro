@@ -1,8 +1,10 @@
 ---
 import { useTranslations, getLocaleFromURL } from '@/i18n';
+import { siteConfig } from '@/config/site';
 const locale = getLocaleFromURL(Astro.url.pathname);
 const t = useTranslations(locale);
 const year = new Date().getFullYear();
+const { author, features, footer } = siteConfig;
 ---
 
 <footer class="mt-16 mb-3 mx-auto px-4" style="max-width: 1350px;">
@@ -11,22 +13,26 @@ const year = new Date().getFullYear();
     style="height: var(--header-height); box-shadow: 0 1px 24px rgba(0,0,0,0.1)"
   >
     <p class="text-sm" style="color: var(--color-foreground-muted);">
-      &copy; 2025 - {year} zzz. {t('footer.rights')}
+      &copy; {footer.startYear} - {year} {author}. {t('footer.rights')}
     </p>
     <div
       class="flex items-center gap-4 text-sm"
       style="color: var(--color-foreground-muted);"
     >
-      <a href="/rss.xml" class="hover:text-primary transition-colors">RSS</a>
-      <span>·</span>
-      <span>
-        {t('footer.poweredBy')} <a
-          href="https://astro.build"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-primary hover:underline">Astro</a
-        >
-      </span>
+      {features.rss.enable && (
+        <a href="/rss.xml" class="hover:text-primary transition-colors">RSS</a>
+      )}
+      {features.rss.enable && footer.showPoweredBy && <span>·</span>}
+      {footer.showPoweredBy && (
+        <span>
+          {t('footer.poweredBy')} <a
+            href="https://astro.build"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-primary hover:underline">Astro</a
+          >
+        </span>
+      )}
     </div>
   </div>
 </footer>

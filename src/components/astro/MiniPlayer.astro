@@ -1,5 +1,6 @@
 ---
 import { useTranslations, getLocaleFromURL } from '@/i18n';
+import { siteConfig } from '@/config/site';
 
 const locale = getLocaleFromURL(Astro.url.pathname);
 const t = useTranslations(locale);
@@ -9,7 +10,8 @@ const t = useTranslations(locale);
 
 <div id="mini-player" class="mini-player hidden"
   data-t-not-playing={t('music.notPlaying')}
-  data-t-select-song={t('music.selectSong')}>
+  data-t-select-song={t('music.selectSong')}
+  data-default-volume={siteConfig.music.defaultVolume}>
   <!-- Collapsed: spinning cover -->
   <div class="mini-collapsed">
     <img id="mini-cover" class="mini-cover" src="/music.svg" alt="" />
@@ -348,7 +350,12 @@ const t = useTranslations(locale);
 
 <script>
   import { MINI_PLAYER_STORAGE_KEY as STORAGE_KEY } from "@/lib/miniPlayerState";
+  import { siteConfig } from "@/config/site";
   (function () {
+    // 默认音量来自 src/config/site.ts（music.defaultVolume），经 data 属性传入
+    const defaultVolume =
+      parseInt(document.getElementById("mini-player")?.dataset.defaultVolume) ||
+      80;
     let audio,
       state,
       elements,
@@ -502,7 +509,7 @@ const t = useTranslations(locale);
         state.playlist = saved.playlist || [];
         state.index = saved.index || 0;
         audio.src = saved.url;
-        audio.volume = (saved.volume ?? 80) / 100;
+        audio.volume = (saved.volume ?? defaultVolume) / 100;
         updateDisplay();
         if (elements.player) {
           elements.player.classList.remove("hidden");
@@ -610,7 +617,7 @@ const t = useTranslations(locale);
         state.playlist = s.playlist;
         state.index = s.index;
         audio.src = s.url;
-        audio.volume = (s.volume ?? 80) / 100;
+        audio.volume = (s.volume ?? defaultVolume) / 100;
         updateDisplay();
         audio.addEventListener(
           "loadedmetadata",

@@ -1,7 +1,10 @@
+import { siteConfig } from '@/config/site';
+
 export const prerender = false;
 
-// 歌词源白名单：只代理项目歌单 JSON 里实际使用的主机，防止端点被当作开放代理
-const ALLOWED_HOSTS = new Set(['163.hyc.moe', 'meting.mikus.ink']);
+// 歌词源白名单（src/config/site.ts → music.lyricApiHosts）：
+// 只代理项目歌单 JSON 里实际使用的主机，防止端点被当作开放代理
+const ALLOWED_HOSTS = new Set(siteConfig.music.lyricApiHosts);
 
 export async function GET({ request }) {
   const url = new URL(request.url);

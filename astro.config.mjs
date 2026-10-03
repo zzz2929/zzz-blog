@@ -8,6 +8,32 @@ import { unified } from '@astrojs/markdown-remark';
 
 import cloudflare from '@astrojs/cloudflare';
 
+import { siteConfig } from './src/config/site.ts';
+
+/** Vite plugin: 当 siteConfig.features.i18n.enable 为 false 时，
+ * 把 src/pages/{en,zh-TW} 下的语言页面替换为「跳回主页」，
+ * 无需改动语言页面文件即可彻底关闭多语言 */
+function i18nGatePlugin(disabled) {
+  if (!disabled) return null;
+  const isLocalePage = (id) => {
+    const p = id.replace(/\\/g, '/');
+    return /[\\/]src[\\/]pages[\\/](en|zh-TW)[\\/].*\.astro$/.test(p);
+  };
+  return {
+    name: 'i18n-gate',
+    enforce: 'pre',
+    load(id) {
+      if (!isLocalePage(id)) return;
+      // 动态路由（[...slug] 等）需要空的 getStaticPaths，构建时不产出任何页面
+      if (id.includes('[')) {
+        return '---\nexport function getStaticPaths() { return []; }\n---';
+      }
+      // 静态页面直接重定向回主页
+      return '---\nreturn Astro.redirect("/");\n---';
+    },
+  };
+}
+
 /** Vite plugin: inline navigation SVGs from public/ at build time */
 function navSvgPlugin() {
   return {
@@ -130,20 +156,22 @@ function rehypeGithubAlerts() {
 }
 
 export default defineConfig({
-  site: 'https://blog.904002.xyz',
+  site: siteConfig.url,
   output: 'static',
   session: false,
   integrations: [react(), mdx(), sitemap()],
+  // 多语言配置来自 src/config/site.ts（features.i18n）；prefixDefaultLocale: false
+  // 表示 defaultLocale（zh-CN）不带路径前缀，与站点配置保持一致
   i18n: {
-    defaultLocale: 'zh-CN',
-    locales: ['zh-CN', 'en', 'zh-TW'],
+    defaultLocale: siteConfig.features.i18n.defaultLocale,
+    locales: siteConfig.features.i18n.locales,
     routing: {
       prefixDefaultLocale: false,
     },
   },
 
   vite: {
-    plugins: [tailwindcss(), navSvgPlugin()],
+    plugins: [tailwindcss(), navSvgPlugin(), i18nGatePlugin(!siteConfig.features.i18n.enable)].filter(Boolean),
     resolve: {
       alias: {
         '@': '/src',
@@ -165,8 +193,9 @@ export default defineConfig({
 
   image: {
     service: { entrypoint: 'astro/assets/services/sharp' },
-    // 允许 <Image> 优化远程图床图片（随笔卡片缩略图在开发/构建时按需生成）
-    remotePatterns: [{ hostname: 'imgbed.904002.xyz' }],
+    // 允许 <Image> 优化远程图床图片（随笔卡片缩略图在开发/构建时按需生成）；
+    // 图床域名来自 src/config/site.ts
+    remotePatterns: [{ hostname: siteConfig.imageBedHost }],
   },
 
   markdown: {

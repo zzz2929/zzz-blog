@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import { useTranslations, getLocaleFromURL } from "@/i18n";
+import { siteConfig } from "@/config/site";
 
 const locale = getLocaleFromURL(Astro.url.pathname);
 const t = useTranslations(locale);
@@ -16,7 +17,7 @@ const noticeList = (noticeData[0]?.data.notice_list ?? [])
   .filter((item) => item.content);
 ---
 
-{noticeList.length > 0 && (
+{siteConfig.features.announcement.enable && noticeList.length > 0 && (
   <div
     class="glass-card"
     style="border-radius: 16px; box-shadow: 0 1px 24px rgba(0,0,0,0.1); padding: 20px;"

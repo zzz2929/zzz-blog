@@ -6,17 +6,19 @@ import LyricSettingsPopover from "@/components/astro/LyricSettingsPopover.astro"
 import musicData from "@/content/data/music.json";
 import { useTranslations, getLocaleFromURL } from "@/i18n";
 import { MINI_PLAYER_STORAGE_KEY } from "@/lib/miniPlayerState";
+import { siteConfig } from "@/config/site";
 
 const locale = getLocaleFromURL(Astro.url.pathname);
 const t = useTranslations(locale);
 
-// 加载全部歌单 JSON；新增歌单文件无需改代码（按文件名不区分大小写排序，保持原 UI 顺序）
+// 加载全部歌单 JSON；新增歌单文件无需改代码（按文件名不区分大小写排序，保持原 UI 顺序）；
+// 小歌单在 src/config/site.ts（features.playlists.enable）中统一开关
 const playlistModules = Object.entries(
   import.meta.glob("/src/content/data/playlists/*.json", { eager: true }),
 ).sort(([a], [b]) =>
   a.localeCompare(b, "zh-Hans-CN", { sensitivity: "base" }),
 );
-const playlists = playlistModules.map(([, mod]) => {
+const playlists = (siteConfig.features.playlists.enable ? playlistModules : []).map(([, mod]) => {
   const p = mod.default;
   return {
     name: p.name || t('music.unnamedPlaylist'),
@@ -1832,7 +1834,7 @@ const playlists = playlistModules.map(([, mod]) => {
     window.gsap = gsap;
   </script>
 
-  <script is:inline define:vars={{ musicDataJSON: JSON.stringify(musicData), playlistsJSON: JSON.stringify(playlists), notPlaying: t('music.notPlaying'), selectSong: t('music.selectSong'), noLyrics: t('music.noLyrics'), unknownAlbum: t('music.unknownAlbum'), storageKey: MINI_PLAYER_STORAGE_KEY }}>
+  <script is:inline define:vars={{ musicDataJSON: JSON.stringify(musicData), playlistsJSON: JSON.stringify(playlists), notPlaying: t('music.notPlaying'), selectSong: t('music.selectSong'), noLyrics: t('music.noLyrics'), unknownAlbum: t('music.unknownAlbum'), storageKey: MINI_PLAYER_STORAGE_KEY, defaultVolume: siteConfig.music.defaultVolume, lyricDefaultsJSON: JSON.stringify(siteConfig.music.lyricDefaults) }}>
     window.__MUSIC_DATA__ = JSON.parse(musicDataJSON);
     window.__PLAYLISTS__ = JSON.parse(playlistsJSON);
     window.__MUSIC_T__ = {
@@ -1863,6 +1865,8 @@ const playlists = playlistModules.map(([, mod]) => {
 
     const MUSIC_DATA = window.__MUSIC_DATA__ || [];
     const LYRIC_SETTINGS_KEY = "music-lyric-settings";
+    // 音量与歌词显示默认值来自 src/config/site.ts（music.*）
+    const LYRIC_DEFAULTS = JSON.parse(lyricDefaultsJSON || "{}");
 
     class MusicPlayer {
       constructor() {
@@ -1873,7 +1877,7 @@ const playlists = playlistModules.map(([, mod]) => {
         this.currentIndex = 0;
         this.isPlaying = false;
         this.playMode = 0; // 0=sequential, 1=single loop, 2=shuffle
-        this.volume = 80;
+        this.volume = defaultVolume;
         this.lyrics = [];
         this.translations = [];
         this.lyricsLoadId = 0; // 歌词请求代际号，切歌后作废在途请求
@@ -1887,11 +1891,11 @@ const playlists = playlistModules.map(([, mod]) => {
         this.activeLyricIndex = -1;
         this.activeFullIndex = -1;
         this.lyricOffset = 0; // 正值延后歌词、负值提前，单位秒
-        this.wordByWord = true;
-        this.fontScale = 1; // 歌词字号倍率
-        this.blurEffect = true; // 未唱字模糊效果
-        this.showTranslation = true; // 全屏翻译显示
-        this.autoScroll = true; // 歌词自动跟随滚动
+        this.wordByWord = LYRIC_DEFAULTS.wordByWord ?? true;
+        this.fontScale = LYRIC_DEFAULTS.fontScale ?? 1; // 歌词字号倍率
+        this.blurEffect = LYRIC_DEFAULTS.blurEffect ?? true; // 未唱字模糊效果
+        this.showTranslation = LYRIC_DEFAULTS.showTranslation ?? true; // 全屏翻译显示
+        this.autoScroll = LYRIC_DEFAULTS.autoScroll ?? true; // 歌词自动跟随滚动
         this.audioCtx = null; // 真实频谱：Web Audio 图
         this.analyser = null;
         this.freqData = null;

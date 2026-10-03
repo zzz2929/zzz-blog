@@ -97,6 +97,10 @@ const filteredHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 6);
 
 <script>
   import tocbot from 'tocbot';
+  import { siteConfig } from '@/config/site';
+
+  // 目录参数来自 src/config/site.ts（features.toc）
+  const tocConfig = siteConfig.features.toc;
 
   // 目录较长时，让当前激活项保持可见
   function keepActiveInView() {
@@ -124,11 +128,11 @@ const filteredHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 6);
     tocbot.init({
       tocSelector: '#toc',
       contentSelector: '.prose',
-      headingSelector: 'h2, h3, h4, h5, h6',
-      headingsOffset: 90,
+      headingSelector: tocConfig.headingSelector,
+      headingsOffset: tocConfig.headingsOffset,
       scrollSmooth: true,
-      scrollSmoothDuration: 300,
-      collapseDepth: 6,
+      scrollSmoothDuration: tocConfig.scrollSmoothDuration,
+      collapseDepth: tocConfig.collapseDepth,
       scrollEndCallback: keepActiveInView,
     });
   }
