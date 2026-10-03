@@ -24,7 +24,7 @@ export const siteConfig = {
   description: {
     "zh-CN": "zzz 的个人博客",
     en: "zzz's personal blog",
-    "zh-TW": "zzz 的個人部落格",
+    "zh-TW": "zzz 的个人博客",
   },
   // 头像图片地址（首页侧栏）
   avatar: "https://imgbed.904002.xyz/file/img/blog/avatar/zzz.webp",
@@ -139,7 +139,6 @@ export const siteConfig = {
   },
 
   /* ===================== 访问统计 ===================== */
-  // 留空字符串 "" 即关闭对应统计
   analytics: {
     baidu: "bdcde57860cd04260d3dfed9da4c398a",
     google: "",
@@ -149,7 +148,6 @@ export const siteConfig = {
   },
 
   /* ===================== 社交链接（首页侧栏）===================== */
-  // 留空字符串 "" 则不显示对应图标
   social: {
     github: "https://github.com/zzz2929",
     bilibili: "https://space.bilibili.com/1288479902",
@@ -168,7 +166,6 @@ export const siteConfig = {
   //   1. i18n key（如 "nav.posts"），翻译在 src/i18n/*.json 中维护，随语言切换
   //   2. 直接写文字（任意语言显示同一文字，t() 未命中 key 时原样返回）
   // href 以 / 开头（自动带上语言前缀）；icon 为 public/ 下的图标路径（构建时内联 SVG）。
-  // 可自由增删、排序。
   nav: {
     menu: [
       {
@@ -204,7 +201,7 @@ export const siteConfig = {
   },
 
   /* ===================== 顶部导航「站点切换」外链 ===================== */
-  // 可自由增删；icon 支持远程图片地址或 public/ 下的本地图标路径
+  // icon 支持远程图片地址或 public/ 下的本地图标路径
   siteLinks: [
     {
       name: "博客",
