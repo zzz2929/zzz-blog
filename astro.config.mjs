@@ -163,7 +163,19 @@ export default defineConfig({
   site: siteConfig.url,
   output: 'static',
   session: false,
-  integrations: [react(), mdx(), sitemap()],
+  integrations: [
+    react(),
+    mdx(),
+    // sitemap 生成 hreflang 互指（与 features.i18n 的三语配置保持一致）
+    sitemap({
+      i18n: {
+        defaultLocale: siteConfig.features.i18n.defaultLocale,
+        locales: Object.fromEntries(
+          siteConfig.features.i18n.locales.map((l) => [l, l]),
+        ),
+      },
+    }),
+  ],
   // 多语言配置来自 src/config/site.ts（features.i18n）；prefixDefaultLocale: false
   // 表示 defaultLocale（zh-CN）不带路径前缀，与站点配置保持一致
   i18n: {
@@ -216,5 +228,7 @@ export default defineConfig({
   },
 
   // adapter 仅在 build/preview 时加载
-  adapter: isDev ? undefined : cloudflare({ imageService: 'compile' }),
+  // prerenderEnvironment: 'node' —— 预渲染页面多时 workerd 固定 ~1.4GB 堆会 OOM
+  //（scripts/build.mjs 里用 NODE_OPTIONS 把 Node 堆调到 4GB 解决）
+  adapter: isDev ? undefined : cloudflare({ imageService: 'compile', prerenderEnvironment: 'node' }),
 });

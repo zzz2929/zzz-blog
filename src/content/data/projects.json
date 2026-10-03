@@ -1,0 +1,45 @@
+[
+  {
+    "name": "zzz-blog",
+    "description": "基于 Astro 的个人博客：玻璃拟态设计、三语言、音乐播放器与逐字歌词、全文搜索，部署在 Cloudflare Pages。",
+    "link": "https://blog.904002.xyz",
+    "repo": "https://github.com/zzz2929",
+    "tags": ["Astro", "TypeScript", "Tailwind CSS"],
+    "year": 2025
+  },
+  {
+    "name": "easy_cover",
+    "description": "在线封面图生成工具，快速产出文章与视频封面。",
+    "link": "https://cover.904002.xyz/",
+    "tags": ["工具", "在线服务"],
+    "year": 2024
+  },
+  {
+    "name": "ConvertX",
+    "description": "自部署的在线文件格式转换服务，支持多种格式互转。",
+    "link": "https://convertx-fn.904002.xyz/",
+    "tags": ["自托管", "Docker"],
+    "year": 2024
+  },
+  {
+    "name": "Openlist",
+    "description": "网盘聚合与文件列表服务，统一管理多云盘资源。",
+    "link": "https://openlist.904002.xyz/",
+    "tags": ["自托管", "网盘"],
+    "year": 2024
+  },
+  {
+    "name": "Meting API",
+    "description": "音乐 API 代理服务，为博客播放器提供音源与歌词数据。",
+    "link": "https://fn-metingapi.904002.xyz:7999",
+    "tags": ["API", "Node.js"],
+    "year": 2024
+  },
+  {
+    "name": "Home Assistant",
+    "description": "智能家居自动化平台，联动米家设备与传感器。",
+    "link": "https://ha-fn.904002.xyz/",
+    "tags": ["智能家居", "自动化"],
+    "year": 2024
+  }
+]

@@ -1,14 +1,18 @@
 /**
  * Fetch TMDB data for bangumis and merge into bangumis.json in-place.
- * Run: node scripts/fetch-tmdb.mjs
- * Requires env: TMDB_API_KEY (optional, has fallback)
+ * Run: TMDB_API_KEY=xxx node scripts/fetch-tmdb.mjs
+ * Requires env: TMDB_API_KEY（不再内置明文 key，请在环境变量中提供）
  */
 import { readFileSync, writeFileSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const API_KEY = process.env.TMDB_API_KEY || '402c4ffcbe4d46066a9e8e2afe6d80f1';
+const API_KEY = process.env.TMDB_API_KEY;
+if (!API_KEY) {
+  console.error('缺少环境变量 TMDB_API_KEY。请设置后重跑，例如：\n  TMDB_API_KEY=你的key node scripts/fetch-tmdb.mjs');
+  process.exit(1);
+}
 const BASE = 'https://api.themoviedb.org/3';
 const IMG = 'https://image.tmdb.org/t/p/w500';
 const SLEEP = 250;

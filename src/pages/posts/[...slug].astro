@@ -11,35 +11,106 @@ import { formatDate } from "@/lib/posts";
 import { optimizedRemoteImage } from "@/lib/remoteImage";
 import { useTranslations, getLocaleFromURL } from "@/i18n";
 import { siteConfig } from "@/config/site";
+import { readingMinutes } from "@/lib/postStats";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
-  return posts.map((post) => ({
+  const posts = (await getCollection("blog")).sort(
+    (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+  );
+  return posts.map((post, i) => ({
     params: { slug: post.id },
-    props: { post },
+    props: {
+      post,
+      prevPost: posts[i + 1] ?? null, // 发布更早的一篇
+      nextPost: posts[i - 1] ?? null, // 更新的一篇
+    },
   }));
 }
 
-const { post } = Astro.props;
+const { post, prevPost, nextPost } = Astro.props;
 const { Content, headings } = await render(post);
 
 // 头图是文章页 LCP：服务端预优化到 ≤1600px 等比图，避免直出原图（可达数 MB）
 const coverOptimized = post.data.cover
   ? await optimizedRemoteImage(post.data.cover, 1600)
   : null;
+// 无封面时分享缩略图退到构建期生成的 OG 标题图（src/pages/og/[...slug].png.ts）
+const ogImage =
+  post.data.cover ? (coverOptimized?.src ?? post.data.cover) : `/og/posts/${post.id}.png`;
 
 const locale = getLocaleFromURL(Astro.url.pathname);
 const t = useTranslations(locale);
 const prefix = locale === "zh-CN" ? "" : `/${locale}`;
 const categoryHref = (cat) => `${prefix}/categories/${encodeURIComponent(cat)}`;
+
+// 阅读时长：按 CJK 字符 + 英文单词数估算（约 400 字/分钟）
+const readingMinutesValue = readingMinutes(post.body ?? "");
+
+// 相关文章：分类权重 ×2、标签权重 ×1，取前 3 篇
+const relatedPosts = (await getCollection("blog"))
+  .filter((p) => p.id !== post.id)
+  .map((p) => ({
+    post: p,
+    score:
+      p.data.categories.filter((c) => post.data.categories.includes(c)).length * 2 +
+      p.data.tags.filter((tag) => post.data.tags.includes(tag)).length,
+  }))
+  .filter((x) => x.score > 0)
+  .sort(
+    (a, b) =>
+      b.score - a.score || b.post.data.date.valueOf() - a.post.data.date.valueOf(),
+  )
+  .slice(0, 3);
+
+// JSON-LD 结构化数据（搜索结果富摘要）
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: post.data.title,
+  description: post.data.description,
+  image: new URL(ogImage, Astro.site).toString(),
+  datePublished: post.data.date.toISOString(),
+  dateModified: (post.data.updated ?? post.data.date).toISOString(),
+  author: { "@type": "Person", name: siteConfig.author },
+  publisher: { "@type": "Organization", name: siteConfig.title },
+  mainEntityOfPage: new URL(Astro.url.pathname, Astro.site).toString(),
+};
 ---
 
 <BaseLayout
   title={post.data.title}
   description={post.data.description}
-  image={post.data.cover}
+  image={ogImage}
 >
   <Header />
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <!-- Reading progress bar -->
+  <div id="reading-progress" aria-hidden="true"></div>
+  <script is:inline>
+    (function () {
+      var bar = document.getElementById("reading-progress");
+      var ticking = false;
+      function update() {
+        var doc = document.documentElement;
+        var max = doc.scrollHeight - window.innerHeight;
+        var pct = max > 0 ? Math.min(1, window.scrollY / max) : 0;
+        bar.style.transform = "scaleX(" + pct + ")";
+        ticking = false;
+      }
+      window.addEventListener(
+        "scroll",
+        function () {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(update);
+        },
+        { passive: true },
+      );
+      window.addEventListener("resize", update, { passive: true });
+      update();
+    })();
+  </script>
 
   <main
     class="mx-auto px-[16px] pt-[20px] pb-[20px]"
@@ -82,6 +153,10 @@ const categoryHref = (cat) => `${prefix}/categories/${encodeURIComponent(cat)}`;
               <time datetime={post.data.date.toISOString()}
                 >{formatDate(post.data.date, locale)}</time
               >
+              <span class="opacity-30">·</span>
+              <span>
+                {t("post.readtime.prev")} {readingMinutesValue} {t("post.readtime.next")}
+              </span>
               {
                 post.data.updated && (
                   <>
@@ -147,6 +222,10 @@ const categoryHref = (cat) => `${prefix}/categories/${encodeURIComponent(cat)}`;
             <time datetime={post.data.date.toISOString()}
               >{formatDate(post.data.date, locale)}</time
             >
+            <span class="opacity-30">·</span>
+            <span>
+              {t("post.readtime.prev")} {readingMinutesValue} {t("post.readtime.next")}
+            </span>
             {
               post.data.updated && (
                 <>
@@ -199,12 +278,53 @@ const categoryHref = (cat) => `${prefix}/categories/${encodeURIComponent(cat)}`;
       <!-- Content card -->
       <div
         class="prose-card min-w-0 flex-1 glass-card"
+        data-pagefind-body
         style="border-radius: 16px; box-shadow: 0 1px 24px rgba(0,0,0,0.1); padding: 16px 20px"
       >
         <PostExpiryAlert updated={post.data.updated} t={t} />
         <div class="prose">
           <Content />
         </div>
+        {
+          siteConfig.features.copyright.enable && (
+            <div class="post-copyright">
+              <p>
+                {t("post.copyright.author")}
+                <a href={siteConfig.url} target="_blank" rel="noopener noreferrer">
+                  {siteConfig.author}
+                </a>
+              </p>
+              <p>
+                {t("post.copyright.link")}
+                <a
+                  href={new URL(Astro.url.pathname, Astro.site).toString()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {new URL(Astro.url.pathname, Astro.site).toString()}
+                </a>
+              </p>
+              <p>
+                {t("post.copyright.license")}
+                {siteConfig.features.copyright.license}
+              </p>
+            </div>
+          )
+        }
+        {
+          siteConfig.features.donate.enable && siteConfig.features.donate.qrImage && (
+            <div class="post-donate">
+              <p class="text-sm font-medium text-foreground">{t("donate.title")}</p>
+              <img
+                src={siteConfig.features.donate.qrImage}
+                alt={t("donate.title")}
+                width="200"
+                height="200"
+                loading="lazy"
+              />
+            </div>
+          )
+        }
       </div>
 
       <!-- TOC sidebar（src/config/site.ts → features.toc.enable）-->
@@ -230,6 +350,60 @@ const categoryHref = (cat) => `${prefix}/categories/${encodeURIComponent(cat)}`;
       </button>
     )}
 
+    <!-- Prev / Next post -->
+    {
+      (prevPost || nextPost) && (
+        <div class="mt-[20px] grid gap-[20px] sm:grid-cols-2">
+          <div>
+            {prevPost && (
+              <a
+                href={`${prefix}/posts/${prevPost.id}/`}
+                class="post-nav-card glass-card block h-full"
+              >
+                <span class="post-nav-label">← {t("post.prev")}</span>
+                <span class="post-nav-title">{prevPost.data.title}</span>
+              </a>
+            )}
+          </div>
+          <div>
+            {nextPost && (
+              <a
+                href={`${prefix}/posts/${nextPost.id}/`}
+                class="post-nav-card glass-card block h-full text-right"
+              >
+                <span class="post-nav-label">{t("post.next")} →</span>
+                <span class="post-nav-title">{nextPost.data.title}</span>
+              </a>
+            )}
+          </div>
+        </div>
+      )
+    }
+
+    <!-- Related posts -->
+    {
+      relatedPosts.length > 0 && (
+        <div class="mt-[20px] glass-card" style="border-radius: 16px; box-shadow: 0 1px 24px rgba(0,0,0,0.1); padding: 16px 20px">
+          <h3 class="mb-3 flex items-center gap-2 text-lg font-semibold text-foreground">
+            <span class="inline-block h-5 w-1 rounded-full" style="background: linear-gradient(180deg, var(--color-primary), var(--color-accent));" />
+            {t("post.related")}
+          </h3>
+          <div class="grid gap-3 sm:grid-cols-3">
+            {relatedPosts.map(({ post: rel }) => (
+              <a href={`${prefix}/posts/${rel.id}/`} class="related-card">
+                <span class="text-sm font-medium text-foreground transition-colors hover:text-primary line-clamp-2">
+                  {rel.data.title}
+                </span>
+                <time class="mt-1 block text-xs text-foreground-muted" datetime={rel.data.date.toISOString()}>
+                  {formatDate(rel.data.date, locale)}
+                </time>
+              </a>
+            ))}
+          </div>
+        </div>
+      )
+    }
+
     <!-- Comments -->
     <Comments />
   </main>
@@ -237,6 +411,95 @@ const categoryHref = (cat) => `${prefix}/categories/${encodeURIComponent(cat)}`;
   <Footer />
 
   <style is:global>
+    /* ====== 阅读进度条 ====== */
+    #reading-progress {
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+      z-index: 10000;
+      height: 3px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+      transform: scaleX(0);
+      transform-origin: 0 50%;
+      pointer-events: none;
+    }
+
+    /* ====== 文末版权 / 赞赏 ====== */
+    .post-copyright {
+      margin-top: 1.5rem;
+      padding: 0.75rem 1rem;
+      border-radius: 0.75rem;
+      background: rgba(66, 90, 239, 0.06);
+      border: 1px dashed rgba(66, 90, 239, 0.25);
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: var(--color-foreground-muted);
+    }
+    .post-copyright p {
+      margin: 0;
+    }
+    .post-copyright a {
+      color: var(--color-primary);
+      margin: 0 0.15rem;
+    }
+    .dark .post-copyright {
+      background: rgba(66, 90, 239, 0.08);
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+    .post-donate {
+      margin-top: 2rem;
+      text-align: center;
+    }
+    .post-donate img {
+      margin: 0.75rem auto 0;
+      border-radius: 0.75rem;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    /* ====== 上一篇 / 下一篇 ====== */
+    .post-nav-card {
+      border-radius: 16px;
+      padding: 14px 18px;
+      transition: all 0.3s ease;
+    }
+    .post-nav-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    }
+    .post-nav-label {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--color-foreground-muted);
+      margin-bottom: 4px;
+    }
+    .post-nav-title {
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--color-foreground);
+    }
+    .post-nav-card:hover .post-nav-title {
+      color: var(--color-primary);
+    }
+
+    /* ====== 相关文章 ====== */
+    .related-card {
+      display: block;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--color-border);
+      transition: all 0.25s ease;
+    }
+    .related-card:hover {
+      border-color: rgba(66, 90, 239, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    }
+
     .dark .prose-card {
       background: linear-gradient(
         135deg,

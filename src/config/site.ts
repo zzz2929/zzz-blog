@@ -119,6 +119,17 @@ export const siteConfig = {
 
     /* ---- RSS（页脚链接 + /rss.xml 订阅源）---- */
     rss: { enable: true },
+
+    /* ---- 文末版权声明 ---- */
+    copyright: {
+      enable: true,
+      // 许可协议文案，显示在文章末尾的版权块中
+      license: "CC BY-NC-SA 4.0",
+    },
+
+    /* ---- 文末赞赏 ----
+     * enable 开启后文章末尾显示收款码；qrImage 填收款码图片地址（建议正方形） */
+    donate: { enable: false, qrImage: "" },
   },
 
   /* ===================== 页脚 ===================== */
@@ -171,8 +182,10 @@ export const siteConfig = {
       {
         label: "nav.posts",
         children: [
+          { name: "nav.search", href: "/search/", icon: "/navigation/搜索.svg" },
           { name: "nav.archive", href: "/archives/", icon: "/navigation/归档.svg" },
           { name: "nav.categories", href: "/categories/", icon: "/navigation/分类.svg" },
+          { name: "nav.tags", href: "/tags/", icon: "/navigation/标签.svg" },
         ],
       },
       {
@@ -195,6 +208,8 @@ export const siteConfig = {
           { name: "nav.aboutMe", href: "/about/", icon: "/navigation/关于本人.svg" },
           { name: "nav.essay", href: "/essay/", icon: "/navigation/闲言碎语.svg" },
           { name: "nav.equipment", href: "/equipment/", icon: "/navigation/我的装备.svg" },
+          { name: "nav.projects", href: "/projects/", icon: "/navigation/项目.svg" },
+          { name: "nav.stats", href: "/stats/", icon: "/navigation/统计.svg" },
         ],
       },
     ],

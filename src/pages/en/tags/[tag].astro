@@ -1,0 +1,14 @@
+---
+import TagDetail from '../../tags/[tag].astro';
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  const tags = new Set<string>();
+  for (const post of posts) {
+    for (const tag of post.data.tags) tags.add(tag);
+  }
+  return [...tags].map((tag) => ({ params: { tag } }));
+}
+---
+<TagDetail />

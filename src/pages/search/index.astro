@@ -1,0 +1,127 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Header from "@/components/astro/Header.astro";
+import Footer from "@/components/astro/Footer.astro";
+import { useTranslations, getLocaleFromURL } from "@/i18n";
+
+const locale = getLocaleFromURL(Astro.url.pathname);
+const t = useTranslations(locale);
+---
+
+<BaseLayout title={t("search.title")}>
+  <Header />
+  <main
+    class="mx-auto max-w-[1152px] px-4 pt-[20px] pb-[20px] sm:px-6"
+    data-pagefind-ignore
+  >
+    <h1 class="mb-6 text-3xl font-bold text-foreground">🔍 {t("search.title")}</h1>
+
+    <div class="relative">
+      <input
+        id="pf-input"
+        type="text"
+        autocomplete="off"
+        placeholder={t("search.placeholder")}
+        class="glass-card w-full px-5 py-3.5 text-base text-foreground outline-none transition-shadow placeholder:text-foreground-muted focus:shadow-[0_0_0_2px_var(--color-primary)]"
+        style="border-radius: 9999px;"
+      />
+    </div>
+
+    <p id="pf-hint" class="mt-4 text-sm text-foreground-muted">
+      {t("search.hint")}
+    </p>
+    <p
+      id="pf-empty"
+      class="mt-4 text-sm text-foreground-muted"
+      style="display: none;"
+      data-empty={t("search.empty")}
+      data-no-index={t("search.noIndex")}
+    ></p>
+    <div id="pf-results" class="mt-6 space-y-3"></div>
+  </main>
+  <Footer />
+
+  <script>
+    // Pagefind 索引由构建脚本生成（dist/client/pagefind）；
+    // dev 模式下索引不存在，会显示「先构建」提示
+    const input = document.getElementById("pf-input");
+    const resultsEl = document.getElementById("pf-results");
+    const hintEl = document.getElementById("pf-hint");
+    const emptyEl = document.getElementById("pf-empty");
+    const textEmpty = emptyEl.dataset.empty;
+    const textNoIndex = emptyEl.dataset.noIndex;
+    let pagefind = null;
+    let timer = 0;
+
+    async function run() {
+      const q = input.value.trim();
+      resultsEl.innerHTML = "";
+      emptyEl.style.display = "none";
+      if (!q) {
+        hintEl.style.display = "";
+        return;
+      }
+      hintEl.style.display = "none";
+      let pf;
+      try {
+        // 1) 运行时构造 URL、2) new Function 间接导入：
+        //    字面量动态导入会被 vite 注入 __VITE_PRELOAD__,而本脚本被内联进 HTML
+        //    后该助手未定义,会直接 ReferenceError 走进兜底分支
+        const pagefindUrl = new URL("pagefind/pagefind.js", window.location.origin).href;
+        const dynamicImport = new Function("u", "return import(u)");
+        pf = pagefind ??= await dynamicImport(pagefindUrl);
+      } catch {
+        emptyEl.textContent = textNoIndex;
+        emptyEl.style.display = "";
+        return;
+      }
+      const res = await pf.search(q, {
+        locales: [document.documentElement.lang.toLowerCase()],
+      });
+      if (!res.results.length) {
+        emptyEl.textContent = textEmpty;
+        emptyEl.style.display = "";
+        return;
+      }
+      const data = await Promise.all(
+        res.results.slice(0, 12).map((r) => r.data()),
+      );
+      for (const d of data) {
+        const a = document.createElement("a");
+        a.href = d.url;
+        a.className = "pf-result glass-card block";
+        const title = document.createElement("div");
+        title.className = "font-medium text-foreground";
+        title.textContent = d.meta?.title || d.url;
+        const excerpt = document.createElement("p");
+        excerpt.className = "mt-1 text-sm text-foreground-muted";
+        excerpt.innerHTML = d.excerpt || "";
+        a.append(title, excerpt);
+        resultsEl.appendChild(a);
+      }
+    }
+
+    input.addEventListener("input", () => {
+      clearTimeout(timer);
+      timer = setTimeout(run, 200);
+    });
+  </script>
+
+  <style>
+    .pf-result {
+      border-radius: 14px;
+      padding: 14px 18px;
+      transition: all 0.25s ease;
+    }
+    .pf-result:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    }
+    .pf-result :global(mark) {
+      background: rgba(66, 90, 239, 0.18);
+      color: var(--color-primary);
+      border-radius: 3px;
+      padding: 0 2px;
+    }
+  </style>
+</BaseLayout>

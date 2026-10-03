@@ -37,7 +37,10 @@ const playlists = (siteConfig.features.playlists.enable ? playlistModules : []).
 
 <BaseLayout title={t('music.title')}>
   <Header />
-  <main class="mx-auto max-w-[1152px] px-4 pt-[20px] pb-[20px] sm:px-6 lg:px-8">
+  <main
+    class="mx-auto max-w-[1152px] px-4 pt-[20px] pb-[20px] sm:px-6 lg:px-8"
+    data-pagefind-ignore
+  >
     <!-- Hero Section -->
     <div class="mb-8">
       <h1 class="text-4xl font-bold text-foreground tracking-tight">{t('music.title')}</h1>
@@ -2012,6 +2015,27 @@ const playlists = (siteConfig.features.playlists.enable ? playlistModules : []).
           this.prevBtn.addEventListener("click", () => this.prev());
         if (this.nextBtn)
           this.nextBtn.addEventListener("click", () => this.next());
+
+        // 系统媒体键 / 锁屏控制（MediaSession）
+        if ("mediaSession" in navigator) {
+          navigator.mediaSession.setActionHandler("play", () =>
+            this.audio.play().catch(() => {}),
+          );
+          navigator.mediaSession.setActionHandler("pause", () =>
+            this.audio.pause(),
+          );
+          navigator.mediaSession.setActionHandler("previoustrack", () =>
+            this.prev(),
+          );
+          navigator.mediaSession.setActionHandler("nexttrack", () =>
+            this.next(),
+          );
+          navigator.mediaSession.setActionHandler("seekto", (details) => {
+            if (details.seekTime != null && isFinite(this.audio.duration)) {
+              this.audio.currentTime = details.seekTime;
+            }
+          });
+        }
         if (this.muteBtn)
           this.muteBtn.addEventListener("click", () => this.toggleMute());
         if (this.volumeSlider)
@@ -2146,12 +2170,28 @@ const playlists = (siteConfig.features.playlists.enable ? playlistModules : []).
         }
 
         // Audio events
-        this.audio.addEventListener("timeupdate", () => this.updateProgress());
+        this.audio.addEventListener("timeupdate", () => {
+          this.updateProgress();
+          // 同步系统媒体会话的播放进度（蓝牙耳机/锁屏进度条）
+          if ("mediaSession" in navigator && isFinite(this.audio.duration)) {
+            try {
+              navigator.mediaSession.setPositionState({
+                duration: this.audio.duration,
+                playbackRate: this.audio.playbackRate,
+                position: this.audio.currentTime,
+              });
+            } catch (e) {
+              /* 时长异常时跳过本次同步 */
+            }
+          }
+        });
         this.audio.addEventListener("play", () => {
           if (window.gsap) window.gsap.ticker.add(this._lyricTick);
           if (window.gsap) window.gsap.ticker.add(this._spectrumTick);
           // 标签页切回等场景下 AudioContext 可能被挂起，恢复它否则音频静音
           if (this.audioCtx) this.audioCtx.resume().catch(() => {});
+          if ("mediaSession" in navigator)
+            navigator.mediaSession.playbackState = "playing";
         });
         this.audio.addEventListener("pause", () => {
           if (window.gsap) window.gsap.ticker.remove(this._lyricTick);
@@ -2164,6 +2204,8 @@ const playlists = (siteConfig.features.playlists.enable ? playlistModules : []).
             this.waveBars.forEach((b, i) => {
               b.style.height = 8 + (i % 4) * 2 + "%";
             });
+          if ("mediaSession" in navigator)
+            navigator.mediaSession.playbackState = "paused";
         });
         this.audio.addEventListener("error", () => {
           // 个别音源链路不支持 CORS 时 crossOrigin 会让加载直接失败：
@@ -2529,6 +2571,16 @@ const playlists = (siteConfig.features.playlists.enable ? playlistModules : []).
         this.fixedAlbumCover.src = song.cover;
         this.fixedSongTitle.textContent = song.title;
         this.fixedSongArtist.textContent = song.artist;
+
+        // 系统媒体会话：锁屏 / 媒体键面板显示歌曲信息与封面
+        if ("mediaSession" in navigator) {
+          navigator.mediaSession.metadata = new MediaMetadata({
+            title: song.title,
+            artist: song.artist,
+            album: song.album || T.unknownAlbum,
+            artwork: song.cover ? [{ src: song.cover, sizes: "512x512" }] : [],
+          });
+        }
 
         this.updateBackground();
         document

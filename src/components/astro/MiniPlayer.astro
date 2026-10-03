@@ -529,6 +529,20 @@ const t = useTranslations(locale);
         updatePlayState();
       }
 
+      // 系统媒体键（MediaSession）：非音乐页由迷你播放器接管系统控制
+      if ("mediaSession" in navigator) {
+        navigator.mediaSession.setActionHandler("play", () =>
+          audio.play().catch(() => {}),
+        );
+        navigator.mediaSession.setActionHandler("pause", () => audio.pause());
+        navigator.mediaSession.setActionHandler("previoustrack", () =>
+          navigate(-1),
+        );
+        navigator.mediaSession.setActionHandler("nexttrack", () =>
+          navigate(1),
+        );
+      }
+
       // Play/Pause
       elements.playBtn.addEventListener("click", (e) => {
         e.stopPropagation();
@@ -656,6 +670,14 @@ const t = useTranslations(locale);
       elements.coverHover.src = state.cover;
       elements.title.textContent = state.title || (el?.dataset.tNotPlaying ?? "未播放");
       elements.artist.textContent = state.artist || (el?.dataset.tSelectSong ?? "选择歌曲开始播放");
+      // 锁屏 / 媒体键面板显示当前歌曲
+      if ("mediaSession" in navigator && state.url) {
+        navigator.mediaSession.metadata = new MediaMetadata({
+          title: state.title,
+          artist: state.artist,
+          artwork: state.cover ? [{ src: state.cover, sizes: "512x512" }] : [],
+        });
+      }
     }
 
     function updatePlayState() {

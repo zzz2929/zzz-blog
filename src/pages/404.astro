@@ -1,0 +1,94 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Header from "@/components/astro/Header.astro";
+import Footer from "@/components/astro/Footer.astro";
+
+// 404.html 会被托管方用于所有未匹配路径，语言在前端按实际访问路径切换
+const localeTexts = {
+  "zh-CN": {
+    title: "页面走丢了",
+    hint: "你要找的页面不存在，或者已经被移动到了别处。",
+    home: "返回首页",
+    archives: "浏览文章",
+  },
+  "zh-TW": {
+    title: "頁面走丟了",
+    hint: "你要找的頁面不存在，或者已經被移動到了別處。",
+    home: "返回首頁",
+    archives: "瀏覽文章",
+  },
+  en: {
+    title: "Page not found",
+    hint: "The page you are looking for doesn't exist or has been moved.",
+    home: "Back to home",
+    archives: "Browse posts",
+  },
+} as const;
+
+const prefix = "/archives";
+---
+
+<BaseLayout title={`404`}>
+  <Header />
+  <main
+    class="flex min-h-[60vh] items-center justify-center px-4 pt-[20px] pb-[20px]"
+  >
+    <div
+      class="notfound-card glass-card w-full max-w-[520px] text-center"
+      style="border-radius: 16px; box-shadow: 0 1px 24px rgba(0,0,0,0.1); padding: 48px 32px;"
+    >
+      <p class="text-6xl font-bold tracking-tight text-primary">404</p>
+      <h1 class="mt-4 text-2xl font-bold text-foreground" data-404="title">
+        页面走丢了
+      </h1>
+      <p class="mt-2 text-sm text-foreground-muted" data-404="hint">
+        你要找的页面不存在，或者已经被移动到了别处。
+      </p>
+      <div class="mt-8 flex items-center justify-center gap-3">
+        <a
+          href="/"
+          class="rounded-full bg-primary px-5 py-2 text-sm font-medium text-white transition-opacity hover:opacity-90"
+          data-404="home"
+          data-404-home-href="/"
+          >返回首页</a
+        >
+        <a
+          href={prefix}
+          class="rounded-full border border-border px-5 py-2 text-sm font-medium text-foreground transition-colors hover:text-primary"
+          data-404="archives"
+          >浏览文章</a
+        >
+      </div>
+    </div>
+  </main>
+  <Footer />
+
+  <script is:inline>
+    (function () {
+      var match = location.pathname.match(/^\/(en|zh-TW)(\/|$)/);
+      var locale = match ? match[1] : "zh-CN";
+      if (locale === "zh-CN") return;
+      var texts = {
+        en: {
+          title: "Page not found",
+          hint: "The page you are looking for doesn't exist or has been moved.",
+          home: "Back to home",
+          archives: "Browse posts",
+        },
+        "zh-TW": {
+          title: "頁面走丟了",
+          hint: "你要找的頁面不存在，或者已經被移動到了別處。",
+          home: "返回首頁",
+          archives: "瀏覽文章",
+        },
+      }[locale];
+      if (!texts) return;
+      document.querySelector("[data-404='title']").textContent = texts.title;
+      document.querySelector("[data-404='hint']").textContent = texts.hint;
+      var homeLink = document.querySelector("[data-404='home']");
+      homeLink.textContent = texts.home;
+      var archLink = document.querySelector("[data-404='archives']");
+      archLink.textContent = texts.archives;
+    })();
+  </script>
+</BaseLayout>

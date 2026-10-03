@@ -1,0 +1,73 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Header from "@/components/astro/Header.astro";
+import Footer from "@/components/astro/Footer.astro";
+import { getCollection } from "astro:content";
+import { useTranslations, getLocaleFromURL } from "@/i18n";
+
+const locale = getLocaleFromURL(Astro.url.pathname);
+const t = useTranslations(locale);
+const prefix = locale === "zh-CN" ? "" : `/${locale}`;
+
+const posts = await getCollection("blog");
+const tagCounts = new Map<string, number>();
+for (const post of posts) {
+  for (const tag of post.data.tags) {
+    tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
+  }
+}
+// 按文章数降序，再按名称排序
+const tags = [...tagCounts.entries()].sort(
+  ([a, ca], [b, cb]) => cb - ca || a.localeCompare(b, "zh-Hans-CN"),
+);
+const maxCount = tags[0]?.[1] ?? 1;
+---
+
+<BaseLayout title={t("tags.title")}>
+  <Header />
+  <main class="mx-auto max-w-[1152px] px-4 pt-[20px] pb-[20px] sm:px-6">
+    <h1 class="mb-2 text-3xl font-bold text-foreground">🏷️ {t("tags.title")}</h1>
+    <p class="mb-8 text-muted">
+      {t("categories.count").replace("{count}", String(posts.length))}
+    </p>
+
+    <div class="flex flex-wrap items-baseline gap-3">
+      {
+        tags.map(([tag, count]) => (
+          <a
+            href={`${prefix}/tags/${encodeURIComponent(tag)}/`}
+            class="tag-item glass-card transition-all hover:-translate-y-0.5"
+            style={`font-size: ${0.85 + (count / maxCount) * 0.7}rem;`}
+          >
+            #{tag}
+            <span class="tag-count">{count}</span>
+          </a>
+        ))
+      }
+    </div>
+  </main>
+  <Footer />
+
+  <style>
+    .tag-item {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.4rem;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      color: var(--color-foreground);
+      border: 1px solid var(--color-border);
+    }
+    .tag-item:hover {
+      color: var(--color-primary);
+      border-color: rgba(66, 90, 239, 0.35);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    }
+    .tag-count {
+      font-size: 0.7em;
+      font-weight: 500;
+      color: var(--color-foreground-muted);
+    }
+  </style>
+</BaseLayout>
