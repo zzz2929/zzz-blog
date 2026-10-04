@@ -51,6 +51,21 @@ function navSvgPlugin() {
       });
       return `export default { ${entries.join(', ')} }`;
     },
+    // dev 下监听 svg 变化并使虚拟模块失效,图标改动即时生效(否则一直用启动时的旧内容)
+    configureServer(server) {
+      const navDir = 'public/navigation';
+      server.watcher.add(navDir);
+      const invalidate = (p) => {
+        if (p.replace(/\\/g, '/').includes('/public/navigation/')) {
+          for (const mod of server.moduleGraph.getModulesByFileId('\0virtual:nav-svgs') || []) {
+            server.moduleGraph.invalidateModule(mod);
+          }
+        }
+      };
+      server.watcher.on('change', invalidate);
+      server.watcher.on('add', invalidate);
+      server.watcher.on('unlink', invalidate);
+    },
   };
 }
 

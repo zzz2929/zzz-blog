@@ -17,7 +17,20 @@ const FONT_CACHE = join(ROOT, '.astro/fonts/NotoSansSC-Regular.otf');
 const FONT_URL =
   'https://cdn.jsdelivr.net/gh/googlefonts/noto-cjk@main/Sans/SubsetOTF/SC/NotoSansSC-Regular.otf';
 
-const SITE = { title: 'zzz-blog', author: 'zzz' };
+// 站点名/作者来自 src/config/site.ts（Node ≥22.18 原生支持导入 TS;
+// 更旧版本自动回退为正则解析,保证 OG 步骤不阻塞构建）
+async function loadSiteMeta() {
+  try {
+    const { siteConfig } = await import('../src/config/site.ts');
+    return { title: siteConfig.title, author: siteConfig.author };
+  } catch {
+    const src = readFileSync(join(ROOT, 'src/config/site.ts'), 'utf-8');
+    return {
+      title: src.match(/title:\s*"([^"]+)"/)?.[1] || 'Blog',
+      author: src.match(/author:\s*"([^"]+)"/)?.[1] || '',
+    };
+  }
+}
 
 async function loadFont() {
   if (existsSync(FONT_CACHE)) return readFileSync(FONT_CACHE);
@@ -78,6 +91,7 @@ function collectPosts() {
 import { readdirSync } from 'fs';
 
 async function main() {
+  const SITE = await loadSiteMeta();
   const posts = collectPosts();
   if (!posts.length) {
     console.log('[og] 没有找到文章，跳过');

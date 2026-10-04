@@ -133,5 +133,10 @@
   "search.noIndex": "搜尋索引尚未產生——本地預覽請先執行 pnpm build 再存取。",
   "tags.title": "標籤",
   "projects.title": "項目",
-  "projects.subtitle": "一些我做過的項目與自部署服務"
+  "projects.subtitle": "一些我做過的項目與自部署服務",
+  "home.stats.title": "站點統計",
+  "home.stats.posts": "累計文章",
+  "home.stats.words": "總字數",
+  "home.stats.years": "覆蓋年份",
+  "home.stats.tags": "標籤數"
 }

@@ -133,5 +133,10 @@
   "search.noIndex": "Search index not built yet — run pnpm build first for local preview.",
   "tags.title": "Tags",
   "projects.title": "Projects",
-  "projects.subtitle": "Things I have built and self-hosted"
+  "projects.subtitle": "Things I have built and self-hosted",
+  "home.stats.title": "Site Stats",
+  "home.stats.posts": "Posts",
+  "home.stats.words": "Words",
+  "home.stats.years": "Years",
+  "home.stats.tags": "Tags"
 }

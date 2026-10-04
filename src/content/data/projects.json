@@ -4,41 +4,72 @@
     "description": "基于 Astro 的个人博客：玻璃拟态设计、三语言、音乐播放器与逐字歌词、全文搜索，部署在 Cloudflare Pages。",
     "link": "https://blog.904002.xyz",
     "repo": "https://github.com/zzz2929",
+    "icon": "https://imgbed.904002.xyz/file/img/blog/icon/blog.svg",
     "tags": ["Astro", "TypeScript", "Tailwind CSS"],
     "year": 2025
   },
   {
+    "name": "CloudFlare ImgBed",
+    "description": "基于 Cloudflare Pages 的免费图床服务，本站所有图片的存储与分发都依赖它。",
+    "link": "https://imgbed.904002.xyz/",
+    "repo": "https://github.com/MarSeventh/CloudFlare-ImgBed",
+    "icon": "https://imgbed.904002.xyz/file/img/blog/icon/图床.svg",
+    "tags": ["Cloudflare", "图床"],
+    "year": 2024
+  },
+  {
     "name": "easy_cover",
-    "description": "在线封面图生成工具，快速产出文章与视频封面。",
+    "description": "在线封面图生成工具，输入标题即可快速产出文章与视频封面。",
     "link": "https://cover.904002.xyz/",
+    "icon": "https://q2.qlogo.cn/headimg_dl?dst_uin=2726730791&spec=100",
     "tags": ["工具", "在线服务"],
     "year": 2024
   },
   {
     "name": "ConvertX",
-    "description": "自部署的在线文件格式转换服务，支持多种格式互转。",
+    "description": "自部署的在线文件格式转换服务，支持图片、文档、音视频等多种格式互转。",
     "link": "https://convertx-fn.904002.xyz/",
+    "icon": "https://imgbed.904002.xyz/file/img/blog/icon/ConvertX.svg",
     "tags": ["自托管", "Docker"],
     "year": 2024
   },
   {
     "name": "Openlist",
-    "description": "网盘聚合与文件列表服务，统一管理多云盘资源。",
+    "description": "网盘聚合与文件列表程序，统一管理多家云盘的存储与分享。",
     "link": "https://openlist.904002.xyz/",
+    "icon": "https://imgbed.904002.xyz/file/img/blog/icon/Openlist.svg",
     "tags": ["自托管", "网盘"],
     "year": 2024
   },
   {
+    "name": "OmniTools",
+    "description": "自部署的一站式在线工具箱，集图片处理、文本处理等常用小工具于一体。",
+    "link": "https://omnitools-fn.904002.xyz/",
+    "icon": "https://imgbed.904002.xyz/file/img/blog/icon/OmniTools.svg",
+    "tags": ["自托管", "工具箱"],
+    "year": 2024
+  },
+  {
+    "name": "AI Draw",
+    "description": "自部署的 AI 绘图服务，通过 Web 界面生成图片。",
+    "link": "https://aidraw.904002.xyz/",
+    "icon": "https://imgbed.904002.xyz/file/img/blog/icon/aidraw.webp",
+    "tags": ["AI 绘图", "自托管"],
+    "year": 2024
+  },
+  {
     "name": "Meting API",
-    "description": "音乐 API 代理服务，为博客播放器提供音源与歌词数据。",
+    "description": "音乐 API 代理服务，为博客播放器提供音源、封面与歌词数据。",
     "link": "https://fn-metingapi.904002.xyz:7999",
+    "icon": "https://imgbed.904002.xyz/file/img/blog/icon/api-music.svg",
     "tags": ["API", "Node.js"],
     "year": 2024
   },
   {
     "name": "Home Assistant",
-    "description": "智能家居自动化平台，联动米家设备与传感器。",
+    "description": "智能家居自动化平台，联动米家设备与各类传感器，搭建全屋智能。",
     "link": "https://ha-fn.904002.xyz/",
+    "icon": "https://imgbed.904002.xyz/file/img/blog/icon/Homeassistant.svg",
     "tags": ["智能家居", "自动化"],
     "year": 2024
   }

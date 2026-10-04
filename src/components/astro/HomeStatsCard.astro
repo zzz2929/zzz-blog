@@ -1,0 +1,47 @@
+---
+import { getCollection } from "astro:content";
+import { useTranslations, getLocaleFromURL } from "@/i18n";
+import { estimateWordCount } from "@/lib/postStats";
+
+const locale = getLocaleFromURL(Astro.url.pathname);
+const t = useTranslations(locale);
+const fmt = (n: number) => n.toLocaleString(locale === "en" ? "en-US" : locale);
+
+const posts = await getCollection("blog");
+const totalWords = posts.reduce((sum, p) => sum + estimateWordCount(p.body ?? ""), 0);
+const years = new Set(posts.map((p) => p.data.date.getFullYear())).size;
+const tags = new Set<string>();
+for (const p of posts) {
+  for (const tag of p.data.tags) tags.add(tag);
+}
+
+const cells = [
+  { label: t("home.stats.posts"), value: fmt(posts.length) },
+  { label: t("home.stats.words"), value: fmt(totalWords) },
+  { label: t("home.stats.years"), value: String(years) },
+  { label: t("home.stats.tags"), value: String(tags.size) },
+];
+---
+
+<div
+  class="glass-card"
+  style="border-radius: 16px; box-shadow: 0 1px 24px rgba(0,0,0,0.1); padding: 20px;"
+>
+  <h3 class="mb-4 flex items-center gap-2 text-lg font-semibold text-foreground">
+    <span
+      class="inline-block h-5 w-1 rounded-full"
+      style="background: linear-gradient(180deg, var(--color-primary), var(--color-accent));"
+    ></span>
+    {t("home.stats.title")}
+  </h3>
+  <div class="grid grid-cols-2 gap-y-4">
+    {
+      cells.map((cell) => (
+        <div class="text-center">
+          <p class="text-xl font-bold text-primary">{cell.value}</p>
+          <p class="mt-0.5 text-xs text-foreground-muted">{cell.label}</p>
+        </div>
+      ))
+    }
+  </div>
+</div>

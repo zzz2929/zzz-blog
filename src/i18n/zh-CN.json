@@ -133,5 +133,10 @@
   "search.noIndex": "搜索索引尚未生成——本地预览请先运行 pnpm build 再访问。",
   "tags.title": "标签",
   "projects.title": "项目",
-  "projects.subtitle": "一些我做过的项目与自部署服务"
+  "projects.subtitle": "一些我做过的项目与自部署服务",
+  "home.stats.title": "站点统计",
+  "home.stats.posts": "累计文章",
+  "home.stats.words": "总字数",
+  "home.stats.years": "覆盖年份",
+  "home.stats.tags": "标签数"
 }
