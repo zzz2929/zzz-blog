@@ -182,7 +182,6 @@ export const siteConfig = {
       {
         label: "nav.posts",
         children: [
-          { name: "nav.search", href: "/search/", icon: "/navigation/搜索.svg" },
           { name: "nav.archive", href: "/archives/", icon: "/navigation/归档.svg" },
           { name: "nav.categories", href: "/categories/", icon: "/navigation/分类.svg" },
           { name: "nav.tags", href: "/tags/", icon: "/navigation/标签.svg" },

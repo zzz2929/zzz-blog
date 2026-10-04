@@ -12,3 +12,8 @@ worker-configuration.d.ts
 mimo.exe
 .mimocode
 .zcodeignore
+# 环境变量(含 TMDB_API_KEY 等密钥,切勿上传)
+.env
+.env.*
+# 内存快照(构建 OOM 调试产物)
+*.heapsnapshot

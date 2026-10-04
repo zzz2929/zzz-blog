@@ -43,14 +43,16 @@ const t = useTranslations(locale);
 
   <script>
     // Pagefind 索引由构建脚本生成（dist/client/pagefind）；
-    // dev 模式下索引不存在，会显示「先构建」提示
+    // dev 模式下索引不存在，会显示「先构建」提示。
+    // 加载逻辑与 Header 内联搜索共用 @/lib/pagefind
+    import { loadPagefind } from "@/lib/pagefind";
+
     const input = document.getElementById("pf-input");
     const resultsEl = document.getElementById("pf-results");
     const hintEl = document.getElementById("pf-hint");
     const emptyEl = document.getElementById("pf-empty");
     const textEmpty = emptyEl.dataset.empty;
     const textNoIndex = emptyEl.dataset.noIndex;
-    let pagefind = null;
     let timer = 0;
 
     async function run() {
@@ -62,42 +64,35 @@ const t = useTranslations(locale);
         return;
       }
       hintEl.style.display = "none";
-      let pf;
       try {
-        // 1) 运行时构造 URL、2) new Function 间接导入：
-        //    字面量动态导入会被 vite 注入 __VITE_PRELOAD__,而本脚本被内联进 HTML
-        //    后该助手未定义,会直接 ReferenceError 走进兜底分支
-        const pagefindUrl = new URL("pagefind/pagefind.js", window.location.origin).href;
-        const dynamicImport = new Function("u", "return import(u)");
-        pf = pagefind ??= await dynamicImport(pagefindUrl);
+        const pf = await loadPagefind();
+        const res = await pf.search(q, {
+          locales: [document.documentElement.lang.toLowerCase()],
+        });
+        if (!res.results.length) {
+          emptyEl.textContent = textEmpty;
+          emptyEl.style.display = "";
+          return;
+        }
+        const data = await Promise.all(
+          res.results.slice(0, 12).map((r) => r.data()),
+        );
+        for (const d of data) {
+          const a = document.createElement("a");
+          a.href = d.url;
+          a.className = "pf-result glass-card block";
+          const title = document.createElement("div");
+          title.className = "font-medium text-foreground";
+          title.textContent = d.meta?.title || d.url;
+          const excerpt = document.createElement("p");
+          excerpt.className = "mt-1 text-sm text-foreground-muted";
+          excerpt.innerHTML = d.excerpt || "";
+          a.append(title, excerpt);
+          resultsEl.appendChild(a);
+        }
       } catch {
         emptyEl.textContent = textNoIndex;
         emptyEl.style.display = "";
-        return;
-      }
-      const res = await pf.search(q, {
-        locales: [document.documentElement.lang.toLowerCase()],
-      });
-      if (!res.results.length) {
-        emptyEl.textContent = textEmpty;
-        emptyEl.style.display = "";
-        return;
-      }
-      const data = await Promise.all(
-        res.results.slice(0, 12).map((r) => r.data()),
-      );
-      for (const d of data) {
-        const a = document.createElement("a");
-        a.href = d.url;
-        a.className = "pf-result glass-card block";
-        const title = document.createElement("div");
-        title.className = "font-medium text-foreground";
-        title.textContent = d.meta?.title || d.url;
-        const excerpt = document.createElement("p");
-        excerpt.className = "mt-1 text-sm text-foreground-muted";
-        excerpt.innerHTML = d.excerpt || "";
-        a.append(title, excerpt);
-        resultsEl.appendChild(a);
       }
     }
 
