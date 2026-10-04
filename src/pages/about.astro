@@ -5,18 +5,21 @@ import Header from "@/components/astro/Header.astro";
 import Footer from "@/components/astro/Footer.astro";
 import aboutData from "@/content/data/about.json";
 import { useTranslations, getLocaleFromURL } from "@/i18n";
+import { siteConfig } from "@/config/site";
+import { estimateWordCount } from "@/lib/postStats";
 
 const locale = getLocaleFromURL(Astro.url.pathname);
 const t = useTranslations(locale);
 const about = aboutData as any;
 const posts = await getCollection("blog");
+const totalWords = posts.reduce((sum, p) => sum + estimateWordCount(p.body ?? ""), 0);
 ---
 
 <BaseLayout title={t("about.title")}>
   <Header />
   <main class="mx-auto max-w-[1152px] px-4 pt-[20px] pb-[20px] sm:px-6" data-pagefind-body>
     <!-- Hero -->
-    <section class="mb-12 flex flex-col items-center text-center">
+    <section class="mb-8 flex flex-col items-center text-center">
       <img
         src={about.avatarImg}
         alt={about.name}
@@ -43,44 +46,40 @@ const posts = await getCollection("blog");
       </div>
     </section>
 
-    <!-- Self Info -->
-    <section class="mb-10 flex flex-col sm:flex-row gap-4">
-      <!-- Left: Personal Info -->
-      <div class="sm:w-[55%] rounded-xl border border-border glass-card p-6">
-        <h2 class="mb-4 text-xl font-bold text-foreground">
-          {t("about.personalInfo")}
-        </h2>
-        <div class="flex flex-col sm:flex-row gap-6">
-          <div class="flex-1 flex flex-col gap-4">
-            <div class="flex items-center gap-3">
-              <span class="text-lg">💼</span>
-              <div>
-                <p class="text-xs text-muted">{about.selfInfo.selfInfoTips}</p>
-                <p class="font-medium text-foreground">
-                  {about.selfInfo.selfInfoContent}
-                </p>
-              </div>
-            </div>
-            <div class="flex items-center gap-3">
-              <span class="text-lg">🧠</span>
-              <div>
-                <p class="text-xs text-muted">
-                  {about.personalities.author_name}
-                </p>
-                <a
-                  href={about.personalities.name_url}
-                  target="_blank"
-                  class="font-medium text-primary hover:underline"
-                  >{about.personalities.personality_type}</a
-                >
-              </div>
-            </div>
+    <!-- 关于我（玻璃卡 + 性格整合） + 美丽世界 -->
+    <section class="mb-8 flex flex-col sm:flex-row gap-5 items-stretch">
+      <div class="about-hello glass-card sm:w-[55%]">
+        <div class="hello-title1">你好，很高兴认识你👋</div>
+        <div class="hello-title2">我叫 <span class="hello-name">{about.name}</span></div>
+        <div class="hello-sub">是一名 {about.description}</div>
+        <div class="hello-personality">
+          <div class="hp-line">
+            <span class="hp-tips">💼 {about.selfInfo.selfInfoTips}</span>
+            <span class="hp-text">{about.selfInfo.selfInfoContent}</span>
+          </div>
+          <div class="hp-line">
+            <span class="hp-tips">🧠 性格</span>
+            <span class="hp-text">
+              {about.personalities.author_name}
+              <b class="hp-type">{about.personalities.personality_type}</b>
+              <span class="hp-link">
+                在 <a href={about.personalities.name_url} target="_blank" rel="noopener nofollow">16personalities</a>
+                了解更多关于
+                <a href={about.personalities.name_url} target="_blank" rel="noopener nofollow">{about.personalities.author_name}</a>
+              </span>
+            </span>
           </div>
         </div>
+        <img
+          class="hello-personality-img"
+          src={about.personalities.personality_img}
+          alt={about.personalities.author_name}
+          loading="lazy"
+        />
       </div>
 
       <!-- Right: Beautiful World -->
-      <div class="sm:w-[45%] rounded-xl border border-border glass-card p-6">
+      <div class="sm:w-[45%] rounded-2xl border border-border glass-card p-6">
         <p class="text-lg font-medium text-muted mb-2 opacity-90">
           {about.aboutsiteTips.tips}
         </p>
@@ -107,56 +106,29 @@ const posts = await getCollection("blog");
       </div>
     </section>
 
-    <!-- Location -->
-    <section
-      class="mb-10 rounded-xl border border-border glass-card overflow-hidden"
-    >
-      <div
-        class="relative h-40 bg-cover bg-center"
-        style={`background-image: url(${about.map.background})`}
-      >
-        <div class="absolute inset-0 bg-black/30 flex items-end p-4">
-          <div>
-            <p class="text-xs text-white/80">{about.map.title}</p>
-            <p class="text-lg font-bold text-white">
-              {about.map.StrengthenTitle}
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Game & Comics Row -->
-    <section class="mb-10 flex flex-col sm:flex-row gap-4">
-      <!-- Game Card -->
+    <section class="mb-8 flex flex-col sm:flex-row gap-5 items-stretch">
+      <!-- Game Card（hover 效果与追番一致） -->
       <div
-        class="sm:w-[55%] rounded-2xl overflow-hidden relative min-h-[280px] bg-border game-content"
+        class="sm:w-[55%] rounded-2xl overflow-hidden relative min-h-[280px] about-game"
       >
-        <div class="absolute top-5 left-5 z-20">
-          <div class="text-2xl font-bold text-white">
-            {about.game.game_title}
-          </div>
+        <div class="comic-card-content">
+          <p class="comic-tips">爱好游戏</p>
+          <div class="comic-title">{about.game.game_title}</div>
         </div>
-        <div
-          class="game-box absolute inset-0 flex overflow-hidden"
-          style="width: 115%; left: -7.5%;"
-        >
+        <div class="comic-box">
           {
-            about.game.game_list.map((item: any, i: number) => (
+            about.game.game_list.map((item: any) => (
               <div
-                class="game-item relative flex-1 overflow-hidden group transition-all duration-500 hover:z-10 hover:flex-[2.3]"
+                class="comic-item"
                 title={item.name}
-                style="transform: skew(-10deg, 0deg); contain: paint;"
               >
-                <div
-                  class="absolute top-0 h-full transition-all duration-500"
-                  style={`left: ${i === 0 ? '-30%' : '-20%'}; width: ${i === 0 ? '150%' : '200%'}; transform: skew(10deg, 0deg);`}
-                >
+                <div class="comic-item-cover">
                   <img
                     src={item.bg}
                     alt={item.name}
-                    class="h-full max-w-none object-cover transition-transform duration-500 group-hover:scale-[1.4]"
                     loading="lazy"
+                    draggable="false"
                   />
                 </div>
               </div>
@@ -165,39 +137,29 @@ const posts = await getCollection("blog");
         </div>
       </div>
 
-      <!-- Comics Card -->
+      <!-- Comics Card（hover 效果参考安知鱼：宽度 20%→46% + 封面 scale 1.6） -->
       <div
-        class="sm:w-[45%] rounded-2xl overflow-hidden relative min-h-[280px] bg-border comic-content"
+        class="sm:w-[45%] rounded-2xl overflow-hidden relative min-h-[280px] about-comic"
       >
-        <div class="absolute top-5 left-5 z-20">
-          <p class="text-xs text-white/70 mb-1">{about.comic.comic_tips}</p>
-          <div class="text-2xl font-bold text-white">
-            {about.comic.comic_title}
-          </div>
+        <div class="comic-card-content">
+          <div class="comic-title">{about.comic.comic_title}</div>
         </div>
-        <div
-          class="comic-box absolute inset-0 flex overflow-hidden"
-          style="width: 115%; left: -7.5%;"
-        >
+        <div class="comic-box">
           {
-            about.comic.comic_list.map((item: any, i: number) => (
+            about.comic.comic_list.map((item: any) => (
               <a
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="comic-item relative flex-1 overflow-hidden group transition-all duration-500 hover:z-10 hover:flex-[2.3]"
+                class="comic-item"
                 title={item.name}
-                style="transform: skew(-10deg, 0deg); contain: paint;"
               >
-                <div
-                  class="absolute top-0 h-full transition-all duration-500"
-                  style="left: -50%; width: 200%; transform: skew(10deg, 0deg);"
-                >
+                <div class="comic-item-cover">
                   <img
                     src={item.cover}
                     alt={item.name}
-                    class="h-full max-w-none object-cover transition-transform duration-500 group-hover:scale-[1.4]"
                     loading="lazy"
+                    draggable="false"
                   />
                 </div>
               </a>
@@ -207,32 +169,30 @@ const posts = await getCollection("blog");
       </div>
     </section>
 
-    <!-- Skills -->
-    <section class="mb-10">
+    <!-- Skills（10 项 = 5 列 × 2 行,填满无空洞） -->
+    <section class="mb-8">
       <h2 class="mb-4 text-xl font-bold text-foreground">
         {t("about.skills")}
       </h2>
-      <div
-        class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4"
-      >
+      <div class="grid grid-cols-3 sm:grid-cols-5 gap-4">
         {
           about.skills.map((skill: any, i: number) => (
             <div
-              class="group card flex flex-col items-center gap-2 p-4 cursor-default"
+              class="group card flex items-center gap-3 p-3 cursor-default"
               style={`animation: fade-in-up 0.4s ease ${i * 0.06}s backwards; transition: all 0.3s ease;`}
             >
               <div
-                class="relative flex h-12 w-12 items-center justify-center rounded-xl transition-all duration-300 group-hover:scale-110 group-hover:rotate-3"
+                class="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-all duration-300 group-hover:scale-110 group-hover:rotate-3"
                 style={`background: rgba(66,90,239,0.07);`}
               >
                 <img
                   src={skill.icon}
                   alt={skill.name}
-                  class="h-8 w-8 object-contain"
+                  class="h-7 w-7 object-contain"
                   loading="lazy"
                 />
               </div>
-              <span class="text-xs font-medium text-foreground transition-colors group-hover:text-primary">
+              <span class="text-sm font-medium text-foreground transition-colors group-hover:text-primary">
                 {skill.name}
               </span>
             </div>
@@ -241,23 +201,54 @@ const posts = await getCollection("blog");
       </div>
     </section>
 
-    <!-- Statistics -->
-    <section
-      class="mb-10 rounded-xl border border-border glass-card overflow-hidden"
-    >
+    <!-- Location（参考 map 卡） & Statistics（参考访问统计卡） -->
+    <section class="flex flex-col sm:flex-row gap-5 items-stretch">
       <div
-        class="relative h-32 bg-cover bg-center"
-        style={`background-image: url(${about.statistic.cover})`}
+        class="about-map sm:w-[55%]"
+        style={`--map-bg: url("${about.map.background}"); --map-bg-dark: url("${about.map.backgroundDark}");`}
       >
-        <a
-          href={about.statistic.link}
-          class="absolute inset-0 bg-black/40 flex items-center justify-center hover:bg-black/50 transition-colors"
-        >
-          <div class="text-center">
-            <p class="text-2xl font-bold text-white">{posts.length}</p>
-            <p class="text-sm text-white/80">{about.statistic.text}</p>
+        <span class="map-title">
+          {about.map.title}
+          <b>{about.map.StrengthenTitle}</b>
+        </span>
+      </div>
+
+      <div
+        class="about-statistic sm:w-[45%]"
+        style={`--stat-bg: url("${about.statistic.cover}")`}
+      >
+        <div class="as-tips">数据</div>
+        <div class="as-title">访问统计</div>
+        <div class="as-grid">
+          <div>
+            <span class="as-label">文章数</span>
+            <span class="as-value">{posts.length}</span>
           </div>
-        </a>
+          <div>
+            <span class="as-label">总字数</span>
+            <span class="as-value">{totalWords}</span>
+          </div>
+          <div>
+            <span class="as-label">总访问量</span>
+            <span class="as-value" id="stat-site-pv">--</span>
+          </div>
+          <div>
+            <span class="as-label">总访客</span>
+            <span class="as-value" id="stat-site-uv">--</span>
+          </div>
+        </div>
+        <div class="as-footer">
+          <span class="as-source">
+            统计来自 <a href="https://vercount.one" target="_blank" rel="noopener nofollow">Vercount</a>
+          </span>
+          <a class="banner-button" href={about.statistic.link}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+            {about.statistic.text}
+          </a>
+        </div>
       </div>
     </section>
   </main>
@@ -324,6 +315,311 @@ const posts = await getCollection("blog");
   }
 </style>
 
+<style is:global>
+  /* ===== 关于我（玻璃卡 + 性格整合） ===== */
+  .about-hello {
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+    padding: 16px 32px;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .about-hello .hello-title1 {
+    font-size: 20px;
+    line-height: 1.5;
+    color: var(--color-foreground-muted);
+  }
+  .about-hello .hello-title2 {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 2px 0;
+    color: var(--color-foreground);
+  }
+  .about-hello .hello-name {
+    color: var(--color-primary);
+  }
+  .about-hello .hello-sub {
+    font-size: 16px;
+    color: var(--color-foreground-muted);
+  }
+  .about-hello .hello-personality {
+    margin-top: 18px;
+    padding-top: 14px;
+    padding-right: 130px;
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: relative;
+  }
+  .about-hello .hp-line {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .about-hello .hp-tips {
+    font-size: 12px;
+    color: var(--color-foreground-muted);
+    white-space: nowrap;
+  }
+  .about-hello .hp-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-foreground);
+  }
+  .about-hello .hp-type {
+    font-weight: 700;
+    margin: 0 4px;
+    color: var(--color-primary);
+  }
+  .about-hello .hp-link {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--color-foreground-muted);
+  }
+  .about-hello .hp-link a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .about-hello .hello-personality-img {
+    position: absolute;
+    right: 22px;
+    bottom: -8px;
+    height: 110px;
+    transition: transform 2s cubic-bezier(0.13, 0.45, 0.21, 1.02);
+    pointer-events: none;
+  }
+  .about-hello:hover .hello-personality-img {
+    transform: rotate(-10deg);
+  }
+
+  /* ===== 追番卡 / 游戏卡（同款 hover：条目扩张 + 封面放大） ===== */
+  .about-comic,
+  .about-game {
+    position: relative;
+    overflow: hidden;
+    min-height: 300px;
+    color: #fff;
+  }
+  .about-comic .comic-card-content,
+  .about-game .comic-card-content {
+    position: absolute;
+    top: 20px;
+    left: 24px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .about-comic .comic-tips,
+  .about-comic .comic-title,
+  .about-game .comic-tips,
+  .about-game .comic-title {
+    z-index: 2;
+    color: #fff;
+    pointer-events: none;
+  }
+  .about-comic .comic-tips,
+  .about-game .comic-tips {
+    font-size: 12px;
+    opacity: 0.8;
+    margin-bottom: 0.5rem;
+  }
+  .about-comic .comic-title,
+  .about-game .comic-title {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .about-comic .comic-box,
+  .about-game .comic-box {
+    display: flex;
+    width: 120%;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+  }
+  /* 追番：5 条,基准 20%,hover 46% */
+  .about-comic .comic-item {
+    height: 100%;
+    width: 20%;
+    position: relative;
+    overflow: hidden;
+    transform: skew(-10deg, 0deg);
+    transition: 0.8s;
+  }
+  .about-comic .comic-item:hover {
+    width: 46%;
+  }
+  .about-comic .comic-item .comic-item-cover {
+    position: absolute;
+    top: 0;
+    left: -50%;
+    height: 100%;
+    transform: skew(10deg, 0deg);
+    transition: scale 0.2s, 0.8s;
+  }
+  .about-comic .comic-item .comic-item-cover img {
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    transition: 0.8s;
+  }
+  .about-comic .comic-item:hover .comic-item-cover {
+    left: 16%;
+    transform: skew(10deg, 0deg) scale(1.6);
+  }
+  /* 游戏：2 条,基准 50%,hover 72%;横版封面用 130% 宽覆盖 */
+  .about-game .comic-item {
+    height: 100%;
+    width: 50%;
+    position: relative;
+    overflow: hidden;
+    transform: skew(-10deg, 0deg);
+    transition: 0.8s;
+  }
+  .about-game .comic-item:hover {
+    width: 72%;
+  }
+  .about-game .comic-item .comic-item-cover {
+    position: absolute;
+    top: 0;
+    left: -15%;
+    width: 130%;
+    height: 100%;
+    transform: skew(10deg, 0deg);
+    transition: scale 0.2s, 0.8s;
+  }
+  .about-game .comic-item .comic-item-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.8s;
+  }
+  .about-game .comic-item:hover .comic-item-cover {
+    transform: skew(10deg, 0deg) scale(1.25);
+  }
+
+  /* ===== 毕业于（参考 map 卡） ===== */
+  .about-map {
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+    min-height: 223px;
+    background: var(--map-bg) center / cover no-repeat;
+  }
+  :global(.dark) .about-map {
+    background: var(--map-bg-dark) center / cover no-repeat;
+  }
+  .about-map .map-title {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 0 32px;
+    line-height: 56px;
+    font-size: 20px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .about-map .map-title b {
+    color: #fff;
+    font-weight: 600;
+  }
+
+  /* ===== 访问统计（参考 about-statistic 卡） ===== */
+  .about-statistic {
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+    min-height: 223px;
+    padding: 1rem 2rem;
+    color: #fff;
+    background: var(--stat-bg) top / cover no-repeat;
+    display: flex;
+    flex-direction: column;
+  }
+  .about-statistic::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    box-shadow: rgb(12, 28, 44) 0 -159px 173px 71px inset;
+  }
+  .about-statistic > * {
+    position: relative;
+    z-index: 1;
+  }
+  .about-statistic .as-tips {
+    opacity: 0.8;
+    font-size: 12px;
+    margin-bottom: 0.5rem;
+  }
+  .about-statistic .as-title {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .about-statistic .as-grid {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 1rem;
+  }
+  .about-statistic .as-grid > div {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-bottom: 0.5rem;
+  }
+  .about-statistic .as-label {
+    opacity: 0.8;
+    font-size: 12px;
+  }
+  .about-statistic .as-value {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+  .about-statistic .as-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+  }
+  .about-statistic .as-source {
+    font-size: 12px;
+    opacity: 0.8;
+  }
+  .about-statistic .as-source a {
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .about-statistic .banner-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 14px;
+    white-space: nowrap;
+    transition: background 0.3s ease;
+  }
+  .about-statistic .banner-button:hover {
+    background: rgba(255, 255, 255, 0.35);
+  }
+</style>
+
 <script>
   // Exact copy from original pug file, line 390-404
   var pursuitInterval = null;
@@ -341,4 +637,19 @@ const posts = await getCollection("blog");
 
     next.setAttribute("data-show", "");
   }, 2000);
+</script>
+
+<script>
+  // 访问统计：Vercount 全站数据（总访问量 / 总访客）
+  import { fetchCounterData } from "@vercount/core";
+  import { siteConfig } from "@/config/site";
+
+  fetchCounterData({ url: siteConfig.url })
+    .then((data) => {
+      const pv = document.getElementById("stat-site-pv");
+      const uv = document.getElementById("stat-site-uv");
+      if (pv && data?.site_pv != null) pv.textContent = String(data.site_pv);
+      if (uv && data?.site_uv != null) uv.textContent = String(data.site_uv);
+    })
+    .catch(() => {});
 </script>

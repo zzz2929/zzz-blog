@@ -964,8 +964,18 @@ function isImageIcon(icon) {
     color: var(--color-foreground-muted);
   }
   @media (max-width: 640px) {
+    .header-search-box {
+      padding: 0 8px;
+    }
     .header-search-box input {
-      width: 100px;
+      width: 76px;
+    }
+    /* 移动端 header 空间有限:设置按钮只留齿轮 */
+    .settings-btn {
+      padding: 6px 10px !important;
+    }
+    .settings-btn span {
+      display: none;
     }
   }
   .header-search-panel {

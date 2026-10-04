@@ -126,7 +126,6 @@
   "nav.tags": "标签",
   "nav.search": "搜索",
   "nav.projects": "项目",
-  "nav.stats": "统计",
   "search.title": "搜索",
   "search.placeholder": "搜索全站文章内容...",
   "search.hint": "输入关键词即可搜索全部文章正文，支持中英文。",
@@ -134,14 +133,5 @@
   "search.noIndex": "搜索索引尚未生成——本地预览请先运行 pnpm build 再访问。",
   "tags.title": "标签",
   "projects.title": "项目",
-  "projects.subtitle": "一些我做过的项目与自部署服务",
-  "stats.title": "写作统计",
-  "stats.subtitle": "博客的数据一览",
-  "stats.totalPosts": "累计文章",
-  "stats.totalWords": "总字数",
-  "stats.yearsSpan": "覆盖年份",
-  "stats.yearPosts": "年度分布",
-  "stats.postsUnit": "{count} 篇",
-  "stats.wordsUnit": "字",
-  "stats.topTags": "热门标签"
+  "projects.subtitle": "一些我做过的项目与自部署服务"
 }

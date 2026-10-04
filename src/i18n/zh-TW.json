@@ -126,7 +126,6 @@
   "nav.tags": "標籤",
   "nav.search": "搜尋",
   "nav.projects": "項目",
-  "nav.stats": "統計",
   "search.title": "搜尋",
   "search.placeholder": "搜尋全站文章內容...",
   "search.hint": "輸入關鍵詞即可搜尋全部文章正文，支援中英文。",
@@ -134,14 +133,5 @@
   "search.noIndex": "搜尋索引尚未產生——本地預覽請先執行 pnpm build 再存取。",
   "tags.title": "標籤",
   "projects.title": "項目",
-  "projects.subtitle": "一些我做過的項目與自部署服務",
-  "stats.title": "寫作統計",
-  "stats.subtitle": "部落的數據一覽",
-  "stats.totalPosts": "累計文章",
-  "stats.totalWords": "總字數",
-  "stats.yearsSpan": "覆蓋年份",
-  "stats.yearPosts": "年度分佈",
-  "stats.postsUnit": "{count} 篇",
-  "stats.wordsUnit": "字",
-  "stats.topTags": "熱門標籤"
+  "projects.subtitle": "一些我做過的項目與自部署服務"
 }

@@ -208,7 +208,6 @@ export const siteConfig = {
           { name: "nav.essay", href: "/essay/", icon: "/navigation/闲言碎语.svg" },
           { name: "nav.equipment", href: "/equipment/", icon: "/navigation/我的装备.svg" },
           { name: "nav.projects", href: "/projects/", icon: "/navigation/项目.svg" },
-          { name: "nav.stats", href: "/stats/", icon: "/navigation/统计.svg" },
         ],
       },
     ],
