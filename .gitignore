@@ -17,3 +17,6 @@ mimo.exe
 .env.*
 # 内存快照(构建 OOM 调试产物)
 *.heapsnapshot
+# PWA 图标(构建期生成)
+public/icons/
+.zcode/

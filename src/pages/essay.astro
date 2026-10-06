@@ -253,6 +253,8 @@ for (const group of dayGroups) {
   }
 
   initEssayFancybox();
+  // View Transitions 换页后重新绑定灯箱
+  document.addEventListener("astro:page-load", initEssayFancybox);
 
   // 单图卡片宽度随图片自适应（左对齐时间轴），避免图片两侧大面积留白；多图卡片保持满宽
   function fitCardWidths() {

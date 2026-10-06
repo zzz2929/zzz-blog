@@ -28,7 +28,9 @@
   "statistic": {
     "link": "/archives",
     "text": "文章隧道",
-    "cover": "https://bu.dusays.com/2023/05/01/644f4b037b930.jpg"
+    "cover": "https://bu.dusays.com/2023/05/01/644f4b037b930.jpg",
+    "tips": "数据",
+    "title": "访问统计"
   },
   "map": {
     "title": "👨‍🎓毕业于",
@@ -44,7 +46,8 @@
     "author_name": "提倡者",
     "personality_type": "INFJ-A",
     "personality_img": "https://imgbed.904002.xyz/file/img/blog/icon/infj.svg",
-    "name_url": "https://www.16personalities.com/ch/infj-%E4%BA%BA%E6%A0%BC"
+    "name_url": "https://www.16personalities.com/ch/infj-%E4%BA%BA%E6%A0%BC",
+    "tips": "性格"
   },
   "game": {
     "game_title": "游戏",
@@ -57,7 +60,8 @@
         "name": "原神",
         "bg": "https://imgbed.904002.xyz/file/img/blog/background/game/原神.webp"
       }
-    ]
+    ],
+    "game_tips": "爱好游戏"
   },
   "comic": {
     "comic_title": "追番",
@@ -87,19 +91,51 @@
         "href": "https://www.bilibili.com/bangumi/play/ss29358",
         "cover": "https://imgbed.904002.xyz/file/img/blog/background/cartoon/因为太怕痛就全点防御力了.webp"
       }
-    ]
+    ],
+    "comic_tips": "爱好番剧"
   },
   "skills": [
-    { "name": "Astro", "icon": "https://imgbed.904002.xyz/file/img/blog/icon/skill/Astro.svg" },
-    { "name": "CSS3", "icon": "https://imgbed.904002.xyz/file/img/blog/icon/skill/CSS3.svg" },
-    { "name": "HTML", "icon": "https://imgbed.904002.xyz/file/img/blog/icon/skill/HTML.svg" },
-    { "name": "JavaScript", "icon": "https://imgbed.904002.xyz/file/img/blog/icon/skill/JavaScript.svg" },
-    { "name": "TypeScript", "icon": "https://imgbed.904002.xyz/file/img/blog/icon/skill/TypeScript.svg" },
-    { "name": "Docker", "icon": "https://imgbed.904002.xyz/file/img/blog/icon/skill/Docker.svg" },
-    { "name": "Photoshop", "icon": "https://imgbed.904002.xyz/file/img/blog/icon/skill/Photoshop.svg" },
-    { "name": "Python", "icon": "https://imgbed.904002.xyz/file/img/blog/icon/skill/Python.svg" },
-    { "name": "Git", "icon": "https://imgbed.904002.xyz/file/img/blog/icon/skill/Git.svg" },
-    { "name": "MySQL", "icon": "https://imgbed.904002.xyz/file/img/blog/icon/skill/MySQL.svg" }
+    {
+      "name": "Astro",
+      "icon": "https://imgbed.904002.xyz/file/img/blog/icon/skill/Astro.svg"
+    },
+    {
+      "name": "CSS3",
+      "icon": "https://imgbed.904002.xyz/file/img/blog/icon/skill/CSS3.svg"
+    },
+    {
+      "name": "HTML",
+      "icon": "https://imgbed.904002.xyz/file/img/blog/icon/skill/HTML.svg"
+    },
+    {
+      "name": "JavaScript",
+      "icon": "https://imgbed.904002.xyz/file/img/blog/icon/skill/JavaScript.svg"
+    },
+    {
+      "name": "TypeScript",
+      "icon": "https://imgbed.904002.xyz/file/img/blog/icon/skill/TypeScript.svg"
+    },
+    {
+      "name": "Docker",
+      "icon": "https://imgbed.904002.xyz/file/img/blog/icon/skill/Docker.svg"
+    },
+    {
+      "name": "Photoshop",
+      "icon": "https://imgbed.904002.xyz/file/img/blog/icon/skill/Photoshop.svg"
+    },
+    {
+      "name": "Python",
+      "icon": "https://imgbed.904002.xyz/file/img/blog/icon/skill/Python.svg"
+    },
+    {
+      "name": "Git",
+      "icon": "https://imgbed.904002.xyz/file/img/blog/icon/skill/Git.svg"
+    },
+    {
+      "name": "MySQL",
+      "icon": "https://imgbed.904002.xyz/file/img/blog/icon/skill/MySQL.svg"
+    }
   ],
-  "reward_list": null
+  "reward_list": null,
+  "helloTips": "你好，很高兴认识你👋"
 }

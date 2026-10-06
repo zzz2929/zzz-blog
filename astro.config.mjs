@@ -5,6 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import { visit } from 'unist-util-visit';
 import { unified } from '@astrojs/markdown-remark';
+import AstroPWA from '@vite-pwa/astro';
 
 import cloudflare from '@astrojs/cloudflare';
 
@@ -70,7 +71,7 @@ function navSvgPlugin() {
 }
 
 /** Rehype plugin: lazy-load <img> tags, except the first one per document
- * （正文首图常是文章页 LCP，懒加载会显著推迟其渲染；其余图片照旧 lazy） */
+ *  （正文首图常是文章页 LCP，懒加载会显著推迟其渲染；其余图片照旧 lazy） */
 function rehypeImgLazyLoad() {
   return (tree) => {
     let first = true;
@@ -108,9 +109,18 @@ function rehypeCodeBlock() {
       });
       const text = (value) => ({ type: 'text', value });
 
+      // mermaid fence → 图表容器(客户端由 mermaid.run 渲染)
+      if (lang === 'mermaid') {
+        const collectText = (n) =>
+          n.type === 'text' ? n.value : (n.children || []).map(collectText).join('');
+        const rawText = collectText(codeEl);
+        parent.children[index] = el('div', { class: 'mermaid' }, [text(rawText)]);
+        return;
+      }
+
       const langLabel = (lang && lang !== 'plaintext') ? lang : 'txt';
 
-      parent.children[index] = el('div', { class: 'code-block' }, [
+      parent.children[index] = el('div', { class: 'code-block', 'data-stage-lang': String(lang) }, [
         el('div', { class: 'code-block-toolbar' }, [
           el('span', { class: 'code-block-dots' }, [
             el('span', {}), el('span', {}), el('span', {}),
@@ -170,8 +180,7 @@ function rehypeGithubAlerts() {
   };
 }
 
-// astro dev 时 NODE_ENV=development：跳过 Cloudflare adapter，避免 dev 启动拉起
-// workerd 平台代理；/api/lrc 在 dev 下由 Astro 原生运行（已实测可用）
+// astro dev 时 NODE_ENV=development:跳过 Cloudflare adapter(dev 下由 Astro 原生运行)
 const isDev = process.env.NODE_ENV === 'development';
 
 export default defineConfig({
@@ -190,7 +199,33 @@ export default defineConfig({
         ),
       },
     }),
+    // PWA:manifest + Service Worker(dev 不启用;离线缓存页面/脚本,图片运行时缓存)
+    ...(isDev
+      ? []
+      : [
+          AstroPWA({
+            registerType: 'autoUpdate',
+            includeAssets: ['favicon.svg', 'favicon.ico', 'favicon.png', 'robots.txt'],
+            manifest: {
+              name: siteConfig.title,
+              short_name: siteConfig.title,
+              description: siteConfig.description['zh-CN'],
+              theme_color: '#425AEF',
+              background_color: '#EDE8DE',
+              display: 'standalone',
+              icons: [
+                { src: '/icons/pwa-192.png', sizes: '192x192', type: 'image/png' },
+                { src: '/icons/pwa-512.png', sizes: '512x512', type: 'image/png' },
+                { src: '/icons/pwa-maskable-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
+              ],
+            },
+            // SW 本体由 scripts/generate-sw.mjs(workbox-build)生成到 dist/client/sw.js;
+            // 此处集成仅提供 manifest 与 virtual:pwa-register
+            devOptions: { enabled: false },
+          }),
+        ]),
   ],
+
   // 多语言配置来自 src/config/site.ts（features.i18n）；prefixDefaultLocale: false
   // 表示 defaultLocale（zh-CN）不带路径前缀，与站点配置保持一致
   i18n: {
@@ -232,6 +267,7 @@ export default defineConfig({
 
   markdown: {
     processor: unified({
+      
       rehypePlugins: [rehypeImgLazyLoad, rehypeCodeBlock, rehypeGithubAlerts],
     }),
     shikiConfig: {

@@ -9,9 +9,9 @@
   "nav.bangumis": "Anime",
   "nav.album": "Album",
   "nav.about": "My",
-  "nav.aboutMe": "About Me",
+  "nav.aboutMe": "About",
   "nav.essay": "Essays",
-  "nav.equipment": "My Equipment",
+  "nav.equipment": "Equipment",
   "nav.siteNav": "Site Navigation",
   "nav.home": "Home",
   "nav.settings": "Settings",
@@ -138,5 +138,13 @@
   "home.stats.posts": "Posts",
   "home.stats.words": "Words",
   "home.stats.years": "Years",
-  "home.stats.tags": "Tags"
+  "home.stats.tags": "Tags",
+  "post.share.title": "Share this post",
+  "post.share.native": "System share",
+  "post.share.copy": "Copy link",
+  "post.share.copied": "Copied!",
+  "post.share.qr": "QR code",
+  "post.share.qrHint": "Scan to open on your phone",
+  "post.share.image": "Save share image",
+  "post.comments": "Comments"
 }

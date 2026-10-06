@@ -25,17 +25,28 @@
     "@tailwindcss/vite": "^4.3.3",
     "@vercount/core": "^0.1.0",
     "@vercount/react": "^0.1.4",
+    "@vite-pwa/astro": "^1.2.0",
     "astro": "^7.3.3",
     "gsap": "^3.15.0",
+    "katex": "^0.16.47",
     "lucide-react": "^1.38.0",
+    "mermaid": "^12.1.0",
     "motion": "^13.1.1",
     "pagefind": "^1.5.2",
+    "qrcode-generator": "^2.0.4",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
+    "rehype-katex": "^7.0.1",
+    "remark-math": "^6.0.0",
     "satori": "^0.34.1",
+    "sharp": "^0.35.5",
     "tailwindcss": "^4.3.3",
     "tocbot": "^4.36.8",
     "unist-util-visit": "^5.1.0",
+    "workbox-window": "^7.4.1",
     "wrangler": "^4.127.1"
+  },
+  "devDependencies": {
+    "workbox-build": "^7.3.0"
   }
 }

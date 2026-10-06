@@ -47,10 +47,11 @@ const t = useTranslations(locale);
     // 加载逻辑与 Header 内联搜索共用 @/lib/pagefind
     import { loadPagefind } from "@/lib/pagefind";
 
-    const input = document.getElementById("pf-input");
+    function initSearchPage() {
+    const input = document.getElementById("pf-input") as HTMLInputElement;
     const resultsEl = document.getElementById("pf-results");
     const hintEl = document.getElementById("pf-hint");
-    const emptyEl = document.getElementById("pf-empty");
+    const emptyEl = document.getElementById("pf-empty") as HTMLElement;
     const textEmpty = emptyEl.dataset.empty;
     const textNoIndex = emptyEl.dataset.noIndex;
     let timer = 0;
@@ -100,6 +101,10 @@ const t = useTranslations(locale);
       clearTimeout(timer);
       timer = setTimeout(run, 200);
     });
+    }
+
+    initSearchPage();
+    document.addEventListener("astro:page-load", initSearchPage);
   </script>
 
   <style>

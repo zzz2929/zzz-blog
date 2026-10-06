@@ -89,7 +89,8 @@ const jsonLd = {
   <div id="reading-progress" aria-hidden="true"></div>
   <script is:inline>
     (function () {
-      var bar = document.getElementById("reading-progress");
+      if (window.__rpInit) return;
+      window.__rpInit = true;
       var ticking = false;
       function update() {
         var doc = document.documentElement;
@@ -121,7 +122,7 @@ const jsonLd = {
       post.data.cover && (
         <div
           class="relative overflow-hidden mb-[20px] rounded-2xl"
-          style="min-height: clamp(280px, 35vw, 450px);"
+          style="min-height: clamp(300px, 38vw, 480px);"
         >
           <!-- Cover image fills the card -->
           <img
@@ -131,36 +132,49 @@ const jsonLd = {
             loading="eager"
             fetchpriority="high"
           />
-          <!-- Subtle gradient overlay for readability -->
+          <!-- 底部渐变遮罩:保证白封面下文字可读 -->
           <div
             class="absolute inset-0"
-            style="background: linear-gradient(to top, rgba(0,0,0,0.15) 0%, transparent 40%);"
+            style="background: linear-gradient(to top, rgba(0,0,0,0.66) 0%, rgba(0,0,0,0.32) 40%, transparent 66%);"
           ></div>
-          <!-- Metadata overlay on image -->
-          <div
-            class="absolute left-5 right-5 bottom-5 rounded-xl p-6 sm:p-8 cover-overlay-card glass-card"
-            style="box-shadow: 0 1px 24px rgba(0,0,0,0.1)"
-          >
+          <!-- 封面信息层:全宽贴底,分类在上、标题、元信息一行、标签在下 -->
+          <div class="absolute inset-x-0 bottom-0 p-5 text-white sm:p-8">
+            {
+              post.data.categories.length > 0 && (
+                <div class="mb-3 flex flex-wrap items-center gap-2">
+                  {post.data.categories.map((cat) => (
+                    <a
+                      href={categoryHref(cat)}
+                      class="rounded-full px-3 py-0.5 text-xs font-medium text-white/90 backdrop-blur-sm transition-colors hover:bg-white/25"
+                      style="background: rgba(255,255,255,0.18);"
+                    >
+                      {cat}
+                    </a>
+                  ))}
+                </div>
+              )
+            }
             <h1
-              class="mb-2 text-2xl font-bold tracking-tight text-white/90 sm:text-3xl"
-              style="text-shadow: 0 1px 6px rgba(0,0,0,0.3);"
+              class="text-2xl font-bold tracking-tight sm:text-4xl"
+              style="text-shadow: 0 2px 12px rgba(0,0,0,0.45);"
             >
               {post.data.title}
             </h1>
             <div
-              class="flex flex-wrap items-center gap-2 text-sm text-white/80"
+              class="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-sm text-white/85"
+              style="text-shadow: 0 1px 6px rgba(0,0,0,0.4);"
             >
-              <time datetime={post.data.date.toISOString()}
-                >{formatDate(post.data.date, locale)}</time
-              >
-              <span class="opacity-30">·</span>
+              <time datetime={post.data.date.toISOString()}>
+                {formatDate(post.data.date, locale)}
+              </time>
+              <span class="opacity-40">·</span>
               <span>
                 {t("post.readtime.prev")} {readingMinutesValue} {t("post.readtime.next")}
               </span>
               {
                 post.data.updated && (
                   <>
-                    <span class="opacity-30">·</span>
+                    <span class="opacity-40">·</span>
                     <span>
                       {t("post.updated")}{" "}
                       <time datetime={post.data.updated.toISOString()}>
@@ -170,32 +184,26 @@ const jsonLd = {
                   </>
                 )
               }
-              <span class="ml-auto">
-                <VercountDisplay client:only="react" pagePv />
-              </span>
+              <VercountDisplay client:only="react" pagePv />
+              {
+                siteConfig.features.comments.enable && (
+                  <>
+                    <span class="opacity-40">·</span>
+                    <span class="flex items-center gap-1">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"></path>
+                      </svg>
+                      <span data-comment-count>…</span>
+                    </span>
+                  </>
+                )
+              }
             </div>
             {
-              post.data.categories.length > 0 && (
-                <div class="mt-2 flex flex-wrap items-center gap-2">
-                  {post.data.categories.map((cat) => (
-                    <a
-                      href={categoryHref(cat)}
-                      class="inline-block rounded-full px-3 py-0.5 text-xs font-medium text-white/90 transition-colors hover:bg-white/15"
-                      style="background: rgba(255,255,255,0.12);"
-                    >
-                      {cat}
-                    </a>
-                  ))}
-                </div>
-              )
-            }
-            {
               post.data.tags.length > 0 && (
-                <div class="mt-1.5 flex flex-wrap items-center gap-2">
+                <div class="mt-2.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-white/75">
                   {post.data.tags.map((tag) => (
-                    <span class="text-xs text-white/70">
-                      #{tag}
-                    </span>
+                    <span>#{tag}</span>
                   ))}
                 </div>
               )
@@ -241,6 +249,19 @@ const jsonLd = {
             }
             <span class="ml-auto">
               <VercountDisplay client:only="react" pagePv />
+              {
+                siteConfig.features.comments.enable && (
+                  <>
+                    <span class="opacity-40">·</span>
+                    <span class="flex items-center gap-1">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"></path>
+                      </svg>
+                      <span data-comment-count>…</span>
+                    </span>
+                  </>
+                )
+              }
             </span>
           </div>
           {
@@ -285,6 +306,83 @@ const jsonLd = {
         <div class="prose">
           <Content />
         </div>
+        {
+          siteConfig.features.share.enable && (
+            <div
+              class="post-share"
+              data-share-text={post.data.description ?? post.data.title}
+            >
+              <span class="post-share-label">{t("post.share.title")}</span>
+              <div class="post-share-actions">
+                <button
+                  type="button"
+                  class="post-share-btn"
+                  data-share-native
+                  aria-label={t("post.share.native")}
+                  title={t("post.share.native")}
+                >
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="18" cy="5" r="3"></circle>
+                    <circle cx="6" cy="12" r="3"></circle>
+                    <circle cx="18" cy="19" r="3"></circle>
+                    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  class="post-share-btn"
+                  data-share-copy
+                  aria-label={t("post.share.copy")}
+                  title={t("post.share.copy")}
+                >
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"></path>
+                    <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"></path>
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  class="post-share-btn"
+                  data-share-qr
+                  aria-label={t("post.share.qr")}
+                  title={t("post.share.qr")}
+                >
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="3" width="7" height="7"></rect>
+                    <rect x="3" y="14" width="7" height="7"></rect>
+                    <line x1="14" y1="14" x2="14" y2="17"></line>
+                    <line x1="17" y1="14" x2="21" y2="14"></line>
+                    <line x1="21" y1="17" x2="21" y2="21"></line>
+                    <line x1="17" y1="21" x2="17" y2="18"></line>
+                    <line x1="14" y1="21" x2="17" y2="21"></line>
+                  </svg>
+                </button>
+                <a
+                  class="post-share-btn"
+                  href={`/og/posts/${post.id}.png`}
+                  download={`${post.id}-share.png`}
+                  aria-label={t("post.share.image")}
+                  title={t("post.share.image")}
+                >
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                  </svg>
+                </a>
+              </div>
+              <div
+                class="post-share-qr glass-card"
+                data-qr-hint={t("post.share.qrHint")}
+              >
+                <div class="post-share-qr-img"></div>
+                <p>{t("post.share.qrHint")}</p>
+              </div>
+            </div>
+          )
+        }
         {
           siteConfig.features.copyright.enable && (
             <div class="post-copyright">
@@ -358,7 +456,7 @@ const jsonLd = {
             {prevPost && (
               <a
                 href={`${prefix}/posts/${prevPost.id}/`}
-                class="post-nav-card glass-card block h-full"
+                class="post-nav-card glass-card block h-full" data-keyboard-prev
               >
                 <span class="post-nav-label">← {t("post.prev")}</span>
                 <span class="post-nav-title">{prevPost.data.title}</span>
@@ -369,7 +467,7 @@ const jsonLd = {
             {nextPost && (
               <a
                 href={`${prefix}/posts/${nextPost.id}/`}
-                class="post-nav-card glass-card block h-full text-right"
+                class="post-nav-card glass-card block h-full text-right" data-keyboard-next
               >
                 <span class="post-nav-label">{t("post.next")} →</span>
                 <span class="post-nav-title">{nextPost.data.title}</span>
@@ -425,6 +523,91 @@ const jsonLd = {
       pointer-events: none;
     }
 
+    /* ====== Mermaid 图表 ====== */
+    .mermaid {
+      display: flex;
+      justify-content: center;
+      margin: 1.5rem 0;
+    }
+    .mermaid svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* ====== 文末分享 ====== */
+    .prose-card {
+      position: relative;
+    }
+    .prose-card.qr-open {
+      z-index: 60;
+    }
+    .post-share {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 1.5rem;
+      position: relative;
+      flex-wrap: wrap;
+    }
+    .post-share-label {
+      font-size: 0.85rem;
+      color: var(--color-foreground-muted);
+    }
+    .post-share-actions {
+      display: flex;
+      gap: 8px;
+    }
+    .post-share-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--color-border);
+      color: var(--color-foreground-muted);
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .post-share-btn:hover {
+      color: var(--color-primary);
+      border-color: rgba(66, 90, 239, 0.4);
+      transform: translateY(-2px);
+    }
+    .dark .post-share-btn:hover {
+      border-color: rgba(242, 185, 75, 0.4);
+    }
+    .post-share-qr {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      z-index: 30;
+      padding: 14px 14px 10px;
+      border-radius: 14px;
+      text-align: center;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+    }
+    .post-share-qr.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .post-share-qr .post-share-qr-img svg {
+      width: 160px;
+      height: 160px;
+      display: block;
+    }
+    .post-share-qr p {
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--color-foreground-muted);
+    }
     /* ====== 文末版权 / 赞赏 ====== */
     .post-copyright {
       margin-top: 1.5rem;
@@ -509,15 +692,6 @@ const jsonLd = {
       border-color: rgba(255, 255, 255, 0.08) !important;
     }
 
-    .dark .cover-overlay-card {
-      background: linear-gradient(
-        135deg,
-        rgba(30, 30, 40, 0.6),
-        rgba(30, 30, 40, 0.3)
-      ) !important;
-      border-color: rgba(255, 255, 255, 0.08) !important;
-    }
-
     /* ====== 移动端目录抽屉（<1280：FAB 开关；≥1280 走右侧固定栏） ====== */
     .toc-fab {
       position: fixed;
@@ -594,155 +768,298 @@ const jsonLd = {
   </script>
 
   <script>
+    // ===== 文章页交互(astro:page-load 驱动,兼容 View Transitions)=====
     import { initImageFancybox } from "@/lib/fancybox";
+    import qrcode from "qrcode-generator";
+    import { siteConfig } from "@/config/site";
 
-    // Enable progressive loading effect
-    document.querySelector(".prose")?.classList.add("prose--js-ready");
+    // ----- 文档级监听:整个会话只注册一次 -----
+    if (!window.__postDocBound) {
+      window.__postDocBound = true;
 
-    document.querySelectorAll(".prose img").forEach((img) => {
-      const show = () => img.classList.add("loaded");
-      if (img.complete) {
-        show();
-      } else {
-        // 图片加载完成（或失败）后解除隐藏，否则懒加载的图片会一直不可见
-        img.addEventListener("load", show, { once: true });
-        img.addEventListener("error", show, { once: true });
-      }
-    });
-
-    // Fancybox for blog images
-    function initBlogFancybox() {
-      initImageFancybox("blog", ".prose");
-    }
-
-    initBlogFancybox();
-
-    // 移动端目录抽屉（<1280 时右下角按钮开关）
-    const tocFab = document.getElementById("toc-fab");
-    const tocDrawer = document.querySelector(".toc-drawer");
-    if (tocFab && tocDrawer) {
-      tocFab.addEventListener("click", (e) => {
-        e.stopPropagation();
-        tocDrawer.classList.toggle("toc-open");
-      });
-      tocDrawer.addEventListener("click", (e) => {
-        e.stopPropagation();
-        if (e.target.closest("a")) tocDrawer.classList.remove("toc-open");
-      });
-      // 点击抽屉与按钮之外的区域关闭目录
+      // 代码复制(事件委托)
       document.addEventListener("click", (e) => {
-        if (!tocDrawer.contains(e.target) && !tocFab.contains(e.target)) {
-          tocDrawer.classList.remove("toc-open");
+        const btn = e.target.closest(".code-copy-btn");
+        if (!btn) return;
+        const block = btn.closest(".code-block");
+        if (!block) return;
+        const text = block.dataset.codeText || block.querySelector("code")?.textContent || "";
+        navigator.clipboard.writeText(text).then(() => {
+          btn.innerHTML = btn.dataset.checkIcon || "";
+          setTimeout(() => (btn.innerHTML = btn.dataset.copyIcon || ""), 2000);
+        }).catch(() => {});
+      });
+
+      // 分享:点击外部 / Escape 收起二维码
+      document.addEventListener("click", (e) => {
+        const wrap = document.querySelector(".post-share");
+        if (wrap && !wrap.contains(e.target)) {
+          wrap.querySelector(".post-share-qr")?.classList.remove("open");
+          wrap.closest(".prose-card")?.classList.remove("qr-open");
+        }
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          document.querySelector(".post-share-qr")?.classList.remove("open");
+        }
+      });
+
+      // 键盘快捷键:←/→ 上一篇/下一篇
+      document.addEventListener("keydown", (e) => {
+        if (e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey) return;
+        const t = e.target;
+        if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.tagName === "SELECT" || t.isContentEditable)) return;
+        if (e.key === "ArrowLeft") {
+          const a = document.querySelector("[data-keyboard-prev]");
+          if (a) { e.preventDefault(); a.click(); }
+        } else if (e.key === "ArrowRight") {
+          const a = document.querySelector("[data-keyboard-next]");
+          if (a) { e.preventDefault(); a.click(); }
         }
       });
     }
 
-    // Code block enhancements: line numbers, copy button
-    const clipboardSvg =
-      '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>';
-    const checkSvg =
-      '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#28c840" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
-
-    document.querySelectorAll(".code-block").forEach((block) => {
-      const pre = block.querySelector("pre");
-      const code = pre?.querySelector("code");
-      if (!pre || !code) return;
-
-      // 1. Copy button → toolbar
-      const toolbar = block.querySelector(".code-block-toolbar");
-      if (toolbar) {
-        const btn = document.createElement("button");
-        btn.className = "code-copy-btn";
-        const btnLabel = document.documentElement.dataset.copyCodeLabel || 'Copy Code';
-        btn.setAttribute("aria-label", btnLabel);
-        btn.title = btnLabel;
-        btn.innerHTML = clipboardSvg;
-        toolbar.appendChild(btn);
-      }
-
-      // 2. Line numbers — replace pre with line-nums + code-content
-      const rawHtml = code.innerHTML;
-      const textContent = code.textContent || "";
-      const lines = rawHtml.split("\n");
-      if (lines.length > 0 && lines[lines.length - 1].trim() === "")
-        lines.pop();
-
-      // Copy theme styles from <pre> before replacing
-      const preStyle = getComputedStyle(pre);
-
-      const numDiv = document.createElement("div");
-      numDiv.className = "line-nums";
-      const codeDiv = document.createElement("div");
-      codeDiv.className = "code-content";
-
-      // Transfer theme: CSS variables, color-scheme, background, font
-      [
-        "--shiki-light",
-        "--shiki-dark",
-        "--shiki-light-bg",
-        "--shiki-dark-bg",
-      ].forEach((v) => {
-        const val = preStyle.getPropertyValue(v);
-        if (val) codeDiv.style.setProperty(v, val);
-      });
-      codeDiv.style.colorScheme = preStyle.colorScheme;
-      codeDiv.style.fontFamily = preStyle.fontFamily;
-
-      lines.forEach((lineHtml, i) => {
-        const numSpan = document.createElement("span");
-        numSpan.textContent = String(i + 1);
-        numDiv.appendChild(numSpan);
-
-        const lineSpan = document.createElement("span");
-        lineSpan.className = "code-line";
-        lineSpan.innerHTML = lineHtml || " ";
-        codeDiv.appendChild(lineSpan);
+    // ----- 每次页面加载(含 View Transitions)重新初始化 -----
+    function initPage() {
+      // prose 渐进加载效果
+      document.querySelector(".prose")?.classList.add("prose--js-ready");
+      document.querySelectorAll(".prose img").forEach((img) => {
+        const show = () => img.classList.add("loaded");
+        if (img.complete) {
+          show();
+        } else {
+          img.addEventListener("load", show, { once: true });
+          img.addEventListener("error", show, { once: true });
+        }
       });
 
-      // Hover highlight sync
-      const clearActive = () => {
-        numDiv
-          .querySelector(".line-num-active")
-          ?.classList.remove("line-num-active");
-        codeDiv.querySelector(".line-active")?.classList.remove("line-active");
-      };
-      for (let i = 0; i < numDiv.children.length; i++) {
-        const handler = () => {
-          clearActive();
-          numDiv.children[i].classList.add("line-num-active");
-          codeDiv.children[i]?.classList.add("line-active");
-        };
-        numDiv.children[i].addEventListener("mouseenter", handler);
-        codeDiv.children[i]?.addEventListener("mouseenter", handler);
+      // Fancybox(内部先解绑,幂等)
+      initImageFancybox("blog", ".prose");
+
+      // 移动端目录抽屉
+      const tocFab = document.getElementById("toc-fab");
+      const tocDrawer = document.querySelector(".toc-drawer");
+      if (tocFab && tocDrawer) {
+        tocFab.addEventListener("click", (e) => {
+          e.stopPropagation();
+          tocDrawer.classList.toggle("toc-open");
+        });
+        tocDrawer.addEventListener("click", (e) => {
+          e.stopPropagation();
+          if (e.target.closest("a")) tocDrawer.classList.remove("toc-open");
+        });
       }
 
-      const wrapper = document.createElement("div");
-      wrapper.className = "code-lines";
-      wrapper.appendChild(numDiv);
-      wrapper.appendChild(codeDiv);
-      wrapper.addEventListener("mouseleave", clearActive);
-      pre.replaceWith(wrapper);
+      // 代码块行号(复制按钮为文档级委托,不会重复)
+      const clipboardSvg =
+        '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>';
+      const checkSvg =
+        '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#28c840" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+      document.querySelectorAll(".prose-card .code-block").forEach((block) => {
+        if (block.dataset.enhanced) return;
+        block.dataset.enhanced = "1";
+        const pre = block.querySelector("pre");
+        const code = pre?.querySelector("code");
+        if (!pre || !code) return;
 
-      // Store plain text for copy
-      block.dataset.codeText = textContent;
-    });
-
-    // Copy handler
-    document.addEventListener("click", (e) => {
-      const btn = e.target.closest(".code-copy-btn");
-      if (!btn) return;
-      const block = btn.closest(".code-block");
-      if (!block) return;
-      const text =
-        block.dataset.codeText ||
-        block.querySelector("code")?.textContent ||
-        "";
-      navigator.clipboard.writeText(text).then(() => {
-        btn.innerHTML = checkSvg;
-        setTimeout(() => {
+        const toolbar = block.querySelector(".code-block-toolbar");
+        if (toolbar) {
+          const btn = document.createElement("button");
+          btn.className = "code-copy-btn";
+          const btnLabel = document.documentElement.dataset.copyCodeLabel || "Copy Code";
+          btn.setAttribute("aria-label", btnLabel);
+          btn.title = btnLabel;
           btn.innerHTML = clipboardSvg;
-        }, 2000);
-      }).catch(() => {});
-    });
+          btn.dataset.copyIcon = clipboardSvg;
+          btn.dataset.checkIcon = checkSvg;
+          toolbar.appendChild(btn);
+        }
+
+        const rawHtml = code.innerHTML;
+        const textContent = code.textContent || "";
+        const lines = rawHtml.split("\n");
+        if (lines.length > 0 && lines[lines.length - 1].trim() === "") lines.pop();
+
+        const preStyle = getComputedStyle(pre);
+        const numDiv = document.createElement("div");
+        numDiv.className = "line-nums";
+        const codeDiv = document.createElement("div");
+        codeDiv.className = "code-content";
+        ["--shiki-light", "--shiki-dark", "--shiki-light-bg", "--shiki-dark-bg"].forEach((v) => {
+          const val = preStyle.getPropertyValue(v);
+          if (val) codeDiv.style.setProperty(v, val);
+        });
+        codeDiv.style.colorScheme = preStyle.colorScheme;
+        codeDiv.style.fontFamily = preStyle.fontFamily;
+
+        lines.forEach((lineHtml, i) => {
+          const numSpan = document.createElement("span");
+          numSpan.textContent = String(i + 1);
+          numDiv.appendChild(numSpan);
+          const lineSpan = document.createElement("span");
+          lineSpan.className = "code-line";
+          lineSpan.innerHTML = lineHtml || " ";
+          codeDiv.appendChild(lineSpan);
+        });
+
+        const clearActive = () => {
+          numDiv.querySelector(".line-num-active")?.classList.remove("line-num-active");
+          codeDiv.querySelector(".line-active")?.classList.remove("line-active");
+        };
+        for (let i = 0; i < numDiv.children.length; i++) {
+          const handler = () => {
+            clearActive();
+            numDiv.children[i].classList.add("line-num-active");
+            codeDiv.children[i]?.classList.add("line-active");
+          };
+          numDiv.children[i].addEventListener("mouseenter", handler);
+          codeDiv.children[i]?.addEventListener("mouseenter", handler);
+        }
+
+        const wrapper = document.createElement("div");
+        wrapper.className = "code-lines";
+        wrapper.appendChild(numDiv);
+        wrapper.appendChild(codeDiv);
+        wrapper.addEventListener("mouseleave", clearActive);
+        pre.replaceWith(wrapper);
+        block.dataset.codeText = textContent;
+      });
+
+      // 分享(元素级绑定;文档级外部点击/Escape 已注册)
+      const shareWrap = document.querySelector(".post-share");
+      if (shareWrap && !shareWrap.dataset.shareBound) {
+        shareWrap.dataset.shareBound = "1";
+        const proseCard = shareWrap.closest(".prose-card");
+        const shareUrl = new URL(location.pathname, location.origin).href;
+        const shareText = shareWrap.dataset.shareText || "";
+
+        const qrBtn = shareWrap.querySelector("[data-share-qr]");
+        const qrPanel = shareWrap.querySelector(".post-share-qr");
+        const copyBtn = shareWrap.querySelector("[data-share-copy]");
+        const nativeBtn = shareWrap.querySelector("[data-share-native]");
+
+        let closeTimer = 0;
+        let liftTimer = 0;
+        let lastOpen = 0;
+
+        function openQr() {
+          if (!qrPanel.querySelector("svg")) {
+            const qr = qrcode(0, "M");
+            qr.addData(shareUrl);
+            qr.make();
+            qrPanel.querySelector(".post-share-qr-img").innerHTML = qr.createSvgTag({
+              cellSize: 4,
+              margin: 6,
+              scalable: true,
+            });
+          }
+          qrPanel.classList.add("open");
+          proseCard && proseCard.classList.add("qr-open");
+          clearTimeout(closeTimer);
+          clearTimeout(liftTimer);
+          lastOpen = Date.now();
+        }
+        function closeQr() {
+          qrPanel.classList.remove("open");
+          clearTimeout(liftTimer);
+          liftTimer = setTimeout(() => proseCard && proseCard.classList.remove("qr-open"), 300);
+        }
+        function toggleQr() {
+          const isOpen = qrPanel.classList.contains("open");
+          if (isOpen && Date.now() - lastOpen < 600) return;
+          isOpen ? closeQr() : openQr();
+        }
+
+        qrBtn.addEventListener("mouseenter", openQr);
+        shareWrap.addEventListener("mouseleave", () => {
+          closeTimer = setTimeout(closeQr, 300);
+        });
+        shareWrap.addEventListener("mouseenter", () => clearTimeout(closeTimer));
+        qrPanel.addEventListener("mouseenter", () => clearTimeout(closeTimer));
+        qrBtn.addEventListener("click", toggleQr);
+        copyBtn.addEventListener("click", () => {
+          navigator.clipboard.writeText(shareUrl).then(() => {
+            copyBtn.innerHTML = copyBtn.dataset.checkIcon || "";
+            setTimeout(() => (copyBtn.innerHTML = copyBtn.dataset.copyIcon || ""), 2000);
+          }).catch(() => {});
+        });
+        if (!navigator.share && nativeBtn) nativeBtn.remove();
+        nativeBtn && nativeBtn.addEventListener("click", () => {
+          navigator.share({ title: document.title, text: shareText, url: shareUrl }).catch(() => {});
+        });
+      }
+
+      // 数学公式:客户端 KaTeX 渲染($ 行内 / $$ 块级),按需加载
+      const proseEl = document.querySelector(".prose");
+      if (proseEl && /\$\$[\s\S]+?\$\$|\$[^$\n]+?\$/.test(proseEl.textContent)) {
+        import("katex").then(async ({ default: katex }) => {
+          // 块级:$$...$$ 独立段落
+          proseEl.querySelectorAll("p").forEach((pEl) => {
+            const t = pEl.textContent.trim();
+            if (t.startsWith("$$") && t.endsWith("$$") && t.length > 4) {
+              pEl.innerHTML = katex.renderToString(t.slice(2, -2).trim(), {
+                displayMode: true,
+                throwOnError: false,
+              });
+              pEl.classList.add("math-display");
+            }
+          });
+          // 行内:拆分含 $ 的文本节点(pre/code 内跳过)
+          const walker = document.createTreeWalker(proseEl, NodeFilter.SHOW_TEXT, {
+            acceptNode: (n) => {
+              const p = n.parentElement;
+              if (p && (p.closest("pre") || p.closest("code") || p.closest(".katex"))) return NodeFilter.FILTER_REJECT;
+              return /\$[^$\n]+?\$/.test(n.textContent) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_SKIP;
+            },
+          });
+          const nodes = [];
+          while (walker.nextNode()) nodes.push(walker.currentNode);
+          for (const node of nodes) {
+            const parts = node.textContent.split(/(\$[^$\n]+?\$)/);
+            const frag = document.createDocumentFragment();
+            for (const part of parts) {
+              if (part.startsWith("$") && part.endsWith("$") && part.length > 2) {
+                const span = document.createElement("span");
+                span.innerHTML = katex.renderToString(part.slice(1, -1), { throwOnError: false });
+                frag.appendChild(span);
+              } else if (part) {
+                frag.appendChild(document.createTextNode(part));
+              }
+            }
+            node.parentNode.replaceChild(frag, node);
+          }
+        }).catch(() => {});
+      }
+
+      // Mermaid 图表:存在时才按需加载渲染
+      if (document.querySelector(".mermaid")) {
+        import("mermaid").then(({ default: mermaid }) => {
+          mermaid.initialize({
+            startOnLoad: false,
+            securityLevel: "strict",
+            theme: document.documentElement.classList.contains("dark") ? "dark" : "neutral",
+          });
+          mermaid.run({ querySelector: ".mermaid" });
+        }).catch(() => {});
+      }
+
+      // Waline 评论数(评论开启时填充)
+      if (siteConfig.features.comments.enable) {
+        const slots = document.querySelectorAll("[data-comment-count]");
+        if (slots.length) {
+          const server = siteConfig.features.comments.serverURL.replace(/\/$/, "");
+          const path = location.pathname.replace(/\/$/, "");
+          fetch(`${server}/api/comment?path=${encodeURIComponent(path)}&type=count`)
+            .then((r) => r.json())
+            .then((d) => {
+              const n = Number(d?.data ?? 0);
+              slots.forEach((s) => (s.textContent = String(n)));
+            })
+            .catch(() => {});
+        }
+      }
+    }
+
+    document.addEventListener("astro:page-load", initPage);
   </script>
 </BaseLayout>

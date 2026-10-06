@@ -35,7 +35,7 @@ const playlists = (siteConfig.features.playlists.enable ? playlistModules : []).
 });
 ---
 
-<BaseLayout title={t('music.title')}>
+<BaseLayout title={t('music.title')} transition={false}>
   <Header />
   <main
     class="mx-auto max-w-[1152px] px-4 pt-[20px] pb-[20px] sm:px-6 lg:px-8"

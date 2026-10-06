@@ -137,7 +137,10 @@ const filteredHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 6);
     });
   }
 
-  initToc();
-  // 图片懒加载会改变文档高度，加载完成后刷新标题位置
-  window.addEventListener('load', () => tocbot.refresh());
+  // astro:page-load 在首次加载与 View Transitions 换页后都会触发
+  document.addEventListener('astro:page-load', () => {
+    initToc();
+    // 图片懒加载会改变文档高度,延迟刷新标题位置
+    setTimeout(() => tocbot.refresh(), 1200);
+  });
 </script>

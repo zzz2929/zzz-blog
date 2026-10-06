@@ -1036,82 +1036,85 @@ function isImageIcon(icon) {
 </style>
 
 <script>
-  import { loadPagefind } from "@/lib/pagefind";
+    import { loadPagefind } from "@/lib/pagefind";
 
-  (function () {
-    const box = document.querySelector(".header-search-box");
-    const input = document.getElementById("header-search-input") as HTMLInputElement | null;
-    const panel = document.getElementById("header-search-panel");
-    if (!box || !input || !panel) return;
-
-    const emptyText = panel.dataset.empty || "";
-    const noIndexText = panel.dataset.noIndex || "";
+    let pagefind: any = null;
     let timer = 0;
 
-    const close = () => panel.classList.remove("open");
-    const open = () => panel.classList.add("open");
-
-    function renderResults(data) {
-      for (const d of data) {
-        const a = document.createElement("a");
-        a.href = d.url;
-        a.className = "header-search-item";
-        const title = document.createElement("div");
-        title.className = "hs-title";
-        title.textContent = d.meta?.title || d.url;
-        const excerpt = document.createElement("p");
-        excerpt.className = "hs-excerpt";
-        excerpt.innerHTML = d.excerpt || "";
-        a.append(title, excerpt);
-        panel.appendChild(a);
-      }
-    }
-
-    async function run() {
+    async function run(input: HTMLInputElement, panel: HTMLElement) {
       const q = input.value.trim();
       panel.innerHTML = "";
       if (!q) {
-        close();
+        panel.classList.remove("open");
         return;
       }
       try {
-        const pf = await loadPagefind();
-        const res = await pf.search(q, {
+        pagefind ??= await loadPagefind();
+        const res = await pagefind.search(q, {
           locales: [document.documentElement.lang.toLowerCase()],
         });
         if (!res.results.length) {
-          panel.textContent = emptyText;
-          open();
+          panel.textContent = panel.dataset.empty || "";
+          panel.classList.add("open");
           return;
         }
         const data = await Promise.all(
           res.results.slice(0, 8).map((r) => r.data()),
         );
-        renderResults(data);
-        open();
+        for (const d of data) {
+          const a = document.createElement("a");
+          a.href = d.url;
+          a.className = "header-search-item";
+          const title = document.createElement("div");
+          title.className = "hs-title";
+          title.textContent = d.meta?.title || d.url;
+          const excerpt = document.createElement("p");
+          excerpt.className = "hs-excerpt";
+          excerpt.innerHTML = d.excerpt || "";
+          a.append(title, excerpt);
+          panel.appendChild(a);
+        }
+        panel.classList.add("open");
       } catch {
         // dev 下无索引等场景
-        panel.textContent = noIndexText;
-        open();
+        panel.textContent = panel.dataset.noIndex || "";
+        panel.classList.add("open");
       }
     }
 
-    input.addEventListener("input", () => {
-      clearTimeout(timer);
-      timer = setTimeout(run, 200);
-    });
-    input.addEventListener("focus", () => {
-      if (input.value.trim() && panel.children.length) open();
-    });
-    input.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") {
-        close();
-        input.blur();
-      }
-    });
-    document.addEventListener("click", (e) => {
-      const target = e.target as Node;
-      if (!box.contains(target) && !panel.contains(target)) close();
-    });
-  })();
-</script>
+    function initHeaderSearch() {
+      const box = document.querySelector(".header-search-box");
+      const input = document.getElementById("header-search-input") as HTMLInputElement | null;
+      const panel = document.getElementById("header-search-panel");
+      if (!box || !input || !panel) return;
+
+      input.addEventListener("input", () => {
+        clearTimeout(timer);
+        timer = setTimeout(() => run(input, panel), 200);
+      });
+      input.addEventListener("focus", () => {
+        if (input.value.trim() && panel.children.length) panel.classList.add("open");
+      });
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          panel.classList.remove("open");
+          input.blur();
+        }
+      });
+    }
+
+    // 外部点击收起(委托一次;面板在 View Transitions 换页后是 DOM 里的新元素)
+    if (!(window as any).__headerSearchDocBound) {
+      (window as any).__headerSearchDocBound = true;
+      document.addEventListener("click", (e) => {
+        const t = e.target as Node;
+        const box = document.querySelector(".header-search-box");
+        const panel = document.getElementById("header-search-panel");
+        if (box && panel && !box.contains(t) && !panel.contains(t)) panel.classList.remove("open");
+      });
+    }
+
+    initHeaderSearch();
+    // astro:page-load 首次加载与每次换页都会触发
+    document.addEventListener("astro:page-load", initHeaderSearch);
+  </script>

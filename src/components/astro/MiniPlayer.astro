@@ -8,7 +8,7 @@ const t = useTranslations(locale);
 // Restores playback state from sessionStorage
 ---
 
-<div id="mini-player" class="mini-player hidden"
+<div id="mini-player" class="mini-player hidden" transition:persist="mini-player"
   data-t-not-playing={t('music.notPlaying')}
   data-t-select-song={t('music.selectSong')}
   data-default-volume={siteConfig.music.defaultVolume}>

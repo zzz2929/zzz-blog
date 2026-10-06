@@ -127,6 +127,9 @@ export const siteConfig = {
       license: "CC BY-NC-SA 4.0",
     },
 
+    /* ---- 文末分享（系统分享 / 复制链接 / 二维码） ---- */
+    share: { enable: true },
+
     /* ---- 文末赞赏 ----
      * enable 开启后文章末尾显示收款码；qrImage 填收款码图片地址（建议正方形） */
     donate: { enable: false, qrImage: "" },
@@ -204,9 +207,9 @@ export const siteConfig = {
       {
         label: "nav.about",
         children: [
-          { name: "nav.aboutMe", href: "/about/", icon: "/navigation/关于本人.svg" },
-          { name: "nav.essay", href: "/essay/", icon: "/navigation/闲言碎语.svg" },
-          { name: "nav.equipment", href: "/equipment/", icon: "/navigation/我的装备.svg" },
+          { name: "nav.aboutMe", href: "/about/", icon: "/navigation/关于.svg" },
+          { name: "nav.essay", href: "/essay/", icon: "/navigation/随笔.svg" },
+          { name: "nav.equipment", href: "/equipment/", icon: "/navigation/装备.svg" },
           { name: "nav.projects", href: "/projects/", icon: "/navigation/项目.svg" },
         ],
       },
@@ -315,7 +318,7 @@ export const siteConfig = {
     // 文章列表每页篇数
     postsPerPage: 9,
     // 侧栏「近期文章」篇数
-    recentPostsCount: 5,
+    recentPostsCount: 3,
     // 侧栏 hello 动图（明暗两套，随主题切换）
     helloImages: {
       light: "https://imgbed.904002.xyz/file/img/blog/others/hello_白_.webp",

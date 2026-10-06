@@ -1,8 +1,4 @@
-/**
- * 构建编排：astro build → OG 分享图 → pagefind 索引。
- * 单独包装是为了跨平台地调大 Node 堆（预渲染页面多时默认 1.4GB 堆会 OOM）。
- * Run: pnpm build
- */
+// 构建编排:PWA 图标 → astro build → SW → OG 分享图 → pagefind 索引
 import { spawnSync } from 'node:child_process';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -14,7 +10,9 @@ const npx = process.platform === 'win32' ? 'pnpm.cmd' : 'pnpm';
 process.env.NODE_OPTIONS = `${process.env.NODE_OPTIONS || ''} --max-old-space-size=4096`.trim();
 
 const steps = [
+  ['generate PWA icons', ['exec', 'node', 'scripts/generate-icons.mjs']],
   ['astro build', ['exec', 'astro', 'build']],
+  ['generate service worker', ['exec', 'node', 'scripts/generate-sw.mjs']],
   ['generate OG images', ['exec', 'node', 'scripts/generate-og.mjs']],
   ['pagefind index', ['exec', 'pagefind', '--site', 'dist/client']],
 ];

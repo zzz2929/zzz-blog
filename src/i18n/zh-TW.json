@@ -9,9 +9,9 @@
   "nav.bangumis": "追番",
   "nav.album": "相簿",
   "nav.about": "我的",
-  "nav.aboutMe": "關於本人",
-  "nav.essay": "閒言碎語",
-  "nav.equipment": "我的裝備",
+  "nav.aboutMe": "關於",
+  "nav.essay": "隨筆",
+  "nav.equipment": "裝備",
   "nav.siteNav": "站點導航",
   "nav.home": "首頁",
   "nav.settings": "設定",
@@ -138,5 +138,13 @@
   "home.stats.posts": "累計文章",
   "home.stats.words": "總字數",
   "home.stats.years": "覆蓋年份",
-  "home.stats.tags": "標籤數"
+  "home.stats.tags": "標籤數",
+  "post.share.title": "分享這篇文章",
+  "post.share.native": "系統分享",
+  "post.share.copy": "複製連結",
+  "post.share.copied": "已複製",
+  "post.share.qr": "二維碼",
+  "post.share.qrHint": "掃碼在手機上開啟",
+  "post.share.image": "儲存分享圖",
+  "post.comments": "評論數"
 }

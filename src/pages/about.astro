@@ -626,6 +626,7 @@ const totalWords = posts.reduce((sum, p) => sum + estimateWordCount(p.body ?? ""
   var pursuitInterval = null;
   pursuitInterval = setInterval(function () {
     const show = document.querySelector("span[data-show]");
+    if (!show) return;
     const next = show.nextElementSibling || document.querySelector(".first-tips");
     const up = document.querySelector("span[data-up]");
 
@@ -638,6 +639,8 @@ const totalWords = posts.reduce((sum, p) => sum + estimateWordCount(p.body ?? ""
 
     next.setAttribute("data-show", "");
   }, 2000);
+  // View Transitions 换页前清理轮播定时器
+  document.addEventListener("astro:before-swap", () => clearInterval(pursuitInterval), { once: true });
 </script>
 
 <script>
@@ -645,12 +648,16 @@ const totalWords = posts.reduce((sum, p) => sum + estimateWordCount(p.body ?? ""
   import { fetchCounterData } from "@vercount/core";
   import { siteConfig } from "@/config/site";
 
-  fetchCounterData({ url: siteConfig.url })
-    .then((data) => {
-      const pv = document.getElementById("stat-site-pv");
-      const uv = document.getElementById("stat-site-uv");
-      if (pv && data?.site_pv != null) pv.textContent = String(data.site_pv);
-      if (uv && data?.site_uv != null) uv.textContent = String(data.site_uv);
-    })
-    .catch(() => {});
+  function loadSiteStats() {
+    fetchCounterData({ url: siteConfig.url })
+      .then((data) => {
+        const pv = document.getElementById("stat-site-pv");
+        const uv = document.getElementById("stat-site-uv");
+        if (pv && data?.site_pv != null) pv.textContent = String(data.site_pv);
+        if (uv && data?.site_uv != null) uv.textContent = String(data.site_uv);
+      })
+      .catch(() => {});
+  }
+  loadSiteStats();
+  document.addEventListener("astro:page-load", loadSiteStats);
 </script>
