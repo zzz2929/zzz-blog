@@ -12,9 +12,13 @@ process.env.NODE_OPTIONS = `${process.env.NODE_OPTIONS || ''} --max-old-space-si
 const steps = [
   ['generate PWA icons', ['exec', 'node', 'scripts/generate-icons.mjs']],
   ['astro build', ['exec', 'astro', 'build']],
-  ['generate service worker', ['exec', 'node', 'scripts/generate-sw.mjs']],
+  // KaTeX 字体:CSS 里 url(fonts/…) 是相对路径,拷到两处解析基础路径下
+  ['copy katex fonts', ['exec', 'node', 'scripts/copy-katex-fonts.mjs']],
+  // OG 分享图与搜索索引先于 SW 生成,才能被预缓存
   ['generate OG images', ['exec', 'node', 'scripts/generate-og.mjs']],
   ['pagefind index', ['exec', 'pagefind', '--site', 'dist/client']],
+  // SW 最后生成,预缓存清单才能覆盖上面所有产物
+  ['generate service worker', ['exec', 'node', 'scripts/generate-sw.mjs']],
 ];
 
 for (const [name, args] of steps) {

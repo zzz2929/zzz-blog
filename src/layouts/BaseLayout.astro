@@ -61,6 +61,7 @@ const hreflangEntries = i18nCfg.enable
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/favicon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
 
     <meta name="generator" content={Astro.generator} />
     {transition && <ClientRouter />}
@@ -128,9 +129,21 @@ const hreflangEntries = i18nCfg.enable
     {!import.meta.env.DEV && (
       <script>
         // PWA Service Worker 注册(构建产物含 sw.js;dev 下无 SW,静默跳过)
-        if ("serviceWorker" in navigator) {
-          import("virtual:pwa-register").then(({ registerSW }) => registerSW({ immediate: true })).catch(() => {});
-        }
+        navigator.serviceWorker
+          .register("/sw.js")
+          .then((reg) => {
+            reg.update();
+            reg.addEventListener("updatefound", () => {
+              const installing = reg.installing;
+              installing &&
+                installing.addEventListener("statechange", () => {
+                  if (installing.state === "installed" && navigator.serviceWorker.controller) {
+                    installing.skipWaiting();
+                  }
+                });
+            });
+          })
+          .catch(() => {});
       </script>
     )}
   </head>

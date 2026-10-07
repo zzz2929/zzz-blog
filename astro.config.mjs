@@ -5,7 +5,6 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import { visit } from 'unist-util-visit';
 import { unified } from '@astrojs/markdown-remark';
-import AstroPWA from '@vite-pwa/astro';
 
 import cloudflare from '@astrojs/cloudflare';
 
@@ -199,31 +198,7 @@ export default defineConfig({
         ),
       },
     }),
-    // PWA:manifest + Service Worker(dev 不启用;离线缓存页面/脚本,图片运行时缓存)
-    ...(isDev
-      ? []
-      : [
-          AstroPWA({
-            registerType: 'autoUpdate',
-            includeAssets: ['favicon.svg', 'favicon.ico', 'favicon.png', 'robots.txt'],
-            manifest: {
-              name: siteConfig.title,
-              short_name: siteConfig.title,
-              description: siteConfig.description['zh-CN'],
-              theme_color: '#425AEF',
-              background_color: '#EDE8DE',
-              display: 'standalone',
-              icons: [
-                { src: '/icons/pwa-192.png', sizes: '192x192', type: 'image/png' },
-                { src: '/icons/pwa-512.png', sizes: '512x512', type: 'image/png' },
-                { src: '/icons/pwa-maskable-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
-              ],
-            },
-            // SW 本体由 scripts/generate-sw.mjs(workbox-build)生成到 dist/client/sw.js;
-            // 此处集成仅提供 manifest 与 virtual:pwa-register
-            devOptions: { enabled: false },
-          }),
-        ]),
+
   ],
 
   // 多语言配置来自 src/config/site.ts（features.i18n）；prefixDefaultLocale: false
