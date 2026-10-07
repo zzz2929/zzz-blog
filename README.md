@@ -2,110 +2,72 @@
 
 基于 **Astro + React + Tailwind CSS** 的[个人博客](https://blog.904002.xyz)。
 
-| 层级     | 技术                | 版本    |
-| -------- | ------------------- | ------- |
-| 框架     | Astro               | ^6.4.8  |
-| 交互     | React               | ^19.2.7 |
-| 样式     | Tailwind CSS        | ^4.3.0  |
-| 动画     | Framer Motion       | ^12.42  |
-| 图标     | Lucide React        | ^1.17.0 |
-| 评论     | Waline              | ^3.15.0 |
-| 搜索     | Pagefind            | ^1.5.2  |
-| 代码高亮 | Shiki（Astro 内置） | ^4.2.0  |
-| 图片灯箱 | PhotoSwipe          | ^5.4.4  |
-| 国际化   | Astro i18n          | 内置    |
-| 部署     | Cloudflare          | —      |
-| 包管理   | pnpm                | —      |
+自定义项集中在 `src/config/site.ts` 一个文件里。
+
+## 技术栈
+
+| 层级     | 技术                        | 版本      |
+| -------- | --------------------------- | --------- |
+| 框架     | Astro                       | ^7.3.3    |
+| 交互     | React                       | ^19.2.8   |
+| 样式     | Tailwind CSS                | ^4.3.3    |
+| 动画     | GSAP / motion               | —         |
+| 图标     | Lucide React                | ^1.38.0   |
+| 评论     | Waline                      | v3        |
+| 搜索     | Pagefind                    | ^1.5.2    |
+| 灯箱     | Fancybox                    | ^6.1.14   |
+| 代码高亮 | Shiki（Astro 内置，双主题） | —         |
+| 浏览量   | Vercount                    | —         |
+| OG 图    | satori + @resvg/resvg-js    | —         |
+| 部署     | Cloudflare Pages            | —         |
+| 包管理   | pnpm                        | ≥10       |
 
 ## 快速开始
 
+要求 **Node.js ≥ 22**（OG 分享图脚本需要原生导入 TS 配置）。
+
 ```bash
 pnpm install        # 安装依赖
-pnpm build          # 构建生产版本（自动获取浏览量数据）
 pnpm dev            # 开发服务器（localhost:4321）
+pnpm build          # 构建生产版本
 pnpm preview        # 预览构建结果
-node scripts/fetch-tmdb.mjs  # 更新追番 TMDB 数据
 ```
 
-## 项目结构
+`pnpm build` 是一条编排管线（`scripts/build.mjs`）：
 
-```
-src/
-├── config/
-│   └── photoswipe.ts              # PhotoSwipe 灯箱配置
-├── content/
-│   ├── blog/                      # 博客文章（Markdown）
-│   └── data/                      # 结构化数据
-│       ├── about.json             # 个人信息
-│       ├── album-*.yml            # 相册数据
-│       ├── bangumis.json          # 追番数据（含 TMDB）
-│       ├── equipment.yml          # 装备展示
-│       ├── essay.yml              # 随笔
-│       ├── friends-*.yml          # 友链
-│       ├── hitokoto.yml           # 一言语录
-│       ├── music.json             # 歌曲队列
-│       ├── notice.yml             # 公告
-│       └── playlists/*.json       # 歌单文件
-├── components/
-│   ├── astro/
-│   │   ├── Header.astro           # 导航栏 + 语言切换
-│   │   ├── Footer.astro           # 底栏
-│   │   ├── PostCard.astro         # 文章卡片
-│   │   ├── TOC.astro              # 目录
-│   │   ├── Comments.astro         # Waline 评论
-│   │   ├── EssayMarquee.astro     # 随笔轮播
-│   │   ├── HitokotoModule.astro   # 一言模块
-│   │   ├── CategoryCards.astro    # 分类卡片
-│   │   ├── RandomImageModule.astro # 随机图 + 文章推荐
-│   │   ├── RecentPosts.astro      # 近期文章
-│   │   ├── SkillsGrid.astro       # 技术栈网格
-│   │   └── MiniPlayer.astro       # 跨页面迷你播放器
-│   └── react/
-│       ├── AnimatedBackground.tsx # 动态背景
-│       ├── SortFilterPosts.tsx    # 排序筛选
-│       ├── ThemeToggle.tsx        # 暗色模式切换
-│       ├── BangumiList.tsx        # 追番列表
-│       ├── Gallery.tsx            # PhotoSwipe 灯箱
-│       ├── PhotoAlbum.tsx         # 相册浏览器
-│       ├── Polaroid.tsx           # 拍立得卡片
-│       ├── PolaroidGallery.tsx    # 拍立得画廊
-│       └── VercountDisplay.tsx    # 浏览量显示
-├── i18n/
-│   ├── index.ts                   # useTranslations / getLocaleFromURL
-│   ├── zh-CN.json                 # 简体中文
-│   ├── en.json                    # 英文
-│   └── zh-TW.json                 # 繁体中文
-├── layouts/
-│   └── BaseLayout.astro           # HTML 壳
-├── pages/
-│   ├── index.astro                # 首页
-│   ├── posts/[...slug].astro      # 文章详情
-│   ├── archives.astro             # 归档
-│   ├── about.astro                # 关于
-│   ├── bangumis.astro             # 追番
-│   ├── music.astro                # 音乐
-│   ├── album.astro                # 相册
-│   ├── friends.astro              # 友链
-│   ├── equipment.astro            # 装备
-│   ├── essay.astro                # 随笔
-│   ├── categories/                # 分类
-│   ├── api/                       # API 路由
-│   ├── en/                        # 英文路由
-│   └── zh-TW/                     # 繁体中文路由
-├── styles/global.css              # 全局样式
-├── scripts/
-│   ├── fetch-tmdb.mjs             # 追番 TMDB 数据抓取
-│   └── fetch-view-counts.mjs      # 文章浏览量预获取
-└── content.config.ts              # Content Collections schema
-```
+1. `astro build` — 预渲染全部页面
+2. `scripts/generate-og.mjs` — 为每篇文章生成 OG 分享图
+3. `pagefind --site dist/client` — 生成全文搜索索引
 
----
+> 提示：dev 模式下搜索索引不存在，Header 搜索框会提示先构建；图片缓存（`.astro/`）在首次构建后开始生效。
 
-## 指南
+## 站点配置
+
+**所有可自定义项集中在 `src/config/site.ts`**，修改后重启 dev / 重新构建生效。主要分区：
+
+| 分区                | 内容                                                         |
+| ------------------- | ------------------------------------------------------------ |
+| 站点基本信息        | `title`、`author`、`url`、`avatar`、`imageBedHost`、多语言 `description` |
+| `features`          | 评论、多语言、迷你播放器、小歌单、TOC、公告、RSS、版权、赞赏 |
+| `features.comments` | Waline 参数（serverURL、表情、必填项、排序等）               |
+| `features.i18n`     | 多语言开关与语言列表                                         |
+| `footer`            | 版权起始年份、是否显示 Powered by                            |
+| `noticeOutdate`     | 文章过时提醒（样式 / 阈值天数）                              |
+| `analytics`         | 百度 / Google / Cloudflare / Clarity / 51la                  |
+| `social`            | 首页侧栏社交链接（留空隐藏）                                 |
+| `siteCard`          | 友链页「本站信息」                                           |
+| `nav.menu`          | 顶部导航菜单（label 支持 i18n key 或直接写文字，可增删排序） |
+| `siteLinks`         | 顶部「站点切换」外链                                         |
+| `hero`              | 随机头图 API、一言兜底文案、随笔跑马灯年数/时长              |
+| `home`              | 首页每页文章数、近期文章数、hello 动图                       |
+| `music`             | 默认音量、歌词默认偏好、歌词代理域名白名单                   |
+| `fancybox`          | 灯箱参数（动画、键盘、缩略图、工具栏、文案）                 |
+
+## 内容管理
+
+结构化数据都在 `src/content/data/`。
 
 ### 文章
-
-#### 文章格式
 
 `src/content/blog/*.md`
 
@@ -116,36 +78,17 @@ date: 2025-01-01
 updated: 2025-01-02       # 可选
 tags: [Astro, Tailwind]
 categories: [技术]
-cover: https://...jpg      # 可选
+cover: https://...jpg      # 可选（无封面时分享图用自动生成的 OG 图）
 top: false                  # 可选
 description: SEO 描述      # 可选
 ---
 ```
 
-#### TOC目录
-
-- 支持 H2-H6 多级缩进，字号/字重随层级递减
-- 超过 8 个标题时自动显示展开/收起按钮
-- 收起时自动滚动到当前活跃标题
-
-#### 代码高亮
-
-使用[Shiki](https://shiki.zhcndoc.com/)进行代码块语法高亮
-
-`astro.config.mjs` 的 `shikiConfig.themes`
-
-```
-shikiConfig: {
-	themes: {
-		light: 'ayu-light',
-        dark: 'ayu-dark',
-    },
-},
-```
+文章页：TOC 目录（H2-H6）、代码块行号与复制按钮、阅读进度条、上一篇/下一篇、相关文章（按标签/分类权重）、阅读时长、文末版权与过时提醒。
 
 ### 一言
 
-`src/content/data/hitokoto.yml`
+`src/content/data/hitokoto.yml`，支持多行文本，随机轮换：
 
 ```yaml
 hitokoto_list:
@@ -154,11 +97,9 @@ hitokoto_list:
       止于此则七情方休
 ```
 
-支持多行文本，每条独立显示。刷新按钮随机切换。
-
 ### 公告
 
-`src/content/data/notice.yml`
+`src/content/data/notice.yml`，首页侧栏顶部展示：
 
 ```yaml
 notice_list:
@@ -167,28 +108,13 @@ notice_list:
     link: https://...       # 可选，http(s) 外链新窗口打开
 ```
 
-首页侧边栏顶部展示，按文件顺序从上到下显示；标题文案在 `src/i18n/{locale}.json` 的 `home.notice.title` 中配置。
-
 ### 随笔
 
-`src/content/data/essay.yml`
-
-```yaml
-title: 即刻短文
-essay_list:
-  - content: 随笔内容
-    date: 2025/10/19
-  - content: 带链接的随笔
-    date: 2023/09/09
-    link: https://...
-  - content: 带视频的随笔
-    date: 2022/09/25
-    video: [https://player.bilibili.com/...]
-```
+`src/content/data/essay.yml`，支持纯文本 / 链接 / 视频三种，按天分组时间线展示。
 
 ### 友链
 
-`src/content/data/friends-{group}.yml`
+`src/content/data/friends-{group}.yml`：
 
 ```yaml
 - class_name: 推荐博客
@@ -204,61 +130,11 @@ essay_list:
 
 ### 装备
 
-`src/content/data/equipment.yml`
-
-```yaml
-- class_name: 好物
-  top_background: https://...jpg
-  good_things:
-    - title: 生产力
-      equipment_list:
-        - name: 设备名
-          specification: 规格
-          description: 描述
-          image: https://...png
-          link: https://...       # 可选
-```
-
----
-
-### 国际化
-
-| 语言     | 代码  | URL 前缀    |
-| -------- | ----- | ----------- |
-| 简体中文 | zh-CN | 无（默认）  |
-| English  | en    | `/en/`    |
-| 繁體中文 | zh-TW | `/zh-TW/` |
-
-翻译文件：`src/i18n/{locale}.json`，每个语言一个 JSON 文件。
-
-```json
-{
-  "nav.archive": "归档",
-  "nav.categories": "分类",
-  "music.title": "音乐馆"
-}
-```
-
-Astro 组件中使用：
-
-```astro
----
-import { useTranslations, getLocaleFromURL } from '@/i18n';
-const locale = getLocaleFromURL(Astro.url.pathname);
-const t = useTranslations(locale);
----
-<h1>{t('archives.title')}</h1>
-```
-
-React 组件通过 `locale` prop 接收语言。
-
-语言切换在 Header 设置面板中，点击跳转到对应语言的同页面。
-
----
+`src/content/data/equipment.yml`，按分组展示设备卡片。
 
 ### 相册
 
-`src/content/data/album-{name}.yml`
+`src/content/data/album-{name}.yml`：
 
 ```yaml
 class_name: 相册名
@@ -275,269 +151,143 @@ album_list:
     - https://...jpg
 ```
 
-页面交互：相册列表 → 拍立得堆叠预览 → 瀑布流布局 → PhotoSwipe 灯箱。
-
-拍立得组件：
-
-- 白色边框（底部加厚），Framer Motion spring 入场动画
-- Hover 效果：放大 1.2 倍、旋转归零、层级提升
-- 4 种比例变体：1x1、4x3、4x5、9x16
-
----
+页面交互：相册列表 → 拍立得堆叠预览 → 瀑布流布局 → Fancybox 灯箱。
 
 ### 追番
 
-`src/content/data/bangumis.json`
-
-只需要title字段
-
-```
-{
-  "title": "name"
-}
-```
-
-然后运行`node scripts/fetch-tmdb.mjs`（需要 `TMDB_API_KEY` 环境变量），自动更新 TMDB 数据为：
+`src/content/data/bangumis.json` 只需要 title 字段：
 
 ```json
-{
-  "wantWatch": [{ "title": "...", "cover": "...", "tmdb": { ... } }],
-  "watching":  [{ "title": "...", "cover": "...", "tmdb": { ... } }],
-  "watched":   [{ "title": "...", "cover": "...", "tmdb": { ... } }]
-}
+{ "title": "番剧名" }
 ```
 
----
+然后运行抓取脚本自动补全 TMDB 数据（封面、评分等）：
+
+```bash
+TMDB_API_KEY=你的key node scripts/fetch-tmdb.mjs
+```
+
+> key 在 [TMDB 官网](https://www.themoviedb.org/settings/api) 申请，通过环境变量提供。
 
 ### 音乐
 
-#### 播放列表
-
-`src/content/data/music.json`
-
-```json
-{
-    "name": "歌曲名",
-    "album": "专辑",
-    "album_artist": "专辑艺术家",
-    "year": "",
-    "disc": "",
-    "track": "",
-    "artist": "歌手",
-    "source": "netease",
-    "url": "音频URL",
-    "lrc": "歌词URL",
-    "pic": "封面URL"
-}
-```
-
-#### 歌单
-
-`src/content/data/playlists/*.json`
+主歌单 `src/content/data/music.json`；小歌单 `src/content/data/playlists/*.json`，**放文件即生效**（可在 `site.ts → features.playlists` 关闭）：
 
 ```json
 {
   "name": "歌单名称",
   "cover": "封面图URL",
   "songs": [
-    {
-      "name": "歌曲名",
-      "artist": "歌手",
-      "url": "音频URL",
-      "lrc": "歌词URL",
-      "pic": "封面URL"
-    }
+    { "name": "歌曲名", "artist": "歌手", "url": "音频URL", "lrc": "歌词URL", "pic": "封面URL" }
   ]
 }
 ```
 
-- 卡片网格布局
-- 点击卡片手风琴展开
-- 「全部播放」替换当前队列
-- 「+」按钮添加到播放列表
+播放器特性：逐字歌词（支持传统 LRC 与网易云逐字格式）、真实频谱音律条、歌词设置面板（字号/模糊/翻译/偏移，本地记忆）、歌词代理（`/api/lrc`，域名白名单在 `site.ts → music.lyricApiHosts`）。
 
-在 `src/pages/music.astro` 中 import 新歌单并添加到 `playlistModules` 数组。
+### 关于页
 
-#### 歌词
+`src/content/data/about.json`，字段一览：
 
-- 点击任意歌词行跳转到对应播放时间
-- 当前播放行：加粗 + 动态柔光效果
-- 歌词颜色随背景动态切换
-- 支持传统LRC 和网易云逐字歌词
+| 字段                       | 说明                                           |
+| -------------------------- | ---------------------------------------------- |
+| `name` / `avatarImg`       | 显示名称 / 头像                                |
+| `description` / `subtitle` | 简介 / 个性签名                                |
+| `helloTips`                | 关于我卡片首行问候语                           |
+| `avatarSkills.left/right`  | 头像两侧标签                                   |
+| `selfInfo`                 | 目前状态（tips + content）                     |
+| `personalities`            | MBTI：名称、类型、立绘图、16personalities 链接 |
+| `aboutsiteTips`            | 卡片文案与轮播词                               |
+| `game` / `comic`           | 游戏 / 追番卡（标题、tips、列表）              |
+| `map`                      | 毕业于（tips、地址、亮/暗背景图）              |
+| `statistic`                | 访问统计（tips、标题、背景、文章隧道链接）     |
+| `skills`                   | 技术栈（name + icon）                          |
 
-#### MiniPlayer
+### 项目页
 
-播放状态通过 `localStorage` 同步到 MiniPlayer。
+`src/content/data/projects.json`，卡片按数组顺序展示：
 
-- 除音乐馆页面外的所有页面左下角显示
-- 圆形旋转封面
-- Hover 展开完整卡片
-- 包含：歌名、歌手、播放/暂停/上下首、进度条、时间显示
+```json
+{
+  "name": "项目名",
+  "description": "描述",
+  "link": "https://...",
+  "repo": "https://github.com/...",       # 可选
+  "icon": "https://...svg",               # 可选，缺省用首字母头像
+  "tags": ["标签"],
+  "year": 2025
+}
+```
 
-### 评论
+## 全文搜索
 
-使用[Waline](https://waline.js.org/)进行评论管理
+Pagefind 构建期索引，纯静态、零服务端。索引范围由内容容器上的 `data-pagefind-body` 控制（当前：文章正文、关于、项目、友链、随笔）。
 
-#### 配置文件
+- Header 搜索框：输入即搜，Escape / 点击外部关闭
+- 独立页 `/search/`：完整搜索页
+- **dev 模式下索引不存在**，搜索框会提示先执行 `pnpm build`
 
-`src/components/astro/Comments.astro`
+## 国际化
 
-| 配置项             | 说明              | 值                         |
-| ------------------ | ----------------- | -------------------------- |
-| `serverURL`      | Waline 服务器地址 | `https://...`            |
-| `emoji`          | 表情包列表        | bilibili、bmoji、qq、weibo |
-| `meta`           | 评论者信息字段    | nick、mail、link           |
-| `requiredMeta`   | 必填字段          | nick、mail                 |
-| `login`          | 登录方式          | enable                     |
-| `pageSize`       | 每页评论数        | 10                         |
-| `imageUploader`  | 图片上传          | true                       |
-| `commentSorting` | 排序方式          | latest                     |
-| `math`           | 数学公式支持      | true                       |
-| `search`         | 评论搜索          | true                       |
+| 语言     | 代码  | URL 前缀    |
+| -------- | ----- | ----------- |
+| 简体中文 | zh-CN | 无（默认）  |
+| English  | en    | `/en/`      |
+| 繁體中文 | zh-TW | `/zh-TW/`   |
 
-评论占位符文案在 `src/i18n/{locale}.json` 的 `comment.placeholder` 中配置。
+翻译文件：`src/i18n/{locale}.json`。语言开关与列表在 `site.ts → features.i18n`，关闭后语言入口隐藏、语言页自动跳回主页。
 
-### 关于
+对应语言的页面变体放在 `src/pages/{en,zh-TW}/` 下（re-export 根页面），**新建页面时记得同步创建变体，且 import 路径要用 `../../`（两级）**。
 
-`src/content/data/about.json`
+语言切换在 Header 设置面板中，跳转到同页面其他语言。
 
-| 字段                   | 说明                         |
-| ---------------------- | ---------------------------- |
-| `name`               | 显示名称                     |
-| `avatarImg`          | 头像图片 URL                 |
-| `description`        | 简介文字                     |
-| `subtitle`           | 个性签名                     |
-| `avatarSkills.left`  | 头像下方左侧标签             |
-| `avatarSkills.right` | 头像下方右侧标签             |
-| `selfInfo`           | 个人信息（生日、学校、职业） |
-| `personalities`      | MBTI 人格类型                |
-| `maxim`              | 座右铭                       |
-| `buff`               | 特长                         |
-| `game`               | 游戏爱好                     |
-| `comic`              | 追番列表                     |
-| `like`               | 关注偏好                     |
-| `music`              | 音乐偏好                     |
-| `map`                | 所在位置                     |
-| `statistic`          | 文章统计链接                 |
-| `skills`             | 技术栈网格（name + icon）      |
-| `reward_list`        | 赞赏二维码（null 不显示）    |
+## 评论
 
-技术栈网格修改：编辑 `skills` 数组，每项包含 `name`（技术栈名）和 `icon`（图标 URL）。
+使用 [Waline](https://waline.js.org/)。全部配置在 `site.ts → features.comments`（`enable` 一键开关）：
 
-### 网站图标
+| 配置项           | 说明           | 默认值        |
+| ---------------- | -------------- | ------------- |
+| `serverURL`      | 服务器地址     | —             |
+| `emoji`          | 表情包列表     | bilibili 等   |
+| `meta`/`requiredMeta` | 信息字段/必填 | nick、mail |
+| `pageSize`       | 每页评论数     | 10            |
+| `commentSorting` | 排序方式       | latest        |
 
-#### 图标文件
+占位符文案在 `src/i18n/{locale}.json` 的 `comment.placeholder`。
 
-将你的图标文件放入 `public/` 目录：
+## 浏览量与统计
+
+- 文章/首页浏览量：[Vercount](https://vercount.one)，客户端实时显示，无需构建期获取
+- 关于页访问统计卡：文章数（构建期）+ 全站访问量/访客（Vercount `site_pv`/`site_uv`）
+- 第三方统计：`site.ts → analytics`（百度 / Google / Cloudflare / Clarity / 51la，留空关闭）
+
+## 网站图标
 
 ```
 public/
-├── favicon.svg      # SVG 图标（推荐，支持矢量缩放）
-├── favicon.ico      # ICO 图标（兼容旧浏览器）
-└── favicon.png      # PNG iOS Safari 书签图标
+├── favicon.svg      # SVG（推荐，矢量）
+├── favicon.ico      # ICO（32×32）
+└── favicon.png      # PNG（180×180，iOS 书签）
 ```
 
-#### 推荐规格
+## 设计系统
 
-| 文件         | 尺寸             | 格式 | 说明                |
-| ------------ | ---------------- | ---- | ------------------- |
-| `favicon.svg` | 任意（矢量）     | SVG  | 现代浏览器首选      |
-| `favicon.ico` | 32×32 或 16×16 | ICO  | 兼容旧浏览器        |
-| `favicon.png` | 180×180         | PNG  | iOS Safari 书签图标 |
-
-#### 修改引用
-
-`BaseLayout.astro` 中的 `<head>` 部分：
-
-```html
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" href="/favicon.png" />
-```
-
----
-
-### 浏览量
-
-使用 [vercount](https://github.com/EvanNotFound/vercount) 进行文章浏览量统计。
-
-#### 首次设置
-
-1. 安装依赖（已包含在 `package.json`）：
-
-```bash
-pnpm add @vercount/react @vercount/core
-```
-
-2. 验证域名所有权。
-
-打开[仪表盘](https://www.vercount.one/dashboard)，按照页面提示进行DNS验证或文件验证。
-若选择文件验证，文件放在以下路径：
-
-```
-public/.well-known/vercount-verify-{your-token}.txt
-```
-
-3. 构建并部署后，在 vercount 后台完成域名验证。
-
-#### 构建时获取浏览量
-
-```bash
-# 构建时自动获取（pnpm build 已包含此步骤）
-pnpm build
-```
-
----
-
-### PhotoSwipe 灯箱
-
-`src/config/photoswipe.ts`
-
-```ts
-const photoswipeConfig: PhotoSwipeOptions = {
-  bgOpacity: 0.92,              // 背景透明度
-  showHideOpacity: true,        // 显示/隐藏时渐变透明度
-  maxSpreadZoom: 2,             // 最大缩放倍数
-  fullscreenEl: true,           // 全屏按钮
-  zoomEl: true,                 // 缩放按钮
-  counterEl: true,              // 图片计数器
-  arrowKeys: true,              // 键盘方向键
-  loop: true,                   // 循环浏览
-  showAnimationDuration: 300,   // 打开动画（ms）
-  hideAnimationDuration: 300,   // 关闭动画（ms）
-  closeOnVerticalDrag: true,    // 垂直拖拽关闭
-  padding: { top: 40, bottom: 40, left: 40, right: 40 },
-  wc: {                         // 按钮文案
-    close: '关闭',
-    prev: '上一张',
-    next: '下一张',
-    index: '%curr% / %total%',
-  },
-};
-```
-
----
-
-### 设计系统
-
-#### 色彩
+### 色彩
 
 `src/styles/global.css` 的 `@theme` 块：
 
 ```css
-@theme {
-  --color-primary: #425AEF;       /* 主色 */
-  --color-primary-dark: #f2b94b;  /* 暗色模式主色 */
-  --color-accent: #00c4b6;        /* 强调色 */
-}
+--color-primary: #425AEF;       /* 主色 */
+--color-primary-dark: #f2b94b;  /* 暗色模式主色 */
+--color-accent: #00c4b6;        /* 强调色 */
 ```
 
-#### 莫奈色系
+### 莫奈背景色系
 
-亮色模式支持在设置菜单中切换背景色：
+浅色模式在 Header 设置面板切换，存储于 `localStorage('monet-bg')`：
 
-| 名称       | 色值        |
-| ---------- | ----------- |
+| 名称       | 色值      |
+| ---------- | --------- |
 | 云端漫步   | `#EDE8DE` |
 | 睡莲       | `#E8E0F0` |
 | 日出印象   | `#F5E6D8` |
@@ -547,13 +297,9 @@ const photoswipeConfig: PhotoSwipeOptions = {
 | 塞纳河     | `#D8E8E0` |
 | 纯白       | `#F7F9FE` |
 
-深色模式不支持切换，固定使用星空背景。
+深色模式固定星空背景（两层 `box-shadow` 星点 + 滚动动画）。
 
-在 Header 设置面板中切换，存储于 `localStorage('monet-bg')`。
-
-修改位置：`src/components/astro/Header.astro` 中的 `monet-swatch` 按钮 `data-color` 属性。
-
-#### 毛玻璃卡片
+### 毛玻璃卡片
 
 ```css
 /* 亮色 */
@@ -567,80 +313,30 @@ background: linear-gradient(135deg, rgba(30,30,40,0.6), rgba(30,30,40,0.3));
 border-color: rgba(255,255,255,0.08);
 ```
 
-#### 暗色模式星空背景
-
-两层星星（1px + 2px），`box-shadow` 绘制数百个星点，`animStar` 动画无限滚动：
-
-```css
-.dark body {
-  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-}
-```
-
----
-
-### Header
+## Header
 
 浮动胶囊形固定导航。
 
-#### 左侧
+- **左侧**：站点切换下拉（链接列表在 `site.ts → siteLinks`）+ Logo（文字来自 `site.ts → title`）
+- **中间**：导航菜单（结构在 `site.ts → nav.menu`，label 支持 i18n key 或直接写文字）
+- **右侧**：搜索框（输入即搜）+ 设置面板（深色模式、莫奈色系、语言切换）
 
-站点切换按钮 + Logo hover 动画
+## 构建脚本
 
-修改站点链接：`Header.astro` 的 `siteLinks` 数组。
-
-```
-{
-    name: "博客",
-    href: "https://...",
-    icon:https://...",
-},
-```
-
-#### 中间
-
-文章/友链/娱乐/我的 四个菜单（`menuItems` 数组），hover 展开二级菜单
-
-修改菜单：`Header.astro` 的 `menuItems` 数组。
-
-```
-{
-    label: t('nav.friends'),
-    children: [
-      {
-        name: t('nav.friendList'),
-        href: `${prefix}/friends/`,
-        icon: "https://...",
-      },
-    ],
-},
-```
-
-#### 右侧
-
-设置面板（深色模式 + 莫奈色系 + 语言切换）
-
----
-
-### 构建脚本
-
-- `scripts/fetch-tmdb.mjs` — 追番 TMDB 数据抓取，直接写回 `bangumis.json`
-- `scripts/fetch-view-counts.mjs` — 文章浏览量预获取，`pnpm build` 自动执行
-
----
+| 脚本                        | 说明                                              |
+| --------------------------- | ------------------------------------------------- |
+| `scripts/build.mjs`         | 构建编排：astro build → OG 图 → pagefind 索引     |
+| `scripts/generate-og.mjs`   | 为每篇文章生成 OG 分享图（satori，字体缓存于 `.astro/fonts/`） |
+| `scripts/fetch-tmdb.mjs`    | 追番 TMDB 数据抓取，需要 `TMDB_API_KEY` 环境变量  |
 
 ## 部署
 
-`pnpm build`，输出 `dist/`。当前部署到 Cloudflare。
+Cloudflare Pages，构建命令 `pnpm build`，输出 `dist/`。
 
-切换平台：修改 `astro.config.mjs` 的 adapter。
-
-- Cloudflare：`@astrojs/cloudflare`（当前）
-- Vercel：`@astrojs/vercel`
-- Netlify：`@astrojs/netlify`
+- 建议设置环境变量 `NODE_VERSION` 为 22+（OG 分享图脚本需要）
+- `dist/client/pagefind/` 为搜索索引，随构建自动生成
+- 切换平台：替换 `astro.config.mjs` 的 adapter（Vercel：`@astrojs/vercel`，Netlify：`@astrojs/netlify`）
 
 ## 许可
 
 MIT
-
----
