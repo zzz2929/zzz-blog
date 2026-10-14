@@ -31,7 +31,7 @@ function PostCard({ post, siteUrl, locale, coverMap }: { post: Post; siteUrl: st
   const prefix = locale === 'zh-CN' ? '' : `/${locale}`;
   return (
     <a
-      href={`${prefix}/posts/${post.slug}`}
+      href={`${prefix}/posts/${post.slug}/`}
       className="glass-card"
       style={{
         display: 'block',

@@ -25,7 +25,7 @@ const prefix = locale === "zh-CN" ? "" : `/${locale}`;
     {recentPosts.map((post, i) => (
       <li style={`animation: fade-in-up 0.3s ease ${i * 0.06}s backwards;`}>
         <a
-          href={`${prefix}/posts/${post.id}`}
+          href={`${prefix}/posts/${post.id}/`}
           class="group flex items-start gap-3 rounded-lg px-2 py-2 transition-all duration-200 hover:bg-foreground/[0.03]"
         >
           <!-- Timeline dot -->

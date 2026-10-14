@@ -58,13 +58,22 @@ const walineOptions = JSON.stringify({
 <script type="module">
   import { init } from "https://unpkg.com/@waline/client@v3/dist/waline.js";
 
-  const el = document.getElementById("waline");
-  const options = JSON.parse(el?.dataset.walineOptions || "{}");
-  init({
-    el: "#waline",
-    path: window.location.pathname.replace(/\/$/, ""),
-    lang: el?.dataset.walineLang ?? "zh-CN",
-    ...options,
-    placeholder: el?.dataset.walinePlaceholder ?? options.placeholder,
-  });
+  // astro:page-load 首次加载与 View Transitions 换页后都会触发;
+  // 同内容模块脚本不会重复执行,换页后必须在这里重新初始化评论组件
+  function initComments() {
+    const el = document.getElementById("waline");
+    if (!el) return;
+    const options = JSON.parse(el?.dataset.walineOptions || "{}");
+    // 重进页面时先清掉旧渲染,避免 Waline 重复挂载
+    el.innerHTML = "";
+    init({
+      el: "#waline",
+      path: window.location.pathname.replace(/\/$/, ""),
+      lang: el?.dataset.walineLang ?? "zh-CN",
+      ...options,
+      placeholder: el?.dataset.walinePlaceholder ?? options.placeholder,
+    });
+  }
+
+  document.addEventListener("astro:page-load", initComments);
 </script>

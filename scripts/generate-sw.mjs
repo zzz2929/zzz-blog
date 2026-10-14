@@ -22,6 +22,24 @@ async function loadSiteMeta() {
   }
 }
 
+// manifest.webmanifest(PWA 可安装清单;图标由 generate-icons.mjs 生成)
+// 必须先写入产物目录,generateSW 的 globPatterns 才能匹配并预缓存它
+const SITE = await loadSiteMeta();
+const manifest = {
+  name: SITE.title,
+  short_name: SITE.title,
+  start_url: '/',
+  display: 'standalone',
+  theme_color: '#425AEF',
+  background_color: '#EDE8DE',
+  icons: [
+    { src: '/icons/pwa-192.png', sizes: '192x192', type: 'image/png' },
+    { src: '/icons/pwa-512.png', sizes: '512x512', type: 'image/png' },
+    { src: '/icons/pwa-maskable-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
+  ],
+};
+writeFileSync(join(clientDir, 'manifest.webmanifest'), JSON.stringify(manifest, null, 2));
+
 const { warnings, count } = await generateSW({
   swDest: join(clientDir, 'sw.js'),
   globDirectory: clientDir,
@@ -59,22 +77,5 @@ const { warnings, count } = await generateSW({
 });
 
 for (const w of warnings) console.warn('[sw] warning:', w);
-
-// manifest.webmanifest(PWA 可安装清单;图标由 generate-icons.mjs 生成)
-const SITE = await loadSiteMeta();
-const manifest = {
-  name: SITE.title,
-  short_name: SITE.title,
-  start_url: '/',
-  display: 'standalone',
-  theme_color: '#425AEF',
-  background_color: '#EDE8DE',
-  icons: [
-    { src: '/icons/pwa-192.png', sizes: '192x192', type: 'image/png' },
-    { src: '/icons/pwa-512.png', sizes: '512x512', type: 'image/png' },
-    { src: '/icons/pwa-maskable-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
-  ],
-};
-writeFileSync(join(clientDir, 'manifest.webmanifest'), JSON.stringify(manifest, null, 2));
 
 console.log(`[sw] Service Worker 生成完成(预缓存 ${count} 个条目) → dist/client/sw.js`);

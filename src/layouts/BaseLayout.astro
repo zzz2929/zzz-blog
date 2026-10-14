@@ -126,6 +126,11 @@ const hreflangEntries = i18nCfg.enable
       });
     </script>
     <Analytics />
+    <!-- KaTeX 样式:用 import 引入走 Vite 标准 CSS 管线(不能被 Tailwind 内联),
+         字体文件随之 hash 打包进 _astro,构建期可正常 resolve -->
+    <script>
+      import 'katex/dist/katex.min.css';
+    </script>
     {!import.meta.env.DEV && (
       <script>
         // PWA Service Worker 注册(构建产物含 sw.js;dev 下无 SW,静默跳过)
@@ -153,6 +158,25 @@ const hreflangEntries = i18nCfg.enable
     <AnimatedBackground client:idle="react" transition:persist="animated-bg" />
     <slot />
     {!isMusicPage && siteConfig.features.miniPlayer.enable && <MiniPlayer />}
+
+    <!-- 导航进度条:View Transitions 取页期间给即时反馈(重文章页渲染需片刻) -->
+    <div id="nav-progress" aria-hidden="true"></div>
+    <script is:inline>
+      (function () {
+        if (window.__navProgInit) return;
+        window.__navProgInit = true;
+        var bar = document.getElementById("nav-progress");
+        document.addEventListener("astro:before-preparation", function () {
+          bar.classList.add("active");
+        });
+        document.addEventListener("astro:page-load", function () {
+          bar.classList.remove("active");
+        });
+        document.addEventListener("astro:preparation-error", function () {
+          bar.classList.remove("active");
+        });
+      })();
+    </script>
 
     <!-- Back to top -->
     <button id="back-to-top" aria-label={locale === "en" ? "Back to top" : "返回顶部"} style="display: none;">
@@ -300,6 +324,27 @@ const hreflangEntries = i18nCfg.enable
 
 <style is:global>
   @import "@/styles/global.css";
+
+  /* ===== 导航进度条(View Transitions 取页期间) ===== */
+  #nav-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    z-index: 10001;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    opacity: 0;
+    pointer-events: none;
+  }
+  #nav-progress.active {
+    opacity: 1;
+    animation: nav-progress-slide 1.2s ease-in-out infinite;
+  }
+  @keyframes nav-progress-slide {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(0); }
+  }
 
   /* ===== Image loading placeholder ===== */
   .img-loading-overlay {

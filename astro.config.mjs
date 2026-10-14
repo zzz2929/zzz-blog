@@ -201,6 +201,9 @@ export default defineConfig({
 
   ],
 
+  // 链接悬停时预取目标页面:重文章(shiki 高亮多)点击后秒开
+  prefetch: { prefetchAll: true, defaultStrategy: 'hover' },
+
   // 多语言配置来自 src/config/site.ts（features.i18n）；prefixDefaultLocale: false
   // 表示 defaultLocale（zh-CN）不带路径前缀，与站点配置保持一致
   i18n: {
@@ -223,6 +226,11 @@ export default defineConfig({
     },
     ssr: {
       noExternal: ['@fancyapps/ui'],
+    },
+    build: {
+      // mermaid 的按需 chunk(elk 布局引擎 ~1.4MB、cytoscape 等)超过默认 500kB 阈值;
+      // 这些 chunk 是运行时懒加载(仅文章页存在 .mermaid 时才拉取),不阻塞首屏,故调高阈值
+      chunkSizeWarningLimit: 1600,
     },
     // 本机原生文件监听失效（实测内容变更无 HMR），必须用轮询；勿删
     server: {

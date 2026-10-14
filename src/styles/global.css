@@ -1,5 +1,7 @@
 @import "tailwindcss";
-@import "katex/dist/katex.min.css";
+/* KaTeX 样式改由 BaseLayout 的 hoisted <script> 以 import 方式引入:
+   Tailwind v4 内联 @import 会使 katex.min.css 内的 url(fonts/…) 相对路径解析基准错乱,
+   构建时报 "didn't resolve" 警告;走 Vite 标准 CSS 管线则字体正常打包进 _astro */
 
 @plugin "@tailwindcss/typography";
 
