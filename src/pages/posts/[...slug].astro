@@ -1,5 +1,5 @@
 ---
-import { getCollection, render } from "astro:content";
+import { getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Header from "@/components/astro/Header.astro";
 import Footer from "@/components/astro/Footer.astro";
@@ -9,6 +9,7 @@ import PostExpiryAlert from "@/components/astro/PostExpiryAlert.astro";
 import VercountDisplay from "@/components/react/VercountDisplay.tsx";
 import { formatDate } from "@/lib/posts";
 import { optimizedRemoteImage } from "@/lib/remoteImage";
+import { renderPostCached } from "@/lib/renderCache";
 import { useTranslations, getLocaleFromURL } from "@/i18n";
 import { siteConfig } from "@/config/site";
 import { readingMinutes } from "@/lib/postStats";
@@ -28,11 +29,11 @@ export async function getStaticPaths() {
 }
 
 const { post, prevPost, nextPost } = Astro.props;
-const { Content, headings } = await render(post);
+const { Content, headings } = await renderPostCached(post);
 
-// 头图是文章页 LCP：服务端预优化到 ≤1600px 等比图，避免直出原图（可达数 MB）
+// 头图是文章页 LCP：服务端预优化到 ≤1200px 等比图（质量 75），避免直出原图（可达数 MB）
 const coverOptimized = post.data.cover
-  ? await optimizedRemoteImage(post.data.cover, 1600)
+  ? await optimizedRemoteImage(post.data.cover, 1200, 75)
   : null;
 // 无封面时分享缩略图退到构建期生成的 OG 标题图（src/pages/og/[...slug].png.ts）
 const ogImage =

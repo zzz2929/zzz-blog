@@ -20,3 +20,8 @@ mimo.exe
 # PWA 图标(构建期生成)
 public/icons/
 .zcode/
+# 临时调试/探测产物(如 .tmp_hash_probe.py 等)
+.tmp_*
+# 工具工作目录(上传 agent 中间态 / compose 会话状态)
+.ua/
+.compose/

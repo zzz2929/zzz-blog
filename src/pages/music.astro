@@ -1851,6 +1851,11 @@ const playlists = (siteConfig.features.playlists.enable ? playlistModules : []).
       shufflePlay: '随机播放',
       playMode: '顺序播放',
     };
+    // 以下三个 define:vars 注入变量需跨 <script> 块共享，必须显式挂到 window，
+    // 否则下一个 is:inline 块访问时会 ReferenceError 并中断整个播放器初始化
+    window.__LYRIC_DEFAULTS__ = JSON.parse(lyricDefaultsJSON || "{}");
+    window.__DEFAULT_VOLUME__ = defaultVolume;
+    window.__MINI_PLAYER_KEY__ = storageKey;
   </script>
 
   <script is:inline>
@@ -1869,7 +1874,9 @@ const playlists = (siteConfig.features.playlists.enable ? playlistModules : []).
     const MUSIC_DATA = window.__MUSIC_DATA__ || [];
     const LYRIC_SETTINGS_KEY = "music-lyric-settings";
     // 音量与歌词显示默认值来自 src/config/site.ts（music.*）
-    const LYRIC_DEFAULTS = JSON.parse(lyricDefaultsJSON || "{}");
+    const LYRIC_DEFAULTS = window.__LYRIC_DEFAULTS__ || {};
+    const storageKey = window.__MINI_PLAYER_KEY__;
+    const DEFAULT_VOLUME = window.__DEFAULT_VOLUME__ ?? 80;
 
     class MusicPlayer {
       constructor() {
@@ -1880,7 +1887,7 @@ const playlists = (siteConfig.features.playlists.enable ? playlistModules : []).
         this.currentIndex = 0;
         this.isPlaying = false;
         this.playMode = 0; // 0=sequential, 1=single loop, 2=shuffle
-        this.volume = defaultVolume;
+        this.volume = DEFAULT_VOLUME;
         this.lyrics = [];
         this.translations = [];
         this.lyricsLoadId = 0; // 歌词请求代际号，切歌后作废在途请求

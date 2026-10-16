@@ -5,6 +5,7 @@ import Footer from "@/components/astro/Footer.astro";
 import BangumiList from "@/components/react/BangumiList.tsx";
 import bangumisData from "@/content/data/bangumis.json";
 import { useTranslations, getLocaleFromURL } from "@/i18n";
+import { optimizedRemoteImageMap } from "@/lib/remoteImage";
 
 const locale = getLocaleFromURL(Astro.url.pathname);
 const t = useTranslations(locale);
@@ -12,6 +13,13 @@ const t = useTranslations(locale);
 const wantWatch = bangumisData.wantWatch || [];
 const watching = bangumisData.watching || [];
 const watched = bangumisData.watched || [];
+
+// 追番封面在服务端预优化成 300px 缩略图（webp q75），浏览器不再直连
+// B站 i0.hdslb.com / TMDB image.tmdb.org，首屏秒开且不依赖外部图床
+const allCovers = [
+  ...new Set([...wantWatch, ...watching, ...watched].map((i) => i.cover).filter(Boolean)),
+];
+const coverOptimized = await optimizedRemoteImageMap(allCovers, 300, 75);
 ---
 
 <BaseLayout title={t('bangumis.title')}>
@@ -24,7 +32,7 @@ const watched = bangumisData.watched || [];
       </p>
     </div>
 
-    <BangumiList client:only="react" wantWatch={wantWatch} watching={watching} watched={watched} locale={locale} />
+    <BangumiList client:only="react" wantWatch={wantWatch} watching={watching} watched={watched} coverOptimized={coverOptimized} locale={locale} />
   </main>
   <Footer />
 </BaseLayout>

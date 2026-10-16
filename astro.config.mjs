@@ -246,7 +246,12 @@ export default defineConfig({
     service: { entrypoint: 'astro/assets/services/sharp' },
     // 允许 <Image> 优化远程图床图片（随笔卡片缩略图在开发/构建时按需生成）；
     // 图床域名来自 src/config/site.ts
-    remotePatterns: [{ hostname: siteConfig.imageBedHost }],
+    remotePatterns: [
+      { hostname: siteConfig.imageBedHost },
+      // 追番封面来自 B站图床 i0.hdslb.com（bangumis.json 的 cover 字段），
+      // 构建期会下载并压成 300px 缩略图，浏览器不再直连 B站
+      { hostname: 'i0.hdslb.com' },
+    ],
   },
 
   markdown: {
@@ -265,5 +270,9 @@ export default defineConfig({
   // adapter 仅在 build/preview 时加载
   // prerenderEnvironment: 'node' —— 预渲染页面多时 workerd 固定 ~1.4GB 堆会 OOM
   //（scripts/build.mjs 里用 NODE_OPTIONS 把 Node 堆调到 4GB 解决）
-  adapter: isDev ? undefined : cloudflare({ imageService: 'compile', prerenderEnvironment: 'node' }),
+  // imageService: 'custom' —— 保留 astro:assets 的 sharp 服务在构建期真正做图片处理：
+  //   compile/passthrough 模式会把服务替换成 noop（hash 只含 src、不缩放、不输出文件），
+  //   导致 getImage 的 width/quality 参数完全失效、封面头图永远是 1.49MB 原图副本。
+  //   站点全静态(SSG)，线上不会请求运行时图片端点，custom 的 runtime 无实际影响。
+  adapter: isDev ? undefined : cloudflare({ imageService: 'custom', prerenderEnvironment: 'node' }),
 });

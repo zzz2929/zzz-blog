@@ -7,6 +7,17 @@ export interface OptimizedImage {
   height?: number;
 }
 
+// 构建期模块级缓存：同一 URL + 目标宽度 + 质量只处理一次。
+// 多语言站点同一张图会以相同参数出现在多个页面（首页卡片 720、文章头图
+// 1200/75、追番 300/75、相册 900、随笔 800），且每种语言路由都会重新渲染
+// 整页；缓存让所有语言、所有页面共享同一次远程下载与 sharp 处理结果，
+// 避免跨语言重复开销。失败结果不缓存，与原先"每次调用独立尝试"行为一致。
+const imageCache = new Map<string, Promise<OptimizedImage>>();
+
+function imageCacheKey(url: string, maxW: number, quality: number | undefined) {
+  return `${maxW}|${quality ?? ''}|${url}`;
+}
+
 /**
  * 远程图床图片 → 等比缩小到 maxW 宽以内的缩略图（不放大、不裁剪、不变形）。
  *
@@ -15,9 +26,26 @@ export interface OptimizedImage {
  * 服务会自动等比，所以本地看不出来）。这里先探测原始尺寸，再按比例算出
  * 目标宽高显式传入，两种服务行为一致。任何一步失败都退回原图。
  */
-export async function optimizedRemoteImage(
+export function optimizedRemoteImage(
   url: string,
   maxW = 800,
+  quality: number | undefined = undefined,
+): Promise<OptimizedImage> {
+  const key = imageCacheKey(url, maxW, quality);
+  const cached = imageCache.get(key);
+  if (cached) return cached;
+
+  const pending = doOptimizeRemoteImage(url, maxW, quality);
+  // 失败不缓存（并发调用去重只对成功路径有意义），避免瞬时故障毒化整次构建
+  pending.catch(() => imageCache.delete(key));
+  imageCache.set(key, pending);
+  return pending;
+}
+
+async function doOptimizeRemoteImage(
+  url: string,
+  maxW: number,
+  quality: number | undefined,
 ): Promise<OptimizedImage> {
   try {
     const probe = await getImage({ src: url, inferSize: true });
@@ -27,7 +55,7 @@ export async function optimizedRemoteImage(
 
     const width = Math.min(maxW, w0);
     const height = Math.round(h0 * (width / w0));
-    const final = await getImage({ src: url, width, height });
+    const final = await getImage({ src: url, width, height, quality });
     return { src: final.src, width, height };
   } catch {
     return { src: url };
@@ -38,11 +66,12 @@ export async function optimizedRemoteImage(
 export async function optimizedRemoteImageMap(
   urls: string[],
   maxW = 800,
+  quality: number | undefined = undefined,
 ): Promise<Record<string, OptimizedImage>> {
   const map: Record<string, OptimizedImage> = {};
   await Promise.all(
     [...new Set(urls)].map(async (url) => {
-      map[url] = await optimizedRemoteImage(url, maxW);
+      map[url] = await optimizedRemoteImage(url, maxW, quality);
     }),
   );
   return map;

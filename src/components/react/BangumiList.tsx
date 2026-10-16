@@ -30,10 +30,12 @@ interface BangumiListProps {
   wantWatch: BangumiItem[];
   watching: BangumiItem[];
   watched: BangumiItem[];
+  /** 服务端预优化的封面（原始 cover URL → 小图 src + 尺寸），缺省退回原图 */
+  coverOptimized?: Record<string, { src: string; width?: number; height?: number }>;
   locale?: Locale;
 }
 
-export default function BangumiList({ wantWatch, watching, watched, locale = 'zh-CN' }: BangumiListProps) {
+export default function BangumiList({ wantWatch, watching, watched, coverOptimized, locale = 'zh-CN' }: BangumiListProps) {
   const t = useTranslations(locale);
   const [tab, setTab] = useState<'all' | 'wantWatch' | 'watching' | 'watched'>('all');
   const [search, setSearch] = useState('');
@@ -126,7 +128,9 @@ export default function BangumiList({ wantWatch, watching, watched, locale = 'zh
       {filtered.length > 0 ? (
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
           {filtered.map((item, i) => {
-            const cover = item.tmdb?.poster || item.cover;
+            // 封面优先级：构建期缩略图（B站封面）→ B站原图 cover → TMDB poster 兜底。
+            // TMDB 图床直链在部分地区加载慢/失败，B站图床国内可达性更好。
+            const cover = (item.cover && coverOptimized?.[item.cover]?.src) || item.cover || item.tmdb?.poster || '';
             const rating = item.tmdb?.rating ? item.tmdb.rating.toFixed(1) : item.score;
             const desc = item.tmdb?.overview || item.des || '';
             const epInfo = item.tmdb?.numberOfEpisodes
