@@ -70,8 +70,6 @@ const { warnings, count } = await generateSW({
       options: { cacheName: 'imgbed-images', expiration: { maxEntries: 150, maxAgeSeconds: 60 * 60 * 24 * 30 } },
     },
   ],
-  navigateFallback: '/404.html',
-  navigateFallbackDenylist: [/^\/api\//, /^\/pagefind\//],
   inlineWorkboxRuntime: true,
   mode: 'production',
 });

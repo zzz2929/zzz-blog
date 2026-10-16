@@ -201,8 +201,9 @@ export default defineConfig({
 
   ],
 
-  // 链接悬停时预取目标页面:重文章(shiki 高亮多)点击后秒开
-  prefetch: { prefetchAll: true, defaultStrategy: 'hover' },
+  // 链接进入视口即预取目标页:封面卡片滚到视野内就开始加载,
+  // 点击跳转时页面已在缓存,配合 View Transitions 秒开(重文章 shiki 高亮多,收益明显)
+  prefetch: { prefetchAll: true, defaultStrategy: 'viewport' },
 
   // 多语言配置来自 src/config/site.ts（features.i18n）；prefixDefaultLocale: false
   // 表示 defaultLocale（zh-CN）不带路径前缀，与站点配置保持一致

@@ -777,6 +777,14 @@ const jsonLd = {
     if (!window.__postDocBound) {
       window.__postDocBound = true;
 
+      // 行号懒构建:mouseover 冒泡委托,首次进入代码块才重建(长文不再进入即卡)
+      document.addEventListener("mouseover", (e) => {
+        const t = e.target;
+        if (!t || !t.closest) return;
+        const block = t.closest(".code-block");
+        if (block && !block.dataset.enhanced) enhanceCodeBlock(block);
+      });
+
       // 代码复制(事件委托)
       document.addEventListener("click", (e) => {
         const btn = e.target.closest(".code-copy-btn");
@@ -819,6 +827,65 @@ const jsonLd = {
       });
     }
 
+    // 代码块行号:懒构建(鼠标首次进入代码块时才把高亮 <pre> 重建为可逐行高亮的行列结构,
+    // 避免进入文章页时同步重建所有代码块阻塞主线程——长文代码多时这是最大的卡顿源)
+    function enhanceCodeBlock(block) {
+      if (block.dataset.enhanced) return;
+      block.dataset.enhanced = "1";
+      const pre = block.querySelector("pre");
+      const code = pre?.querySelector("code");
+      if (!pre || !code) return;
+
+      const rawHtml = code.innerHTML;
+      const textContent = code.textContent || "";
+      const lines = rawHtml.split("\n");
+      if (lines.length > 0 && lines[lines.length - 1].trim() === "") lines.pop();
+
+      const preStyle = getComputedStyle(pre);
+      const numDiv = document.createElement("div");
+      numDiv.className = "line-nums";
+      const codeDiv = document.createElement("div");
+      codeDiv.className = "code-content";
+      ["--shiki-light", "--shiki-dark", "--shiki-light-bg", "--shiki-dark-bg"].forEach((v) => {
+        const val = preStyle.getPropertyValue(v);
+        if (val) codeDiv.style.setProperty(v, val);
+      });
+      codeDiv.style.colorScheme = preStyle.colorScheme;
+      codeDiv.style.fontFamily = preStyle.fontFamily;
+
+      lines.forEach((lineHtml, i) => {
+        const numSpan = document.createElement("span");
+        numSpan.textContent = String(i + 1);
+        numDiv.appendChild(numSpan);
+        const lineSpan = document.createElement("span");
+        lineSpan.className = "code-line";
+        lineSpan.innerHTML = lineHtml || " ";
+        codeDiv.appendChild(lineSpan);
+      });
+
+      const clearActive = () => {
+        numDiv.querySelector(".line-num-active")?.classList.remove("line-num-active");
+        codeDiv.querySelector(".line-active")?.classList.remove("line-active");
+      };
+      for (let i = 0; i < numDiv.children.length; i++) {
+        const handler = () => {
+          clearActive();
+          numDiv.children[i].classList.add("line-num-active");
+          codeDiv.children[i]?.classList.add("line-active");
+        };
+        numDiv.children[i].addEventListener("mouseenter", handler);
+        codeDiv.children[i]?.addEventListener("mouseenter", handler);
+      }
+
+      const wrapper = document.createElement("div");
+      wrapper.className = "code-lines";
+      wrapper.appendChild(numDiv);
+      wrapper.appendChild(codeDiv);
+      wrapper.addEventListener("mouseleave", clearActive);
+      pre.replaceWith(wrapper);
+      block.dataset.codeText = textContent;
+    }
+
     // ----- 每次页面加载(含 View Transitions)重新初始化 -----
     function initPage() {
       // prose 渐进加载效果
@@ -850,79 +917,25 @@ const jsonLd = {
         });
       }
 
-      // 代码块行号(复制按钮为文档级委托,不会重复)
+      // 复制按钮:进入页面即添加(轻量,每块一次 DOM 插入;行号重建交给 enhanceCodeBlock 懒构建)
       const clipboardSvg =
         '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>';
       const checkSvg =
         '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#28c840" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
       document.querySelectorAll(".prose-card .code-block").forEach((block) => {
-        if (block.dataset.enhanced) return;
-        block.dataset.enhanced = "1";
-        const pre = block.querySelector("pre");
-        const code = pre?.querySelector("code");
-        if (!pre || !code) return;
-
+        if (block.dataset.copyBtn) return;
+        block.dataset.copyBtn = "1";
         const toolbar = block.querySelector(".code-block-toolbar");
-        if (toolbar) {
-          const btn = document.createElement("button");
-          btn.className = "code-copy-btn";
-          const btnLabel = document.documentElement.dataset.copyCodeLabel || "Copy Code";
-          btn.setAttribute("aria-label", btnLabel);
-          btn.title = btnLabel;
-          btn.innerHTML = clipboardSvg;
-          btn.dataset.copyIcon = clipboardSvg;
-          btn.dataset.checkIcon = checkSvg;
-          toolbar.appendChild(btn);
-        }
-
-        const rawHtml = code.innerHTML;
-        const textContent = code.textContent || "";
-        const lines = rawHtml.split("\n");
-        if (lines.length > 0 && lines[lines.length - 1].trim() === "") lines.pop();
-
-        const preStyle = getComputedStyle(pre);
-        const numDiv = document.createElement("div");
-        numDiv.className = "line-nums";
-        const codeDiv = document.createElement("div");
-        codeDiv.className = "code-content";
-        ["--shiki-light", "--shiki-dark", "--shiki-light-bg", "--shiki-dark-bg"].forEach((v) => {
-          const val = preStyle.getPropertyValue(v);
-          if (val) codeDiv.style.setProperty(v, val);
-        });
-        codeDiv.style.colorScheme = preStyle.colorScheme;
-        codeDiv.style.fontFamily = preStyle.fontFamily;
-
-        lines.forEach((lineHtml, i) => {
-          const numSpan = document.createElement("span");
-          numSpan.textContent = String(i + 1);
-          numDiv.appendChild(numSpan);
-          const lineSpan = document.createElement("span");
-          lineSpan.className = "code-line";
-          lineSpan.innerHTML = lineHtml || " ";
-          codeDiv.appendChild(lineSpan);
-        });
-
-        const clearActive = () => {
-          numDiv.querySelector(".line-num-active")?.classList.remove("line-num-active");
-          codeDiv.querySelector(".line-active")?.classList.remove("line-active");
-        };
-        for (let i = 0; i < numDiv.children.length; i++) {
-          const handler = () => {
-            clearActive();
-            numDiv.children[i].classList.add("line-num-active");
-            codeDiv.children[i]?.classList.add("line-active");
-          };
-          numDiv.children[i].addEventListener("mouseenter", handler);
-          codeDiv.children[i]?.addEventListener("mouseenter", handler);
-        }
-
-        const wrapper = document.createElement("div");
-        wrapper.className = "code-lines";
-        wrapper.appendChild(numDiv);
-        wrapper.appendChild(codeDiv);
-        wrapper.addEventListener("mouseleave", clearActive);
-        pre.replaceWith(wrapper);
-        block.dataset.codeText = textContent;
+        if (!toolbar) return;
+        const btn = document.createElement("button");
+        btn.className = "code-copy-btn";
+        const btnLabel = document.documentElement.dataset.copyCodeLabel || "Copy Code";
+        btn.setAttribute("aria-label", btnLabel);
+        btn.title = btnLabel;
+        btn.innerHTML = clipboardSvg;
+        btn.dataset.copyIcon = clipboardSvg;
+        btn.dataset.checkIcon = checkSvg;
+        toolbar.appendChild(btn);
       });
 
       // 分享(元素级绑定;文档级外部点击/Escape 已注册)
