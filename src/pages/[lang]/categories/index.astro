@@ -1,0 +1,9 @@
+---
+import { localeParams } from "@/lib/i18nPaths";
+import Localized from "../../categories/index.astro";
+
+export async function getStaticPaths() {
+  return localeParams();
+}
+---
+<Localized />

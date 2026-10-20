@@ -47,6 +47,18 @@ function isImageIcon(icon) {
     icon.endsWith(".webp")
   );
 }
+
+// 指针预设小图标（设置面板用；id 与 site.ts features.cursor.presets 对应）
+const cursorIcons: Record<string, string> = {
+  default:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 3 7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/><path d="m13 13 6 6"/></svg>',
+  star:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
+  dot: '<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="6"/></svg>',
+  ring: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/></svg>',
+  heart:
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>',
+};
 ---
 
 <header
@@ -347,6 +359,63 @@ function isImageIcon(icon) {
                   style="--color: var(--monet-8);"></button>
               </div>
             </div>
+            {siteConfig.features.cursor.enable && (
+            <Fragment>
+            <div
+              style="height: 1px; background: var(--color-border); margin-bottom: 12px;"
+            >
+            </div>
+            <div class="mb-3">
+              <span
+                class="block mb-2"
+                style="font-size: 16px; font-weight: 700; color: var(--color-foreground);"
+                >{t("nav.customCursor")}</span
+              >
+              <div
+                id="cursor-preset-group"
+                class="cursor-preset-group"
+                data-default={siteConfig.features.cursor.defaultPreset}
+              >
+                {
+                  siteConfig.features.cursor.presets.map((p) => (
+                    <button
+                      type="button"
+                      class="cursor-preset-btn"
+                      data-cursor-preset={p.id}
+                      title={t(p.label)}
+                      aria-pressed="false"
+                    >
+                      <Fragment set:html={cursorIcons[p.id] ?? ""} />
+                      <span class="cursor-preset-name">{t(p.label)}</span>
+                    </button>
+                  ))
+                }
+              </div>
+            </div>
+            </Fragment>
+            )}
+            {siteConfig.features.contextMenu.enable && (
+            <Fragment>
+            <div
+              style="height: 1px; background: var(--color-border); margin-bottom: 12px;"
+            >
+            </div>
+            <div class="flex items-center justify-between mb-3">
+              <span
+                style="font-size: 16px; font-weight: 700; color: var(--color-foreground);"
+                >{t("nav.customContextMenu")}</span
+              >
+              <button
+                type="button"
+                id="context-menu-toggle"
+                class="custom-ui-switch"
+                role="switch"
+                aria-checked="true"
+                aria-label={t("nav.customContextMenu")}
+              ></button>
+            </div>
+            </Fragment>
+            )}
             {siteConfig.features.i18n.enable && (
             <div
               style="height: 1px; background: var(--color-border); margin-bottom: 12px;"
@@ -551,10 +620,12 @@ function isImageIcon(icon) {
   })();
 
   // Monet palette switcher (light mode only)
+  // View Transitions 换页后 header 是全新 DOM，本内联脚本不会重跑，
+  // 必须监听 astro:page-load 重新初始化（与搜索脚本同一模式），
+  // 否则换页后色块无事件、已存背景色也不恢复。
   (function () {
-    const swatches = document.querySelectorAll(".item-color");
-    const paletteGrid = document.getElementById("monet-palette-grid");
-    let stored = localStorage.getItem("monet-bg") || "var(--monet-1)";
+    // 注意：is:inline 脚本原样输出、不走 TS 编译，这里必须用纯 JS 写法
+    const paletteState = (window.__monetPalette = window.__monetPalette || {});
 
     function isDark() {
       return document.documentElement.classList.contains("dark");
@@ -570,8 +641,8 @@ function isImageIcon(icon) {
       );
     }
 
-    function applyPalette(color) {
-      stored = color; // 同步闭包状态，深色模式切换回切时才能恢复用户选的颜色
+    function applyPalette(color, swatches, paletteGrid) {
+      paletteState.stored = color; // 同步状态，深色模式切换回切时才能恢复用户选的颜色
       if (isDark()) {
         // Dark mode: remove inline background, let CSS starfield take over
         document.body.style.background = "";
@@ -606,22 +677,112 @@ function isImageIcon(icon) {
       });
     }
 
-    // Init
-    applyPalette(stored);
+    function initMonetPalette() {
+      const swatches = Array.from(document.querySelectorAll(".item-color"));
+      const paletteGrid = document.getElementById("monet-palette-grid");
+      if (!swatches.length) return;
 
-    swatches.forEach((swatch) => {
-      swatch.addEventListener("click", () => {
-        if (isDark()) return;
-        applyPalette(swatch.dataset.color);
+      applyPalette(
+        localStorage.getItem("monet-bg") || "var(--monet-1)",
+        swatches,
+        paletteGrid,
+      );
+
+      swatches.forEach((swatch) => {
+        if (swatch.__monetBound) return;
+        swatch.__monetBound = true;
+        swatch.addEventListener("click", () => {
+          if (isDark()) return;
+          applyPalette(swatch.dataset.color, swatches, paletteGrid);
+        });
       });
-    });
 
-    // Listen for dark mode toggle changes
-    const observer = new MutationObserver(() => applyPalette(stored));
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
+      // 换页后 documentElement 保留、旧 observer 仍指向已替换的旧 swatches，需断开重建
+      if (paletteState.observer) paletteState.observer.disconnect();
+      const observer = new MutationObserver(() => {
+        applyPalette(
+          paletteState.stored ||
+            localStorage.getItem("monet-bg") ||
+            "var(--monet-1)",
+          document.querySelectorAll(".item-color"),
+          document.getElementById("monet-palette-grid"),
+        );
+      });
+      observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["class"],
+      });
+      paletteState.observer = observer;
+    }
+
+    initMonetPalette();
+    // astro:page-load 首次加载与每次换页都会触发（换页后 header 是全新 DOM）
+    if (!window.__monetPageLoadBound) {
+      window.__monetPageLoadBound = true;
+      document.addEventListener("astro:page-load", initMonetPalette);
+    }
+  })();
+</script>
+
+<script is:inline>
+  // 自定义指针预设 & 右键菜单开关（localStorage 持久化，与 src/lib/customUI.ts 联动）
+  (function () {
+    const LS_CURSOR = "cursor-preset";
+    const LS_CTX = "context-menu";
+
+    function applyPresetButtons(preset) {
+      document.querySelectorAll(".cursor-preset-btn").forEach(function (btn) {
+        const active = btn.dataset.cursorPreset === preset;
+        btn.classList.toggle("selected", active);
+        btn.setAttribute("aria-pressed", active ? "true" : "false");
+      });
+    }
+
+    function initCustomSettings() {
+      const group = document.getElementById("cursor-preset-group");
+      const toggleBtn = document.getElementById("context-menu-toggle");
+      const preset =
+        localStorage.getItem(LS_CURSOR) ||
+        (group ? group.dataset.default : "default");
+
+      if (group) {
+        applyPresetButtons(preset);
+        group.querySelectorAll(".cursor-preset-btn").forEach(function (btn) {
+          if (btn.__uiBound) return;
+          btn.__uiBound = true;
+          btn.addEventListener("click", function () {
+            const p = btn.dataset.cursorPreset;
+            localStorage.setItem(LS_CURSOR, p);
+            applyPresetButtons(p);
+            if (window.__customUI) window.__customUI.setPreset(p);
+            else document.documentElement.dataset.cursor = p;
+          });
+        });
+      }
+
+      if (toggleBtn) {
+        const on = localStorage.getItem(LS_CTX) !== "off";
+        toggleBtn.setAttribute("aria-checked", on ? "true" : "false");
+        toggleBtn.classList.toggle("on", on);
+        if (!toggleBtn.__uiBound) {
+          toggleBtn.__uiBound = true;
+          toggleBtn.addEventListener("click", function () {
+            const next = toggleBtn.getAttribute("aria-checked") !== "true";
+            toggleBtn.setAttribute("aria-checked", next ? "true" : "false");
+            toggleBtn.classList.toggle("on", next);
+            localStorage.setItem(LS_CTX, next ? "on" : "off");
+            if (window.__customUI) window.__customUI.setContextMenuEnabled(next);
+          });
+        }
+      }
+    }
+
+    initCustomSettings();
+    // astro:page-load 首次加载与每次换页都会触发（换页后 header 是全新 DOM）
+    if (!window.__customSettingsPL) {
+      window.__customSettingsPL = true;
+      document.addEventListener("astro:page-load", initCustomSettings);
+    }
   })();
 </script>
 
@@ -814,8 +975,10 @@ function isImageIcon(icon) {
     content: attr(aria-color);
     left: 65%;
     /* 父级 hover scale(1.5) 会把 tooltip 一并放大抬高：
-       53px 定位 + scale(0.6667) 反向缩放，最终贴在放大色块顶缘上方 3px、文字保持原始大小 */
-    bottom: 53px;
+       41px 定位 + scale(0.6667) 反向缩放，文字保持原始大小；
+       实测（510 视口）：悬停时 tooltip 顶缘距「切换背景色」标题底约 3.5px、
+       底缘在放大色块顶上方约 1.5px（与下方 .container-items 的 padding-top:26px 联动） */
+    bottom: 41px;
     transform: translateX(-50%) scale(0.6667);
     transform-origin: 50% 100%;
     z-index: 2;
@@ -855,10 +1018,10 @@ function isImageIcon(icon) {
   }
   .settings-dropdown .container-items {
     max-width: 100%;
-    /* tooltip（::before）在 hover 放大几何下需要色块顶缘上方约 48px：
-       bottom:53px 经 scale(1.5) 展开后 tooltip 顶缘在按钮顶上方 ~47.5px，
-       余量不足会钻进「切换背景色」标题行盖住文字 */
-    padding-top: 50px;
+    /* tooltip（::before）与色块的纵向间隙由 padding-top 预留，须与 ::before 的
+       bottom:41px 联动下调（原 50px/53px 组合使色块距「切换背景色」标题 57px 过远）；
+       26px 时实测色块距标题 33px，悬停提示条仍不遮标题 */
+    padding-top: 26px;
   }
   /* 点击展开的强制显示样式仅在无 hover 的触屏设备生效；
      桌面 hover 设备上 touch-open 无视觉效果，仍由 group-hover 接管 */
@@ -932,6 +1095,90 @@ function isImageIcon(icon) {
   .item-color:has(+ * + *:hover) {
     transform: scale(1.15);
     z-index: 999;
+  }
+
+  /* ===== 自定义指针预设选择 & 右键菜单开关 ===== */
+  .cursor-preset-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .cursor-preset-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--color-foreground);
+    border: 1px solid var(--color-border);
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .cursor-preset-btn svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+  }
+  .cursor-preset-btn:hover {
+    border-color: var(--color-primary);
+  }
+  .cursor-preset-btn.selected {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 1px var(--color-primary);
+    background: rgba(66, 90, 239, 0.08);
+  }
+  .dark .cursor-preset-btn {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+  .dark .cursor-preset-btn:hover,
+  .dark .cursor-preset-btn.selected {
+    border-color: var(--color-primary-dark);
+    box-shadow: 0 0 0 1px var(--color-primary-dark);
+  }
+  .dark .cursor-preset-btn.selected {
+    background: rgba(242, 185, 75, 0.1);
+  }
+
+  /* 自定义右键菜单开关（switch） */
+  .custom-ui-switch {
+    width: 40px;
+    height: 22px;
+    border-radius: 999px;
+    position: relative;
+    background: rgba(0, 0, 0, 0.15);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.25s ease;
+    flex-shrink: 0;
+  }
+  .custom-ui-switch::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.25s ease;
+  }
+  .custom-ui-switch.on {
+    background: var(--color-primary);
+  }
+  .custom-ui-switch.on::after {
+    transform: translateX(18px);
+  }
+  .dark .custom-ui-switch {
+    background: rgba(255, 255, 255, 0.18);
+  }
+  .dark .custom-ui-switch.on {
+    background: var(--color-primary-dark);
   }
 </style>
 

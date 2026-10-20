@@ -10,16 +10,133 @@ import { optimizedRemoteImageMap } from "@/lib/remoteImage";
 const locale = getLocaleFromURL(Astro.url.pathname);
 const t = useTranslations(locale);
 
-const wantWatch = bangumisData.wantWatch || [];
-const watching = bangumisData.watching || [];
-const watched = bangumisData.watched || [];
+// ---------- 多季番剧合并 ----------
+// 数据里同一部番（TMDB 同 tmdbId）的不同季/OVA 是独立条目，这里把它们合并成
+// 一个展示单元：标题用系列名，封面/评分/B站 id 取组内评分最高者作代表，
+// 各季明细保留在 seasons 供前端展开。同一系列跨多个列表（在看/想看/看过）
+// 时归入优先级最高的列表，避免「全部」视图出现重复卡片。
+type RawItem = (typeof bangumisData.wantWatch)[number];
+type ListKey = 'wantWatch' | 'watching' | 'watched';
 
-// 追番封面在服务端预优化成 300px 缩略图（webp q75），浏览器不再直连
-// B站 i0.hdslb.com / TMDB image.tmdb.org，首屏秒开且不依赖外部图床
-const allCovers = [
-  ...new Set([...wantWatch, ...watching, ...watched].map((i) => i.cover).filter(Boolean)),
-];
-const coverOptimized = await optimizedRemoteImageMap(allCovers, 300, 75);
+const rawLists: Record<ListKey, RawItem[]> = {
+  wantWatch: bangumisData.wantWatch || [],
+  watching: bangumisData.watching || [],
+  watched: bangumisData.watched || [],
+};
+
+const LIST_PRIORITY: Record<ListKey, number> = { watching: 0, wantWatch: 1, watched: 2 };
+
+// 同一 tmdbId 全局只归一个列表（watching > wantWatch > watched）
+const seriesHome = new Map<number, ListKey>();
+for (const key of ['watching', 'wantWatch', 'watched'] as ListKey[]) {
+  for (const item of rawLists[key]) {
+    const id = item.tmdb?.tmdbId;
+    if (!id) continue;
+    const prev = seriesHome.get(id);
+    if (prev === undefined || LIST_PRIORITY[key] < LIST_PRIORITY[prev]) seriesHome.set(id, key);
+  }
+}
+
+interface SeasonBrief { title: string; id?: number; totalCount?: string }
+interface DisplayItem {
+  title: string;
+  /** 前端直接使用的封面地址（服务端已换成构建期优化缩略图，原图兜底） */
+  cover: string;
+  rating?: string;
+  id?: number;
+  seasonsCount: number;
+  seasons: SeasonBrief[];
+  tmdb?: {
+    tmdbId: number;
+    name: string;
+    rating: number;
+    firstAirDate: string;
+    numberOfSeasons: number;
+    numberOfEpisodes: number;
+    genres: string[];
+    status: string;
+    overview: string;
+  } | null;
+}
+
+function scoreOf(item: RawItem): number {
+  if (item.tmdb?.rating) return item.tmdb.rating;
+  const n = Number(item.score);
+  return Number.isFinite(n) ? n : -1;
+}
+
+function buildList(key: ListKey): DisplayItem[] {
+  const owned = rawLists[key].filter(
+    (item) => !item.tmdb?.tmdbId || seriesHome.get(item.tmdb.tmdbId) === key,
+  );
+  const groups = new Map<number, RawItem[]>();
+  const singles: RawItem[] = [];
+  for (const item of owned) {
+    const id = item.tmdb?.tmdbId;
+    if (id) {
+      const g = groups.get(id);
+      if (g) g.push(item);
+      else groups.set(id, [item]);
+    } else {
+      singles.push(item);
+    }
+  }
+
+  const out: DisplayItem[] = [];
+  for (const group of groups.values()) {
+    const rep = [...group].sort((a, b) => scoreOf(b) - scoreOf(a))[0];
+    const tmdb = rep.tmdb;
+    out.push({
+      title: tmdb?.name || rep.title,
+      cover: rep.cover || '',
+      rating: tmdb?.rating ? tmdb.rating.toFixed(1) : rep.score && rep.score !== '-' ? rep.score : undefined,
+      id: rep.id,
+      seasonsCount: group.length,
+      seasons: group.map((s) => ({ title: s.title, id: s.id, totalCount: s.totalCount })),
+      tmdb: tmdb
+        ? {
+            tmdbId: tmdb.tmdbId,
+            name: tmdb.name,
+            rating: tmdb.rating,
+            firstAirDate: tmdb.firstAirDate,
+            numberOfSeasons: tmdb.numberOfSeasons,
+            numberOfEpisodes: tmdb.numberOfEpisodes,
+            genres: tmdb.genres,
+            status: tmdb.status,
+            overview: tmdb.overview ? tmdb.overview.slice(0, 120) : '',
+          }
+        : null,
+    });
+  }
+  for (const item of singles) {
+    out.push({
+      title: item.title,
+      cover: item.cover || '',
+      rating: item.score && item.score !== '-' ? item.score : undefined,
+      id: item.id,
+      seasonsCount: 1,
+      seasons: [{ title: item.title, id: item.id, totalCount: item.totalCount }],
+      tmdb: null,
+    });
+  }
+  return out;
+}
+
+let wantWatch = buildList('wantWatch');
+let watching = buildList('watching');
+let watched = buildList('watched');
+
+// 封面只在服务端预优化每个展示单元的代表封面（合并后数量大幅减少），
+// 缩成 240px webp q75，浏览器不再直连 B站/TMDB 图床大图。
+const allCovers = [...new Set([...wantWatch, ...watching, ...watched].map((i) => i.cover).filter(Boolean))];
+const coverOptimized = await optimizedRemoteImageMap(allCovers, 240, 75);
+const useOptimized = (item: DisplayItem): DisplayItem => ({
+  ...item,
+  cover: coverOptimized[item.cover]?.src || item.cover,
+});
+wantWatch = wantWatch.map(useOptimized);
+watching = watching.map(useOptimized);
+watched = watched.map(useOptimized);
 ---
 
 <BaseLayout title={t('bangumis.title')}>
@@ -32,7 +149,7 @@ const coverOptimized = await optimizedRemoteImageMap(allCovers, 300, 75);
       </p>
     </div>
 
-    <BangumiList client:only="react" wantWatch={wantWatch} watching={watching} watched={watched} coverOptimized={coverOptimized} locale={locale} />
+    <BangumiList client:load="react" wantWatch={wantWatch} watching={watching} watched={watched} locale={locale} />
   </main>
   <Footer />
 </BaseLayout>

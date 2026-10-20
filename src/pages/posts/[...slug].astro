@@ -97,7 +97,8 @@ const jsonLd = {
         var doc = document.documentElement;
         var max = doc.scrollHeight - window.innerHeight;
         var pct = max > 0 ? Math.min(1, window.scrollY / max) : 0;
-        bar.style.transform = "scaleX(" + pct + ")";
+        var bar = document.getElementById("reading-progress");
+        if (bar) bar.style.transform = "scaleX(" + pct + ")";
         ticking = false;
       }
       window.addEventListener(
@@ -110,6 +111,8 @@ const jsonLd = {
         { passive: true },
       );
       window.addEventListener("resize", update, { passive: true });
+      // View Transitions 换页后进度条是全新 DOM，换页后重新定位元素再更新
+      document.addEventListener("astro:page-load", update);
       update();
     })();
   </script>

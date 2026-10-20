@@ -1,0 +1,19 @@
+---
+import { getCollection } from "astro:content";
+import { siteConfig } from "../../../config/site";
+import TagDetail from "../../tags/[tag].astro";
+
+export async function getStaticPaths() {
+  // 原结构只有 en/ 目录提供单个 tag 页面，zh-TW/ 目录没有（语言差异，
+  // 刻意保留）：因此这里固定只生成 en 语言的 tag 路由。
+  // 多语言关闭时（features.i18n.enable=false）与其他语言页一致：不产出。
+  if (!siteConfig.features.i18n.enable) return [];
+  const posts = await getCollection("blog");
+  const tags = new Set<string>();
+  for (const post of posts) {
+    for (const tag of post.data.tags) tags.add(tag);
+  }
+  return [...tags].map((tag) => ({ params: { lang: "en", tag } }));
+}
+---
+<TagDetail />

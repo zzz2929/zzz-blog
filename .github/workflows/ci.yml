@@ -27,5 +27,27 @@ jobs:
       - name: 安装依赖
         run: pnpm install --frozen-lockfile
 
+      # Remote image HTTP cache (.cache/http): avoids re-downloading ~100
+      # remote images on every CI build. Keyed by source tree hash with a
+      # loose restore key so most entries survive content changes.
+      - name: Cache remote images
+        uses: actions/cache@v4
+        with:
+          path: .cache
+          key: image-cache-${{ hashFiles('src/**', 'astro.config.mjs') }}
+          restore-keys: |
+            image-cache-
+
+      # Astro's built-in image cache (node_modules/.astro): persists optimized
+      # thumbnails so the generate stage reuses all 182 images instead of
+      # re-running sharp. Both caches together make CI builds warm (~15s astro).
+      - name: Cache Astro image cache
+        uses: actions/cache@v4
+        with:
+          path: node_modules/.astro
+          key: astro-image-cache-${{ hashFiles('src/**', 'astro.config.mjs') }}
+          restore-keys: |
+            astro-image-cache-
+
       - name: 构建验证
         run: pnpm build

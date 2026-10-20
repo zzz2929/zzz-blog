@@ -1,4 +1,13 @@
 import { getImage } from 'astro:assets';
+import { installFetchCache } from './httpCache';
+
+// 构建期安装远程图 HTTP 磁盘缓存（见 httpCache.ts）：Astro 对远程图每次
+// 构建都会 probe + 下载 + revalidate，且其内置磁盘缓存对远程图因输出文件
+// 名随机后缀而永远 miss；此缓存让 probe / 下载 / revalidate 全部跳过网络，
+// 跨构建复用。dev 模式不安装，保证实时性。
+if (import.meta.env.PROD) {
+  installFetchCache();
+}
 
 export interface OptimizedImage {
   /** 优化后的图片地址（构建/开发时生成的等比缩小版） */

@@ -3,7 +3,7 @@ import { ClientRouter } from "astro:transitions";
 import { AnimatedBackground } from "@/components/react/AnimatedBackground";
 import MiniPlayer from "@/components/astro/MiniPlayer.astro";
 import Analytics from "@/components/astro/Analytics.astro";
-import { getLocaleFromURL } from "@/i18n";
+import { getLocaleFromURL, useTranslations } from "@/i18n";
 import { siteConfig } from "@/config/site";
 
 interface Props {
@@ -51,6 +51,36 @@ const hreflangEntries = i18nCfg.enable
       },
     ]
   : [];
+
+// 自定义右键菜单 & 鼠标指针的运行时配置：
+// 在 frontmatter 求值成普通对象，<script> 内联引用即可，避免把 site.ts 打包进客户端
+const translateLabel = (label?: string) =>
+  label ? useTranslations(locale)(label) : "";
+const customUIProps = {
+  contextMenu: {
+    enable: siteConfig.features.contextMenu.enable,
+    items: siteConfig.features.contextMenu.items.map((i) => ({
+      type: i.type,
+      label: translateLabel(i.label),
+    })),
+    linkItems: siteConfig.features.contextMenu.linkItems.map((i) => ({
+      type: i.type,
+      label: translateLabel(i.label),
+    })),
+    imageItems: siteConfig.features.contextMenu.imageItems.map((i) => ({
+      type: i.type,
+      label: translateLabel(i.label),
+    })),
+  },
+  cursor: {
+    enable: siteConfig.features.cursor.enable,
+    defaultPreset: siteConfig.features.cursor.defaultPreset,
+    presets: siteConfig.features.cursor.presets,
+  },
+  toasts: {
+    nativeMenu: translateLabel("ctx.nativeMenuToast"),
+  },
+};
 ---
 
 <!doctype html>
@@ -319,6 +349,15 @@ const hreflangEntries = i18nCfg.enable
         });
       })();
     </script>
+
+    <!-- 自定义右键菜单 & 鼠标指针（配置见 src/config/site.ts features.contextMenu / features.cursor；
+         菜单文案按当前语言翻译；访客偏好见「设置 → 自定义」） -->
+    <div id="custom-ui-config" data-json={JSON.stringify(customUIProps)} hidden></div>
+    <script>
+      import { initCustomUI } from "@/lib/customUI";
+
+      initCustomUI();
+    </script>
   </body>
 </html>
 
@@ -506,5 +545,242 @@ const hreflangEntries = i18nCfg.enable
 
   .dark .pl-circle {
     background-color: var(--color-primary-dark);
+  }
+
+  /* ====== 自定义鼠标指针（src/lib/customUI.ts，预设见 site.ts features.cursor） ====== */
+  #custom-cursor {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 2147483647;
+    pointer-events: none;
+    display: none;
+    will-change: transform;
+  }
+  #custom-cursor .cursor-main,
+  #custom-cursor .cursor-trail {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translate(-50%, -50%);
+  }
+  /* 激活自定义预设时显示指针元素并隐藏系统指针（保留文本输入光标，指针在其上变淡） */
+  html[data-cursor="star"] #custom-cursor,
+  html[data-cursor="dot"] #custom-cursor,
+  html[data-cursor="ring"] #custom-cursor,
+  html[data-cursor="heart"] #custom-cursor {
+    display: block;
+  }
+  html[data-cursor="star"] *,
+  html[data-cursor="dot"] *,
+  html[data-cursor="ring"] *,
+  html[data-cursor="heart"] * {
+    cursor: none !important;
+  }
+  html[data-cursor="star"] input,
+  html[data-cursor="dot"] input,
+  html[data-cursor="ring"] input,
+  html[data-cursor="heart"] input,
+  html[data-cursor="star"] textarea,
+  html[data-cursor="dot"] textarea,
+  html[data-cursor="ring"] textarea,
+  html[data-cursor="heart"] textarea,
+  html[data-cursor="star"] [contenteditable="true"],
+  html[data-cursor="dot"] [contenteditable="true"],
+  html[data-cursor="ring"] [contenteditable="true"],
+  html[data-cursor="heart"] [contenteditable="true"] {
+    cursor: text !important;
+  }
+
+  /* ---- star 星光（主星 + 拖尾） ---- */
+  html[data-cursor="star"] .cursor-main {
+    width: 22px;
+    height: 22px;
+    background: var(--color-primary);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    filter: drop-shadow(0 0 4px rgba(66, 90, 239, 0.55));
+  }
+  html.dark[data-cursor="star"] .cursor-main {
+    background: var(--color-primary-dark);
+    filter: drop-shadow(0 0 4px rgba(242, 185, 75, 0.55));
+  }
+  html[data-cursor="star"] .cursor-trail {
+    width: 12px;
+    height: 12px;
+    background: var(--color-primary);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    opacity: 0.28;
+  }
+  html[data-cursor="star"] .cursor-trail:nth-child(3) {
+    opacity: 0.2;
+    width: 10px;
+    height: 10px;
+  }
+  html[data-cursor="star"] .cursor-trail:nth-child(4) {
+    opacity: 0.14;
+    width: 8px;
+    height: 8px;
+  }
+  html[data-cursor="star"] .cursor-trail:nth-child(5) {
+    opacity: 0.09;
+    width: 6px;
+    height: 6px;
+  }
+  html[data-cursor="star"] .cursor-trail:nth-child(6) {
+    opacity: 0.05;
+    width: 4px;
+    height: 4px;
+  }
+  html.dark[data-cursor="star"] .cursor-trail {
+    background: var(--color-primary-dark);
+  }
+
+  /* ---- dot 圆点 ---- */
+  html[data-cursor="dot"] .cursor-main {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    box-shadow: 0 0 0 5px rgba(66, 90, 239, 0.18), 0 0 12px rgba(66, 90, 239, 0.5);
+  }
+  html.dark[data-cursor="dot"] .cursor-main {
+    background: var(--color-primary-dark);
+    box-shadow: 0 0 0 5px rgba(242, 185, 75, 0.16), 0 0 12px rgba(242, 185, 75, 0.5);
+  }
+
+  /* ---- ring 光环 ---- */
+  html[data-cursor="ring"] .cursor-main {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid var(--color-primary);
+    transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  }
+  html[data-cursor="ring"] #custom-cursor.hovering .cursor-main {
+    width: 44px;
+    height: 44px;
+    border-color: var(--color-accent);
+    background: rgba(66, 90, 239, 0.08);
+  }
+  html.dark[data-cursor="ring"] .cursor-main {
+    border-color: var(--color-primary-dark);
+  }
+  html.dark[data-cursor="ring"] #custom-cursor.hovering .cursor-main {
+    border-color: var(--color-accent-orange);
+    background: rgba(242, 185, 75, 0.1);
+  }
+
+  /* ---- heart 爱心 ---- */
+  html[data-cursor="heart"] .cursor-main {
+    width: 20px;
+    height: 20px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23f47466'%3E%3Cpath d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'/%3E%3C/svg%3E") center / contain no-repeat;
+    filter: drop-shadow(0 0 4px rgba(244, 116, 102, 0.55));
+  }
+
+  /* 通用反馈：悬停交互元素放大，输入框上变淡 */
+  #custom-cursor.hovering .cursor-main {
+    transform: translate(-50%, -50%) scale(1.35);
+  }
+  #custom-cursor.on-text {
+    opacity: 0.25;
+  }
+
+  /* ====== 自定义右键菜单（src/lib/customUI.ts，配置见 site.ts features.contextMenu） ====== */
+  .custom-context-menu {
+    position: fixed;
+    z-index: 2147483646;
+    min-width: 176px;
+    padding: 6px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.55));
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15), 0 2px 8px rgba(0, 0, 0, 0.06);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.95);
+    transform-origin: top left;
+    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+  }
+  .custom-context-menu.open {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+  }
+  .custom-context-menu .ctx-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.4;
+    font-weight: 500;
+    color: var(--color-foreground);
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s ease;
+  }
+  .custom-context-menu .ctx-item svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    color: var(--color-foreground-muted);
+  }
+  .custom-context-menu .ctx-item:hover {
+    background: rgba(66, 90, 239, 0.1);
+  }
+  .custom-context-menu .ctx-item:hover svg {
+    color: var(--color-primary);
+  }
+  .custom-context-menu .ctx-separator {
+    height: 1px;
+    margin: 5px 8px;
+    background: var(--color-border);
+  }
+  .dark .custom-context-menu {
+    background: linear-gradient(135deg, rgba(30, 30, 40, 0.9), rgba(30, 30, 40, 0.65));
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 10px 15px -3px rgba(0, 0, 0, 0.15), 0 25px 60px -5px rgba(0, 0, 0, 0.25);
+  }
+  .dark .custom-context-menu .ctx-item:hover {
+    background: rgba(242, 185, 75, 0.12);
+  }
+  .dark .custom-context-menu .ctx-item:hover svg {
+    color: var(--color-primary-dark);
+  }
+
+  /* ====== 右键菜单操作提示 toast ====== */
+  #custom-ui-toast {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 2147483647;
+    max-width: 320px;
+    padding: 9px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #fff;
+    background: rgba(30, 30, 40, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+    pointer-events: none;
+  }
+  #custom-ui-toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .dark #custom-ui-toast {
+    background: rgba(242, 185, 75, 0.95);
+    color: #1a1a24;
+    border-color: rgba(0, 0, 0, 0.08);
   }
 </style>

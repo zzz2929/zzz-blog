@@ -133,6 +133,61 @@ export const siteConfig = {
     /* ---- 文末赞赏 ----
      * enable 开启后文章末尾显示收款码；qrImage 填收款码图片地址（建议正方形） */
     donate: { enable: false, qrImage: "" },
+
+    /* ---- 自定义右键菜单 ----
+     * enable 关闭后恢复浏览器原生右键菜单；
+     * 访客可在「设置 → 自定义」中临时关闭（localStorage: context-menu = off，默认跟随此配置）。
+     * items 为固定菜单项（按顺序显示），type 决定行为：
+     *   backToTop 返回顶部 | themeToggle 切换明暗主题 | copyLink 复制当前页链接
+     *   copyPageInfo 复制标题和链接 | copySelection 复制选中文本（仅选中文本时显示）
+     *   searchSelection 搜索选中文本（仅选中文本时显示，label 含 {text} 占位符会替换为选中文本）
+     *   toHome 返回首页 | refresh 刷新页面 | printPage 打印此页面
+     *   nativeMenu 显示原始菜单（放行下一次右键显示系统原生菜单）
+     *   separator 分隔线
+     * 在链接 / 图片上右键时，会额外显示 linkItems / imageItems（置于固定项之前）。
+     * label 支持 i18n key（src/i18n/*.json，如 "ctx.backToTop"）或直接写文字。 */
+    contextMenu: {
+      enable: true,
+      items: [
+        { type: "backToTop", label: "ctx.backToTop" },
+        { type: "separator" },
+        { type: "themeToggle", label: "ctx.themeToggle" },
+        { type: "copyLink", label: "ctx.copyLink" },
+        { type: "copyPageInfo", label: "ctx.copyPageInfo" },
+        { type: "copySelection", label: "ctx.copySelection" },
+        { type: "searchSelection", label: "ctx.searchSelection" },
+        { type: "toHome", label: "ctx.toHome" },
+        { type: "refresh", label: "ctx.refresh" },
+        { type: "separator" },
+        { type: "printPage", label: "ctx.printPage" },
+        { type: "nativeMenu", label: "ctx.nativeMenu" },
+      ],
+      linkItems: [
+        { type: "openLink", label: "ctx.openLink" },
+        { type: "copyLinkAddress", label: "ctx.copyLinkAddress" },
+      ],
+      imageItems: [
+        { type: "openImage", label: "ctx.openImage" },
+        { type: "copyImageAddress", label: "ctx.copyImageAddress" },
+      ],
+    },
+
+    /* ---- 自定义鼠标指针 ----
+     * enable 关闭后使用系统指针；
+     * 访客可在「设置 → 自定义」中选择预设（localStorage: cursor-preset，默认跟随 defaultPreset）。
+     * presets 的 id 对应 src/lib/customUI.ts 的实现（default 系统指针 / star 星光 / dot 圆点 /
+     * ring 光环 / heart 爱心），label 支持 i18n key 或直接文字。 */
+    cursor: {
+      enable: true,
+      defaultPreset: "star",
+      presets: [
+        { id: "default", label: "cursor.default" },
+        { id: "star", label: "cursor.star" },
+        { id: "dot", label: "cursor.dot" },
+        { id: "ring", label: "cursor.ring" },
+        { id: "heart", label: "cursor.heart" },
+      ],
+    },
   },
 
   /* ===================== 页脚 ===================== */

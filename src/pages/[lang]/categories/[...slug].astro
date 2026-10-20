@@ -1,0 +1,13 @@
+---
+import { localeParams } from "@/lib/i18nPaths";
+import { getAllCategories } from "@/lib/posts";
+import CategoriesDetail from "../../categories/[...slug].astro";
+
+export async function getStaticPaths() {
+  const categories = await getAllCategories();
+  return localeParams().flatMap(({ params: { lang } }) =>
+    categories.map((cat) => ({ params: { lang, slug: cat.slug } })),
+  );
+}
+---
+<CategoriesDetail />
