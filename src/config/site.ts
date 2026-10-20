@@ -175,8 +175,9 @@ export const siteConfig = {
     /* ---- 自定义鼠标指针 ----
      * enable 关闭后使用系统指针；
      * 访客可在「设置 → 自定义」中选择预设（localStorage: cursor-preset，默认跟随 defaultPreset）。
-     * presets 的 id 对应 src/lib/customUI.ts 的实现（default 系统指针 / star 星光 / dot 圆点 /
-     * ring 光环 / heart 爱心），label 支持 i18n key 或直接文字。 */
+     * 引擎为 mouse-follower（GSAP 平滑跟随），presets 的 id 对应 src/lib/customUI.ts 的预设
+     * （default 系统指针 / star 星光 / dot 圆点 / ring 光环 / heart 爱心），
+     * label 支持 i18n key 或直接文字。 */
     cursor: {
       enable: true,
       defaultPreset: "star",
@@ -282,7 +283,7 @@ export const siteConfig = {
     {
       name: "图床",
       href: "https://imgbed.904002.xyz/",
-      icon: "https://imgbed.904002.xyz/file/img/blog/icon/图床.svg",
+      icon: "https://imgbed.904002.xyz/file/img/blog/icon/%E5%9B%BE%E5%BA%8A.svg",
     },
     {
       name: "Waline",
@@ -327,12 +328,12 @@ export const siteConfig = {
     {
       name: "米家",
       href: "https://fn-mijia.904002.xyz:7999",
-      icon: "https://imgbed.904002.xyz/file/img/blog/icon/米家.svg",
+      icon: "https://imgbed.904002.xyz/file/img/blog/icon/%E7%B1%B3%E5%AE%B6.svg",
     },
     {
       name: "路由器",
       href: "https://fn-xiaomirouter.904002.xyz:7999",
-      icon: "https://imgbed.904002.xyz/file/img/blog/icon/路由器.svg",
+      icon: "https://imgbed.904002.xyz/file/img/blog/icon/%E8%B7%AF%E7%94%B1%E5%99%A8.svg",
     },
     {
       name: "Meting-API",
@@ -342,7 +343,7 @@ export const siteConfig = {
     {
       name: "飞牛音乐",
       href: "https://fn-music.904002.xyz:7999",
-      icon: "https://imgbed.904002.xyz/file/img/blog/icon/飞牛音乐.webp",
+      icon: "https://imgbed.904002.xyz/file/img/blog/icon/%E9%A3%9E%E7%89%9B%E9%9F%B3%E4%B9%90.webp",
     },
     {
       name: "Media Go",
@@ -376,8 +377,8 @@ export const siteConfig = {
     recentPostsCount: 3,
     // 侧栏 hello 动图（明暗两套，随主题切换）
     helloImages: {
-      light: "https://imgbed.904002.xyz/file/img/blog/others/hello_白_.webp",
-      dark: "https://imgbed.904002.xyz/file/img/blog/others/hello_黑_.webp",
+      light: "https://imgbed.904002.xyz/file/img/blog/others/hello_%E7%99%BD_.webp",
+      dark: "https://imgbed.904002.xyz/file/img/blog/others/hello_%E9%BB%91_.webp",
     },
   },
 

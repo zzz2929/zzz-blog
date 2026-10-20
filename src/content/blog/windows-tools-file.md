@@ -4,7 +4,7 @@ date: 2025-08-21 23:07:02
 updated: 2026-06-07 10:08:55
 tags: [Windows, 工具, 效率]
 categories: [Tools]
-cover: https://imgbed.904002.xyz/file/img/blog/background/post/Windows工具-文件类.webp
+cover: https://imgbed.904002.xyz/file/img/blog/background/post/Windows%E5%B7%A5%E5%85%B7-%E6%96%87%E4%BB%B6%E7%B1%BB.webp
 description: Windows 平台上文件管理类效率工具推荐，包括软件卸载、文件搜索、文件对比、格式转换、批量重命名等实用工具。
 ---
 整理一些 Windows 上常用的文件管理工具，都是亲测好用的。
@@ -27,7 +27,7 @@ description: Windows 平台上文件管理类效率工具推荐，包括软件�
 - [NAS](https://s.fnnas.net/s/2285d4b0874d4b4ca1)
 - [夸克网盘](https://pan.quark.cn/s/700959730ac3)
 
-![geek](https://imgbed.904002.xyz/file/img/blog/post/Windows工具/文件类/geek.webp)
+![geek](https://imgbed.904002.xyz/file/img/blog/post/Windows%E5%B7%A5%E5%85%B7/%E6%96%87%E4%BB%B6%E7%B1%BB/geek.webp)
 
 ### 进阶版：HiBit Uninstaller
 
@@ -52,7 +52,7 @@ description: Windows 平台上文件管理类效率工具推荐，包括软件�
 - [NAS](https://s.fnnas.net/s/672368d5584b44ab87)
 - [夸克网盘](https://pan.quark.cn/s/bcb5d0a87cfb)
 
-![HiBit Uninstaller](https://imgbed.904002.xyz/file/img/blog/post/Windows工具/文件类/HiBit_Uninstaller.webp)
+![HiBit Uninstaller](https://imgbed.904002.xyz/file/img/blog/post/Windows%E5%B7%A5%E5%85%B7/%E6%96%87%E4%BB%B6%E7%B1%BB/HiBit_Uninstaller.webp)
 
 ---
 
@@ -68,11 +68,11 @@ description: Windows 平台上文件管理类效率工具推荐，包括软件�
 - [NAS](https://s.fnnas.net/s/68997fa8d1054deab3)
 - [夸克网盘](https://pan.quark.cn/s/fac74b4342a3)
 
-![everything](https://imgbed.904002.xyz/file/img/blog/post/Windows工具/文件类/everything.webp)
+![everything](https://imgbed.904002.xyz/file/img/blog/post/Windows%E5%B7%A5%E5%85%B7/%E6%96%87%E4%BB%B6%E7%B1%BB/everything.webp)
 
 **搭配推荐**：配合 [Windhawk](https://windhawk.net/) 的 `Better file sizes in Explorer details` 组件，可以在文件管理器中直接显示文件夹大小：
 
-![everything-Better_file_sizes_in_Explorer_details](https://imgbed.904002.xyz/file/img/blog/post/Windows工具/文件类/everything-Better_file_sizes_in_Explorer_details.webp)
+![everything-Better_file_sizes_in_Explorer_details](https://imgbed.904002.xyz/file/img/blog/post/Windows%E5%B7%A5%E5%85%B7/%E6%96%87%E4%BB%B6%E7%B1%BB/everything-Better_file_sizes_in_Explorer_details.webp)
 
 ---
 
@@ -88,7 +88,7 @@ description: Windows 平台上文件管理类效率工具推荐，包括软件�
 - [NAS](https://s.fnnas.net/s/68997fa8d1054deab3)
 - [夸克网盘](https://pan.quark.cn/s/35a15ed66fa6)
 
-![Antxt](https://imgbed.904002.xyz/file/img/blog/post/Windows工具/文件类/Antxt.webp)
+![Antxt](https://imgbed.904002.xyz/file/img/blog/post/Windows%E5%B7%A5%E5%85%B7/%E6%96%87%E4%BB%B6%E7%B1%BB/Antxt.webp)
 
 ---
 
@@ -108,7 +108,7 @@ description: Windows 平台上文件管理类效率工具推荐，包括软件�
 - [NAS](https://s.fnnas.net/s/68997fa8d1054deab3)
 - [夸克网盘](https://pan.quark.cn/s/c7e3e8a6c865)
 
-![Beyond Compare](https://imgbed.904002.xyz/file/img/blog/post/Windows工具/文件类/Beyond_Compare.webp)
+![Beyond Compare](https://imgbed.904002.xyz/file/img/blog/post/Windows%E5%B7%A5%E5%85%B7/%E6%96%87%E4%BB%B6%E7%B1%BB/Beyond_Compare.webp)
 
 ---
 
@@ -131,7 +131,7 @@ description: Windows 平台上文件管理类效率工具推荐，包括软件�
 - [NAS](https://s.fnnas.net/s/01c8c239da8149cfab)
 - [夸克网盘](https://pan.quark.cn/s/8a00d37a5e26)
 
-![Format Factory](https://imgbed.904002.xyz/file/img/blog/post/Windows工具/文件类/FormatFactory.webp)
+![Format Factory](https://imgbed.904002.xyz/file/img/blog/post/Windows%E5%B7%A5%E5%85%B7/%E6%96%87%E4%BB%B6%E7%B1%BB/FormatFactory.webp)
 
 ---
 
@@ -152,7 +152,7 @@ description: Windows 平台上文件管理类效率工具推荐，包括软件�
 - [NAS](https://s.fnnas.net/s/4bc240c16055430ead)
 - [夸克网盘](https://pan.quark.cn/s/69698d89df92)
 
-![Renamer](https://imgbed.904002.xyz/file/img/blog/post/Windows工具/文件类/renamer.webp)
+![Renamer](https://imgbed.904002.xyz/file/img/blog/post/Windows%E5%B7%A5%E5%85%B7/%E6%96%87%E4%BB%B6%E7%B1%BB/renamer.webp)
 
 ---
 

@@ -31,19 +31,19 @@ description: 在 Windows 系统中通过 WSL 使用 NVIDIA cuDF 加速 Pandas �
 
 双击打开安装包，建议勾选以下两项：
 
-![勾选下面两项](https://imgbed.904002.xyz/file/img/blog/post/cuDF/Python安装/勾选下面两项.webp)
+![勾选下面两项](https://imgbed.904002.xyz/file/img/blog/post/cuDF/Python%E5%AE%89%E8%A3%85/%E5%8B%BE%E9%80%89%E4%B8%8B%E9%9D%A2%E4%B8%A4%E9%A1%B9.webp)
 
 选择 **Customize installation**（自定义安装）：
 
-![选择自定义安装](https://imgbed.904002.xyz/file/img/blog/post/cuDF/Python安装/选择自定义安装.webp)
+![选择自定义安装](https://imgbed.904002.xyz/file/img/blog/post/cuDF/Python%E5%AE%89%E8%A3%85/%E9%80%89%E6%8B%A9%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AE%89%E8%A3%85.webp)
 
 点击 Next：
 
-![点击Next](https://imgbed.904002.xyz/file/img/blog/post/cuDF/Python安装/点击Next.webp)
+![点击Next](https://imgbed.904002.xyz/file/img/blog/post/cuDF/Python%E5%AE%89%E8%A3%85/%E7%82%B9%E5%87%BBNext.webp)
 
 自定义安装路径。其他选项说明：
 
-![解释其他选项](https://imgbed.904002.xyz/file/img/blog/post/cuDF/Python安装/解释其他选项.webp)
+![解释其他选项](https://imgbed.904002.xyz/file/img/blog/post/cuDF/Python%E5%AE%89%E8%A3%85/%E8%A7%A3%E9%87%8A%E5%85%B6%E4%BB%96%E9%80%89%E9%A1%B9.webp)
 
 | 选项                         | 说明                            | 建议 |
 | ---------------------------- | ------------------------------- | ---- |
@@ -69,7 +69,7 @@ python
 
 如果出现 Python 版本信息和 `>>>` 提示符，说明安装成功。
 
-![验证安装成功](https://imgbed.904002.xyz/file/img/blog/post/cuDF/Python安装/验证是否安装成功.webp)
+![验证安装成功](https://imgbed.904002.xyz/file/img/blog/post/cuDF/Python%E5%AE%89%E8%A3%85/%E9%AA%8C%E8%AF%81%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F.webp)
 
 ---
 
@@ -79,19 +79,19 @@ python
 
 [VS Code 官网](https://code.visualstudio.com/)
 
-![官网](https://imgbed.904002.xyz/file/img/blog/post/cuDF/VSCode安装/官网.webp)
+![官网](https://imgbed.904002.xyz/file/img/blog/post/cuDF/VSCode%E5%AE%89%E8%A3%85/%E5%AE%98%E7%BD%91.webp)
 
 ### 2.2 安装
 
 同意协议，选择安装位置，勾选全部选项后点击安装：
 
-![安装步骤](https://imgbed.904002.xyz/file/img/blog/post/cuDF/VSCode安装/安装步骤.webp)
+![安装步骤](https://imgbed.904002.xyz/file/img/blog/post/cuDF/VSCode%E5%AE%89%E8%A3%85/%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4.webp)
 
 ### 2.3 汉化（可选）
 
 点击左侧扩展图标，搜索 `Chinese`，安装汉化插件：
 
-![汉化插件](https://imgbed.904002.xyz/file/img/blog/post/cuDF/VSCode安装/找到汉化插件.webp)
+![汉化插件](https://imgbed.904002.xyz/file/img/blog/post/cuDF/VSCode%E5%AE%89%E8%A3%85/%E6%89%BE%E5%88%B0%E6%B1%89%E5%8C%96%E6%8F%92%E4%BB%B6.webp)
 
 ---
 
@@ -184,7 +184,7 @@ wsl --import Ubuntu D:\wsl\Ubuntu D:\export.tar --version 2
 nvidia-smi
 ```
 
-![查看 NVIDIA GPU](https://imgbed.904002.xyz/file/img/blog/post/cuDF/cuDF安装/查看_NVIDIA_GPU.webp)
+![查看 NVIDIA GPU](https://imgbed.904002.xyz/file/img/blog/post/cuDF/cuDF%E5%AE%89%E8%A3%85/%E6%9F%A5%E7%9C%8B_NVIDIA_GPU.webp)
 
 如果能正确显示 GPU 信息，说明驱动已就绪。
 
@@ -198,11 +198,11 @@ sudo apt update
 
 前往 [CUDA Toolkit Archive](https://developer.nvidia.com/cuda-toolkit-archive)，选择适合的版本：
 
-![下载 CUDA Toolkit](https://imgbed.904002.xyz/file/img/blog/post/cuDF/cuDF安装/下载_CUDA_Toolkit.webp)
+![下载 CUDA Toolkit](https://imgbed.904002.xyz/file/img/blog/post/cuDF/cuDF%E5%AE%89%E8%A3%85/%E4%B8%8B%E8%BD%BD_CUDA_Toolkit.webp)
 
 按照下图选择，复制安装命令：
 
-![复制代码](https://imgbed.904002.xyz/file/img/blog/post/cuDF/cuDF安装/复制代码.webp)
+![复制代码](https://imgbed.904002.xyz/file/img/blog/post/cuDF/cuDF%E5%AE%89%E8%A3%85/%E5%A4%8D%E5%88%B6%E4%BB%A3%E7%A0%81.webp)
 
 #### 4.1.4 执行安装
 
@@ -290,13 +290,13 @@ WSL: Connect to WSL
 
 VS Code 左下角显示 `WSL: Ubuntu` 即表示已连接。
 
-![WSL Ubuntu](https://imgbed.904002.xyz/file/img/blog/post/cuDF/cuDF使用/WSL_Ubuntu.webp)
+![WSL Ubuntu](https://imgbed.904002.xyz/file/img/blog/post/cuDF/cuDF%E4%BD%BF%E7%94%A8/WSL_Ubuntu.webp)
 
 ### 5.2 安装 Python 扩展
 
 在 WSL 环境下安装 Python 扩展：
 
-![Python 扩展](https://imgbed.904002.xyz/file/img/blog/post/cuDF/cuDF使用/Python扩展.webp)
+![Python 扩展](https://imgbed.904002.xyz/file/img/blog/post/cuDF/cuDF%E4%BD%BF%E7%94%A8/Python%E6%89%A9%E5%B1%95.webp)
 
 ### 5.3 选择解释器
 
@@ -304,7 +304,7 @@ VS Code 左下角显示 `WSL: Ubuntu` 即表示已连接。
 2. `Ctrl+Shift+P` → `Python: Select Interpreter`
 3. 选择 `~/myenv/bin/python`
 
-![选择解释器](https://imgbed.904002.xyz/file/img/blog/post/cuDF/cuDF使用/选择解释器.webp)
+![选择解释器](https://imgbed.904002.xyz/file/img/blog/post/cuDF/cuDF%E4%BD%BF%E7%94%A8/%E9%80%89%E6%8B%A9%E8%A7%A3%E9%87%8A%E5%99%A8.webp)
 
 ### 5.4 验证环境
 

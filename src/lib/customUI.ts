@@ -11,6 +11,18 @@
  *  2) astro:page-load + 模块重跑时调用 applyState() 重建指针/菜单 DOM 并恢复状态。
  */
 
+import { gsap } from "gsap";
+import MouseFollower from "mouse-follower";
+import {
+  computePosition,
+  flip,
+  shift,
+  offset,
+} from "@floating-ui/dom";
+
+// mouse-follower 依赖 GSAP 驱动平滑跟随
+MouseFollower.registerGSAP(gsap);
+
 interface ContextMenuItem {
   type: string;
   label?: string;
@@ -94,67 +106,68 @@ export function initCustomUI(cfg?: CustomUIConfig) {
     return;
   }
 
-  /* ==================== 鼠标指针 ==================== */
-  let cursorRoot: HTMLDivElement | null = null;
-  let cursorTrails: HTMLDivElement[] = [];
-  let raf = 0;
-  const mouse = { x: -100, y: -100 };
-  const trailPos = Array.from({ length: 5 }, () => ({ x: -100, y: -100 }));
+  /* ==================== 鼠标指针（mouse-follower 引擎） ==================== */
+  /** 预设 → inner 内容（视觉样式在 BaseLayout 全局样式中，按 html[data-cursor] 区分） */
+  const PRESET_INNER: Record<string, string> = {
+    star:
+      '<svg class="mf-star-svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 6.9H21l-5.4 4 2 6.9-5.6-4-5.6 4 2-6.9L3 8.9h6.6z"/></svg>',
+    heart:
+      '<svg class="mf-heart-svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>',
+    dot: "",
+    ring: "",
+  };
+
+  let mf: any = null;
 
   function presetActive(): boolean {
     const p = document.documentElement.dataset.cursor;
     return !!cfg.cursor.enable && !!p && p !== "default";
   }
 
-  function ensureCursor() {
-    if (cursorRoot?.isConnected) return;
-    cursorRoot = document.createElement("div");
-    cursorRoot.id = "custom-cursor";
-    cursorRoot.setAttribute("aria-hidden", "true");
-    const main = document.createElement("div");
-    main.className = "cursor-main";
-    cursorRoot.appendChild(main);
-    cursorTrails = [];
-    for (let i = 0; i < 5; i++) {
-      const t = document.createElement("div");
-      t.className = "cursor-trail";
-      cursorRoot.appendChild(t);
-      cursorTrails.push(t);
-    }
-    document.body.appendChild(cursorRoot);
+  function currentPreset(): string {
+    const p = document.documentElement.dataset.cursor;
+    return p && p !== "default" ? p : cfg.cursor.defaultPreset;
   }
 
-  function tick() {
-    const root = cursorRoot;
-    if (!root || !presetActive()) {
-      raf = 0;
+  function applyPresetVisual(preset: string) {
+    if (!mf || !mf.el) return;
+    const inner = mf.el.querySelector(".mf-cursor-inner");
+    if (inner) inner.innerHTML = PRESET_INNER[preset] || "";
+  }
+
+  function destroyCursor() {
+    if (mf) {
+      try {
+        mf.destroy();
+      } catch {
+        /* View Transitions 换页后元素已被移除，忽略 */
+      }
+      mf = null;
+    }
+  }
+
+  function ensureCursor() {
+    const preset = currentPreset();
+    if (!cfg.cursor.enable || !presetActive()) {
+      destroyCursor();
       return;
     }
-    root.style.transform = `translate3d(${mouse.x}px, ${mouse.y}px, 0)`;
-    let px = mouse.x;
-    let py = mouse.y;
-    for (let i = 0; i < cursorTrails.length; i++) {
-      const p = trailPos[i];
-      p.x += (px - p.x) * 0.28;
-      p.y += (py - p.y) * 0.28;
-      cursorTrails[i].style.transform = `translate3d(${p.x}px, ${p.y}px, 0)`;
-      px = p.x;
-      py = p.y;
+    // View Transitions 换页后 body 被整体替换：旧实例的元素已脱离文档，需重建
+    if (mf && mf.el && mf.el.isConnected) {
+      applyPresetVisual(preset);
+      return;
     }
-    raf = requestAnimationFrame(tick);
-  }
-
-  function onMove(e: MouseEvent) {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
-    const target = e.target as HTMLElement | null;
-    if (target?.closest) {
-      cursorRoot?.classList.toggle("hovering", !!target.closest(INTERACTIVE));
-      cursorRoot?.classList.toggle(
-        "on-text",
-        !!target.closest('input, textarea, [contenteditable="true"]'),
-      );
-    }
+    destroyCursor();
+    mf = new MouseFollower({
+      speed: 0.5,
+      ease: "expo.out",
+      stateDetection: {
+        "-pointer": INTERACTIVE,
+        "-hidden": 'input, textarea, select, [contenteditable="true"]',
+      },
+      hideOnLeave: true,
+    });
+    applyPresetVisual(preset);
   }
 
   /* ==================== 右键菜单 ==================== */
@@ -342,20 +355,33 @@ export function initCustomUI(cfg?: CustomUIConfig) {
       menu!.appendChild(item);
     });
 
-    // 定位：先隐藏测量尺寸，超出视口时翻转
+    // 定位：@floating-ui/dom 以鼠标位置为锚点，flip/shift 自动处理视口碰撞
     menu.style.visibility = "hidden";
     menu.classList.remove("open");
-    const rect = menu.getBoundingClientRect();
-    let x = e.clientX;
-    let y = e.clientY;
-    if (x + rect.width > window.innerWidth - 4)
-      x = Math.max(4, window.innerWidth - rect.width - 4);
-    if (y + rect.height > window.innerHeight - 4)
-      y = Math.max(4, window.innerHeight - rect.height - 4);
-    menu.style.left = `${x}px`;
-    menu.style.top = `${y}px`;
-    menu.style.visibility = "";
-    requestAnimationFrame(() => menu?.classList.add("open"));
+    const point = { x: e.clientX, y: e.clientY };
+    const virtualEl = {
+      getBoundingClientRect: () => ({
+        width: 0,
+        height: 0,
+        x: point.x,
+        y: point.y,
+        left: point.x,
+        right: point.x,
+        top: point.y,
+        bottom: point.y,
+      }),
+      getClientRects: () => ({ length: 0, item: () => null }),
+    };
+    computePosition(virtualEl as any, menu, {
+      placement: "right-start",
+      middleware: [offset(4), flip(), shift({ padding: 6 })],
+    }).then(({ x, y }) => {
+      if (!menu?.isConnected) return;
+      menu.style.left = `${x}px`;
+      menu.style.top = `${y}px`;
+      menu.style.visibility = "";
+      requestAnimationFrame(() => menu?.classList.add("open"));
+    });
   }
 
   function onContextMenu(e: MouseEvent) {
@@ -377,12 +403,6 @@ export function initCustomUI(cfg?: CustomUIConfig) {
       : "default";
     document.documentElement.dataset.cursor = preset;
     ensureCursor();
-    if (presetActive()) {
-      if (!raf) raf = requestAnimationFrame(tick);
-    } else if (raf) {
-      cancelAnimationFrame(raf);
-      raf = 0;
-    }
     // 右键菜单：配置关闭则禁用（访客开关无法覆盖）
     ctxEnabled =
       cfg.contextMenu.enable && localStorage.getItem(LS_CTX) !== "off";
@@ -390,7 +410,6 @@ export function initCustomUI(cfg?: CustomUIConfig) {
   }
 
   /* ==================== 事件绑定（仅一次） ==================== */
-  document.addEventListener("mousemove", onMove, { passive: true });
   document.addEventListener("contextmenu", onContextMenu);
   document.addEventListener("mousedown", (e) => {
     if (menu?.isConnected && !menu.contains(e.target as Node)) closeMenu();
@@ -407,6 +426,7 @@ export function initCustomUI(cfg?: CustomUIConfig) {
     /** Header 设置面板：立即切换指针预设 */
     setPreset: (p: string) => {
       document.documentElement.dataset.cursor = p;
+      ensureCursor();
     },
     /** Header 设置面板：立即切换右键菜单开关 */
     setContextMenuEnabled: (on: boolean) => {
