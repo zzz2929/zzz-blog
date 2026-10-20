@@ -34,6 +34,23 @@ function i18nGatePlugin(disabled) {
   };
 }
 
+/** Vite plugin: dev 下拦截 /sw.js（sw.js 只在构建产物里存在），
+ * 避免浏览器残留 SW 的更新检查打到 [lang] 动态路由上产生 404 噪音 */
+function devSwNoopPlugin() {
+  return {
+    name: 'dev-sw-noop',
+    configureServer(server) {
+      server.middlewares.use((req, res, next) => {
+        if (req.url === '/sw.js' || req.url === '/sw.js?') {
+          res.writeHead(204, { 'Service-Worker-Allowed': '/', 'Cache-Control': 'no-cache' }).end();
+          return;
+        }
+        next();
+      });
+    },
+  };
+}
+
 /** Vite plugin: inline navigation SVGs from public/ at build time */
 function navSvgPlugin() {
   return {
@@ -216,7 +233,7 @@ export default defineConfig({
   },
 
   vite: {
-    plugins: [tailwindcss(), navSvgPlugin(), i18nGatePlugin(!siteConfig.features.i18n.enable)].filter(Boolean),
+    plugins: [tailwindcss(), navSvgPlugin(), devSwNoopPlugin(), i18nGatePlugin(!siteConfig.features.i18n.enable)].filter(Boolean),
     resolve: {
       alias: {
         '@': '/src',
