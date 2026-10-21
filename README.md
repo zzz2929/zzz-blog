@@ -367,14 +367,6 @@ Cloudflare Pages 自带的远程构建机**无法访问自建图床 `imgbed.9040
 
 - `pnpm build` 输出 `dist/`：`dist/client` 为静态站点（含 `pagefind/` 搜索索引与 `_astro/` 优化图），部署上传的就是 `dist/client`
 
-### 本地手动发布（可选，不经过 CI）
-
-```bash
-pnpm run deploy:site   # = pnpm build + wrangler pages deploy dist/client --project-name zzz-blog
-```
-
-> 脚本名是 `deploy:site` 而非 `deploy`：`pnpm deploy` 是 pnpm 内置命令（部署 workspace 包），会覆盖同名 package.json 脚本。脚本见 `scripts/deploy.mjs`（项目名修改其中 `PROJECT_NAME` 常量），本地使用前需 `npx wrangler login` 一次。
-
 ### 切换平台
 
 替换 `astro.config.mjs` 的 adapter（Vercel：`@astrojs/vercel`，Netlify：`@astrojs/netlify`）。

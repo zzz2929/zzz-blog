@@ -35,8 +35,8 @@
   "map": {
     "title": "👨‍🎓毕业于",
     "StrengthenTitle": "河南省，商丘市，商丘师范学院",
-    "background": "https://imgbed.904002.xyz/file/img/blog/background/sqnu/%E8%89%BA%E6%9C%AF%E6%A5%BC-1.webp",
-    "backgroundDark": "https://imgbed.904002.xyz/file/img/blog/background/sqnu/%E8%89%BA%E6%9C%AF%E6%A5%BC-2.webp"
+    "background": "https://imgbed.904002.xyz/file/img/blog/background/sqnu/艺术楼-1.webp",
+    "backgroundDark": "https://imgbed.904002.xyz/file/img/blog/background/sqnu/艺术楼-2.webp"
   },
   "selfInfo": {
     "selfInfoTips": "目前",
@@ -54,11 +54,11 @@
     "game_list": [
       {
         "name": "崩坏：星穹铁道",
-        "bg": "https://imgbed.904002.xyz/file/img/blog/background/game/%E5%B4%A9%E5%9D%8F%EF%BC%9A%E6%98%9F%E7%A9%B9%E9%93%81%E9%81%93.webp"
+        "bg": "https://imgbed.904002.xyz/file/img/blog/background/game/崩坏：星穹铁道.webp"
       },
       {
         "name": "原神",
-        "bg": "https://imgbed.904002.xyz/file/img/blog/background/game/%E5%8E%9F%E7%A5%9E.webp"
+        "bg": "https://imgbed.904002.xyz/file/img/blog/background/game/原神.webp"
       }
     ],
     "game_tips": "爱好游戏"
@@ -69,27 +69,27 @@
       {
         "name": "青春猪头少年",
         "href": "https://www.bilibili.com/bangumi/play/ep251076?from_spmid=666.25.episode.0",
-        "cover": "https://imgbed.904002.xyz/file/img/blog/background/cartoon/%E9%9D%92%E6%98%A5%E7%8C%AA%E5%A4%B4%E5%B0%91%E5%B9%B4.webp"
+        "cover": "https://imgbed.904002.xyz/file/img/blog/background/cartoon/青春猪头少年.webp"
       },
       {
         "name": "邪神与厨二病少女",
         "href": "https://www.bilibili.com/bangumi/play/ss24630",
-        "cover": "https://imgbed.904002.xyz/file/img/blog/background/cartoon/%E9%82%AA%E7%A5%9E%E4%B8%8E%E5%8E%A8%E4%BA%8C%E7%97%85%E5%B0%91%E5%A5%B3.webp"
+        "cover": "https://imgbed.904002.xyz/file/img/blog/background/cartoon/邪神与厨二病少女.webp"
       },
       {
         "name": "间谍过家家",
         "href": "https://www.bilibili.com/bangumi/play/ep508404?from_spmid=666.25.episode.0",
-        "cover": "https://imgbed.904002.xyz/file/img/blog/background/cartoon/%E9%97%B4%E8%B0%8D%E8%BF%87%E5%AE%B6%E5%AE%B6.webp"
+        "cover": "https://imgbed.904002.xyz/file/img/blog/background/cartoon/间谍过家家.webp"
       },
       {
         "name": "中二病也要谈恋爱",
         "href": "https://www.bilibili.com/bangumi/play/ep329002?from_spmid=666.25.episode.0",
-        "cover": "https://imgbed.904002.xyz/file/img/blog/background/cartoon/%E4%B8%AD%E4%BA%8C%E7%97%85%E4%B9%9F%E8%A6%81%E8%B0%88%E6%81%8B%E7%88%B1.webp"
+        "cover": "https://imgbed.904002.xyz/file/img/blog/background/cartoon/中二病也要谈恋爱.webp"
       },
       {
         "name": "因为太怕痛就全点防御力了",
         "href": "https://www.bilibili.com/bangumi/play/ss29358",
-        "cover": "https://imgbed.904002.xyz/file/img/blog/background/cartoon/%E5%9B%A0%E4%B8%BA%E5%A4%AA%E6%80%95%E7%97%9B%E5%B0%B1%E5%85%A8%E7%82%B9%E9%98%B2%E5%BE%A1%E5%8A%9B%E4%BA%86.webp"
+        "cover": "https://imgbed.904002.xyz/file/img/blog/background/cartoon/因为太怕痛就全点防御力了.webp"
       }
     ],
     "comic_tips": "爱好番剧"

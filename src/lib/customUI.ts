@@ -1,27 +1,24 @@
 /**
- * 全站自定义 UI：自定义右键菜单 + 自定义鼠标指针。
+ * 全站自定义 UI：自定义右键菜单 + 鼠标特效（拖尾 / 点击动效）。
  *
- * 由 BaseLayout 引入，配置来自 src/config/site.ts（features.contextMenu / features.cursor，
+ * 由 BaseLayout 引入，配置来自 src/config/site.ts（features.contextMenu / features.effects，
  * 菜单 label 已在服务端按当前语言翻译好再传入）。
- * 访客偏好持久化在 localStorage（cursor-preset / context-menu），
+ * 访客偏好持久化在 localStorage（effects-trail / effects-click / context-menu），
  * Header 设置面板通过 window.__customUI 与本模块联动。
  *
+ * 特效为全局 canvas 粒子层（系统指针保持不变，粒子跟随/爆发），GSAP ticker 驱动；
  * View Transitions 换页后 body 会被整体替换，本模块通过
  *  1) window 守卫避免同一文档内重复绑定事件；
- *  2) astro:page-load + 模块重跑时调用 applyState() 重建指针/菜单 DOM 并恢复状态。
+ *  2) astro:page-load + 模块重跑时调用 applyState() 重建 canvas/菜单 DOM 并恢复状态。
  */
 
 import { gsap } from "gsap";
-import MouseFollower from "mouse-follower";
 import {
   computePosition,
   flip,
   shift,
   offset,
 } from "@floating-ui/dom";
-
-// mouse-follower 依赖 GSAP 驱动平滑跟随
-MouseFollower.registerGSAP(gsap);
 
 interface ContextMenuItem {
   type: string;
@@ -33,25 +30,22 @@ interface ContextMenuConfig {
   linkItems: ContextMenuItem[];
   imageItems: ContextMenuItem[];
 }
-interface CursorConfig {
+interface EffectsConfig {
   enable: boolean;
-  defaultPreset: string;
-  presets: { id: string; label?: string }[];
+  trail: { enabled: boolean };
+  click: { enabled: boolean };
 }
 interface CustomUIConfig {
   contextMenu: ContextMenuConfig;
-  cursor: CursorConfig;
+  effects: EffectsConfig;
   /** 运行时提示文案（按当前语言翻译好，如 nativeMenu 切换后的 toast） */
   toasts?: { nativeMenu?: string };
 }
 
-const LS_CURSOR = "cursor-preset";
+const LS_FX_TRAIL = "effects-trail";
+const LS_FX_CLICK = "effects-click";
 const LS_CTX = "context-menu";
 const LS_THEME = "theme";
-
-/** 悬停时指针放大的交互元素 */
-const INTERACTIVE =
-  'a, button, input, textarea, select, [role="button"], [role="switch"], label, summary, .nav-trigger, .nav-dropdown-item, .switcher-btn, .settings-btn';
 
 /** 菜单项图标（lucide 风格 stroke SVG） */
 const ICONS: Record<string, string> = {
@@ -106,68 +100,196 @@ export function initCustomUI(cfg?: CustomUIConfig) {
     return;
   }
 
-  /* ==================== 鼠标指针（mouse-follower 引擎） ==================== */
-  /** 预设 → inner 内容（视觉样式在 BaseLayout 全局样式中，按 html[data-cursor] 区分） */
-  const PRESET_INNER: Record<string, string> = {
-    star:
-      '<svg class="mf-star-svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 6.9H21l-5.4 4 2 6.9-5.6-4-5.6 4 2-6.9L3 8.9h6.6z"/></svg>',
-    heart:
-      '<svg class="mf-heart-svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>',
-    dot: "",
-    ring: "",
-  };
-
-  let mf: any = null;
-
-  function presetActive(): boolean {
-    const p = document.documentElement.dataset.cursor;
-    return !!cfg.cursor.enable && !!p && p !== "default";
+  /* ==================== 鼠标特效（canvas 粒子层，系统指针保持不变） ==================== */
+  interface FXParticle {
+    x: number;
+    y: number;
+    vx: number;
+    vy: number;
+    life: number;
+    maxLife: number;
+    size: number;
+    alpha: number;
+    kind: "trail" | "burst" | "ring";
   }
 
-  function currentPreset(): string {
-    const p = document.documentElement.dataset.cursor;
-    return p && p !== "default" ? p : cfg.cursor.defaultPreset;
-  }
+  let fxCanvas: HTMLCanvasElement | null = null;
+  let fxCtx: CanvasRenderingContext2D | null = null;
+  let fxEnabled = cfg.effects.enable;
+  let fxTrail =
+    cfg.effects.trail.enabled && localStorage.getItem(LS_FX_TRAIL) !== "off";
+  let fxClick =
+    cfg.effects.click.enabled && localStorage.getItem(LS_FX_CLICK) !== "off";
+  const fxParticles: FXParticle[] = [];
+  let fxColor = "#425aef";
+  let fxLastEmit = 0;
+  let fxTickBound = false;
+  const fxReduced =
+    typeof matchMedia !== "undefined" &&
+    matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  function applyPresetVisual(preset: string) {
-    if (!mf || !mf.el) return;
-    const inner = mf.el.querySelector(".mf-cursor-inner");
-    if (inner) inner.innerHTML = PRESET_INNER[preset] || "";
-  }
-
-  function destroyCursor() {
-    if (mf) {
-      try {
-        mf.destroy();
-      } catch {
-        /* View Transitions 换页后元素已被移除，忽略 */
-      }
-      mf = null;
+  /** 把 CSS 变量色转成带透明度的 canvas 颜色（支持 #hex 与 rgb()） */
+  function withAlpha(color: string, a: number): string {
+    if (color.startsWith("#")) {
+      const n = parseInt(color.slice(1), 16);
+      return `rgba(${(n >> 16) & 255},${(n >> 8) & 255},${n & 255},${a})`;
     }
+    const m = color.match(/[\d.]+/g);
+    if (m && m.length >= 3) return `rgba(${m[0]},${m[1]},${m[2]},${a})`;
+    return color;
   }
 
-  function ensureCursor() {
-    const preset = currentPreset();
-    if (!cfg.cursor.enable || !presetActive()) {
-      destroyCursor();
+  /** 读取当前主题主色（随明暗主题变化） */
+  function readFxColor(): string {
+    const root = getComputedStyle(document.documentElement);
+    const dark = document.documentElement.classList.contains("dark");
+    const v = (
+      dark
+        ? root.getPropertyValue("--color-primary-dark")
+        : root.getPropertyValue("--color-primary")
+    ).trim();
+    if (v) fxColor = v;
+    return fxColor;
+  }
+
+  function ensureFx() {
+    if (!fxEnabled) {
+      destroyFx();
       return;
     }
-    // View Transitions 换页后 body 被整体替换：旧实例的元素已脱离文档，需重建
-    if (mf && mf.el && mf.el.isConnected) {
-      applyPresetVisual(preset);
-      return;
+    if (fxCanvas?.isConnected) return;
+    fxCanvas = document.createElement("canvas");
+    fxCanvas.id = "custom-fx";
+    fxCanvas.setAttribute("aria-hidden", "true");
+    document.body.appendChild(fxCanvas);
+    resizeFx();
+  }
+
+  function resizeFx() {
+    if (!fxCanvas) return;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    fxCanvas.width = Math.round(window.innerWidth * dpr);
+    fxCanvas.height = Math.round(window.innerHeight * dpr);
+    fxCtx = fxCanvas.getContext("2d");
+  }
+
+  function pushFx(p: FXParticle) {
+    if (fxParticles.length > 220) fxParticles.shift();
+    fxParticles.push(p);
+    if (!fxTickBound) {
+      fxTickBound = true;
+      gsap.ticker.add(fxTick);
     }
-    destroyCursor();
-    mf = new MouseFollower({
-      speed: 0.5,
-      ease: "expo.out",
-      stateDetection: {
-        "-pointer": INTERACTIVE,
-        "-hidden": 'input, textarea, select, [contenteditable="true"]',
-      },
-      hideOnLeave: true,
+  }
+
+  function emitTrail(x: number, y: number) {
+    if (!fxTrail) return;
+    if (fxReduced && Math.random() > 0.4) return;
+    readFxColor();
+    const angle = Math.random() * Math.PI * 2;
+    const speed = 0.2 + Math.random() * 0.9;
+    const life = 0.45 + Math.random() * 0.4;
+    pushFx({
+      x,
+      y,
+      vx: Math.cos(angle) * speed,
+      vy: Math.sin(angle) * speed,
+      life,
+      maxLife: life,
+      size: 1.6 + Math.random() * 2.4,
+      alpha: 0.55 + Math.random() * 0.35,
+      kind: "trail",
     });
-    applyPresetVisual(preset);
+  }
+
+  function emitClick(x: number, y: number) {
+    if (!fxClick) return;
+    readFxColor();
+    const count = fxReduced ? 6 : 12;
+    for (let i = 0; i < count; i++) {
+      const angle = (i / count) * Math.PI * 2 + Math.random() * 0.6;
+      const speed = 1.2 + Math.random() * 3.6;
+      const life = 0.5 + Math.random() * 0.35;
+      pushFx({
+        x,
+        y,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
+        life,
+        maxLife: life,
+        size: 1.4 + Math.random() * 2.2,
+        alpha: 0.85,
+        kind: "burst",
+      });
+    }
+    pushFx({ x, y, vx: 0, vy: 0, life: 0.5, maxLife: 0.5, size: 30, alpha: 0.9, kind: "ring" });
+  }
+
+  function fxTick(_t: number, deltaTime: number) {
+    if (!fxCtx || !fxCanvas) {
+      fxTickBound = false;
+      return;
+    }
+    const ctx = fxCtx;
+    const dt = Math.min(deltaTime || 16.7, 50) / 16.7;
+    ctx.clearRect(0, 0, fxCanvas.width, fxCanvas.height);
+    for (let i = fxParticles.length - 1; i >= 0; i--) {
+      const p = fxParticles[i];
+      p.life -= dt / 60;
+      if (p.life <= 0) {
+        fxParticles.splice(i, 1);
+        continue;
+      }
+      p.x += p.vx * dt;
+      p.y += p.vy * dt;
+      if (p.kind === "trail" || p.kind === "burst") {
+        p.vx *= 0.94;
+        p.vy *= 0.94;
+      }
+      const t = p.life / p.maxLife;
+      if (p.kind === "ring") {
+        const r = (1 - t) * p.size;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+        ctx.strokeStyle = withAlpha(fxColor, p.alpha * t);
+        ctx.lineWidth = 0.4 + 1.6 * t;
+        ctx.stroke();
+      } else {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size * (0.4 + 0.6 * t), 0, Math.PI * 2);
+        ctx.fillStyle = withAlpha(fxColor, p.alpha * t);
+        ctx.fill();
+      }
+    }
+    if (fxParticles.length === 0) {
+      gsap.ticker.remove(fxTick);
+      fxTickBound = false;
+    }
+  }
+
+  function onMoveFx(e: MouseEvent) {
+    const now = performance.now();
+    if (now - fxLastEmit < 26) return;
+    fxLastEmit = now;
+    emitTrail(e.clientX, e.clientY);
+  }
+
+  function onDownFx(e: MouseEvent) {
+    if (e.button !== 0) return;
+    emitClick(e.clientX, e.clientY);
+  }
+
+  function destroyFx() {
+    fxParticles.length = 0;
+    if (fxTickBound) {
+      gsap.ticker.remove(fxTick);
+      fxTickBound = false;
+    }
+    if (fxCanvas?.isConnected) {
+      fxCanvas.remove();
+    }
+    fxCanvas = null;
+    fxCtx = null;
   }
 
   /* ==================== 右键菜单 ==================== */
@@ -397,12 +519,13 @@ export function initCustomUI(cfg?: CustomUIConfig) {
 
   /* ==================== 状态应用 ==================== */
   function applyState() {
-    // 指针：配置关闭 → 强制 default（系统指针）
-    const preset = cfg.cursor.enable
-      ? localStorage.getItem(LS_CURSOR) || cfg.cursor.defaultPreset
-      : "default";
-    document.documentElement.dataset.cursor = preset;
-    ensureCursor();
+    // 特效：配置关闭则整体禁用（访客开关无法覆盖）
+    fxEnabled = cfg.effects.enable;
+    fxTrail =
+      cfg.effects.trail.enabled && localStorage.getItem(LS_FX_TRAIL) !== "off";
+    fxClick =
+      cfg.effects.click.enabled && localStorage.getItem(LS_FX_CLICK) !== "off";
+    ensureFx();
     // 右键菜单：配置关闭则禁用（访客开关无法覆盖）
     ctxEnabled =
       cfg.contextMenu.enable && localStorage.getItem(LS_CTX) !== "off";
@@ -411,6 +534,8 @@ export function initCustomUI(cfg?: CustomUIConfig) {
 
   /* ==================== 事件绑定（仅一次） ==================== */
   document.addEventListener("contextmenu", onContextMenu);
+  document.addEventListener("mousemove", onMoveFx, { passive: true });
+  document.addEventListener("mousedown", onDownFx, { passive: true });
   document.addEventListener("mousedown", (e) => {
     if (menu?.isConnected && !menu.contains(e.target as Node)) closeMenu();
   });
@@ -418,19 +543,21 @@ export function initCustomUI(cfg?: CustomUIConfig) {
     if (e.key === "Escape") closeMenu();
   });
   window.addEventListener("scroll", closeMenu, { passive: true });
+  window.addEventListener("resize", resizeFx);
   window.addEventListener("resize", closeMenu);
   window.addEventListener("blur", closeMenu);
 
   const api = {
     applyState,
-    /** Header 设置面板：立即切换指针预设 */
-    setPreset: (p: string) => {
-      document.documentElement.dataset.cursor = p;
-      ensureCursor();
-    },
     /** Header 设置面板：立即切换右键菜单开关 */
     setContextMenuEnabled: (on: boolean) => {
       ctxEnabled = on;
+    },
+    /** Header 设置面板：立即切换拖尾 / 点击动效 */
+    setEffects: (patch: Partial<{ trail: boolean; click: boolean }>) => {
+      if (typeof patch.trail === "boolean") fxTrail = patch.trail;
+      if (typeof patch.click === "boolean") fxClick = patch.click;
+      ensureFx();
     },
   };
   (window as any).__customUI = api;

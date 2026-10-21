@@ -72,10 +72,10 @@ const customUIProps = {
       label: translateLabel(i.label),
     })),
   },
-  cursor: {
-    enable: siteConfig.features.cursor.enable,
-    defaultPreset: siteConfig.features.cursor.defaultPreset,
-    presets: siteConfig.features.cursor.presets,
+  effects: {
+    enable: siteConfig.features.effects.enable,
+    trail: { enabled: siteConfig.features.effects.trail.enabled },
+    click: { enabled: siteConfig.features.effects.click.enabled },
   },
   toasts: {
     nativeMenu: translateLabel("ctx.nativeMenuToast"),
@@ -350,7 +350,7 @@ const customUIProps = {
       })();
     </script>
 
-    <!-- 自定义右键菜单 & 鼠标指针（配置见 src/config/site.ts features.contextMenu / features.cursor；
+    <!-- 自定义右键菜单 & 鼠标特效（配置见 src/config/site.ts features.contextMenu / features.effects；
          菜单文案按当前语言翻译；访客偏好见「设置 → 自定义」） -->
     <div id="custom-ui-config" data-json={JSON.stringify(customUIProps)} hidden></div>
     <script>
@@ -547,114 +547,14 @@ const customUIProps = {
     background-color: var(--color-primary-dark);
   }
 
-  /* ====== 自定义鼠标指针（mouse-follower 引擎，预设见 site.ts features.cursor） ====== */
-  .mf-cursor {
+  /* ====== 鼠标特效画布（src/lib/customUI.ts，配置见 site.ts features.effects） ====== */
+  #custom-fx {
     position: fixed;
-    left: 0;
-    top: 0;
-    width: 36px;
-    height: 36px;
-    margin: -18px 0 0 -18px;
-    z-index: 2147483647;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-  }
-  .mf-cursor .mf-cursor-inner {
-    position: absolute;
     inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.2s ease, width 0.2s ease, height 0.2s ease,
-      border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-  }
-  /* 激活自定义预设时显示指针元素并隐藏系统指针（保留文本输入光标） */
-  html[data-cursor="star"] .mf-cursor,
-  html[data-cursor="dot"] .mf-cursor,
-  html[data-cursor="ring"] .mf-cursor,
-  html[data-cursor="heart"] .mf-cursor {
-    opacity: 1;
-  }
-  html[data-cursor="star"] *,
-  html[data-cursor="dot"] *,
-  html[data-cursor="ring"] *,
-  html[data-cursor="heart"] * {
-    cursor: none !important;
-  }
-  html[data-cursor="star"] input,
-  html[data-cursor="dot"] input,
-  html[data-cursor="ring"] input,
-  html[data-cursor="heart"] input,
-  html[data-cursor="star"] textarea,
-  html[data-cursor="dot"] textarea,
-  html[data-cursor="ring"] textarea,
-  html[data-cursor="heart"] textarea,
-  html[data-cursor="star"] select,
-  html[data-cursor="dot"] select,
-  html[data-cursor="ring"] select,
-  html[data-cursor="heart"] select,
-  html[data-cursor="star"] [contenteditable="true"],
-  html[data-cursor="dot"] [contenteditable="true"],
-  html[data-cursor="ring"] [contenteditable="true"],
-  html[data-cursor="heart"] [contenteditable="true"] {
-    cursor: text !important;
-  }
-  /* 输入框上指针隐藏（mouse-follower -hidden 状态） */
-  .mf-cursor.-hidden {
-    opacity: 0 !important;
-  }
-
-  /* ---- star 星光（星形 + 平滑跟随） ---- */
-  html[data-cursor="star"] .mf-cursor .mf-star-svg {
-    width: 22px;
-    height: 22px;
-    color: var(--color-primary);
-    filter: drop-shadow(0 0 4px rgba(66, 90, 239, 0.55));
-  }
-  html.dark[data-cursor="star"] .mf-cursor .mf-star-svg {
-    color: var(--color-primary-dark);
-    filter: drop-shadow(0 0 4px rgba(242, 185, 75, 0.55));
-  }
-
-  /* ---- dot 圆点 ---- */
-  html[data-cursor="dot"] .mf-cursor .mf-cursor-inner {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--color-primary);
-    box-shadow: 0 0 0 5px rgba(66, 90, 239, 0.18), 0 0 12px rgba(66, 90, 239, 0.5);
-  }
-  html.dark[data-cursor="dot"] .mf-cursor .mf-cursor-inner {
-    background: var(--color-primary-dark);
-    box-shadow: 0 0 0 5px rgba(242, 185, 75, 0.16), 0 0 12px rgba(242, 185, 75, 0.5);
-  }
-
-  /* ---- ring 光环 ---- */
-  html[data-cursor="ring"] .mf-cursor .mf-cursor-inner {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: 2px solid var(--color-primary);
-  }
-  html.dark[data-cursor="ring"] .mf-cursor .mf-cursor-inner {
-    border-color: var(--color-primary-dark);
-  }
-
-  /* ---- heart 爱心 ---- */
-  html[data-cursor="heart"] .mf-cursor .mf-heart-svg {
-    width: 20px;
-    height: 20px;
-    color: #f47466;
-    filter: drop-shadow(0 0 4px rgba(244, 116, 102, 0.55));
-  }
-
-  /* 通用反馈：悬停交互元素放大（mouse-follower -pointer 状态） */
-  html[data-cursor="star"] .mf-cursor.-pointer .mf-cursor-inner,
-  html[data-cursor="dot"] .mf-cursor.-pointer .mf-cursor-inner,
-  html[data-cursor="ring"] .mf-cursor.-pointer .mf-cursor-inner,
-  html[data-cursor="heart"] .mf-cursor.-pointer .mf-cursor-inner {
-    transform: scale(1.35);
+    width: 100vw;
+    height: 100vh;
+    z-index: 2147483645;
+    pointer-events: none;
   }
 
   /* ====== 自定义右键菜单（src/lib/customUI.ts，配置见 site.ts features.contextMenu） ====== */

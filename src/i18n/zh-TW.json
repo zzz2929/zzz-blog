@@ -148,7 +148,7 @@
   "post.share.qrHint": "掃碼在手機上開啟",
   "post.share.image": "儲存分享圖",
   "post.comments": "評論數",
-  "nav.customCursor": "滑鼠指標",
+  "nav.customEffects": "滑鼠特效",
   "nav.customContextMenu": "自訂右鍵選單",
   "ctx.backToTop": "返回頂部",
   "ctx.themeToggle": "切換主題",
@@ -165,9 +165,6 @@
   "ctx.copyLinkAddress": "複製連結網址",
   "ctx.openImage": "在新分頁檢視圖片",
   "ctx.copyImageAddress": "複製圖片網址",
-  "cursor.default": "系統",
-  "cursor.star": "星光",
-  "cursor.dot": "圓點",
-  "cursor.ring": "光環",
-  "cursor.heart": "愛心"
+  "effects.trail": "滑鼠拖尾",
+  "effects.click": "點擊動效"
 }

@@ -48,17 +48,6 @@ function isImageIcon(icon) {
   );
 }
 
-// 指针预设小图标（设置面板用；id 与 site.ts features.cursor.presets 对应）
-const cursorIcons: Record<string, string> = {
-  default:
-    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 3 7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/><path d="m13 13 6 6"/></svg>',
-  star:
-    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>',
-  dot: '<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="6"/></svg>',
-  ring: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/></svg>',
-  heart:
-    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>',
-};
 ---
 
 <header
@@ -359,7 +348,7 @@ const cursorIcons: Record<string, string> = {
                   style="--color: var(--monet-8);"></button>
               </div>
             </div>
-            {siteConfig.features.cursor.enable && (
+            {siteConfig.features.effects.enable && (
             <Fragment>
             <div
               style="height: 1px; background: var(--color-border); margin-bottom: 12px;"
@@ -369,27 +358,33 @@ const cursorIcons: Record<string, string> = {
               <span
                 class="block mb-2"
                 style="font-size: 16px; font-weight: 700; color: var(--color-foreground);"
-                >{t("nav.customCursor")}</span
+                >{t("nav.customEffects")}</span
               >
-              <div
-                id="cursor-preset-group"
-                class="cursor-preset-group"
-                data-default={siteConfig.features.cursor.defaultPreset}
-              >
-                {
-                  siteConfig.features.cursor.presets.map((p) => (
-                    <button
-                      type="button"
-                      class="cursor-preset-btn"
-                      data-cursor-preset={p.id}
-                      title={t(p.label)}
-                      aria-pressed="false"
-                    >
-                      <Fragment set:html={cursorIcons[p.id] ?? ""} />
-                      <span class="cursor-preset-name">{t(p.label)}</span>
-                    </button>
-                  ))
-                }
+              <div class="flex items-center justify-between mb-3">
+                <span style="font-size: 14px; color: var(--color-foreground);"
+                  >{t("effects.trail")}</span
+                >
+                <button
+                  type="button"
+                  id="effects-trail-toggle"
+                  class="custom-ui-switch"
+                  role="switch"
+                  aria-checked="true"
+                  aria-label={t("effects.trail")}
+                ></button>
+              </div>
+              <div class="flex items-center justify-between">
+                <span style="font-size: 14px; color: var(--color-foreground);"
+                  >{t("effects.click")}</span
+                >
+                <button
+                  type="button"
+                  id="effects-click-toggle"
+                  class="custom-ui-switch"
+                  role="switch"
+                  aria-checked="true"
+                  aria-label={t("effects.click")}
+                ></button>
               </div>
             </div>
             </Fragment>
@@ -725,41 +720,39 @@ const cursorIcons: Record<string, string> = {
 </script>
 
 <script is:inline>
-  // 自定义指针预设 & 右键菜单开关（localStorage 持久化，与 src/lib/customUI.ts 联动）
+  // 自定义鼠标特效开关 & 右键菜单开关（localStorage 持久化，与 src/lib/customUI.ts 联动）
   (function () {
-    const LS_CURSOR = "cursor-preset";
+    const LS_FX_TRAIL = "effects-trail";
+    const LS_FX_CLICK = "effects-click";
     const LS_CTX = "context-menu";
 
-    function applyPresetButtons(preset) {
-      document.querySelectorAll(".cursor-preset-btn").forEach(function (btn) {
-        const active = btn.dataset.cursorPreset === preset;
-        btn.classList.toggle("selected", active);
-        btn.setAttribute("aria-pressed", active ? "true" : "false");
-      });
-    }
-
     function initCustomSettings() {
-      const group = document.getElementById("cursor-preset-group");
-      const toggleBtn = document.getElementById("context-menu-toggle");
-      const preset =
-        localStorage.getItem(LS_CURSOR) ||
-        (group ? group.dataset.default : "default");
-
-      if (group) {
-        applyPresetButtons(preset);
-        group.querySelectorAll(".cursor-preset-btn").forEach(function (btn) {
-          if (btn.__uiBound) return;
-          btn.__uiBound = true;
-          btn.addEventListener("click", function () {
-            const p = btn.dataset.cursorPreset;
-            localStorage.setItem(LS_CURSOR, p);
-            applyPresetButtons(p);
-            if (window.__customUI) window.__customUI.setPreset(p);
-            else document.documentElement.dataset.cursor = p;
-          });
+      // 拖尾 / 点击动效开关
+      [
+        ["effects-trail-toggle", LS_FX_TRAIL, "trail"],
+        ["effects-click-toggle", LS_FX_CLICK, "click"],
+      ].forEach(function (row) {
+        const btn = document.getElementById(row[0]);
+        if (!btn) return;
+        const on = localStorage.getItem(row[1]) !== "off";
+        btn.setAttribute("aria-checked", on ? "true" : "false");
+        btn.classList.toggle("on", on);
+        if (btn.__uiBound) return;
+        btn.__uiBound = true;
+        btn.addEventListener("click", function () {
+          const next = btn.getAttribute("aria-checked") !== "true";
+          btn.setAttribute("aria-checked", next ? "true" : "false");
+          btn.classList.toggle("on", next);
+          localStorage.setItem(row[1], next ? "on" : "off");
+          if (window.__customUI && window.__customUI.setEffects) {
+            const patch = {};
+            patch[row[2]] = next;
+            window.__customUI.setEffects(patch);
+          }
         });
-      }
+      });
 
+      const toggleBtn = document.getElementById("context-menu-toggle");
       if (toggleBtn) {
         const on = localStorage.getItem(LS_CTX) !== "off";
         toggleBtn.setAttribute("aria-checked", on ? "true" : "false");
@@ -1097,53 +1090,7 @@ const cursorIcons: Record<string, string> = {
     z-index: 999;
   }
 
-  /* ===== 自定义指针预设选择 & 右键菜单开关 ===== */
-  .cursor-preset-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-  .cursor-preset-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    padding: 5px 10px;
-    border-radius: 8px;
-    font-size: 12px;
-    line-height: 1.4;
-    color: var(--color-foreground);
-    border: 1px solid var(--color-border);
-    background: rgba(255, 255, 255, 0.4);
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-  .cursor-preset-btn svg {
-    width: 14px;
-    height: 14px;
-    flex-shrink: 0;
-  }
-  .cursor-preset-btn:hover {
-    border-color: var(--color-primary);
-  }
-  .cursor-preset-btn.selected {
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 1px var(--color-primary);
-    background: rgba(66, 90, 239, 0.08);
-  }
-  .dark .cursor-preset-btn {
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(255, 255, 255, 0.12);
-  }
-  .dark .cursor-preset-btn:hover,
-  .dark .cursor-preset-btn.selected {
-    border-color: var(--color-primary-dark);
-    box-shadow: 0 0 0 1px var(--color-primary-dark);
-  }
-  .dark .cursor-preset-btn.selected {
-    background: rgba(242, 185, 75, 0.1);
-  }
-
-  /* 自定义右键菜单开关（switch） */
+  /* ===== 自定义右键菜单 / 鼠标特效开关（switch） ===== */
   .custom-ui-switch {
     width: 40px;
     height: 22px;

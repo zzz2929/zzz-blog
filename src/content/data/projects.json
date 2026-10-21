@@ -13,7 +13,7 @@
     "description": "基于 Cloudflare Pages 的免费图床服务，本站所有图片的存储与分发都依赖它。",
     "link": "https://imgbed.904002.xyz/",
     "repo": "https://github.com/MarSeventh/CloudFlare-ImgBed",
-    "icon": "https://imgbed.904002.xyz/file/img/blog/icon/%E5%9B%BE%E5%BA%8A.svg",
+    "icon": "https://imgbed.904002.xyz/file/img/blog/icon/图床.svg",
     "tags": ["Cloudflare", "图床"],
     "year": 2024
   },

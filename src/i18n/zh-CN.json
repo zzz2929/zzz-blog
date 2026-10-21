@@ -148,7 +148,7 @@
   "post.share.qrHint": "扫码在手机上打开",
   "post.share.image": "保存分享图",
   "post.comments": "评论数",
-  "nav.customCursor": "鼠标指针",
+  "nav.customEffects": "鼠标特效",
   "nav.customContextMenu": "自定义右键菜单",
   "ctx.backToTop": "返回顶部",
   "ctx.themeToggle": "切换主题",
@@ -165,9 +165,6 @@
   "ctx.copyLinkAddress": "复制链接地址",
   "ctx.openImage": "新标签页查看图片",
   "ctx.copyImageAddress": "复制图片地址",
-  "cursor.default": "系统",
-  "cursor.star": "星光",
-  "cursor.dot": "圆点",
-  "cursor.ring": "光环",
-  "cursor.heart": "爱心"
+  "effects.trail": "鼠标拖尾",
+  "effects.click": "点击动效"
 }

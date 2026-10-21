@@ -148,7 +148,7 @@
   "post.share.qrHint": "Scan to open on your phone",
   "post.share.image": "Save share image",
   "post.comments": "Comments",
-  "nav.customCursor": "Mouse cursor",
+  "nav.customEffects": "Mouse effects",
   "nav.customContextMenu": "Custom context menu",
   "ctx.backToTop": "Back to top",
   "ctx.themeToggle": "Toggle theme",
@@ -165,9 +165,6 @@
   "ctx.copyLinkAddress": "Copy link address",
   "ctx.openImage": "Open image in new tab",
   "ctx.copyImageAddress": "Copy image address",
-  "cursor.default": "System",
-  "cursor.star": "Star",
-  "cursor.dot": "Dot",
-  "cursor.ring": "Ring",
-  "cursor.heart": "Heart"
+  "effects.trail": "Mouse trail",
+  "effects.click": "Click effects"
 }
