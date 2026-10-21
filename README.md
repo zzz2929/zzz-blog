@@ -19,7 +19,7 @@
 | 代码高亮 | Shiki（Astro 内置，双主题） | —      |
 | 浏览量   | Vercount                    | —      |
 | OG 图    | satori + @resvg/resvg-js    | —      |
-| 部署     | 本地构建 + Cloudflare Pages | —      |
+| 部署     | GitHub Actions + Cloudflare Pages | —      |
 | 包管理   | pnpm                        | ≥10    |
 
 ## 快速开始
@@ -337,27 +337,16 @@ border-color: rgba(255,255,255,0.08);
 
 ## 部署
 
-采用 **本地构建 + Cloudflare Pages Direct Upload（wrangler）** 发布。
+采用 **GitHub Actions 构建 + Cloudflare Pages Direct Upload 自动部署**（工作流 `.github/workflows/ci.yml`）：push 到 `main` 即自动构建并发布，无需本地操作。
 
-### 一键发布
+### 为什么不用 Cloudflare 远程构建
 
-```bash
-pnpm run deploy:site   # = pnpm build + wrangler pages deploy dist/client --project-name zzz-blog
-```
-
-> 注意脚本名是 `deploy:site` 而非 `deploy`：`pnpm deploy` 是 pnpm 内置命令（部署 workspace 包），会覆盖同名 package.json 脚本。
-
-脚本见 `scripts/deploy.mjs`（项目名修改其中 `PROJECT_NAME` 常量）。
-
-首次使用前：
-
-1. `npx wrangler login` — 浏览器 OAuth 登录（一次性，无需 API Token / Secrets）
-2. Cloudflare 控制台 → Pages 项目 → Settings → Builds & deployments → 停用/移除 Git 集成（避免每次 push 仍触发失败的远程构建；Direct Upload 与 Git 集成互斥）
+Cloudflare Pages 自带的远程构建机**无法访问自建图床 `imgbed.904002.xyz`**：构建期会 fetch 远程图片做尺寸探测（`inferSize`）与压缩，图床不可达时快速失败并报 `Failed to parse image reference`，远程构建必然失败。GitHub Actions（ubuntu-latest）可正常访问图床，因此把构建挪到 Actions，再以 Direct Upload 方式上传产物到 Pages——**图片优化完整保留**（正文图与封面均生成压缩缩略图，浏览器不再直连图床原图）。
 
 ### 工作流
 
-- 发布：本地执行 `pnpm run deploy:site`（构建 → 上传 `dist/client`）
-- 质量门：GitHub Actions（`.github/workflows/ci.yml`）在 push 后自动执行构建验证，**无需任何 Secrets，只验证不部署**
+- `push` 到 `main`：安装依赖 → 构建（`pnpm build`）→ 上传 `dist/client` 到 Cloudflare Pages
+- `pull_request`：仅执行构建验证，不部署
 
 构建依赖两个缓存，避免每次全量重新下载/压缩远程图片：
 
@@ -366,10 +355,25 @@ pnpm run deploy:site   # = pnpm build + wrangler pages deploy dist/client --proj
 | `.cache`              | 远程图片 HTTP 缓存         | `src/**`、`astro.config.mjs` 变化 |
 | `node_modules/.astro` | Astro 优化图缓存（缩略图） | `src/**`、`astro.config.mjs` 变化 |
 
+### 首次配置（一次性）
+
+1. **GitHub Secrets**（仓库 → Settings → Secrets and variables → Actions → New repository secret）：
+   - `CLOUDFLARE_API_TOKEN`：Cloudflare 控制台 → My Profile → API Tokens → Create Token，权限含 **Cloudflare Pages: Edit**
+   - `CLOUDFLARE_ACCOUNT_ID`：Cloudflare 控制台右侧栏的 Account ID
+2. **断开 Pages 的 Git 集成**：Cloudflare 控制台 → Pages 项目 → Settings → Builds & deployments → 移除 Git 连接（避免远程构建再次失败；Direct Upload 与 Git 集成互斥）
+3. **确认项目名**：`ci.yml` 中 `projectName` 需与你的 Pages 项目名一致（当前为 `zzz-blog`）
+
 ### 产物
 
 - `pnpm build` 输出 `dist/`：`dist/client` 为静态站点（含 `pagefind/` 搜索索引与 `_astro/` 优化图），部署上传的就是 `dist/client`
-- 也可手动部署：`npx wrangler pages deploy dist/client --project-name zzz-blog`
+
+### 本地手动发布（可选，不经过 CI）
+
+```bash
+pnpm run deploy:site   # = pnpm build + wrangler pages deploy dist/client --project-name zzz-blog
+```
+
+> 脚本名是 `deploy:site` 而非 `deploy`：`pnpm deploy` 是 pnpm 内置命令（部署 workspace 包），会覆盖同名 package.json 脚本。脚本见 `scripts/deploy.mjs`（项目名修改其中 `PROJECT_NAME` 常量），本地使用前需 `npx wrangler login` 一次。
 
 ### 切换平台
 
