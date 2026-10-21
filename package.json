@@ -9,6 +9,7 @@
     "dev": "astro dev",
     "build": "node scripts/build.mjs",
     "preview": "astro preview",
+    "deploy:site": "node scripts/deploy.mjs",
     "astro": "astro",
     "generate-types": "wrangler types"
   },

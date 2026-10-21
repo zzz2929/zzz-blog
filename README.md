@@ -6,21 +6,21 @@
 
 ## 技术栈
 
-| 层级     | 技术                        | 版本      |
-| -------- | --------------------------- | --------- |
-| 框架     | Astro                       | ^7.3.3    |
-| 交互     | React                       | ^19.2.8   |
-| 样式     | Tailwind CSS                | ^4.3.3    |
-| 动画     | GSAP / motion               | —         |
-| 图标     | Lucide React                | ^1.38.0   |
-| 评论     | Waline                      | v3        |
-| 搜索     | Pagefind                    | ^1.5.2    |
-| 灯箱     | Fancybox                    | ^6.1.14   |
-| 代码高亮 | Shiki（Astro 内置，双主题） | —         |
-| 浏览量   | Vercount                    | —         |
-| OG 图    | satori + @resvg/resvg-js    | —         |
-| 部署     | Cloudflare Pages            | —         |
-| 包管理   | pnpm                        | ≥10       |
+| 层级     | 技术                        | 版本    |
+| -------- | --------------------------- | ------- |
+| 框架     | Astro                       | ^7.3.3  |
+| 交互     | React                       | ^19.2.8 |
+| 样式     | Tailwind CSS                | ^4.3.3  |
+| 动画     | GSAP / motion               | —      |
+| 图标     | Lucide React                | ^1.38.0 |
+| 评论     | Waline                      | v3      |
+| 搜索     | Pagefind                    | ^1.5.2  |
+| 灯箱     | Fancybox                    | ^6.1.14 |
+| 代码高亮 | Shiki（Astro 内置，双主题） | —      |
+| 浏览量   | Vercount                    | —      |
+| OG 图    | satori + @resvg/resvg-js    | —      |
+| 部署     | 本地构建 + Cloudflare Pages | —      |
+| 包管理   | pnpm                        | ≥10    |
 
 ## 快速开始
 
@@ -35,9 +35,12 @@ pnpm preview        # 预览构建结果
 
 `pnpm build` 是一条编排管线（`scripts/build.mjs`）：
 
-1. `astro build` — 预渲染全部页面
-2. `scripts/generate-og.mjs` — 为每篇文章生成 OG 分享图
-3. `pagefind --site dist/client` — 生成全文搜索索引
+1. `scripts/generate-icons.mjs` — 生成 PWA 图标
+2. `astro build` — 预渲染全部页面
+3. `scripts/copy-katex-fonts.mjs` — 拷贝 KaTeX 字体到产物
+4. `scripts/generate-og.mjs` — 为每篇文章生成 OG 分享图
+5. `pagefind --site dist/client` — 生成全文搜索索引
+6. `scripts/generate-sw.mjs` — 生成 Service Worker（最后执行，预缓存清单覆盖以上全部产物）
 
 > 提示：dev 模式下搜索索引不存在，Header 搜索框会提示先构建；图片缓存（`.astro/`）在首次构建后开始生效。
 
@@ -45,23 +48,23 @@ pnpm preview        # 预览构建结果
 
 **所有可自定义项集中在 `src/config/site.ts`**，修改后重启 dev / 重新构建生效。主要分区：
 
-| 分区                | 内容                                                         |
-| ------------------- | ------------------------------------------------------------ |
-| 站点基本信息        | `title`、`author`、`url`、`avatar`、`imageBedHost`、多语言 `description` |
-| `features`          | 评论、多语言、迷你播放器、小歌单、TOC、公告、RSS、版权、赞赏 |
-| `features.comments` | Waline 参数（serverURL、表情、必填项、排序等）               |
-| `features.i18n`     | 多语言开关与语言列表                                         |
-| `footer`            | 版权起始年份、是否显示 Powered by                            |
-| `noticeOutdate`     | 文章过时提醒（样式 / 阈值天数）                              |
-| `analytics`         | 百度 / Google / Cloudflare / Clarity / 51la                  |
-| `social`            | 首页侧栏社交链接（留空隐藏）                                 |
-| `siteCard`          | 友链页「本站信息」                                           |
-| `nav.menu`          | 顶部导航菜单（label 支持 i18n key 或直接写文字，可增删排序） |
-| `siteLinks`         | 顶部「站点切换」外链                                         |
-| `hero`              | 随机头图 API、一言兜底文案、随笔跑马灯年数/时长              |
-| `home`              | 首页每页文章数、近期文章数、hello 动图                       |
-| `music`             | 默认音量、歌词默认偏好、歌词代理域名白名单                   |
-| `fancybox`          | 灯箱参数（动画、键盘、缩略图、工具栏、文案）                 |
+| 分区                  | 内容                                                                                 |
+| --------------------- | ------------------------------------------------------------------------------------ |
+| 站点基本信息          | `title`、`author`、`url`、`avatar`、`imageBedHost`、多语言 `description` |
+| `features`          | 评论、多语言、迷你播放器、小歌单、TOC、公告、RSS、版权、赞赏                         |
+| `features.comments` | Waline 参数（serverURL、表情、必填项、排序等）                                       |
+| `features.i18n`     | 多语言开关与语言列表                                                                 |
+| `footer`            | 版权起始年份、是否显示 Powered by                                                    |
+| `noticeOutdate`     | 文章过时提醒（样式 / 阈值天数）                                                      |
+| `analytics`         | 百度 / Google / Cloudflare / Clarity / 51la                                          |
+| `social`            | 首页侧栏社交链接（留空隐藏）                                                         |
+| `siteCard`          | 友链页「本站信息」                                                                   |
+| `nav.menu`          | 顶部导航菜单（label 支持 i18n key 或直接写文字，可增删排序）                         |
+| `siteLinks`         | 顶部「站点切换」外链                                                                 |
+| `hero`              | 随机头图 API、一言兜底文案、随笔跑马灯年数/时长                                      |
+| `home`              | 首页每页文章数、近期文章数、hello 动图                                               |
+| `music`             | 默认音量、歌词默认偏好、歌词代理域名白名单                                           |
+| `fancybox`          | 灯箱参数（动画、键盘、缩略图、工具栏、文案）                                         |
 
 ## 内容管理
 
@@ -189,19 +192,19 @@ TMDB_API_KEY=你的key node scripts/fetch-tmdb.mjs
 
 `src/content/data/about.json`，字段一览：
 
-| 字段                       | 说明                                           |
-| -------------------------- | ---------------------------------------------- |
+| 字段                           | 说明                                           |
+| ------------------------------ | ---------------------------------------------- |
 | `name` / `avatarImg`       | 显示名称 / 头像                                |
 | `description` / `subtitle` | 简介 / 个性签名                                |
-| `helloTips`                | 关于我卡片首行问候语                           |
-| `avatarSkills.left/right`  | 头像两侧标签                                   |
-| `selfInfo`                 | 目前状态（tips + content）                     |
-| `personalities`            | MBTI：名称、类型、立绘图、16personalities 链接 |
-| `aboutsiteTips`            | 卡片文案与轮播词                               |
+| `helloTips`                  | 关于我卡片首行问候语                           |
+| `avatarSkills.left/right`    | 头像两侧标签                                   |
+| `selfInfo`                   | 目前状态（tips + content）                     |
+| `personalities`              | MBTI：名称、类型、立绘图、16personalities 链接 |
+| `aboutsiteTips`              | 卡片文案与轮播词                               |
 | `game` / `comic`           | 游戏 / 追番卡（标题、tips、列表）              |
-| `map`                      | 毕业于（tips、地址、亮/暗背景图）              |
-| `statistic`                | 访问统计（tips、标题、背景、文章隧道链接）     |
-| `skills`                   | 技术栈（name + icon）                          |
+| `map`                        | 毕业于（tips、地址、亮/暗背景图）              |
+| `statistic`                  | 访问统计（tips、标题、背景、文章隧道链接）     |
+| `skills`                     | 技术栈（name + icon）                          |
 
 ### 项目页
 
@@ -232,8 +235,8 @@ Pagefind 构建期索引，纯静态、零服务端。索引范围由内容容�
 | 语言     | 代码  | URL 前缀    |
 | -------- | ----- | ----------- |
 | 简体中文 | zh-CN | 无（默认）  |
-| English  | en    | `/en/`      |
-| 繁體中文 | zh-TW | `/zh-TW/`   |
+| English  | en    | `/en/`    |
+| 繁體中文 | zh-TW | `/zh-TW/` |
 
 翻译文件：`src/i18n/{locale}.json`。语言开关与列表在 `site.ts → features.i18n`，关闭后语言入口隐藏、语言页自动跳回主页。
 
@@ -245,13 +248,13 @@ Pagefind 构建期索引，纯静态、零服务端。索引范围由内容容�
 
 使用 [Waline](https://waline.js.org/)。全部配置在 `site.ts → features.comments`（`enable` 一键开关）：
 
-| 配置项           | 说明           | 默认值        |
-| ---------------- | -------------- | ------------- |
-| `serverURL`      | 服务器地址     | —             |
-| `emoji`          | 表情包列表     | bilibili 等   |
-| `meta`/`requiredMeta` | 信息字段/必填 | nick、mail |
-| `pageSize`       | 每页评论数     | 10            |
-| `commentSorting` | 排序方式       | latest        |
+| 配置项                    | 说明          | 默认值      |
+| ------------------------- | ------------- | ----------- |
+| `serverURL`             | 服务器地址    | —          |
+| `emoji`                 | 表情包列表    | bilibili 等 |
+| `meta`/`requiredMeta` | 信息字段/必填 | nick、mail  |
+| `pageSize`              | 每页评论数    | 10          |
+| `commentSorting`        | 排序方式      | latest      |
 
 占位符文案在 `src/i18n/{locale}.json` 的 `comment.placeholder`。
 
@@ -286,8 +289,8 @@ public/
 
 浅色模式在 Header 设置面板切换，存储于 `localStorage('monet-bg')`：
 
-| 名称       | 色值      |
-| ---------- | --------- |
+| 名称       | 色值        |
+| ---------- | ----------- |
 | 云端漫步   | `#EDE8DE` |
 | 睡莲       | `#E8E0F0` |
 | 日出印象   | `#F5E6D8` |
@@ -323,19 +326,54 @@ border-color: rgba(255,255,255,0.08);
 
 ## 构建脚本
 
-| 脚本                        | 说明                                              |
-| --------------------------- | ------------------------------------------------- |
-| `scripts/build.mjs`         | 构建编排：astro build → OG 图 → pagefind 索引     |
-| `scripts/generate-og.mjs`   | 为每篇文章生成 OG 分享图（satori，字体缓存于 `.astro/fonts/`） |
-| `scripts/fetch-tmdb.mjs`    | 追番 TMDB 数据抓取，需要 `TMDB_API_KEY` 环境变量  |
+| 脚本                             | 说明                                                                       |
+| -------------------------------- | -------------------------------------------------------------------------- |
+| `scripts/build.mjs`            | 构建编排：PWA 图标 → astro build → KaTeX 字体 → OG 图 → pagefind → SW |
+| `scripts/generate-icons.mjs`   | 生成 PWA 图标（192 / 512 / maskable）                                      |
+| `scripts/copy-katex-fonts.mjs` | 拷贝 KaTeX 字体到产物                                                      |
+| `scripts/generate-og.mjs`      | 为每篇文章生成 OG 分享图（satori，字体缓存于`.astro/fonts/`）            |
+| `scripts/generate-sw.mjs`      | 生成 Service Worker（预缓存静态资源与图床图片）                            |
+| `scripts/fetch-tmdb.mjs`       | 追番 TMDB 数据抓取，需要`TMDB_API_KEY` 环境变量                          |
 
 ## 部署
 
-Cloudflare Pages，构建命令 `pnpm build`，输出 `dist/`。
+采用 **本地构建 + Cloudflare Pages Direct Upload（wrangler）** 发布。
 
-- 建议设置环境变量 `NODE_VERSION` 为 22+（OG 分享图脚本需要）
-- `dist/client/pagefind/` 为搜索索引，随构建自动生成
-- 切换平台：替换 `astro.config.mjs` 的 adapter（Vercel：`@astrojs/vercel`，Netlify：`@astrojs/netlify`）
+### 一键发布
+
+```bash
+pnpm run deploy:site   # = pnpm build + wrangler pages deploy dist/client --project-name zzz-blog
+```
+
+> 注意脚本名是 `deploy:site` 而非 `deploy`：`pnpm deploy` 是 pnpm 内置命令（部署 workspace 包），会覆盖同名 package.json 脚本。
+
+脚本见 `scripts/deploy.mjs`（项目名修改其中 `PROJECT_NAME` 常量）。
+
+首次使用前：
+
+1. `npx wrangler login` — 浏览器 OAuth 登录（一次性，无需 API Token / Secrets）
+2. Cloudflare 控制台 → Pages 项目 → Settings → Builds & deployments → 停用/移除 Git 集成（避免每次 push 仍触发失败的远程构建；Direct Upload 与 Git 集成互斥）
+
+### 工作流
+
+- 发布：本地执行 `pnpm run deploy:site`（构建 → 上传 `dist/client`）
+- 质量门：GitHub Actions（`.github/workflows/ci.yml`）在 push 后自动执行构建验证，**无需任何 Secrets，只验证不部署**
+
+构建依赖两个缓存，避免每次全量重新下载/压缩远程图片：
+
+| 缓存目录                | 内容                       | 失效条件                              |
+| ----------------------- | -------------------------- | ------------------------------------- |
+| `.cache`              | 远程图片 HTTP 缓存         | `src/**`、`astro.config.mjs` 变化 |
+| `node_modules/.astro` | Astro 优化图缓存（缩略图） | `src/**`、`astro.config.mjs` 变化 |
+
+### 产物
+
+- `pnpm build` 输出 `dist/`：`dist/client` 为静态站点（含 `pagefind/` 搜索索引与 `_astro/` 优化图），部署上传的就是 `dist/client`
+- 也可手动部署：`npx wrangler pages deploy dist/client --project-name zzz-blog`
+
+### 切换平台
+
+替换 `astro.config.mjs` 的 adapter（Vercel：`@astrojs/vercel`，Netlify：`@astrojs/netlify`）。
 
 ## 许可
 
