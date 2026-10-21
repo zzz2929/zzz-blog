@@ -19,7 +19,7 @@
 | 代码高亮 | Shiki（Astro 内置，双主题） | —      |
 | 浏览量   | Vercount                    | —      |
 | OG 图    | satori + @resvg/resvg-js    | —      |
-| 部署     | GitHub Actions + Cloudflare Pages | —      |
+| 部署     | GitHub Actions + Cloudflare Workers | —      |
 | 包管理   | pnpm                        | ≥10    |
 
 ## 快速开始
@@ -337,15 +337,17 @@ border-color: rgba(255,255,255,0.08);
 
 ## 部署
 
-采用 **GitHub Actions 构建 + Cloudflare Pages Direct Upload 自动部署**（工作流 `.github/workflows/ci.yml`）：push 到 `main` 即自动构建并发布，无需本地操作。
+采用 **GitHub Actions 构建 + Cloudflare Workers（wrangler deploy）自动部署**（工作流 `.github/workflows/ci.yml`）：push 到 `main` 即自动构建并发布，无需本地操作。
+
+> 说明：本项目是 Astro Cloudflare adapter 的 **Workers 布局**（`dist/client` 静态资产 + `dist/server` Worker 入口），部署目标为 Cloudflare Workers 项目 `zzz-blog`，并非 Pages。
 
 ### 为什么不用 Cloudflare 远程构建
 
-Cloudflare Pages 自带的远程构建机**无法访问自建图床 `imgbed.904002.xyz`**：构建期会 fetch 远程图片做尺寸探测（`inferSize`）与压缩，图床不可达时快速失败并报 `Failed to parse image reference`，远程构建必然失败。GitHub Actions（ubuntu-latest）可正常访问图床，因此把构建挪到 Actions，再以 Direct Upload 方式上传产物到 Pages——**图片优化完整保留**（正文图与封面均生成压缩缩略图，浏览器不再直连图床原图）。
+Cloudflare 自身的远程构建机**无法访问自建图床 `imgbed.904002.xyz`**：构建期会 fetch 远程图片做尺寸探测（`inferSize`）与压缩，图床不可达时快速失败并报 `Failed to parse image reference`，远程构建必然失败。GitHub Actions（ubuntu-latest）可正常访问图床，因此把构建挪到 Actions，再以 wrangler 上传产物到 Workers——**图片优化完整保留**（正文图与封面均生成压缩缩略图，浏览器不再直连图床原图）。
 
 ### 工作流
 
-- `push` 到 `main`：安装依赖 → 构建（`pnpm build`）→ 上传 `dist/client` 到 Cloudflare Pages
+- `push` 到 `main`：安装依赖 → 构建（`pnpm build`）→ 在 `dist/server` 运行 `wrangler deploy`（adapter 已在该目录生成完整 wrangler.json，assets 指向 `../client`）
 - `pull_request`：仅执行构建验证，不部署
 
 构建依赖两个缓存，避免每次全量重新下载/压缩远程图片：
@@ -358,14 +360,13 @@ Cloudflare Pages 自带的远程构建机**无法访问自建图床 `imgbed.9040
 ### 首次配置（一次性）
 
 1. **GitHub Secrets**（仓库 → Settings → Secrets and variables → Actions → New repository secret）：
-   - `CLOUDFLARE_API_TOKEN`：Cloudflare 控制台 → My Profile → API Tokens → Create Token，权限含 **Cloudflare Pages: Edit**
+   - `CLOUDFLARE_API_TOKEN`：Cloudflare 控制台 → My Profile → API Tokens → Create Token，权限含 **Cloudflare Workers: Edit**
    - `CLOUDFLARE_ACCOUNT_ID`：Cloudflare 控制台右侧栏的 Account ID
-2. **断开 Pages 的 Git 集成**：Cloudflare 控制台 → Pages 项目 → Settings → Builds & deployments → 移除 Git 连接（避免远程构建再次失败；Direct Upload 与 Git 集成互斥）
-3. **确认项目名**：`ci.yml` 中 `projectName` 需与你的 Pages 项目名一致（当前为 `zzz-blog`）
+2. **断开 Workers 的 Git 集成**：Cloudflare 控制台 → Workers & Pages → 项目 `zzz-blog` → Settings → Builds & Deployments → 移除 Git 连接（避免远程构建再次失败）
 
 ### 产物
 
-- `pnpm build` 输出 `dist/`：`dist/client` 为静态站点（含 `pagefind/` 搜索索引与 `_astro/` 优化图），部署上传的就是 `dist/client`
+- `pnpm build` 输出 `dist/`：`dist/client` 为静态站点（含 `pagefind/` 搜索索引与 `_astro/` 优化图）；`dist/server` 为 Worker 入口与 wrangler.json 配置
 
 ### 切换平台
 

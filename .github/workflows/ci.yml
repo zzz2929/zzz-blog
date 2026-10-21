@@ -52,21 +52,25 @@ jobs:
       - name: 构建验证
         run: pnpm build
 
-      # 部署到 Cloudflare Pages（Direct Upload）。
+      # 部署到 Cloudflare Workers（wrangler deploy）。
       # 背景：Cloudflare 自身的远程构建机访问 imgbed.904002.xyz 图床会快速失败
       # （Failed to parse image reference），无法完成构建；GitHub Actions 环境
       # 可达且有 .cache / node_modules/.astro 双缓存，因此改为在 Actions 里
       # 构建并上传产物。仅 push 到 main 时部署，PR 只做构建验证。
-      # 前置：仓库 Secrets 需配置 CLOUDFLARE_API_TOKEN（Cloudflare Pages: Edit
-      # 权限）与 CLOUDFLARE_ACCOUNT_ID；Cloudflare 控制台需断开 Pages 的 Git
-      # 集成连接（避免远程构建再次失败；Direct Upload 与 Git 集成互斥）。
-      # 注意：用官方 cloudflare/wrangler-action@v3（cloudflare/pages-action
-      # 不存在，GitHub 无法解析会直接报 Unable to resolve action）。
-      - name: 部署到 Cloudflare Pages
+      # 部署目标：本仓库是 Astro Cloudflare adapter 的 Workers 布局（dist/client
+      # 静态资产 + dist/server Worker 入口），adapter 已在 dist/server/wrangler.json
+      # 生成完整配置（assets 指向 ../client）。因此在 dist/server 目录运行
+      # `wrangler deploy`（不可用 pages deploy —— 账户里没有同名 Pages 项目，
+      # 会报 "The Pages project does not exist"）。
+      # 前置：仓库 Secrets 需配置 CLOUDFLARE_API_TOKEN（Cloudflare Workers: Edit
+      # 权限）与 CLOUDFLARE_ACCOUNT_ID；Cloudflare 控制台需断开 Workers 项目
+      # zzz-blog 的 Git 集成连接（避免远程构建再次失败）。
+      - name: 部署到 Cloudflare Workers
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist/client --project-name zzz-blog
+          command: deploy
+          workingDirectory: dist/server
           packageManager: pnpm
