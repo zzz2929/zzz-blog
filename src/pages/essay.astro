@@ -61,7 +61,7 @@ for (const group of dayGroups) {
           <div id={`essay-${group.date}`} class="mb-8 relative">
             <span
               class="absolute -left-[33px] top-1.5 h-2.5 w-2.5 rounded-full border-2 border-primary"
-              style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(20px);"
+              style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); backdrop-filter: blur(var(--glass-blur));"
             />
             <time class="text-xs text-muted">{group.date}</time>
             {group.items.length > 1 ? (

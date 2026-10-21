@@ -29,8 +29,8 @@ const postUrl = Astro.site ? `${Astro.site.origin}${prefix}/posts/${slug}` : und
   style={`
     animation: fade-in-up 0.4s ${delay}s backwards;
     background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1));
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
     border: 1px solid rgba(255,255,255,0.3);
     border-radius: 16px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.04);

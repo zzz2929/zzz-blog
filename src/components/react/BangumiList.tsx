@@ -273,9 +273,7 @@ export default function BangumiList({ wantWatch, watching, watched, locale = 'zh
                         {desc}
                       </p>
                       <div className="bangumi-tooltip absolute left-0 bottom-full mb-2 w-64 p-3 rounded-lg opacity-0 invisible transition-all duration-200 pointer-events-none" style={{
-                        background: 'var(--color-card-bg)',
-                        border: '1px solid var(--color-border)',
-                        boxShadow: '0 4px 20px rgba(0,0,0,0.12)',
+                        boxShadow: '0 8px 32px rgba(0,0,0,0.14)',
                         zIndex: 50,
                       }}>
                         <p className="text-xs font-semibold mb-1" style={{ color: 'var(--color-foreground)' }}>{item.title}</p>

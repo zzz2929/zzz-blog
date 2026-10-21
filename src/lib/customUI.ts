@@ -115,6 +115,8 @@ export function initCustomUI(cfg?: CustomUIConfig) {
 
   let fxCanvas: HTMLCanvasElement | null = null;
   let fxCtx: CanvasRenderingContext2D | null = null;
+  /** canvas 实际渲染矩形（getBoundingClientRect 实测值，用于 视口CSS坐标 → 物理像素 精确换算） */
+  let fxRect: DOMRect | null = null;
   let fxEnabled = cfg.effects.enable;
   let fxTrail =
     cfg.effects.trail.enabled && localStorage.getItem(LS_FX_TRAIL) !== "off";
@@ -170,7 +172,15 @@ export function initCustomUI(cfg?: CustomUIConfig) {
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     fxCanvas.width = Math.round(window.innerWidth * dpr);
     fxCanvas.height = Math.round(window.innerHeight * dpr);
+    // 显式把 canvas 的 CSS 尺寸钉在视口尺寸上：
+    // 100vw/100vh 会把滚动条宽度也算入（Windows 下差 ~15px），导致显示比例与物理像素失配
+    fxCanvas.style.width = window.innerWidth + "px";
+    fxCanvas.style.height = window.innerHeight + "px";
+    // 以实际渲染矩形为准记录换算基准（不依赖 setTransform/DPR 假设，
+    // 适配缩放、WebView、滚动条等一切环境差异）
+    fxRect = fxCanvas.getBoundingClientRect();
     fxCtx = fxCanvas.getContext("2d");
+    fxCtx!.setTransform(1, 0, 0, 1, 0, 0);
   }
 
   function pushFx(p: FXParticle) {
@@ -184,11 +194,10 @@ export function initCustomUI(cfg?: CustomUIConfig) {
 
   function emitTrail(x: number, y: number) {
     if (!fxTrail) return;
-    if (fxReduced && Math.random() > 0.4) return;
     readFxColor();
     const angle = Math.random() * Math.PI * 2;
-    const speed = 0.2 + Math.random() * 0.9;
-    const life = 0.45 + Math.random() * 0.4;
+    const speed = (0.25 + Math.random() * 0.9) * (fxReduced ? 0.5 : 1);
+    const life = 0.7 + Math.random() * 0.5;
     pushFx({
       x,
       y,
@@ -196,8 +205,8 @@ export function initCustomUI(cfg?: CustomUIConfig) {
       vy: Math.sin(angle) * speed,
       life,
       maxLife: life,
-      size: 1.6 + Math.random() * 2.4,
-      alpha: 0.55 + Math.random() * 0.35,
+      size: 2.6 + Math.random() * 3.4,
+      alpha: 0.85 + Math.random() * 0.15,
       kind: "trail",
     });
   }
@@ -205,11 +214,11 @@ export function initCustomUI(cfg?: CustomUIConfig) {
   function emitClick(x: number, y: number) {
     if (!fxClick) return;
     readFxColor();
-    const count = fxReduced ? 6 : 12;
+    const count = fxReduced ? 8 : 14;
     for (let i = 0; i < count; i++) {
       const angle = (i / count) * Math.PI * 2 + Math.random() * 0.6;
-      const speed = 1.2 + Math.random() * 3.6;
-      const life = 0.5 + Math.random() * 0.35;
+      const speed = 1.4 + Math.random() * 4;
+      const life = 0.55 + Math.random() * 0.4;
       pushFx({
         x,
         y,
@@ -217,12 +226,12 @@ export function initCustomUI(cfg?: CustomUIConfig) {
         vy: Math.sin(angle) * speed,
         life,
         maxLife: life,
-        size: 1.4 + Math.random() * 2.2,
-        alpha: 0.85,
+        size: 1.8 + Math.random() * 2.8,
+        alpha: 0.9,
         kind: "burst",
       });
     }
-    pushFx({ x, y, vx: 0, vy: 0, life: 0.5, maxLife: 0.5, size: 30, alpha: 0.9, kind: "ring" });
+    pushFx({ x, y, vx: 0, vy: 0, life: 0.55, maxLife: 0.55, size: 34, alpha: 0.9, kind: "ring" });
   }
 
   function fxTick(_t: number, deltaTime: number) {
@@ -232,7 +241,24 @@ export function initCustomUI(cfg?: CustomUIConfig) {
     }
     const ctx = fxCtx;
     const dt = Math.min(deltaTime || 16.7, 50) / 16.7;
+    // 单位变换下按物理尺寸清空（绘制不依赖 setTransform，全部手动换算）
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.clearRect(0, 0, fxCanvas.width, fxCanvas.height);
+    // 视口CSS坐标 → 物理像素 的精确换算比例与偏移，以 canvas 实际渲染矩形为准：
+    // dx = (视口坐标 - rect.left) * (物理宽 / 显示宽)，任何 DPR/缩放/WebView 环境都精确
+    let sx = 1;
+    let sy = 1;
+    let ox = 0;
+    let oy = 0;
+    if (fxRect && fxRect.width > 0 && fxRect.height > 0) {
+      sx = fxCanvas.width / fxRect.width;
+      sy = fxCanvas.height / fxRect.height;
+      ox = fxRect.left;
+      oy = fxRect.top;
+    }
+    // 发光：所有粒子统一开启 shadow，绘制完成后再关闭（性能优于逐粒子 save/restore）
+    ctx.shadowBlur = 7;
+    ctx.shadowColor = withAlpha(fxColor, 0.9);
     for (let i = fxParticles.length - 1; i >= 0; i--) {
       const p = fxParticles[i];
       p.life -= dt / 60;
@@ -247,20 +273,25 @@ export function initCustomUI(cfg?: CustomUIConfig) {
         p.vy *= 0.94;
       }
       const t = p.life / p.maxLife;
+      const dx = (p.x - ox) * sx;
+      const dy = (p.y - oy) * sy;
       if (p.kind === "ring") {
-        const r = (1 - t) * p.size;
+        ctx.shadowBlur = 0;
+        const r = (1 - t) * p.size * sx;
         ctx.beginPath();
-        ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+        ctx.arc(dx, dy, r, 0, Math.PI * 2);
         ctx.strokeStyle = withAlpha(fxColor, p.alpha * t);
-        ctx.lineWidth = 0.4 + 1.6 * t;
+        ctx.lineWidth = (0.5 + 2 * t) * sx;
         ctx.stroke();
+        ctx.shadowBlur = 7;
       } else {
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size * (0.4 + 0.6 * t), 0, Math.PI * 2);
+        ctx.arc(dx, dy, p.size * (0.4 + 0.6 * t) * sx, 0, Math.PI * 2);
         ctx.fillStyle = withAlpha(fxColor, p.alpha * t);
         ctx.fill();
       }
     }
+    ctx.shadowBlur = 0;
     if (fxParticles.length === 0) {
       gsap.ticker.remove(fxTick);
       fxTickBound = false;
@@ -269,7 +300,7 @@ export function initCustomUI(cfg?: CustomUIConfig) {
 
   function onMoveFx(e: MouseEvent) {
     const now = performance.now();
-    if (now - fxLastEmit < 26) return;
+    if (now - fxLastEmit < 14) return;
     fxLastEmit = now;
     emitTrail(e.clientX, e.clientY);
   }
@@ -425,6 +456,8 @@ export function initCustomUI(cfg?: CustomUIConfig) {
   function buildAndShowMenu(e: MouseEvent) {
     ensureMenu();
     if (!menu) return;
+    // 打开菜单即取消挂起中的滚动关闭，保证刚弹出的菜单稳定显示
+    window.clearTimeout(menuScrollCloseTimer);
 
     const target = e.target as HTMLElement | null;
     const link = target?.closest?.<HTMLAnchorElement>("a[href]") || null;
@@ -496,6 +529,9 @@ export function initCustomUI(cfg?: CustomUIConfig) {
     };
     computePosition(virtualEl as any, menu, {
       placement: "right-start",
+      // 菜单为 position:fixed，必须用视口坐标系；
+      // 默认 strategy 为 absolute（返回文档坐标，含 scrollY），滚动后会把菜单定位到视口外
+      strategy: "fixed",
       middleware: [offset(4), flip(), shift({ padding: 6 })],
     }).then(({ x, y }) => {
       if (!menu?.isConnected) return;
@@ -542,10 +578,18 @@ export function initCustomUI(cfg?: CustomUIConfig) {
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeMenu();
   });
-  window.addEventListener("scroll", closeMenu, { passive: true });
+  window.addEventListener("scroll", scheduleMenuCloseOnScroll, { passive: true });
   window.addEventListener("resize", resizeFx);
   window.addEventListener("resize", closeMenu);
   window.addEventListener("blur", closeMenu);
+
+  let menuScrollCloseTimer: number | undefined;
+  /** 滚动防抖关闭：滚动停止 300ms 后才关闭菜单，避免滚动惯性/滞后事件在菜单刚弹出时立刻关闭 */
+  function scheduleMenuCloseOnScroll() {
+    if (!menu?.classList.contains("open")) return;
+    window.clearTimeout(menuScrollCloseTimer);
+    menuScrollCloseTimer = window.setTimeout(() => closeMenu(), 300);
+  }
 
   const api = {
     applyState,

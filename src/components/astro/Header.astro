@@ -178,8 +178,8 @@ function isImageIcon(icon) {
                 </svg>
               </button>
               <div
-                class="nav-dropdown absolute top-full"
-                style="z-index: 99999; left: 50%; transform: translateX(-50%) translateY(8px); opacity: 0; visibility: hidden; pointer-events: none; background: linear-gradient(135deg, rgba(255,255,255,0.75), rgba(255,255,255,0.45)); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(255,255,255,0.35); border-radius: 16px; box-shadow: 0 12px 40px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06); padding: 6px; white-space: nowrap; transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s;"
+                class="nav-dropdown glass-card-strong"
+                style="position: fixed; z-index: 99999; opacity: 0; visibility: hidden; pointer-events: none; border-radius: 16px; box-shadow: 0 12px 40px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06); padding: 6px; white-space: nowrap; transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s;"
               >
                 <div class="nav-dropdown-inner flex items-center gap-0.5">
                   {item.children.map((child, ci) => (
@@ -777,6 +777,49 @@ function isImageIcon(icon) {
       document.addEventListener("astro:page-load", initCustomSettings);
     }
   })();
+
+  // Nav dropdown — 移到 body 层，让 backdrop-filter 采样真实页面内容而非顶栏已渲染层
+  (function () {
+    function initNavDropdowns() {
+      document.querySelectorAll(".nav-item").forEach(function (item) {
+        var trigger = item.querySelector(".nav-trigger");
+        var dropdown = item.querySelector(".nav-dropdown");
+        if (!trigger || !dropdown || dropdown.__moved) return;
+        dropdown.__moved = true;
+        document.body.appendChild(dropdown);
+
+        function show() {
+          var rect = trigger.getBoundingClientRect();
+          dropdown.style.left = rect.left + rect.width / 2 + "px";
+          dropdown.style.top = rect.bottom + 8 + "px";
+          dropdown.style.transform = "translateX(-50%) translateY(0)";
+          dropdown.style.opacity = "1";
+          dropdown.style.visibility = "visible";
+          dropdown.style.pointerEvents = "auto";
+          dropdown.querySelectorAll(".nav-dropdown-item").forEach(function (el) {
+            el.style.opacity = "1";
+            el.style.transform = "translateY(0)";
+          });
+        }
+        function hide() {
+          dropdown.style.opacity = "0";
+          dropdown.style.visibility = "hidden";
+          dropdown.style.pointerEvents = "none";
+          dropdown.style.transform = "translateX(-50%) translateY(8px)";
+          dropdown.querySelectorAll(".nav-dropdown-item").forEach(function (el) {
+            el.style.opacity = "0";
+            el.style.transform = "translateY(6px)";
+          });
+        }
+        item.addEventListener("mouseenter", show);
+        item.addEventListener("mouseleave", hide);
+        dropdown.addEventListener("mouseenter", show);
+        dropdown.addEventListener("mouseleave", hide);
+      });
+    }
+    initNavDropdowns();
+    document.addEventListener("astro:page-load", initNavDropdowns);
+  })();
 </script>
 
 <style>
@@ -793,8 +836,8 @@ function isImageIcon(icon) {
   .dark .settings-dropdown {
     background: linear-gradient(
       135deg,
-      rgba(30, 30, 40, 0.85),
-      rgba(30, 30, 40, 0.6)
+      rgba(30, 30, 40, 0.7),
+      rgba(30, 30, 40, 0.45)
     ) !important;
     border-color: rgba(255, 255, 255, 0.08) !important;
     box-shadow:
@@ -872,16 +915,22 @@ function isImageIcon(icon) {
     transform: translateY(0);
   }
 
-  /* Nav dropdown */
-  .nav-item:hover .nav-dropdown {
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: auto !important;
-    transform: translateX(-50%) translateY(0) !important;
+  /* Nav dropdown — 移到 body 层后，backdrop-filter 采样的是真实页面内容而非顶栏已渲染层 */
+  .nav-dropdown {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.35),
+      rgba(255, 255, 255, 0.12)
+    ) !important;
+    backdrop-filter: blur(40px) saturate(1.4) !important;
+    -webkit-backdrop-filter: blur(40px) saturate(1.4) !important;
   }
-  .nav-item:hover .nav-dropdown .nav-dropdown-item {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
+  .dark .nav-dropdown {
+    background: linear-gradient(
+      135deg,
+      rgba(30, 30, 40, 0.55),
+      rgba(30, 30, 40, 0.25)
+    ) !important;
   }
   .nav-dropdown-item:hover {
     background: rgba(66, 90, 239, 0.08) !important;

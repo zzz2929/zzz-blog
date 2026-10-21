@@ -59,7 +59,7 @@ const displayGroups = grouped.slice(0, siteConfig.hero.essayMarqueeYears);
       <button
         id="hero-image-refresh"
         class="flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium transition-all duration-300"
-        style="background: rgba(255,255,255,0.25); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); color: #555; border: 1px solid rgba(255,255,255,0.3); cursor: pointer;"
+        style="background: rgba(255,255,255,0.25); backdrop-filter: blur(var(--glass-blur)); -webkit-backdrop-filter: blur(var(--glass-blur)); color: #555; border: 1px solid rgba(255,255,255,0.3); cursor: pointer;"
         aria-label={t('home.randomImage.refresh')}
       >
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -71,7 +71,7 @@ const displayGroups = grouped.slice(0, siteConfig.hero.essayMarqueeYears);
     </div>
 
     <!-- Layer 2: Combined essay + hitokoto card (bottom-right) -->
-    <div class="hero-combined-card absolute bottom-4 right-4 z-10 overflow-hidden flex flex-col" style="width: 28%; max-width: 260px; height: 300px; border-radius: 12px; background: rgba(255,255,255,0.25); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.4); box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: background 0.3s ease;">
+    <div class="hero-combined-card absolute bottom-4 right-4 z-10 overflow-hidden flex flex-col" style="width: 28%; max-width: 260px; height: 300px; border-radius: 12px; background: rgba(255,255,255,0.25); backdrop-filter: blur(var(--glass-blur)); -webkit-backdrop-filter: blur(var(--glass-blur)); border: 1px solid rgba(255,255,255,0.4); box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: background 0.3s ease;">
       <!-- Essay section (top) -->
       <div class="px-3 pt-2.5 pb-1.5 flex flex-col flex-1 min-h-0 overflow-hidden">
         <div class="flex items-center justify-between mb-1.5 flex-shrink-0">

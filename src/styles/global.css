@@ -91,6 +91,8 @@
   --content-max-width: 1400px;
   --header-height: 60px;
   --card-radius: 16px;
+  /* 全站毛玻璃统一模糊半径（卡片/浮层/下拉/固定栏共用，改这里即可全局统一） */
+  --glass-blur: 28px;
 
   /* 断点平移：平板（768-1023）走移动端布局（配合下方 zoom 豁免），
      1024 起为桌面布局。sm=640 不变，xl 顺延到 1536。 */
@@ -427,8 +429,8 @@ body {
   background: linear-gradient(135deg,
       rgba(255, 255, 255, 0.4),
       rgba(255, 255, 255, 0.1));
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: var(--card-radius);
   box-shadow: 0 1px 24px rgba(0, 0, 0, 0.1);
@@ -447,6 +449,10 @@ body {
   background: linear-gradient(135deg, rgba(30, 30, 40, 0.6), rgba(30, 30, 40, 0.3));
   border-color: var(--color-border-dark);
 }
+.dark .glass-card-strong {
+  background: linear-gradient(135deg, rgba(30, 30, 40, 0.7), rgba(30, 30, 40, 0.45));
+  border-color: rgba(255, 255, 255, 0.1);
+}
 
 /* ====== 玻璃拟态卡片（统一原先 10+ 处重复的内联样式） ====== */
 @utility glass-card {
@@ -455,20 +461,40 @@ body {
     rgba(255, 255, 255, 0.4),
     rgba(255, 255, 255, 0.1)
   );
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 @utility glass-card-strong {
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.7),
-    rgba(255, 255, 255, 0.4)
+    rgba(255, 255, 255, 0.55),
+    rgba(255, 255, 255, 0.25)
   );
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
   border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ====== Bangumi 详情浮层（毛玻璃，与其它下拉/浮层一致） ====== */
+.bangumi-tooltip {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.55),
+    rgba(255, 255, 255, 0.25)
+  );
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.dark .bangumi-tooltip {
+  background: linear-gradient(
+    135deg,
+    rgba(30, 30, 40, 0.7),
+    rgba(30, 30, 40, 0.45)
+  );
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 /* ====== 灯箱打开期间的性能保护 ======
