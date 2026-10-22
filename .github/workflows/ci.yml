@@ -58,21 +58,32 @@ jobs:
       # 可达且有 .cache / node_modules/.astro 双缓存，因此改为在 Actions 里
       # 构建并上传产物。仅 push 到 main 时部署，PR 只做构建验证。
       # 部署目标：本仓库是 Astro Cloudflare adapter 的 Workers 布局（dist/client
-      # 静态资产 + dist/server Worker 入口）。在仓库根运行 `wrangler deploy`，
-      # 使用根 wrangler.jsonc（main 指向 dist/server/entry.mjs，assets 指向
-      # dist/client）。不要在 dist/server 目录部署：adapter 生成的
-      # dist/server/wrangler.json 的 configPath 是构建机绝对路径，在 CI 上会
-      # 导致 wrangler 同时发现仓库根配置与 dist/server 配置且基路径不一致，
-      # 报 "Found both a user configuration file at wrangler.json and a deploy
-      # configuration file at ../../.wrangler/deploy/config.json"。
+      # 静态资产 + dist/server Worker 入口）。部署流程：
+      # 1) 先清理 adapter 生成的 dist/server/wrangler.json 里的 configPath /
+      #    userConfigPath 字段——它们指向构建机的本机绝对路径（Windows），在
+      #    CI（Linux）上失效后 wrangler 会把 .wrangler/deploy/config.json 放到
+      #    仓库根，与 dist/server/wrangler.json 基路径不一致，报 "Found both a
+      #    user configuration file at wrangler.json and a deploy configuration
+      #    file at ../../.wrangler/deploy/config.json"；
+      # 2) 在 dist/server 目录用 `wrangler deploy --config wrangler.json` 部署
+      #    （--config 显式指定，wrangler 不再向上探测根 wrangler.jsonc）。
+      #    该配置 assets 指向 ../client（即 dist/client），main 为 entry.mjs。
+      # 注意：不要把根 wrangler.jsonc 的 main 改成 dist/server/entry.mjs——
+      #    @astrojs/cloudflare（vite-plugin）构建时会校验 main 指向已存在的
+      #    文件，而入口是构建产物，会导致 astro build 直接失败。
       # 前置：仓库 Secrets 需配置 CLOUDFLARE_API_TOKEN（Cloudflare Workers: Edit
       # 权限）与 CLOUDFLARE_ACCOUNT_ID；Cloudflare 控制台需断开 Workers 项目
       # zzz-blog 的 Git 集成连接（避免远程构建再次失败）。
+      - name: 修正 dist/server/wrangler.json（移除构建机绝对路径）
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: node -e "const fs=require('fs');const p='dist/server/wrangler.json';const j=JSON.parse(fs.readFileSync(p,'utf8'));delete j.configPath;delete j.userConfigPath;fs.writeFileSync(p,JSON.stringify(j))"
+
       - name: 部署到 Cloudflare Workers
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: deploy
+          command: deploy --config wrangler.json
+          workingDirectory: dist/server
           packageManager: pnpm
