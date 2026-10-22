@@ -788,10 +788,15 @@ function isImageIcon(icon) {
         dropdown.__moved = true;
         document.body.appendChild(dropdown);
 
+        function getZoom() {
+          var z = parseFloat(getComputedStyle(document.documentElement).zoom);
+          return isNaN(z) || z === 0 ? 1 : z;
+        }
         function show() {
+          var zoom = getZoom();
           var rect = trigger.getBoundingClientRect();
-          dropdown.style.left = rect.left + rect.width / 2 + "px";
-          dropdown.style.top = rect.bottom + 8 + "px";
+          dropdown.style.left = (rect.left + rect.width / 2) / zoom + "px";
+          dropdown.style.top = (rect.bottom + 8) / zoom + "px";
           dropdown.style.transform = "translateX(-50%) translateY(0)";
           dropdown.style.opacity = "1";
           dropdown.style.visibility = "visible";
@@ -815,6 +820,7 @@ function isImageIcon(icon) {
         item.addEventListener("mouseleave", hide);
         dropdown.addEventListener("mouseenter", show);
         dropdown.addEventListener("mouseleave", hide);
+        window.addEventListener("scroll", hide, { passive: true });
       });
     }
     initNavDropdowns();
