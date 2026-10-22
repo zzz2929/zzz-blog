@@ -347,7 +347,7 @@ Cloudflare 自身的远程构建机**无法访问自建图床 `imgbed.904002.xyz
 
 ### 工作流
 
-- `push` 到 `main`：安装依赖 → 构建（`pnpm build`）→ 在 `dist/server` 运行 `wrangler deploy`（adapter 已在该目录生成完整 wrangler.json，assets 指向 `../client`）
+- `push` 到 `main`：安装依赖 → 构建（`pnpm build`）→ 在仓库根运行 `wrangler deploy`（根 `wrangler.jsonc` 的 `main` 指向 `dist/server/entry.mjs`、`assets` 指向 `dist/client`）
 - `pull_request`：仅执行构建验证，不部署
 
 构建依赖两个缓存，避免每次全量重新下载/压缩远程图片：
@@ -366,7 +366,7 @@ Cloudflare 自身的远程构建机**无法访问自建图床 `imgbed.904002.xyz
 
 ### 产物
 
-- `pnpm build` 输出 `dist/`：`dist/client` 为静态站点（含 `pagefind/` 搜索索引与 `_astro/` 优化图）；`dist/server` 为 Worker 入口与 wrangler.json 配置
+- `pnpm build` 输出 `dist/`：`dist/client` 为静态站点（含 `pagefind/` 搜索索引与 `_astro/` 优化图）；`dist/server` 为 Worker 入口与 wrangler.json 配置。部署使用仓库根 `wrangler.jsonc`（指向 `dist/server/entry.mjs` 与 `dist/client`，`no_bundle: true`），不直接使用 adapter 生成的 `dist/server/wrangler.json`
 
 ### 切换平台
 

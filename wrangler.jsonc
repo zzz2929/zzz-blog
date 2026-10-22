@@ -2,11 +2,18 @@
 	"compatibility_date": "2026-06-05",
 	"compatibility_flags": ["global_fetch_strictly_public"],
 	"name": "zzz-blog",
-	"main": "@astrojs/cloudflare/entrypoints/server",
+	// 部署入口与静态资源直接指向构建产物（pnpm build 输出）：
+	// dist/server/entry.mjs 为 Worker 入口，dist/client 为静态站点。
+	// 这样在仓库根运行 `wrangler deploy` 即可部署，无需进入 dist/server
+	// （adapter 生成的 dist/server/wrangler.json 的 configPath 为构建机
+	// 绝对路径，在 CI 上会与仓库根配置冲突，见 ci.yml 注释）。
+	"main": "dist/server/entry.mjs",
 	"assets": {
-		"directory": "./dist",
+		"directory": "dist/client",
 		"binding": "ASSETS"
 	},
+	// entry.mjs 已由 Astro 构建时打包完成，无需 wrangler 再次 bundle。
+	"no_bundle": true,
 	"observability": {
 		"enabled": true
 	}

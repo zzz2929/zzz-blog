@@ -58,10 +58,13 @@ jobs:
       # 可达且有 .cache / node_modules/.astro 双缓存，因此改为在 Actions 里
       # 构建并上传产物。仅 push 到 main 时部署，PR 只做构建验证。
       # 部署目标：本仓库是 Astro Cloudflare adapter 的 Workers 布局（dist/client
-      # 静态资产 + dist/server Worker 入口），adapter 已在 dist/server/wrangler.json
-      # 生成完整配置（assets 指向 ../client）。因此在 dist/server 目录运行
-      # `wrangler deploy`（不可用 pages deploy —— 账户里没有同名 Pages 项目，
-      # 会报 "The Pages project does not exist"）。
+      # 静态资产 + dist/server Worker 入口）。在仓库根运行 `wrangler deploy`，
+      # 使用根 wrangler.jsonc（main 指向 dist/server/entry.mjs，assets 指向
+      # dist/client）。不要在 dist/server 目录部署：adapter 生成的
+      # dist/server/wrangler.json 的 configPath 是构建机绝对路径，在 CI 上会
+      # 导致 wrangler 同时发现仓库根配置与 dist/server 配置且基路径不一致，
+      # 报 "Found both a user configuration file at wrangler.json and a deploy
+      # configuration file at ../../.wrangler/deploy/config.json"。
       # 前置：仓库 Secrets 需配置 CLOUDFLARE_API_TOKEN（Cloudflare Workers: Edit
       # 权限）与 CLOUDFLARE_ACCOUNT_ID；Cloudflare 控制台需断开 Workers 项目
       # zzz-blog 的 Git 集成连接（避免远程构建再次失败）。
@@ -72,5 +75,4 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy
-          workingDirectory: dist/server
           packageManager: pnpm
