@@ -91,7 +91,9 @@ const customUIProps = {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/favicon.png" />
-    <link rel="manifest" href="/manifest.webmanifest" />
+    {/* manifest 由 generate-sw.mjs 仅在构建后写入 dist/client，dev 下不存在；
+        不屏蔽的话浏览器会周期性请求 404 并刷 [lang] 路由警告 */}
+    {!import.meta.env.DEV && <link rel="manifest" href="/manifest.webmanifest" />}
 
     <meta name="generator" content={Astro.generator} />
     {transition && <ClientRouter />}
