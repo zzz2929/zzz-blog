@@ -273,7 +273,6 @@ export default defineConfig({
 
   markdown: {
     processor: unified({
-      
       rehypePlugins: [rehypeImgLazyLoad, rehypeCodeBlock, rehypeGithubAlerts],
     }),
     shikiConfig: {

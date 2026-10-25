@@ -12,6 +12,7 @@ worker-configuration.d.ts
 mimo.exe
 .mimocode
 .zcodeignore
+.dumate/
 # 环境变量(含 TMDB_API_KEY 等密钥,切勿上传)
 .env
 .env.*
