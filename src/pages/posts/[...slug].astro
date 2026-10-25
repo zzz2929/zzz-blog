@@ -519,7 +519,8 @@ const jsonLd = {
       left: 0;
       right: 0;
       top: 0;
-      z-index: 10000;
+      /* 高于移动端 App Bar（Header.astro .m-bar z-index:10001），与 PC 端一样悬在顶栏之上 */
+      z-index: 10002;
       height: 3px;
       background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
       transform: scaleX(0);

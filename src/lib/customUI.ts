@@ -13,12 +13,6 @@
  */
 
 import { gsap } from "gsap";
-import {
-  computePosition,
-  flip,
-  shift,
-  offset,
-} from "@floating-ui/dom";
 
 interface ContextMenuItem {
   type: string;
@@ -510,36 +504,39 @@ export function initCustomUI(cfg?: CustomUIConfig) {
       menu!.appendChild(item);
     });
 
-    // 定位：@floating-ui/dom 以鼠标位置为锚点，flip/shift 自动处理视口碰撞
+    // 定位：手写视口碰撞处理，语义等价于 right-start + offset(4) + flip +
+    // shift(padding 6)。不用 @floating-ui/dom：其 getScale 以 gBCR/offsetWidth
+    // 检测缩放，会把 html zoom（global.css）误判为 transform scale，把菜单
+    // rect 归一化成布局 px，而参照点/视口裁剪仍是视觉 px，坐标系混用导致
+    // flip/shift 在屏幕边缘定位错误（菜单探出屏）。以下计算全部在视觉 px
+    // 坐标系（clientX、getBoundingClientRect、innerWidth 同一空间）。
     menu.style.visibility = "hidden";
     menu.classList.remove("open");
-    const point = { x: e.clientX, y: e.clientY };
-    const virtualEl = {
-      getBoundingClientRect: () => ({
-        width: 0,
-        height: 0,
-        x: point.x,
-        y: point.y,
-        left: point.x,
-        right: point.x,
-        top: point.y,
-        bottom: point.y,
-      }),
-      getClientRects: () => ({ length: 0, item: () => null }),
-    };
-    computePosition(virtualEl as any, menu, {
-      placement: "right-start",
-      // 菜单为 position:fixed，必须用视口坐标系；
-      // 默认 strategy 为 absolute（返回文档坐标，含 scrollY），滚动后会把菜单定位到视口外
-      strategy: "fixed",
-      middleware: [offset(4), flip(), shift({ padding: 6 })],
-    }).then(({ x, y }) => {
-      if (!menu?.isConnected) return;
-      menu.style.left = `${x}px`;
-      menu.style.top = `${y}px`;
-      menu.style.visibility = "";
-      requestAnimationFrame(() => menu?.classList.add("open"));
-    });
+    // 关闭态带 scale(.95) 的入场动画初始 transform，会量到偏小的 rect
+    // （transform 从 .95 缓动到目标值的瞬态）。测量期间连 transition 一起
+    // 禁用，量完恢复，入场动画不受影响（菜单此刻 visibility:hidden）。
+    menu.style.transition = "none";
+    menu.style.transform = "none";
+    const { width: mw, height: mh } = menu.getBoundingClientRect();
+    const gap = 4; // 菜单与光标的间距
+    const pad = 6; // 距视口边缘的最小距离
+    let x = e.clientX + gap;
+    let y = e.clientY;
+    if (y + mh > window.innerHeight) y = e.clientY - mh; // flip：底部放不下 → 菜单底边对齐光标
+    if (x + mw > window.innerWidth) x = e.clientX - gap - mw; // flip：右侧放不下 → 菜单放到光标左侧
+    x = Math.min(Math.max(x, pad), window.innerWidth - pad - mw); // shift：推回视口内
+    y = Math.min(Math.max(y, pad), window.innerHeight - pad - mh);
+    // html 有全站 zoom（global.css）：style.left/top 是布局 px，渲染时会被
+    // zoom 再放大一次。写入前除以 zoom 换算回布局 px（同 BaseLayout 图片
+    // 占位的 rect→layout 规则），否则 zoom>1 的宽屏上菜单整体向右下偏移
+    // ×zoom、越出屏幕。
+    const zoom = parseFloat(getComputedStyle(document.documentElement).zoom) || 1;
+    menu.style.left = `${x / zoom}px`;
+    menu.style.top = `${y / zoom}px`;
+    menu.style.transition = "";
+    menu.style.transform = "";
+    menu.style.visibility = "";
+    requestAnimationFrame(() => menu?.classList.add("open"));
   }
 
   function onContextMenu(e: MouseEvent) {

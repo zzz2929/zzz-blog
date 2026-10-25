@@ -175,11 +175,14 @@ const playlists = (siteConfig.features.playlists.enable ? playlistModules : []).
             </div>
 
             <!-- Lyrics Tab -->
+            <!-- 内层用 absolute inset-0 撑满：移动端外层是 flex-col（高度 auto），
+                 #lyrics-tab 被 flex 压缩后的高度对百分比解析不"确定"，h-full 会回退成
+                 内容高度导致歌词容器无滚动空间；绝对定位直接取包含块的用后尺寸，两端一致 -->
             <div
               id="lyrics-tab"
-              class="tab-content flex-1 overflow-hidden hidden"
+              class="tab-content flex-1 relative overflow-hidden hidden"
             >
-              <div class="relative h-full">
+              <div class="absolute inset-0">
                 <div
                   id="lyrics"
                   class="lyrics-content p-6 text-center h-full overflow-y-auto"
@@ -3496,13 +3499,17 @@ const playlists = (siteConfig.features.playlists.enable ? playlistModules : []).
             }
           }
 
-        if ((changed || force) && active >= 0) {
+        if (changed || force) {
           if (force) {
             this.lyricsUserScrolled = false;
             clearTimeout(this.lyricsScrollTimeout);
           }
-          if (this.autoScroll && !this.lyricsUserScrolled)
-            this.scrollLyricsTo(this.lyricsEl, lines[active]._el, force);
+          if (this.autoScroll && !this.lyricsUserScrolled) {
+            // 还没唱到第一句时也对齐第一行，否则空闲态（刚开播/seek 回 0）
+            // 视图停在顶部，移动端矮面板里第一行会被顶出可视区
+            const target = active >= 0 ? lines[active]._el : lines[0]._el;
+            if (target) this.scrollLyricsTo(this.lyricsEl, target, force);
+          }
         }
       }
 

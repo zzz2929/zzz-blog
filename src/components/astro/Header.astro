@@ -23,6 +23,11 @@ const switchLocaleHref = (target: Locale) =>
 // 「站点切换」外链列表在 src/config/site.ts（siteLinks）中维护
 const siteLinks = siteConfig.siteLinks;
 
+// 当前页高亮（移动端磁贴）：与导航 href 规范化比较（忽略末尾斜杠）
+const currentPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
+const isCurrent = (href: string) =>
+  (href.replace(/\/+$/, "") || "/") === currentPath;
+
 // 顶部导航菜单在 src/config/site.ts（nav.menu）中维护；
 // label/name 支持 i18n key 或文字，href 自动带上语言前缀
 const menuItems = siteConfig.nav.menu.map((item) => ({
@@ -57,7 +62,7 @@ function isImageIcon(icon) {
 >
   <div class="mx-auto" style="max-width: 1318px;">
     <div
-      class="header-bar flex items-center justify-between px-4 sm:px-6 rounded-full glass-card-strong"
+      class="header-bar flex items-center justify-between px-4 sm:px-6 rounded-full glass-card-strong max-md:hidden"
       style="height: var(--header-height); box-shadow: 0 1px 24px rgba(0,0,0,0.1); overflow: visible !important"
     >
       <div class="flex items-center gap-1 shrink-0">
@@ -297,7 +302,7 @@ function isImageIcon(icon) {
                 style="font-size: 16px; font-weight: 700; color: var(--color-foreground);"
                 >{t("nav.bgColor")}</span
               >
-              <div id="monet-palette-grid" class="container-items">
+              <div class="container-items monet-grid">
                 <button
                   class="item-color"
                   data-color="var(--monet-1)"
@@ -366,8 +371,7 @@ function isImageIcon(icon) {
                 >
                 <button
                   type="button"
-                  id="effects-trail-toggle"
-                  class="custom-ui-switch"
+                  class="custom-ui-switch effects-trail-toggle"
                   role="switch"
                   aria-checked="true"
                   aria-label={t("effects.trail")}
@@ -379,8 +383,7 @@ function isImageIcon(icon) {
                 >
                 <button
                   type="button"
-                  id="effects-click-toggle"
-                  class="custom-ui-switch"
+                  class="custom-ui-switch effects-click-toggle"
                   role="switch"
                   aria-checked="true"
                   aria-label={t("effects.click")}
@@ -402,8 +405,7 @@ function isImageIcon(icon) {
               >
               <button
                 type="button"
-                id="context-menu-toggle"
-                class="custom-ui-switch"
+                class="custom-ui-switch context-menu-toggle"
                 role="switch"
                 aria-checked="true"
                 aria-label={t("nav.customContextMenu")}
@@ -463,98 +465,219 @@ function isImageIcon(icon) {
             )}
           </div>
         </div>
-
-        <button
-          id="mobile-menu-btn"
-          class="p-2 rounded-lg transition-colors md:hidden"
-          style="color: var(--color-foreground-muted);"
-          aria-label={t("nav.menu")}
-        >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"></path></svg
-          >
-        </button>
       </div>
-    </div>
-  </div>
-
-  <!-- Mobile menu -->
-  <div
-    id="mobile-menu"
-    class="hidden md:hidden mx-auto"
-    style="max-width: var(--content-max-width); margin-top: 8px;"
-  >
-    <div
-      class="px-4 py-3 rounded-2xl space-y-1 glass-card-strong"
-      style="box-shadow: 0 8px 32px rgba(0,0,0,0.12)"
-    >
-      {
-        menuItems.map((item) => (
-          <div class="mb-2">
-            <div
-              class="px-3 py-2 text-xs font-semibold uppercase tracking-wider"
-              style="color: var(--color-foreground-muted);"
-            >
-              {item.label}
-            </div>
-            <div class="flex flex-wrap gap-2 px-2">
-              {item.children.map((child) => (
-                <a
-                  href={child.href}
-                  class="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm transition-all duration-200 hover:bg-foreground/5"
-                  style="color: var(--color-foreground); border: 1px solid var(--color-border);"
-                >
-                  {iconMap[child.icon] ? (
-                    <Fragment set:html={iconMap[child.icon].replace(/width="[^"]*"/, 'width="16"').replace(/height="[^"]*"/, 'height="16"')} />
-                  ) : isImageIcon(child.icon) ? (
-                    <img
-                      src={child.icon}
-                      alt={child.name}
-                      style="width: 16px; height: 16px; object-fit: contain;"
-                    />
-                  ) : (
-                    <span>{child.icon}</span>
-                  )}
-                  {child.name}
-                </a>
-              ))}
-            </div>
-          </div>
-        ))
-      }
     </div>
   </div>
 </header>
 
-<!-- Spacer for fixed header (header is offset 10px from top) -->
-<div style="height: calc(var(--header-height) + 10px);"></div>
+<!-- Spacer for fixed header（移动端高度见样式表 .header-spacer） -->
+<div class="header-spacer"></div>
+
+<!-- ===== 移动端顶栏（<1024px）：通栏 App Bar，替代 PC 悬浮胶囊条 ===== -->
+<div class="m-bar">
+  <a href={`${prefix}/`} class="m-logo" aria-label={t("nav.home")}>
+    <svg
+      width="21"
+      height="21"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+      <polyline points="9 22 9 12 15 12 15 22"></polyline>
+    </svg>
+    <span>{siteConfig.title}</span>
+  </a>
+  <div class="m-actions">
+    <button class="m-icon-btn m-btn-search" aria-label={t("nav.search")}>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="7"></circle>
+        <line x1="21" y1="21" x2="16.2" y2="16.2"></line>
+      </svg>
+    </button>
+    <button class="m-icon-btn m-btn-theme" aria-label={t("nav.darkMode")}>
+      <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path>
+      </svg>
+      <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+      </svg>
+    </button>
+    <button
+      class="m-icon-btn m-btn-menu"
+      aria-label={t("nav.menu")}
+      aria-expanded="false"
+      aria-controls="m-sheet"
+    >
+      <svg class="icon-burger" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M4 7h16M4 12h16M4 17h16"></path>
+      </svg>
+      <svg class="icon-x" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M18 6L6 18M6 6l12 12"></path>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<!-- ===== 移动端全屏菜单面板（<1024px）：搜索 + 磁贴导航 + 站点 + 设置 ===== -->
+<div id="m-sheet" role="dialog" aria-modal="true" aria-label={t("nav.menu")}>
+  <div class="m-scrim"></div>
+  <div class="m-panel">
+    <div class="m-panel-inner">
+      <div class="m-search header-search m-anim" style="--i:0">
+        <div class="header-search-box glass-card-strong">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#425aef"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            style="flex-shrink: 0;"
+          >
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.2" y2="16.2"></line>
+          </svg>
+          <input
+            type="text"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder={t("nav.search")}
+            aria-label={t("nav.search")}
+          />
+        </div>
+        <div
+          class="header-search-panel glass-card-strong"
+          data-empty={t("search.empty")}
+          data-no-index={t("search.noIndex")}
+        ></div>
+      </div>
+
+      {
+        menuItems.map((item, gi) => (
+          <section class="m-group m-anim" style={`--i:${gi + 1}`}>
+            <div class="m-group-label">{item.label}</div>
+            <div class="m-tiles">
+              {item.children.map((child) => (
+                <a
+                  href={child.href}
+                  class:list={[
+                    "m-tile",
+                    isCurrent(child.href) && "m-active",
+                    item.children.length === 1 && "m-wide",
+                  ]}
+                >
+                  {iconMap[child.icon] ? (
+                    <Fragment set:html={iconMap[child.icon].replace(/width="[^"]*"/, 'width="22"').replace(/height="[^"]*"/, 'height="22"')} />
+                  ) : isImageIcon(child.icon) ? (
+                    <img
+                      src={child.icon}
+                      alt={child.name}
+                      style="width: 22px; height: 22px; object-fit: contain;"
+                    />
+                  ) : (
+                    <span>{child.icon}</span>
+                  )}
+                  <span>{child.name}</span>
+                </a>
+              ))}
+            </div>
+          </section>
+        ))
+      }
+
+      <section class="m-group m-anim" style="--i:5">
+        <div class="m-group-label">{t("nav.siteNav")}</div>
+        <div class="m-sites">
+          {
+            siteLinks.map((link) => (
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="m-site"
+              >
+                {isImageIcon(link.icon) ? (
+                  <img src={link.icon} alt={link.name} loading="lazy" />
+                ) : (
+                  <span class="m-site-emoji">{link.icon}</span>
+                )}
+                <span>{link.name}</span>
+              </a>
+            ))
+          }
+        </div>
+      </section>
+
+      <section class="m-group m-anim" style="--i:6">
+        <div class="m-group-label">{t("nav.settings")}</div>
+        {siteConfig.features.i18n.enable && (
+          <div class="m-setting-row">
+            <span class="m-setting-label">{t("nav.langSwitch")}</span>
+            <div class="m-lang">
+              <a
+                href={switchLocaleHref("zh-CN")}
+                class:list={["m-lang-btn", locale === "zh-CN" && "m-lang-active"]}
+              >简</a>
+              <a
+                href={switchLocaleHref("zh-TW")}
+                class:list={["m-lang-btn", locale === "zh-TW" && "m-lang-active"]}
+              >繁</a>
+              <a
+                href={switchLocaleHref("en")}
+                class:list={["m-lang-btn", locale === "en" && "m-lang-active"]}
+              >En</a>
+            </div>
+          </div>
+        )}
+        <div class="m-setting-col">
+          <span class="m-setting-label">{t("nav.bgColor")}</span>
+          <div class="container-items monet-grid">
+            <button class="item-color" data-color="var(--monet-1)" aria-color="云端漫步" title="云端漫步" style="--color: var(--monet-1);"></button>
+            <button class="item-color" data-color="var(--monet-2)" aria-color="睡莲" title="睡莲" style="--color: var(--monet-2);"></button>
+            <button class="item-color" data-color="var(--monet-3)" aria-color="日出印象" title="日出印象" style="--color: var(--monet-3);"></button>
+            <button class="item-color" data-color="var(--monet-4)" aria-color="干草堆" title="干草堆" style="--color: var(--monet-4);"></button>
+            <button class="item-color" data-color="var(--monet-5)" aria-color="紫藤" title="紫藤" style="--color: var(--monet-5);"></button>
+            <button class="item-color" data-color="var(--monet-6)" aria-color="鲁昂大教堂" title="鲁昂大教堂" style="--color: var(--monet-6);"></button>
+            <button class="item-color" data-color="var(--monet-7)" aria-color="塞纳河" title="塞纳河" style="--color: var(--monet-7);"></button>
+            <button class="item-color" data-color="var(--monet-8)" aria-color="纯白" title="纯白" style="--color: var(--monet-8);"></button>
+          </div>
+        </div>
+        {siteConfig.features.effects.enable && (
+          <Fragment>
+            <div class="m-setting-row">
+              <span class="m-setting-label">{t("effects.trail")}</span>
+              <button type="button" class="custom-ui-switch effects-trail-toggle" role="switch" aria-checked="true" aria-label={t("effects.trail")}></button>
+            </div>
+            <div class="m-setting-row">
+              <span class="m-setting-label">{t("effects.click")}</span>
+              <button type="button" class="custom-ui-switch effects-click-toggle" role="switch" aria-checked="true" aria-label={t("effects.click")}></button>
+            </div>
+          </Fragment>
+        )}
+        {siteConfig.features.contextMenu.enable && (
+          <div class="m-setting-row">
+            <span class="m-setting-label">{t("nav.customContextMenu")}</span>
+            <button type="button" class="custom-ui-switch context-menu-toggle" role="switch" aria-checked="true" aria-label={t("nav.customContextMenu")}></button>
+          </div>
+        )}
+      </section>
+    </div>
+  </div>
+</div>
 
 <script is:inline>
-  // 汉堡菜单：展开时收起设置/站点切换的下拉，避免重叠
-  document.getElementById("mobile-menu-btn")?.addEventListener("click", () => {
-    const mobileMenu = document.getElementById("mobile-menu");
-    const opening = mobileMenu?.classList.contains("hidden");
-    mobileMenu?.classList.toggle("hidden");
-    if (opening) {
-      document
-        .querySelector(".settings-dropdown")
-        ?.classList.remove("touch-open");
-      document
-        .querySelector(".site-switcher-dropdown")
-        ?.classList.remove("touch-open");
-    }
-  });
-
-  // 设置 / 站点切换：点击展开，三者互斥，点外部收起。
+  // 设置 / 站点切换：点击展开，两者互斥，点外部收起。
   // touch-open 的显示样式只在无 hover 的触屏设备生效（见样式表），
   // 桌面 hover 设备上点击添加的类无视觉效果，仍由 group-hover 接管。
+  // （移动端 <1024 不显示这两个入口，走全屏菜单面板，见下方移动端脚本）
   (function () {
-    const mobileMenu = document.getElementById("mobile-menu");
     const menus = [
       {
         menu: document.querySelector(".settings-menu"),
@@ -578,8 +701,6 @@ function isImageIcon(icon) {
             other.dropdown.classList.remove("touch-open");
         });
         dropdown.classList.toggle("touch-open");
-        // 展开下拉时收起汉堡菜单
-        if (opening) mobileMenu?.classList.add("hidden");
       });
       document.addEventListener("click", (e) => {
         if (!menu.contains(e.target))
@@ -598,7 +719,7 @@ function isImageIcon(icon) {
       () => {
         if (!t) {
           requestAnimationFrame(() => {
-            const inner = h.querySelector(":scope > div > div");
+            const inner = h.querySelector(".header-bar");
             if (inner) {
               inner.style.boxShadow =
                 window.scrollY > 20
@@ -636,7 +757,7 @@ function isImageIcon(icon) {
       );
     }
 
-    function applyPalette(color, swatches, paletteGrid) {
+    function applyPalette(color, swatches, grids) {
       paletteState.stored = color; // 同步状态，深色模式切换回切时才能恢复用户选的颜色
       if (isDark()) {
         // Dark mode: remove inline background, let CSS starfield take over
@@ -645,14 +766,19 @@ function isImageIcon(icon) {
           "--color-border",
           "rgba(255,255,255,0.08)",
         );
-        if (paletteGrid) paletteGrid.style.opacity = "0.4";
+        // PC 下拉与移动端面板里各有一份色板（.monet-grid），一并置灰
+        grids.forEach((g) => {
+          g.style.opacity = "0.4";
+        });
         swatches.forEach((s) => {
           s.style.pointerEvents = "none";
         });
         return;
       }
       // Light mode: apply Monet palette
-      if (paletteGrid) paletteGrid.style.opacity = "1";
+      grids.forEach((g) => {
+        g.style.opacity = "1";
+      });
       swatches.forEach((s) => {
         s.style.pointerEvents = "auto";
       });
@@ -674,13 +800,13 @@ function isImageIcon(icon) {
 
     function initMonetPalette() {
       const swatches = Array.from(document.querySelectorAll(".item-color"));
-      const paletteGrid = document.getElementById("monet-palette-grid");
+      const grids = document.querySelectorAll(".monet-grid");
       if (!swatches.length) return;
 
       applyPalette(
         localStorage.getItem("monet-bg") || "var(--monet-1)",
         swatches,
-        paletteGrid,
+        grids,
       );
 
       swatches.forEach((swatch) => {
@@ -688,7 +814,7 @@ function isImageIcon(icon) {
         swatch.__monetBound = true;
         swatch.addEventListener("click", () => {
           if (isDark()) return;
-          applyPalette(swatch.dataset.color, swatches, paletteGrid);
+          applyPalette(swatch.dataset.color, swatches, grids);
         });
       });
 
@@ -700,7 +826,7 @@ function isImageIcon(icon) {
             localStorage.getItem("monet-bg") ||
             "var(--monet-1)",
           document.querySelectorAll(".item-color"),
-          document.getElementById("monet-palette-grid"),
+          document.querySelectorAll(".monet-grid"),
         );
       });
       observer.observe(document.documentElement, {
@@ -727,47 +853,50 @@ function isImageIcon(icon) {
     const LS_CTX = "context-menu";
 
     function initCustomSettings() {
-      // 拖尾 / 点击动效开关
+      // 拖尾 / 点击动效开关（PC 下拉与移动端面板各一份，按 class 绑定全部实例）
       [
-        ["effects-trail-toggle", LS_FX_TRAIL, "trail"],
-        ["effects-click-toggle", LS_FX_CLICK, "click"],
+        [".effects-trail-toggle", LS_FX_TRAIL, "trail"],
+        [".effects-click-toggle", LS_FX_CLICK, "click"],
       ].forEach(function (row) {
-        const btn = document.getElementById(row[0]);
-        if (!btn) return;
-        const on = localStorage.getItem(row[1]) !== "off";
+        document.querySelectorAll(row[0]).forEach(function (btn) {
+          const on = localStorage.getItem(row[1]) !== "off";
+          btn.setAttribute("aria-checked", on ? "true" : "false");
+          btn.classList.toggle("on", on);
+          if (btn.__uiBound) return;
+          btn.__uiBound = true;
+          btn.addEventListener("click", function () {
+            const next = btn.getAttribute("aria-checked") !== "true";
+            // 同步所有实例（两处开关视觉状态保持一致）
+            document.querySelectorAll(row[0]).forEach(function (b) {
+              b.setAttribute("aria-checked", next ? "true" : "false");
+              b.classList.toggle("on", next);
+            });
+            localStorage.setItem(row[1], next ? "on" : "off");
+            if (window.__customUI && window.__customUI.setEffects) {
+              const patch = {};
+              patch[row[2]] = next;
+              window.__customUI.setEffects(patch);
+            }
+          });
+        });
+      });
+
+      document.querySelectorAll(".context-menu-toggle").forEach(function (btn) {
+        const on = localStorage.getItem(LS_CTX) !== "off";
         btn.setAttribute("aria-checked", on ? "true" : "false");
         btn.classList.toggle("on", on);
         if (btn.__uiBound) return;
         btn.__uiBound = true;
         btn.addEventListener("click", function () {
           const next = btn.getAttribute("aria-checked") !== "true";
-          btn.setAttribute("aria-checked", next ? "true" : "false");
-          btn.classList.toggle("on", next);
-          localStorage.setItem(row[1], next ? "on" : "off");
-          if (window.__customUI && window.__customUI.setEffects) {
-            const patch = {};
-            patch[row[2]] = next;
-            window.__customUI.setEffects(patch);
-          }
+          document.querySelectorAll(".context-menu-toggle").forEach(function (b) {
+            b.setAttribute("aria-checked", next ? "true" : "false");
+            b.classList.toggle("on", next);
+          });
+          localStorage.setItem(LS_CTX, next ? "on" : "off");
+          if (window.__customUI) window.__customUI.setContextMenuEnabled(next);
         });
       });
-
-      const toggleBtn = document.getElementById("context-menu-toggle");
-      if (toggleBtn) {
-        const on = localStorage.getItem(LS_CTX) !== "off";
-        toggleBtn.setAttribute("aria-checked", on ? "true" : "false");
-        toggleBtn.classList.toggle("on", on);
-        if (!toggleBtn.__uiBound) {
-          toggleBtn.__uiBound = true;
-          toggleBtn.addEventListener("click", function () {
-            const next = toggleBtn.getAttribute("aria-checked") !== "true";
-            toggleBtn.setAttribute("aria-checked", next ? "true" : "false");
-            toggleBtn.classList.toggle("on", next);
-            localStorage.setItem(LS_CTX, next ? "on" : "off");
-            if (window.__customUI) window.__customUI.setContextMenuEnabled(next);
-          });
-        }
-      }
     }
 
     initCustomSettings();
@@ -828,6 +957,122 @@ function isImageIcon(icon) {
   })();
 </script>
 
+<script is:inline>
+  // ===== 移动端顶栏 + 全屏菜单（<1024px）=====
+  // View Transitions 换页后 bar/panel 是全新 DOM：astro:page-load 重新绑元素事件；
+  // window/document 级监听用守卫只绑一次，回调里实时查询当前 DOM。
+  (function () {
+    function mOpen(focusSearch) {
+      var sheet = document.getElementById("m-sheet");
+      var bar = document.querySelector(".m-bar");
+      if (!sheet || !bar) return;
+      sheet.classList.add("open");
+      bar.classList.add("m-open");
+      var menuBtn = bar.querySelector(".m-btn-menu");
+      if (menuBtn) menuBtn.setAttribute("aria-expanded", "true");
+      document.documentElement.classList.add("m-lock");
+      // 同帧聚焦（不延时）：iOS 要求 focus 发生在用户手势内
+      if (focusSearch) {
+        var input = sheet.querySelector("input");
+        if (input) input.focus({ preventScroll: true });
+      }
+    }
+    function mClose() {
+      var sheet = document.getElementById("m-sheet");
+      var bar = document.querySelector(".m-bar");
+      if (sheet) sheet.classList.remove("open");
+      if (bar) {
+        bar.classList.remove("m-open");
+        var menuBtn = bar.querySelector(".m-btn-menu");
+        if (menuBtn) menuBtn.setAttribute("aria-expanded", "false");
+      }
+      document.documentElement.classList.remove("m-lock");
+    }
+    window.__mOpen = mOpen;
+    window.__mClose = mClose;
+
+    function initMobileHeader() {
+      var bar = document.querySelector(".m-bar");
+      var sheet = document.getElementById("m-sheet");
+      if (!bar || !sheet || bar.__mBound) return;
+      bar.__mBound = true;
+      // 防御：换页后不应残留滚动锁
+      document.documentElement.classList.remove("m-lock");
+
+      var menuBtn = bar.querySelector(".m-btn-menu");
+      if (menuBtn)
+        menuBtn.addEventListener("click", function () {
+          sheet.classList.contains("open") ? mClose() : mOpen(false);
+        });
+      var searchBtn = bar.querySelector(".m-btn-search");
+      if (searchBtn)
+        searchBtn.addEventListener("click", function () {
+          mOpen(true);
+        });
+      var scrim = sheet.querySelector(".m-scrim");
+      if (scrim) scrim.addEventListener("click", mClose);
+      // 点击面板内任意链接：先收起再导航
+      sheet.querySelectorAll(".m-panel a").forEach(function (a) {
+        a.addEventListener("click", mClose);
+      });
+
+      // 主题快捷切换（与 PC 设置面板的 ThemeToggle 共用 localStorage: theme）
+      var themeBtn = bar.querySelector(".m-btn-theme");
+      if (themeBtn)
+        themeBtn.addEventListener("click", function () {
+          var html = document.documentElement;
+          var next = !html.classList.contains("dark");
+          html.classList.toggle("dark", next);
+          localStorage.setItem("theme", next ? "dark" : "light");
+        });
+    }
+    initMobileHeader();
+    if (!window.__mPageLoadBound) {
+      window.__mPageLoadBound = true;
+      document.addEventListener("astro:page-load", initMobileHeader);
+    }
+
+    // 滚动隐藏：下滚收起顶栏，上滚/回顶恢复；菜单展开期间不动
+    if (!window.__mScrollBound) {
+      window.__mScrollBound = true;
+      var lastY = window.scrollY;
+      var ticking = false;
+      window.addEventListener(
+        "scroll",
+        function () {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(function () {
+            ticking = false;
+            var bar = document.querySelector(".m-bar");
+            var sheet = document.getElementById("m-sheet");
+            if (!bar) return;
+            var y = window.scrollY;
+            if (sheet && sheet.classList.contains("open")) {
+              lastY = y;
+              return;
+            }
+            if (y > lastY && y > 80) bar.classList.add("m-hide");
+            else if (y < lastY - 2 || y <= 80) bar.classList.remove("m-hide");
+            lastY = y;
+          });
+        },
+        { passive: true },
+      );
+    }
+
+    // Escape 关闭菜单
+    if (!window.__mKeyBound) {
+      window.__mKeyBound = true;
+      document.addEventListener("keydown", function (e) {
+        if (e.key !== "Escape") return;
+        var sheet = document.getElementById("m-sheet");
+        if (sheet && sheet.classList.contains("open")) mClose();
+      });
+    }
+  })();
+</script>
+
 <style>
   .dark .header-bar {
     background: linear-gradient(
@@ -852,15 +1097,6 @@ function isImageIcon(icon) {
       0 25px 60px -5px rgba(0, 0, 0, 0.25),
       0 0 0 1px rgba(242, 185, 75, 0.06) !important;
   }
-  .dark #mobile-menu > div {
-    background: linear-gradient(
-      135deg,
-      rgba(30, 30, 40, 0.85),
-      rgba(30, 30, 40, 0.6)
-    ) !important;
-    border-color: rgba(255, 255, 255, 0.08) !important;
-  }
-
   /* Dark mode: keep light background but make text dark */
   .dark .logo-box .logo-text {
     color: #425aef !important;
@@ -1085,42 +1321,6 @@ function isImageIcon(icon) {
     }
   }
 
-  /* ===== 移动端二级菜单布局优化 =====
-     下拉改为 fixed 相对视口水平居中，避免 absolute 相对按钮容器定位
-     在窄屏向左/右溢出；高度过高时内部滚动。 */
-  @media (max-width: 767px) {
-    .settings-dropdown,
-    .site-switcher-dropdown {
-      position: fixed;
-      left: 50%;
-      right: auto;
-      top: calc(var(--header-height) + 18px);
-      margin: 0;
-      width: calc(100vw - 32px);
-      max-width: calc(100vw - 32px);
-    }
-    .settings-dropdown {
-      transform: translateX(-50%) !important;
-    }
-    .site-switcher-dropdown {
-      transform: translateX(-50%) translateY(-6px) !important;
-      max-height: calc(100vh - var(--header-height) - 40px);
-      overflow-y: auto;
-    }
-    .site-switcher:hover .site-switcher-dropdown,
-    .site-switcher-dropdown.touch-open {
-      transform: translateX(-50%) translateY(0) !important;
-    }
-    /* 站点链接：两等宽列，长名称允许换行而非溢出 */
-    .site-switcher-dropdown .grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-    .site-switcher-dropdown a {
-      white-space: normal;
-      font-size: 14px;
-    }
-  }
-
   .item-color.selected {
     /* 蓝框不被悬停邻块的放大色块盖住；仍低于悬停块本身（99999） */
     z-index: 99998;
@@ -1182,9 +1382,460 @@ function isImageIcon(icon) {
   .dark .custom-ui-switch.on {
     background: var(--color-primary-dark);
   }
+
+  /* ===== 移动端顶栏重设计（<1024px，与 PC 悬浮胶囊条互不影响） =====
+     通栏 App Bar（左 logo，右 搜索/主题/菜单），点菜单展开全屏玻璃面板：
+     搜索、磁贴导航（当前页高亮）、站点横滑、语言/背景色/特效设置。 */
+  .header-spacer {
+    height: calc(var(--header-height) + 10px);
+  }
+  .m-bar,
+  #m-sheet {
+    display: none;
+  }
+
+  @media (max-width: 1023px) {
+    .header-spacer {
+      height: calc(var(--header-height) + env(safe-area-inset-top, 0px));
+    }
+
+    /* ---- 通栏 App Bar ---- */
+    .m-bar {
+      display: flex;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10001;
+      align-items: center;
+      justify-content: space-between;
+      height: calc(var(--header-height) + env(safe-area-inset-top, 0px));
+      padding: env(safe-area-inset-top, 0px) 14px 0;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.72),
+        rgba(255, 255, 255, 0.5)
+      );
+      -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.3);
+      backdrop-filter: blur(var(--glass-blur)) saturate(1.3);
+      border-bottom: 1px solid var(--color-border);
+      transition: transform 0.3s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    /* .dark 必须用 :global()：Astro 会给每段选择器加 data-astro-cid，
+       而 html 上没有该属性，裸写 .dark 永远匹配不上 */
+    :global(.dark) .m-bar {
+      background: linear-gradient(
+        135deg,
+        rgba(30, 30, 40, 0.82),
+        rgba(30, 30, 40, 0.62)
+      );
+      border-bottom-color: rgba(255, 255, 255, 0.08);
+    }
+    .m-bar.m-hide {
+      transform: translateY(-110%);
+    }
+    .m-logo {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--color-foreground);
+      text-decoration: none;
+    }
+    .m-logo svg {
+      color: #425aef;
+      flex-shrink: 0;
+    }
+    :global(.dark) .m-logo svg {
+      color: #f2b94b;
+    }
+    .m-logo span {
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+    }
+    .m-actions {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+    .m-icon-btn {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      border: none;
+      background: none;
+      padding: 0;
+      color: var(--color-foreground-muted);
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition:
+        background 0.25s ease,
+        color 0.25s ease;
+    }
+    .m-icon-btn:active {
+      background: rgba(66, 90, 239, 0.1);
+      color: var(--color-primary);
+    }
+    :global(.dark) .m-icon-btn:active {
+      background: rgba(242, 185, 75, 0.12);
+      color: var(--color-primary-dark);
+    }
+    .m-icon-btn:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+    }
+    /* 主题按钮：日 / 月交叉淡入旋转 */
+    .m-btn-theme .icon-moon,
+    .m-btn-theme .icon-sun {
+      position: absolute;
+      transition:
+        opacity 0.3s ease,
+        transform 0.45s ease;
+    }
+    .m-btn-theme .icon-sun {
+      opacity: 0;
+      transform: rotate(-90deg) scale(0.6);
+    }
+    .dark .m-btn-theme .icon-moon {
+      opacity: 0;
+      transform: rotate(90deg) scale(0.6);
+    }
+    .dark .m-btn-theme .icon-sun {
+      opacity: 1;
+      transform: none;
+    }
+    /* 菜单按钮：汉堡 ⇄ X */
+    .m-btn-menu .icon-burger,
+    .m-btn-menu .icon-x {
+      position: absolute;
+      transition:
+        opacity 0.25s ease,
+        transform 0.3s ease;
+    }
+    .m-btn-menu .icon-x {
+      opacity: 0;
+      transform: rotate(-90deg) scale(0.5);
+    }
+    .m-bar.m-open .m-btn-menu .icon-burger {
+      opacity: 0;
+      transform: rotate(90deg) scale(0.5);
+    }
+    .m-bar.m-open .m-btn-menu .icon-x {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ---- 全屏菜单面板 ---- */
+    #m-sheet {
+      display: block;
+    }
+    .m-scrim {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: rgba(23, 26, 38, 0.28);
+      opacity: 0;
+      visibility: hidden;
+      /* visibility 打开瞬间翻转（focus() 才能在同一手势内生效），关闭时延迟到淡出结束 */
+      transition:
+        opacity 0.3s ease,
+        visibility 0s linear 0.3s;
+    }
+    :global(.dark) .m-scrim {
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .m-panel {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: calc(var(--header-height) + env(safe-area-inset-top, 0px));
+      z-index: 10000;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
+      background: linear-gradient(
+        165deg,
+        rgba(255, 255, 255, 0.93),
+        rgba(255, 255, 255, 0.87)
+      );
+      -webkit-backdrop-filter: blur(40px) saturate(1.4);
+      backdrop-filter: blur(40px) saturate(1.4);
+      border-top: 1px solid var(--color-border);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-14px);
+      /* 同 .m-scrim：visibility 打开瞬间翻转、关闭延迟到动画结束 */
+      transition:
+        opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+        visibility 0s linear 0.35s;
+    }
+    :global(.dark) .m-panel {
+      background: linear-gradient(
+        165deg,
+        rgba(30, 30, 40, 0.97),
+        rgba(24, 24, 32, 0.94)
+      );
+      border-top-color: rgba(255, 255, 255, 0.08);
+    }
+    #m-sheet.open .m-scrim {
+      opacity: 1;
+      visibility: visible;
+      transition:
+        opacity 0.3s ease,
+        visibility 0s;
+    }
+    #m-sheet.open .m-panel {
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      transition:
+        opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+        visibility 0s;
+    }
+    .m-panel-inner {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 18px 20px calc(28px + env(safe-area-inset-bottom, 0px));
+    }
+    /* 分组交错入场（收起时立即复位，不拖泥带水） */
+    .m-anim {
+      opacity: 0;
+      transform: translateY(12px);
+      transition:
+        opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #m-sheet.open .m-anim {
+      opacity: 1;
+      transform: none;
+      transition-delay: calc(60ms + var(--i) * 45ms);
+    }
+
+    /* ---- 导航磁贴 ---- */
+    .m-group + .m-group {
+      margin-top: 20px;
+    }
+    .m-group-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--color-foreground-muted);
+      margin-bottom: 9px;
+    }
+    .m-tiles {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(76px, 1fr));
+      gap: 8px;
+    }
+    .m-tile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      min-height: 72px;
+      padding: 8px 4px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.42);
+      border: 1px solid var(--color-border);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-foreground);
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
+      transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.12s ease;
+    }
+    :global(.dark) .m-tile {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+    .m-tile:active {
+      transform: scale(0.96);
+    }
+    .m-tile:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+    }
+    /* 单项分组（友链）：占满整行，读作列表行 */
+    .m-tile.m-wide {
+      grid-column: 1 / -1;
+      flex-direction: row;
+      justify-content: flex-start;
+      gap: 10px;
+      min-height: 56px;
+      padding: 8px 16px;
+    }
+    .m-tile.m-active {
+      color: var(--color-primary);
+      border-color: var(--color-primary);
+      background: rgba(66, 90, 239, 0.08);
+    }
+    :global(.dark) .m-tile.m-active {
+      color: var(--color-primary-dark);
+      border-color: var(--color-primary-dark);
+      background: rgba(242, 185, 75, 0.08);
+    }
+
+    /* ---- 站点横滑 ---- */
+    .m-sites {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding: 2px;
+      scrollbar-width: none;
+    }
+    .m-sites::-webkit-scrollbar {
+      display: none;
+    }
+    .m-site {
+      flex: 0 0 auto;
+      width: 56px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .m-site img {
+      width: 42px;
+      height: 42px;
+      padding: 9px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.42);
+      border: 1px solid var(--color-border);
+      object-fit: contain;
+      box-sizing: border-box;
+    }
+    :global(.dark) .m-site img {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+    .m-site-emoji {
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.42);
+      border: 1px solid var(--color-border);
+    }
+    .m-site > span:last-child {
+      max-width: 56px;
+      font-size: 11px;
+      color: var(--color-foreground-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* ---- 设置区 ---- */
+    .m-setting-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 40px;
+    }
+    .m-setting-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-foreground);
+    }
+    .m-lang {
+      display: flex;
+      gap: 6px;
+    }
+    .m-lang-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 36px;
+      height: 32px;
+      padding: 0 10px;
+      border-radius: 10px;
+      border: 1px solid var(--color-border);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-foreground-muted);
+      text-decoration: none;
+    }
+    .m-lang-btn.m-lang-active {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: #fff;
+    }
+    :global(.dark) .m-lang-btn.m-lang-active {
+      background: var(--color-primary-dark);
+      border-color: var(--color-primary-dark);
+      color: #18171d;
+    }
+    /* 背景色板独立成行（8 个色块放不进 label 右侧） */
+    .m-setting-col {
+      padding: 4px 0;
+    }
+    .m-setting-col .container-items {
+      margin-top: 10px;
+    }
+
+    /* ---- 面板内搜索：结果改为文档流内展开（无定位/缩放换算问题） ---- */
+    .m-search .header-search-box {
+      width: 100%;
+      height: 44px;
+      border-radius: 14px;
+      padding: 0 14px;
+      box-sizing: border-box;
+    }
+    .m-search .header-search-box input {
+      width: 100%;
+      font-size: 15px;
+    }
+    .m-search .header-search-panel {
+      position: static;
+      width: 100%;
+      max-height: 38vh;
+      margin-top: 8px;
+      border-radius: 14px;
+      box-shadow: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .m-bar,
+      .m-scrim,
+      .m-panel,
+      .m-anim,
+      .m-btn-theme .icon-moon,
+      .m-btn-theme .icon-sun,
+      .m-btn-menu .icon-burger,
+      .m-btn-menu .icon-x {
+        transition: none;
+      }
+    }
+  }
 </style>
 
 <style is:global>
+  /* 移动端全屏菜单展开时锁页面滚动（放媒体查询内：旋屏跨断点时自动失效/恢复） */
+  @media (max-width: 1023px) {
+    html.m-lock {
+      overflow: hidden;
+    }
+  }
+
   /* ===== Header 内联搜索(输入即搜,结果下拉) ===== */
   .header-search-box {
     display: flex;
@@ -1211,21 +1862,6 @@ function isImageIcon(icon) {
   }
   .header-search-box input::placeholder {
     color: var(--color-foreground-muted);
-  }
-  @media (max-width: 640px) {
-    .header-search-box {
-      padding: 0 8px;
-    }
-    .header-search-box input {
-      width: 76px;
-    }
-    /* 移动端 header 空间有限:设置按钮只留齿轮 */
-    .settings-btn {
-      padding: 6px 10px !important;
-    }
-    .settings-btn span {
-      display: none;
-    }
   }
   .header-search-panel {
     position: absolute;
@@ -1332,23 +1968,26 @@ function isImageIcon(icon) {
     }
 
     function initHeaderSearch() {
-      const box = document.querySelector(".header-search-box");
-      const input = document.getElementById("header-search-input") as HTMLInputElement | null;
-      const panel = document.getElementById("header-search-panel");
-      if (!box || !input || !panel) return;
+      // PC 内联框与移动端面板各有一个 .header-search 容器，逐个绑定
+      document.querySelectorAll(".header-search").forEach((container) => {
+        const input = container.querySelector<HTMLInputElement>("input");
+        const panel = container.querySelector<HTMLElement>(".header-search-panel");
+        if (!input || !panel || (input as any).__hsBound) return;
+        (input as any).__hsBound = true;
 
-      input.addEventListener("input", () => {
-        clearTimeout(timer);
-        timer = setTimeout(() => run(input, panel), 200);
-      });
-      input.addEventListener("focus", () => {
-        if (input.value.trim() && panel.children.length) panel.classList.add("open");
-      });
-      input.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-          panel.classList.remove("open");
-          input.blur();
-        }
+        input.addEventListener("input", () => {
+          clearTimeout(timer);
+          timer = setTimeout(() => run(input, panel), 200);
+        });
+        input.addEventListener("focus", () => {
+          if (input.value.trim() && panel.children.length) panel.classList.add("open");
+        });
+        input.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") {
+            panel.classList.remove("open");
+            input.blur();
+          }
+        });
       });
     }
 
@@ -1357,9 +1996,10 @@ function isImageIcon(icon) {
       (window as any).__headerSearchDocBound = true;
       document.addEventListener("click", (e) => {
         const t = e.target as Node;
-        const box = document.querySelector(".header-search-box");
-        const panel = document.getElementById("header-search-panel");
-        if (box && panel && !box.contains(t) && !panel.contains(t)) panel.classList.remove("open");
+        document.querySelectorAll(".header-search").forEach((container) => {
+          const panel = container.querySelector(".header-search-panel");
+          if (panel && !container.contains(t)) panel.classList.remove("open");
+        });
       });
     }
 
