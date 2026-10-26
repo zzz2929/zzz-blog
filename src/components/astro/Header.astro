@@ -1396,21 +1396,26 @@ function isImageIcon(icon) {
 
   @media (max-width: 1023px) {
     .header-spacer {
-      height: calc(var(--header-height) + env(safe-area-inset-top, 0px));
+      /* 顶部留白 + 顶栏高度（顶栏悬浮，top 含安全区） */
+      height: calc(
+        0.75rem + var(--header-height) + env(safe-area-inset-top, 0px)
+      );
     }
 
-    /* ---- 通栏 App Bar ---- */
+    /* ---- 悬浮卡片式 App Bar ----
+       左右边距与内容容器对齐（px-3 / sm:px-6，root 14px → 10.5/21px），
+       顶部留白与 PC 顶栏 10px 呼应；四角统一 20px 圆角 */
     .m-bar {
       display: flex;
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: calc(0.75rem + env(safe-area-inset-top, 0px));
+      left: 0.75rem;
+      right: 0.75rem;
       z-index: 10001;
       align-items: center;
       justify-content: space-between;
-      height: calc(var(--header-height) + env(safe-area-inset-top, 0px));
-      padding: env(safe-area-inset-top, 0px) 14px 0;
+      height: var(--header-height);
+      padding: 0 14px;
       background: linear-gradient(
         135deg,
         rgba(255, 255, 255, 0.72),
@@ -1418,9 +1423,16 @@ function isImageIcon(icon) {
       );
       -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.3);
       backdrop-filter: blur(var(--glass-blur)) saturate(1.3);
-      border-bottom: 1px solid var(--color-border);
+      border: 1px solid var(--color-border);
+      border-radius: 20px;
       transition: transform 0.3s ease;
       -webkit-tap-highlight-color: transparent;
+    }
+    @media (min-width: 640px) {
+      .m-bar {
+        left: 1.5rem;
+        right: 1.5rem;
+      }
     }
     /* .dark 必须用 :global()：Astro 会给每段选择器加 data-astro-cid，
        而 html 上没有该属性，裸写 .dark 永远匹配不上 */
@@ -1430,10 +1442,11 @@ function isImageIcon(icon) {
         rgba(30, 30, 40, 0.82),
         rgba(30, 30, 40, 0.62)
       );
-      border-bottom-color: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.08);
     }
     .m-bar.m-hide {
-      transform: translateY(-110%);
+      /* 收起时要越过顶部留白，完全滑出屏幕 */
+      transform: translateY(calc(-100% - 1rem));
     }
     .m-logo {
       display: flex;
@@ -1554,7 +1567,10 @@ function isImageIcon(icon) {
       left: 0;
       right: 0;
       bottom: 0;
-      top: calc(var(--header-height) + env(safe-area-inset-top, 0px));
+      /* 顶栏底缘（safe + 0.75rem + 60px）再留 0.5rem 间隙露出一条遮罩 */
+      top: calc(
+        env(safe-area-inset-top, 0px) + var(--header-height) + 1.25rem
+      );
       z-index: 10000;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
@@ -1566,7 +1582,8 @@ function isImageIcon(icon) {
       );
       -webkit-backdrop-filter: blur(40px) saturate(1.4);
       backdrop-filter: blur(40px) saturate(1.4);
-      border-top: 1px solid var(--color-border);
+      border: 1px solid var(--color-border);
+      border-radius: 20px 20px 0 0;
       opacity: 0;
       visibility: hidden;
       transform: translateY(-14px);
@@ -1582,7 +1599,7 @@ function isImageIcon(icon) {
         rgba(30, 30, 40, 0.97),
         rgba(24, 24, 32, 0.94)
       );
-      border-top-color: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.08);
     }
     #m-sheet.open .m-scrim {
       opacity: 1;
